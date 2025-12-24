@@ -1,6 +1,62 @@
+/* Global styles for memoir app */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  background: #0d0d0d;
+  color: #e0e0e0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 #root {
+  min-height: 100vh;
+}
+
+/* Only apply max-width constraint to home page */
+.home-layout #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+/* Reset for buttons */
+button {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+/* Links */
+a {
+  color: #d4af37;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #f0c850;
+}
+
+/* Selection color */
+::selection {
+  background: rgb(212 175 55 / 40%);
+  color: #ffffff;
 }
