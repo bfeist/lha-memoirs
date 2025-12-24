@@ -65,6 +65,39 @@
   flex-shrink: 0;
 }
 
+.playerWrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.playerWrapper > :first-child {
+  flex: 1;
+}
+
+.reloadButton {
+  padding: 0.75rem;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  color: #d4af37;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.reloadButton:hover {
+  background: #3a3a3a;
+  border-color: #4a4a4a;
+  transform: rotate(90deg);
+}
+
+.reloadButton:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
 .playHint {
   display: flex;
   align-items: center;
