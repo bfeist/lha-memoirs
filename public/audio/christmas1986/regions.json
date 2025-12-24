@@ -1,0 +1,261 @@
+[
+  {
+    "id": "chapter-1",
+    "startTime": 8.0,
+    "endTime": 103.0,
+    "labelText": "Christmas Parcel Preparations",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-2",
+    "startTime": 103.0,
+    "endTime": 219.0,
+    "labelText": "Home Repair Projects",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-3",
+    "startTime": 219.0,
+    "endTime": 253.0,
+    "labelText": "Fireplace Draft Solution",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-4",
+    "startTime": 253.0,
+    "endTime": 359.0,
+    "labelText": "Elks Lodge Membership",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-5",
+    "startTime": 359.0,
+    "endTime": 446.0,
+    "labelText": "Political Disappointment",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-6",
+    "startTime": 446.0,
+    "endTime": 902,
+    "labelText": "Stephen and Klein Meeting",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-7",
+    "startTime": 902,
+    "endTime": 1044,
+    "labelText": "Farming Hardships",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-8",
+    "startTime": 1044,
+    "endTime": 1155,
+    "labelText": "Friend's Illness",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-9",
+    "startTime": 1155,
+    "endTime": 1331.0,
+    "labelText": "Community News",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-10",
+    "startTime": 1331.0,
+    "endTime": 1517.0,
+    "labelText": "Halbright Mail Robbery",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-11",
+    "startTime": 1517.0,
+    "endTime": 1605.0,
+    "labelText": "Winter Weather Conditions",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-12",
+    "startTime": 1605.0,
+    "endTime": 1801,
+    "labelText": "Reading Device & Routine",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-13",
+    "startTime": 1801,
+    "endTime": 1853,
+    "labelText": "Tape Recording Process",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-14",
+    "startTime": 1853,
+    "endTime": 1928,
+    "labelText": "Work Life Focus",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-15",
+    "startTime": 1928,
+    "endTime": 2122.0,
+    "labelText": "Community & Finances",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-16",
+    "startTime": 2122.0,
+    "endTime": 2132.0,
+    "labelText": "Kai and the Bank",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-17",
+    "startTime": 2132.0,
+    "endTime": 2194.0,
+    "labelText": "Bill Payments & Routine",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-18",
+    "startTime": 2194.0,
+    "endTime": 2215,
+    "labelText": "Microphone Malfunction",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-19",
+    "startTime": 2215,
+    "endTime": 2224.0,
+    "labelText": "Retirement & Bud Welts",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-20",
+    "startTime": 2224.0,
+    "endTime": 2231,
+    "labelText": "Daily Walking & Weight",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-21",
+    "startTime": 2231,
+    "endTime": 2306,
+    "labelText": "Lumberyard Fire & Demolition",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-22",
+    "startTime": 2306,
+    "endTime": 2315.0,
+    "labelText": "Neighbor's Death & Story",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-23",
+    "startTime": 2315.0,
+    "endTime": 2335.0,
+    "labelText": "Calgary Police Robbery",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-24",
+    "startTime": 2335.0,
+    "endTime": 2341.0,
+    "labelText": "Social Interactions & Humor",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-25",
+    "startTime": 2341.0,
+    "endTime": 2357.0,
+    "labelText": "Trevor & Departure",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-26",
+    "startTime": 2357.0,
+    "endTime": 2533,
+    "labelText": "Sports & Numbers",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-27",
+    "startTime": 2533,
+    "endTime": 2702.0,
+    "labelText": "Farm Income & Oil Rights",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-28",
+    "startTime": 2702.0,
+    "endTime": 2705,
+    "labelText": "Vancouver Negotiations",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-29",
+    "startTime": 2705,
+    "endTime": 2846,
+    "labelText": "Local Hunting & Family",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-30",
+    "startTime": 2846,
+    "endTime": 2851.0,
+    "labelText": "Kenny & Mr. Cernyx",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-31",
+    "startTime": 2851.0,
+    "endTime": 2938,
+    "labelText": "Saskatchewan Farming",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-32",
+    "startTime": 2938,
+    "endTime": 3043,
+    "labelText": "Damien's Career",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-33",
+    "startTime": 3043,
+    "endTime": 3132,
+    "labelText": "Linda's Pie Crust",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-34",
+    "startTime": 3132,
+    "endTime": 3641,
+    "labelText": "Bill Payment & Jackson",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-35",
+    "startTime": 3641,
+    "endTime": 3830,
+    "labelText": "Thrashing Machinery",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-36",
+    "startTime": 3830,
+    "endTime": 3916,
+    "labelText": "Uncle Hiller's Health",
+    "color": "rgba(100, 149, 237, 0.3)"
+  },
+  {
+    "id": "chapter-37",
+    "startTime": 3916,
+    "endTime": 4048.33,
+    "labelText": "Childhood Memories",
+    "color": "rgba(100, 149, 237, 0.3)"
+  }
+]

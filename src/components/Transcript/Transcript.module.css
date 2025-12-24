@@ -1,0 +1,163 @@
+.container {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 0.75rem;
+  border: 1px solid #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 0.25rem;
+  padding: 0 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #d4af37;
+  flex-shrink: 0;
+}
+
+.hint {
+  color: #888888;
+  font-size: 0.75rem;
+  margin: 0 0 0.5rem;
+  padding: 0 0.25rem;
+  flex-shrink: 0;
+}
+
+.transcriptContent {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+  scroll-behavior: smooth;
+  min-height: 0;
+}
+
+/* Custom scrollbar */
+.transcriptContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+.transcriptContent::-webkit-scrollbar-track {
+  background: rgb(255 255 255 / 2%);
+  border-radius: 4px;
+}
+
+.transcriptContent::-webkit-scrollbar-thumb {
+  background: rgb(212 175 55 / 20%);
+  border-radius: 4px;
+}
+
+.transcriptContent::-webkit-scrollbar-thumb:hover {
+  background: rgb(212 175 55 / 40%);
+}
+
+/* Chapter sections */
+.chapterSection {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.chapterSection:last-child {
+  margin-bottom: 0;
+}
+
+.chapterSection.activeChapter {
+  background: rgb(212 175 55 / 5%);
+  border-left: 3px solid #d4af37;
+  padding-left: calc(0.75rem - 3px);
+}
+
+.chapterSection.pastChapter {
+  opacity: 0.7;
+}
+
+.chapterTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #d4af37;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  text-align: left;
+}
+
+.chapterTitle:hover {
+  color: #f0c850;
+}
+
+.chapterIcon {
+  font-size: 0.9rem;
+  color: #888888;
+}
+
+.chapterTime {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-family: "SF Mono", Monaco, Inconsolata, monospace;
+  color: #666666;
+  font-weight: 400;
+}
+
+.chapterDescription {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  color: #888888;
+  font-style: italic;
+}
+
+/* Paragraph text */
+.paragraph {
+  margin: 0;
+  line-height: 1.8;
+  font-size: 0.95rem;
+  color: #cccccc;
+}
+
+/* Individual segment text (inline spans) */
+.segmentText {
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.segmentText:hover {
+  background: rgb(212 175 55 / 15%);
+  color: #ffffff;
+}
+
+/* Currently playing segment */
+.segmentText.playingSegment {
+  background: rgb(212 175 55 / 25%);
+  color: #ffffff;
+}
+
+/* Active segment (currently at this point) */
+.segmentText.activeSegment {
+  background: rgb(212 175 55 / 30%);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Past segments */
+.segmentText.pastSegment {
+  color: #999999;
+}
