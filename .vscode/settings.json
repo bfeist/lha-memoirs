@@ -1,0 +1,20 @@
+{
+  "python-envs.defaultEnvManager": "ms-python.python:venv",
+  "python-envs.pythonProjects": [],
+
+  // Fix for Git Bash first character omission issue
+  // Based on VS Code issues #215402, #274234, #268342
+  "terminal.integrated.windowsUseConptyDll": true,
+
+  // Additional terminal fixes for Git Bash stability
+  "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.scrollback": 5000,
+
+  // Ensure Git Bash is the default terminal
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+
+  // Disable problematic terminal features that can interfere with input
+  "terminal.integrated.altClickMovesCursor": false,
+  "terminal.integrated.copyOnSelection": false
+}
