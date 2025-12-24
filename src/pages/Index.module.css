@@ -1,0 +1,218 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgb(13 13 13 / 85%), rgb(13 13 13 / 75%)),
+    url("/photos/P1010034.jpg") center / cover fixed no-repeat;
+  color: #e0e0e0;
+}
+
+/* Header */
+.header {
+  padding: 2rem 1rem;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+  border-bottom: 1px solid #2a2a2a;
+  flex-shrink: 0;
+}
+
+.headerContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #d4af37;
+}
+
+.subtitle {
+  margin: 0.5rem 0 0;
+  font-size: 1.25rem;
+  color: #999999;
+  font-style: italic;
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Portrait section */
+.portraitSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.portraitFrame {
+  width: 280px;
+  padding: 12px;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border-radius: 8px;
+  box-shadow:
+    0 4px 20px rgb(0 0 0 / 40%),
+    inset 0 1px 0 rgb(255 255 255 / 5%);
+}
+
+.portrait {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  filter: sepia(10%);
+}
+
+.portraitCaption {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #999999;
+  font-style: italic;
+}
+
+/* Section titles */
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #d4af37;
+}
+
+.sectionIcon {
+  font-size: 1.25rem;
+}
+
+/* Memoirs section */
+.memoirsSection {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #2a2a2a;
+}
+
+.comingSoon {
+  padding: 2rem;
+  text-align: center;
+  background: rgb(0 0 0 / 30%);
+  border: 1px dashed #2a2a2a;
+  border-radius: 8px;
+}
+
+.comingSoon p {
+  margin: 0;
+  font-size: 1rem;
+  color: #666666;
+  font-style: italic;
+}
+
+/* Letters section */
+.lettersSection {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #2a2a2a;
+}
+
+.lettersList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.letterCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgb(0 0 0 / 30%);
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.letterCard:hover {
+  background: rgb(212 175 55 / 10%);
+  border-color: rgb(212 175 55 / 30%);
+  transform: translateX(4px);
+}
+
+.letterIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.letterInfo {
+  flex: 1;
+}
+
+.letterInfo h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.letterInfo p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #999999;
+}
+
+.arrow {
+  font-size: 1.25rem;
+  color: #d4af37;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.letterCard:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Footer */
+.footer {
+  padding: 1rem;
+  text-align: center;
+  color: #666666;
+  font-size: 0.75rem;
+  border-top: 1px solid #2a2a2a;
+  flex-shrink: 0;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* Responsive */
+@media (width <= 600px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .portraitFrame {
+    width: 220px;
+  }
+}

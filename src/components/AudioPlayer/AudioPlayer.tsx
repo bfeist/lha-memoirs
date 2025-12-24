@@ -13,6 +13,7 @@ interface AudioPlayerProps {
   audioUrl: string;
   waveformDataUrl: string;
   regions?: PeaksRegion[];
+  currentChapterId?: string | null;
   onTimeUpdate?: (currentTime: number) => void;
   onRegionClick?: (regionId: string) => void;
   onReady?: (peaksInstance: PeaksInstance) => void;
@@ -35,10 +36,15 @@ function throttle<T extends (...args: Parameters<T>) => void>(
   };
 }
 
+// Segment color constants
+const SEGMENT_COLOR_DEFAULT = "rgba(100, 149, 237, 0.3)";
+const SEGMENT_COLOR_ACTIVE = "rgba(212, 175, 55, 0.5)";
+
 export function AudioPlayer({
   audioUrl,
   waveformDataUrl,
   regions = [],
+  currentChapterId,
   onTimeUpdate,
   onRegionClick,
   onReady,
@@ -53,6 +59,7 @@ export function AudioPlayer({
   const onRegionClickRef = useRef(onRegionClick);
   const onReadyRef = useRef(onReady);
   const regionsRef = useRef(regions);
+  const previousChapterIdRef = useRef<string | null | undefined>(null);
 
   // Keep refs updated
   useEffect(() => {
@@ -98,19 +105,21 @@ export function AudioPlayer({
     const options: PeaksOptions = {
       zoomview: {
         container: zoomviewContainerRef.current,
-        waveformColor: "rgba(180, 150, 100, 0.6)",
-        playedWaveformColor: "rgba(212, 175, 55, 0.9)",
-        playheadColor: "#d4af37",
+        waveformColor: "rgba(200, 170, 120, 0.7)",
+        playedWaveformColor: "rgba(222, 185, 65, 0.95)",
+        playheadColor: "#e4bf47",
         playheadTextColor: "#ffffff",
-        axisLabelColor: "#888888",
-        axisGridlineColor: "#333333",
+        axisLabelColor: "#bbbbbb",
+        axisGridlineColor: "#444444",
       },
       overview: {
         container: overviewContainerRef.current,
-        waveformColor: "rgba(180, 150, 100, 0.4)",
-        playedWaveformColor: "rgba(212, 175, 55, 0.7)",
-        playheadColor: "#d4af37",
-        highlightColor: "rgba(212, 175, 55, 0.1)",
+        waveformColor: "rgba(200, 170, 120, 0.5)",
+        playedWaveformColor: "rgba(222, 185, 65, 0.8)",
+        playheadColor: "#e4bf47",
+        highlightColor: "rgba(212, 175, 55, 0.15)",
+        axisLabelColor: "#bbbbbb",
+        axisGridlineColor: "#444444",
       },
       mediaElement: audioElementRef.current,
       dataUri: useJsonWaveform
@@ -123,6 +132,18 @@ export function AudioPlayer({
       keyboard: true,
       showPlayheadTime: true,
       zoomLevels: [2400, 3200, 4096, 8192],
+      segmentOptions: {
+        overlay: true,
+        markers: false,
+        overlayColor: SEGMENT_COLOR_DEFAULT,
+        overlayOpacity: 0.3,
+        overlayBorderColor: "rgba(100, 149, 237, 0.5)",
+        overlayBorderWidth: 1,
+        overlayCornerRadius: 2,
+        overlayOffset: 6,
+      },
+      // Disable segment labels to avoid cluttering the waveform
+      createSegmentLabel: () => null,
     };
 
     Peaks.init(options, (err, peaks) => {
@@ -163,7 +184,7 @@ export function AudioPlayer({
                   id: region.id,
                   startTime: region.startTime,
                   endTime: region.endTime,
-                  labelText: region.labelText,
+                  // Don't set labelText - we only want color overlays, not labels
                   color: region.color,
                 });
               } else {
@@ -223,7 +244,7 @@ export function AudioPlayer({
           id: region.id,
           startTime: region.startTime,
           endTime: region.endTime,
-          labelText: region.labelText,
+          // Don't set labelText - we only want color overlays, not labels
           color: region.color,
         });
       } else {
@@ -233,6 +254,25 @@ export function AudioPlayer({
       }
     });
   }, [regions, isReady]);
+
+  // Highlight the current chapter's segment
+  useEffect(() => {
+    const peaks = peaksInstanceRef.current;
+    if (!peaks || !isReady) return;
+
+    // Only update if the chapter has actually changed
+    if (previousChapterIdRef.current === currentChapterId) return;
+    previousChapterIdRef.current = currentChapterId;
+
+    // Update all segment colors - highlight the active one, reset others
+    const segments = peaks.segments.getSegments();
+    segments.forEach((segment) => {
+      const isActive = segment.id === currentChapterId;
+      segment.update({
+        color: isActive ? SEGMENT_COLOR_ACTIVE : SEGMENT_COLOR_DEFAULT,
+      });
+    });
+  }, [currentChapterId, isReady]);
 
   // Play/pause toggle
   const togglePlayPause = useCallback(() => {

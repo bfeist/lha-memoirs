@@ -37,7 +37,7 @@ TRANSCRIPT_FILE = OUTPUT_DIR / "transcript.json"
 
 # Model to use (try these in order - optimized for RTX 4090 24GB with ~17GB available)
 PREFERRED_MODEL = "gemma3:12b"
-MODELS_TO_TRY = ["gemma3:12b", "gpt-oss:20b", "qwen3:14b", "devstral:24b", "gemma3:27b"]
+MODELS_TO_TRY = ["gemma3:12b", "qwen3:14b", "gpt-oss:20b", "devstral:24b", "gemma3:27b"]
 
 
 def check_ollama_connection():
@@ -91,13 +91,14 @@ def get_available_model():
         available = [m.get('name', m.model) if isinstance(m, dict) else m.model for m in model_list]
         
         for model in MODELS_TO_TRY:
-            # Check for exact match or partial match
+            # Check for exact match first (e.g., "qwen3:14b" matches "qwen3:14b" or "qwen3:14b-...")
             for avail in available:
-                if model.split(":")[0] in avail:
+                # Exact match or starts with model name (handles tags like "qwen3:14b-q4_0")
+                if avail == model or avail.startswith(model + "-") or avail.startswith(model.replace(":", "-")):
                     print(f"   Using model: {avail}")
                     return avail
         
-        # No preferred model found - try to pull the preferred one
+        # No exact match - try pulling the preferred model
         print(f"\n⚠️  No preferred model found. Will pull {PREFERRED_MODEL}...")
         if pull_model(PREFERRED_MODEL):
             return PREFERRED_MODEL
@@ -155,49 +156,37 @@ def analyze_content_for_chapters(segments: list, model_name: str) -> dict:
             window_start += WINDOW_SIZE - OVERLAP
             continue
         
-        # Format for prompt
+        # Format for prompt - include seconds directly so LLM doesn't have to calculate
         transcript_lines = []
         for seg in window_segments:
             minutes = int(seg["start"] // 60)
             seconds = int(seg["start"] % 60)
-            transcript_lines.append(f"[{minutes:02d}:{seconds:02d}] {seg['text']}")
+            total_secs = seg["start"]
+            transcript_lines.append(f"[{total_secs:.0f}s] {seg['text']}")
         
         chunk_text = "\n".join(transcript_lines)
         
         # Create focused prompt for this chunk
-        prompt = f"""You are analyzing a 5-minute segment of a 1986 Christmas memoir recording from a grandfather to his son.
+        prompt = f"""/no_think
+Analyze this transcript segment and identify 1-3 distinct topics.
 
-Transcript segment ({int(window_start/60)}:{int(window_start%60):02d} to {int(window_end/60)}:{int(window_end%60):02d}):
+Transcript (timestamps are in SECONDS from start of recording):
 
 {chunk_text}
 
-Identify 1-3 distinct topics or stories in this segment. For each:
-- Title: 2-4 words, descriptive (e.g., "Pie Crust Recipe", "Uncle's Health")
-- startTime: MUST be in TOTAL SECONDS from start of recording. Example: [36:30] = 2190 seconds, not 36.30
-- Description: Terse phrase WITHOUT "the speaker" or "he discusses". Just state the topic directly.
-  Good: "Childhood memories; uncle and Lorry."
-  Bad: "The speaker shares childhood memories about his uncle."
+For each topic, provide:
+- title: 2-4 word descriptive title
+- startTime: Copy the [XXXs] number where this topic BEGINS (just the number, e.g., 103)
+- description: Brief phrase describing the topic (no "the speaker" or "he discusses")
 
-Respond with valid JSON only:
-{{
-  "chapters": [
-    {{
-      "id": 1,
-      "title": "Short Topic Title",
-      "startTime": 2190.0,
-      "description": "Terse topic description"
-    }}
-  ]
-}}
-
-CRITICAL: startTime must be total seconds, NOT minutes. Convert [MM:SS] to (MM*60)+SS."""
+Respond with ONLY valid JSON:
+{{"chapters": [{{"id": 1, "title": "Topic Title", "startTime": 103, "description": "Brief description"}}]}}"""
 
         print(f"\n   Chunk {chunk_num} ({int(window_start/60)}:{int(window_start%60):02d}-{int(window_end/60)}:{int(window_end%60):02d}):")
         sys.stdout.flush()
         
         # Stream response
         response_text = ""
-        thinking_text = ""
         
         try:
             for chunk in ollama.generate(
@@ -209,12 +198,6 @@ CRITICAL: startTime must be total seconds, NOT minutes. Convert [MM:SS] to (MM*6
                     "num_ctx": 4096,
                 }
             ):
-                thinking = chunk.get("thinking", "")
-                if thinking:
-                    thinking_text += thinking
-                    sys.stdout.write(f"\033[93m{thinking}\033[0m")
-                    sys.stdout.flush()
-                
                 text = chunk.get("response", "")
                 if text:
                     response_text += text
@@ -271,8 +254,15 @@ def merge_similar_chapters(chapters: list) -> list:
         last = merged[-1]
         time_diff = chapter["startTime"] - last["startTime"]
         
-        # If chapters are within 60 seconds and have similar titles, merge them
-        if time_diff < 60 and chapters_similar(last["title"], chapter["title"]):
+        # Merge if:
+        # 1. Very close together (within 15 seconds) - likely same topic / micro-chapters
+        # 2. Within 60 seconds AND have similar titles
+        should_merge = (
+            time_diff < 15 or 
+            (time_diff < 60 and chapters_similar(last["title"], chapter["title"]))
+        )
+        
+        if should_merge:
             # Keep the earlier start time, combine descriptions
             last["description"] = f"{last['description']}; {chapter['description']}"
         else:
@@ -302,6 +292,103 @@ def chapters_similar(title1: str, title2: str) -> bool:
     return overlap / min_words >= 0.5
 
 
+def validate_chapter_timing(chapters: list, segments: list, model_name: str) -> list:
+    """
+    Second pass: validate and correct chapter start times by finding where
+    each topic actually begins in the transcript.
+    """
+    print("\n🔍 SECOND PASS: Validating chapter timing...")
+    
+    # Build a searchable transcript with timestamps
+    transcript_lines = []
+    for seg in segments:
+        transcript_lines.append({
+            "start": seg["start"],
+            "text": seg["text"].strip().lower()
+        })
+    
+    corrected_chapters = []
+    
+    for i, chapter in enumerate(chapters):
+        # Define search window: from previous chapter (or 0) to current start + 2 minutes
+        search_start = corrected_chapters[-1]["startTime"] if corrected_chapters else 0
+        search_end = chapter["startTime"] + 120  # Look up to 2 min after claimed start
+        
+        # Get segments in search window
+        window_segments = [
+            seg for seg in segments
+            if seg["start"] >= search_start and seg["start"] <= search_end
+        ]
+        
+        if not window_segments:
+            corrected_chapters.append(chapter)
+            continue
+        
+        # Format window for LLM - use seconds directly
+        window_text = "\n".join([
+            f"[{seg['start']:.0f}s] {seg['text']}"
+            for seg in window_segments
+        ])
+        
+        prompt = f"""/no_think
+Find where this topic FIRST begins.
+
+Topic: "{chapter['title']}" - {chapter.get('description', '')}
+Current time: {chapter['startTime']:.0f}s
+
+Transcript (numbers are seconds):
+{window_text}
+
+Return the [XXXs] number where this topic FIRST starts.
+Respond with ONLY: {{"correctedStartTime": <number>, "reason": "brief"}}"""
+
+        try:
+            response = ollama.generate(
+                model=model_name,
+                prompt=prompt,
+                stream=False,
+                options={"temperature": 0.1, "num_ctx": 4096}
+            )
+            response_text = response.get("response", "")
+            
+            # Parse JSON
+            if "```json" in response_text:
+                response_text = response_text.split("```json")[1].split("```")[0]
+            elif "```" in response_text:
+                response_text = response_text.split("```")[1].split("```")[0]
+            
+            result = json.loads(response_text.strip())
+            corrected_time = float(result.get("correctedStartTime", chapter["startTime"]))
+            reason = result.get("reason", "")
+            
+            # Sanity check: corrected time should be >= search_start and <= original + 60s
+            if corrected_time >= search_start and corrected_time <= chapter["startTime"] + 60:
+                if abs(corrected_time - chapter["startTime"]) > 5:  # Only log if significant change
+                    old_fmt = f"{int(chapter['startTime']//60):02d}:{int(chapter['startTime']%60):02d}"
+                    new_fmt = f"{int(corrected_time//60):02d}:{int(corrected_time%60):02d}"
+                    print(f"   ⏱️  '{chapter['title']}': {old_fmt} → {new_fmt} ({reason})")
+                chapter["startTime"] = corrected_time
+            
+        except Exception as e:
+            print(f"   ⚠️  Could not validate '{chapter['title']}': {e}")
+        
+        corrected_chapters.append(chapter)
+    
+    # Re-sort by start time in case corrections changed order
+    corrected_chapters = sorted(corrected_chapters, key=lambda c: c["startTime"])
+    
+    # First chapter always starts at 0
+    if corrected_chapters:
+        corrected_chapters[0]["startTime"] = 0.0
+    
+    # Renumber
+    for i, ch in enumerate(corrected_chapters, 1):
+        ch["id"] = i
+    
+    print("   ✅ Timing validation complete")
+    return corrected_chapters
+
+
 def generate_summary(segments: list, model_name: str, chapters: list) -> str:
     """Generate a brief overall summary."""
     chapter_list = "\n".join([
@@ -309,11 +396,12 @@ def generate_summary(segments: list, model_name: str, chapters: list) -> str:
         for ch in chapters
     ])
     
-    prompt = f"""Based on these chapter topics from a 1986 Christmas memoir, write a 2-3 sentence summary:
+    prompt = f"""/no_think
+Write a 2-3 sentence summary of this 1986 Christmas memoir based on these topics:
 
 {chapter_list}
 
-Write a concise summary of what this recording covers. Be direct and factual."""
+Be direct and factual."""
 
     try:
         response_text = ""
@@ -412,7 +500,16 @@ def main():
         sys.exit(1)
     
     chapters = result["chapters"]
-    print(f"\n📚 Identified {len(chapters)} chapters:")
+    print(f"\n📚 Identified {len(chapters)} chapters (first pass):")
+    for ch in chapters:
+        minutes = int(ch["startTime"] // 60)
+        seconds = int(ch["startTime"] % 60)
+        print(f"   [{minutes:02d}:{seconds:02d}] {ch['title']}")
+    
+    # Second pass: validate and correct chapter timing
+    chapters = validate_chapter_timing(chapters, segments, model_name)
+    
+    print(f"\n📚 Final {len(chapters)} chapters (after timing correction):")
     for ch in chapters:
         minutes = int(ch["startTime"] // 60)
         seconds = int(ch["startTime"] % 60)
