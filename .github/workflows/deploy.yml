@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Code standards & build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PUBLIC_GOOGLE_ANALYTICS_ID: ${{ vars.PUBLIC_GOOGLE_ANALYTICS_ID }}
+
+    steps:
+      - name: "☁️ Checkout repository"
+        uses: actions/checkout@v4
+
+      - name: "🔧 Setup Node.js"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: "📦 Install dependencies"
+        run: npm ci
+
+      - name: "🔎 Lint code"
+        run: npm run lint
+
+      - name: "� Type check"
+        run: npm run tsc
+
+      - name: "�🚀 Build the project"
+        run: npm run build
+
+      - name: "🧪 Run tests"
+        run: npm run test
+
+      - name: "📤 Deploy to DreamHost"
+        env:
+          DREAMHOST_USER: ${{ vars.DREAMHOST_USER }}
+          DREAMHOST_HOST: ${{ vars.DREAMHOST_HOST }}
+          DREAMHOST_PATH: ${{ vars.DREAMHOST_PATH }}
+          SSHPASS: ${{ secrets.DREAMHOST_PASS }}
+        run: |
+          sudo apt-get update && sudo apt-get install -y sshpass
+
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "$DREAMHOST_HOST" >> ~/.ssh/known_hosts
+
+          sshpass -e ssh "$DREAMHOST_USER@$DREAMHOST_HOST" "mkdir -p $DREAMHOST_PATH"
+
+          if [ -d ./dist ]; then
+            sshpass -e rsync -avz --delete ./dist/ "$DREAMHOST_USER@$DREAMHOST_HOST":"$DREAMHOST_PATH"
+          else
+            echo "Error: ./dist directory is missing. Skipping deployment."
+            exit 1
+          fi
