@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { AudioPlayer, usePeaksSeek } from "../components/AudioPlayer/AudioPlayer";
 import { TableOfContents } from "../components/TableOfContents/TableOfContents";
 import { Transcript } from "../components/Transcript/Transcript";
@@ -10,6 +10,11 @@ import {
   getWaveformDataUrl,
 } from "../hooks/useChristmas1986Data";
 import styles from "./Christmas1986.module.css";
+
+const BACKGROUND_IMAGES = ["/photos/P1010033.jpg", "/photos/P1010034.jpg", "/photos/P1010038.jpg"];
+
+// Pick a random background image at module load time
+const backgroundImage = BACKGROUND_IMAGES[Math.floor(Math.random() * BACKGROUND_IMAGES.length)];
 
 function Christmas1986(): React.ReactElement {
   const [currentTime, setCurrentTime] = useState(0);
@@ -64,6 +69,19 @@ function Christmas1986(): React.ReactElement {
     [toc, seekTo]
   );
 
+  // Calculate the current chapter ID based on playback time
+  const currentChapterId = useMemo(() => {
+    if (!toc || toc.length === 0) return null;
+
+    // Find the chapter that contains the current time
+    for (let i = toc.length - 1; i >= 0; i--) {
+      if (currentTime >= toc[i].startTime) {
+        return `chapter-${toc[i].id}`;
+      }
+    }
+    return toc.length > 0 ? `chapter-${toc[0].id}` : null;
+  }, [currentTime, toc]);
+
   // Loading state
   const isLoading = transcriptLoading || tocLoading || regionsLoading;
 
@@ -72,7 +90,10 @@ function Christmas1986(): React.ReactElement {
 
   if (hasError) {
     return (
-      <div className={styles.container}>
+      <div
+        className={styles.container}
+        style={{ "--background-image": `url(${backgroundImage})` } as React.CSSProperties}
+      >
         <div className={styles.error}>
           <h1>❌ Unable to Load Memoir</h1>
           <p>
@@ -89,7 +110,10 @@ function Christmas1986(): React.ReactElement {
   }
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ "--background-image": `url(${backgroundImage})` } as React.CSSProperties}
+    >
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
@@ -119,6 +143,7 @@ function Christmas1986(): React.ReactElement {
             audioUrl={getAudioUrl()}
             waveformDataUrl={getWaveformDataUrl()}
             regions={regions || []}
+            currentChapterId={currentChapterId}
             onTimeUpdate={handleTimeUpdate}
             onRegionClick={handleRegionClick}
             onReady={handlePlayerReady}

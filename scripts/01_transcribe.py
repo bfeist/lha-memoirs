@@ -90,10 +90,8 @@ def format_transcript_data(segments, info):
         }
         formatted_segments.append(seg_data)
     
-    # Note: full_text is not included since the app only uses segments
     return {
         "segments": formatted_segments,
-        "words": [],  # Preserved for reference but not populated
         "language": info.language,
         "duration": info.duration,
     }

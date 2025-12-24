@@ -154,7 +154,6 @@
 .segmentText.activeSegment {
   background: rgb(212 175 55 / 30%);
   color: #ffffff;
-  font-weight: 500;
 }
 
 /* Past segments */
