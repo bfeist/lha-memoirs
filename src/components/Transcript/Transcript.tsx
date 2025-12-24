@@ -63,9 +63,9 @@ export function Transcript({
   }, [segments, chapters]);
 
   // Find current chapter and segment based on playback time
-  const { currentChapterId, currentSegmentId } = useMemo(() => {
+  const { currentChapterId, currentSegmentIndex } = useMemo(() => {
     let chapterId = chapters?.[0]?.id ?? 0;
-    let segmentId = segments?.[0]?.id ?? 0;
+    let segmentIndex = 0;
 
     // Find current chapter
     if (chapters && chapters.length > 0) {
@@ -80,12 +80,12 @@ export function Transcript({
     // Find current segment
     for (let i = segments.length - 1; i >= 0; i--) {
       if (currentTime >= segments[i].start) {
-        segmentId = segments[i].id;
+        segmentIndex = i;
         break;
       }
     }
 
-    return { currentChapterId: chapterId, currentSegmentId: segmentId };
+    return { currentChapterId: chapterId, currentSegmentIndex: segmentIndex };
   }, [chapters, segments, currentTime]);
 
   // Auto-scroll only when chapter changes
@@ -155,15 +155,16 @@ export function Transcript({
               )}
 
               <p className={styles.paragraph}>
-                {group.segments.map((segment) => {
-                  const isCurrentSegment = segment.id === currentSegmentId;
+                {group.segments.map((segment, segmentIndex) => {
+                  const actualSegmentIndex = segments.findIndex((s) => s === segment);
+                  const isCurrentSegment = actualSegmentIndex === currentSegmentIndex;
                   const isPastSegment = segment.end < currentTime;
                   const isPlayingSegment =
                     currentTime >= segment.start && currentTime < segment.end;
 
                   return (
                     <span
-                      key={segment.id}
+                      key={segmentIndex}
                       className={`${styles.segmentText} ${isCurrentSegment ? styles.activeSegment : ""} ${isPastSegment ? styles.pastSegment : ""} ${isPlayingSegment ? styles.playingSegment : ""}`}
                       onClick={() => handleClick(segment.start)}
                       role="button"

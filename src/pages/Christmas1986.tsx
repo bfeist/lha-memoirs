@@ -25,12 +25,23 @@ function Christmas1986(): React.ReactElement {
     data: transcript,
     isLoading: transcriptLoading,
     error: transcriptError,
+    refetch: refetchTranscript,
   } = useTranscript();
-  const { data: toc, isLoading: tocLoading, error: tocError } = useTableOfContents();
+  const {
+    data: toc,
+    isLoading: tocLoading,
+    error: tocError,
+    refetch: refetchToc,
+  } = useTableOfContents();
   const { data: regions, isLoading: regionsLoading } = useRegions();
 
   // Get seek function from peaks.js
   const seekTo = usePeaksSeek();
+
+  // Handle reload button click
+  const handleReloadData = useCallback(async () => {
+    await Promise.all([refetchTranscript(), refetchToc()]);
+  }, [refetchTranscript, refetchToc]);
 
   // Handle time updates from audio player
   const handleTimeUpdate = useCallback((time: number) => {
@@ -139,15 +150,20 @@ function Christmas1986(): React.ReactElement {
       <main className={styles.main}>
         {/* Audio Player Section */}
         <section className={styles.playerSection}>
-          <AudioPlayer
-            audioUrl={getAudioUrl()}
-            waveformDataUrl={getWaveformDataUrl()}
-            regions={regions || []}
-            currentChapterId={currentChapterId}
-            onTimeUpdate={handleTimeUpdate}
-            onRegionClick={handleRegionClick}
-            onReady={handlePlayerReady}
-          />
+          <div className={styles.playerWrapper}>
+            <AudioPlayer
+              audioUrl={getAudioUrl()}
+              waveformDataUrl={getWaveformDataUrl()}
+              regions={regions || []}
+              currentChapterId={currentChapterId}
+              onTimeUpdate={handleTimeUpdate}
+              onRegionClick={handleRegionClick}
+              onReady={handlePlayerReady}
+            />
+            <button className={styles.reloadButton} onClick={handleReloadData} type="button">
+              🔄
+            </button>
+          </div>
 
           {!isPlayerReady && !isLoading && (
             <div className={styles.playHint}>

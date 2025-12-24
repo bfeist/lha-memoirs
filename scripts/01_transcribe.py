@@ -81,9 +81,8 @@ def format_transcript_data(segments, info):
     """Format faster-whisper result into structured data for the app."""
     formatted_segments = []
     
-    for seg_idx, segment in enumerate(segments):
+    for segment in segments:
         seg_data = {
-            "id": seg_idx,
             "start": segment.start,
             "end": segment.end,
             "text": segment.text.strip(),
