@@ -1,261 +1,191 @@
 [
   {
     "id": "chapter-1",
-    "startTime": 8.0,
-    "endTime": 103.0,
-    "labelText": "Christmas Parcel Preparations",
+    "startTime": 0.0,
+    "endTime": 63.0,
+    "labelText": "Christmas Parcel Prep",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-2",
-    "startTime": 103.0,
-    "endTime": 219.0,
-    "labelText": "Home Repair Projects",
+    "startTime": 63.0,
+    "endTime": 174.0,
+    "labelText": "Home Repairs",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-3",
-    "startTime": 219.0,
-    "endTime": 253.0,
-    "labelText": "Fireplace Draft Solution",
+    "startTime": 174.0,
+    "endTime": 272.0,
+    "labelText": "Elks & Politics",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-4",
-    "startTime": 253.0,
-    "endTime": 359.0,
-    "labelText": "Elks Lodge Membership",
+    "startTime": 272.0,
+    "endTime": 326.0,
+    "labelText": "Kai & Bank Startup",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-5",
-    "startTime": 359.0,
-    "endTime": 446.0,
-    "labelText": "Political Disappointment",
+    "startTime": 326.0,
+    "endTime": 457.0,
+    "labelText": "Recent Scandals",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-6",
-    "startTime": 446.0,
-    "endTime": 902,
-    "labelText": "Stephen and Klein Meeting",
+    "startTime": 457.0,
+    "endTime": 519.0,
+    "labelText": "Farming & Gilbo",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-7",
-    "startTime": 902,
-    "endTime": 1044,
-    "labelText": "Farming Hardships",
+    "startTime": 519.0,
+    "endTime": 637.0,
+    "labelText": "Farming & Finances",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-8",
-    "startTime": 1044,
-    "endTime": 1155,
-    "labelText": "Friend's Illness",
+    "startTime": 637.0,
+    "endTime": 720.0,
+    "labelText": "Community & Loss",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-9",
-    "startTime": 1155,
-    "endTime": 1331.0,
-    "labelText": "Community News",
+    "startTime": 720.0,
+    "endTime": 827.0,
+    "labelText": "Personal Updates",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-10",
-    "startTime": 1331.0,
-    "endTime": 1517.0,
-    "labelText": "Halbright Mail Robbery",
+    "startTime": 827.0,
+    "endTime": 914.0,
+    "labelText": "Mail Truck Robbery",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-11",
-    "startTime": 1517.0,
-    "endTime": 1605.0,
-    "labelText": "Winter Weather Conditions",
+    "startTime": 914.0,
+    "endTime": 966.0,
+    "labelText": "Weather and Sunlight",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-12",
-    "startTime": 1605.0,
-    "endTime": 1801,
-    "labelText": "Reading Device & Routine",
+    "startTime": 966.0,
+    "endTime": 1081.0,
+    "labelText": "Reading & Recording",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-13",
-    "startTime": 1801,
-    "endTime": 1853,
-    "labelText": "Tape Recording Process",
+    "startTime": 1081.0,
+    "endTime": 1139.0,
+    "labelText": "Tape Recording Project",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-14",
-    "startTime": 1853,
-    "endTime": 1928,
-    "labelText": "Work Life Focus",
+    "startTime": 1139.0,
+    "endTime": 1169.0,
+    "labelText": "Work & Contractors",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-15",
-    "startTime": 1928,
-    "endTime": 2122.0,
-    "labelText": "Community & Finances",
+    "startTime": 1169.0,
+    "endTime": 1374.0,
+    "labelText": "Personal Updates & Events",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-16",
-    "startTime": 2122.0,
-    "endTime": 2132.0,
-    "labelText": "Kai and the Bank",
+    "startTime": 1374.0,
+    "endTime": 1387.0,
+    "labelText": "Local Business Troubles",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-17",
-    "startTime": 2132.0,
-    "endTime": 2194.0,
-    "labelText": "Bill Payments & Routine",
+    "startTime": 1387.0,
+    "endTime": 1533.0,
+    "labelText": "Sudden Death Story",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-18",
-    "startTime": 2194.0,
-    "endTime": 2215,
-    "labelText": "Microphone Malfunction",
+    "startTime": 1533.0,
+    "endTime": 1609.0,
+    "labelText": "Farming & Oil Revenue",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-19",
-    "startTime": 2215,
-    "endTime": 2224.0,
-    "labelText": "Retirement & Bud Welts",
+    "startTime": 1609.0,
+    "endTime": 1646.0,
+    "labelText": "Farm & Labor",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-20",
-    "startTime": 2224.0,
-    "endTime": 2231,
-    "labelText": "Daily Walking & Weight",
+    "startTime": 1646.0,
+    "endTime": 1675.0,
+    "labelText": "Hunting & Locals",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-21",
-    "startTime": 2231,
-    "endTime": 2306,
-    "labelText": "Lumberyard Fire & Demolition",
+    "startTime": 1675.0,
+    "endTime": 1892.0,
+    "labelText": "Community & Gossip",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-22",
-    "startTime": 2306,
-    "endTime": 2315.0,
-    "labelText": "Neighbor's Death & Story",
+    "startTime": 1892.0,
+    "endTime": 1944.0,
+    "labelText": "Financial Obligations",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-23",
-    "startTime": 2315.0,
-    "endTime": 2335.0,
-    "labelText": "Calgary Police Robbery",
+    "startTime": 1944.0,
+    "endTime": 2001,
+    "labelText": "Daily Walking Routine",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-24",
-    "startTime": 2335.0,
-    "endTime": 2341.0,
-    "labelText": "Social Interactions & Humor",
+    "startTime": 2001,
+    "endTime": 2161,
+    "labelText": "Weight & Social Commentary",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-25",
-    "startTime": 2341.0,
-    "endTime": 2357.0,
-    "labelText": "Trevor & Departure",
+    "startTime": 2161,
+    "endTime": 2314.0,
+    "labelText": "Thrashing Machinery Work",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-26",
-    "startTime": 2357.0,
-    "endTime": 2533,
-    "labelText": "Sports & Numbers",
+    "startTime": 2314.0,
+    "endTime": 2434.0,
+    "labelText": "Family & Memory",
     "color": "rgba(100, 149, 237, 0.3)"
   },
   {
     "id": "chapter-27",
-    "startTime": 2533,
-    "endTime": 2702.0,
-    "labelText": "Farm Income & Oil Rights",
-    "color": "rgba(100, 149, 237, 0.3)"
-  },
-  {
-    "id": "chapter-28",
-    "startTime": 2702.0,
-    "endTime": 2705,
-    "labelText": "Vancouver Negotiations",
-    "color": "rgba(100, 149, 237, 0.3)"
-  },
-  {
-    "id": "chapter-29",
-    "startTime": 2705,
-    "endTime": 2846,
-    "labelText": "Local Hunting & Family",
-    "color": "rgba(100, 149, 237, 0.3)"
-  },
-  {
-    "id": "chapter-30",
-    "startTime": 2846,
-    "endTime": 2851.0,
-    "labelText": "Kenny & Mr. Cernyx",
-    "color": "rgba(100, 149, 237, 0.3)"
-  },
-  {
-    "id": "chapter-31",
-    "startTime": 2851.0,
-    "endTime": 2938,
-    "labelText": "Saskatchewan Farming",
-    "color": "rgba(100, 149, 237, 0.3)"
-  },
-  {
-    "id": "chapter-32",
-    "startTime": 2938,
-    "endTime": 3043,
-    "labelText": "Damien's Career",
-    "color": "rgba(100, 149, 237, 0.3)"
-  },
-  {
-    "id": "chapter-33",
-    "startTime": 3043,
-    "endTime": 3132,
-    "labelText": "Linda's Pie Crust",
-    "color": "rgba(100, 149, 237, 0.3)"
-  },
-  {
-    "id": "chapter-34",
-    "startTime": 3132,
-    "endTime": 3641,
-    "labelText": "Bill Payment & Jackson",
-    "color": "rgba(100, 149, 237, 0.3)"
-  },
-  {
-    "id": "chapter-35",
-    "startTime": 3641,
-    "endTime": 3830,
-    "labelText": "Thrashing Machinery",
-    "color": "rgba(100, 149, 237, 0.3)"
-  },
-  {
-    "id": "chapter-36",
-    "startTime": 3830,
-    "endTime": 3916,
-    "labelText": "Uncle Hiller's Health",
-    "color": "rgba(100, 149, 237, 0.3)"
-  },
-  {
-    "id": "chapter-37",
-    "startTime": 3916,
-    "endTime": 4048.33,
-    "labelText": "Childhood Memories",
+    "startTime": 2434.0,
+    "endTime": 2448.33,
+    "labelText": "Technical & Recording Issues",
     "color": "rgba(100, 149, 237, 0.3)"
   }
 ]
