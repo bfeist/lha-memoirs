@@ -1,0 +1,121 @@
+.container {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 0.5rem;
+  border: 1px solid #2a2a2a;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 0.25rem;
+  padding: 0 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #d4af37;
+  flex-shrink: 0;
+}
+
+.hint {
+  display: none;
+}
+
+.tocList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.tocItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tocItem:hover {
+  background: rgb(255 255 255 / 5%);
+}
+
+.tocItem.active {
+  background: rgb(212 175 55 / 10%);
+}
+
+.tocItem.past {
+  opacity: 0.6;
+}
+
+.tocItem.past .chapterNumber {
+  background: rgb(212 175 55 / 20%);
+  color: #d4af37;
+}
+
+.chapterNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: rgb(212 175 55 / 15%);
+  color: #d4af37;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.active .chapterNumber {
+  background: rgb(212 175 55 / 40%);
+  color: #ffffff;
+}
+
+.chapterInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.chapterTitle {
+  color: #cccccc;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.active .chapterTitle {
+  color: #ffffff;
+}
+
+.chapterDescription {
+  display: none;
+}
+
+.timestamp {
+  color: #666666;
+  font-family: "SF Mono", Monaco, Inconsolata, monospace;
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+.active .timestamp {
+  color: #d4af37;
+}

@@ -1,0 +1,261 @@
+[
+  {
+    "id": 1,
+    "title": "Christmas Parcel Preparations",
+    "startTime": 8.0,
+    "formattedTime": "00:08",
+    "description": "Shipping parcels to Toronto and Jeannie in Calgary."
+  },
+  {
+    "id": 2,
+    "title": "Home Repair Projects",
+    "startTime": 103.0,
+    "formattedTime": "01:43",
+    "description": "Water softener valve replacement and humidifier float valve issues."
+  },
+  {
+    "id": 3,
+    "title": "Fireplace Draft Solution",
+    "startTime": 219.0,
+    "formattedTime": "03:39",
+    "description": "Installing a plastic cover to address a significant fireplace draft."
+  },
+  {
+    "id": 4,
+    "title": "Elks Lodge Membership",
+    "startTime": 253.0,
+    "formattedTime": "04:13",
+    "description": "Upcoming 45th year Elk membership and George's 50th."
+  },
+  {
+    "id": 5,
+    "title": "Political Disappointment",
+    "startTime": 359.0,
+    "formattedTime": "05:59",
+    "description": "Criticism of Reagan and Canadian politicians regarding debt and economic issues."
+  },
+  {
+    "id": 6,
+    "title": "Stephen and Klein Meeting",
+    "startTime": 446.0,
+    "formattedTime": "07:26",
+    "description": "Past meeting with Stephen and Klein regarding Western Bank of Canada."
+  },
+  {
+    "id": 7,
+    "title": "Farming Hardships",
+    "startTime": 902,
+    "formattedTime": "15:02",
+    "description": "Agricultural struggles; land prices, grain yields, debt."
+  },
+  {
+    "id": 8,
+    "title": "Friend's Illness",
+    "startTime": 1044,
+    "formattedTime": "17:24",
+    "description": "Bill Harkson's hospitalization; declining health, mortality concerns."
+  },
+  {
+    "id": 9,
+    "title": "Community News",
+    "startTime": 1155,
+    "formattedTime": "19:15",
+    "description": "Deaths, weddings, family updates; Alan Akin, Jimmy Lawrence, Willa's health."
+  },
+  {
+    "id": 10,
+    "title": "Halbright Mail Robbery",
+    "startTime": 1331.0,
+    "formattedTime": "22:11",
+    "description": "Armed robbery of a mail truck; possible driver involvement; truck abandoned in a field."
+  },
+  {
+    "id": 11,
+    "title": "Winter Weather Conditions",
+    "startTime": 1517.0,
+    "formattedTime": "25:17",
+    "description": "Snow and ice conditions; sun's low position in the sky; impact on daylight hours."
+  },
+  {
+    "id": 12,
+    "title": "Reading Device & Routine",
+    "startTime": 1605.0,
+    "formattedTime": "26:45",
+    "description": "New reading device for fine print; daily mail receipt; TV viewing schedule."
+  },
+  {
+    "id": 13,
+    "title": "Tape Recording Process",
+    "startTime": 1801,
+    "formattedTime": "30:01",
+    "description": "Multiple versions created, sent to son and Dan; concerns about quality."
+  },
+  {
+    "id": 14,
+    "title": "Work Life Focus",
+    "startTime": 1853,
+    "formattedTime": "30:53",
+    "description": "Memoir primarily details working life, excluding family and social aspects."
+  },
+  {
+    "id": 15,
+    "title": "Community & Finances",
+    "startTime": 1928,
+    "formattedTime": "32:08",
+    "description": "Mentions Ellen's funeral, Lyle's work, financial struggles, and correspondence with Mel."
+  },
+  {
+    "id": 16,
+    "title": "Kai and the Bank",
+    "startTime": 2122.0,
+    "formattedTime": "35:22",
+    "description": "Failed bank startup; accusations against Kai and his wife."
+  },
+  {
+    "id": 17,
+    "title": "Bill Payments & Routine",
+    "startTime": 2132.0,
+    "formattedTime": "35:32",
+    "description": "Fenton Jackson, bill payments, daily routines."
+  },
+  {
+    "id": 18,
+    "title": "Microphone Malfunction",
+    "startTime": 2194.0,
+    "formattedTime": "36:34",
+    "description": "Unexpected noise from microphone and cord."
+  },
+  {
+    "id": 19,
+    "title": "Retirement & Bud Welts",
+    "startTime": 2215,
+    "formattedTime": "36:55",
+    "description": "Bud's desire to retire, challenges of gas department work, and physical demands."
+  },
+  {
+    "id": 20,
+    "title": "Daily Walking & Weight",
+    "startTime": 2224.0,
+    "formattedTime": "37:04",
+    "description": "Physical activity, muscle tone, weight concerns."
+  },
+  {
+    "id": 21,
+    "title": "Lumberyard Fire & Demolition",
+    "startTime": 2231,
+    "formattedTime": "37:11",
+    "description": "Office burned, rest demolished; barrel remains."
+  },
+  {
+    "id": 22,
+    "title": "Neighbor's Death & Story",
+    "startTime": 2306,
+    "formattedTime": "38:26",
+    "description": "Agnes's sudden death; alleged garage incident."
+  },
+  {
+    "id": 23,
+    "title": "Calgary Police Robbery",
+    "startTime": 2315.0,
+    "formattedTime": "38:35",
+    "description": "News report about a police officer committing bank robberies."
+  },
+  {
+    "id": 24,
+    "title": "Social Interactions & Humor",
+    "startTime": 2335.0,
+    "formattedTime": "38:55",
+    "description": "Conversations with Bud Waltz, Phyllis, and others."
+  },
+  {
+    "id": 25,
+    "title": "Trevor & Departure",
+    "startTime": 2341.0,
+    "formattedTime": "39:01",
+    "description": "Concerns about Trevor, upcoming departure."
+  },
+  {
+    "id": 26,
+    "title": "Sports & Numbers",
+    "startTime": 2357.0,
+    "formattedTime": "39:17",
+    "description": "Discussion of a sports game, repeated numbers (.45)."
+  },
+  {
+    "id": 27,
+    "title": "Farm Income & Oil Rights",
+    "startTime": 2533,
+    "formattedTime": "42:13",
+    "description": "Wheat sales, oil royalties, water sales, family farm."
+  },
+  {
+    "id": 28,
+    "title": "Vancouver Negotiations",
+    "startTime": 2702.0,
+    "formattedTime": "45:02",
+    "description": "Failed steel bin deal; government negotiations."
+  },
+  {
+    "id": 29,
+    "title": "Local Hunting & Family",
+    "startTime": 2705,
+    "formattedTime": "45:05",
+    "description": "Hunting habits, Kevin Murphy, elk sightings, family births and work."
+  },
+  {
+    "id": 30,
+    "title": "Kenny & Mr. Cernyx",
+    "startTime": 2846,
+    "formattedTime": "47:26",
+    "description": "Encounter with Kenny and Mr. Cernyx, car repair, catties, and a brief conversation."
+  },
+  {
+    "id": 31,
+    "title": "Saskatchewan Farming",
+    "startTime": 2851.0,
+    "formattedTime": "47:31",
+    "description": "Difficulties of farming; family self-reliance."
+  },
+  {
+    "id": 32,
+    "title": "Damien's Career",
+    "startTime": 2938,
+    "formattedTime": "48:58",
+    "description": "Damien's employment as a Maitre D, rapid career advancement, and a humorous comparison to 'orcs'."
+  },
+  {
+    "id": 33,
+    "title": "Linda's Pie Crust",
+    "startTime": 3043,
+    "formattedTime": "50:43",
+    "description": "Linda's request for pie crust instructions and the speaker's reaction."
+  },
+  {
+    "id": 34,
+    "title": "Bill Payment & Jackson",
+    "startTime": 3132,
+    "formattedTime": "52:12",
+    "description": "Paying bills with Fenton Jackson and a brief mention of playing."
+  },
+  {
+    "id": 35,
+    "title": "Thrashing Machinery",
+    "startTime": 3641,
+    "formattedTime": "60:41",
+    "description": "Early career as a thrashing machine operator; anecdotes about skill and recognition."
+  },
+  {
+    "id": 36,
+    "title": "Uncle Hiller's Health",
+    "startTime": 3830,
+    "formattedTime": "63:50",
+    "description": "Cousin's letter details Uncle Hiller's recent hip fracture and memory decline."
+  },
+  {
+    "id": 37,
+    "title": "Childhood Memories",
+    "startTime": 3916,
+    "formattedTime": "65:16",
+    "description": "Recollections of Uncle Hiller; physical appearance and drinking habits in 1925."
+  }
+]
