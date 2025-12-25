@@ -80,7 +80,8 @@ export function AudioPlayer({
   const [isReady, setIsReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
   // Crossfade: 0 = full original, 100 = full enhanced
-  const [crossfade, setCrossfade] = useState(0);
+  // Default to 100 (full enhanced) so audio is audible by default
+  const [crossfade, setCrossfade] = useState(100);
   // Check if reload button should be shown via query parameter
   const [showReload] = useState(() => {
     const params = new URLSearchParams(window.location.search);
@@ -357,24 +358,23 @@ export function AudioPlayer({
     const originalAudio = originalAudioRef.current;
     if (!peaks || !audioElement) return;
 
-    const player = peaks.player;
     if (isPlaying) {
-      player.pause();
+      peaks.player.pause();
     } else {
-      // Call play() directly on audio elements for iOS compatibility
-      // iOS requires direct user interaction with the audio element
-      // Play both audio elements to ensure dual-track playback works on iOS
+      // For iOS compatibility: call play() on audio element first to satisfy
+      // user interaction requirement.
+      // We also play originalAudio explicitly to ensure it's authorized by the user gesture.
       const playPromise = audioElement.play();
+
+      if (originalAudio) {
+        originalAudio.play().catch((e) => console.warn("Original audio play failed", e));
+      }
 
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
-            // Main audio started successfully, now start original if present
-            if (originalAudio) {
-              originalAudio.play().catch((err) => {
-                console.warn("Failed to play original audio:", err);
-              });
-            }
+            // Audio play started successfully
+            // Peaks event listeners will handle state updates
           })
           .catch((error) => {
             console.error("Failed to play audio:", error);
