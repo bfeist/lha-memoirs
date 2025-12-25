@@ -27,32 +27,26 @@ function Index(): React.ReactElement {
           <p className={styles.portraitCaption}>L.H.A., 1942</p>
         </section>
 
-        {/* Memoirs section */}
-        <section className={styles.memoirsSection}>
-          <h2 className={styles.sectionTitle}>
-            <span className={styles.sectionIcon}>📖</span>
-            Voice Memoirs
-          </h2>
-          <div className={styles.comingSoon}>
-            <p>Coming Soon</p>
-          </div>
-        </section>
-
         {/* Christmas Letters section */}
         <section className={styles.lettersSection}>
-          <h2 className={styles.sectionTitle}>
-            <span className={styles.sectionIcon}>✉️</span>
-            Other Recordings
-          </h2>
+          <h2 className={styles.sectionTitle}>Recordings</h2>
           <div className={styles.lettersList}>
             <Link to="/christmas1986" className={styles.letterCard}>
               <span className={styles.letterIcon}>🎄</span>
               <div className={styles.letterInfo}>
                 <h3>Christmas Letter, 1986</h3>
-                <p>A letter from Grandpa to his son, recorded during the holiday season</p>
+                <p>A letter to his son, Norman Achen. Recorded on November 26, 1986.</p>
               </div>
               <span className={styles.arrow}>→</span>
             </Link>
+          </div>
+        </section>
+
+        {/* Memoirs section */}
+        <section className={styles.memoirsSection}>
+          <h2 className={styles.sectionTitle}>Voice Memoirs</h2>
+          <div className={styles.comingSoon}>
+            <p>Coming Soon</p>
           </div>
         </section>
       </main>
