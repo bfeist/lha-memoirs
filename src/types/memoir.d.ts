@@ -34,7 +34,6 @@ interface ChaptersData {
 }
 
 interface TableOfContentsEntry {
-  id: number;
   title: string;
   startTime: number;
   formattedTime: string;

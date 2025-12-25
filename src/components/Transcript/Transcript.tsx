@@ -21,7 +21,7 @@ export function Transcript({
 }: TranscriptProps): React.ReactElement {
   const containerRef = useRef<HTMLDivElement>(null);
   const activeChapterRef = useRef<HTMLDivElement>(null);
-  const lastScrolledChapterId = useRef<number | null>(null);
+  const lastScrolledChapterId = useRef<string | null>(null);
 
   // Group segments by chapter
   const chapterGroups = useMemo((): ChapterWithSegments[] => {
@@ -30,7 +30,6 @@ export function Transcript({
       return [
         {
           chapter: {
-            id: 0,
             title: "Full Recording",
             startTime: 0,
             formattedTime: "00:00",
@@ -64,14 +63,14 @@ export function Transcript({
 
   // Find current chapter and segment based on playback time
   const { currentChapterId, currentSegmentIndex } = useMemo(() => {
-    let chapterId = chapters?.[0]?.id ?? 0;
+    let chapterIndex = 0;
     let segmentIndex = 0;
 
     // Find current chapter
     if (chapters && chapters.length > 0) {
       for (let i = chapters.length - 1; i >= 0; i--) {
         if (currentTime >= chapters[i].startTime) {
-          chapterId = chapters[i].id;
+          chapterIndex = i;
           break;
         }
       }
@@ -85,7 +84,7 @@ export function Transcript({
       }
     }
 
-    return { currentChapterId: chapterId, currentSegmentIndex: segmentIndex };
+    return { currentChapterId: `chapter-${chapterIndex}`, currentSegmentIndex: segmentIndex };
   }, [chapters, segments, currentTime]);
 
   // Auto-scroll only when chapter changes
@@ -130,13 +129,14 @@ export function Transcript({
       <p className={styles.hint}>Click any text to jump to that moment</p>
 
       <div ref={containerRef} className={styles.transcriptContent}>
-        {chapterGroups.map((group) => {
-          const isCurrentChapter = group.chapter.id === currentChapterId;
+        {chapterGroups.map((group, groupIndex) => {
+          const chapterIdString = `chapter-${groupIndex}`;
+          const isCurrentChapter = chapterIdString === currentChapterId;
           const isPastChapter = group.chapter.startTime < currentTime && !isCurrentChapter;
 
           return (
             <div
-              key={group.chapter.id}
+              key={groupIndex}
               ref={isCurrentChapter ? activeChapterRef : null}
               className={`${styles.chapterSection} ${isCurrentChapter ? styles.activeChapter : ""} ${isPastChapter ? styles.pastChapter : ""}`}
             >

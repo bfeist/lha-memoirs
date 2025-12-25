@@ -7,6 +7,7 @@ import {
   useTableOfContents,
   useRegions,
   getAudioUrl,
+  getOriginalAudioUrl,
   getWaveformDataUrl,
 } from "../hooks/useChristmas1986Data";
 import styles from "./Christmas1986.module.css";
@@ -72,9 +73,14 @@ function Christmas1986(): React.ReactElement {
   // Handle region click
   const handleRegionClick = useCallback(
     (regionId: string) => {
-      const chapter = toc?.find((t) => `chapter-${t.id}` === regionId);
-      if (chapter) {
-        seekTo(chapter.startTime);
+      // regionId is in format "chapter-{index}"
+      const match = regionId.match(/^chapter-(\d+)$/);
+      if (match && toc) {
+        const index = parseInt(match[1], 10);
+        const chapter = toc[index];
+        if (chapter) {
+          seekTo(chapter.startTime);
+        }
       }
     },
     [toc, seekTo]
@@ -87,10 +93,10 @@ function Christmas1986(): React.ReactElement {
     // Find the chapter that contains the current time
     for (let i = toc.length - 1; i >= 0; i--) {
       if (currentTime >= toc[i].startTime) {
-        return `chapter-${toc[i].id}`;
+        return `chapter-${i}`;
       }
     }
-    return toc.length > 0 ? `chapter-${toc[0].id}` : null;
+    return toc.length > 0 ? `chapter-0` : null;
   }, [currentTime, toc]);
 
   // Loading state
@@ -150,20 +156,17 @@ function Christmas1986(): React.ReactElement {
       <main className={styles.main}>
         {/* Audio Player Section */}
         <section className={styles.playerSection}>
-          <div className={styles.playerWrapper}>
-            <AudioPlayer
-              audioUrl={getAudioUrl()}
-              waveformDataUrl={getWaveformDataUrl()}
-              regions={regions || []}
-              currentChapterId={currentChapterId}
-              onTimeUpdate={handleTimeUpdate}
-              onRegionClick={handleRegionClick}
-              onReady={handlePlayerReady}
-            />
-            <button className={styles.reloadButton} onClick={handleReloadData} type="button">
-              🔄
-            </button>
-          </div>
+          <AudioPlayer
+            audioUrl={getAudioUrl()}
+            originalAudioUrl={getOriginalAudioUrl()}
+            waveformDataUrl={getWaveformDataUrl()}
+            regions={regions || []}
+            currentChapterId={currentChapterId}
+            onTimeUpdate={handleTimeUpdate}
+            onRegionClick={handleRegionClick}
+            onReady={handlePlayerReady}
+            onReload={handleReloadData}
+          />
 
           {!isPlayerReady && !isLoading && (
             <div className={styles.playHint}>

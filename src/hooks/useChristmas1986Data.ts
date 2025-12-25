@@ -58,9 +58,14 @@ export function useRegions(): UseQueryResult<PeaksRegion[], Error> {
   });
 }
 
-// Get audio URL
+// Get audio URL (enhanced version)
 export function getAudioUrl(): string {
   return `${AUDIO_BASE_PATH}/audio.mp3`;
+}
+
+// Get original audio URL (non-enhanced version)
+export function getOriginalAudioUrl(): string {
+  return `${AUDIO_BASE_PATH}/audio_original.mp3`;
 }
 
 // Get waveform data URL

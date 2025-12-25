@@ -38,6 +38,59 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0.25rem 0;
+  position: relative;
+}
+
+.crossfadeControl {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  position: absolute;
+  left: 0.25rem;
+  width: 25%;
+}
+
+.crossfadeLabel {
+  font-size: 0.65rem;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.crossfadeSlider {
+  width: 100%;
+  height: 4px;
+  appearance: none;
+  background: #444444;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+.crossfadeSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #d4af37;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 30%);
+  transition: transform 0.15s ease;
+}
+
+.crossfadeSlider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.crossfadeSlider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: #d4af37;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 30%);
 }
 
 .playButton {
@@ -99,6 +152,30 @@
   font-size: 0.8rem;
   color: #cccccc;
   margin-left: 0.5rem;
+}
+
+.reloadButton {
+  position: absolute;
+  right: 0.25rem;
+  padding: 0.3rem 0.5rem;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  color: #d4af37;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.reloadButton:hover {
+  background: #3a3a3a;
+  border-color: #4a4a4a;
+  transform: rotate(90deg);
+}
+
+.reloadButton:active {
+  transform: rotate(90deg) scale(0.95);
 }
 
 .timeSeparator {

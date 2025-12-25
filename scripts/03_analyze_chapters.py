@@ -266,13 +266,7 @@ def merge_similar_chapters(chapters: list) -> list:
             # Keep the earlier start time, combine descriptions
             last["description"] = f"{last['description']}; {chapter['description']}"
         else:
-            # Renumber and add
-            chapter["id"] = len(merged) + 1
             merged.append(chapter)
-    
-    # Renumber final list
-    for i, chapter in enumerate(merged, 1):
-        chapter["id"] = i
     
     return merged
 
@@ -381,10 +375,6 @@ Respond with ONLY: {{"correctedStartTime": <number>, "reason": "brief"}}"""
     if corrected_chapters:
         corrected_chapters[0]["startTime"] = 0.0
     
-    # Renumber
-    for i, ch in enumerate(corrected_chapters, 1):
-        ch["id"] = i
-    
     print("   ✅ Timing validation complete")
     return corrected_chapters
 
@@ -434,7 +424,7 @@ def create_peaks_regions(chapters: list, segments: list) -> list:
         
         # Create region in peaks.js format
         region = {
-            "id": f"chapter-{chapter['id']}",
+            "id": f"chapter-{i}",
             "startTime": chapter["startTime"],
             "endTime": end_time,
             "labelText": chapter["title"],
@@ -454,7 +444,6 @@ def create_table_of_contents(chapters: list) -> list:
         seconds = int(chapter["startTime"] % 60)
         
         toc.append({
-            "id": chapter["id"],
             "title": chapter["title"],
             "startTime": chapter["startTime"],
             "formattedTime": f"{minutes:02d}:{seconds:02d}",

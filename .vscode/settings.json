@@ -16,5 +16,11 @@
 
   // Disable problematic terminal features that can interfere with input
   "terminal.integrated.altClickMovesCursor": false,
-  "terminal.integrated.copyOnSelection": false
+  "terminal.integrated.copyOnSelection": false,
+
+  // Format JSON files with Prettier on save
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  }
 }
