@@ -5,6 +5,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Index from "./pages/Index.tsx";
 import Christmas1986 from "./pages/Christmas1986.tsx";
 import "./index.css";
+import eruda from "eruda";
+
+if (import.meta.env.DEV) {
+  eruda.init();
+}
 
 const queryClient = new QueryClient();
 

@@ -56,7 +56,6 @@ export function AudioPlayer({
   const zoomviewContainerRef = useRef<HTMLDivElement>(null);
   const overviewContainerRef = useRef<HTMLDivElement>(null);
   const audioElementRef = useRef<HTMLAudioElement>(null);
-  const originalAudioRef = useRef<HTMLAudioElement>(null);
   const peaksInstanceRef = useRef<PeaksInstance | null>(null);
 
   // Store callbacks in refs to avoid dependency issues
@@ -79,9 +78,9 @@ export function AudioPlayer({
   const [duration, setDuration] = useState(0);
   const [isReady, setIsReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  // Crossfade: 0 = full original, 100 = full enhanced
-  // Default to 100 (full enhanced) so audio is audible by default
-  const [crossfade, setCrossfade] = useState(100);
+  // Toggle between original and enhanced audio
+  // Default to original (false) so the unprocessed audio plays by default
+  const [useEnhanced, setUseEnhanced] = useState(false);
   // Check if reload button should be shown via query parameter
   const [showReload] = useState(() => {
     const params = new URLSearchParams(window.location.search);
@@ -218,37 +217,16 @@ export function AudioPlayer({
 
         peaks.on("player.timeupdate", throttledTimeUpdate);
 
-        // Set up play/pause handlers
+        // Set up play/pause handlers via Peaks.js events
         peaks.on("player.playing", () => setIsPlaying(true));
         peaks.on("player.pause", () => setIsPlaying(false));
 
-        // Sync original audio with enhanced audio for dual-track playback
-        if (audioElementRef.current && originalAudioRef.current) {
-          const mainAudio = audioElementRef.current;
-          const origAudio = originalAudioRef.current;
-
-          // Sync play/pause
-          mainAudio.addEventListener("play", () => {
-            origAudio.play().catch(() => {
-              // Ignore autoplay errors
-            });
-          });
-          mainAudio.addEventListener("pause", () => {
-            origAudio.pause();
-          });
-
-          // Sync seeking
-          mainAudio.addEventListener("seeked", () => {
-            origAudio.currentTime = mainAudio.currentTime;
-          });
-
-          // Keep time in sync during playback
-          mainAudio.addEventListener("timeupdate", () => {
-            // Only sync if drift is significant (> 100ms)
-            if (Math.abs(origAudio.currentTime - mainAudio.currentTime) > 0.1) {
-              origAudio.currentTime = mainAudio.currentTime;
-            }
-          });
+        // Also listen directly on audio element for cases where we change src directly
+        // (Peaks.js events may not fire when we swap audio sources)
+        const audioEl = audioElementRef.current;
+        if (audioEl) {
+          audioEl.addEventListener("pause", () => setIsPlaying(false));
+          audioEl.addEventListener("play", () => setIsPlaying(true));
         }
 
         // Segment click handler
@@ -293,17 +271,45 @@ export function AudioPlayer({
     };
   }, [audioUrl, waveformDataUrl]);
 
-  // Update audio volumes based on crossfade slider
+  // Switch audio source when toggling between original and enhanced
+  // This approach swaps the src on the single audio element that Peaks.js controls,
+  // which is more reliable on iOS than trying to sync two separate audio elements.
   useEffect(() => {
-    if (audioElementRef.current) {
-      // Enhanced audio: full volume at crossfade=100, silent at crossfade=0
-      audioElementRef.current.volume = crossfade / 100;
+    const audio = audioElementRef.current;
+    if (!audio || !originalAudioUrl) return;
+
+    const targetSrc = useEnhanced ? audioUrl : originalAudioUrl;
+    const currentSrc = audio.currentSrc;
+
+    // Only swap if the source is actually different
+    if (currentSrc && !currentSrc.endsWith(targetSrc.replace(/^\.?\//, ""))) {
+      const wasPlaying = !audio.paused;
+      const savedTime = audio.currentTime;
+
+      // Change the source - this will pause the audio
+      audio.src = targetSrc;
+      audio.load();
+
+      // Use queueMicrotask to update state asynchronously (satisfies lint rule)
+      // This ensures the button shows "Play" while loading
+      queueMicrotask(() => setIsPlaying(false));
+
+      // Restore playback position and state once loaded
+      const handleCanPlay = (): void => {
+        audio.currentTime = savedTime;
+        if (wasPlaying) {
+          audio
+            .play()
+            .then(() => setIsPlaying(true))
+            .catch(() => {
+              // Ignore autoplay errors
+            });
+        }
+        audio.removeEventListener("canplay", handleCanPlay);
+      };
+      audio.addEventListener("canplay", handleCanPlay);
     }
-    if (originalAudioRef.current) {
-      // Original audio: full volume at crossfade=0, silent at crossfade=100
-      originalAudioRef.current.volume = (100 - crossfade) / 100;
-    }
-  }, [crossfade]);
+  }, [useEnhanced, audioUrl, originalAudioUrl]);
 
   // Update regions when they change
   useEffect(() => {
@@ -355,7 +361,6 @@ export function AudioPlayer({
   const togglePlayPause = useCallback(() => {
     const peaks = peaksInstanceRef.current;
     const audioElement = audioElementRef.current;
-    const originalAudio = originalAudioRef.current;
     if (!peaks || !audioElement) return;
 
     if (isPlaying) {
@@ -363,12 +368,7 @@ export function AudioPlayer({
     } else {
       // For iOS compatibility: call play() on audio element first to satisfy
       // user interaction requirement.
-      // We also play originalAudio explicitly to ensure it's authorized by the user gesture.
       const playPromise = audioElement.play();
-
-      if (originalAudio) {
-        originalAudio.play().catch((e) => console.warn("Original audio play failed", e));
-      }
 
       if (playPromise !== undefined) {
         playPromise
@@ -420,10 +420,12 @@ export function AudioPlayer({
 
   return (
     <div className={styles.playerContainer}>
-      {/* Hidden audio element for enhanced audio */}
+      {/* Hidden audio element for enhanced audio - no captions needed for hidden player */}
+      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <audio
         ref={audioElementRef}
         preload="auto"
+        src={originalAudioUrl && !useEnhanced ? originalAudioUrl : audioUrl}
         onError={(e) => {
           console.error("Audio element error:", e);
           const audioError = (e.target as HTMLAudioElement).error;
@@ -438,19 +440,7 @@ export function AudioPlayer({
         onLoadStart={() => console.log("Audio: Load started")}
         onLoadedMetadata={() => console.log("Audio: Metadata loaded")}
         onCanPlay={() => console.log("Audio: Can play")}
-      >
-        <track kind="captions" src="" label="Captions" default />
-        <source src={audioUrl} type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-
-      {/* Hidden audio element for original audio (synced with enhanced) */}
-      {originalAudioUrl && (
-        <audio ref={originalAudioRef} preload="auto">
-          <track kind="captions" src="" label="Captions" default />
-          <source src={originalAudioUrl} type="audio/mpeg" />
-        </audio>
-      )}
+      />
 
       {/* Zoomview waveform */}
       <div className={styles.waveformSection}>
@@ -464,21 +454,25 @@ export function AudioPlayer({
 
       {/* Playback controls */}
       <div className={styles.controls}>
-        {/* Crossfade slider - only show if original audio is available */}
+        {/* Audio toggle - only show if original audio is available */}
         {originalAudioUrl && (
-          <div className={styles.crossfadeControl}>
-            <span className={styles.crossfadeLabel}>Original</span>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={crossfade}
-              onChange={(e) => setCrossfade(Number(e.target.value))}
-              className={styles.crossfadeSlider}
-              aria-label="Audio quality crossfade"
-              title={`${crossfade}% enhanced, ${100 - crossfade}% original`}
-            />
-            <span className={styles.crossfadeLabel}>Enhanced</span>
+          <div className={styles.audioToggle}>
+            <span className={`${styles.toggleLabel} ${!useEnhanced ? styles.active : ""}`}>
+              Original
+            </span>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={useEnhanced}
+              aria-label="Toggle between original and enhanced audio"
+              className={`${styles.toggleSwitch} ${useEnhanced ? styles.enhanced : ""}`}
+              onClick={() => setUseEnhanced(!useEnhanced)}
+            >
+              <span className={styles.toggleKnob} />
+            </button>
+            <span className={`${styles.toggleLabel} ${useEnhanced ? styles.active : ""}`}>
+              Enhanced
+            </span>
           </div>
         )}
 
