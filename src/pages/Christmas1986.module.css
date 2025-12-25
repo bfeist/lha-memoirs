@@ -126,7 +126,7 @@
   }
 
   .tocSection {
-    max-height: 140px;
+    max-height: 100px;
     flex-shrink: 0;
   }
 

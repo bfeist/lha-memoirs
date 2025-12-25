@@ -457,6 +457,7 @@ export function AudioPlayer({
         {/* Audio toggle - only show if original audio is available */}
         {originalAudioUrl && (
           <div className={styles.audioToggle}>
+            {/* Desktop version: switch with labels */}
             <span className={`${styles.toggleLabel} ${!useEnhanced ? styles.active : ""}`}>
               Original
             </span>
@@ -473,8 +474,27 @@ export function AudioPlayer({
             <span className={`${styles.toggleLabel} ${useEnhanced ? styles.active : ""}`}>
               Enhanced
             </span>
+            {/* Mobile version: simple button showing current state */}
+            <button
+              type="button"
+              aria-label="Toggle between original and enhanced audio"
+              className={`${styles.toggleButton} ${useEnhanced ? styles.enhanced : ""}`}
+              onClick={() => setUseEnhanced(!useEnhanced)}
+            >
+              {useEnhanced ? "Enhanced" : "Original"}
+            </button>
           </div>
         )}
+
+        <button
+          onClick={() => skip(-10)}
+          className={styles.skipButton}
+          disabled={!isReady}
+          aria-label="Skip back 10 seconds"
+        >
+          <FontAwesomeIcon icon={faArrowRotateLeft} />
+          <span>10s</span>
+        </button>
 
         <button
           onClick={() => skip(-10)}
