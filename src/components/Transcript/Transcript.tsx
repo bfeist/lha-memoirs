@@ -124,8 +124,6 @@ export function Transcript({
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>Transcript</h2>
-
       <p className={styles.hint}>Click any text to jump to that moment</p>
 
       <div ref={containerRef} className={styles.transcriptContent}>

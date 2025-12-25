@@ -107,7 +107,7 @@
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-width: 80px;
+  width: 102px;
 }
 
 .playButton:disabled {
@@ -201,4 +201,10 @@
 
 .error p {
   margin: 0.25rem 0;
+}
+
+@media (width <= 774px) {
+  .skipButton {
+    display: none;
+  }
 }

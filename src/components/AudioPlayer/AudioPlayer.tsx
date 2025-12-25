@@ -80,7 +80,12 @@ export function AudioPlayer({
   const [isReady, setIsReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
   // Crossfade: 0 = full original, 100 = full enhanced
-  const [crossfade, setCrossfade] = useState(100);
+  const [crossfade, setCrossfade] = useState(0);
+  // Check if reload button should be shown via query parameter
+  const [showReload] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("showReload") === "true";
+  });
 
   // Format time as MM:SS
   const formatTime = useCallback((seconds: number): string => {
@@ -256,7 +261,30 @@ export function AudioPlayer({
       }
     });
 
+    // Handle container resize using ResizeObserver
+    const resizeObserver = new ResizeObserver(() => {
+      if (peaksInstanceRef.current) {
+        const zoomView = peaksInstanceRef.current.views.getView("zoomview");
+        const overviewView = peaksInstanceRef.current.views.getView("overview");
+
+        if (zoomView) {
+          zoomView.fitToContainer();
+        }
+        if (overviewView) {
+          overviewView.fitToContainer();
+        }
+      }
+    });
+
+    if (zoomviewContainerRef.current) {
+      resizeObserver.observe(zoomviewContainerRef.current);
+    }
+    if (overviewContainerRef.current) {
+      resizeObserver.observe(overviewContainerRef.current);
+    }
+
     return () => {
+      resizeObserver.disconnect();
       if (peaksInstanceRef.current) {
         peaksInstanceRef.current.destroy();
         peaksInstanceRef.current = null;
@@ -469,7 +497,7 @@ export function AudioPlayer({
           <span>{formatTime(duration)}</span>
         </div>
 
-        {onReload && (
+        {onReload && showReload && (
           <button
             className={styles.reloadButton}
             onClick={onReload}
