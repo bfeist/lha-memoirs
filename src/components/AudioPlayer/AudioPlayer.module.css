@@ -204,6 +204,18 @@
 }
 
 @media (width <= 774px) {
+  .controls {
+    flex-wrap: wrap;
+  }
+
+  .crossfadeControl {
+    position: static;
+    width: 100%;
+    order: -1;
+    justify-content: center;
+    margin-bottom: 0.25rem;
+  }
+
   .skipButton {
     display: none;
   }

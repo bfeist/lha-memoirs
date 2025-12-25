@@ -148,3 +148,25 @@
 .segmentText.pastSegment {
   color: #999999;
 }
+
+@media (width <= 774px) {
+  .chapterSection {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+  }
+
+  .chapterTitle {
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .chapterDescription {
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .paragraph {
+    line-height: 1.5;
+    font-size: 0.85rem;
+  }
+}
