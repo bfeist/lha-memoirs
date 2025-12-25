@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { AudioPlayer, usePeaksSeek } from "../components/AudioPlayer/AudioPlayer";
 import { TableOfContents } from "../components/TableOfContents/TableOfContents";
 import { Transcript } from "../components/Transcript/Transcript";
@@ -135,7 +136,9 @@ function Christmas1986(): React.ReactElement {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <h1 className={styles.title}>
-            Linden Hilary Achen - Christmas 1986 <span className={styles.titleIcon}>🎄</span>
+            <Link to="/">
+              Linden Hilary Achen - Christmas 1986 <span className={styles.titleIcon}>🎄</span>
+            </Link>
           </h1>
           <p className={styles.subtitle}>A letter to his son, Norman Achen, November 26, 1986.</p>
         </div>

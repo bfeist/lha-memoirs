@@ -34,7 +34,7 @@ function Index(): React.ReactElement {
             <Link to="/christmas1986" className={styles.letterCard}>
               <span className={styles.letterIcon}>🎄</span>
               <div className={styles.letterInfo}>
-                <h3>Christmas Letter, 1986</h3>
+                <h3>Christmas 1986</h3>
                 <p>A letter to his son, Norman Achen. Recorded on November 26, 1986.</p>
               </div>
               <span className={styles.arrow}>→</span>
