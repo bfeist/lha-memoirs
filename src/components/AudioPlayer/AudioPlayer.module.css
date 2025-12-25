@@ -94,6 +94,31 @@
   transform: translateX(20px);
 }
 
+/* Mobile button version */
+.toggleButton {
+  display: none;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #cccccc;
+  background: rgb(255 255 255 / 8%);
+  border: 1px solid rgb(255 255 255 / 15%);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+}
+
+.toggleButton.enhanced {
+  color: #d4af37;
+  border-color: rgb(212 175 55 / 30%);
+  background: rgb(212 175 55 / 10%);
+}
+
 .playButton {
   display: flex;
   align-items: center;
@@ -211,16 +236,29 @@
 }
 
 @media (width <= 774px) {
+  .overview {
+    height: 32.5px;
+  }
+
   .controls {
-    flex-wrap: wrap;
+    gap: 0.4rem;
   }
 
   .audioToggle {
     position: static;
-    width: 100%;
     order: -1;
-    justify-content: center;
-    margin-bottom: 0.5rem;
+  }
+
+  .toggleLabel {
+    display: none;
+  }
+
+  .toggleSwitch {
+    display: none;
+  }
+
+  .toggleButton {
+    display: block;
   }
 
   .skipButton {
