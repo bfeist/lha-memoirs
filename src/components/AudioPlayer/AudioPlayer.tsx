@@ -11,12 +11,14 @@ import styles from "./AudioPlayer.module.css";
 
 interface AudioPlayerProps {
   audioUrl: string;
+  originalAudioUrl?: string;
   waveformDataUrl: string;
   regions?: PeaksRegion[];
   currentChapterId?: string | null;
   onTimeUpdate?: (currentTime: number) => void;
   onRegionClick?: (regionId: string) => void;
   onReady?: (peaksInstance: PeaksInstance) => void;
+  onReload?: () => void;
 }
 
 // Throttle function for time updates to prevent excessive re-renders
@@ -42,16 +44,19 @@ const SEGMENT_COLOR_ACTIVE = "rgba(212, 175, 55, 0.5)";
 
 export function AudioPlayer({
   audioUrl,
+  originalAudioUrl,
   waveformDataUrl,
   regions = [],
   currentChapterId,
   onTimeUpdate,
   onRegionClick,
   onReady,
+  onReload,
 }: AudioPlayerProps): React.ReactElement {
   const zoomviewContainerRef = useRef<HTMLDivElement>(null);
   const overviewContainerRef = useRef<HTMLDivElement>(null);
   const audioElementRef = useRef<HTMLAudioElement>(null);
+  const originalAudioRef = useRef<HTMLAudioElement>(null);
   const peaksInstanceRef = useRef<PeaksInstance | null>(null);
 
   // Store callbacks in refs to avoid dependency issues
@@ -74,6 +79,8 @@ export function AudioPlayer({
   const [duration, setDuration] = useState(0);
   const [isReady, setIsReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // Crossfade: 0 = full original, 100 = full enhanced
+  const [crossfade, setCrossfade] = useState(100);
 
   // Format time as MM:SS
   const formatTime = useCallback((seconds: number): string => {
@@ -209,6 +216,35 @@ export function AudioPlayer({
         peaks.on("player.playing", () => setIsPlaying(true));
         peaks.on("player.pause", () => setIsPlaying(false));
 
+        // Sync original audio with enhanced audio for dual-track playback
+        if (audioElementRef.current && originalAudioRef.current) {
+          const mainAudio = audioElementRef.current;
+          const origAudio = originalAudioRef.current;
+
+          // Sync play/pause
+          mainAudio.addEventListener("play", () => {
+            origAudio.play().catch(() => {
+              // Ignore autoplay errors
+            });
+          });
+          mainAudio.addEventListener("pause", () => {
+            origAudio.pause();
+          });
+
+          // Sync seeking
+          mainAudio.addEventListener("seeked", () => {
+            origAudio.currentTime = mainAudio.currentTime;
+          });
+
+          // Keep time in sync during playback
+          mainAudio.addEventListener("timeupdate", () => {
+            // Only sync if drift is significant (> 100ms)
+            if (Math.abs(origAudio.currentTime - mainAudio.currentTime) > 0.1) {
+              origAudio.currentTime = mainAudio.currentTime;
+            }
+          });
+        }
+
         // Segment click handler
         peaks.on("segments.click", (event) => {
           if (event.segment) {
@@ -227,6 +263,18 @@ export function AudioPlayer({
       }
     };
   }, [audioUrl, waveformDataUrl]);
+
+  // Update audio volumes based on crossfade slider
+  useEffect(() => {
+    if (audioElementRef.current) {
+      // Enhanced audio: full volume at crossfade=100, silent at crossfade=0
+      audioElementRef.current.volume = crossfade / 100;
+    }
+    if (originalAudioRef.current) {
+      // Original audio: full volume at crossfade=0, silent at crossfade=100
+      originalAudioRef.current.volume = (100 - crossfade) / 100;
+    }
+  }, [crossfade]);
 
   // Update regions when they change
   useEffect(() => {
@@ -323,7 +371,7 @@ export function AudioPlayer({
 
   return (
     <div className={styles.playerContainer}>
-      {/* Hidden audio element */}
+      {/* Hidden audio element for enhanced audio */}
       <audio
         ref={audioElementRef}
         preload="auto"
@@ -347,6 +395,14 @@ export function AudioPlayer({
         Your browser does not support the audio element.
       </audio>
 
+      {/* Hidden audio element for original audio (synced with enhanced) */}
+      {originalAudioUrl && (
+        <audio ref={originalAudioRef} preload="auto">
+          <track kind="captions" src="" label="Captions" default />
+          <source src={originalAudioUrl} type="audio/mpeg" />
+        </audio>
+      )}
+
       {/* Zoomview waveform */}
       <div className={styles.waveformSection}>
         <div ref={zoomviewContainerRef} className={styles.zoomview} />
@@ -359,6 +415,24 @@ export function AudioPlayer({
 
       {/* Playback controls */}
       <div className={styles.controls}>
+        {/* Crossfade slider - only show if original audio is available */}
+        {originalAudioUrl && (
+          <div className={styles.crossfadeControl}>
+            <span className={styles.crossfadeLabel}>Original</span>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={crossfade}
+              onChange={(e) => setCrossfade(Number(e.target.value))}
+              className={styles.crossfadeSlider}
+              aria-label="Audio quality crossfade"
+              title={`${crossfade}% enhanced, ${100 - crossfade}% original`}
+            />
+            <span className={styles.crossfadeLabel}>Enhanced</span>
+          </div>
+        )}
+
         <button
           onClick={() => skip(-10)}
           className={styles.skipButton}
@@ -394,6 +468,17 @@ export function AudioPlayer({
           <span className={styles.timeSeparator}>/</span>
           <span>{formatTime(duration)}</span>
         </div>
+
+        {onReload && (
+          <button
+            className={styles.reloadButton}
+            onClick={onReload}
+            type="button"
+            aria-label="Reload data"
+          >
+            🔄
+          </button>
+        )}
       </div>
 
       {!isReady && <div className={styles.loading}>Loading audio...</div>}

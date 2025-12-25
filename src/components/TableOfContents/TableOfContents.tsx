@@ -12,16 +12,16 @@ export function TableOfContents({
   onEntryClick,
 }: TableOfContentsProps): React.ReactElement {
   // Determine which entry is currently active
-  const getCurrentEntryId = (): number | null => {
+  const getCurrentEntryIndex = (): number | null => {
     for (let i = entries.length - 1; i >= 0; i--) {
       if (currentTime >= entries[i].startTime) {
-        return entries[i].id;
+        return i;
       }
     }
-    return entries.length > 0 ? entries[0].id : null;
+    return entries.length > 0 ? 0 : null;
   };
 
-  const currentEntryId = getCurrentEntryId();
+  const currentEntryIndex = getCurrentEntryIndex();
 
   return (
     <div className={styles.container}>
@@ -31,12 +31,12 @@ export function TableOfContents({
 
       <nav className={styles.tocList} aria-label="Table of Contents">
         {entries.map((entry, index) => {
-          const isActive = entry.id === currentEntryId;
+          const isActive = index === currentEntryIndex;
           const isPast = entry.startTime < currentTime && !isActive;
 
           return (
             <button
-              key={entry.id}
+              key={index}
               onClick={() => onEntryClick(entry)}
               className={`${styles.tocItem} ${isActive ? styles.active : ""} ${isPast ? styles.past : ""}`}
               aria-current={isActive ? "true" : undefined}
