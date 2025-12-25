@@ -42,6 +42,7 @@
     "@vitejs/plugin-react-swc": "^4.2.2",
     "@vitest/ui": "^4.0.16",
     "concurrently": "^9.2.1",
+    "eruda": "^3.4.3",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-css-modules": "^2.12.0",
