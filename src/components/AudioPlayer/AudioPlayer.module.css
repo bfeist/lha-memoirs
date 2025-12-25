@@ -108,6 +108,8 @@
   cursor: pointer;
   transition: all 0.2s ease;
   width: 102px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .playButton:disabled {
@@ -131,6 +133,8 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .skipButton:disabled {
@@ -166,6 +170,8 @@
   cursor: pointer;
   transition: all 0.2s ease;
   line-height: 1;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .reloadButton:hover {

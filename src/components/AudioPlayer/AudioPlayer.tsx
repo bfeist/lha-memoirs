@@ -353,13 +353,34 @@ export function AudioPlayer({
   // Play/pause toggle
   const togglePlayPause = useCallback(() => {
     const peaks = peaksInstanceRef.current;
-    if (!peaks) return;
+    const audioElement = audioElementRef.current;
+    const originalAudio = originalAudioRef.current;
+    if (!peaks || !audioElement) return;
 
     const player = peaks.player;
     if (isPlaying) {
       player.pause();
     } else {
-      player.play();
+      // Call play() directly on audio elements for iOS compatibility
+      // iOS requires direct user interaction with the audio element
+      // Play both audio elements to ensure dual-track playback works on iOS
+      const playPromise = audioElement.play();
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Main audio started successfully, now start original if present
+            if (originalAudio) {
+              originalAudio.play().catch((err) => {
+                console.warn("Failed to play original audio:", err);
+              });
+            }
+          })
+          .catch((error) => {
+            console.error("Failed to play audio:", error);
+            setError("Failed to play audio. Please try again.");
+          });
+      }
     }
   }, [isPlaying]);
 
