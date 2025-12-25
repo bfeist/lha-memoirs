@@ -139,7 +139,8 @@ function Christmas1986(): React.ReactElement {
             Christmas 1986
           </h1>
           <p className={styles.subtitle}>
-            A letter from Grandpa to his son, recorded during the holiday season
+            A letter from Linden Hilary Achen to his son, Norman Achen. Recorded on November 26,
+            1986
           </p>
         </div>
       </header>
@@ -188,7 +189,7 @@ function Christmas1986(): React.ReactElement {
               />
             ) : (
               <div className={styles.placeholderBox}>
-                <h2>📖 Table of Contents</h2>
+                <h2>Chapters</h2>
                 <p>Chapter information will appear here after processing.</p>
               </div>
             )}
@@ -205,7 +206,7 @@ function Christmas1986(): React.ReactElement {
               />
             ) : (
               <div className={styles.placeholderBox}>
-                <h2>📝 Full Transcript</h2>
+                <h2>Transcript</h2>
                 <p>The transcript will appear here after processing the audio.</p>
               </div>
             )}
