@@ -137,9 +137,7 @@ function Christmas1986(): React.ReactElement {
           <h1 className={styles.title}>
             Linden Hilary Achen - Christmas 1986 <span className={styles.titleIcon}>🎄</span>
           </h1>
-          <p className={styles.subtitle}>
-            A letter to his son, Norman Achen. Recorded on November 26, 1986.
-          </p>
+          <p className={styles.subtitle}>A letter to his son, Norman Achen, November 26, 1986.</p>
         </div>
       </header>
 
