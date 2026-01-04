@@ -497,16 +497,6 @@ export function AudioPlayer({
         </button>
 
         <button
-          onClick={() => skip(-10)}
-          className={styles.skipButton}
-          disabled={!isReady}
-          aria-label="Skip back 10 seconds"
-        >
-          <FontAwesomeIcon icon={faArrowRotateLeft} />
-          <span>10s</span>
-        </button>
-
-        <button
           onClick={togglePlayPause}
           className={styles.playButton}
           disabled={!isReady}
