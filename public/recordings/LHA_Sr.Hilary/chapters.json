@@ -1,0 +1,65 @@
+{
+  "chapters": [
+    {
+      "title": "Obituary Draft",
+      "startTime": 0.0,
+      "description": "Details of a planned obituary, including names and dates."
+    },
+    {
+      "title": "Family Relationships",
+      "startTime": 67.0,
+      "description": "Listing of surviving family members."
+    },
+    {
+      "title": "Career History",
+      "startTime": 233.0,
+      "description": "Account of work experience in the electrical field."
+    },
+    {
+      "title": "Power Plant Work",
+      "startTime": 262.0,
+      "description": "Experiences with various electric power companies."
+    },
+    {
+      "title": "Business Leadership",
+      "startTime": 338.0,
+      "description": "Roles as president and manager of multiple companies."
+    },
+    {
+      "title": "Professional Affiliations",
+      "startTime": 384.0,
+      "description": "Membership in various organizations and professional licenses."
+    },
+    {
+      "title": "Construction Company History",
+      "startTime": 479.0,
+      "description": "Founding and sale of Achen Construction"
+    },
+    {
+      "title": "Family & Reflections",
+      "startTime": 633.0,
+      "description": "Sister, legacy, and life's purpose"
+    },
+    {
+      "title": "Random Ramblings",
+      "startTime": 725.0,
+      "description": "Sprinkler, bank operation, and memories"
+    },
+    {
+      "title": "Bird and Water",
+      "startTime": 832.0,
+      "description": "Observation of a bird drinking water"
+    },
+    {
+      "title": "Property Sale",
+      "startTime": 878.0,
+      "description": "Details of a company acquisition"
+    },
+    {
+      "title": "Tape Review",
+      "startTime": 947.0,
+      "description": "Reviewing and reminiscing about old tapes"
+    }
+  ],
+  "summary": "A personal memoir recording covering family memories and life stories."
+}

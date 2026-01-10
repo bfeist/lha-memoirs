@@ -1,6 +1,34 @@
 # Audio Processing Scripts
 
-These Python scripts process the memoir audio files for the web application.
+These Python scripts process memoir audio files for the web application.
+
+## Source Audio Structure
+
+Place your recordings in `/source_audio/` with each recording in its own folder.
+Nested folder structures are preserved in the output:
+
+```
+source_audio/
+├── christmas1986/              # → public/recordings/christmas1986/
+│   └── Dad_xmas-1986.wav
+├── memoirs/                    # Parent folder (no audio files directly)
+│   ├── HF_60/                  # → public/recordings/memoirs/HF_60/
+│   │   ├── 1_2.wav
+│   │   ├── 3.wav
+│   │   └── ...
+│   └── Supertape/              # → public/recordings/memoirs/Supertape/
+│       ├── Supertape_1.wav
+│       ├── Supertape_2.wav
+│       └── ...
+└── glynn_interview/            # → public/recordings/glynn_interview/
+    └── Glynn_interview_1.wav
+```
+
+**Notes:**
+
+- Files are processed in natural sort order (1, 2, 10 not 1, 10, 2)
+- Multiple audio files in a folder are concatenated into one recording
+- Scripts skip recordings that already have output files
 
 ## Prerequisites
 
@@ -44,35 +72,45 @@ uv pip install -r requirements.txt
 
 ## Running the Scripts
 
-### Option 1: Run All Scripts
+### Option 1: Process All Recordings
 
 ```bash
 uv run process_all.py
 ```
 
-### Option 2: Run Scripts Individually
+### Option 2: Process a Specific Recording (supports nested paths)
+
+```bash
+uv run process_all.py christmas1986
+uv run process_all.py memoirs/HF_60
+uv run process_all.py memoirs          # processes all recordings under memoirs/
+```
+
+### Option 3: Run Scripts Individually
+
+Each script accepts an optional recording path argument:
 
 1. **Transcribe audio** (requires ~10-20 min for 45 min audio)
 
    ```bash
-   uv run 01_transcribe.py
+   uv run 01_transcribe.py [recording_path]
    ```
 
-2. **Generate waveforms** (requires audiowaveform in PATH)
+2. **Convert to MP3 and generate waveforms**
 
    ```bash
-   uv run 02_generate_waveform.py
+   uv run 02_generate_waveform.py [recording_path]
    ```
 
 3. **Analyze chapters** (requires Ollama running)
 
    ```bash
-   uv run 03_analyze_chapters.py
+   uv run 03_analyze_chapters.py [recording_path]
    ```
 
 ## Output Files
 
-All output goes to `/public/recordings/christmas1986/:
+Output goes to `/public/recordings/{recording_path}/`:
 
 | File              | Description                           |
 | ----------------- | ------------------------------------- |
@@ -80,10 +118,46 @@ All output goes to `/public/recordings/christmas1986/:
 | `transcript.json` | Full transcript with segments         |
 | `waveform.json`   | Waveform data for peaks.js            |
 | `chapters.json`   | Chapter analysis from LLM             |
-| `regions.json`    | Peaks.js region data                  |
-| `toc.json`        | Table of contents for UI              |
 
-**Note:** The React app uses `audio.mp3`, `transcript.json`, `waveform.json`, `chapters.json`, `regions.json`, and `toc.json`.
+### transcript.json Structure
+
+For single-file recordings:
+
+```json
+{
+  "segments": [{ "start": 0.0, "end": 5.0, "text": "..." }],
+  "totalDuration": 300.0,
+  "language": "en"
+}
+```
+
+For multi-file recordings (source files are concatenated into one MP3):
+
+```json
+{
+  "segments": [
+    { "start": 0.0, "end": 5.0, "text": "...", "fileIndex": 0 },
+    { "start": 125.0, "end": 130.0, "text": "...", "fileIndex": 1 }
+  ],
+  "files": [
+    { "startTime": 0.0, "endTime": 120.0, "duration": 120.0 },
+    { "startTime": 120.0, "endTime": 300.0, "duration": 180.0 }
+  ],
+  "totalDuration": 300.0,
+  "language": "en"
+}
+```
+
+The `files` array tracks timing boundaries of the original source files (for UI display like "Part 1", "Part 2").
+
+### chapters.json Structure
+
+```json
+{
+  "chapters": [{ "title": "Opening", "startTime": 0.0, "description": "..." }],
+  "summary": "Brief summary of the recording."
+}
+```
 
 ## Troubleshooting
 

@@ -1,0 +1,725 @@
+{
+  "chapters": [
+    {
+      "title": "Recording Technicalities",
+      "startTime": 0.0,
+      "description": "Initial comments about recording and playback"
+    },
+    {
+      "title": "Iowa Farm Origins",
+      "startTime": 38.0,
+      "description": "Family history and move from Iowa"
+    },
+    {
+      "title": "Canadian Settlement",
+      "startTime": 85.0,
+      "description": "Arrival and early experiences in Canada"
+    },
+    {
+      "title": "Early Childhood Home",
+      "startTime": 128.0,
+      "description": "Details about the initial house and living conditions."
+    },
+    {
+      "title": "House Expansion & Timeline",
+      "startTime": 275.0,
+      "description": "Description of the house's construction and approximate year."
+    },
+    {
+      "title": "Schooling & Travel",
+      "startTime": 454.0,
+      "description": "Experiences with multiple schools and the journey to get there."
+    },
+    {
+      "title": "Early Education",
+      "startTime": 458.0,
+      "description": "Describes schooling and curriculum"
+    },
+    {
+      "title": "Iowa Trip Memories",
+      "startTime": 465.0,
+      "description": "Recounts a childhood trip to Iowa"
+    },
+    {
+      "title": "Farm Life & Chores",
+      "startTime": 751.0,
+      "description": "Details farm work and childhood responsibilities"
+    },
+    {
+      "title": "Early Convent Life",
+      "startTime": 804.0,
+      "description": "Experiences within the convent and early education."
+    },
+    {
+      "title": "Quitting School & Trapping",
+      "startTime": 949.0,
+      "description": "Decision to leave school and pursue trapping as a livelihood."
+    },
+    {
+      "title": "Farm Work & Isolation",
+      "startTime": 1021.0,
+      "description": "Daily chores, livestock care, and limited access to news."
+    },
+    {
+      "title": "Early Communication",
+      "startTime": 1083.0,
+      "description": "Limited news and information access"
+    },
+    {
+      "title": "Fur Trading Success",
+      "startTime": 1144.0,
+      "description": "Profit from fur sales and market manipulation"
+    },
+    {
+      "title": "Farm Labor & Work",
+      "startTime": 1241.0,
+      "description": "Hard physical labor and farm chores"
+    },
+    {
+      "title": "Barn Construction",
+      "startTime": 1344.0,
+      "description": "Details of barn building and foundation work"
+    },
+    {
+      "title": "Early Farm Life",
+      "startTime": 1387.0,
+      "description": "Experiences with water hauling and farm chores"
+    },
+    {
+      "title": "Crop & Farm Years",
+      "startTime": 1387.0,
+      "description": "Recollections of harvests, livestock, and machinery"
+    },
+    {
+      "title": "Thrashing Operations",
+      "startTime": 1472.0,
+      "description": "Details about running and maintaining a thrashing machine.; Experiences with family members and farm work during the 1920s."
+    },
+    {
+      "title": "Rural Social Life",
+      "startTime": 1488.0,
+      "description": "Description of leisure activities and social interactions in a rural community.; Weekly gatherings, ball teams, picnics, routine work"
+    },
+    {
+      "title": "Father's Illness & Death",
+      "startTime": 1663.0,
+      "description": "Crop failure, father's declining health, medical visits, passing"
+    },
+    {
+      "title": "Family & Travel",
+      "startTime": 1988.0,
+      "description": "Mother's location, train travel, funeral arrangements"
+    },
+    {
+      "title": "Family & Funeral",
+      "startTime": 2052.0,
+      "description": "Dealing with loss and inheritance."
+    },
+    {
+      "title": "Farm Labor Dispute",
+      "startTime": 2222.0,
+      "description": "Disagreement over wages and farm management."
+    },
+    {
+      "title": "Iowa Odd Jobs",
+      "startTime": 2272.0,
+      "description": "Various temporary employment experiences."
+    },
+    {
+      "title": "Early Work & Wages",
+      "startTime": 2272.0,
+      "description": "Initial employment, car purchase, and wage negotiation.; Transition to lineman work, training, and pole climbing."
+    },
+    {
+      "title": "Family Crisis & Farming",
+      "startTime": 2562,
+      "description": "Brother's hardship, decision to farm, and initial farming experience."
+    },
+    {
+      "title": "Corn Planting & Loss",
+      "startTime": 2705.0,
+      "description": "Initial corn planting, cultivation, and subsequent hailstorm damage."
+    },
+    {
+      "title": "Harvesting & Travel",
+      "startTime": 2753.0,
+      "description": "Helping with oat harvest, travel to Nebraska, and subsequent grain harvesting."
+    },
+    {
+      "title": "Thrashing Machine Troubles",
+      "startTime": 2802.0,
+      "description": "Experiences and conflicts while working on a thrashing machine."
+    },
+    {
+      "title": "Machine Malfunction",
+      "startTime": 2846.0,
+      "description": "Describes initial equipment failure and repair."
+    },
+    {
+      "title": "Work & Conditions",
+      "startTime": 2846.0,
+      "description": "Details wages, work hours, and living conditions."
+    },
+    {
+      "title": "Travel & Mishap",
+      "startTime": 3197.0,
+      "description": "Relates journey to Canada and subsequent car accident."
+    },
+    {
+      "title": "Initial Job & Foreman",
+      "startTime": 3271.0,
+      "description": "Securing a job with a power line crew and early experiences with a foreman.; Progression through various foreman and crew assignments."
+    },
+    {
+      "title": "Boring Machine Work",
+      "startTime": 3444.0,
+      "description": "Assignment to and experience operating a boring machine."
+    },
+    {
+      "title": "Thrashing Work",
+      "startTime": 3517.0,
+      "description": "Experiences with threshing machines and related labor."
+    },
+    {
+      "title": "Seeking Employment",
+      "startTime": 3591.0,
+      "description": "Searching for work and initial attempts to find a job."
+    },
+    {
+      "title": "Line Crew Work",
+      "startTime": 3647.0,
+      "description": "Employment as a lineman and experiences with a flying squad."
+    },
+    {
+      "title": "North Dakota Incident",
+      "startTime": 3790.0,
+      "description": "Sudden, alarming confrontation in Crosby"
+    },
+    {
+      "title": "Immigration & Deportation",
+      "startTime": 3835.0,
+      "description": "Experiences with immigration laws and deportation threats"
+    },
+    {
+      "title": "Farming & Work",
+      "startTime": 3875.0,
+      "description": "Details about farm work and subsequent power line job"
+    },
+    {
+      "title": "Initial Foreman Offer",
+      "startTime": 4055.0,
+      "description": "Unexpected promotion and temporary work commitment"
+    },
+    {
+      "title": "Service Work & Farm",
+      "startTime": 4081.0,
+      "description": "Transition to service work and return to farming"
+    },
+    {
+      "title": "Wage Dispute & Crew Lead",
+      "startTime": 4220.0,
+      "description": "Negotiating wages and leading a construction crew"
+    },
+    {
+      "title": "Wage & Crew Work",
+      "startTime": 4220.0,
+      "description": "Initial discussion of wages and crew performance.; Details of various work locations and projects."
+    },
+    {
+      "title": "Power Commission Hiring",
+      "startTime": 4220.0,
+      "description": "Narrative of securing a position with the Power Commission."
+    },
+    {
+      "title": "Rosetown District Work",
+      "startTime": 4220.0,
+      "description": "Initial assignment and subsequent improvements"
+    },
+    {
+      "title": "Leave of Absence",
+      "startTime": 4696.0,
+      "description": "Requesting and taking a three-month leave"
+    },
+    {
+      "title": "Mydale Power System",
+      "startTime": 4756.0,
+      "description": "Installation of a power distribution system and subsequent wiring work"
+    },
+    {
+      "title": "Farm Work & Harvest",
+      "startTime": 4875.0,
+      "description": "Seasonal farm labor and threshing operations"
+    },
+    {
+      "title": "Electrical Work - Early",
+      "startTime": 4940.0,
+      "description": "Early electrical work and pay rates"
+    },
+    {
+      "title": "Electrical Work - Later",
+      "startTime": 4944.0,
+      "description": "Extensive electrical work across multiple locations"
+    },
+    {
+      "title": "Winter Work & Board",
+      "startTime": 4944.0,
+      "description": "Living arrangements and odd jobs during winter."
+    },
+    {
+      "title": "Power Line Project",
+      "startTime": 4965.0,
+      "description": "Overhauling the Shawtoven to Assiniboine power line."
+    },
+    {
+      "title": "Plant Management & Deal",
+      "startTime": 5070.0,
+      "description": "Running the Tompkins power plant and negotiating a deal."
+    },
+    {
+      "title": "Job Offer Rejection",
+      "startTime": 5248.0,
+      "description": "Initial job denial due to nepotism."
+    },
+    {
+      "title": "Power Plant Ventures",
+      "startTime": 5300.0,
+      "description": "Expansion of power services to new towns."
+    },
+    {
+      "title": "Work and Travel",
+      "startTime": 5302.0,
+      "description": "Relocation, wiring work, and subsequent job changes."
+    },
+    {
+      "title": "Holiday & Assistance",
+      "startTime": 5460.0,
+      "description": "Brief mention of time off and lack of help"
+    },
+    {
+      "title": "Power Plant Incident",
+      "startTime": 5461.0,
+      "description": "Details of generator failure and telegram communication"
+    },
+    {
+      "title": "Bidding & Power Lines",
+      "startTime": 5753.0,
+      "description": "Describes bidding process and power line construction projects"
+    },
+    {
+      "title": "Initial Bidding Process",
+      "startTime": 5768.0,
+      "description": "Describes the initial bid and acquisition of the power line."
+    },
+    {
+      "title": "Truck Acquisition & Work",
+      "startTime": 5930.0,
+      "description": "Details the purchase and use of trucks for work."
+    },
+    {
+      "title": "Team Building & Training",
+      "startTime": 6150.0,
+      "description": "Focuses on building a team and training young workers."
+    },
+    {
+      "title": "Training Young Workers",
+      "startTime": 6211.0,
+      "description": "Mentoring, discipline, and development of new employees"
+    },
+    {
+      "title": "Work & Labor Changes",
+      "startTime": 6279.0,
+      "description": "Shift from manual labor to machine operation in construction"
+    },
+    {
+      "title": "Project Timeline & Details",
+      "startTime": 6320.0,
+      "description": "Specific construction projects, dates, and geographic locations"
+    },
+    {
+      "title": "Yorkton Crew Startup",
+      "startTime": 6489.0,
+      "description": "Establishing a new crew in Yorkton and associated challenges"
+    },
+    {
+      "title": "Bidding & Logistics",
+      "startTime": 6531.0,
+      "description": "Estimating costs and labor management"
+    },
+    {
+      "title": "Regina Relocation",
+      "startTime": 6601.0,
+      "description": "Moving to Regina and subsequent work opportunities"
+    },
+    {
+      "title": "Contract & Finances",
+      "startTime": 6751.0,
+      "description": "Describes payment structure and equipment rental."
+    },
+    {
+      "title": "Work & Relationships",
+      "startTime": 6751.0,
+      "description": "Details working relationship with city officials and a past job."
+    },
+    {
+      "title": "Family & Workload",
+      "startTime": 6869.0,
+      "description": "Mentions family life and demanding work schedule."
+    },
+    {
+      "title": "Initial Job Discrepancies",
+      "startTime": 6960.0,
+      "description": "Early issues with a job and initial work"
+    },
+    {
+      "title": "High-Tension Line Work",
+      "startTime": 6965.0,
+      "description": "Construction of high-tension power lines"
+    },
+    {
+      "title": "Contract Disputes & Projects",
+      "startTime": 6977.0,
+      "description": "Conflicts with supervisors and additional work assignments"
+    },
+    {
+      "title": "Initial Work Reluctance",
+      "startTime": 7039.0,
+      "description": "Resistance to assigned tasks and initial work."
+    },
+    {
+      "title": "Farm Program Expansion",
+      "startTime": 7132.0,
+      "description": "Growth of farm-related projects and geographical spread."
+    },
+    {
+      "title": "Business Incorporation & Changes",
+      "startTime": 7375.0,
+      "description": "Company incorporation, desk work, and bidding practices."
+    },
+    {
+      "title": "Bidding & Finances",
+      "startTime": 7517.0,
+      "description": "Early bidding practices and financial struggles"
+    },
+    {
+      "title": "Equipment & Expansion",
+      "startTime": 7640.0,
+      "description": "Growth of machinery and diversification of work"
+    },
+    {
+      "title": "Health & Succession",
+      "startTime": 7705.0,
+      "description": "Personal health challenges and employee leadership"
+    },
+    {
+      "title": "Initial Profitability",
+      "startTime": 7850.0,
+      "description": "Early financial success and profit distribution."
+    },
+    {
+      "title": "Potash & Contracts",
+      "startTime": 7889.0,
+      "description": "Work related to potash mines and contract fulfillment."
+    },
+    {
+      "title": "Swift Current Job",
+      "startTime": 7935.0,
+      "description": "Details of a large project and subsequent challenges."
+    },
+    {
+      "title": "Business Sale Terms",
+      "startTime": 8105.0,
+      "description": "Details of the business sale agreement and ownership structure."
+    },
+    {
+      "title": "Contracting Industry Shift",
+      "startTime": 8170.0,
+      "description": "Changes in government policy impacting contracting work."
+    },
+    {
+      "title": "Property Rental History",
+      "startTime": 8235.0,
+      "description": "Evolution of rental agreements and considerations for tenant retention."
+    },
+    {
+      "title": "Company Ownership Changes",
+      "startTime": 8332.0,
+      "description": "Succession of owners and share transfers"
+    },
+    {
+      "title": "Bill Zaharachuk's Death",
+      "startTime": 8400.0,
+      "description": "Sudden death during winter work"
+    },
+    {
+      "title": "Retainer & Continued Involvement",
+      "startTime": 8581.0,
+      "description": "Speaker's ongoing retainer and occasional assistance"
+    },
+    {
+      "title": "Supplemental Income",
+      "startTime": 8581.0,
+      "description": "Describes a small, ongoing payment for a backup electrician role."
+    },
+    {
+      "title": "Power Commission History",
+      "startTime": 8695.0,
+      "description": "Recalls early work experience and anecdotes from the Power Commission."
+    },
+    {
+      "title": "Contractor Relationships",
+      "startTime": 8725.0,
+      "description": "Details interactions with engineers, construction superintendents, and the impact of unionization."
+    },
+    {
+      "title": "Material Acquisition Issues",
+      "startTime": 8902.0,
+      "description": "Challenges obtaining necessary materials from the government."
+    },
+    {
+      "title": "Management & Personnel",
+      "startTime": 8945.0,
+      "description": "Dealing with employee performance, demotions, and turnover."
+    },
+    {
+      "title": "Leadership & Business Longevity",
+      "startTime": 8995.0,
+      "description": "Factors contributing to long-term business success and retaining employees."
+    },
+    {
+      "title": "Office & Staffing",
+      "startTime": 9183.0,
+      "description": "Importance of dedicated office staff for contractor support"
+    },
+    {
+      "title": "Contractor Union",
+      "startTime": 9228.0,
+      "description": "Formation and purpose of the contractors' union to negotiate with power corporation"
+    },
+    {
+      "title": "Union Power Dynamics",
+      "startTime": 9237.0,
+      "description": "Evolution of union strength and its impact on power corporation operations"
+    },
+    {
+      "title": "Job Offer Rejection",
+      "startTime": 9468.0,
+      "description": "Declined construction superintendent position due to contracting preference."
+    },
+    {
+      "title": "Career Trajectory",
+      "startTime": 9539.0,
+      "description": "Details of varied work experience across multiple companies and locations."
+    },
+    {
+      "title": "Financial Security",
+      "startTime": 9650.0,
+      "description": "Reflection on retirement savings and unexpected inflation benefits."
+    },
+    {
+      "title": "Labor Disputes",
+      "startTime": 9744.0,
+      "description": "Negotiating wages and handling strikes"
+    },
+    {
+      "title": "Camp Dynamics",
+      "startTime": 9791.0,
+      "description": "Managing young workers and resolving conflicts"
+    },
+    {
+      "title": "Employee Reflections",
+      "startTime": 9870.0,
+      "description": "Remembering former employees and their impact"
+    },
+    {
+      "title": "Truancy Intervention",
+      "startTime": 10011.0,
+      "description": "Dealing with a boy's school attendance issues"
+    },
+    {
+      "title": "Employee Discipline",
+      "startTime": 10044.0,
+      "description": "Instances of firing employees for misconduct"
+    },
+    {
+      "title": "Workplace Conflicts",
+      "startTime": 10069.0,
+      "description": "Addressing employee complaints and insubordination"
+    },
+    {
+      "title": "Equipment Acquisition",
+      "startTime": 10301.0,
+      "description": "Purchasing and repairing used machinery."
+    },
+    {
+      "title": "Auger Innovation",
+      "startTime": 10320.0,
+      "description": "Designing and manufacturing specialized augers."
+    },
+    {
+      "title": "Machine Modification",
+      "startTime": 10327.0,
+      "description": "Improving existing machinery's capabilities."
+    },
+    {
+      "title": "Clutch Trouble Anecdotes",
+      "startTime": 10468.0,
+      "description": "Sharing experiences with competitors and clutch problems."
+    },
+    {
+      "title": "Pole Straightener Design",
+      "startTime": 10599.0,
+      "description": "Development and implementation of a pole straightening machine."
+    },
+    {
+      "title": "Equipment & Borrowing",
+      "startTime": 10661.0,
+      "description": "Discussion of equipment usage, borrowing, and modifications."
+    },
+    {
+      "title": "Clutch Repair Innovation",
+      "startTime": 10783.0,
+      "description": "Addressing and improving clutch failure issues."
+    },
+    {
+      "title": "Machine Acquisition & Value",
+      "startTime": 10794.0,
+      "description": "Purchasing used machinery and maximizing its lifespan."
+    },
+    {
+      "title": "Financing & Operations",
+      "startTime": 11073.0,
+      "description": "Securing financing and emphasizing skilled operators.; Securing initial bank credit and overdraft practices."
+    },
+    {
+      "title": "Contractor Practices",
+      "startTime": 11241.0,
+      "description": "Comparison of invoicing and credit management strategies."
+    },
+    {
+      "title": "Sleet Storm Relief",
+      "startTime": 11291.0,
+      "description": "Coordination of crews for emergency telephone line repair."
+    },
+    {
+      "title": "Manitoba Job Details",
+      "startTime": 11340.0,
+      "description": "Payment structure and initial project financials."
+    },
+    {
+      "title": "Business Opportunity & Refusal",
+      "startTime": 11443.0,
+      "description": "Offer to run construction outfit and subsequent rejection."
+    },
+    {
+      "title": "Client Dynamics & Overtime",
+      "startTime": 11510.0,
+      "description": "Relationship with client and issues with overtime billing."
+    },
+    {
+      "title": "Suburban Pole Setting",
+      "startTime": 11644,
+      "description": "Details of pole and line construction in Regina suburbs"
+    },
+    {
+      "title": "Contract with Nichols",
+      "startTime": 11698.0,
+      "description": "Description of a long-term work contract and its benefits"
+    },
+    {
+      "title": "Shop Operations & Growth",
+      "startTime": 11789.0,
+      "description": "Discussion of shop size, expansion, and operational efficiency"
+    },
+    {
+      "title": "Shop Operational Issues",
+      "startTime": 11890.0,
+      "description": "Describes inefficient shop practices and reliance on quick fixes"
+    },
+    {
+      "title": "Bookkeeping & Finances",
+      "startTime": 11952.0,
+      "description": "Focuses on the impact of bookkeeping changes and financial record-keeping"
+    },
+    {
+      "title": "Technology Adoption",
+      "startTime": 11987.0,
+      "description": "Explores the introduction and use of computers and technology in the business"
+    },
+    {
+      "title": "Coffee Shop Observations",
+      "startTime": 12156.0,
+      "description": "Critique of modern coffee purchasing processes"
+    },
+    {
+      "title": "Lost Friendships",
+      "startTime": 12190.0,
+      "description": "Reflection on the passage of time and loss of old friends"
+    },
+    {
+      "title": "Business Legacy",
+      "startTime": 12395.0,
+      "description": "Pride in continued business success and name recognition"
+    },
+    {
+      "title": "Company Name Change",
+      "startTime": 12399.0,
+      "description": "Details about a company name alteration and its impact."
+    },
+    {
+      "title": "Key Employee Praise",
+      "startTime": 12450.0,
+      "description": "Recognition of valued employees and their contributions."
+    },
+    {
+      "title": "Estimating Process",
+      "startTime": 12520.0,
+      "description": "Discussion of job estimating methods and delegation of responsibility."
+    },
+    {
+      "title": "Estimating Job Costs",
+      "startTime": 12592.0,
+      "description": "Process of determining project bids and pricing."
+    },
+    {
+      "title": "Line Construction Projects",
+      "startTime": 12644.0,
+      "description": "Details of various power line construction jobs."
+    },
+    {
+      "title": "Troubleshooting Expertise",
+      "startTime": 12701.0,
+      "description": "Solving technical problems remotely."
+    },
+    {
+      "title": "Troubleshooting Expertise",
+      "startTime": 12701.0,
+      "description": "Solving mechanical problems through elimination"
+    },
+    {
+      "title": "Career & Timeframe",
+      "startTime": 12701.0,
+      "description": "Experiences in the power industry from 1928-1975"
+    },
+    {
+      "title": "Work Ethic Changes",
+      "startTime": 12701.0,
+      "description": "Comparison of labor practices and employee reliability over time"
+    },
+    {
+      "title": "Personal Improvement",
+      "startTime": 13232,
+      "description": "Focus on continuous self-betterment"
+    },
+    {
+      "title": "Career Progression",
+      "startTime": 13246.0,
+      "description": "Details about rapid career advancement"
+    },
+    {
+      "title": "Work Ethic & Attitude",
+      "startTime": 13296.0,
+      "description": "Emphasis on enthusiasm and challenge acceptance"
+    }
+  ],
+  "summary": "A personal memoir recording covering family memories and life stories."
+}

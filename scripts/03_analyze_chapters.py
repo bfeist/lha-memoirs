@@ -1,6 +1,11 @@
 """
 Analyze transcript content and generate chapter structure using Ollama.
-Run with: uv run 03_analyze_chapters.py
+Run with: uv run 03_analyze_chapters.py [recording_path]
+
+Processes all recording folders in public/recordings/ (including nested folders),
+or a specific one if path is provided (e.g., "memoirs/HF_60").
+
+Skips recordings that already have a chapters.json file.
 
 Requires: pip install ollama tqdm
 Or with uv: uv pip install ollama tqdm
@@ -32,12 +37,49 @@ except ImportError as e:
 # Paths
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
-OUTPUT_DIR = PROJECT_ROOT / "public" / "recordings" / "christmas1986"
-TRANSCRIPT_FILE = OUTPUT_DIR / "transcript.json"
+OUTPUT_BASE_DIR = PROJECT_ROOT / "public" / "recordings"
 
 # Model to use (try these in order - optimized for RTX 4090 24GB with ~17GB available)
 PREFERRED_MODEL = "gemma3:12b"
 MODELS_TO_TRY = ["gemma3:12b", "qwen3:14b", "gpt-oss:20b", "devstral:24b", "gemma3:27b"]
+
+
+def find_all_recordings(base_dir: Path) -> list[Path]:
+    """Recursively find all folders containing transcript.json."""
+    recordings = []
+    
+    def scan_folder(folder: Path):
+        if (folder / "transcript.json").exists():
+            recordings.append(folder)
+        for item in sorted(folder.iterdir()):
+            if item.is_dir():
+                scan_folder(item)
+    
+    if base_dir.exists():
+        scan_folder(base_dir)
+    return recordings
+
+
+def get_recording_folders(specific_recording: str | None = None) -> list[Path]:
+    """Get all recording folders from public/recordings, or a specific one."""
+    if specific_recording:
+        folder = OUTPUT_BASE_DIR / specific_recording
+        if folder.exists() and folder.is_dir():
+            if (folder / "transcript.json").exists():
+                return [folder]
+            else:
+                # Maybe it's a parent folder with nested recordings
+                return find_all_recordings(folder)
+        else:
+            print(f"❌ Recording folder not found: {folder}")
+            return []
+    
+    return find_all_recordings(OUTPUT_BASE_DIR)
+
+
+def get_relative_recording_path(recording_folder: Path) -> str:
+    """Get the path of a recording relative to public/recordings."""
+    return str(recording_folder.relative_to(OUTPUT_BASE_DIR)).replace("\\", "/")
 
 
 def check_ollama_connection():
@@ -125,14 +167,15 @@ def unload_model(model_name: str):
         print(f"   ⚠️ Could not unload model: {e}")
 
 
-def analyze_content_for_chapters(segments: list, model_name: str) -> dict:
+def analyze_content_for_chapters(segments: list, model_name: str, total_duration: float = None) -> dict:
     """Use LLM to analyze transcript and identify logical chapters."""
     
     print(f"\n🤖 Analyzing content with {model_name}...")
     print("   Processing transcript in chunks for better accuracy...")
     
     # Get total duration
-    total_duration = segments[-1]["end"] if segments else 0
+    if total_duration is None:
+        total_duration = segments[-1]["end"] if segments else 0
     
     # Process in 5-minute windows with 30-second overlap
     WINDOW_SIZE = 300  # 5 minutes
@@ -421,40 +464,46 @@ def finalize_chapters(chapters: list) -> list:
     return finalized
 
 
-def main():
-    # Check Ollama connection
-    if not check_ollama_connection():
-        sys.exit(1)
+def process_recording(recording_folder: Path, model_name: str) -> bool:
+    """Process a single recording folder."""
+    relative_path = get_relative_recording_path(recording_folder)
+    transcript_file = recording_folder / "transcript.json"
+    chapters_file = recording_folder / "chapters.json"
     
-    # Find available model
-    model_name = get_available_model()
-    if not model_name:
-        print("\n❌ No suitable model found!")
-        print("   Pull a model with: ollama pull gemma3:12b")
-        sys.exit(1)
+    # Skip if already processed
+    if chapters_file.exists():
+        print(f"\n⏭️  Skipping {relative_path} (chapters.json exists)")
+        return True
     
-    print(f"\n📦 Using model: {model_name}")
+    print(f"\n{'='*60}")
+    print(f"📂 Processing recording: {relative_path}")
+    print(f"{'='*60}")
     
-    # Load segments from transcript.json
-    if not TRANSCRIPT_FILE.exists():
-        print(f"\n❌ Transcript file not found: {TRANSCRIPT_FILE}")
+    if not transcript_file.exists():
+        print(f"   ❌ Transcript file not found: {transcript_file}")
         print("   Run 01_transcribe.py first")
-        sys.exit(1)
+        return False
     
-    print(f"\n📂 Loading transcript from: {TRANSCRIPT_FILE}")
-    with open(TRANSCRIPT_FILE, "r", encoding="utf-8") as f:
+    print(f"\n📂 Loading transcript from: {transcript_file}")
+    with open(transcript_file, "r", encoding="utf-8") as f:
         transcript_data = json.load(f)
     
     segments = transcript_data.get("segments", [])
+    files_info = transcript_data.get("files", None)
+    total_duration = transcript_data.get("totalDuration", transcript_data.get("duration", 0))
+    
     print(f"   Found {len(segments)} segments")
+    if files_info:
+        print(f"   Source files: {len(files_info)}")
+        for idx, fi in enumerate(files_info):
+            print(f"      - Part {idx + 1}: {fi['duration']:.1f}s")
     
     # Analyze content
-    result = analyze_content_for_chapters(segments, model_name)
+    result = analyze_content_for_chapters(segments, model_name, total_duration)
     
     if not result or "chapters" not in result:
         print("\n❌ Chapter analysis failed!")
-        unload_model(model_name)
-        sys.exit(1)
+        return False
     
     chapters = result["chapters"]
     print(f"\n📚 Identified {len(chapters)} chapters (first pass):")
@@ -472,31 +521,74 @@ def main():
         seconds = int(ch["startTime"] % 60)
         print(f"   [{minutes:02d}:{seconds:02d}] {ch['title']}")
     
-    # Finalize chapters with formattedTime
+    # Finalize chapters
     finalized_chapters = finalize_chapters(chapters)
     
-    # Save consolidated chapters data
-    chapters_path = OUTPUT_DIR / "chapters.json"
+    # Save chapters data (files info is in transcript.json, not duplicated here)
+    chapters_path = recording_folder / "chapters.json"
+    chapters_output = {
+        "chapters": finalized_chapters,
+        "summary": result.get("summary", ""),
+    }
+    
     with open(chapters_path, "w", encoding="utf-8") as f:
-        json.dump({
-            "chapters": finalized_chapters,
-            "summary": result.get("summary", ""),
-        }, f, indent=2, ensure_ascii=False)
+        json.dump(chapters_output, f, indent=2, ensure_ascii=False)
     print(f"\n   ✅ Saved chapters: {chapters_path}")
     
     # Remove legacy files if they exist
     legacy_files = ["regions.json", "toc.json"]
     for legacy_file in legacy_files:
-        legacy_path = OUTPUT_DIR / legacy_file
+        legacy_path = recording_folder / legacy_file
         if legacy_path.exists():
             legacy_path.unlink()
             print(f"   🗑️  Removed legacy file: {legacy_file}")
+    
+    return True
+
+
+def main():
+    # Parse command line args for specific recording
+    specific_recording = None
+    if len(sys.argv) > 1:
+        specific_recording = sys.argv[1]
+        print(f"\n🎯 Processing specific recording: {specific_recording}")
+    
+    # Check Ollama connection
+    if not check_ollama_connection():
+        sys.exit(1)
+    
+    # Find available model
+    model_name = get_available_model()
+    if not model_name:
+        print("\n❌ No suitable model found!")
+        print("   Pull a model with: ollama pull gemma3:12b")
+        sys.exit(1)
+    
+    print(f"\n📦 Using model: {model_name}")
+    
+    # Get recording folders to process
+    recording_folders = get_recording_folders(specific_recording)
+    if not recording_folders:
+        print(f"\n❌ No recording folders with transcript.json found in {OUTPUT_BASE_DIR}")
+        print("   Run 01_transcribe.py first to create transcripts.")
+        sys.exit(1)
+    
+    print(f"\n📂 Found {len(recording_folders)} recording(s) to process:")
+    for folder in recording_folders:
+        rel_path = get_relative_recording_path(folder)
+        print(f"   - {rel_path}")
+    
+    # Process each recording folder
+    success_count = 0
+    for recording_folder in recording_folders:
+        if process_recording(recording_folder, model_name):
+            success_count += 1
     
     # Unload model to free memory
     unload_model(model_name)
     
     print("\n" + "=" * 60)
-    print("✅ CHAPTER ANALYSIS COMPLETE!")
+    print(f"✅ CHAPTER ANALYSIS COMPLETE! ({success_count}/{len(recording_folders)} recordings)")
     print("=" * 60)
 
 

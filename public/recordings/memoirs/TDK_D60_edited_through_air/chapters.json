@@ -1,0 +1,360 @@
+{
+  "chapters": [
+    {
+      "title": "Recording Process",
+      "startTime": 0.0,
+      "description": "Details about the recording project and its challenges"
+    },
+    {
+      "title": "Life History Project",
+      "startTime": 57.0,
+      "description": "Overview of the speaker's intention to recount 85 years of life"
+    },
+    {
+      "title": "Family Request",
+      "startTime": 187.0,
+      "description": "Speaker's family requested a life history"
+    },
+    {
+      "title": "Story Construction",
+      "startTime": 1805.0,
+      "description": "Attempting to create a narrative"
+    },
+    {
+      "title": "Technical Difficulties",
+      "startTime": 1833.0,
+      "description": "Trouble aligning tapes and tape malfunction; Mention of repeating sounds"
+    },
+    {
+      "title": "Harvesting Oats",
+      "startTime": 2567.0,
+      "description": "Neighbors help with oat harvest"
+    },
+    {
+      "title": "Nebraska Farming",
+      "startTime": 2584.0,
+      "description": "Helping cousin with harvest"
+    },
+    {
+      "title": "Janie's Departure",
+      "startTime": 2631.0,
+      "description": "Sudden disappearance of Janie"
+    },
+    {
+      "title": "Frederick Thrashing",
+      "startTime": 3596.0,
+      "description": "Initial work and travel plans"
+    },
+    {
+      "title": "Job Search Minot",
+      "startTime": 3623.0,
+      "description": "Seeking employment with power company"
+    },
+    {
+      "title": "Canberra Power Work",
+      "startTime": 3688.0,
+      "description": "Employment and travel to Canberra"
+    },
+    {
+      "title": "Work & Trouble",
+      "startTime": 3781.0,
+      "description": "Experiences with a 'flying squad' and related difficulties."
+    },
+    {
+      "title": "Immigration & Departure",
+      "startTime": 3805.0,
+      "description": "Sudden order to cease work due to Canadian status."
+    },
+    {
+      "title": "Tape Review & Memory",
+      "startTime": 3873.0,
+      "description": "Reflection on reviewing a recorded event and struggling with chronological order and memory."
+    },
+    {
+      "title": "Wire Installation",
+      "startTime": 5425.0,
+      "description": "Dealing with wiring connections; Movement between Gull Lake and Tompkins, involving wiring.; Speaker's physical movement"
+    },
+    {
+      "title": "Jack Dyer's Performance",
+      "startTime": 5457.0,
+      "description": "Concerns about Jack Dyer's management of the diesel plant."
+    },
+    {
+      "title": "Business Deal & Buyout",
+      "startTime": 5491.0,
+      "description": "Acquiring the plant from Jack Dyer through a financial agreement."
+    },
+    {
+      "title": "Franchise Trouble",
+      "startTime": 5825.0,
+      "description": "A man's business struggles with a power plant franchise; Transfer of responsibility to Dominion Electric"
+    },
+    {
+      "title": "Relocation to BC",
+      "startTime": 5845.0,
+      "description": "Individual's move to British Columbia"
+    },
+    {
+      "title": "John Dyer's Situation",
+      "startTime": 6321.0,
+      "description": "Reflections on an elderly individual's well-being and care."
+    },
+    {
+      "title": "Personal Feelings/Doubt",
+      "startTime": 6497.0,
+      "description": "Expressions of past inadequacy and confusion.; Expressions of feeling lost and overwhelmed; Details of early contracting experiences and equipment acquisition"
+    },
+    {
+      "title": "Internal Conflict/Isolation",
+      "startTime": 6505.0,
+      "description": "Contradictory feelings of connection and loneliness."
+    },
+    {
+      "title": "Recording Reflections",
+      "startTime": 6531.0,
+      "description": "Comments on the recording process and its history"
+    },
+    {
+      "title": "Military Truck Acquisition",
+      "startTime": 6751.0,
+      "description": "Acquiring and modifying surplus military vehicles."
+    },
+    {
+      "title": "Airport Demolition",
+      "startTime": 6889.0,
+      "description": "Dismantling airports and cable recovery."
+    },
+    {
+      "title": "Power Line Bidding",
+      "startTime": 6977.0,
+      "description": "Bidding process for a power line construction project."
+    },
+    {
+      "title": "Project Locations",
+      "startTime": 7023.0,
+      "description": "Details of work in Midale, North Regina, Saskatoon, Davidson, Estevan, Wavering, Radville"
+    },
+    {
+      "title": "Difficult Conditions",
+      "startTime": 7075.0,
+      "description": "Challenges of frost and sandy ground"
+    },
+    {
+      "title": "Crew & Hiring",
+      "startTime": 7222.0,
+      "description": "Recruitment and experience levels of workers"
+    },
+    {
+      "title": "Pole Setting Process",
+      "startTime": 7306.0,
+      "description": "Describes the initial digging, machinery use, and pole setting methods."
+    },
+    {
+      "title": "Crew Building & Scale",
+      "startTime": 7335.0,
+      "description": "Focuses on assembling a work crew and the expansion of the workforce."
+    },
+    {
+      "title": "Pulley Innovation",
+      "startTime": 7430.0,
+      "description": "Details the problem of stringing wire and the speaker's solution using hay pulleys."
+    },
+    {
+      "title": "Trade Discussion",
+      "startTime": 7562.0,
+      "description": "Brief mention of trade with the United States"
+    },
+    {
+      "title": "Early Career Work",
+      "startTime": 7613.0,
+      "description": "Details of early construction jobs"
+    },
+    {
+      "title": "Family Reunion & Job",
+      "startTime": 7681.0,
+      "description": "Account of a family reunion and related work decisions"
+    },
+    {
+      "title": "Pole Line Construction",
+      "startTime": 7850.0,
+      "description": "Laying out and setting poles, cross arms, and boring"
+    },
+    {
+      "title": "Bush Clearing",
+      "startTime": 7902.0,
+      "description": "Clearing land for the power lines"
+    },
+    {
+      "title": "Wire Stringing & Crew Management",
+      "startTime": 7946.0,
+      "description": "Stringing wire, dealing with slow progress, and managing crew productivity"
+    },
+    {
+      "title": "Travel & Payday",
+      "startTime": 8101,
+      "description": "Difficult journey, crew dispute, delayed payment"
+    },
+    {
+      "title": "Construction Projects",
+      "startTime": 8175.0,
+      "description": "Details of various construction jobs and locations"
+    },
+    {
+      "title": "City Contract & Profit",
+      "startTime": 8307.0,
+      "description": "Long-term contract with Regina, equipment rental strategy"
+    },
+    {
+      "title": "Wage & Equipment",
+      "startTime": 8344.0,
+      "description": "Discusses wage adjustments and equipment rental practices."
+    },
+    {
+      "title": "1949 Projects",
+      "startTime": 8406.0,
+      "description": "Details several construction projects in 1949."
+    },
+    {
+      "title": "Farm Electrification",
+      "startTime": 8548.0,
+      "description": "Covers the rise of farm electrification and related jobs."
+    },
+    {
+      "title": "Early Work & Travel",
+      "startTime": 8575.0,
+      "description": "Initial routes and distances covered"
+    },
+    {
+      "title": "Contract Dispute",
+      "startTime": 8681.0,
+      "description": "Conflict with Branders over line work"
+    },
+    {
+      "title": "Farm & City Work",
+      "startTime": 8760.0,
+      "description": "Expansion into farm and city projects, including Regina"
+    },
+    {
+      "title": "Early Line Construction",
+      "startTime": 8764.0,
+      "description": "Building pole lines and transformers in Regina and surrounding areas."
+    },
+    {
+      "title": "Farm Service Contracts",
+      "startTime": 8994.0,
+      "description": "Details of contracts for servicing farms and the bidding process."
+    },
+    {
+      "title": "Business Challenges",
+      "startTime": 9016.0,
+      "description": "Experiences with bidding, competition, and maintaining profitability."
+    },
+    {
+      "title": "Line Construction",
+      "startTime": 9016.0,
+      "description": "Building power lines and related infrastructure."
+    },
+    {
+      "title": "Potash Mine Work",
+      "startTime": 9352.0,
+      "description": "Electrical work for the Kalium potash mine."
+    },
+    {
+      "title": "Swift College Project",
+      "startTime": 9388.0,
+      "description": "Large-scale project at Swift College and city work."
+    },
+    {
+      "title": "Financial Job Analysis",
+      "startTime": 9474.0,
+      "description": "Detailed review of a construction job's expenses and profitability."
+    },
+    {
+      "title": "Company Transition & Sale",
+      "startTime": 9530.0,
+      "description": "Sale of LHA and subsequent company ownership changes."
+    },
+    {
+      "title": "Contracting Trends & Legacy",
+      "startTime": 9580.0,
+      "description": "Observations on the construction industry's evolution and personal reflections on leaving."
+    },
+    {
+      "title": "Business Ownership Changes",
+      "startTime": 9717.0,
+      "description": "Shifting ownership and involvement in a company."
+    },
+    {
+      "title": "Visitor's Stay",
+      "startTime": 9777.0,
+      "description": "Recounting a recent visit from Ben and Leslie."
+    },
+    {
+      "title": "Electrical Career Path",
+      "startTime": 9817.0,
+      "description": "Narrating experiences and progression in the electrical field."
+    },
+    {
+      "title": "Early Career Roles",
+      "startTime": 9994.0,
+      "description": "Progression from foreman to service work."
+    },
+    {
+      "title": "Power Plant Expertise",
+      "startTime": 10019.0,
+      "description": "Experience with transformers, steam, and diesel plants."
+    },
+    {
+      "title": "Customer & Mining Service",
+      "startTime": 10147.0,
+      "description": "Responsibilities of a serviceman and mining knowledge."
+    },
+    {
+      "title": "Journeyman Credentials",
+      "startTime": 10240.0,
+      "description": "Details about electrician certification and continued employment."
+    },
+    {
+      "title": "Electrical Specialization",
+      "startTime": 10318.0,
+      "description": "Focus on understanding electrical layouts and specific expertise."
+    },
+    {
+      "title": "Career History & Legacy",
+      "startTime": 10379.0,
+      "description": "Reflections on a long career, mentorship, and impact on the industry."
+    },
+    {
+      "title": "Early Work Experience",
+      "startTime": 10489.0,
+      "description": "Groundman and lineman roles, initial job changes"
+    },
+    {
+      "title": "Brother's Illness",
+      "startTime": 10551.0,
+      "description": "Work related to brother's sickness in Sioux Falls"
+    },
+    {
+      "title": "Wage Progression",
+      "startTime": 10568.0,
+      "description": "Hourly rates, room/board costs, and raises over time"
+    },
+    {
+      "title": "Early Wage Increases",
+      "startTime": 10598.0,
+      "description": "Incremental raises and room/board costs"
+    },
+    {
+      "title": "Contracting Finances",
+      "startTime": 10601.0,
+      "description": "Living expenses and initial wage decisions"
+    },
+    {
+      "title": "Consistent Salary",
+      "startTime": 10636.0,
+      "description": "Long-term wage stability and bonuses"
+    }
+  ],
+  "summary": "A personal memoir recording covering family memories and life stories."
+}
