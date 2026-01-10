@@ -72,7 +72,7 @@ uv run process_all.py
 
 ## Output Files
 
-All output goes to `/public/audio/christmas1986/`:
+All output goes to `/public/recordings/christmas1986/:
 
 | File              | Description                           |
 | ----------------- | ------------------------------------- |

@@ -21,7 +21,7 @@ print("=" * 60)
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 SOURCE_AUDIO_DIR = PROJECT_ROOT / "source_audio"
-OUTPUT_DIR = PROJECT_ROOT / "public" / "audio" / "christmas1986"
+OUTPUT_DIR = PROJECT_ROOT / "public" / "recordings" / "christmas1986"
 AUDIO_MP3 = OUTPUT_DIR / "audio.mp3"
 
 

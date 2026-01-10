@@ -30,7 +30,7 @@ except ImportError as e:
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 SOURCE_AUDIO_DIR = PROJECT_ROOT / "source_audio"
-OUTPUT_DIR = PROJECT_ROOT / "public" / "audio" / "christmas1986"
+OUTPUT_DIR = PROJECT_ROOT / "public" / "recordings" / "christmas1986"
 
 # Ensure output directory exists
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

@@ -1,6 +1,17 @@
 import { useQuery, type UseQueryResult } from "@tanstack/react-query";
+import { useMemo } from "react";
 
-const AUDIO_BASE_PATH = "/audio/christmas1986";
+const AUDIO_BASE_PATH = "/recordings/christmas1986";
+
+// Default region color for waveform segments
+const REGION_COLOR = "rgba(100, 149, 237, 0.3)";
+
+// Format seconds as MM:SS
+export function formatTime(seconds: number): string {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+}
 
 // Fetch transcript data
 export function useTranscript(): UseQueryResult<TranscriptData, Error> {
@@ -30,32 +41,32 @@ export function useChapters(): UseQueryResult<ChaptersData, Error> {
   });
 }
 
-// Fetch table of contents
-export function useTableOfContents(): UseQueryResult<TableOfContentsEntry[], Error> {
-  return useQuery<TableOfContentsEntry[]>({
-    queryKey: ["christmas1986", "toc"],
-    queryFn: async () => {
-      const response = await fetch(`${AUDIO_BASE_PATH}/toc.json`);
-      if (!response.ok) {
-        throw new Error("Failed to load table of contents");
-      }
-      return response.json();
-    },
-  });
-}
+// Derive peaks.js regions from chapters
+export function useRegions(): {
+  data: PeaksRegion[] | undefined;
+  isLoading: boolean;
+  error: Error | null;
+} {
+  const { data: chaptersData, isLoading, error } = useChapters();
 
-// Fetch peaks.js regions
-export function useRegions(): UseQueryResult<PeaksRegion[], Error> {
-  return useQuery<PeaksRegion[]>({
-    queryKey: ["christmas1986", "regions"],
-    queryFn: async () => {
-      const response = await fetch(`${AUDIO_BASE_PATH}/regions.json`);
-      if (!response.ok) {
-        throw new Error("Failed to load regions");
-      }
-      return response.json();
-    },
-  });
+  const data = useMemo(() => {
+    if (!chaptersData?.chapters) return undefined;
+    const chapters = chaptersData.chapters;
+    return chapters.map((chapter, index) => {
+      // endTime is the start of the next chapter, or a large value for the last chapter
+      const endTime =
+        index < chapters.length - 1 ? chapters[index + 1].startTime : chapter.startTime + 3600; // 1 hour fallback for last chapter
+      return {
+        id: `chapter-${index}`,
+        startTime: chapter.startTime,
+        endTime,
+        labelText: chapter.title,
+        color: REGION_COLOR,
+      };
+    });
+  }, [chaptersData]);
+
+  return { data, isLoading, error };
 }
 
 // Get audio URL (enhanced version)

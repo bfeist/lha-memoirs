@@ -1,11 +1,11 @@
 import { useState, useCallback, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { AudioPlayer, usePeaksSeek } from "../components/AudioPlayer/AudioPlayer";
-import { TableOfContents } from "../components/TableOfContents/TableOfContents";
+import { Chapters } from "../components/Chapters/Chapters";
 import { Transcript } from "../components/Transcript/Transcript";
 import {
   useTranscript,
-  useTableOfContents,
+  useChapters,
   useRegions,
   getAudioUrl,
   getOriginalAudioUrl,
@@ -30,20 +30,23 @@ function Christmas1986(): React.ReactElement {
     refetch: refetchTranscript,
   } = useTranscript();
   const {
-    data: toc,
-    isLoading: tocLoading,
-    error: tocError,
-    refetch: refetchToc,
-  } = useTableOfContents();
+    data: chaptersData,
+    isLoading: chaptersLoading,
+    error: chaptersError,
+    refetch: refetchChapters,
+  } = useChapters();
   const { data: regions, isLoading: regionsLoading } = useRegions();
+
+  // Extract chapters array for convenience
+  const chapters = chaptersData?.chapters;
 
   // Get seek function from peaks.js
   const seekTo = usePeaksSeek();
 
   // Handle reload button click
   const handleReloadData = useCallback(async () => {
-    await Promise.all([refetchTranscript(), refetchToc()]);
-  }, [refetchTranscript, refetchToc]);
+    await Promise.all([refetchTranscript(), refetchChapters()]);
+  }, [refetchTranscript, refetchChapters]);
 
   // Handle time updates from audio player
   const handleTimeUpdate = useCallback((time: number) => {
@@ -56,9 +59,9 @@ function Christmas1986(): React.ReactElement {
   }, []);
 
   // Handle TOC entry click
-  const handleTocClick = useCallback(
-    (entry: TableOfContentsEntry) => {
-      seekTo(entry.startTime);
+  const handleChapterClick = useCallback(
+    (chapter: Chapter) => {
+      seekTo(chapter.startTime);
     },
     [seekTo]
   );
@@ -76,35 +79,35 @@ function Christmas1986(): React.ReactElement {
     (regionId: string) => {
       // regionId is in format "chapter-{index}"
       const match = regionId.match(/^chapter-(\d+)$/);
-      if (match && toc) {
+      if (match && chapters) {
         const index = parseInt(match[1], 10);
-        const chapter = toc[index];
+        const chapter = chapters[index];
         if (chapter) {
           seekTo(chapter.startTime);
         }
       }
     },
-    [toc, seekTo]
+    [chapters, seekTo]
   );
 
   // Calculate the current chapter ID based on playback time
   const currentChapterId = useMemo(() => {
-    if (!toc || toc.length === 0) return null;
+    if (!chapters || chapters.length === 0) return null;
 
     // Find the chapter that contains the current time
-    for (let i = toc.length - 1; i >= 0; i--) {
-      if (currentTime >= toc[i].startTime) {
+    for (let i = chapters.length - 1; i >= 0; i--) {
+      if (currentTime >= chapters[i].startTime) {
         return `chapter-${i}`;
       }
     }
-    return toc.length > 0 ? `chapter-0` : null;
-  }, [currentTime, toc]);
+    return chapters.length > 0 ? `chapter-0` : null;
+  }, [currentTime, chapters]);
 
   // Loading state
-  const isLoading = transcriptLoading || tocLoading || regionsLoading;
+  const isLoading = transcriptLoading || chaptersLoading || regionsLoading;
 
   // Error state
-  const hasError = transcriptError || tocError;
+  const hasError = transcriptError || chaptersError;
 
   if (hasError) {
     return (
@@ -180,11 +183,11 @@ function Christmas1986(): React.ReactElement {
         <div className={styles.contentGrid}>
           {/* Table of Contents */}
           <aside className={styles.tocSection}>
-            {toc && toc.length > 0 ? (
-              <TableOfContents
-                entries={toc}
+            {chapters && chapters.length > 0 ? (
+              <Chapters
+                chapters={chapters}
                 currentTime={currentTime}
-                onEntryClick={handleTocClick}
+                onChapterClick={handleChapterClick}
               />
             ) : (
               <div className={styles.placeholderBox}>
@@ -196,10 +199,10 @@ function Christmas1986(): React.ReactElement {
 
           {/* Transcript */}
           <section className={styles.transcriptSection}>
-            {transcript && toc ? (
+            {transcript && chapters ? (
               <Transcript
                 segments={transcript.segments}
-                chapters={toc}
+                chapters={chapters}
                 currentTime={currentTime}
                 onSegmentClick={handleWordClick}
               />

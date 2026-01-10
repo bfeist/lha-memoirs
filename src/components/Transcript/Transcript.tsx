@@ -1,30 +1,24 @@
 import { useRef, useEffect, useMemo, useCallback } from "react";
+import { formatTime } from "../../hooks/useChristmas1986Data";
 import styles from "./Transcript.module.css";
-
-interface TranscriptProps {
-  segments: TranscriptSegment[];
-  chapters: TableOfContentsEntry[];
-  currentTime: number;
-  onSegmentClick?: (time: number) => void;
-}
-
-interface ChapterWithSegments {
-  chapter: TableOfContentsEntry;
-  segments: TranscriptSegment[];
-}
 
 export function Transcript({
   segments,
   chapters,
   currentTime,
   onSegmentClick,
-}: TranscriptProps): React.ReactElement {
+}: {
+  segments: TranscriptSegment[];
+  chapters: Chapter[];
+  currentTime: number;
+  onSegmentClick?: (time: number) => void;
+}): React.ReactElement {
   const containerRef = useRef<HTMLDivElement>(null);
   const activeChapterRef = useRef<HTMLDivElement>(null);
   const lastScrolledChapterId = useRef<string | null>(null);
 
   // Group segments by chapter
-  const chapterGroups = useMemo((): ChapterWithSegments[] => {
+  const chapterGroups = useMemo(() => {
     if (!chapters || chapters.length === 0) {
       // If no chapters, treat all segments as one group
       return [
@@ -32,7 +26,6 @@ export function Transcript({
           chapter: {
             title: "Full Recording",
             startTime: 0,
-            formattedTime: "00:00",
             description: "",
           },
           segments: segments,
@@ -40,7 +33,7 @@ export function Transcript({
       ];
     }
 
-    const groups: ChapterWithSegments[] = [];
+    const groups: { chapter: Chapter; segments: TranscriptSegment[] }[] = [];
     const sortedChapters = [...chapters].sort((a, b) => a.startTime - b.startTime);
 
     for (let i = 0; i < sortedChapters.length; i++) {
@@ -145,7 +138,7 @@ export function Transcript({
               >
                 <span className={styles.chapterIcon}>§</span>
                 {group.chapter.title}
-                <span className={styles.chapterTime}>{group.chapter.formattedTime}</span>
+                <span className={styles.chapterTime}>{formatTime(group.chapter.startTime)}</span>
               </button>
 
               {group.chapter.description && (
