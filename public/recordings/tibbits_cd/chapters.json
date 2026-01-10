@@ -1,0 +1,150 @@
+{
+  "chapters": [
+    {
+      "title": "Recent Weather",
+      "startTime": 0.0,
+      "description": "Description of a recent snowstorm and thaw.; Account of Wally and Willa's visit."
+    },
+    {
+      "title": "Depression Era Q&A",
+      "startTime": 206.0,
+      "description": "Answers to questions about the 1930s Depression."
+    },
+    {
+      "title": "Cost of Living",
+      "startTime": 277.0,
+      "description": "Prices of goods and wages during that era"
+    },
+    {
+      "title": "Farm Life & Work",
+      "startTime": 303.0,
+      "description": "Experiences working on farms and related labor"
+    },
+    {
+      "title": "Entertainment & Games",
+      "startTime": 371.0,
+      "description": "Leisure activities and games played without money"
+    },
+    {
+      "title": "Nostalgic Childhood Memories",
+      "startTime": 371.0,
+      "description": "Recollections of simple games and inexpensive entertainment"
+    },
+    {
+      "title": "Tape Recording Instructions",
+      "startTime": 466.0,
+      "description": "Guidance on navigating and replaying audio recordings"
+    },
+    {
+      "title": "Friendship & Performance",
+      "startTime": 672.0,
+      "description": "Declaration of friendship and a staged performance for children"
+    },
+    {
+      "title": "Cat Food Complaint",
+      "startTime": 708.0,
+      "description": "Expression of frustration regarding cat food availability"
+    },
+    {
+      "title": "Interview with Children",
+      "startTime": 809.0,
+      "description": "Interaction and questioning of young children named Selena, Obi, Bluey, Greeny, and Pinky"
+    },
+    {
+      "title": "Character Introductions",
+      "startTime": 811.0,
+      "description": "Establishing names and ages of individuals."
+    },
+    {
+      "title": "Disciplinary Actions",
+      "startTime": 858.0,
+      "description": "Discussion of grounding and punishment."
+    },
+    {
+      "title": "Confused Narratives",
+      "startTime": 885.0,
+      "description": "Fragmented stories and age inconsistencies."
+    },
+    {
+      "title": "Initial Exchange/Acquisition",
+      "startTime": 1082.0,
+      "description": "Requesting and receiving an item, possibly 'Noisy feet'."
+    },
+    {
+      "title": "Game/Hide-and-Seek",
+      "startTime": 1126.0,
+      "description": "Introduction of participants and instructions for a game or activity."
+    },
+    {
+      "title": "Strange Narrative/Ants",
+      "startTime": 1191.0,
+      "description": "Confusing explanation involving cat food prices, ants, and Mrs. Hyde/Jekyll."
+    },
+    {
+      "title": "T'Leslie's Challenge",
+      "startTime": 1275.0,
+      "description": "A hidden person, T'Leslie, challenges listeners to find them."
+    },
+    {
+      "title": "Initial Activity/Assessment",
+      "startTime": 1359.0,
+      "description": "Discussion of an action and its perceived quality."
+    },
+    {
+      "title": "Leslie's Behavior & Criticism",
+      "startTime": 1464.0,
+      "description": "Mocking and criticizing Leslie's actions and perceived character."
+    },
+    {
+      "title": "Food & Reporter Interaction",
+      "startTime": 1595.0,
+      "description": "Discussion of food, a reporter, and potential interview avoidance."
+    },
+    {
+      "title": "Random Musings/Food",
+      "startTime": 1624.0,
+      "description": "Initial comments about heat, peanut butter sandwiches, and a seemingly random shift in conversation."
+    },
+    {
+      "title": "Accusations & Recording",
+      "startTime": 1650.0,
+      "description": "Exchange involving accusations, referencing a recording, and playful retaliation."
+    },
+    {
+      "title": "Microphone Testing/Object Mystery",
+      "startTime": 1670.0,
+      "description": "Sound tests of microphones followed by discussion of an unidentified object found on the floor and its possible origin."
+    },
+    {
+      "title": "Blame & Child's Actions",
+      "startTime": 1721.0,
+      "description": "Accusations, blame, and discussion of a child's mischievous behavior involving the object."
+    },
+    {
+      "title": "Object Origin/Tomato",
+      "startTime": 1832.0,
+      "description": "Further discussion about the object's origin, mentioning coffee tables and a brief mention of tomatoes."
+    },
+    {
+      "title": "Childhood Mischief",
+      "startTime": 1889.0,
+      "description": "Recollections of a grandchild's behavior"
+    },
+    {
+      "title": "School Departure",
+      "startTime": 2004.0,
+      "description": "Experiences leaving a school and reactions"
+    },
+    {
+      "title": "Radio & Reflection",
+      "startTime": 2083.0,
+      "description": "Discussion of a radio and broader reflections on use and experience"
+    },
+    {
+      "title": "Past Musical Connection",
+      "startTime": 2161.0,
+      "description": "Reference to a former San Francisco band; Expression of feeling 'sucked'; Request for Ben's opinion"
+    }
+  ],
+  "summary": "A personal memoir recording covering family memories and life stories."
+}
