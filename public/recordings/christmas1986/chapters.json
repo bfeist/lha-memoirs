@@ -1,166 +1,134 @@
 {
   "chapters": [
     {
-      "id": 1,
       "title": "Christmas Parcel Prep",
       "startTime": 0.0,
       "description": "Preparing and shipping Christmas gifts"
     },
     {
-      "id": 2,
       "title": "Home Repairs",
       "startTime": 63.0,
       "description": "Water softener and fireplace modifications"
     },
     {
-      "id": 3,
-      "title": "Elks & Politics",
-      "startTime": 174.0,
+      "title": "Political Events",
+      "startTime": 243.82,
       "description": "Elks membership and commentary on current events"
     },
     {
-      "id": 4,
-      "title": "Kai & Bank Startup",
-      "startTime": 272.0,
-      "description": "Discussion of Kai, a failed bank venture, and internal disputes."
-    },
-    {
-      "id": 5,
       "title": "Recent Scandals",
-      "startTime": 326.0,
+      "startTime": 318.22,
       "description": "News coverage of a politician and his wife, and a police officer's crimes."
     },
     {
-      "id": 6,
-      "title": "Farming & Gilbo",
-      "startTime": 457.0,
-      "description": "Experiences with farming, government assistance, and a conversation with Gilbo."
+      "title": "Farming & Hugo",
+      "startTime": 456.54,
+      "description": "Experiences with farming, government assistance, and a conversation with Hugo."
     },
     {
-      "id": 7,
       "title": "Farming & Finances",
-      "startTime": 519.0,
+      "startTime": 518.86,
       "description": "Challenges of farming, land costs, crop yields, and economic hardship"
     },
     {
-      "id": 8,
       "title": "Community & Loss",
-      "startTime": 637.0,
+      "startTime": 636.55,
       "description": "Friendship, illness, death, and shared experiences within the community"
     },
     {
-      "id": 9,
       "title": "Personal Updates",
-      "startTime": 720.0,
+      "startTime": 719.65,
       "description": "Marriages, health improvements, and travel plans of acquaintances"
     },
     {
-      "id": 10,
       "title": "Mail Truck Robbery",
-      "startTime": 827.0,
+      "startTime": 819.64,
       "description": "Details a robbery and truck theft involving mail delivery"
     },
     {
-      "id": 11,
       "title": "Weather and Sunlight",
-      "startTime": 914.0,
+      "startTime": 913.64,
       "description": "Observations about snow, ice, and the sun's position"
     },
     {
-      "id": 12,
       "title": "Reading & Recording",
-      "startTime": 966.0,
+      "startTime": 965.8,
       "description": "Discussion of reading aids and recording personal history"
     },
     {
-      "id": 13,
       "title": "Tape Recording Project",
       "startTime": 1081.0,
       "description": "Multiple versions of a life history recorded on tape"
     },
     {
-      "id": 14,
-      "title": "Work & Contractors",
-      "startTime": 1139.0,
-      "description": "Discussion of a working life and a contractor organization"
-    },
-    {
-      "id": 15,
       "title": "Personal Updates & Events",
-      "startTime": 1169.0,
+      "startTime": 1168.71,
       "description": "Mentions of funerals, travel, retirement, and personal correspondence"
     },
     {
-      "id": 16,
-      "title": "Local Business Troubles",
-      "startTime": 1374.0,
+      "title": "Bud Waltz Visit",
+      "startTime": 1327.56,
       "description": "Discussion of lumberyard fire and demolition"
     },
     {
-      "id": 17,
       "title": "Sudden Death Story",
-      "startTime": 1387.0,
+      "startTime": 1386.85,
       "description": "Account of a neighbor's death and alleged actions"
     },
     {
-      "id": 18,
       "title": "Farming & Oil Revenue",
-      "startTime": 1533.0,
+      "startTime": 1505.76,
       "description": "Details about wheat sales, oil royalties, and farm life"
     },
     {
-      "id": 19,
       "title": "Farm & Labor",
       "startTime": 1609.0,
       "description": "References to feeding animals, work, and wages."
     },
     {
-      "id": 20,
       "title": "Hunting & Locals",
-      "startTime": 1646.0,
+      "startTime": 1640,
       "description": "Mentions hunting, specific individuals (Kevin Murphy), and local sightings."
     },
     {
-      "id": 21,
       "title": "Community & Gossip",
       "startTime": 1675.0,
       "description": "Discussions of births, nursing, and local happenings, including a phone call about pie crust."
     },
     {
-      "id": 22,
       "title": "Financial Obligations",
       "startTime": 1892.0,
       "description": "Dealing with bills and payment."
     },
     {
-      "id": 23,
       "title": "Daily Walking Routine",
-      "startTime": 1944.0,
+      "startTime": 1938.74,
       "description": "Details of daily walks and physical condition."
     },
     {
-      "id": 24,
       "title": "Weight & Social Commentary",
-      "startTime": 2001,
+      "startTime": 1994.58,
       "description": "Concerns about weight, social interactions, and perceived appearances."
     },
     {
-      "id": 25,
-      "title": "Thrashing Machinery Work",
-      "startTime": 2161,
-      "description": "Experiences with and operation of thrashing machinery."
+      "title": "Introduction to Memoirs",
+      "startTime": 2161.46,
+      "description": ""
     },
     {
-      "id": 26,
-      "title": "Family & Memory",
-      "startTime": 2314.0,
-      "description": "Discussion of family members, aging, and memory loss."
+      "title": "Letter from Cascade Iowa",
+      "startTime": 2310.04,
+      "description": ""
     },
     {
-      "id": 27,
-      "title": "Technical & Recording Issues",
-      "startTime": 2434.0,
-      "description": "Troubleshooting microphone and recording equipment.; Identifying the source of unexpected sounds; Noting the role of the microphone cord; Planning to avoid the issue next time"
+      "title": "Over and Out",
+      "startTime": 2398.91,
+      "description": ""
+    },
+    {
+      "title": "End of Recording",
+      "startTime": 2417.95,
+      "description": ""
     }
   ],
   "summary": "A personal memoir recording covering family memories and life stories."

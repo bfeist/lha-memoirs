@@ -22,7 +22,6 @@ interface TranscriptData {
 }
 
 interface Chapter {
-  id: number;
   title: string;
   startTime: number;
   description: string;
@@ -31,13 +30,6 @@ interface Chapter {
 interface ChaptersData {
   chapters: Chapter[];
   summary: string;
-}
-
-interface TableOfContentsEntry {
-  title: string;
-  startTime: number;
-  formattedTime: string;
-  description: string;
 }
 
 interface PeaksRegion {

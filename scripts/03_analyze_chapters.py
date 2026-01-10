@@ -32,7 +32,7 @@ except ImportError as e:
 # Paths
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
-OUTPUT_DIR = PROJECT_ROOT / "public" / "audio" / "christmas1986"
+OUTPUT_DIR = PROJECT_ROOT / "public" / "recordings" / "christmas1986"
 TRANSCRIPT_FILE = OUTPUT_DIR / "transcript.json"
 
 # Model to use (try these in order - optimized for RTX 4090 24GB with ~17GB available)
@@ -408,49 +408,17 @@ Be direct and factual."""
         return "A personal memoir recording covering family memories and life stories."
 
 
-def create_peaks_regions(chapters: list, segments: list) -> list:
-    """Convert chapters to peaks.js region format."""
-    regions = []
-    
-    # Get the total duration from last segment
-    total_duration = segments[-1]["end"] if segments else 0
-    
-    for i, chapter in enumerate(chapters):
-        # Determine end time (start of next chapter or end of recording)
-        if i < len(chapters) - 1:
-            end_time = chapters[i + 1]["startTime"]
-        else:
-            end_time = total_duration
-        
-        # Create region in peaks.js format
-        region = {
-            "id": f"chapter-{i}",
-            "startTime": chapter["startTime"],
-            "endTime": end_time,
-            "labelText": chapter["title"],
-            "color": f"rgba(100, 149, 237, 0.3)",  # Cornflower blue with transparency
-        }
-        regions.append(region)
-    
-    return regions
-
-
-def create_table_of_contents(chapters: list) -> list:
-    """Create table of contents data for the UI."""
-    toc = []
+def finalize_chapters(chapters: list) -> list:
+    """Finalize chapters for the output format."""
+    finalized = []
     for chapter in chapters:
-        # Format time as MM:SS
-        minutes = int(chapter["startTime"] // 60)
-        seconds = int(chapter["startTime"] % 60)
-        
-        toc.append({
+        finalized.append({
             "title": chapter["title"],
             "startTime": chapter["startTime"],
-            "formattedTime": f"{minutes:02d}:{seconds:02d}",
             "description": chapter.get("description", ""),
         })
     
-    return toc
+    return finalized
 
 
 def main():
@@ -504,32 +472,25 @@ def main():
         seconds = int(ch["startTime"] % 60)
         print(f"   [{minutes:02d}:{seconds:02d}] {ch['title']}")
     
-    # Create peaks.js regions
-    regions = create_peaks_regions(chapters, segments)
+    # Finalize chapters with formattedTime
+    finalized_chapters = finalize_chapters(chapters)
     
-    # Create table of contents
-    toc = create_table_of_contents(chapters)
-    
-    # Save chapters data
+    # Save consolidated chapters data
     chapters_path = OUTPUT_DIR / "chapters.json"
     with open(chapters_path, "w", encoding="utf-8") as f:
         json.dump({
-            "chapters": chapters,
+            "chapters": finalized_chapters,
             "summary": result.get("summary", ""),
         }, f, indent=2, ensure_ascii=False)
     print(f"\n   ✅ Saved chapters: {chapters_path}")
     
-    # Save peaks.js regions
-    regions_path = OUTPUT_DIR / "regions.json"
-    with open(regions_path, "w", encoding="utf-8") as f:
-        json.dump(regions, f, indent=2)
-    print(f"   ✅ Saved regions: {regions_path}")
-    
-    # Save table of contents
-    toc_path = OUTPUT_DIR / "toc.json"
-    with open(toc_path, "w", encoding="utf-8") as f:
-        json.dump(toc, f, indent=2, ensure_ascii=False)
-    print(f"   ✅ Saved TOC: {toc_path}")
+    # Remove legacy files if they exist
+    legacy_files = ["regions.json", "toc.json"]
+    for legacy_file in legacy_files:
+        legacy_path = OUTPUT_DIR / legacy_file
+        if legacy_path.exists():
+            legacy_path.unlink()
+            print(f"   🗑️  Removed legacy file: {legacy_file}")
     
     # Unload model to free memory
     unload_model(model_name)
