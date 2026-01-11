@@ -217,12 +217,12 @@ def process_recording(recording_folder: Path) -> bool:
     """Process a single recording folder."""
     relative_path = get_relative_recording_path(recording_folder)
     output_dir = OUTPUT_BASE_DIR / relative_path
-    output_mp3 = output_dir / "audio.mp3"
+    output_mp3 = output_dir / "audio_original.mp3"
     output_waveform = output_dir / "waveform.json"
     
     # Skip if already processed
     if output_mp3.exists() and output_waveform.exists():
-        print(f"\n⏭️  Skipping {relative_path} (audio.mp3 and waveform.json exist)")
+        print(f"\n⏭️  Skipping {relative_path} (audio_original.mp3 and waveform.json exist)")
         return True
     
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -255,7 +255,7 @@ def process_recording(recording_folder: Path) -> bool:
         reduction = (1 - mp3_size / total_source_size) * 100 if total_source_size > 0 else 0
         print(f"   ✅ MP3 created: {mp3_size / (1024*1024):.1f} MB ({reduction:.0f}% smaller)")
     else:
-        print(f"\n   ℹ️  audio.mp3 already exists")
+        print(f"\n   ℹ️  audio_original.mp3 already exists")
     
     # Generate waveform if needed
     if not output_waveform.exists():
@@ -265,7 +265,7 @@ def process_recording(recording_folder: Path) -> bool:
         print(f"   ℹ️  waveform.json already exists")
     
     # Clean up old unused files
-    old_files = ["waveform.dat", "audio.wav"]
+    old_files = ["waveform.dat", "audio.wav", "audio.mp3"]
     for old_file in old_files:
         old_path = output_dir / old_file
         if old_path.exists():
