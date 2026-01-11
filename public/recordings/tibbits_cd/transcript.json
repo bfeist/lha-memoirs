@@ -218,7 +218,7 @@
     {
       "start": 202.66006249999998,
       "end": 204.7600625,
-      "text": "Testing, testing, testing."
+      "text": "Testing."
     },
     {
       "start": 205.7400625,
@@ -1683,7 +1683,7 @@
     {
       "start": 1332.6702500000001,
       "end": 1357.8402500000002,
-      "text": "Little, little, little, little, little, little, little, little, little, little, little, little, little."
+      "text": "Little."
     },
     {
       "start": 1358.8402500000002,
@@ -1758,7 +1758,7 @@
     {
       "start": 1463.9169375000004,
       "end": 1479.3669375000004,
-      "text": "Leslie's singing now because she's so stupid. Listen to this. You gotta hear this. It's so funny. It's so funny. So, so, so, so, so funny."
+      "text": "Leslie's singing now because she's so stupid. Listen to this. You gotta hear this. It's so funny. It's so funny. So funny."
     },
     {
       "start": 1479.3669375000004,
@@ -1803,7 +1803,7 @@
     {
       "start": 1514.1269375000004,
       "end": 1517.2969375000002,
-      "text": "Jerk, jerk, jerk."
+      "text": "Jerk."
     },
     {
       "start": 1522.9536250000003,
@@ -2038,7 +2038,7 @@
     {
       "start": 1701.8770000000004,
       "end": 1703.8770000000004,
-      "text": "Yeah, yeah, yeah, please."
+      "text": "Yeah, please."
     },
     {
       "start": 1707.0803750000002,
@@ -2739,5 +2739,10 @@
       "endTime": 2196.573875,
       "duration": 21.32
     }
-  ]
+  ],
+  "_corrections": {
+    "applied_at": "2026-01-10T19:34:17.375678",
+    "modified_segments": 5,
+    "total_corrections": 5
+  }
 }

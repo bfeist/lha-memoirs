@@ -8253,57 +8253,57 @@
     {
       "start": 4289.34,
       "end": 4289.84,
-      "text": "Yeah, yeah, yeah."
+      "text": "Yeah."
     },
     {
       "start": 4289.84,
       "end": 4290.08,
-      "text": "Yeah, yeah, yeah."
+      "text": "Yeah."
     },
     {
       "start": 4290.08,
       "end": 4290.38,
-      "text": "Yeah, yeah, yeah."
+      "text": "Yeah."
     },
     {
       "start": 4290.38,
       "end": 4290.6,
-      "text": "Yeah, yeah, yeah."
+      "text": "Yeah."
     },
     {
       "start": 4290.6,
       "end": 4290.88,
-      "text": "Yeah, yeah, yeah."
+      "text": "Yeah."
     },
     {
       "start": 4290.88,
       "end": 4291.04,
-      "text": "Yeah, yeah, yeah."
+      "text": "Yeah."
     },
     {
       "start": 4291.04,
       "end": 4291.12,
-      "text": "Yeah, yeah, yeah."
+      "text": "Yeah."
     },
     {
       "start": 4291.12,
       "end": 4291.22,
-      "text": "Yeah, yeah, yeah."
+      "text": "Yeah."
     },
     {
       "start": 4291.22,
       "end": 4291.28,
-      "text": "Yeah, yeah, yeah."
+      "text": "Yeah."
     },
     {
       "start": 4291.28,
       "end": 4291.42,
-      "text": "Yeah, yeah, yeah."
+      "text": "Yeah."
     },
     {
       "start": 4291.44,
       "end": 4291.58,
-      "text": "Yeah, yeah, yeah."
+      "text": "Yeah."
     },
     {
       "start": 4291.58,
@@ -8517,5 +8517,10 @@
     }
   ],
   "totalDuration": 4423.04,
-  "language": "en"
+  "language": "en",
+  "_corrections": {
+    "applied_at": "2026-01-10T19:34:11.722480",
+    "modified_segments": 11,
+    "total_corrections": 11
+  }
 }

@@ -2883,7 +2883,7 @@
     {
       "start": 8616.235,
       "end": 8627.515,
-      "text": "farms up around Lloyd Minister and Beggarville. Maybe did about 70 or 80 farms up in there."
+      "text": "farms up around Lloydminster and Beggarville. Maybe did about 70 or 80 farms up in there."
     },
     {
       "start": 8627.515,
@@ -3013,7 +3013,7 @@
     {
       "start": 8778.865,
       "end": 8790.005000000001,
-      "text": "in 50, 50, 50. Yeah, then 51, then I got a whole bunch of line. I had about 300 miles"
+      "text": "in50. Yeah, then 51, then I got a whole bunch of line. I had about 300 miles"
     },
     {
       "start": 8790.005000000001,
@@ -3693,7 +3693,7 @@
     {
       "start": 9538.770125000001,
       "end": 9547.490125,
-      "text": "bill George and Vaughn with art he set up a company Aiken sixty-five Exercise"
+      "text": "bill George and Vaughn with art he set up a company Achen sixty-five Exercise"
     },
     {
       "start": 9547.490125,
@@ -3833,7 +3833,7 @@
     {
       "start": 9696.260125,
       "end": 9699.700125000001,
-      "text": "20 years he spent with Aiken construction he said he couldn't have"
+      "text": "20 years he spent with Achen Construction he said he couldn't have"
     },
     {
       "start": 9699.700125000001,
@@ -3993,7 +3993,7 @@
     {
       "start": 9931.160125,
       "end": 9933.160125,
-      "text": "I didn't want to be Mr. Aiken amongst them."
+      "text": "I didn't want to be Mr. Achen amongst them."
     },
     {
       "start": 9933.160125,
@@ -5409,5 +5409,10 @@
       "endTime": 10902.484875,
       "duration": 1836.81475
     }
-  ]
+  ],
+  "_corrections": {
+    "applied_at": "2026-01-10T19:00:21.988067",
+    "modified_segments": 5,
+    "total_corrections": 6
+  }
 }

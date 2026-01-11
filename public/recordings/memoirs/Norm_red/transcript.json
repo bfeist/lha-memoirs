@@ -3793,7 +3793,7 @@
     {
       "start": 1503.3,
       "end": 1517.3,
-      "text": "Start on health. I wasn't going to school then. Work, work, work. 1917, bad, kind of a bad year."
+      "text": "Start on health. I wasn't going to school then. Work. 1917, bad, kind of a bad year."
     },
     {
       "start": 1517.3,
@@ -4293,7 +4293,7 @@
     {
       "start": 1865.14,
       "end": 1867.14,
-      "text": "It was all work, work, work all the time."
+      "text": "It was allwork all the time."
     },
     {
       "start": 1867.14,
@@ -8583,7 +8583,7 @@
     {
       "start": 5231.2915625000005,
       "end": 5234.2915625000005,
-      "text": "chug, chug, chug, chug, chug away."
+      "text": "chug away."
     },
     {
       "start": 5234.2915625000005,
@@ -15033,7 +15033,7 @@
     {
       "start": 8724.180875,
       "end": 8725.180875,
-      "text": "But it's always been very, very, very short time."
+      "text": "But it's always beenvery short time."
     },
     {
       "start": 8725.180875,
@@ -15768,7 +15768,7 @@
     {
       "start": 9679.940875,
       "end": 9686.540875,
-      "text": "The taxes never, never, never, never suffered for want of money. Every year after I retired,"
+      "text": "The taxesnever suffered for want of money. Every year after I retired,"
     },
     {
       "start": 9686.540875,
@@ -16173,7 +16173,7 @@
     {
       "start": 10154.570875,
       "end": 10160.490875,
-      "text": "peace river he's up there on a project he phoned me that's the superintendent he phoned me and"
+      "text": "Peace River he's up there on a project he phoned me that's the superintendent he phoned me and"
     },
     {
       "start": 10160.490875,
@@ -21155,5 +21155,10 @@
         ]
       }
     ]
+  },
+  "_corrections": {
+    "applied_at": "2026-01-10T19:00:40.562199",
+    "modified_segments": 6,
+    "total_corrections": 6
   }
 }
