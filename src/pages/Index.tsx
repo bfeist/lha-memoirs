@@ -1,8 +1,25 @@
 import { Link } from "react-router-dom";
+import { getRecordingsByCategory, type RecordingConfig } from "../config/recordings";
 import styles from "./Index.module.css";
 import "../global/global.css";
 
+function RecordingCard({ recording }: { recording: RecordingConfig }): React.ReactElement {
+  return (
+    <Link to={`/recording/${recording.id}`} className={styles.letterCard}>
+      <span className={styles.letterIcon}>{recording.icon}</span>
+      <div className={styles.letterInfo}>
+        <h3>{recording.title}</h3>
+        <p>{recording.subtitle}</p>
+      </div>
+      <span className={styles.arrow}>→</span>
+    </Link>
+  );
+}
+
 function Index(): React.ReactElement {
+  const recordings = getRecordingsByCategory("recording");
+  const memoirs = getRecordingsByCategory("memoir");
+
   return (
     <div className={styles.container}>
       {/* Header */}
@@ -27,34 +44,31 @@ function Index(): React.ReactElement {
           <p className={styles.portraitCaption}>L.H.A., 1942</p>
         </section>
 
-        {/* Christmas Letters section */}
+        {/* Recordings section */}
         <section className={styles.lettersSection}>
           <h2 className={styles.sectionTitle}>Recordings</h2>
           <div className={styles.lettersList}>
-            <Link to="/christmas1986" className={styles.letterCard}>
-              <span className={styles.letterIcon}>🎄</span>
-              <div className={styles.letterInfo}>
-                <h3>Christmas 1986</h3>
-                <p>A letter to his son, Norman Achen. Recorded on November 26, 1986.</p>
-              </div>
-              <span className={styles.arrow}>→</span>
-            </Link>
+            {recordings.map((recording) => (
+              <RecordingCard key={recording.id} recording={recording} />
+            ))}
           </div>
         </section>
 
         {/* Memoirs section */}
         <section className={styles.memoirsSection}>
           <h2 className={styles.sectionTitle}>Voice Memoirs</h2>
-          <div className={styles.comingSoon}>
-            <p>Coming Soon</p>
+          <div className={styles.lettersList}>
+            {memoirs.map((recording) => (
+              <RecordingCard key={recording.id} recording={recording} />
+            ))}
           </div>
         </section>
-      </main>
 
-      {/* Footer */}
-      <footer className={styles.footer}>
-        <p>Made with ❤️ to preserve and share Grandpa&apos;s memories</p>
-      </footer>
+        {/* Footer */}
+        <footer className={styles.footer}>
+          <p>Made with ❤️ to preserve and share Grandpa&apos;s memories</p>
+        </footer>
+      </main>
     </div>
   );
 }

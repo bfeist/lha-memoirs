@@ -49,3 +49,21 @@ interface WaveformData {
   length: number;
   data: number[];
 }
+
+interface AlternateChapterRef {
+  startTime: number;
+  title: string;
+}
+
+interface AlternateTelling {
+  topic: string;
+  confidence: "HIGH" | "MEDIUM" | "LOW";
+  [recordingKey: string]: string | AlternateChapterRef;
+}
+
+interface AlternateTellingsData {
+  primaryRecording: string;
+  secondaryRecording: string;
+  description: string;
+  alternateTellings: AlternateTelling[];
+}

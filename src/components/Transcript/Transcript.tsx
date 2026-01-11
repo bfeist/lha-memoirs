@@ -1,5 +1,5 @@
 import { useRef, useEffect, useMemo, useCallback } from "react";
-import { formatTime } from "../../hooks/useChristmas1986Data";
+import { formatTime } from "../../hooks/useRecordingData";
 import styles from "./Transcript.module.css";
 
 export function Transcript({

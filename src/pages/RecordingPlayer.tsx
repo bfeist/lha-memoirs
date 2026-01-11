@@ -1,52 +1,42 @@
 import { useState, useCallback, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams, Navigate } from "react-router-dom";
 import { AudioPlayer, usePeaksSeek } from "../components/AudioPlayer/AudioPlayer";
 import { Chapters } from "../components/Chapters/Chapters";
 import { Transcript } from "../components/Transcript/Transcript";
-import {
-  useTranscript,
-  useChapters,
-  useRegions,
-  getAudioUrl,
-  getOriginalAudioUrl,
-  getWaveformDataUrl,
-} from "../hooks/useChristmas1986Data";
-import styles from "./Christmas1986.module.css";
+import { useRecordingData } from "../hooks/useRecordingData";
+import { getRecordingById, getRandomBackgroundImage } from "../config/recordings";
+import styles from "./RecordingPlayer.module.css";
 
-const BACKGROUND_IMAGES = ["/photos/P1010033.jpg", "/photos/P1010034.jpg", "/photos/P1010038.jpg"];
-
-// Pick a random background image at module load time
-const backgroundImage = BACKGROUND_IMAGES[Math.floor(Math.random() * BACKGROUND_IMAGES.length)];
-
-function Christmas1986(): React.ReactElement {
+function RecordingPlayer(): React.ReactElement {
+  const { recordingId } = useParams<{ recordingId: string }>();
   const [currentTime, setCurrentTime] = useState(0);
   const [isPlayerReady, setIsPlayerReady] = useState(false);
 
-  // Fetch all data
+  // Get recording config
+  const recordingConfig = recordingId ? getRecordingById(recordingId) : undefined;
+
+  // Pick a random background image at component load time
+  const backgroundImage = useMemo(
+    () => (recordingConfig ? getRandomBackgroundImage(recordingConfig) : "/photos/P1010034.jpg"),
+    [recordingConfig]
+  );
+
+  // Fetch all data using the generic hook
   const {
-    data: transcript,
-    isLoading: transcriptLoading,
-    error: transcriptError,
-    refetch: refetchTranscript,
-  } = useTranscript();
-  const {
-    data: chaptersData,
-    isLoading: chaptersLoading,
-    error: chaptersError,
-    refetch: refetchChapters,
-  } = useChapters();
-  const { data: regions, isLoading: regionsLoading } = useRegions();
+    transcript,
+    chapters: chaptersQuery,
+    regions,
+    isLoading,
+    hasError,
+    refetchAll,
+    urls,
+  } = useRecordingData(recordingConfig?.path ?? "", recordingConfig?.hasEnhancedAudio ?? false);
 
   // Extract chapters array for convenience
-  const chapters = chaptersData?.chapters;
+  const chapters = chaptersQuery.data?.chapters;
 
   // Get seek function from peaks.js
   const seekTo = usePeaksSeek();
-
-  // Handle reload button click
-  const handleReloadData = useCallback(async () => {
-    await Promise.all([refetchTranscript(), refetchChapters()]);
-  }, [refetchTranscript, refetchChapters]);
 
   // Handle time updates from audio player
   const handleTimeUpdate = useCallback((time: number) => {
@@ -103,11 +93,10 @@ function Christmas1986(): React.ReactElement {
     return chapters.length > 0 ? `chapter-0` : null;
   }, [currentTime, chapters]);
 
-  // Loading state
-  const isLoading = transcriptLoading || chaptersLoading || regionsLoading;
-
-  // Error state
-  const hasError = transcriptError || chaptersError;
+  // Redirect if recording not found
+  if (!recordingConfig) {
+    return <Navigate to="/" replace />;
+  }
 
   if (hasError) {
     return (
@@ -116,7 +105,7 @@ function Christmas1986(): React.ReactElement {
         style={{ "--background-image": `url(${backgroundImage})` } as React.CSSProperties}
       >
         <div className={styles.error}>
-          <h1>❌ Unable to Load Memoir</h1>
+          <h1>❌ Unable to Load Recording</h1>
           <p>
             The audio data files could not be loaded. Make sure you have run the processing scripts
             first.
@@ -140,10 +129,11 @@ function Christmas1986(): React.ReactElement {
         <div className={styles.headerContent}>
           <h1 className={styles.title}>
             <Link to="/">
-              Linden Hilary Achen - Christmas 1986 <span className={styles.titleIcon}>🎄</span>
+              Linden Hilary Achen - {recordingConfig.title}{" "}
+              <span className={styles.titleIcon}>{recordingConfig.icon}</span>
             </Link>
           </h1>
-          <p className={styles.subtitle}>A letter to his son, Norman Achen, November 26, 1986.</p>
+          <p className={styles.subtitle}>{recordingConfig.subtitle}</p>
         </div>
       </header>
 
@@ -151,7 +141,7 @@ function Christmas1986(): React.ReactElement {
       {isLoading && (
         <div className={styles.loadingOverlay}>
           <div className={styles.loadingSpinner} />
-          <p>Loading memoir data...</p>
+          <p>Loading recording data...</p>
         </div>
       )}
 
@@ -160,15 +150,15 @@ function Christmas1986(): React.ReactElement {
         {/* Audio Player Section */}
         <section className={styles.playerSection}>
           <AudioPlayer
-            audioUrl={getAudioUrl()}
-            originalAudioUrl={getOriginalAudioUrl()}
-            waveformDataUrl={getWaveformDataUrl()}
-            regions={regions || []}
+            audioUrl={urls.audio}
+            originalAudioUrl={urls.originalAudio}
+            waveformDataUrl={urls.waveform}
+            regions={regions.data || []}
             currentChapterId={currentChapterId}
             onTimeUpdate={handleTimeUpdate}
             onRegionClick={handleRegionClick}
             onReady={handlePlayerReady}
-            onReload={handleReloadData}
+            onReload={refetchAll}
           />
 
           {!isPlayerReady && !isLoading && (
@@ -199,9 +189,9 @@ function Christmas1986(): React.ReactElement {
 
           {/* Transcript */}
           <section className={styles.transcriptSection}>
-            {transcript && chapters ? (
+            {transcript.data && chapters ? (
               <Transcript
-                segments={transcript.segments}
+                segments={transcript.data.segments}
                 chapters={chapters}
                 currentTime={currentTime}
                 onSegmentClick={handleWordClick}
@@ -224,4 +214,4 @@ function Christmas1986(): React.ReactElement {
   );
 }
 
-export default Christmas1986;
+export default RecordingPlayer;

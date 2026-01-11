@@ -1,4 +1,4 @@
-import { formatTime } from "../../hooks/useChristmas1986Data";
+import { formatTime } from "../../hooks/useRecordingData";
 import styles from "./Chapters.module.css";
 
 export function Chapters({
