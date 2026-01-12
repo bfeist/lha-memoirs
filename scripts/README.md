@@ -96,16 +96,34 @@ Each script accepts an optional recording path argument:
    uv run 01_transcribe.py [recording_path]
    ```
 
-2. **Convert to MP3 and generate waveforms**
+2. **Correct transcript** (applies domain-specific corrections)
 
    ```bash
-   uv run 02_generate_waveform.py [recording_path]
+   uv run 02_correct_transcript.py [recording_path]
    ```
 
-3. **Analyze chapters** (requires Ollama running)
+3. **Convert to MP3 and generate waveforms**
 
    ```bash
-   uv run 03_analyze_chapters.py [recording_path]
+   uv run 03_generate_waveform.py [recording_path]
+   ```
+
+4. **Analyze chapters** (requires Ollama running)
+
+   ```bash
+   uv run 04_analyze_chapters.py [recording_path]
+   ```
+
+5. **Analyze stories** (sub-chapter level, requires chapters.json)
+
+   ```bash
+   uv run 05_analyze_stories.py [recording_path]
+   ```
+
+6. **Find story overlaps** (cross-reference memoir recordings)
+
+   ```bash
+   uv run 06_find_story_overlaps.py --save
    ```
 
 ## Output Files

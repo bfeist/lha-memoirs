@@ -1,1704 +1,1062 @@
 {
   "primaryRecording": "Norm_red",
   "secondaryRecording": "TDK_D60_edited_through_air",
-  "description": "Cross-references between overlapping stories in both memoir recordings",
+  "description": "Cross-references between overlapping stories in both memoir recordings (story-level precision)",
   "alternateTellings": [
     {
-      "topic": "Initial overview of career in electrical work and contracting.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 0.0,
-        "title": "Recording Technicalities"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 0.0,
-        "title": "Recording Process"
-      }
-    },
-    {
-      "topic": "Initial discussion of starting a contracting business and early years.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 0.0,
-        "title": "Recording Technicalities"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 57.0,
-        "title": "Life History Project"
-      }
-    },
-    {
-      "topic": "Acquisition of early military vehicles and their subsequent use.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 38.0,
-        "title": "Iowa Farm Origins"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 57.0,
-        "title": "Life History Project"
-      }
-    },
-    {
-      "topic": "Seeking employment with a power company.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 38.0,
-        "title": "Iowa Farm Origins"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3623.0,
-        "title": "Job Search Minot"
-      }
-    },
-    {
-      "topic": "Discussing early career work and the Weyburn to Radville line.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 38.0,
-        "title": "Iowa Farm Origins"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7613.0,
-        "title": "Early Career Work"
-      }
-    },
-    {
-      "topic": "Specialization in electrical work, focusing on the transmission of power.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 38.0,
-        "title": "Iowa Farm Origins"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10318.0,
-        "title": "Electrical Specialization"
-      }
-    },
-    {
-      "topic": "Journeyman electrician credentials and continued employment.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 38.0,
-        "title": "Iowa Farm Origins"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10240.0,
-        "title": "Journeyman Credentials"
-      }
-    },
-    {
-      "topic": "Importance of handling and motivating men in contracting.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 85.0,
-        "title": "Canadian Settlement"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 187.0,
-        "title": "Family Request"
-      }
-    },
-    {
-      "topic": "Working for brother Laurie in South Dakota.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 85.0,
-        "title": "Canadian Settlement"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10489.0,
-        "title": "Early Work Experience"
-      }
-    },
-    {
-      "topic": "Discussion of a recent visitor (Ben and Leslie) and pausing the recording due to their presence.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 85.0,
-        "title": "Canadian Settlement"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9777.0,
-        "title": "Visitor's Stay"
-      }
-    },
-    {
-      "topic": "Discussion of career longevity and being a well-known figure in the electrical field in Saskatchewan.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 85.0,
-        "title": "Canadian Settlement"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10379.0,
-        "title": "Career History & Legacy"
-      }
-    },
-    {
-      "topic": "Specialization in electricity transmission and the limits of personal expertise.",
+      "topic": "Iowa farm life and family",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "startTime": 85.0,
-        "title": "Canadian Settlement"
+        "storyId": "story-0",
+        "startTime": 38.0,
+        "title": "Lindy's Birth and Early Family Farming in Iowa"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 10318.0,
-        "title": "Electrical Specialization"
-      }
-    },
-    {
-      "topic": "Discussing early career work and building a line from Weyburn to Radville.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 128.0,
-        "title": "Early Childhood Home"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7613.0,
-        "title": "Early Career Work"
-      }
-    },
-    {
-      "topic": "Construction of a line from Dinsmoor to Eston.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 128.0,
-        "title": "Early Childhood Home"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1805.0,
-        "title": "Story Construction"
-      }
-    },
-    {
-      "topic": "Laurie's illness.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 128.0,
-        "title": "Early Childhood Home"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10551.0,
-        "title": "Brother's Illness"
-      }
-    },
-    {
-      "topic": "Reflection on career experiences, working with different foremen, and the importance of employee relations in contracting.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 128.0,
-        "title": "Early Childhood Home"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9817.0,
-        "title": "Electrical Career Path"
-      }
-    },
-    {
-      "topic": "Recollection of early work experience and wages in Iowa.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 128.0,
-        "title": "Early Childhood Home"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10489.0,
-        "title": "Early Work Experience"
-      }
-    },
-    {
-      "topic": "Reflections on a long career in the electrical field and the rarity of such experience.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 128.0,
-        "title": "Early Childhood Home"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10379.0,
-        "title": "Career History & Legacy"
-      }
-    },
-    {
-      "topic": "Family reunion and impact on job obligations",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 275.0,
-        "title": "House Expansion & Timeline"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7681.0,
-        "title": "Family Reunion & Job"
-      }
-    },
-    {
-      "topic": "Family reunion in Oregon.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 275.0,
-        "title": "House Expansion & Timeline"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1833.0,
-        "title": "Technical Difficulties"
-      }
-    },
-    {
-      "topic": "Recollection of early career work - building a line from Weyburn to Radville",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 275.0,
-        "title": "House Expansion & Timeline"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7613.0,
-        "title": "Early Career Work"
-      }
-    },
-    {
-      "topic": "Starting as a second-class lineman in Aberdeen, South Dakota.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 275.0,
-        "title": "House Expansion & Timeline"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10568.0,
-        "title": "Wage Progression"
-      }
-    },
-    {
-      "topic": "Description of early roles in electrical work: foreman and service work.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 275.0,
-        "title": "House Expansion & Timeline"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9994.0,
-        "title": "Early Career Roles"
-      }
-    },
-    {
-      "topic": "Mention of assisting a sick brother.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 275.0,
-        "title": "House Expansion & Timeline"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10551.0,
-        "title": "Brother's Illness"
-      }
-    },
-    {
-      "topic": "Early work experience and wages.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 275.0,
-        "title": "House Expansion & Timeline"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10489.0,
-        "title": "Early Work Experience"
-      }
-    },
-    {
-      "topic": "Account of the Swift College project and the difficulties encountered due to weather, leading to a financial analysis.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 454.0,
-        "title": "Schooling & Travel"
-      },
-      "TDK_D60_edited_through_air": {
+        "storyId": "story-2",
         "startTime": 2567.0,
-        "title": "Harvesting Oats"
+        "title": "Helping Laurie with the Oat Harvest"
       }
     },
     {
-      "topic": "Seeking employment and potential power company job in Minot.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 454.0,
-        "title": "Schooling & Travel"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3623.0,
-        "title": "Job Search Minot"
-      }
-    },
-    {
-      "topic": "Discussing the work on the potash mine, specifically the design and engineering aspect.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 454.0,
-        "title": "Schooling & Travel"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2584.0,
-        "title": "Nebraska Farming"
-      }
-    },
-    {
-      "topic": "Wage progression and receiving 45 cents per hour.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 454.0,
-        "title": "Schooling & Travel"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10598.0,
-        "title": "Early Wage Increases"
-      }
-    },
-    {
-      "topic": "Expanding on educational and training experiences in Estevan.",
+      "topic": "Prairie settlement and family hardship",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "startTime": 454.0,
-        "title": "Schooling & Travel"
+        "storyId": "story-1",
+        "startTime": 81.0,
+        "title": "The Land Agent's Proposal and the Move to Canada"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 10019.0,
-        "title": "Power Plant Expertise"
+        "storyId": "story-2",
+        "startTime": 2567.0,
+        "title": "Helping Laurie with the Oat Harvest"
       }
     },
     {
-      "topic": "Continued narrative of wages and working conditions.",
+      "topic": "Immigration to Canada and early life",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "startTime": 454.0,
-        "title": "Schooling & Travel"
+        "storyId": "story-2",
+        "startTime": 132.0,
+        "title": "The Family's Journey to Canada: Animals and Train Travel"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 10568.0,
-        "title": "Wage Progression"
-      }
-    },
-    {
-      "topic": "Decision to attend a family reunion in Oregon, facilitated by a suggestion from his bank manager.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 454.0,
-        "title": "Schooling & Travel"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7681.0,
-        "title": "Family Reunion & Job"
-      }
-    },
-    {
-      "topic": "Brother's illness and subsequent work location.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 454.0,
-        "title": "Schooling & Travel"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10551.0,
-        "title": "Brother's Illness"
-      }
-    },
-    {
-      "topic": "Detailed financial analysis of the Swift College project and realizing the low profit margin.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 458.0,
-        "title": "Early Education"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2584.0,
-        "title": "Nebraska Farming"
-      }
-    },
-    {
-      "topic": "Early Wage and Room & Board",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 458.0,
-        "title": "Early Education"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3873.0,
-        "title": "Tape Review & Memory"
-      }
-    },
-    {
-      "topic": "Wage increases and training on hotlines.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 458.0,
-        "title": "Early Education"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10601.0,
-        "title": "Contracting Finances"
-      }
-    },
-    {
-      "topic": "Generalizing about the growth and challenges of the electrical field and dealing with varied projects.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 458.0,
-        "title": "Early Education"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10147.0,
-        "title": "Customer & Mining Service"
-      }
-    },
-    {
-      "topic": "Repeats the wage from the previous point.",
-      "confidence": "LOW",
-      "Norm_red": {
-        "startTime": 458.0,
-        "title": "Early Education"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10598.0,
-        "title": "Early Wage Increases"
-      }
-    },
-    {
-      "topic": "Continuation of work history and wages while working as a lineman.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 458.0,
-        "title": "Early Education"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10568.0,
-        "title": "Wage Progression"
-      }
-    },
-    {
-      "topic": "Decision to sell the contracting business (LHA) and handing it over to new owners.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 465.0,
-        "title": "Iowa Trip Memories"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2631.0,
-        "title": "Janie's Departure"
-      }
-    },
-    {
-      "topic": "Wage after moving to Kenmer, North Dakota and subsequent work in Canada.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 465.0,
-        "title": "Iowa Trip Memories"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10636.0,
-        "title": "Consistent Salary"
-      }
-    },
-    {
-      "topic": "Specific mention and work related to the potash mine at Kalium including design and construction.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 465.0,
-        "title": "Iowa Trip Memories"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9352.0,
-        "title": "Potash Mine Work"
-      }
-    },
-    {
-      "topic": "Continuing discussion about finances and work.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 465.0,
-        "title": "Iowa Trip Memories"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10601.0,
-        "title": "Contracting Finances"
-      }
-    },
-    {
-      "topic": "Describes construction of a pole line and dealing with bush clearing.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 465.0,
-        "title": "Iowa Trip Memories"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7850.0,
-        "title": "Pole Line Construction"
-      }
-    },
-    {
-      "topic": "Wage progression as a lineman and pay structure",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 465.0,
-        "title": "Iowa Trip Memories"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10598.0,
-        "title": "Early Wage Increases"
-      }
-    },
-    {
-      "topic": "1948, early work and bidding.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 751.0,
-        "title": "Farm Life & Chores"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3596.0,
-        "title": "Frederick Thrashing"
-      }
-    },
-    {
-      "topic": "Discussion of the Swift College project, its size, and challenges caused by rain delays.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 751.0,
-        "title": "Farm Life & Chores"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9388.0,
-        "title": "Swift College Project"
-      }
-    },
-    {
-      "topic": "Details about the progression of wages and working conditions over time, including specific locations and rates.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 751.0,
-        "title": "Farm Life & Chores"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10636.0,
-        "title": "Consistent Salary"
-      }
-    },
-    {
-      "topic": "Discusses bush clearing and needing men with axes to clear a path for the line.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 751.0,
-        "title": "Farm Life & Chores"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7902.0,
-        "title": "Bush Clearing"
-      }
-    },
-    {
-      "topic": "Discussion of contracting finances and income.",
-      "confidence": "LOW",
-      "Norm_red": {
-        "startTime": 751.0,
-        "title": "Farm Life & Chores"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10601.0,
-        "title": "Contracting Finances"
-      }
-    },
-    {
-      "topic": "Projects around Swift Current and Cypress Park.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 804.0,
-        "title": "Early Convent Life"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3623.0,
-        "title": "Job Search Minot"
-      }
-    },
-    {
-      "topic": "Seeking a job in Minot and the initial encounter with the power company.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 804.0,
-        "title": "Early Convent Life"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3596.0,
-        "title": "Frederick Thrashing"
-      }
-    },
-    {
-      "topic": "Post-project financial analysis, revealing a low net profit due to weather-related delays.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 804.0,
-        "title": "Early Convent Life"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9474.0,
-        "title": "Financial Job Analysis"
-      }
-    },
-    {
-      "topic": "Jack Gardner's management style and the need to improve wire stringing efficiency.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 804.0,
-        "title": "Early Convent Life"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7946.0,
-        "title": "Wire Stringing & Crew Management"
-      }
-    },
-    {
-      "topic": "Wage increase and introduction to hotline work.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 804.0,
-        "title": "Early Convent Life"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10636.0,
-        "title": "Consistent Salary"
-      }
-    },
-    {
-      "topic": "Summarizing his career with reflection on its hectic nature and continuous change.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 949.0,
-        "title": "Quitting School & Trapping"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3688.0,
-        "title": "Canberra Power Work"
-      }
-    },
-    {
-      "topic": "Working for the Canberra power company and initial impressions.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 949.0,
-        "title": "Quitting School & Trapping"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3623.0,
-        "title": "Job Search Minot"
-      }
-    },
-    {
-      "topic": "Working as part of a \"flying squad\" repairing power lines and the sudden immigration-related departure.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 949.0,
-        "title": "Quitting School & Trapping"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3781.0,
-        "title": "Work & Trouble"
-      }
-    },
-    {
-      "topic": "Sale of LHA contracting to Art Bill, George, and Vaughn and their subsequent business operations.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 949.0,
-        "title": "Quitting School & Trapping"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9530.0,
-        "title": "Company Transition & Sale"
-      }
-    },
-    {
-      "topic": "Travel and Payday; highlighting a humorous incident related to the crew’s tardiness.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 949.0,
-        "title": "Quitting School & Trapping"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 8101,
-        "title": "Travel & Payday"
-      }
-    },
-    {
-      "topic": "Immigration issues and being forced to leave.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1021.0,
-        "title": "Farm Work & Isolation"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3781.0,
-        "title": "Work & Trouble"
-      }
-    },
-    {
-      "topic": "Immigration issues and forced departure from Canada.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1021.0,
-        "title": "Farm Work & Isolation"
-      },
-      "TDK_D60_edited_through_air": {
+        "storyId": "story-7",
         "startTime": 3805.0,
-        "title": "Immigration & Departure"
+        "title": "Immigration Status and Unexpected Work"
       }
     },
     {
-      "topic": "Reflection on the contractor's position due to power company difficulties and the decision to retire.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1021.0,
-        "title": "Farm Work & Isolation"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9580.0,
-        "title": "Contracting Trends & Legacy"
-      }
-    },
-    {
-      "topic": "Overview of 1948 construction projects, including work north of Swift Current and building lines to Cypress Park and Mennonite settlements.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1021.0,
-        "title": "Farm Work & Isolation"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 8175.0,
-        "title": "Construction Projects"
-      }
-    },
-    {
-      "topic": "Pole line construction including tasks such as bush clearing",
+      "topic": "Unexpected events during a recording",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "startTime": 1083.0,
-        "title": "Early Communication"
+        "storyId": "story-3",
+        "startTime": 174.0,
+        "title": "The Boys' Fun on the Train with the Animals"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 7850.0,
-        "title": "Pole Line Construction"
-      }
-    },
-    {
-      "topic": "General discussion about Contracting Finances, wages and cost of living.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1083.0,
-        "title": "Early Communication"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3805.0,
-        "title": "Immigration & Departure"
-      }
-    },
-    {
-      "topic": "Details of ownership changes within Achen sixty-five Exercise ieuxProsperity Concerns Limited.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 1083.0,
-        "title": "Early Communication"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9717.0,
-        "title": "Business Ownership Changes"
-      }
-    },
-    {
-      "topic": "Obtaining Journeyman Credentials.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1144.0,
-        "title": "Fur Trading Success"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3873.0,
-        "title": "Tape Review & Memory"
-      }
-    },
-    {
-      "topic": "Decision to attend family reunion in Oregon and subsequent impact on work.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1144.0,
-        "title": "Fur Trading Success"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7681.0,
-        "title": "Family Reunion & Job"
-      }
-    },
-    {
-      "topic": "Contracting trends, large projects, and a general positive outlook on the future of contracting.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 1144.0,
-        "title": "Fur Trading Success"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9530.0,
-        "title": "Company Transition & Sale"
-      }
-    },
-    {
-      "topic": "Jack Dyer's dissatisfaction with running the power plant and the narrator's offer to take over.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1241.0,
-        "title": "Farm Labor & Work"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 5457.0,
-        "title": "Jack Dyer's Performance"
-      }
-    },
-    {
-      "topic": "Discussion about career longevity and being amongst a small group of experienced professionals.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1241.0,
-        "title": "Farm Labor & Work"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 5425.0,
-        "title": "Wire Installation"
-      }
-    },
-    {
-      "topic": "Working for the power company and travel to Canberra.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 1241.0,
-        "title": "Farm Labor & Work"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3688.0,
-        "title": "Canberra Power Work"
-      }
-    },
-    {
-      "topic": "Moving to South Dakota to assist brother",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1241.0,
-        "title": "Farm Labor & Work"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 5825.0,
-        "title": "Franchise Trouble"
-      }
-    },
-    {
-      "topic": "Lindy taking over a power plant from Jack Dyer and buying him out.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1344.0,
-        "title": "Barn Construction"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 5491.0,
-        "title": "Business Deal & Buyout"
-      }
-    },
-    {
-      "topic": "Wire stringing, crew management and a specific issue with Jack Gardner",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1344.0,
-        "title": "Barn Construction"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7946.0,
-        "title": "Wire Stringing & Crew Management"
-      }
-    },
-    {
-      "topic": "Career History and Legacy/Reflection",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1344.0,
-        "title": "Barn Construction"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 5457.0,
-        "title": "Jack Dyer's Performance"
-      }
-    },
-    {
-      "topic": "Jack Dyer's troubles in Winnipeg Oasis and the Dominion Electric taking over.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1387.0,
-        "title": "Early Farm Life"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 5825.0,
-        "title": "Franchise Trouble"
-      }
-    },
-    {
-      "topic": "Buying out Jack Dyer and taking over the power plant in Tompkins.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1387.0,
-        "title": "Early Farm Life"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 5491.0,
-        "title": "Business Deal & Buyout"
-      }
-    },
-    {
-      "topic": "Jack Dyer's dissatisfaction with running the power plant and the agreement to sell.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1387.0,
-        "title": "Early Farm Life"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 5457.0,
-        "title": "Jack Dyer's Performance"
-      }
-    },
-    {
-      "topic": "Pole Line Construction including bush clearing",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1387.0,
-        "title": "Early Farm Life"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7850.0,
-        "title": "Pole Line Construction"
-      }
-    },
-    {
-      "topic": "Jack Dyer's relocation to British Columbia.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1387.0,
-        "title": "Crop & Farm Years"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 5845.0,
-        "title": "Relocation to BC"
-      }
-    },
-    {
-      "topic": "Jack Dyer's issues with the Winnipeg franchise.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1387.0,
-        "title": "Crop & Farm Years"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 5825.0,
-        "title": "Franchise Trouble"
-      }
-    },
-    {
-      "topic": "Jack Dyer's actions after selling the power plant, including getting a franchise and heading to British Columbia.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1387.0,
-        "title": "Crop & Farm Years"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 5491.0,
-        "title": "Business Deal & Buyout"
-      }
-    },
-    {
-      "topic": "Work near Aberdeen, SD, as a second-class lineman",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1387.0,
-        "title": "Crop & Farm Years"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 6497.0,
-        "title": "Personal Feelings/Doubt"
-      }
-    },
-    {
-      "topic": "Discussion of pole line construction and labor, mentioning the Dinsmoor to Eston job.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 1387.0,
-        "title": "Crop & Farm Years"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7850.0,
-        "title": "Pole Line Construction"
-      }
-    },
-    {
-      "topic": "Work at the potash mine in Kalium and the design involvement.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1387.0,
-        "title": "Crop & Farm Years"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9352.0,
-        "title": "Potash Mine Work"
-      }
-    },
-    {
-      "topic": "Discussion of John Dyer’s situation and the narrator’s observation about his well-being.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 1472.0,
-        "title": "Thrashing Operations"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 6321.0,
-        "title": "John Dyer's Situation"
-      }
-    },
-    {
-      "topic": "Travel from job site, payday, and reprimanding crew",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1472.0,
-        "title": "Thrashing Operations"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 8101,
-        "title": "Travel & Payday"
-      }
-    },
-    {
-      "topic": "Jack Dyer moving to British Columbia.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1472.0,
-        "title": "Thrashing Operations"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 5845.0,
-        "title": "Relocation to BC"
-      }
-    },
-    {
-      "topic": "Pole line construction challenges in a wooded area.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 1472.0,
-        "title": "Thrashing Operations"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7850.0,
-        "title": "Pole Line Construction"
-      }
-    },
-    {
-      "topic": "Issues with crew efficiency during wire stringing",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1472.0,
-        "title": "Thrashing Operations"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7946.0,
-        "title": "Wire Stringing & Crew Management"
-      }
-    },
-    {
-      "topic": "Discussion about earning and being a technician.",
-      "confidence": "LOW",
-      "Norm_red": {
-        "startTime": 1488.0,
-        "title": "Rural Social Life"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 6321.0,
-        "title": "John Dyer's Situation"
-      }
-    },
-    {
-      "topic": "Construction Projects including work near Swift Current and Cypress Park.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 1663.0,
-        "title": "Father's Illness & Death"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 8175.0,
-        "title": "Construction Projects"
-      }
-    },
-    {
-      "topic": "Discussion about working and being a good worker.",
-      "confidence": "LOW",
-      "Norm_red": {
-        "startTime": 1663.0,
-        "title": "Father's Illness & Death"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 6497.0,
-        "title": "Personal Feelings/Doubt"
-      }
-    },
-    {
-      "topic": "Managing and correcting slow work pace of wire stringing crew.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1663.0,
-        "title": "Father's Illness & Death"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7946.0,
-        "title": "Wire Stringing & Crew Management"
-      }
-    },
-    {
-      "topic": "Travel to Regina for payday and subsequent employee discipline",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1663.0,
-        "title": "Father's Illness & Death"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 8101,
-        "title": "Travel & Payday"
-      }
-    },
-    {
-      "topic": "First class lineman wage increase.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 1988.0,
-        "title": "Family & Travel"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 6751.0,
-        "title": "Military Truck Acquisition"
-      }
-    },
-    {
-      "topic": "Construction projects in 1948: Swift Current to Cypress Park and beyond.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 2052.0,
-        "title": "Family & Funeral"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 8175.0,
-        "title": "Construction Projects"
-      }
-    },
-    {
-      "topic": "Narrative about a trip to Oregon for a family reunion and impact on work schedule.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 2222.0,
-        "title": "Farm Labor Dispute"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 8101,
-        "title": "Travel & Payday"
-      }
-    },
-    {
-      "topic": "Financial analysis and review of the Swift College project, highlighting the unexpected six percent net profit.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 2272.0,
-        "title": "Iowa Odd Jobs"
-      },
-      "TDK_D60_edited_through_air": {
+        "storyId": "story-17",
         "startTime": 6977.0,
-        "title": "Power Line Bidding"
+        "title": "Bidding on the Power Line Project"
       }
     },
     {
-      "topic": "Bush clearing and cutting tasks during pole line construction.",
+      "topic": "Achen Construction Company Changes",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "startTime": 2272.0,
-        "title": "Early Work & Wages"
+        "storyId": "story-9",
+        "startTime": 1307.0,
+        "title": "Hauling Rock and Gravel"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 7902.0,
-        "title": "Bush Clearing"
+        "storyId": "story-32",
+        "startTime": 9530.0,
+        "title": "Lindy's Retirement and the Sale of Achen Construction"
       }
     },
     {
-      "topic": "The Swift College project and the challenges faced with weather.",
+      "topic": "Childhood farm work and memories",
       "confidence": "HIGH",
       "Norm_red": {
-        "startTime": 2272.0,
-        "title": "Early Work & Wages"
+        "storyId": "story-11",
+        "startTime": 1468.0,
+        "title": "Digging Post Holes as a Child"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 9388.0,
-        "title": "Swift College Project"
+        "storyId": "story-27",
+        "startTime": 8278.0,
+        "title": "The Oxbow Farm Project"
       }
     },
     {
-      "topic": "Overview of 1948 construction projects, including work near Swift Current and Oxbow.",
+      "topic": "Harvest struggles and rural hardship",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-12",
+        "startTime": 1503.0,
+        "title": "Years of Short Crops (1916-1919)"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-2",
+        "startTime": 2567.0,
+        "title": "Helping Laurie with the Oat Harvest"
+      }
+    },
+    {
+      "topic": "Farming and Rural Life",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "startTime": 2562,
-        "title": "Family Crisis & Farming"
+        "storyId": "story-13",
+        "startTime": 1560.0,
+        "title": "Raising Livestock for Sale (1919)"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 8175.0,
-        "title": "Construction Projects"
+        "storyId": "story-2",
+        "startTime": 2567.0,
+        "title": "Helping Laurie with the Oat Harvest"
       }
     },
     {
-      "topic": "Learning hotline work.",
-      "confidence": "HIGH",
+      "topic": "Early 20th Century Farm Work",
+      "confidence": "MEDIUM",
       "Norm_red": {
-        "startTime": 2753.0,
-        "title": "Harvesting & Travel"
+        "storyId": "story-14",
+        "startTime": 1593.0,
+        "title": "Acquiring a Titan Tractor (1918)"
       },
       "TDK_D60_edited_through_air": {
+        "storyId": "story-2",
+        "startTime": 2567.0,
+        "title": "Helping Laurie with the Oat Harvest"
+      }
+    },
+    {
+      "topic": "Frederick Maryland labor dispute 1921",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-15",
+        "startTime": 1625.0,
+        "title": "The 1921 Thrashing Incident"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-4",
+        "startTime": 3592.0,
+        "title": "Thrashing in Frederick and the Two-Month Journey"
+      }
+    },
+    {
+      "topic": "Oat harvest and agricultural abundance",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-16",
+        "startTime": 1658.0,
+        "title": "Bumper Crops of 1922 and 1923"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-2",
+        "startTime": 2567.0,
+        "title": "Helping Laurie with the Oat Harvest"
+      }
+    },
+    {
+      "topic": "Oat harvest and Lindy's farm",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-17",
+        "startTime": 1694.0,
+        "title": "Lindy's Thrashing Outfit Experience"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-2",
+        "startTime": 2567.0,
+        "title": "Helping Laurie with the Oat Harvest"
+      }
+    },
+    {
+      "topic": "Farm machinery acquisition and impact",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-22",
+        "startTime": 2184.0,
+        "title": "Lindy Takes Over the Farm in 1924"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-21",
         "startTime": 7430.0,
-        "title": "Pulley Innovation"
+        "title": "The Winnipeg Pulley Purchase"
       }
     },
     {
-      "topic": "Description of difficulties with wire stringing, and subsequent crew management changes.",
+      "topic": "Lindy's early work experience",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-24",
+        "startTime": 2341.0,
+        "title": "Lindy's Line Gang Job and Rapid Skill Development"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-5",
+        "startTime": 3712.0,
+        "title": "Lindy's Initial Job and Wage"
+      }
+    },
+    {
+      "topic": "Lindy's Support of Brother Laurie",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-25",
+        "startTime": 2562.0,
+        "title": "Lindy's Visit to Brother Laurie and Decision to Help"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-2",
+        "startTime": 2567.0,
+        "title": "Helping Laurie with the Oat Harvest"
+      }
+    },
+    {
+      "topic": "Corn harvest and workplace conflict",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-26",
+        "startTime": 2673.0,
+        "title": "Lindy's Corn Farming Experience with Her Brother"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-25",
+        "startTime": 7969.0,
+        "title": "Dealing with Jack Gardner's Management Style"
+      }
+    },
+    {
+      "topic": "Storm damage and community support",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-27",
+        "startTime": 2734.0,
+        "title": "The Devastating Hailstorm and Community Response"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-2",
+        "startTime": 2567.0,
+        "title": "Helping Laurie with the Oat Harvest"
+      }
+    },
+    {
+      "topic": "Lindy's Migration After a Defeat",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-29",
+        "startTime": 2892.0,
+        "title": "Lindy's Journey North After the Thrashing Job"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-4",
+        "startTime": 3592.0,
+        "title": "Thrashing in Frederick and the Two-Month Journey"
+      }
+    },
+    {
+      "topic": "Thrashing machine repair and travel",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-30",
+        "startTime": 2973.0,
+        "title": "The Thrashing Machine Breakdown and Lindy's Repair"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-4",
+        "startTime": 3592.0,
+        "title": "Thrashing in Frederick and the Two-Month Journey"
+      }
+    },
+    {
+      "topic": "Oat harvest labor and hardship",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-31",
+        "startTime": 3035.0,
+        "title": "Lindy's Intense 12-Hour Thrashing Season"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-2",
+        "startTime": 2567.0,
+        "title": "Helping Laurie with the Oat Harvest"
+      }
+    },
+    {
+      "topic": "Power line project beginnings",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-34",
+        "startTime": 4320.0,
+        "title": "Early Days with Dominion Electric"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-17",
+        "startTime": 6977.0,
+        "title": "Bidding on the Power Line Project"
+      }
+    },
+    {
+      "topic": "Power plant work and location",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-35",
+        "startTime": 5270,
+        "title": "Power Plant Operation"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-53",
+        "startTime": 10749.0,
+        "title": "Lindy's Power Plant Position"
+      }
+    },
+    {
+      "topic": "Vehicle modification and entrepreneurship",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-36",
+        "startTime": 5370.0,
+        "title": "Starting a Contracting Business"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-15",
+        "startTime": 6786.0,
+        "title": "Revamping Military Trucks with Lindy's Brother"
+      }
+    },
+    {
+      "topic": "Power line project negotiations",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "startTime": 2802.0,
-        "title": "Thrashing Machine Troubles"
+        "storyId": "story-37",
+        "startTime": 6328,
+        "title": "South 46 Line"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 7946.0,
-        "title": "Wire Stringing & Crew Management"
+        "storyId": "story-17",
+        "startTime": 6977.0,
+        "title": "Bidding on the Power Line Project"
       }
     },
     {
-      "topic": "Financial analysis of the Swift College project and the challenges of unexpected costs.",
+      "topic": "Train derailment near Radville",
       "confidence": "HIGH",
       "Norm_red": {
-        "startTime": 2846.0,
-        "title": "Machine Malfunction"
+        "storyId": "story-38",
+        "startTime": 6422.0,
+        "title": "Weyburn to Radville"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 9474.0,
-        "title": "Financial Job Analysis"
+        "storyId": "story-26",
+        "startTime": 8055.0,
+        "title": "The Sunday Crew Incident"
       }
     },
     {
-      "topic": "Working in Kenmer, ND and wage with board",
+      "topic": "Driving and customer service",
       "confidence": "HIGH",
       "Norm_red": {
-        "startTime": 3197.0,
-        "title": "Travel & Mishap"
+        "storyId": "story-39",
+        "startTime": 6560.0,
+        "title": "The Drive Home in Winter"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 7681.0,
-        "title": "Family Reunion & Job"
+        "storyId": "story-42",
+        "startTime": 10155.0,
+        "title": "Lindy's Customer Relationships in Estevan"
       }
     },
     {
-      "topic": "Sale of the contracting business (LHA) to Art Bill, George, and Vaughn.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 3197.0,
-        "title": "Travel & Mishap"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9530.0,
-        "title": "Company Transition & Sale"
-      }
-    },
-    {
-      "topic": "Coming to Canada and subsequent wage decrease",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 3444.0,
-        "title": "Boring Machine Work"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7902.0,
-        "title": "Bush Clearing"
-      }
-    },
-    {
-      "topic": "Details of selling the company (LHA) to Art Bill, George, and Vaughn.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 3444.0,
-        "title": "Boring Machine Work"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 7850.0,
-        "title": "Pole Line Construction"
-      }
-    },
-    {
-      "topic": "Traveling to Regina after work and dealing with crew issues related to payday.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 3647.0,
-        "title": "Line Crew Work"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 8101,
-        "title": "Travel & Payday"
-      }
-    },
-    {
-      "topic": "Recounting the work completed in 1947 and a brief overview of work in 1948 starting north of Swift Currents.",
+      "topic": "Relocation and New Opportunities",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "startTime": 3790.0,
-        "title": "North Dakota Incident"
+        "storyId": "story-40",
+        "startTime": 6605.0,
+        "title": "Moving to Regina"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 8175.0,
-        "title": "Construction Projects"
+        "storyId": "story-17",
+        "startTime": 6977.0,
+        "title": "Bidding on the Power Line Project"
       }
     },
     {
-      "topic": "Discussion of the changing landscape of electrical contracting and why the subject decided to sell the business.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 3790.0,
-        "title": "North Dakota Incident"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9580.0,
-        "title": "Contracting Trends & Legacy"
-      }
-    },
-    {
-      "topic": "Working for low wage, paying own room and board.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 3875.0,
-        "title": "Farming & Work"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 8344.0,
-        "title": "Wage & Equipment"
-      }
-    },
-    {
-      "topic": "Later ownership changes of the company after the initial sale.",
+      "topic": "Power restoration after a storm",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "startTime": 4220.0,
-        "title": "Wage Dispute & Crew Lead"
+        "storyId": "story-41",
+        "startTime": 6673.0,
+        "title": "Substation Rebuild and Mennonite Farms"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 9717.0,
-        "title": "Business Ownership Changes"
+        "storyId": "story-30",
+        "startTime": 9425.0,
+        "title": "The Rainy Season and Remote Camp"
       }
     },
     {
-      "topic": "Wage progression and Foreman assistance.",
+      "topic": "Electrical equipment rental and service",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-42",
+        "startTime": 6720.0,
+        "title": "City Work and Equipment Rental"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-47",
+        "startTime": 10423.0,
+        "title": "The Importance of Service in Electrical Work"
+      }
+    },
+    {
+      "topic": "Power line project negotiation",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "startTime": 4220.0,
-        "title": "Wage & Crew Work"
+        "storyId": "story-43",
+        "startTime": 6810.0,
+        "title": "The Telephone Agreement"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 8764.0,
-        "title": "Early Line Construction"
+        "storyId": "story-17",
+        "startTime": 6977.0,
+        "title": "Bidding on the Power Line Project"
       }
     },
     {
-      "topic": "Training in hotline work.",
+      "topic": "Cruise ship workplace conditions",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-44",
+        "startTime": 6858.0,
+        "title": "True Cruise Operations"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-34",
+        "startTime": 9667.0,
+        "title": "Employee Loyalty and Reflections"
+      }
+    },
+    {
+      "topic": "Early rural electrification in Yorkton",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "startTime": 4220.0,
-        "title": "Power Commission Hiring"
+        "storyId": "story-45",
+        "startTime": 6965.0,
+        "title": "Lindy's Early Job Near Yorkton"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 8994.0,
-        "title": "Farm Service Contracts"
+        "storyId": "story-28",
+        "startTime": 8406.0,
+        "title": "Early Farm Electrification and Bidding"
       }
     },
     {
-      "topic": "Discussing the trend of larger contracts and the overall electrical industry landscape.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 4220.0,
-        "title": "Power Commission Hiring"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 8760.0,
-        "title": "Farm & City Work"
-      }
-    },
-    {
-      "topic": "Working in Canada and pay decrease",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 4696.0,
-        "title": "Leave of Absence"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9016.0,
-        "title": "Line Construction"
-      }
-    },
-    {
-      "topic": "Briefly mentioning visitors and putting the recording aside.",
-      "confidence": "LOW",
-      "Norm_red": {
-        "startTime": 4756.0,
-        "title": "Mydale Power System"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9777.0,
-        "title": "Visitor's Stay"
-      }
-    },
-    {
-      "topic": "General reflections on the electrical field and dealing with men.",
+      "topic": "Yorkton power line construction",
       "confidence": "HIGH",
       "Norm_red": {
-        "startTime": 4875.0,
-        "title": "Farm Work & Harvest"
+        "storyId": "story-46",
+        "startTime": 7043.0,
+        "title": "Building the High-Tension Line to Yorkton"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 9817.0,
-        "title": "Electrical Career Path"
-      }
-    },
-    {
-      "topic": "Work on the potash mine project and the company's involvement in design.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 4944.0,
-        "title": "Electrical Work - Later"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9352.0,
-        "title": "Potash Mine Work"
-      }
-    },
-    {
-      "topic": "The Swift College Project and the challenges and significant financial implications.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 4944.0,
-        "title": "Winter Work & Board"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9388.0,
-        "title": "Swift College Project"
-      }
-    },
-    {
-      "topic": "Financial analysis of a large project and the realities of weather-related delays impacting profitability.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 4965.0,
-        "title": "Power Line Project"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9474.0,
-        "title": "Financial Job Analysis"
-      }
-    },
-    {
-      "topic": "Early career roles and experiences in Estevan.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 5070.0,
-        "title": "Plant Management & Deal"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9994.0,
-        "title": "Early Career Roles"
-      }
-    },
-    {
-      "topic": "Sale of the contracting business (LHA) to Art Bill and others, and the transition to a larger operation.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 5070.0,
-        "title": "Plant Management & Deal"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9530.0,
-        "title": "Company Transition & Sale"
-      }
-    },
-    {
-      "topic": "Contractor's view on the industry, legacy, and changes over time.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 5248.0,
-        "title": "Job Offer Rejection"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9580.0,
-        "title": "Contracting Trends & Legacy"
-      }
-    },
-    {
-      "topic": "Description of Ben and Leslie's visit, briefly setting the scene.",
-      "confidence": "LOW",
-      "Norm_red": {
-        "startTime": 5300.0,
-        "title": "Power Plant Ventures"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9777.0,
-        "title": "Visitor's Stay"
-      }
-    },
-    {
-      "topic": "Updates on the company ownership and the changes in shareholders.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 5300.0,
-        "title": "Power Plant Ventures"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9717.0,
-        "title": "Business Ownership Changes"
-      }
-    },
-    {
-      "topic": "Visitor's stay and resumption of recording.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 5302.0,
-        "title": "Work and Travel"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9777.0,
-        "title": "Visitor's Stay"
-      }
-    },
-    {
-      "topic": "Reflections on a career in electrical work, challenges and learning from different foremen.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 5460.0,
-        "title": "Holiday & Assistance"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9817.0,
-        "title": "Electrical Career Path"
-      }
-    },
-    {
-      "topic": "Details about the early career stages including being a foreman and service work.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 5461.0,
-        "title": "Power Plant Incident"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 9994.0,
-        "title": "Early Career Roles"
-      }
-    },
-    {
-      "topic": "Reflections on the early years and the constant challenges and different experiences each day brought.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 6211.0,
-        "title": "Training Young Workers"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10489.0,
-        "title": "Early Work Experience"
-      }
-    },
-    {
-      "topic": "Lindy's quick estimation skills in bidding for a power line project, surprising a colleague.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 12701.0,
-        "title": "Work Ethic Changes"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3623.0,
-        "title": "Job Search Minot"
-      }
-    },
-    {
-      "topic": "Lindy's experience and skill in handling high voltage work during his time in Canberra.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 12701.0,
-        "title": "Work Ethic Changes"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3688.0,
-        "title": "Canberra Power Work"
-      }
-    },
-    {
-      "topic": "Lindy working on wire installation around Gull Lake and Tompkins.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 12701.0,
-        "title": "Work Ethic Changes"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 5425.0,
-        "title": "Wire Installation"
-      }
-    },
-    {
-      "topic": "Lindy's ability to quickly and accurately estimate job costs, contrasting his method (\"dead reckoning\") with the lengthy deliberation of others.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 12701.0,
-        "title": "Work Ethic Changes"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10147.0,
-        "title": "Customer & Mining Service"
-      }
-    },
-    {
-      "topic": "Lindy's specialized knowledge and expertise in the electrical field, and how this allowed him to quickly understand and estimate job requirements.",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "startTime": 12701.0,
-        "title": "Work Ethic Changes"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 10318.0,
-        "title": "Electrical Specialization"
-      }
-    },
-    {
-      "topic": "Lindy's career progression, highlighting his early responsibility and how it accelerated his advancement within the electrical industry.",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "startTime": 13246.0,
-        "title": "Career Progression"
-      },
-      "TDK_D60_edited_through_air": {
+        "storyId": "story-46",
         "startTime": 10379.0,
-        "title": "Career History & Legacy"
+        "title": "Lindy's Career Longevity and Recognition"
       }
     },
     {
-      "topic": "Lindy's enthusiasm and dedication to his work, described as always being eager to take on new challenges.",
-      "confidence": "MEDIUM",
+      "topic": "Rural infrastructure development",
+      "confidence": "HIGH",
       "Norm_red": {
-        "startTime": 13296.0,
-        "title": "Work Ethic & Attitude"
+        "storyId": "story-47",
+        "startTime": 7375.0,
+        "title": "The Farm Building Boom"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 10489.0,
-        "title": "Early Work Experience"
+        "storyId": "story-17",
+        "startTime": 6977.0,
+        "title": "Bidding on the Power Line Project"
+      }
+    },
+    {
+      "topic": "Early business expansion and projects",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-48",
+        "startTime": 7436.0,
+        "title": "Incorporating the Business in 1953"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-17",
+        "startTime": 6977.0,
+        "title": "Bidding on the Power Line Project"
+      }
+    },
+    {
+      "topic": "Lindy's Business Practices and Labor",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-49",
+        "startTime": 7547.0,
+        "title": "The Shift to Tendering and Price Competition"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-13",
+        "startTime": 6672.0,
+        "title": "Lindy's Approach to Labor Problems"
+      }
+    },
+    {
+      "topic": "Lindy's Company Auction and Morale",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-50",
+        "startTime": 7582.0,
+        "title": "Lindy's Bidding Strategy in 1958"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-34",
+        "startTime": 9667.0,
+        "title": "Employee Loyalty and Reflections"
+      }
+    },
+    {
+      "topic": "Automated Factory Transition and Impact",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-51",
+        "startTime": 7640.0,
+        "title": "Scaling Up Boring Machines"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-34",
+        "startTime": 9667.0,
+        "title": "Employee Loyalty and Reflections"
+      }
+    },
+    {
+      "topic": "Company Transitions and Departures",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-52",
+        "startTime": 7676.0,
+        "title": "Art Miller's Role in Equipment Maintenance"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-32",
+        "startTime": 9530.0,
+        "title": "Lindy's Retirement and the Sale of Achen Construction"
+      }
+    },
+    {
+      "topic": "Saskatoon potash transportation logistics",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-53",
+        "startTime": 7779.0,
+        "title": "The Potash Distribution Contract"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-18",
+        "startTime": 7075.0,
+        "title": "Working Through Frost in Saskatoon"
+      }
+    },
+    {
+      "topic": "Potash miners' compensation and profit",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-54",
+        "startTime": 7853.0,
+        "title": "Profit Sharing in 1958"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-29",
+        "startTime": 9358.0,
+        "title": "The Potash Mine Work"
+      }
+    },
+    {
+      "topic": "Swift Current mining operation",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-55",
+        "startTime": 7933.0,
+        "title": "The Swift Current Job in 1965"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-30",
+        "startTime": 9425.0,
+        "title": "The Rainy Season and Remote Camp"
+      }
+    },
+    {
+      "topic": "Achen Construction Sale and Retirement",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-56",
+        "startTime": 8105.0,
+        "title": "Negotiating the Business Sale Structure"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-32",
+        "startTime": 9530.0,
+        "title": "Lindy's Retirement and the Sale of Achen Construction"
+      }
+    },
+    {
+      "topic": "Rising housing costs and development",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-57",
+        "startTime": 8235.0,
+        "title": "Rent Increases Over Two Decades"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-33",
+        "startTime": 9629.0,
+        "title": "Lindy's Perspective on the Changing Construction Landscape"
+      }
+    },
+    {
+      "topic": "Worker Death and Corporate Changes",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-58",
+        "startTime": 8344.0,
+        "title": "Vaughn Kennedy's Electrocution"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-35",
+        "startTime": 9705.0,
+        "title": "Tragic Events and Company Transitions"
+      }
+    },
+    {
+      "topic": "Jenney's retirement and its aftermath",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-59",
+        "startTime": 8378.0,
+        "title": "George Jenney's Retirement and Land Purchase"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-35",
+        "startTime": 9705.0,
+        "title": "Tragic Events and Company Transitions"
+      }
+    },
+    {
+      "topic": "Con Bandy incident reflections",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-60",
+        "startTime": 8474.0,
+        "title": "Doug McGillivray's Involvement and Later Con Bandy"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-34",
+        "startTime": 9667.0,
+        "title": "Employee Loyalty and Reflections"
+      }
+    },
+    {
+      "topic": "Lindy's electrical work compensation",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-61",
+        "startTime": 8670.0,
+        "title": "Lindy's Retainer and Bonus"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-44",
+        "startTime": 10270.0,
+        "title": "Lindy's Specialized Electrical Knowledge"
+      }
+    },
+    {
+      "topic": "Community farming and partnership",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-62",
+        "startTime": 8784.0,
+        "title": "Relationship with Tad Gurnum"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-27",
+        "startTime": 8278.0,
+        "title": "The Oxbow Farm Project"
+      }
+    },
+    {
+      "topic": "Labor relations at Lindy's",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-63",
+        "startTime": 8872.0,
+        "title": "Contractor Attitudes and Union Tension"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-13",
+        "startTime": 6672.0,
+        "title": "Lindy's Approach to Labor Problems"
+      }
+    },
+    {
+      "topic": "Grain elevator accident investigation",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-64",
+        "startTime": 9775.0,
+        "title": "The Swift Current Strike"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-26",
+        "startTime": 8055.0,
+        "title": "The Sunday Crew Incident"
+      }
+    },
+    {
+      "topic": "Workplace discipline and management",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-65",
+        "startTime": 10044.0,
+        "title": "Firing Rowan - The Drunk Foreman"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-13",
+        "startTime": 6672.0,
+        "title": "Lindy's Approach to Labor Problems"
+      }
+    },
+    {
+      "topic": "Local business closure and legacy",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-66",
+        "startTime": 10090.0,
+        "title": "George Kukichuk and the Buried Anchor"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-32",
+        "startTime": 9530.0,
+        "title": "Lindy's Retirement and the Sale of Achen Construction"
+      }
+    },
+    {
+      "topic": "Walden's contracting work and termination",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-67",
+        "startTime": 10136.0,
+        "title": "The Persistent Walden and the Quit Slip"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-12",
+        "startTime": 6614.0,
+        "title": "Lindy's Career in Contracting (1927-1945)"
+      }
+    },
+    {
+      "topic": "Factory equipment repair and upgrades",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-68",
+        "startTime": 10371.0,
+        "title": "The Williams Boring Machine and the Factory Representative"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-15",
+        "startTime": 6786.0,
+        "title": "Revamping Military Trucks with Lindy's Brother"
+      }
+    },
+    {
+      "topic": "Lindy's Pole Straightener Recording",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-69",
+        "startTime": 10599.0,
+        "title": "The Pole Straightener Invention"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-11",
+        "startTime": 6531.0,
+        "title": "Lindy's Recording Process and Erasure"
+      }
+    },
+    {
+      "topic": "Electrical repair on mining equipment",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-70",
+        "startTime": 10672.0,
+        "title": "Boring Machine Attachment"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-44",
+        "startTime": 10270.0,
+        "title": "Lindy's Specialized Electrical Knowledge"
+      }
+    },
+    {
+      "topic": "Billings Machine Acquisition and Recording",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-71",
+        "startTime": 10753.0,
+        "title": "The Billings Machine Purchase"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-11",
+        "startTime": 6531.0,
+        "title": "Lindy's Recording Process and Erasure"
+      }
+    },
+    {
+      "topic": "Reusing military equipment postwar",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-73",
+        "startTime": 11003.0,
+        "title": "The Used Machines from Devil's Lake"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-15",
+        "startTime": 6786.0,
+        "title": "Revamping Military Trucks with Lindy's Brother"
+      }
+    },
+    {
+      "topic": "Bank loan for family business",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-74",
+        "startTime": 11091.0,
+        "title": "Lindy's Initial Bank Negotiation"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-23",
+        "startTime": 7681.0,
+        "title": "Family Reunion"
+      }
+    },
+    {
+      "topic": "Bank failure and community impact",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-75",
+        "startTime": 11127.0,
+        "title": "Lindy's Check Guarantee"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-19",
+        "startTime": 7121.0,
+        "title": "Wavering to Radville"
+      }
+    },
+    {
+      "topic": "Lindy's Financial and Technical Skills",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-76",
+        "startTime": 11162.0,
+        "title": "The $10,000 Overdraft Incident"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-44",
+        "startTime": 10270.0,
+        "title": "Lindy's Specialized Electrical Knowledge"
+      }
+    },
+    {
+      "topic": "Power line project bidding competition",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-78",
+        "startTime": 11241.0,
+        "title": "Lindy's Advantage Over Other Contractors"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-17",
+        "startTime": 6977.0,
+        "title": "Bidding on the Power Line Project"
+      }
+    },
+    {
+      "topic": "Estevan winter storm response",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-79",
+        "startTime": 11291.0,
+        "title": "The Sleet Storm and Contractor Coordination"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-14",
+        "startTime": 6712.0,
+        "title": "Acquiring the Half-Ton Truck in Estevan"
+      }
+    },
+    {
+      "topic": "Government job relocation to Radville",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-80",
+        "startTime": 11334.0,
+        "title": "Government Job Details"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-19",
+        "startTime": 7121.0,
+        "title": "Wavering to Radville"
+      }
+    },
+    {
+      "topic": "Employee recognition and appreciation",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-81",
+        "startTime": 12466.0,
+        "title": "Miller's Employee Excellence"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-34",
+        "startTime": 9667.0,
+        "title": "Employee Loyalty and Reflections"
+      }
+    },
+    {
+      "topic": "Northern Canada business opportunity",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-82",
+        "startTime": 12644.0,
+        "title": "Bidding on a Job in the Northwest Territories"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-15",
+        "startTime": 6786.0,
+        "title": "Revamping Military Trucks with Lindy's Brother"
+      }
+    },
+    {
+      "topic": "Prairie railway construction and business",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-83",
+        "startTime": 12765.0,
+        "title": "Bidding on a Line from Regina to Estevan"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-12",
+        "startTime": 6614.0,
+        "title": "Lindy's Career in Contracting (1927-1945)"
+      }
+    },
+    {
+      "topic": "Swift Current Cannery Strike",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-84",
+        "startTime": 12821.0,
+        "title": "The Swift Current Island Job"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-13",
+        "startTime": 6672.0,
+        "title": "Lindy's Approach to Labor Problems"
+      }
+    },
+    {
+      "topic": "Rural electrification project challenges",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-85",
+        "startTime": 12889.0,
+        "title": "The Alberta Line Fuse Issue"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-28",
+        "startTime": 8406.0,
+        "title": "Early Farm Electrification and Bidding"
+      }
+    },
+    {
+      "topic": "Equipment calibration and repair",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-86",
+        "startTime": 12954.0,
+        "title": "Troubleshooting in Elrose"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-41",
+        "startTime": 10091.0,
+        "title": "Lindy's Calibration Skills"
+      }
+    },
+    {
+      "topic": "Ray Booth and Lindy's Construction",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-87",
+        "startTime": 13022.0,
+        "title": "Ray Booth's Wonderment"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-12",
+        "startTime": 6614.0,
+        "title": "Lindy's Career in Contracting (1927-1945)"
+      }
+    },
+    {
+      "topic": "Art's car electrical repair",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-88",
+        "startTime": 13066.0,
+        "title": "Art's Garage Trouble"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-44",
+        "startTime": 10270.0,
+        "title": "Lindy's Specialized Electrical Knowledge"
+      }
+    },
+    {
+      "topic": "Rural electrification and farm labor",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "storyId": "story-89",
+        "startTime": 13117.0,
+        "title": "Wage Changes and Labor Conditions"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-28",
+        "startTime": 8406.0,
+        "title": "Early Farm Electrification and Bidding"
+      }
+    },
+    {
+      "topic": "Lindy's career development journey",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "storyId": "story-90",
+        "startTime": 13220.0,
+        "title": "Lindy's Early Career Advancement"
+      },
+      "TDK_D60_edited_through_air": {
+        "storyId": "story-38",
+        "startTime": 9975.0,
+        "title": "Lindy's Career Progression - From Digging Holes to Hotline"
       }
     }
   ],
   "stats": {
-    "totalMatches": 141,
-    "primaryChapterCount": 144,
-    "secondaryChapterCount": 71
+    "totalMatches": 75,
+    "primaryStoryCount": 91,
+    "secondaryStoryCount": 57
   }
 }

@@ -27,8 +27,17 @@ interface Chapter {
   description: string;
 }
 
+interface Story {
+  id: string;
+  title: string;
+  startTime: number;
+  description: string;
+  chapterIndex: number;
+}
+
 interface ChaptersData {
   chapters: Chapter[];
+  stories?: Story[];
   summary: string;
 }
 
@@ -55,10 +64,16 @@ interface AlternateChapterRef {
   title: string;
 }
 
+interface AlternateStoryRef {
+  storyId: string;
+  startTime: number;
+  title: string;
+}
+
 interface AlternateTelling {
   topic: string;
   confidence: "HIGH" | "MEDIUM" | "LOW";
-  [recordingKey: string]: string | AlternateChapterRef;
+  [recordingKey: string]: string | AlternateChapterRef | AlternateStoryRef;
 }
 
 interface AlternateTellingsData {

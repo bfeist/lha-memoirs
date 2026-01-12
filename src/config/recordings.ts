@@ -57,7 +57,7 @@ export const RECORDINGS: RecordingConfig[] = [
   {
     id: "memoirs_norm_red",
     path: "memoirs/Norm_red",
-    title: "Norm Red Tape Memoirs",
+    title: "Memoirs",
     subtitle: "Voice memoirs recorded on the red Norm tape.",
     icon: "📕",
     backgroundImages: ["/photos/P1010033.jpg", "/photos/P1010034.jpg"],
@@ -67,7 +67,7 @@ export const RECORDINGS: RecordingConfig[] = [
   {
     id: "memoirs_tdk_d60",
     path: "memoirs/TDK_D60_edited_through_air",
-    title: "TDK D60 Memoirs",
+    title: "Memoirs - Alternate Recording",
     subtitle: "Voice memoirs recorded on TDK D60 cassette.",
     icon: "📗",
     backgroundImages: ["/photos/P1010033.jpg", "/photos/P1010034.jpg"],
