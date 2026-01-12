@@ -268,6 +268,9 @@ export function AudioPlayer({
         peaksInstanceRef.current.destroy();
         peaksInstanceRef.current = null;
       }
+      // Reset playing state when audio source changes
+      setIsPlaying(false);
+      setIsReady(false);
     };
   }, [audioUrl, waveformDataUrl]);
 

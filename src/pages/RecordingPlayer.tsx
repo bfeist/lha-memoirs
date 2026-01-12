@@ -1,5 +1,5 @@
-import { useState, useCallback, useMemo } from "react";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { useState, useCallback, useMemo, useEffect, useRef } from "react";
+import { Link, useParams, Navigate, useSearchParams } from "react-router-dom";
 import { AudioPlayer, usePeaksSeek } from "../components/AudioPlayer/AudioPlayer";
 import { Chapters } from "../components/Chapters/Chapters";
 import { Transcript } from "../components/Transcript/Transcript";
@@ -9,11 +9,34 @@ import styles from "./RecordingPlayer.module.css";
 
 function RecordingPlayer(): React.ReactElement {
   const { recordingId } = useParams<{ recordingId: string }>();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [currentTime, setCurrentTime] = useState(0);
-  const [isPlayerReady, setIsPlayerReady] = useState(false);
+  // Track which recording the player is ready for (null = not ready)
+  const [readyForRecordingId, setReadyForRecordingId] = useState<string | null>(null);
+  const pendingSeekTime = useRef<number | null>(null);
+
+  // Player is ready only if it's ready for the CURRENT recording
+  const isPlayerReady = readyForRecordingId === recordingId;
+
+  // Capture the time parameter immediately on mount or when URL changes
+  useEffect(() => {
+    const timeParam = searchParams.get("t");
+    if (timeParam) {
+      const time = parseFloat(timeParam);
+      if (!isNaN(time) && time > 0) {
+        pendingSeekTime.current = time;
+        // Clear the time parameter from URL immediately
+        searchParams.delete("t");
+        setSearchParams(searchParams, { replace: true });
+      }
+    }
+  }, [searchParams, setSearchParams]);
 
   // Get recording config
   const recordingConfig = recordingId ? getRecordingById(recordingId) : undefined;
+
+  // Key for AudioPlayer to force remount when recording changes
+  const playerKey = recordingId ?? "default";
 
   // Pick a random background image at component load time
   const backgroundImage = useMemo(
@@ -25,28 +48,43 @@ function RecordingPlayer(): React.ReactElement {
   const {
     transcript,
     chapters: chaptersQuery,
+    alternateTellings,
     regions,
     isLoading,
     hasError,
     refetchAll,
     urls,
+    isMemoir,
   } = useRecordingData(recordingConfig?.path ?? "", recordingConfig?.hasEnhancedAudio ?? false);
 
-  // Extract chapters array for convenience
+  // Extract chapters and stories arrays for convenience
   const chapters = chaptersQuery.data?.chapters;
+  const stories = chaptersQuery.data?.stories;
 
   // Get seek function from peaks.js
   const seekTo = usePeaksSeek();
+
+  // Perform pending seek when player becomes ready
+  useEffect(() => {
+    if (isPlayerReady && pendingSeekTime.current !== null) {
+      const timeToSeek = pendingSeekTime.current;
+      pendingSeekTime.current = null;
+      // Small delay to ensure peaks.js is fully initialized
+      setTimeout(() => {
+        seekTo(timeToSeek);
+      }, 100);
+    }
+  }, [isPlayerReady, seekTo]);
 
   // Handle time updates from audio player
   const handleTimeUpdate = useCallback((time: number) => {
     setCurrentTime(time);
   }, []);
 
-  // Handle player ready
+  // Handle player ready - mark which recording is now ready
   const handlePlayerReady = useCallback(() => {
-    setIsPlayerReady(true);
-  }, []);
+    setReadyForRecordingId(recordingId ?? null);
+  }, [recordingId]);
 
   // Handle TOC entry click
   const handleChapterClick = useCallback(
@@ -150,6 +188,7 @@ function RecordingPlayer(): React.ReactElement {
         {/* Audio Player Section */}
         <section className={styles.playerSection}>
           <AudioPlayer
+            key={playerKey}
             audioUrl={urls.audio}
             originalAudioUrl={urls.originalAudio}
             waveformDataUrl={urls.waveform}
@@ -176,8 +215,11 @@ function RecordingPlayer(): React.ReactElement {
             {chapters && chapters.length > 0 ? (
               <Chapters
                 chapters={chapters}
+                stories={stories}
                 currentTime={currentTime}
                 onChapterClick={handleChapterClick}
+                alternateTellings={isMemoir ? alternateTellings.data?.alternateTellings : undefined}
+                recordingPath={recordingConfig?.path}
               />
             ) : (
               <div className={styles.placeholderBox}>

@@ -10,8 +10,10 @@ Each step will skip recordings that already have the output files.
 
 This script will:
 1. Transcribe audio with Whisper (segment-level alignment)
-2. Convert audio to MP3 and generate waveform data
-3. Analyze content and create chapters with Ollama
+2. Correct transcript with domain-specific fixes
+3. Convert audio to MP3 and generate waveform data
+4. Analyze content and create chapters with Ollama
+5. Analyze stories within chapters with Ollama
 """
 
 import re
@@ -35,8 +37,10 @@ AUDIO_EXTENSIONS = {".wav", ".mp3", ".m4a", ".flac", ".ogg", ".aiff"}
 # Scripts to run in order (with optional recording_path arg)
 SCRIPTS = [
     ("01_transcribe.py", "Transcribing audio with Whisper..."),
-    ("02_generate_waveform.py", "Converting audio to MP3 and generating waveform..."),
-    ("03_analyze_chapters.py", "Analyzing content for chapters..."),
+    ("02_correct_transcript.py", "Correcting transcript..."),
+    ("03_generate_waveform.py", "Converting audio to MP3 and generating waveform..."),
+    ("04_analyze_chapters.py", "Analyzing content for chapters..."),
+    ("05_analyze_stories.py", "Analyzing stories within chapters..."),
 ]
 
 
