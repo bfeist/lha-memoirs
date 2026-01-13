@@ -8,7 +8,7 @@
     {
       "start": 7.99,
       "end": 17.27,
-      "text": "Oh, I was born in a little town of Ramson, Iowa, about 20 miles out of Sioux City, Iowa,"
+      "text": "Oh, I was born in a little town of Remsen, Iowa, about 20 miles out of Sioux City, Iowa,"
     },
     {
       "start": 17.27,
@@ -2758,7 +2758,7 @@
     {
       "start": 1553.12,
       "end": 1557.12,
-      "text": "Like, again, I have to talk about Estevan and Bean Faith,"
+      "text": "Like, again, I have to talk about Estevan and Bienfait,"
     },
     {
       "start": 1557.12,
@@ -3143,7 +3143,7 @@
     {
       "start": 1739.12,
       "end": 1743.12,
-      "text": "I was out west between Sonovan and Cinnaboya"
+      "text": "I was out west between Shaunavon and Cinnaboya"
     },
     {
       "start": 1743.12,
@@ -8519,8 +8519,8 @@
   "totalDuration": 4423.04,
   "language": "en",
   "_corrections": {
-    "applied_at": "2026-01-10T19:34:11.722480",
-    "modified_segments": 11,
-    "total_corrections": 11
+    "applied_at": "2026-01-11T23:11:15.928408",
+    "modified_segments": 3,
+    "total_corrections": 3
   }
 }

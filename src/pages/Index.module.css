@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 100vh;
   background:
-    linear-gradient(rgb(13 13 13 / 85%), rgb(13 13 13 / 75%)),
+    linear-gradient(rgb(13 13 13 / 55%), rgb(13 13 13 / 75%)),
     url("/photos/P1010034.jpg") center / cover fixed no-repeat;
   color: #e0e0e0;
   overflow: hidden;

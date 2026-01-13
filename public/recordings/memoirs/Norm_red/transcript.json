@@ -1158,7 +1158,7 @@
     {
       "start": 809.14,
       "end": 811.14,
-      "text": "And Sister Hillary and I"
+      "text": "And Sister Hilary and I"
     },
     {
       "start": 811.14,
@@ -4213,7 +4213,7 @@
     {
       "start": 1810.66,
       "end": 1814.66,
-      "text": "And Sister Hillary, of course, went through"
+      "text": "And Sister Hilary, of course, went through"
     },
     {
       "start": 1814.66,
@@ -8863,7 +8863,7 @@
     {
       "start": 5352.3915625,
       "end": 5355.3915625,
-      "text": "to build a line from Guttalink to Tompkins"
+      "text": "to build a line from Gull Lake to Tompkins"
     },
     {
       "start": 5355.3915625,
@@ -9678,7 +9678,7 @@
     {
       "start": 5760.1115625,
       "end": 5763.1115625,
-      "text": "at Midale and Albright,"
+      "text": "at Midale and Halbrite,"
     },
     {
       "start": 5763.1115625,
@@ -9973,7 +9973,7 @@
     {
       "start": 5910.8415625,
       "end": 5912.8415625,
-      "text": "well, in one case from Macoon to Albright,"
+      "text": "well, in one case from Macoun to Halbrite,"
     },
     {
       "start": 5912.8415625,
@@ -10128,7 +10128,7 @@
     {
       "start": 5975.5615625,
       "end": 5977.5615625,
-      "text": "Albright to Midale."
+      "text": "Halbrite to Midale."
     },
     {
       "start": 5977.5615625,
@@ -12808,7 +12808,7 @@
     {
       "start": 7220.460875,
       "end": 7224.760875,
-      "text": "Oh, yes, we come back up and build a line from Walmart to Kipling,"
+      "text": "Oh, yes, we come back up and build a line from Wawota to Kipling,"
     },
     {
       "start": 7224.760875,
@@ -13013,7 +13013,7 @@
     {
       "start": 7342.960875,
       "end": 7348.080875,
-      "text": "And then down in the Ogema, Shonovan area,"
+      "text": "And then down in the Ogema, Shaunavon area,"
     },
     {
       "start": 7350.410875,
@@ -21157,8 +21157,8 @@
     ]
   },
   "_corrections": {
-    "applied_at": "2026-01-10T19:00:40.562199",
-    "modified_segments": 6,
-    "total_corrections": 6
+    "applied_at": "2026-01-11T23:11:15.689722",
+    "modified_segments": 8,
+    "total_corrections": 9
   }
 }

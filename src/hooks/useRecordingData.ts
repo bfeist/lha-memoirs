@@ -35,6 +35,10 @@ export function useTranscript(recordingPath: string): UseQueryResult<TranscriptD
       return response.json();
     },
     enabled: !!recordingPath,
+    // Keep data fresh for 10 minutes - these files don't change during a session
+    staleTime: 10 * 60 * 1000,
+    // Keep cached data for 30 minutes
+    gcTime: 30 * 60 * 1000,
   });
 }
 
@@ -52,6 +56,10 @@ export function useChapters(recordingPath: string): UseQueryResult<ChaptersData,
       return response.json();
     },
     enabled: !!recordingPath,
+    // Keep data fresh for 10 minutes - these files don't change during a session
+    staleTime: 10 * 60 * 1000,
+    // Keep cached data for 30 minutes
+    gcTime: 30 * 60 * 1000,
   });
 }
 
@@ -71,6 +79,10 @@ export function useAlternateTellings(
       return response.json();
     },
     enabled: isMemoir,
+    // Keep data fresh for 10 minutes - these files don't change during a session
+    staleTime: 10 * 60 * 1000,
+    // Keep cached data for 30 minutes
+    gcTime: 30 * 60 * 1000,
   });
 }
 
@@ -145,7 +157,9 @@ export function useRecordingData(
   const isLoading =
     transcript.isLoading || chapters.isLoading || regions.isLoading || alternateTellings.isLoading;
 
-  const hasError = !!transcript.error || !!chapters.error;
+  // Only show error if we have an error AND don't have cached data
+  // This prevents the UI from crashing if a transient error occurs after data was loaded
+  const hasError = (!!transcript.error && !transcript.data) || (!!chapters.error && !chapters.data);
 
   const refetchAll = async () => {
     await Promise.all([transcript.refetch(), chapters.refetch(), alternateTellings.refetch()]);

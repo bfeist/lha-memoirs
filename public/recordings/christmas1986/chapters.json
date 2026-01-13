@@ -1,135 +1,319 @@
 {
   "chapters": [
     {
-      "title": "Christmas Parcel Prep",
+      "title": "Home Repairs and Water Softener Issues",
       "startTime": 0.0,
-      "description": "Preparing and shipping Christmas gifts"
+      "description": "Lindy discusses shipping Christmas parcels to Toronto, Janey, and Calgary."
     },
     {
-      "title": "Home Repairs",
-      "startTime": 63.0,
-      "description": "Water softener and fireplace modifications"
+      "title": "Political Commentary Begins",
+      "startTime": 236,
+      "description": "Lindy begins a commentary on television news and political figures, starting with Reagan and Canadian politicians."
     },
     {
-      "title": "Political Events",
-      "startTime": 243.82,
-      "description": "Elks membership and commentary on current events"
+      "title": "First Minister's Meeting",
+      "startTime": 418,
+      "description": "Lindy recounts his experience listening to a First Minister's meeting and their requests for funding."
     },
     {
-      "title": "Recent Scandals",
-      "startTime": 318.22,
-      "description": "News coverage of a politician and his wife, and a police officer's crimes."
+      "title": "Father's Serious Illness and Hospitalization",
+      "startTime": 660,
+      "description": "Lindy shifts to discussing a friend, Bill Harkson, who is in the hospital and experiencing health issues."
     },
     {
-      "title": "Farming & Hugo",
-      "startTime": 456.54,
-      "description": "Experiences with farming, government assistance, and a conversation with Hugo."
+      "title": "Jimmy Lawrence's Wedding",
+      "startTime": 743,
+      "description": "Lindy moves on to discussing Jimmy Lawrence's upcoming wedding and the lack of invitations."
     },
     {
-      "title": "Farming & Finances",
-      "startTime": 518.86,
-      "description": "Challenges of farming, land costs, crop yields, and economic hardship"
+      "title": "Reading Machine Assistance",
+      "startTime": 966,
+      "description": "Lindy discusses using a reading machine to read fine print, specifically while installing water softener parts."
     },
     {
-      "title": "Community & Loss",
-      "startTime": 636.55,
-      "description": "Friendship, illness, death, and shared experiences within the community"
+      "title": "Letter from Ken & Peggy",
+      "startTime": 1242,
+      "description": "Lindy receives a letter from Ken and Peggy Williams who are going to Palm Springs."
     },
     {
-      "title": "Personal Updates",
-      "startTime": 719.65,
-      "description": "Marriages, health improvements, and travel plans of acquaintances"
+      "title": "Bud Waltz's Retirement",
+      "startTime": 1336,
+      "description": "Lindy recounts a conversation with Bud Waltz about his desire to retire at age 60 and the physical demands of his current job in the gas department."
+    },
+    {
+      "title": "Clarence Herd's Death and Funeral",
+      "startTime": 1375,
+      "description": "Lindy mentions a fire that destroyed the office portion of a lumber business."
+    },
+    {
+      "title": "Discussion of Damien's Career",
+      "startTime": 1609,
+      "description": "The narrator reminisces about his own childhood experiences working on a farm, detailing various tasks like driving equipment and milking cows.; The narrator discusses updates about neighbors, including Damien's career progression and the Sernic family's whereabouts."
+    },
+    {
+      "title": "Weight and Clothing Size",
+      "startTime": 2004,
+      "description": "The narrator talks about their weight and how their clothes fit."
+    },
+    {
+      "title": "Tape Review & Collaboration",
+      "startTime": 2153,
+      "description": "Lindy discusses reviewing the tape, fast-forwarding, and collaborating with someone named Danny.; Lindy describes his uncle's memory failing and his inability to recall certain family members."
+    }
+  ],
+  "summary": "A personal memoir recording covering family memories and life stories.",
+  "stories": [
+    {
+      "title": "Home Repairs and Water Softener Issues",
+      "startTime": 35,
+      "description": "Lindy discusses shipping Christmas parcels to Toronto, Janey, and Calgary.",
+      "chapterIndex": 0,
+      "id": "story-0"
+    },
+    {
+      "title": "Dealing with a Cold Fireplace",
+      "startTime": 130,
+      "description": "Lindy shifts to discussing installing a plastic cover over the fireplace.",
+      "chapterIndex": 0,
+      "id": "story-1"
+    },
+    {
+      "title": "Elks Organization Membership",
+      "startTime": 169,
+      "description": "Lindy talks about a conversation with George regarding his involvement in the Elks organization.",
+      "chapterIndex": 0,
+      "id": "story-2"
+    },
+    {
+      "title": "Political Commentary Begins",
+      "startTime": 236,
+      "description": "Lindy begins a commentary on television news and political figures, starting with Reagan and Canadian politicians.",
+      "chapterIndex": 1,
+      "id": "story-3"
+    },
+    {
+      "title": "Failed Bank Venture with Sinclair Stevens",
+      "startTime": 275,
+      "description": "Lindy discusses the controversy surrounding Sinclair Stevens and his wife.",
+      "chapterIndex": 1,
+      "id": "story-4"
+    },
+    {
+      "title": "Stevens' Financial Troubles",
+      "startTime": 318,
+      "description": "Lindy discusses Stevens' current financial difficulties and media coverage.",
+      "chapterIndex": 1,
+      "id": "story-5"
+    },
+    {
+      "title": "Calgary Bank Robbery",
+      "startTime": 372,
+      "description": "Lindy reports on a news story about a Calgary police officer who robbed multiple banks.",
+      "chapterIndex": 1,
+      "id": "story-6"
+    },
+    {
+      "title": "First Minister's Meeting",
+      "startTime": 418,
+      "description": "Lindy recounts his experience listening to a First Minister's meeting and their requests for funding.",
+      "chapterIndex": 2,
+      "id": "story-7"
+    },
+    {
+      "title": "Hugo's Steel Bin Deal",
+      "startTime": 465,
+      "description": "Lindy shares a story about Hugo's attempt to negotiate a deal for steel bins.",
+      "chapterIndex": 2,
+      "id": "story-8"
+    },
+    {
+      "title": "Saskatchewan Farming Struggles",
+      "startTime": 529,
+      "description": "Lindy reminisces about the hardships of farming in Saskatchewan during his youth.",
+      "chapterIndex": 2,
+      "id": "story-9"
+    },
+    {
+      "title": "Father's Serious Illness and Hospitalization",
+      "startTime": 660,
+      "description": "Lindy shifts to discussing a friend, Bill Harkson, who is in the hospital and experiencing health issues.",
+      "chapterIndex": 3,
+      "id": "story-10"
+    },
+    {
+      "title": "Jimmy Lawrence's Wedding",
+      "startTime": 743,
+      "description": "Lindy moves on to discussing Jimmy Lawrence's upcoming wedding and the lack of invitations.",
+      "chapterIndex": 4,
+      "id": "story-11"
+    },
+    {
+      "title": "Willa's Health Update",
+      "startTime": 782,
+      "description": "Lindy discusses Willa's health and recent return from a trip.",
+      "chapterIndex": 4,
+      "id": "story-12"
     },
     {
       "title": "Mail Truck Robbery",
-      "startTime": 819.64,
-      "description": "Details a robbery and truck theft involving mail delivery"
+      "startTime": 820,
+      "description": "Lindy begins recounting a recent robbery involving a mail truck and the theft of mail.",
+      "chapterIndex": 4,
+      "id": "story-13"
     },
     {
-      "title": "Weather and Sunlight",
-      "startTime": 913.64,
-      "description": "Observations about snow, ice, and the sun's position"
+      "title": "Snow and Weather Conditions",
+      "startTime": 914,
+      "description": "Lindy shifts to discussing the current snow and weather conditions in the area.",
+      "chapterIndex": 4,
+      "id": "story-14"
     },
     {
-      "title": "Reading & Recording",
-      "startTime": 965.8,
-      "description": "Discussion of reading aids and recording personal history"
+      "title": "Reading Machine Assistance",
+      "startTime": 966,
+      "description": "Lindy discusses using a reading machine to read fine print, specifically while installing water softener parts.",
+      "chapterIndex": 5,
+      "id": "story-15"
     },
     {
-      "title": "Tape Recording Project",
-      "startTime": 1081.0,
-      "description": "Multiple versions of a life history recorded on tape"
+      "title": "TV News Schedule",
+      "startTime": 1001,
+      "description": "Lindy details his daily television viewing schedule, including news broadcasts from Yorkton and Regina.",
+      "chapterIndex": 5,
+      "id": "story-16"
     },
     {
-      "title": "Personal Updates & Events",
-      "startTime": 1168.71,
-      "description": "Mentions of funerals, travel, retirement, and personal correspondence"
+      "title": "Letter from Ken & Peggy",
+      "startTime": 1242,
+      "description": "Lindy receives a letter from Ken and Peggy Williams who are going to Palm Springs.",
+      "chapterIndex": 6,
+      "id": "story-17"
     },
     {
-      "title": "Bud Waltz Visit",
-      "startTime": 1327.56,
-      "description": "Discussion of lumberyard fire and demolition"
+      "title": "Central Line Contractors Event",
+      "startTime": 1287,
+      "description": "Lindy mentions a hospitality hour hosted by Central Line Contractors on December 9th, an organization he previously led.",
+      "chapterIndex": 6,
+      "id": "story-18"
     },
     {
-      "title": "Sudden Death Story",
-      "startTime": 1386.85,
-      "description": "Account of a neighbor's death and alleged actions"
+      "title": "Bud Waltz's Retirement",
+      "startTime": 1336,
+      "description": "Lindy recounts a conversation with Bud Waltz about his desire to retire at age 60 and the physical demands of his current job in the gas department.",
+      "chapterIndex": 7,
+      "id": "story-19"
     },
     {
-      "title": "Farming & Oil Revenue",
-      "startTime": 1505.76,
-      "description": "Details about wheat sales, oil royalties, and farm life"
+      "title": "Clarence Herd's Death and Funeral",
+      "startTime": 1375,
+      "description": "Lindy mentions a fire that destroyed the office portion of a lumber business.",
+      "chapterIndex": 8,
+      "id": "story-20"
     },
     {
-      "title": "Farm & Labor",
-      "startTime": 1609.0,
-      "description": "References to feeding animals, work, and wages."
+      "title": "Oil Royalties and Wheat Farming",
+      "startTime": 1502,
+      "description": "Lindy discusses Gordon South's financial situation and wheat sales.",
+      "chapterIndex": 8,
+      "id": "story-21"
     },
     {
-      "title": "Hunting & Locals",
+      "title": "Oil Revenue and Surface Rights",
+      "startTime": 1536,
+      "description": "The narrator begins discussing Danny's income from oil surface rights, specifically mentioning $4,500 per well and initial payments.",
+      "chapterIndex": 8,
+      "id": "story-22"
+    },
+    {
+      "title": "Childhood Farm Work",
+      "startTime": 1609,
+      "description": "The narrator reminisces about his own childhood experiences working on a farm, detailing various tasks like driving equipment and milking cows.",
+      "chapterIndex": 9,
+      "id": "story-23"
+    },
+    {
+      "title": "Kevin Murphy's Hunting and Family News",
       "startTime": 1640,
-      "description": "Mentions hunting, specific individuals (Kevin Murphy), and local sightings."
+      "description": "The narrator transitions to discussing Kevin Murphy's hunting habits and a friend's report of his activities.",
+      "chapterIndex": 9,
+      "id": "story-24"
     },
     {
-      "title": "Community & Gossip",
-      "startTime": 1675.0,
-      "description": "Discussions of births, nursing, and local happenings, including a phone call about pie crust."
+      "title": "Discussion of Damien's Career",
+      "startTime": 1772,
+      "description": "The narrator discusses updates about neighbors, including Damien's career progression and the Sernic family's whereabouts.",
+      "chapterIndex": 9,
+      "id": "story-25"
     },
     {
-      "title": "Financial Obligations",
-      "startTime": 1892.0,
-      "description": "Dealing with bills and payment."
+      "title": "Lynda's Pie Crust Problem",
+      "startTime": 1844,
+      "description": "The narrator shifts to a conversation with his daughter, Lynda, about her difficulty making a pie crust.",
+      "chapterIndex": 9,
+      "id": "story-26"
+    },
+    {
+      "title": "Financial Matters and Bank",
+      "startTime": 1892,
+      "description": "The narrator mentions receiving his pension cheque and needing to go to the bank to pay bills.",
+      "chapterIndex": 9,
+      "id": "story-27"
     },
     {
       "title": "Daily Walking Routine",
-      "startTime": 1938.74,
-      "description": "Details of daily walks and physical condition."
+      "startTime": 1944,
+      "description": "The narrator describes his recent walking routine and the distances he's covered.",
+      "chapterIndex": 9,
+      "id": "story-28"
     },
     {
-      "title": "Weight & Social Commentary",
-      "startTime": 1994.58,
-      "description": "Concerns about weight, social interactions, and perceived appearances."
+      "title": "Weight and Clothing Size",
+      "startTime": 2004,
+      "description": "The narrator talks about their weight and how their clothes fit.",
+      "chapterIndex": 10,
+      "id": "story-29"
     },
     {
-      "title": "Introduction to Memoirs",
-      "startTime": 2161.46,
-      "description": ""
+      "title": "Bud Waltz's Comments",
+      "startTime": 2035,
+      "description": "The narrator recounts a conversation with Bud Waltz about their weight.",
+      "chapterIndex": 10,
+      "id": "story-30"
     },
     {
-      "title": "Letter from Cascade Iowa",
-      "startTime": 2310.04,
-      "description": ""
+      "title": "Grey Cup Football Game",
+      "startTime": 2083,
+      "description": "The narrator shifts to discussing the Grey Cup football game and predictions.",
+      "chapterIndex": 10,
+      "id": "story-31"
     },
     {
-      "title": "Over and Out",
-      "startTime": 2398.91,
-      "description": ""
+      "title": "Tape Review & Collaboration",
+      "startTime": 2153,
+      "description": "Lindy discusses reviewing the tape, fast-forwarding, and collaborating with someone named Danny.",
+      "chapterIndex": 11,
+      "id": "story-32"
     },
     {
-      "title": "End of Recording",
-      "startTime": 2417.95,
-      "description": ""
+      "title": "Thrashing Days and Harvest",
+      "startTime": 2202,
+      "description": "The narrator transitions to discussing their experiences with thrashing machinery during harvest time.",
+      "chapterIndex": 11,
+      "id": "story-33"
+    },
+    {
+      "title": "Uncle Hiller's Memory",
+      "startTime": 2339,
+      "description": "Lindy describes his uncle's memory failing and his inability to recall certain family members.",
+      "chapterIndex": 11,
+      "id": "story-34"
+    },
+    {
+      "title": "Reflecting on Microphone Noise",
+      "startTime": 2418,
+      "description": "The narrator expresses surprise at a noise and realizes they were holding the microphone, explaining the clicking sound was due to the cord.",
+      "chapterIndex": 11,
+      "id": "story-35"
     }
-  ],
-  "summary": "A personal memoir recording covering family memories and life stories."
+  ]
 }

@@ -853,12 +853,12 @@
     {
       "start": 5522.774125,
       "end": 5822.654125,
-      "text": "Jack Dyer, when he left Tompkins, he went up to Winnipeg Oasis and organized the starting"
+      "text": "Jack Dyer, when he left Tompkins, he went up to Winnipegosis and organized the starting"
     },
     {
       "start": 5822.654125,
       "end": 5823.534125,
-      "text": "of a power plant in Winnipeg Oasis."
+      "text": "of a power plant in Winnipegosis."
     },
     {
       "start": 5823.534125,
@@ -2173,7 +2173,7 @@
     {
       "start": 7640.095,
       "end": 7653.335,
-      "text": "and from there I got a job building a line from Dinsmoor to Eston and up from"
+      "text": "and from there I got a job building a line from Dinsmore to Eston and up from"
     },
     {
       "start": 7653.335,
@@ -2613,7 +2613,7 @@
     {
       "start": 8234.925,
       "end": 8241.925,
-      "text": "Swift Currents, a system to put there. And I got going on that about in June. Oh, yeah,"
+      "text": "Swift Current, a system to put there. And I got going on that about in June. Oh, yeah,"
     },
     {
       "start": 8241.925,
@@ -2633,7 +2633,7 @@
     {
       "start": 8259.685,
       "end": 8272.685,
-      "text": "worked around Swift Currents, did a bunch of Mennonite settlements there, and then down"
+      "text": "worked around Swift Current, did a bunch of Mennonite settlements there, and then down"
     },
     {
       "start": 8272.685,
@@ -2748,7 +2748,7 @@
     {
       "start": 8418.555,
       "end": 8426.835,
-      "text": "72,000 from Kalali that's up near Melville up to Yorkton. I moved in on it just about..."
+      "text": "72,000 from Kelliher that's up near Melville up to Yorkton. I moved in on it just about..."
     },
     {
       "start": 8426.835,
@@ -2773,7 +2773,7 @@
     {
       "start": 8448.475,
       "end": 8457.475,
-      "text": "in to do that line up from Yorkton to Melville and down to Kalali, another 18 miles. And that"
+      "text": "in to do that line up from Yorkton to Melville and down to Kelliher, another 18 miles. And that"
     },
     {
       "start": 8457.475,
@@ -2908,17 +2908,17 @@
     {
       "start": 8639.515,
       "end": 8648.695,
-      "text": "Built that line from Yorkton to Theodore. And from there, Lampman to Bean Faith. That"
+      "text": "Built that line from Yorkton to Theodore. And from there, Lampman to Bienfait. That"
     },
     {
       "start": 8648.695,
       "end": 8656.695,
-      "text": "was another 18 miles. From there, down to Shawnevant to East End. That was 30 miles."
+      "text": "was another 18 miles. From there, down to Shaunavon to East End. That was 30 miles."
     },
     {
       "start": 8656.695,
       "end": 8669.915,
-      "text": "And then after that, came in and went from Walmart to Kipling. That was about 60 miles."
+      "text": "And then after that, came in and went from Wawota to Kipling. That was about 60 miles."
     },
     {
       "start": 8669.915,
@@ -5411,8 +5411,8 @@
     }
   ],
   "_corrections": {
-    "applied_at": "2026-01-10T19:00:21.988067",
-    "modified_segments": 5,
-    "total_corrections": 6
+    "applied_at": "2026-01-11T23:11:15.813084",
+    "modified_segments": 10,
+    "total_corrections": 10
   }
 }

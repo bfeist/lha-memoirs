@@ -3,6 +3,7 @@ import { Link, useParams, Navigate, useSearchParams } from "react-router-dom";
 import { AudioPlayer, usePeaksSeek } from "../components/AudioPlayer/AudioPlayer";
 import { Chapters } from "../components/Chapters/Chapters";
 import { Transcript } from "../components/Transcript/Transcript";
+import { ResizablePanels } from "../components/ResizablePanels/ResizablePanels";
 import { useRecordingData } from "../hooks/useRecordingData";
 import { getRecordingById, getRandomBackgroundImage } from "../config/recordings";
 import styles from "./RecordingPlayer.module.css";
@@ -208,11 +209,10 @@ function RecordingPlayer(): React.ReactElement {
           )}
         </section>
 
-        {/* Content grid: TOC and Transcript side by side */}
-        <div className={styles.contentGrid}>
-          {/* Table of Contents */}
-          <aside className={styles.tocSection}>
-            {chapters && chapters.length > 0 ? (
+        {/* Content with resizable panels: TOC and Transcript */}
+        <ResizablePanels
+          leftPanel={
+            chapters && chapters.length > 0 ? (
               <Chapters
                 chapters={chapters}
                 stories={stories}
@@ -226,12 +226,10 @@ function RecordingPlayer(): React.ReactElement {
                 <h2>Chapters</h2>
                 <p>Chapter information will appear here after processing.</p>
               </div>
-            )}
-          </aside>
-
-          {/* Transcript */}
-          <section className={styles.transcriptSection}>
-            {transcript.data && chapters ? (
+            )
+          }
+          rightPanel={
+            transcript.data && chapters ? (
               <Transcript
                 segments={transcript.data.segments}
                 chapters={chapters}
@@ -243,9 +241,9 @@ function RecordingPlayer(): React.ReactElement {
                 <h2>Transcript</h2>
                 <p>The transcript will appear here after processing the audio.</p>
               </div>
-            )}
-          </section>
-        </div>
+            )
+          }
+        />
       </main>
 
       {/* Footer */}

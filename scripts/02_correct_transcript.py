@@ -63,9 +63,27 @@ PLACE_CORRECTIONS = [
     (r'\bHalgen\b', 'Elgin'),
     (r'\bShawtoven\b', 'Shaunavon'),
     (r'\bShoneman\b', 'Shaunavon'),
+    (r'\bShawnevant\b', 'Shaunavon'),
+    (r'\bSonovan\b', 'Shaunavon'),
+    (r'\bShonovan\b', 'Shaunavon'),
     (r'\bEstadan\b', 'Estevan'),
     (r'\bBencoff\b', 'Bethune'),
     (r'\bOgamah\b', 'Ogema'),
+    (r'\bDinsmoor\b', 'Dinsmore'),
+    (r'\bSwift Currents\b', 'Swift Current'),
+    (r'\bGuttalink\b', 'Gull Lake'),
+    (r'\bWalmart\b', 'Wawota'),
+    (r'\bAlbright\b', 'Halbrite'),
+    (r'\bMacoon\b', 'Macoun'),
+    (r'\bKalali\b', 'Kelliher'),
+    (r'\bBean Faith\b', 'Bienfait'),
+    (r'\bbean faith\b', 'Bienfait'),
+    
+    # Manitoba
+    (r'\bWinnipeg Oasis\b', 'Winnipegosis'),
+    
+    # Iowa - Lindy's birthplace
+    (r'\bRamson\b', 'Remsen'),
     
     # Lloydminster (one word, Alberta/Saskatchewan border)
     (r'\bLloyd [Mm]inister\b', 'Lloydminster'),
@@ -78,6 +96,18 @@ PLACE_CORRECTIONS = [
     # Other known corrections from analysis
     (r'\bFrank Winner\b', 'Frank Wenner'),
     (r'\bfrank winner\b', 'Frank Wenner'),
+]
+
+# ============================================================================
+# NAME CORRECTIONS - Sister Hilary spelling
+# ============================================================================
+NAME_CORRECTIONS = [
+    # Sister Hilary (one L) - Lindy's sister
+    (r'\bSister Hillary\b', 'Sister Hilary'),
+    (r'\bsister Hillary\b', 'sister Hilary'),
+    # Linden vs Lyndon
+    (r'\bLyndon Hillary\b', 'Linden Hilary'),
+    (r'\bAchen Lyndon Hillary\b', 'Achen, Linden Hilary'),
 ]
 
 # ============================================================================
@@ -121,6 +151,7 @@ def compile_corrections() -> list[tuple[re.Pattern, str, str]]:
     all_corrections = [
         ("Family", FAMILY_CORRECTIONS),
         ("Place", PLACE_CORRECTIONS),
+        ("Name", NAME_CORRECTIONS),
         ("Company", COMPANY_CORRECTIONS),
         ("Phonetic", PHONETIC_CORRECTIONS),
     ]

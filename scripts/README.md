@@ -108,19 +108,14 @@ Each script accepts an optional recording path argument:
    uv run 03_generate_waveform.py [recording_path]
    ```
 
-4. **Analyze chapters** (requires Ollama running)
+4. **Analyze chapters and stories** (requires Ollama running)
 
    ```bash
    uv run 04_analyze_chapters.py [recording_path]
    ```
+   Identifies both chapters (major sections) and stories (individual anecdotes within chapters).
 
-5. **Analyze stories** (sub-chapter level, requires chapters.json)
-
-   ```bash
-   uv run 05_analyze_stories.py [recording_path]
-   ```
-
-6. **Find story overlaps** (cross-reference memoir recordings)
+5. **Find story overlaps** (cross-reference memoir recordings)
 
    ```bash
    uv run 06_find_story_overlaps.py --save
@@ -130,12 +125,12 @@ Each script accepts an optional recording path argument:
 
 Output goes to `/public/recordings/{recording_path}/`:
 
-| File              | Description                           |
-| ----------------- | ------------------------------------- |
-| `audio.mp3`       | MP3 audio for web playback (CBR 192k) |
-| `transcript.json` | Full transcript with segments         |
-| `waveform.json`   | Waveform data for peaks.js            |
-| `chapters.json`   | Chapter analysis from LLM             |
+| File              | Description                                       |
+| ----------------- | ------------------------------------------------- |
+| `audio.mp3`       | MP3 audio for web playback (CBR 192k)             |
+| `transcript.json` | Full transcript with segments                     |
+| `waveform.json`   | Waveform data for peaks.js                        |
+| `chapters.json`   | Chapter and story analysis from LLM               |
 
 ### transcript.json Structure
 
@@ -173,6 +168,7 @@ The `files` array tracks timing boundaries of the original source files (for UI 
 ```json
 {
   "chapters": [{ "title": "Opening", "startTime": 0.0, "description": "..." }],
+  "stories": [{ "title": "Story Title", "startTime": 0.0, "description": "...", "chapterIndex": 0 }],
   "summary": "Brief summary of the recording."
 }
 ```

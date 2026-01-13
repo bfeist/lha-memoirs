@@ -1,8 +1,7 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
-import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { formatTime } from "../../hooks/useRecordingData";
 import { getRecordingByPath } from "../../config/recordings";
 import styles from "./Chapters.module.css";
@@ -75,7 +74,9 @@ export function Chapters({
   recordingPath?: string;
 }): React.ReactElement {
   const navigate = useNavigate();
-  const [expandedChapters, setExpandedChapters] = useState<Set<number>>(new Set());
+  const containerRef = useRef<HTMLElement>(null);
+  const activeChapterRef = useRef<HTMLDivElement>(null);
+  const lastScrolledChapterIndex = useRef<number | null>(null);
 
   // Get current recording folder name for matching
   const currentRecordingFolder = useMemo(
@@ -87,17 +88,17 @@ export function Chapters({
   const storiesByChapter = useMemo(() => groupStoriesByChapter(stories), [stories]);
 
   // Determine which chapter is currently active
-  const getCurrentChapterIndex = (): number | null => {
+  const currentChapterIndex = useMemo((): number | null => {
     for (let i = chapters.length - 1; i >= 0; i--) {
       if (currentTime >= chapters[i].startTime) {
         return i;
       }
     }
     return chapters.length > 0 ? 0 : null;
-  };
+  }, [chapters, currentTime]);
 
   // Determine which story is currently active
-  const getCurrentStoryId = (): string | null => {
+  const currentStoryId = useMemo((): string | null => {
     if (!stories || stories.length === 0) return null;
     for (let i = stories.length - 1; i >= 0; i--) {
       if (currentTime >= stories[i].startTime) {
@@ -105,24 +106,35 @@ export function Chapters({
       }
     }
     return stories.length > 0 ? stories[0].id : null;
-  };
+  }, [stories, currentTime]);
 
-  const currentChapterIndex = getCurrentChapterIndex();
-  const currentStoryId = getCurrentStoryId();
+  // Auto-scroll to keep current chapter in view
+  useEffect(() => {
+    if (
+      activeChapterRef.current &&
+      containerRef.current &&
+      currentChapterIndex !== null &&
+      currentChapterIndex !== lastScrolledChapterIndex.current
+    ) {
+      lastScrolledChapterIndex.current = currentChapterIndex;
+      const container = containerRef.current;
+      const activeChapter = activeChapterRef.current;
 
-  // Toggle chapter expansion
-  const toggleChapter = (index: number, e: React.MouseEvent) => {
-    e.stopPropagation();
-    setExpandedChapters((prev) => {
-      const next = new Set(prev);
-      if (next.has(index)) {
-        next.delete(index);
-      } else {
-        next.add(index);
+      const containerRect = container.getBoundingClientRect();
+      const chapterRect = activeChapter.getBoundingClientRect();
+
+      // Check if chapter is outside visible area (with some padding)
+      const isAbove = chapterRect.top < containerRect.top + 40;
+      const isBelow = chapterRect.bottom > containerRect.bottom - 40;
+
+      if (isAbove || isBelow) {
+        activeChapter.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
       }
-      return next;
-    });
-  };
+    }
+  }, [currentChapterIndex]);
 
   // Handle alternate telling click - navigate to other recording
   const handleAlternateClick = (
@@ -158,13 +170,12 @@ export function Chapters({
 
       <p className={styles.hint}>Click a chapter to jump to that section</p>
 
-      <nav className={styles.tocList} aria-label="Table of Contents">
+      <nav ref={containerRef} className={styles.tocList} aria-label="Table of Contents">
         {chapters.map((chapter, index) => {
           const isActive = index === currentChapterIndex;
           const isPast = chapter.startTime < currentTime && !isActive;
           const chapterStories = storiesByChapter.get(index) || [];
           const hasStories = chapterStories.length > 0;
-          const isExpanded = expandedChapters.has(index);
 
           // Count alternate tellings in this chapter's stories
           const storyAlternateTellings = chapterStories
@@ -175,30 +186,16 @@ export function Chapters({
           const alternateCount = storyAlternateTellings.length;
 
           return (
-            <div key={index} className={styles.chapterGroup}>
+            <div
+              key={index}
+              ref={isActive ? activeChapterRef : null}
+              className={styles.chapterGroup}
+            >
               <button
                 onClick={() => onChapterClick(chapter)}
                 className={`${styles.tocItem} ${isActive ? styles.active : ""} ${isPast ? styles.past : ""}`}
                 aria-current={isActive ? "true" : undefined}
               >
-                {hasStories && (
-                  <span
-                    className={styles.expandToggle}
-                    onClick={(e) => toggleChapter(index, e)}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={isExpanded ? "Collapse stories" : "Expand stories"}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        toggleChapter(index, e as unknown as React.MouseEvent);
-                      }
-                    }}
-                  >
-                    <FontAwesomeIcon icon={isExpanded ? faChevronDown : faChevronRight} />
-                  </span>
-                )}
-
                 <span className={styles.chapterNumber}>{index + 1}</span>
 
                 <div className={styles.chapterInfo}>
@@ -222,7 +219,7 @@ export function Chapters({
               </button>
 
               {/* Nested stories */}
-              {hasStories && isExpanded && (
+              {hasStories && (
                 <div className={styles.storiesList}>
                   {chapterStories.map((story) => {
                     const isStoryActive = story.id === currentStoryId;

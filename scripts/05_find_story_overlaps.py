@@ -16,7 +16,7 @@ import json
 import re
 import sys
 from pathlib import Path
-from ollama import Client
+import ollama
 
 BASE_DIR = Path(__file__).parent.parent
 MEMOIRS_DIR = BASE_DIR / "public" / "recordings" / "memoirs"
@@ -28,7 +28,7 @@ MODEL = "gemma3:12b"
 MATCH_THRESHOLD = 8
 
 # Create client with longer timeout
-ollama_client = Client(timeout=300.0)
+# ollama_client = Client(timeout=300.0)
 
 
 def call_llm(prompt: str, model: str = None, stream_output: bool = False) -> str:
@@ -37,23 +37,28 @@ def call_llm(prompt: str, model: str = None, stream_output: bool = False) -> str
         model = MODEL
     try:
         if stream_output:
-            stream = ollama_client.chat(
+            stream = ollama.chat(
                 model=model,
                 messages=[{'role': 'user', 'content': prompt}],
                 stream=True,
+                options={"num_ctx": 4096},
+                keep_alive="10m",  # Keep model loaded for 10 minutes between requests
             )
             content = ''
             for chunk in stream:
-                if chunk.message.content:
-                    print(chunk.message.content, end='', flush=True)
-                    content += chunk.message.content
+                part = chunk.get('message', {}).get('content', '')
+                if part:
+                    print(part, end='', flush=True)
+                    content += part
             return content.strip()
         else:
-            response = ollama_client.chat(
+            response = ollama.chat(
                 model=model,
                 messages=[{'role': 'user', 'content': prompt}],
+                options={"num_ctx": 4096},
+                keep_alive="10m",  # Keep model loaded for 10 minutes between requests
             )
-            return response.message.content.strip()
+            return response.get('message', {}).get('content', '').strip()
     except Exception as e:
         return f"ERROR: {e}"
 
@@ -337,7 +342,7 @@ def main():
     print("=" * 60)
     print("MEMOIR STORY OVERLAP ANALYSIS (STORY-LEVEL PRECISION)")
     print("=" * 60)
-    print("\nNarrator: Linden 'Lindy' Achen")
+    print("\nNarrator: Linden 'Lindy' Achen (male)")
     print("Recordings: Norm_red (later), TDK_D60_edited_through_air (earlier)")
     print("\nThis will analyze the actual spoken text within each STORY")
     print("to find matching anecdotes between recordings.")

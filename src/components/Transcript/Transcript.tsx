@@ -15,7 +15,9 @@ export function Transcript({
 }): React.ReactElement {
   const containerRef = useRef<HTMLDivElement>(null);
   const activeChapterRef = useRef<HTMLDivElement>(null);
+  const activeSegmentRef = useRef<HTMLSpanElement>(null);
   const lastScrolledChapterId = useRef<string | null>(null);
+  const lastScrolledSegmentIndex = useRef<number | null>(null);
 
   // Group segments by chapter
   const chapterGroups = useMemo(() => {
@@ -107,6 +109,33 @@ export function Transcript({
     }
   }, [currentChapterId]);
 
+  // Auto-scroll to keep current segment in view
+  useEffect(() => {
+    if (
+      activeSegmentRef.current &&
+      containerRef.current &&
+      currentSegmentIndex !== lastScrolledSegmentIndex.current
+    ) {
+      lastScrolledSegmentIndex.current = currentSegmentIndex;
+      const container = containerRef.current;
+      const activeSegment = activeSegmentRef.current;
+
+      const containerRect = container.getBoundingClientRect();
+      const segmentRect = activeSegment.getBoundingClientRect();
+
+      // Check if segment is outside visible area (with some padding)
+      const isAbove = segmentRect.top < containerRect.top + 60;
+      const isBelow = segmentRect.bottom > containerRect.bottom - 60;
+
+      if (isAbove || isBelow) {
+        activeSegment.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+    }
+  }, [currentSegmentIndex]);
+
   // Memoized click handler
   const handleClick = useCallback(
     (time: number) => {
@@ -156,6 +185,7 @@ export function Transcript({
                   return (
                     <span
                       key={segmentIndex}
+                      ref={isCurrentSegment ? activeSegmentRef : null}
                       className={`${styles.segmentText} ${isCurrentSegment ? styles.activeSegment : ""} ${isPastSegment ? styles.pastSegment : ""} ${isPlayingSegment ? styles.playingSegment : ""}`}
                       onClick={() => handleClick(segment.start)}
                       role="button"

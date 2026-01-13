@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  gap: 0;
+}
+
+.leftPanel {
+  overflow-y: auto;
+  min-height: 0;
+  flex-shrink: 0;
+}
+
+.rightPanel {
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+  min-width: 0;
+}
+
+.divider {
+  position: relative;
+  width: 8px;
+  cursor: col-resize;
+  background: transparent;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.divider:hover {
+  background: rgb(212 175 55 / 10%);
+}
+
+.divider.dragging {
+  background: rgb(212 175 55 / 20%);
+}
+
+.dividerHandle {
+  width: 2px;
+  height: 40px;
+  background: rgb(212 175 55 / 30%);
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.divider:hover .dividerHandle {
+  background: rgb(212 175 55 / 50%);
+  height: 60px;
+}
+
+.divider.dragging .dividerHandle {
+  background: #d4af37;
+  height: 100%;
+}
+
+/* Hide resizable panels on mobile and use stacked layout */
+@media (width <= 1024px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .leftPanel {
+    width: 100% !important;
+  }
+
+  .rightPanel {
+    flex: 1;
+  }
+}

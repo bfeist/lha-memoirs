@@ -40,7 +40,6 @@ SCRIPTS = [
     ("02_correct_transcript.py", "Correcting transcript..."),
     ("03_generate_waveform.py", "Converting audio to MP3 and generating waveform..."),
     ("04_analyze_chapters.py", "Analyzing content for chapters..."),
-    ("05_analyze_stories.py", "Analyzing stories within chapters..."),
 ]
 
 

@@ -13,7 +13,7 @@
     {
       "start": 35.09,
       "end": 60.3,
-      "text": "So I'll start out with Achen Lyndon Hillary, 86 years of age, born in Mars, Iowa, immigrated with his family to Canada in 1907."
+      "text": "So I'll start out with Achen Linden Hilary, 86 years of age, born in Mars, Iowa, immigrated with his family to Canada in 1907."
     },
     {
       "start": 60.3,
@@ -393,7 +393,7 @@
     {
       "start": 632.61,
       "end": 635.61,
-      "text": "Survived by Sister Hillary."
+      "text": "Survived by Sister Hilary."
     },
     {
       "start": 635.61,
@@ -783,7 +783,7 @@
     {
       "start": 953.83,
       "end": 957.83,
-      "text": "So I wanted to hear Sister Hillary sing that song again."
+      "text": "So I wanted to hear Sister Hilary sing that song again."
     },
     {
       "start": 960.83,
@@ -802,5 +802,10 @@
     }
   ],
   "totalDuration": 1020.224,
-  "language": "en"
+  "language": "en",
+  "_corrections": {
+    "applied_at": "2026-01-11T23:11:15.404841",
+    "modified_segments": 3,
+    "total_corrections": 3
+  }
 }

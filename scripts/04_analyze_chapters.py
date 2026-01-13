@@ -161,31 +161,32 @@ def unload_model(model_name: str):
     print(f"\n🔄 Unloading model {model_name}...")
     try:
         # Send a request with keep_alive=0 to unload
-        ollama.generate(model=model_name, prompt="", keep_alive=0)
-        print("   ✅ Model unloaded from memory")
+        # ollama.generate(model=model_name, prompt="", keep_alive=0)
+        print("   ✅ Model unloaded from memory (Skipped to avoid conflict)")
     except Exception as e:
         print(f"   ⚠️ Could not unload model: {e}")
 
 
 # Minimum chapter duration in seconds - chapters shorter than this will be merged
-MIN_CHAPTER_DURATION = 90  # 1.5 minutes minimum
+MIN_CHAPTER_DURATION = 180  # 3 minutes minimum for chapters
+MIN_STORY_DURATION = 45  # 45 seconds minimum for stories
 
 
 def analyze_content_for_chapters(segments: list, model_name: str, total_duration: float = None) -> dict:
-    """Use LLM to analyze transcript and identify logical chapters."""
+    """Use LLM to analyze transcript and identify logical chapters and stories."""
     
     print(f"\n🤖 Analyzing content with {model_name}...")
-    print("   Processing transcript in chunks for better accuracy...")
+    print("   Processing transcript in chunks to identify topic transitions...")
     
     # Get total duration
     if total_duration is None:
         total_duration = segments[-1]["end"] if segments else 0
     
-    # Process in 10-minute windows with 60-second overlap for better context
-    WINDOW_SIZE = 600  # 10 minutes
-    OVERLAP = 60  # 60 seconds
+    # Process in 8-minute windows with 3-minute overlap for better transition detection
+    WINDOW_SIZE = 480  # 8 minutes
+    OVERLAP = 180  # 3 minutes overlap to catch transitions
     
-    all_chapters = []
+    all_transitions = []
     window_start = 0
     chunk_num = 0
     
@@ -200,39 +201,53 @@ def analyze_content_for_chapters(segments: list, model_name: str, total_duration
         ]
         
         if not window_segments:
+            # Check if this is a significant gap
+            next_seg = next((seg for seg in segments if seg["start"] >= window_start), None)
+            if next_seg and next_seg["start"] > window_end:
+                gap_mins = (next_seg["start"] - window_start) / 60
+                if gap_mins > 2:  # Only mention gaps > 2 minutes
+                    print(f"\n   Chunk {chunk_num} ({int(window_start/60)}:{int(window_start%60):02d}-{int(window_end/60)}:{int(window_end%60):02d}): (no speech - next segment at {int(next_seg['start']/60)}:{int(next_seg['start']%60):02d})")
             window_start += WINDOW_SIZE - OVERLAP
             continue
         
-        # Format for prompt - include seconds directly so LLM doesn't have to calculate
+        # Format for prompt - include seconds directly
         transcript_lines = []
         for seg in window_segments:
-            minutes = int(seg["start"] // 60)
-            seconds = int(seg["start"] % 60)
             total_secs = seg["start"]
             transcript_lines.append(f"[{total_secs:.0f}s] {seg['text']}")
         
         chunk_text = "\n".join(transcript_lines)
         
-        # Create focused prompt for this chunk
+        # Create focused prompt - ask for topic TRANSITIONS, not just chapters
         prompt = f"""/no_think
-Analyze this transcript segment and identify 1-2 MAJOR topic changes.
+Analyze this transcript and identify where the narrator TRANSITIONS to a new topic.
 
-IMPORTANT: Only create a new chapter when there's a SIGNIFICANT topic shift.
-- A chapter should cover at least 1-2 minutes of content
-- Minor digressions within the same general topic should NOT start a new chapter
-- If no major topic change occurs in this segment, return an empty chapters array
+CRITICAL: The title must describe what is BEING SAID at that exact timestamp, not what comes later.
 
-Transcript (timestamps are in SECONDS from start of recording):
+Look for explicit transitions like:
+- "Now I'll tell you about..." / "Let me go back to..."
+- "Another time..." / "And then..." / "After that..."
+- Year/date changes (e.g., "In 1924...")
+- Location changes (moving to a new place)
+- New people being introduced
+- Shift from one life event to another
+
+Transcript (numbers are seconds from recording start):
 
 {chunk_text}
 
-For each MAJOR topic, provide:
-- title: 2-4 word descriptive title for the main subject
-- startTime: Copy the [XXXs] number where this topic BEGINS (just the number, e.g., 103)
-- description: Brief phrase describing what's discussed (no "the speaker" or "he discusses")
+For EACH topic transition you find, provide:
+- title: 2-5 word title describing what STARTS at this timestamp
+- startTime: The [XXXs] number where this NEW topic begins
+- description: What the narrator is specifically discussing (use "Lindy" as the name. Lindy is a male narrator.)
+
+IMPORTANT: 
+- Only identify transitions where the speaker clearly shifts to a NEW subject
+- The title must match what is said AT that timestamp, not later
+- Return empty array if no clear topic transitions occur
 
 Respond with ONLY valid JSON:
-{{"chapters": [{{"id": 1, "title": "Topic Title", "startTime": 103, "description": "Brief description"}}]}}"""
+{{"transitions": [{{"title": "Topic Title", "startTime": 103, "description": "Brief description of what starts here"}}]}}"""
 
         print(f"\n   Chunk {chunk_num} ({int(window_start/60)}:{int(window_start%60):02d}-{int(window_end/60)}:{int(window_end%60):02d}):")
         sys.stdout.flush()
@@ -246,9 +261,10 @@ Respond with ONLY valid JSON:
                 prompt=prompt,
                 stream=True,
                 options={
-                    "temperature": 0.3,
+                    "temperature": 0.2,  # Lower temperature for more consistent results
                     "num_ctx": 4096,
-                }
+                },
+                keep_alive="10m"  # Keep model loaded for 10 minutes between requests
             ):
                 text = chunk.get("response", "")
                 if text:
@@ -266,9 +282,19 @@ Respond with ONLY valid JSON:
             
             chunk_result = json.loads(response_text.strip())
             
-            # Add chapters from this chunk
-            for chapter in chunk_result.get("chapters", []):
-                all_chapters.append(chapter)
+            # Add transitions from this chunk
+            for transition in chunk_result.get("transitions", chunk_result.get("chapters", [])):
+                # Sanitize startTime - LLM sometimes adds "s" suffix or brackets
+                start_time = transition.get("startTime", 0)
+                if isinstance(start_time, str):
+                    # Remove brackets and 's' suffix, e.g. "[13220s]" -> 13220
+                    start_time = start_time.replace("[", "").replace("]", "").replace("s", "")
+                    try:
+                        start_time = int(start_time)
+                    except ValueError:
+                        start_time = 0
+                transition["startTime"] = start_time
+                all_transitions.append(transition)
             
         except json.JSONDecodeError as e:
             print(f"   ⚠️  Could not parse JSON: {e}")
@@ -279,17 +305,356 @@ Respond with ONLY valid JSON:
         # Move to next window
         window_start += WINDOW_SIZE - OVERLAP
     
-    # Merge nearby chapters with similar topics
-    merged_chapters = merge_similar_chapters(all_chapters)
+    # Deduplicate transitions that were found in overlapping windows
+    all_transitions = deduplicate_transitions(all_transitions)
+    
+    # Validate each transition by checking the actual transcript content
+    print("\n🔍 Validating transitions against actual transcript content...")
+    validated_transitions = validate_transitions_against_content(all_transitions, segments, model_name)
+    
+    # Group into chapters (major) and stories (minor)
+    chapters, stories = group_into_chapters_and_stories(validated_transitions, total_duration)
     
     # Generate overall summary
     print("\n   Generating overall summary...")
-    summary = generate_summary(segments, model_name, merged_chapters)
+    summary = generate_summary(segments, model_name, chapters)
     
     return {
-        "chapters": merged_chapters,
+        "chapters": chapters,
+        "stories": stories,
         "summary": summary
     }
+
+
+def deduplicate_transitions(transitions: list) -> list:
+    """Remove duplicate transitions found in overlapping windows."""
+    if not transitions:
+        return []
+    
+    # Sort by start time
+    transitions = sorted(transitions, key=lambda t: t["startTime"])
+    
+    deduped = [transitions[0]]
+    
+    for trans in transitions[1:]:
+        last = deduped[-1]
+        time_diff = abs(trans["startTime"] - last["startTime"])
+        
+        # If within 30 seconds of each other, they're likely the same transition
+        if time_diff < 30:
+            # Keep the one with better description or combine them
+            if len(trans.get("description", "")) > len(last.get("description", "")):
+                deduped[-1] = trans
+        else:
+            deduped.append(trans)
+    
+    print(f"   Deduplicated: {len(transitions)} -> {len(deduped)} transitions")
+    return deduped
+
+
+def validate_transitions_against_content(transitions: list, segments: list, model_name: str) -> list:
+    """
+    Validate each transition by checking if the title matches the actual content
+    at that timestamp. Fix misaligned titles or timestamps.
+    """
+    if not transitions:
+        return []
+    
+    validated = []
+    
+    for i, trans in enumerate(transitions):
+        start_time = trans["startTime"]
+        title = trans["title"]
+        
+        # Get ~90 seconds of transcript starting at this timestamp (enough to see major events)
+        context_segments = [
+            seg for seg in segments
+            if seg["start"] >= start_time and seg["start"] < start_time + 90
+        ]
+        
+        if not context_segments:
+            validated.append(trans)
+            continue
+        
+        context_text = " ".join([seg["text"] for seg in context_segments])
+        
+        # Quick sanity check with LLM
+        prompt = f"""/no_think
+Does this title accurately describe what the narrator is talking about at this timestamp?
+
+Title: "{title}"
+Timestamp: {start_time:.0f}s
+
+Transcript at this timestamp:
+"{context_text[:500]}"
+
+IMPORTANT: If the transcript discusses a MAJOR LIFE EVENT (death, funeral, marriage, birth, moving, 
+starting a career, war service, etc.), the title MUST reflect that event explicitly.
+For example, if someone is talking about their father dying, the title should mention "Father's Death" 
+not something generic like "Harvesting Grain" even if that's mentioned first.
+
+If the title is accurate, respond: {{"valid": true}}
+If the title should be changed, respond: {{"valid": false, "betterTitle": "more accurate title", "reason": "brief explanation"}}
+
+Respond with ONLY valid JSON."""
+
+        try:
+            response = ollama.generate(
+                model=model_name,
+                prompt=prompt,
+                stream=False,
+                options={"temperature": 0.1, "num_ctx": 4096},
+                keep_alive="10m"  # Keep model loaded for 10 minutes between requests
+            )
+            response_text = response.get("response", "")
+            
+            # Parse JSON
+            if "```json" in response_text:
+                response_text = response_text.split("```json")[1].split("```")[0]
+            elif "```" in response_text:
+                response_text = response_text.split("```")[1].split("```")[0]
+            
+            result = json.loads(response_text.strip())
+            
+            if result.get("valid", True):
+                validated.append(trans)
+            else:
+                # Use the better title
+                better_title = result.get("betterTitle", title)
+                reason = result.get("reason", "")
+                old_title = trans["title"]
+                trans["title"] = better_title
+                validated.append(trans)
+                print(f"   📝 Fixed title at {start_time:.0f}s: '{old_title}' -> '{better_title}' ({reason})")
+                
+        except Exception as e:
+            # If validation fails, keep the original
+            validated.append(trans)
+    
+    return validated
+
+
+def group_into_chapters_and_stories(transitions: list, total_duration: float) -> tuple[list, list]:
+    """
+    Group transitions into chapters (major sections) and stories (sub-sections).
+    
+    Chapters are major topic shifts (e.g., life stages, major events).
+    Stories are individual anecdotes within chapters.
+    """
+    if not transitions:
+        return [], []
+    
+    # Sort by time
+    transitions = sorted(transitions, key=lambda t: t["startTime"])
+    
+    # First, identify natural chapter boundaries by looking at duration gaps
+    # and topic significance
+    chapters = []
+    stories = []
+    
+    # Always start with a chapter at time 0
+    first_trans = transitions[0]
+    if first_trans["startTime"] > 30:
+        # Create an intro chapter
+        chapters.append({
+            "title": first_trans["title"],
+            "startTime": 0.0,
+            "description": first_trans.get("description", "")
+        })
+        first_trans["isChapter"] = True
+    else:
+        first_trans["startTime"] = 0.0
+        chapters.append({
+            "title": first_trans["title"],
+            "startTime": 0.0,
+            "description": first_trans.get("description", "")
+        })
+        first_trans["isChapter"] = True
+    
+    current_chapter_start = 0.0
+    
+    for i, trans in enumerate(transitions[1:], 1):
+        time_since_chapter = trans["startTime"] - current_chapter_start
+        
+        # Determine next transition time for duration calc
+        if i + 1 < len(transitions):
+            next_time = transitions[i + 1]["startTime"]
+        else:
+            next_time = total_duration
+        
+        # A transition becomes a chapter if:
+        # 1. It's been at least MIN_CHAPTER_DURATION since last chapter
+        # 2. OR it represents a major life transition (detected by keywords)
+        is_major = is_major_transition(trans["title"], trans.get("description", ""))
+        
+        if time_since_chapter >= MIN_CHAPTER_DURATION or is_major:
+            chapters.append({
+                "title": trans["title"],
+                "startTime": trans["startTime"],
+                "description": trans.get("description", "")
+            })
+            current_chapter_start = trans["startTime"]
+            trans["isChapter"] = True
+        else:
+            # It's a story within the current chapter
+            trans["isChapter"] = False
+    
+    # Now assign stories (all transitions are potential stories)
+    for i, trans in enumerate(transitions):
+        chapter_idx = find_chapter_index(trans["startTime"], chapters)
+        stories.append({
+            "title": trans["title"],
+            "startTime": trans["startTime"],
+            "description": trans.get("description", ""),
+            "chapterIndex": chapter_idx,
+            "id": f"story-{i}"
+        })
+    
+    # Merge chapters that are too short
+    chapters = merge_short_chapters(chapters, total_duration)
+    
+    # Update story chapter indices after merge
+    for story in stories:
+        story["chapterIndex"] = find_chapter_index(story["startTime"], chapters)
+    
+    return chapters, stories
+
+
+def is_major_transition(title: str, description: str) -> bool:
+    """Check if a transition represents a major life event.
+    
+    Major events are things like death, marriage, birth - significant life moments
+    that should NEVER be merged into unrelated chapters.
+    """
+    text = (title + " " + description).lower()
+    
+    # High-priority major events - these MUST be their own chapters
+    critical_keywords = [
+        "death", "died", "passed away", "funeral", "dying", "illness",
+        "father's death", "mother's death", "dad died", "dad's death",
+        "marriage", "married", "wedding", "engaged",
+        "born", "birth", "baby",
+    ]
+    
+    # Lower-priority but still significant transitions
+    significant_keywords = [
+        "moved", "move to", "moving", "left for", "departed",
+        "career", "first job", "started working", "hired",
+        "war", "military", "army", "navy", "enlisted",
+        "graduated", "college", "university",
+        "business", "company", "started", "bought",
+        "retired", "retirement",
+    ]
+    
+    # Critical keywords are always major
+    if any(kw in text for kw in critical_keywords):
+        return True
+    
+    # Significant keywords need some context
+    if any(kw in text for kw in significant_keywords):
+        return True
+    
+    return False
+
+
+def find_chapter_index(time: float, chapters: list) -> int:
+    """Find which chapter a given timestamp belongs to."""
+    for i in range(len(chapters) - 1, -1, -1):
+        if time >= chapters[i]["startTime"]:
+            return i
+    return 0
+
+
+def merge_short_chapters(chapters: list, total_duration: float) -> list:
+    """Merge chapters that are too short into adjacent chapters.
+    
+    IMPORTANT: Never merge major life events (death, marriage, birth, etc.) 
+    into unrelated chapters - they should stand alone even if short.
+    """
+    if len(chapters) < 2:
+        return chapters
+    
+    merged = [chapters[0]]
+    
+    for i, chapter in enumerate(chapters[1:], 1):
+        prev = merged[-1]
+        prev_duration = chapter["startTime"] - prev["startTime"]
+        
+        # Check if current chapter is about a major life event
+        current_is_major = is_major_transition(chapter["title"], chapter.get("description", ""))
+        prev_is_major = is_major_transition(prev["title"], prev.get("description", ""))
+        
+        # Don't merge if current chapter is a major event and previous is not related
+        if current_is_major and not topics_related(prev["title"], chapter["title"]):
+            # Major events get their own chapter even if previous was short
+            merged.append(chapter)
+            continue
+        
+        if prev_duration < MIN_CHAPTER_DURATION:
+            # Previous chapter is too short, merge current into it
+            if chapter.get('description') and chapter['description'] not in prev.get('description', ''):
+                prev["description"] = f"{prev.get('description', '')}; {chapter['description']}".strip('; ')
+            
+            # If current chapter is more significant, use its title instead
+            if current_is_major and not prev_is_major:
+                old_title = prev["title"]
+                prev["title"] = chapter["title"]
+                print(f"   ⚡ Merged short chapter: '{old_title}' into '{chapter['title']}' (promoted major event, {prev_duration:.0f}s)")
+            else:
+                print(f"   ⚡ Merged short chapter: '{chapter['title']}' into '{prev['title']}' ({prev_duration:.0f}s)")
+        else:
+            merged.append(chapter)
+    
+    # Check last chapter duration
+    if len(merged) > 1:
+        last = merged[-1]
+        last_duration = total_duration - last["startTime"]
+        last_is_major = is_major_transition(last["title"], last.get("description", ""))
+        
+        # Don't merge if the last chapter is a major life event
+        if last_duration < MIN_CHAPTER_DURATION and not last_is_major:
+            prev = merged[-2]
+            if last.get('description') and last['description'] not in prev.get('description', ''):
+                prev["description"] = f"{prev.get('description', '')}; {last['description']}".strip('; ')
+            merged.pop()
+            print(f"   ⚡ Merged final short chapter into previous")
+    
+    return merged
+
+
+def topics_related(title1: str, title2: str) -> bool:
+    """Check if two chapter topics are related (share key concepts)."""
+    # Normalize
+    t1 = title1.lower()
+    t2 = title2.lower()
+    
+    # Extract key topic words (nouns, not articles/prepositions)
+    stop_words = {'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by'}
+    words1 = set(w for w in t1.split() if w not in stop_words and len(w) > 2)
+    words2 = set(w for w in t2.split() if w not in stop_words and len(w) > 2)
+    
+    # Check for overlapping significant words
+    overlap = words1 & words2
+    if overlap:
+        return True
+    
+    # Check for semantic relationships
+    related_groups = [
+        {'death', 'died', 'dying', 'funeral', 'illness', 'sick', 'health', 'hospital', 'passed'},
+        {'farm', 'farming', 'harvest', 'crop', 'field', 'cattle', 'livestock'},
+        {'job', 'work', 'career', 'employment', 'hired', 'wages', 'pay'},
+        {'family', 'father', 'mother', 'brother', 'sister', 'parents', 'relatives'},
+        {'school', 'education', 'teacher', 'class', 'learning'},
+        {'travel', 'trip', 'journey', 'moving', 'move', 'moved'},
+    ]
+    
+    for group in related_groups:
+        has1 = any(word in t1 for word in group)
+        has2 = any(word in t2 for word in group)
+        if has1 and has2:
+            return True
+    
+    return False
 
 
 def merge_similar_chapters(chapters: list) -> list:
@@ -422,7 +787,8 @@ Respond with ONLY: {{"correctedStartTime": <number>, "reason": "brief"}}"""
                 model=model_name,
                 prompt=prompt,
                 stream=True,
-                options={"temperature": 0.1, "num_ctx": 4096}
+                options={"temperature": 0.1, "num_ctx": 4096},
+                keep_alive="10m"  # Keep model loaded for 10 minutes between requests
             ):
                 text = chunk.get("response", "")
                 if text:
@@ -489,7 +855,8 @@ Be direct and factual."""
             model=model_name,
             prompt=prompt,
             stream=False,
-            options={"temperature": 0.3, "num_ctx": 2048}
+            options={"temperature": 0.3, "num_ctx": 4096},
+            keep_alive="10m"  # Keep model loaded for 10 minutes between requests
         ):
             response_text = chunk.get("response", "")
         
@@ -553,29 +920,30 @@ def process_recording(recording_folder: Path, model_name: str) -> bool:
         return False
     
     chapters = result["chapters"]
-    print(f"\n📚 Identified {len(chapters)} chapters (first pass):")
+    stories = result.get("stories", [])
+    
+    print(f"\n📚 Identified {len(chapters)} chapters:")
     for ch in chapters:
         minutes = int(ch["startTime"] // 60)
         seconds = int(ch["startTime"] % 60)
         print(f"   [{minutes:02d}:{seconds:02d}] {ch['title']}")
     
-    # Second pass: validate and correct chapter timing
-    chapters = validate_chapter_timing(chapters, segments, model_name)
-    
-    print(f"\n📚 Final {len(chapters)} chapters (after timing correction):")
-    for ch in chapters:
-        minutes = int(ch["startTime"] // 60)
-        seconds = int(ch["startTime"] % 60)
-        print(f"   [{minutes:02d}:{seconds:02d}] {ch['title']}")
+    if stories:
+        print(f"\n📖 Identified {len(stories)} stories")
     
     # Finalize chapters
     finalized_chapters = finalize_chapters(chapters)
+    
+    # Update story chapterIndex references after chapter finalization
+    for story in stories:
+        story["chapterIndex"] = find_chapter_index(story["startTime"], finalized_chapters)
     
     # Save chapters data (files info is in transcript.json, not duplicated here)
     chapters_path = recording_folder / "chapters.json"
     chapters_output = {
         "chapters": finalized_chapters,
         "summary": result.get("summary", ""),
+        "stories": stories,
     }
     
     with open(chapters_path, "w", encoding="utf-8") as f:
@@ -632,7 +1000,7 @@ def main():
             success_count += 1
     
     # Unload model to free memory
-    unload_model(model_name)
+    # unload_model(model_name)
     
     print("\n" + "=" * 60)
     print(f"✅ CHAPTER ANALYSIS COMPLETE! ({success_count}/{len(recording_folders)} recordings)")

@@ -44,21 +44,21 @@ function Index(): React.ReactElement {
           <p className={styles.portraitCaption}>L.H.A., 1942</p>
         </section>
 
-        {/* Recordings section */}
-        <section className={styles.lettersSection}>
-          <h2 className={styles.sectionTitle}>Recordings</h2>
-          <div className={styles.lettersList}>
-            {recordings.map((recording) => (
-              <RecordingCard key={recording.id} recording={recording} />
-            ))}
-          </div>
-        </section>
-
         {/* Memoirs section */}
         <section className={styles.memoirsSection}>
           <h2 className={styles.sectionTitle}>Voice Memoirs</h2>
           <div className={styles.lettersList}>
             {memoirs.map((recording) => (
+              <RecordingCard key={recording.id} recording={recording} />
+            ))}
+          </div>
+        </section>
+
+        {/* Recordings section */}
+        <section className={styles.lettersSection}>
+          <h2 className={styles.sectionTitle}>Other Recordings</h2>
+          <div className={styles.lettersList}>
+            {recordings.map((recording) => (
               <RecordingCard key={recording.id} recording={recording} />
             ))}
           </div>
