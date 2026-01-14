@@ -165,7 +165,6 @@ export function Transcript({
                 className={styles.chapterTitle}
                 onClick={() => handleClick(group.chapter.startTime)}
               >
-                <span className={styles.chapterIcon}>§</span>
                 {group.chapter.title}
                 <span className={styles.chapterTime}>{formatTime(group.chapter.startTime)}</span>
               </button>

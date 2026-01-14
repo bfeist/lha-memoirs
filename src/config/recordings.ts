@@ -55,20 +55,21 @@ export const RECORDINGS: RecordingConfig[] = [
   },
   // Memoirs (nested under memoirs/)
   {
-    id: "memoirs_norm_red",
-    path: "memoirs/Norm_red",
+    id: "memoirs_main",
+    path: "memoirs/TDK_D60_edited_through_air",
     title: "Memoirs",
-    subtitle: "Lindy Achen's voice memoirs.",
+    subtitle: "Lindy Achen's voice memoirs about his working life.",
     icon: "📕",
     backgroundImages: ["/photos/P1010033.jpg", "/photos/P1010034.jpg"],
     category: "memoir",
     hasEnhancedAudio: false,
   },
   {
-    id: "memoirs_tdk_d60",
-    path: "memoirs/TDK_D60_edited_through_air",
+    id: "memoirs_draft_telling",
+    path: "memoirs/Norm_red",
     title: "Memoirs - Draft Telling",
-    subtitle: "Lindy Achen's voice memoirs recorded before the finished product.",
+    subtitle:
+      "A draft recording of Lindy Achen's voice memoirs, recorded before the finished product.",
     icon: "📗",
     backgroundImages: ["/photos/P1010033.jpg", "/photos/P1010034.jpg"],
     category: "memoir",

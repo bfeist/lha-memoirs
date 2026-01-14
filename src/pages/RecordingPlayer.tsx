@@ -166,6 +166,9 @@ function RecordingPlayer(): React.ReactElement {
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
+          <Link to="/" className={styles.backButton} aria-label="Back to home">
+            ← Back
+          </Link>
           <h1 className={styles.title}>
             <Link to="/">
               Linden Hilary Achen - {recordingConfig.title}{" "}

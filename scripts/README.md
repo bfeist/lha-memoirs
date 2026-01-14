@@ -113,6 +113,7 @@ Each script accepts an optional recording path argument:
    ```bash
    uv run 04_analyze_chapters.py [recording_path]
    ```
+
    Identifies both chapters (major sections) and stories (individual anecdotes within chapters).
 
 5. **Find story overlaps** (cross-reference memoir recordings)
@@ -125,12 +126,12 @@ Each script accepts an optional recording path argument:
 
 Output goes to `/public/recordings/{recording_path}/`:
 
-| File              | Description                                       |
-| ----------------- | ------------------------------------------------- |
-| `audio.mp3`       | MP3 audio for web playback (CBR 192k)             |
-| `transcript.json` | Full transcript with segments                     |
-| `waveform.json`   | Waveform data for peaks.js                        |
-| `chapters.json`   | Chapter and story analysis from LLM               |
+| File              | Description                           |
+| ----------------- | ------------------------------------- |
+| `audio.mp3`       | MP3 audio for web playback (CBR 192k) |
+| `transcript.json` | Full transcript with segments         |
+| `waveform.json`   | Waveform data for peaks.js            |
+| `chapters.json`   | Chapter and story analysis from LLM   |
 
 ### transcript.json Structure
 
@@ -168,7 +169,9 @@ The `files` array tracks timing boundaries of the original source files (for UI 
 ```json
 {
   "chapters": [{ "title": "Opening", "startTime": 0.0, "description": "..." }],
-  "stories": [{ "title": "Story Title", "startTime": 0.0, "description": "...", "chapterIndex": 0 }],
+  "stories": [
+    { "title": "Story Title", "startTime": 0.0, "description": "...", "chapterIndex": 0 }
+  ],
   "summary": "Brief summary of the recording."
 }
 ```
