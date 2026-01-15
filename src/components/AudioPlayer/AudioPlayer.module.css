@@ -185,14 +185,15 @@
 }
 
 .reloadButton {
-  position: absolute;
-  right: 0.25rem;
-  padding: 0.3rem 0.5rem;
-  background: #2a2a2a;
-  border: 1px solid #3a3a3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.6rem;
+  background: rgb(255 255 255 / 8%);
+  border: 1px solid rgb(255 255 255 / 15%);
   border-radius: 6px;
-  color: #d4af37;
-  font-size: 0.85rem;
+  color: #cccccc;
+  font-size: 0.75rem;
   cursor: pointer;
   transition: all 0.2s ease;
   line-height: 1;
@@ -200,13 +201,19 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.reloadButton:hover {
-  background: #3a3a3a;
-  border-color: #4a4a4a;
+.reloadButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.reloadButton:hover:not(:disabled) {
+  background: rgb(212 175 55 / 15%);
+  border-color: rgb(212 175 55 / 30%);
+  color: #d4af37;
   transform: rotate(90deg);
 }
 
-.reloadButton:active {
+.reloadButton:active:not(:disabled) {
   transform: rotate(90deg) scale(0.95);
 }
 

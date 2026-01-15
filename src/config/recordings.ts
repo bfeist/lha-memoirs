@@ -56,7 +56,7 @@ export const RECORDINGS: RecordingConfig[] = [
   // Memoirs (nested under memoirs/)
   {
     id: "memoirs_main",
-    path: "memoirs/TDK_D60_edited_through_air",
+    path: "memoirs/Norm_red",
     title: "Memoirs",
     subtitle: "Lindy Achen's voice memoirs about his working life.",
     icon: "📕",
@@ -66,7 +66,7 @@ export const RECORDINGS: RecordingConfig[] = [
   },
   {
     id: "memoirs_draft_telling",
-    path: "memoirs/Norm_red",
+    path: "memoirs/TDK_D60_edited_through_air",
     title: "Memoirs - Draft Telling",
     subtitle:
       "A draft recording of Lindy Achen's voice memoirs, recorded before the finished product.",

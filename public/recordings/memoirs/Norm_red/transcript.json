@@ -2,21 +2,16 @@
   "segments": [
     {
       "start": 6.45,
-      "end": 15.24,
-      "text": "I go right back, and it starts in where I taped right up, and now it's around, you know,"
+      "end": 10.61,
+      "text": "I go right back, and it starts in where I taped ..."
     },
     {
-      "start": 15.24,
-      "end": 23.24,
-      "text": "where it's supposed to go, and that's where Al was in it, and now that's in it."
-    },
-    {
-      "start": 23.24,
+      "start": 25.24,
       "end": 28.24,
       "text": "I'll roll this back now and see what's happening."
     },
     {
-      "start": 28.24,
+      "start": 31.51,
       "end": 37.57,
       "text": "Yes, it was erasing and taping over, so I'll just keep on talking now"
     },
@@ -43,12 +38,12 @@
     {
       "start": 67.36,
       "end": 69.36,
-      "text": "Those were the hectic days."
+      "text": "Those were the hectic days,"
     },
     {
       "start": 69.36,
       "end": 72.36,
-      "text": "Those were the pioneer days for western Iowa."
+      "text": "the pioneer days for western Iowa."
     },
     {
       "start": 72.36,
@@ -78,12 +73,12 @@
     {
       "start": 96.36,
       "end": 99.36,
-      "text": "At that particular time, land in Iowa was selling."
+      "text": "At that particular time, land in Iowa was selling,"
     },
     {
       "start": 99.36,
       "end": 107.36,
-      "text": "Well, roughly $80 an acre, where you could buy it up in Canada from $20 to $25 an acre."
+      "text": "well, roughly $80 an acre, where you could buy it up in Canada from $20 to $25 an acre."
     },
     {
       "start": 107.36,
@@ -103,17 +98,17 @@
     {
       "start": 123.36,
       "end": 128.36,
-      "text": "when he wasn't a good corn grower."
+      "text": "when he was in a good corn growing,"
     },
     {
       "start": 128.36,
       "end": 132.36,
-      "text": "He had a well-established community down there."
+      "text": "well-established community down there."
     },
     {
       "start": 132.36,
       "end": 142.36,
-      "text": "Well, they went up to Canada and they had about three boxcars of, I guess, mostly animals and some machinery."
+      "text": "Well, we went up to Canada and they had about three boxcars of, I guess, mostly animals and some machinery."
     },
     {
       "start": 142.36,
@@ -248,7 +243,7 @@
     {
       "start": 253.36,
       "end": 258.36,
-      "text": "And I'd like to see, you know, just what went on."
+      "text": "And I'd like to see, you know they - just what went on."
     },
     {
       "start": 258.36,
@@ -283,7 +278,7 @@
     {
       "start": 281.6,
       "end": 287.91,
-      "text": "It was a two-budroom house with a dining room, kitchen combined."
+      "text": "It was a two-bedroom house with a dining room, kitchen combined."
     },
     {
       "start": 287.91,
@@ -20977,182 +20972,140 @@
         "time": 3473.55,
         "original": "of mine and knew me pretty well. He said, You put Aiken on that machine. He'll run it.",
         "corrected": "of mine and knew me pretty well. He said, You put Achen on that machine. He'll run it.",
-        "changes": [
-          "'Aiken' -> 'Achen'"
-        ]
+        "changes": ["'Aiken' -> 'Achen'"]
       },
       {
         "segment": 1474,
         "time": 4483.8215625,
         "original": "While I was there, the telephone operator said to me, are you Lindy Aiken?",
         "corrected": "While I was there, the telephone operator said to me, are you Lindy Achen?",
-        "changes": [
-          "'Aiken' -> 'Achen'"
-        ]
+        "changes": ["'Aiken' -> 'Achen'"]
       },
       {
         "segment": 1481,
         "time": 4514.131562500001,
         "original": "And so they phoned the operator there and said, if Lindy Aiken is in the district there any place, trace her down.",
         "corrected": "And so they phoned the operator there and said, if Lindy Achen is in the district there any place, trace her down.",
-        "changes": [
-          "'Aiken' -> 'Achen'"
-        ]
+        "changes": ["'Aiken' -> 'Achen'"]
       },
       {
         "segment": 1693,
         "time": 5171.7415625,
         "original": "I overhauled the power line from Shawtoven to Assiniboine.",
         "corrected": "I overhauled the power line from Shaunavon to Assiniboine.",
-        "changes": [
-          "'Shawtoven' -> 'Shaunavon'"
-        ]
+        "changes": ["'Shawtoven' -> 'Shaunavon'"]
       },
       {
         "segment": 2241,
         "time": 6451.1715625,
         "original": "the Rose Town",
         "corrected": "the Rosetown",
-        "changes": [
-          "'Rose Town' -> 'Rosetown'"
-        ]
+        "changes": ["'Rose Town' -> 'Rosetown'"]
       },
       {
         "segment": 2255,
         "time": 6482.631562500001,
         "original": "I had to leave my crew at Rose Town",
         "corrected": "I had to leave my crew at Rosetown",
-        "changes": [
-          "'Rose Town' -> 'Rosetown'"
-        ]
+        "changes": ["'Rose Town' -> 'Rosetown'"]
       },
       {
         "segment": 2281,
         "time": 6544.131562500001,
         "original": "at Rose Town",
         "corrected": "at Rosetown",
-        "changes": [
-          "'Rose Town' -> 'Rosetown'"
-        ]
+        "changes": ["'Rose Town' -> 'Rosetown'"]
       },
       {
         "segment": 2559,
         "time": 7209.500875,
         "original": "We built the piece out of Yorkton and then down to Shoneman",
         "corrected": "We built the piece out of Yorkton and then down to Shaunavon",
-        "changes": [
-          "'Shoneman' -> 'Shaunavon'"
-        ]
+        "changes": ["'Shoneman' -> 'Shaunavon'"]
       },
       {
         "segment": 2602,
         "time": 7342.960875,
         "original": "And then down in the Ogamah, Shonovan area,",
         "corrected": "And then down in the Ogema, Shonovan area,",
-        "changes": [
-          "'Ogamah' -> 'Ogema'"
-        ]
+        "changes": ["'Ogamah' -> 'Ogema'"]
       },
       {
         "segment": 2605,
         "time": 7357.270875,
         "original": "we were in the Ogamah, Bencoff,",
         "corrected": "we were in the Ogema, Bethune,",
-        "changes": [
-          "'Bencoff' -> 'Bethune'",
-          "'Ogamah' -> 'Ogema'"
-        ]
+        "changes": ["'Bencoff' -> 'Bethune'", "'Ogamah' -> 'Ogema'"]
       },
       {
         "segment": 2678,
         "time": 7594.970875,
         "original": "I said, well, we'll see how many fellows know Lindy Aiken.",
         "corrected": "I said, well, we'll see how many fellows know Lindy Achen.",
-        "changes": [
-          "'Aiken' -> 'Achen'"
-        ]
+        "changes": ["'Aiken' -> 'Achen'"]
       },
       {
         "segment": 2711,
         "time": 7757.880875,
         "original": "See how many guys know Linda Aitken?",
         "corrected": "See how many guys know Linda Achen?",
-        "changes": [
-          "'Aitken' -> 'Achen'"
-        ]
+        "changes": ["'Aitken' -> 'Achen'"]
       },
       {
         "segment": 3065,
         "time": 9100.970874999999,
         "original": "to work its way into Aitkin Construction. They tried and tried and tried, but we had",
         "corrected": "to work its way into Achen Construction. They tried and tried and tried, but we had",
-        "changes": [
-          "'Aitkin' -> 'Achen'"
-        ]
+        "changes": ["'Aitkin' -> 'Achen'"]
       },
       {
         "segment": 3185,
         "time": 9877.110875,
         "original": "day they take an ocean, they were climbing creosote poles, and they take an ocean. They",
         "corrected": "day they take a notion, they were climbing creosote poles, and they take a notion. They",
-        "changes": [
-          "'take an ocean' -> 'take a notion'",
-          "'take an ocean' -> 'take a notion'"
-        ]
+        "changes": ["'take an ocean' -> 'take a notion'", "'take an ocean' -> 'take a notion'"]
       },
       {
         "segment": 3198,
         "time": 9949.650875,
         "original": "one of them was my nephew, Don Aiken, who was a hell of a good man. If he'd have stayed",
         "corrected": "one of them was my nephew, Don Achen, who was a hell of a good man. If he'd have stayed",
-        "changes": [
-          "'Aiken' -> 'Achen'"
-        ]
+        "changes": ["'Aiken' -> 'Achen'"]
       },
       {
         "segment": 3230,
         "time": 10127.280875,
         "original": "job. I had one other fall when I was working for the power company in Estadan. You know,",
         "corrected": "job. I had one other fall when I was working for the power company in Estevan. You know,",
-        "changes": [
-          "'Estadan' -> 'Estevan'"
-        ]
+        "changes": ["'Estadan' -> 'Estevan'"]
       },
       {
         "segment": 3394,
         "time": 11071.204187500001,
         "original": "I went over the land power.",
         "corrected": "I went over the SaskPower.",
-        "changes": [
-          "'land power' -> 'SaskPower'"
-        ]
+        "changes": ["'land power' -> 'SaskPower'"]
       },
       {
         "segment": 3764,
         "time": 12399.124187500001,
         "original": "And the name Aiken",
         "corrected": "And the name Achen",
-        "changes": [
-          "'Aiken' -> 'Achen'"
-        ]
+        "changes": ["'Aiken' -> 'Achen'"]
       },
       {
         "segment": 3779,
         "time": 12429.124187500001,
         "original": "Aiken Construction 1965 Limited.",
         "corrected": "Achen Construction 1965 Limited.",
-        "changes": [
-          "'Aiken' -> 'Achen'"
-        ]
+        "changes": ["'Aiken' -> 'Achen'"]
       },
       {
         "segment": 4009,
         "time": 12927.9941875,
         "original": "place to have a beck in the wire",
         "corrected": "place to have a break in the wire",
-        "changes": [
-          "'beck in the wire' -> 'break in the wire'"
-        ]
+        "changes": ["'beck in the wire' -> 'break in the wire'"]
       }
     ]
   },

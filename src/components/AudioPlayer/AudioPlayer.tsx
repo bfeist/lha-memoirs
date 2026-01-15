@@ -6,6 +6,7 @@ import {
   faPause,
   faArrowRotateLeft,
   faArrowRotateRight,
+  faRotate,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./AudioPlayer.module.css";
 
@@ -81,11 +82,6 @@ export function AudioPlayer({
   // Toggle between original and enhanced audio
   // Default to original (false) so the unprocessed audio plays by default
   const [useEnhanced, setUseEnhanced] = useState(false);
-  // Check if reload button should be shown via query parameter
-  const [showReload] = useState(() => {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("showReload") === "true";
-  });
 
   // Format time as MM:SS
   const formatTime = useCallback((seconds: number): string => {
@@ -525,14 +521,15 @@ export function AudioPlayer({
           <span>{formatTime(duration)}</span>
         </div>
 
-        {onReload && showReload && (
+        {onReload && import.meta.env.DEV && (
           <button
-            className={styles.reloadButton}
             onClick={onReload}
+            className={styles.reloadButton}
+            disabled={!isReady}
             type="button"
-            aria-label="Reload data"
+            aria-label="Reload transcript and chapters"
           >
-            🔄
+            <FontAwesomeIcon icon={faRotate} />
           </button>
         )}
       </div>
