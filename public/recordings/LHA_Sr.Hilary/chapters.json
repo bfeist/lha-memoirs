@@ -2,78 +2,69 @@
   "chapters": [
     {
       "title": "Recording an Obituary",
-      "startTime": 0.0,
+      "startTime": 6.44,
       "description": "The narrator states their intention to record their obituary to ease the burden on their family and provide a guide for those writing it."
     },
     {
-      "title": "Funeral Arrangements Details",
-      "startTime": 140,
-      "description": "Lindy shifts to detailing funeral arrangements, including prayers, burial, and cremation."
+      "title": "Funeral Details Announced",
+      "startTime": 140.39,
+      "description": "Lindy transitions to detailing funeral arrangements, including prayers, burial, and cremation."
     },
     {
-      "title": "Tompkins Electric Leadership",
-      "startTime": 338,
-      "description": "Lindy transitions from discussing Dominion Electric Power to his role as president and general manager of Tompkins Electric."
+      "title": "Starting a Career in Electrical Work",
+      "startTime": 240.66,
+      "description": "Lindy begins describing his early work experience on the farm and in the electrical field."
+    },
+    {
+      "title": "Business Ventures Listed",
+      "startTime": 338.05,
+      "description": "Lindy begins listing his various business ventures and affiliations, starting with Tompkins Electric."
     },
     {
       "title": "Company Sale and Family History",
-      "startTime": 578,
-      "description": "Lindy transitions to detailing the history of Achen Construction, including its sale and continued operation."
+      "startTime": 578.08,
+      "description": "Lindy transitions to discussing the history of Achen Construction Company, its sale, and its continued operation."
     },
     {
-      "title": "Downtown Exploration",
-      "startTime": 760,
-      "description": "Lindy begins recounting an experience of exploring downtown, mentioning New Central Street and St. Catherine Street."
+      "title": "Mail Order Poetry Catalogs and Childhood Memories",
+      "startTime": 783.99,
+      "description": "Lindy discusses receiving catalogs of poetry from a mail-order house."
     },
     {
-      "title": "Privatization Discussion",
-      "startTime": 875,
-      "description": "Lindy introduces a historical account of selling the property and company shares to Potash Corporation of Saskatchewan."
+      "title": "History of Property Sale",
+      "startTime": 874.75,
+      "description": "Lindy introduces a historical account of selling property and company shares."
     }
   ],
   "summary": "A personal memoir recording covering family memories and life stories.",
   "stories": [
     {
-      "title": "Multiple Electric Companies",
-      "startTime": 265,
-      "description": "Lindy details his employment history, listing several electric companies he worked for across multiple states and provinces.",
-      "chapterIndex": 1,
+      "title": "Organizational Memberships",
+      "startTime": 395.36,
+      "description": "Lindy begins listing various organizations he was a member of.",
+      "chapterIndex": 3,
       "id": "story-0"
     },
     {
-      "title": "Community Involvement",
-      "startTime": 395,
-      "description": "Lindy begins listing his involvement in various organizations, including the Kinsmen of Canada and the Elks Lodge.",
-      "chapterIndex": 2,
+      "title": "Family and Mortality",
+      "startTime": 624.76,
+      "description": "Lindy shifts to discussing his sister and reflecting on his life's accomplishments.",
+      "chapterIndex": 4,
       "id": "story-1"
     },
     {
-      "title": "Electrical Journeyman Status",
-      "startTime": 460,
-      "description": "Lindy shifts to discussing his journeyman electrician certification and its continued validity.",
-      "chapterIndex": 2,
+      "title": "Sprinkler System Discussion",
+      "startTime": 716.19,
+      "description": "Lindy abruptly changes the subject to a discussion about a sprinkler system and water pressure.",
+      "chapterIndex": 4,
       "id": "story-2"
     },
     {
-      "title": "Reflections on Mortality and Legacy",
-      "startTime": 625,
-      "description": "Lindy recalls a detail he hadn't mentioned about his sister, Hilary, and muses about her potential lifespan.",
-      "chapterIndex": 3,
+      "title": "Listening to Recordings and Date/Time",
+      "startTime": 931.75,
+      "description": "Lindy states the date as July 1st, 1989 and comments on the beautiful weather.",
+      "chapterIndex": 6,
       "id": "story-3"
-    },
-    {
-      "title": "Property Sale and Potash Corporation",
-      "startTime": 819,
-      "description": "Lindy shifts to observing a bird and its interaction with water.",
-      "chapterIndex": 4,
-      "id": "story-4"
-    },
-    {
-      "title": "Tape Review and Song",
-      "startTime": 948,
-      "description": "Lindy explains he is reviewing tapes from Andy Hammer and wants to hear Sister Hilary sing again.",
-      "chapterIndex": 5,
-      "id": "story-5"
     }
   ]
 }

@@ -1,287 +1,280 @@
 {
   "chapters": [
     {
-      "title": "Birth in Remsen, Iowa and Early Life",
-      "startTime": 0.0,
-      "description": "The narrator initially discusses their birthplace (Remsen, Iowa), the year of their birth (1902), and briefly touches on their age during the Depression.; Lindy discusses his age during the Depression and his financial situation."
+      "title": "Birth in Remsen, Iowa and Early Years",
+      "startTime": 7.22,
+      "description": "The narrator initially discusses their birthplace (Remsen, Iowa), the year of their birth (1902), and their age during the Depression."
     },
     {
-      "title": "Mother's Grief After Father's Death",
-      "startTime": 344,
-      "description": "Lindy begins to recount his mother's illness and a visit to the doctor."
+      "title": "Power Company Employment",
+      "startTime": 169.39,
+      "description": "Lindy transitions to discussing his employment with a power company, detailing his career progression and locations.; Lindy shifts to describing a return to the farm and subsequent wage reduction with the power company."
     },
     {
-      "title": "Labor Dispute at Power Corporation",
-      "startTime": 627,
-      "description": "Lindy discusses his employment with the Power Corporation, including a strike and wage negotiation."
+      "title": "Mother's Dying Words & Seeking Medical Help",
+      "startTime": 367.45,
+      "description": "Lindy transitions to recounting his mother's illness and a doctor's visit after his father's death."
     },
     {
-      "title": "Transfer to Rosetown",
-      "startTime": 942,
-      "description": "Lindy discusses his transfer to Rosetown and the circumstances surrounding it, including a conflict with Jimmy Jackson."
+      "title": "Power Corporation Strike",
+      "startTime": 626.97,
+      "description": "Lindy discusses his employment with the Power Corporation, starting with his initial wages and subsequent strike."
     },
     {
-      "title": "Return to Regina & Layoffs",
-      "startTime": 1149,
-      "description": "Lindy describes returning to Regina and encountering layoffs at the Power Commission."
+      "title": "Hiring Help and Bureaucratic Pushback",
+      "startTime": 976.3,
+      "description": "Lindy abruptly shifts to an anecdote about being quizzed by his cousin Lisa about his personal life."
+    },
+    {
+      "title": "Finding Work During the Depression",
+      "startTime": 1208.51,
+      "description": "Lindy describes being sent to Gull Lake to install a distribution system."
     },
     {
       "title": "Wiring Homes in Midale",
-      "startTime": 1435,
-      "description": "Lindy describes wiring homes in Midale and the associated costs."
+      "startTime": 1435.08,
+      "description": "Lindy transitions to discussing wiring homes in Midale and the costs involved."
     },
     {
-      "title": "Farm Relief Wage",
-      "startTime": 1627,
-      "description": "Lindy describes receiving a relief wage from his brother on the farm."
+      "title": "Relief and Farm Work",
+      "startTime": 1627.37,
+      "description": "Lindy transitions to discussing his experience working on a farm for relief wages, detailing the conditions and payment."
     },
     {
-      "title": "Historical Perspective on Political Awareness",
-      "startTime": 1862,
-      "description": "Lindy transitions from discussing blame for the Depression to discussing the level of political awareness among people during that time."
+      "title": "Blame for the Depression",
+      "startTime": 1824.73,
+      "description": "Lindy shifts the conversation from the experiences of people who migrated to the woods to discussing who people blamed for the Depression."
     },
     {
       "title": "Social Activities During Winter on the Farm",
-      "startTime": 2052,
-      "description": "Lindy moves from discussing political awareness to the topic of how people spent their spare time and socialized during the Depression years."
+      "startTime": 2052.25,
+      "description": "Lindy moves from discussing political awareness to the topic of how people spent their spare time and what social activities they engaged in during the Depression."
     },
     {
-      "title": "Government Relief",
-      "startTime": 2460,
-      "description": "Lindy transitions to discussing the role of government in alleviating problems during the Depression, a new subject compared to the previous discussion of community support."
+      "title": "Childbirth and Death in the Community",
+      "startTime": 2320.82,
+      "description": "Lindy transitions to discussing medical care and health during the Depression era."
     },
     {
-      "title": "Preparing for Auction Sale After Father's Death",
-      "startTime": 2607,
-      "description": "Lindy transitions to recounting a specific instance where he helped a neighbor prepare for an auction sale after her husband's death and her son's illness."
+      "title": "Bartering & Trading",
+      "startTime": 2683.38,
+      "description": "Lindy discusses whether people traded goods rather than using cash."
     },
     {
-      "title": "Prejudice & Immigration",
-      "startTime": 2805,
-      "description": "Lindy is asked about prejudice and immigration, and he begins to discuss his understanding of the term and the settlement patterns in his area."
+      "title": "Church Involvement",
+      "startTime": 2901.92,
+      "description": "Lindy transitions to discussing the role of the church in the community and its involvement in volunteer efforts."
     },
     {
-      "title": "Joining the Army and Relief Programs",
-      "startTime": 2958,
-      "description": "Lindy begins talking about when things started to improve after the war."
+      "title": "Joining the Army and Relief Cuts",
+      "startTime": 2958.5,
+      "description": "Lindy begins discussing when things started to improve economically after the war."
     },
     {
-      "title": "Conscription and Public Opinion",
-      "startTime": 3013,
-      "description": "Lindy discusses the cutting off of relief and its connection to getting people into the army."
+      "title": "Conscription and Military Mobilization",
+      "startTime": 3012.64,
+      "description": "Lindy discusses the timing of relief cuts in relation to the start of the war and conscription."
     },
     {
-      "title": "Alberta Power Development",
-      "startTime": 3214,
-      "description": "Lindy mentions a book by Clinton White and expresses his desire to contact him about it."
+      "title": "Clinton White's Book",
+      "startTime": 3213.72,
+      "description": "Lindy abruptly shifts to discussing a book by Clinton White about the power commission."
     },
     {
-      "title": "Value of Goods",
-      "startTime": 3440,
-      "description": "Lindy shifts to discussing how people valued possessions differently during the Depression compared to the present."
+      "title": "Depression Era Values",
+      "startTime": 3439.79,
+      "description": "Lindy begins discussing how values and consumption habits differed during the Depression compared to the present."
     },
     {
-      "title": "Self-Reliance & Business",
-      "startTime": 3546,
-      "description": "Lindy transitions to discussing his approach to business and financial independence."
+      "title": "Government Dependency Concerns",
+      "startTime": 3625.1,
+      "description": "Lindy shifts from discussing government contracts to a broader discussion about self-reliance and the role of government in providing security."
     },
     {
-      "title": "Town Size and History",
-      "startTime": 3792,
-      "description": "Lindy moves from discussing the Depression to answering a question about the size of the town he lived in and its history."
+      "title": "Father's Move to California",
+      "startTime": 3886.52,
+      "description": "Lindy shifts from discussing family occupations to explaining why his father left Iowa and the subsequent migration of his family members to California."
     },
     {
-      "title": "Sons Leaving the Farm and Pursuing Different Careers",
-      "startTime": 3935,
-      "description": "Lindy begins discussing his eight sons and their individual departures from the family farm, detailing their destinations and occupations."
-    },
-    {
-      "title": "Hiring Practices & Marriage",
-      "startTime": 4089,
-      "description": "Lindy moves the conversation to a discussion of labor disputes, single vs. married workers, and the early development of unions in the area."
+      "title": "Sons Leaving Home and Pursuing Careers",
+      "startTime": 3934.55,
+      "description": "Lindy begins discussing his eight sons and their individual departures from the family farm, detailing their destinations and occupations.; Lindy moves the conversation to the topic of labor disputes, single vs. married workers, and the emergence of unions in the region."
     },
     {
       "title": "Discussion of Union Organizers",
-      "startTime": 4284,
-      "description": "Lindy begins discussing a specific union organizer who tried to recruit workers at the power company, detailing the organizer's tactics and promises."
+      "startTime": 4283.66,
+      "description": "Lindy begins discussing a specific union organizer and his tactics at the power company, shifting from a general discussion of union involvement."
     }
   ],
   "summary": "A personal memoir recording covering family memories and life stories.",
   "stories": [
     {
-      "title": "Farm Work and Wages",
-      "startTime": 271,
-      "description": "Lindy shifts to discussing returning to the farm and subsequent wage changes.",
-      "chapterIndex": 0,
+      "title": "Farm Life and Family",
+      "startTime": 319.67,
+      "description": "Lindy recounts shooting golfers with a rifle he purchased.",
+      "chapterIndex": 1,
       "id": "story-0"
     },
     {
       "title": "Education & Childhood Memories",
-      "startTime": 416,
+      "startTime": 415.95,
       "description": "Lindy and the interviewer discuss the number of children Lindy's mother had and the doctor's reaction.",
-      "chapterIndex": 1,
+      "chapterIndex": 2,
       "id": "story-1"
     },
     {
-      "title": "Power Corporation Employment",
-      "startTime": 483,
-      "description": "Lindy begins discussing his employment with the Power Corporation and room/board costs.",
-      "chapterIndex": 1,
+      "title": "Farm Ownership & Coincidence",
+      "startTime": 526.46,
+      "description": "Lindy discusses the ownership of the farm and a coincidence regarding the current owner's family size.",
+      "chapterIndex": 2,
       "id": "story-2"
     },
     {
-      "title": "Starting a Government Job",
-      "startTime": 750,
-      "description": "Lindy discusses his boss's knowledge of the government taking over power companies and Lindy's application.",
-      "chapterIndex": 2,
+      "title": "Job Opportunity and Potential Government Action",
+      "startTime": 749.56,
+      "description": "Lindy discusses his boss's knowledge of the government taking over power companies and Lindy's application for a job.",
+      "chapterIndex": 3,
       "id": "story-3"
     },
     {
-      "title": "Challenges with Authority and Territory",
-      "startTime": 995,
-      "description": "Lindy describes a conflict with a supervisor in Regina regarding his hiring practices and his independent work style.",
-      "chapterIndex": 3,
+      "title": "Contract in Midale",
+      "startTime": 1116.59,
+      "description": "Lindy describes taking on a contract to install a power system in Midale.",
+      "chapterIndex": 4,
       "id": "story-4"
     },
     {
-      "title": "Trip to Iowa",
-      "startTime": 1075,
-      "description": "Lindy transitions to discussing his trip to Iowa with his mother and taking leave from his job.",
-      "chapterIndex": 3,
+      "title": "Summer Work and Financial Independence",
+      "startTime": 1296.87,
+      "description": "Lindy discusses his work ethic and how he was able to maintain employment during the Depression.",
+      "chapterIndex": 5,
       "id": "story-5"
     },
     {
-      "title": "Finding Work During the Depression",
-      "startTime": 1209,
-      "description": "Lindy describes being sent to Gull Lake to install a distribution system.",
-      "chapterIndex": 4,
+      "title": "Public Perception of Blame for the Depression",
+      "startTime": 1351.03,
+      "description": "Lindy is asked about who people blamed for the Depression.",
+      "chapterIndex": 5,
       "id": "story-6"
     },
     {
-      "title": "Financial Hardship and Self-Reliance",
-      "startTime": 1315,
-      "description": "Lindy describes the shutdown of his work and his ability to support himself through savings and frugality.",
-      "chapterIndex": 4,
+      "title": "Relief and Social Perception",
+      "startTime": 1497.56,
+      "description": "Lindy shifts to discussing the experience of people on relief and the social perceptions surrounding it.",
+      "chapterIndex": 6,
       "id": "story-7"
     },
     {
-      "title": "Relief and Social Perception",
-      "startTime": 1498,
-      "description": "Lindy discusses the prevalence of relief and how people were treated who received it.",
-      "chapterIndex": 5,
+      "title": "Shift to Estevan Mines",
+      "startTime": 1553.48,
+      "description": "Lindy begins discussing his experiences in Estevan and Bienfait, specifically mentioning knowing 1,200 customers in the coal mining area.",
+      "chapterIndex": 6,
       "id": "story-8"
     },
     {
-      "title": "Shift to Estevan Coal Mines",
-      "startTime": 1553,
-      "description": "Lindy begins discussing his experiences in Estevan and Bienfait, specifically mentioning knowing all 1,200 of his customers in the coal mines.",
-      "chapterIndex": 5,
+      "title": "Iowa Comparison",
+      "startTime": 1937.75,
+      "description": "Lindy shifts the conversation to comparing conditions in Iowa in 1931 to a return visit in 1938, highlighting the stark contrast in prosperity.",
+      "chapterIndex": 8,
       "id": "story-9"
     },
     {
-      "title": "Comparison of Iowa Life - 1931 vs. 1938",
-      "startTime": 1938,
-      "description": "Lindy transitions to comparing the situation in Iowa in 1931 to a visit in 1938, highlighting the stark contrast in prosperity and appearance.",
-      "chapterIndex": 7,
+      "title": "Entertainment - School Dances",
+      "startTime": 2162.29,
+      "description": "Lindy shifts the conversation to entertainment during the Depression, specifically school dances.",
+      "chapterIndex": 9,
       "id": "story-10"
     },
     {
-      "title": "Homebrewing and Wine Making",
-      "startTime": 2112,
-      "description": "Lindy describes parties involving ice cream and cake, a departure from the previous discussion of alcohol consumption.",
-      "chapterIndex": 8,
+      "title": "Early Radio Experiences",
+      "startTime": 2209.65,
+      "description": "Lindy begins to describe early radio experiences, specifically mentioning a unique method of listening with headsets in a bowl.",
+      "chapterIndex": 9,
       "id": "story-11"
     },
     {
-      "title": "Schoolhouse Dances",
-      "startTime": 2162,
-      "description": "Lindy shifts the conversation to entertainment, specifically schoolhouse dances and their associated costs.",
-      "chapterIndex": 8,
+      "title": "Soup Kitchens & Communities",
+      "startTime": 2439.65,
+      "description": "Lindy shifts to discussing the presence or absence of soup kitchens and the nature of small communities.",
+      "chapterIndex": 10,
       "id": "story-12"
     },
     {
-      "title": "Neighborly Assistance",
-      "startTime": 2549,
-      "description": "Lindy begins to discuss instances of neighbors helping each other during difficult times, specifically before the Depression.",
-      "chapterIndex": 9,
+      "title": "Farm Self-Sufficiency",
+      "startTime": 2500.06,
+      "description": "Lindy transitions to discussing the concept of self-sufficiency on farms and how it enabled survival.",
+      "chapterIndex": 10,
       "id": "story-13"
     },
     {
-      "title": "Bartering & Trading",
-      "startTime": 2683,
-      "description": "Lindy moves the conversation to whether people traded goods instead of using cash.",
-      "chapterIndex": 10,
+      "title": "Dust Bowl Conditions",
+      "startTime": 2740.53,
+      "description": "Lindy begins discussing the severe drought and its impact on the land, including crop failure and livestock starvation.",
+      "chapterIndex": 11,
       "id": "story-14"
     },
     {
-      "title": "Dust Bowl Conditions",
-      "startTime": 2741,
-      "description": "Lindy begins discussing the severe drought conditions in the area, including the impact on crops and wildlife.",
-      "chapterIndex": 10,
+      "title": "Immigration and Settlement",
+      "startTime": 2804.73,
+      "description": "Lindy shifts the conversation to the topic of immigration and how people from Europe settled in the area, and whether or not there was prejudice.",
+      "chapterIndex": 11,
       "id": "story-15"
     },
     {
-      "title": "Church Involvement",
-      "startTime": 2902,
-      "description": "Lindy transitions to discussing the role of the church in the community and its involvement in relief efforts.",
-      "chapterIndex": 11,
+      "title": "The Great Depression - Saskatoon",
+      "startTime": 3092.33,
+      "description": "Lindy transitions to discussing the Great Depression, specifically mentioning his experience in Saskatoon and the lines of unemployed men.",
+      "chapterIndex": 14,
       "id": "story-16"
     },
     {
-      "title": "The Great Depression - Saskatoon",
-      "startTime": 3092,
-      "description": "Lindy transitions to discussing the Great Depression, specifically mentioning his experience in Saskatoon in 1931 and the lines of unemployed men.",
-      "chapterIndex": 13,
+      "title": "Power Line Construction - Tompkins",
+      "startTime": 3157.49,
+      "description": "Lindy shifts to describing his experience building a power line in Tompkins and the high number of unemployed men in the town.",
+      "chapterIndex": 14,
       "id": "story-17"
     },
     {
-      "title": "Anderson Government & Depression",
-      "startTime": 3292,
-      "description": "Lindy begins discussing the Anderson government and its role during the Depression.",
-      "chapterIndex": 14,
+      "title": "Government Blame & Bennett",
+      "startTime": 3314.04,
+      "description": "Lindy begins discussing public blame of the government and specifically mentions Bennett's promises.",
+      "chapterIndex": 15,
       "id": "story-18"
     },
     {
-      "title": "Saturation of Goods",
-      "startTime": 3382,
-      "description": "Lindy transitions to discussing the overabundance of goods and cars, and the signs of economic saturation.",
-      "chapterIndex": 14,
+      "title": "Consumerism & Saturation",
+      "startTime": 3376.3,
+      "description": "Lindy shifts to a discussion of consumerism, overproduction, and the saturation of goods in the market.",
+      "chapterIndex": 15,
       "id": "story-19"
     },
     {
-      "title": "Government Dependency Concerns",
-      "startTime": 3625,
-      "description": "Lindy shifts from discussing government contracts to a broader discussion about self-reliance and the role of government assistance.",
-      "chapterIndex": 16,
+      "title": "Experiences with Depression",
+      "startTime": 3696.98,
+      "description": "Lindy transitions from discussing government dependence to sharing a personal anecdote about witnessing hardship during the Depression.",
+      "chapterIndex": 17,
       "id": "story-20"
     },
     {
-      "title": "Observations on Humility and Hardship",
-      "startTime": 3697,
-      "description": "Lindy transitions from discussing government dependency to sharing a personal anecdote about witnessing hardship during the Depression.",
-      "chapterIndex": 16,
+      "title": "Town Size and History",
+      "startTime": 3791.6,
+      "description": "Lindy moves from discussing the cost of living to a question about the size of the town he lived in and its history.",
+      "chapterIndex": 17,
       "id": "story-21"
     },
     {
-      "title": "Land Acquisition in Iowa",
-      "startTime": 3887,
-      "description": "Lindy transitions from discussing the town's history to explaining why his father left Iowa and the subsequent migration of his family members to California.",
-      "chapterIndex": 17,
+      "title": "Achen Family Migration to California",
+      "startTime": 4042.24,
+      "description": "Lindy transitions to discussing another Achen family, their migration from Iowa, and their subsequent experiences in California.",
+      "chapterIndex": 19,
       "id": "story-22"
     },
     {
-      "title": "Achen Family Migration to California",
-      "startTime": 4042,
-      "description": "Lindy transitions to discussing another Achen family, their migration to California, and their current locations.",
-      "chapterIndex": 18,
-      "id": "story-23"
-    },
-    {
-      "title": "Discussion of Lindy's Selective Memory of Childhood and the Depression",
-      "startTime": 4353,
-      "description": "Lindy transitions to criticizing Lindy's account of the Depression, arguing that Lindy's privileged background prevents him from accurately portraying the hardships faced by others.",
+      "title": "Critique of Lindy's Account",
+      "startTime": 4353.29,
+      "description": "Lindy shifts to critiquing another person's (Lindy) account of the Depression, arguing it doesn't accurately reflect the hardships faced.",
       "chapterIndex": 20,
-      "id": "story-24"
+      "id": "story-23"
     }
   ]
 }

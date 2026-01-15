@@ -199,6 +199,41 @@ MIN_CHAPTER_DURATION = 180  # 3 minutes minimum for chapters
 MIN_STORY_DURATION = 45  # 45 seconds minimum for stories
 
 
+def snap_to_segment_start(target_time: float, segments: list, tolerance: float = 10.0) -> float:
+    """Snap an LLM-provided time to the nearest actual segment start time.
+    
+    The LLM returns approximate integer times based on the prompt. This function
+    finds the actual segment start time that's closest to the target.
+    
+    Args:
+        target_time: The time returned by the LLM (often an integer)
+        segments: List of transcript segments with 'start' times
+        tolerance: Maximum seconds to search before/after target (default 10s)
+    
+    Returns:
+        The exact segment start time, or target_time if no segment found nearby
+    """
+    if not segments:
+        return target_time
+    
+    best_segment = None
+    best_diff = float('inf')
+    
+    for seg in segments:
+        seg_start = seg.get('start', 0)
+        diff = abs(seg_start - target_time)
+        
+        # Only consider segments within tolerance
+        if diff <= tolerance and diff < best_diff:
+            best_diff = diff
+            best_segment = seg
+    
+    if best_segment:
+        return best_segment['start']
+    
+    return target_time
+
+
 def analyze_opening_content(segments: list, model_name: str) -> dict | None:
     """
     Explicitly analyze the very beginning of the recording to identify the opening topic.
@@ -264,10 +299,13 @@ Respond with ONLY valid JSON:
         response_text = sanitize_llm_json(response_text)
         result = json.loads(response_text)
         
-        # Return as a transition at time 0
+        # Opening starts at the first segment's actual start time (not 0)
+        first_segment_time = opening_segments[0]["start"] if opening_segments else 0.0
+        
+        # Return as a transition at the first segment time
         return {
             "title": result.get("title", "Introduction"),
-            "startTime": 0,
+            "startTime": first_segment_time,
             "description": result.get("description", ""),
             "endsAt": result.get("endsAt", 180)  # Default to 3 min if not specified
         }
@@ -409,11 +447,14 @@ Respond with ONLY valid JSON:
                 start_time = transition.get("startTime", 0)
                 if isinstance(start_time, str):
                     # Remove brackets and 's' suffix, e.g. "[13220s]" -> 13220
-                    start_time = start_time.replace("[", "").replace("]", "").replace("s", "")
+                    start_time = start_time.replace("[", "").replace("]", "").replace("s", "").replace("-", "")
                     try:
-                        start_time = int(start_time)
+                        start_time = float(start_time)
                     except ValueError:
-                        start_time = 0
+                        start_time = 0.0
+                
+                # Snap to actual segment start time for precision
+                start_time = snap_to_segment_start(float(start_time), segments)
                 transition["startTime"] = start_time
                 all_transitions.append(transition)
             
@@ -583,16 +624,16 @@ def group_into_chapters_and_stories(transitions: list, total_duration: float) ->
     chapters = []
     stories = []
     
-    # The first transition should already be at time 0 (from analyze_opening_content)
-    # If not, we need to handle it properly
+    # The first transition should already have the correct start time from analyze_opening_content
+    # (which uses the first segment's actual start time)
     first_trans = transitions[0]
     
-    # If first transition is already near 0, use it directly
+    # If first transition is already near the beginning (within 30s of start), use it
     if first_trans["startTime"] <= 30:
-        first_trans["startTime"] = 0.0  # Snap to 0
+        # Keep the actual startTime from the transition (don't force to 0.0)
         chapters.append({
             "title": first_trans["title"],
-            "startTime": 0.0,
+            "startTime": first_trans["startTime"],
             "description": first_trans.get("description", "")
         })
         first_trans["isChapter"] = True
@@ -953,6 +994,9 @@ Respond with ONLY: {{"correctedStartTime": <number>, "reason": "brief"}}"""
             corrected_time = float(result.get("correctedStartTime", chapter["startTime"]))
             reason = result.get("reason", "")
             
+            # Snap to actual segment start time for precision
+            corrected_time = snap_to_segment_start(corrected_time, segments)
+            
             # Sanity check: corrected time should be >= search_start and <= original + 60s
             if corrected_time >= search_start and corrected_time <= chapter["startTime"] + 60:
                 if abs(corrected_time - chapter["startTime"]) > 5:  # Only log if significant change
@@ -969,9 +1013,10 @@ Respond with ONLY: {{"correctedStartTime": <number>, "reason": "brief"}}"""
     # Re-sort by start time in case corrections changed order
     corrected_chapters = sorted(corrected_chapters, key=lambda c: c["startTime"])
     
-    # First chapter always starts at 0
-    if corrected_chapters:
-        corrected_chapters[0]["startTime"] = 0.0
+    # First chapter starts at the first segment's actual start time
+    if corrected_chapters and segments:
+        first_segment_time = segments[0].get("start", 0.0)
+        corrected_chapters[0]["startTime"] = first_segment_time
     
     # Run merge logic again after timing corrections may have created new overlaps
     print("   🔄 Merging chapters with same timestamps or too short duration...")
