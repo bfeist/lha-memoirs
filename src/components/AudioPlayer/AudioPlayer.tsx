@@ -532,6 +532,10 @@ export function AudioPlayer({
             <FontAwesomeIcon icon={faRotate} />
           </button>
         )}
+
+        {import.meta.env.DEV && (
+          <span className={styles.secondsDisplay}>{currentTime.toFixed(2)}</span>
+        )}
       </div>
 
       {!isReady && <div className={styles.loading}>Loading audio...</div>}

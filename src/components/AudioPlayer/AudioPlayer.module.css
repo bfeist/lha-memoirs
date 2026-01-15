@@ -217,6 +217,12 @@
   transform: rotate(90deg) scale(0.95);
 }
 
+.secondsDisplay {
+  font-family: "SF Mono", Monaco, Inconsolata, monospace;
+  font-size: 0.8rem;
+  margin-left: 0.25rem;
+}
+
 .timeSeparator {
   color: #888888;
 }
