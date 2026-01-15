@@ -36,7 +36,7 @@ export const RECORDINGS: RecordingConfig[] = [
   {
     id: "lha_sr_hilary",
     path: "LHA_Sr.Hilary",
-    title: "Sr. Hilary Recording",
+    title: "Sister Hilary Recording",
     subtitle: "Recordings with Sister Hilary discussing family and career.",
     icon: "📼",
     backgroundImages: ["/photos/P1010033.jpg", "/photos/P1010034.jpg"],

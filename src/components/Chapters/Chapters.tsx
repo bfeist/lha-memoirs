@@ -12,21 +12,30 @@ function getRecordingFolderName(recordingPath: string): string {
   return parts[parts.length - 1];
 }
 
-// Find alternate telling for a story by matching storyId directly
-function findAlternateTellingForStory(
+// Find alternate telling for a segment (chapter or story) by matching id
+function findAlternateTellingForSegment(
   alternateTellings: AlternateTelling[] | undefined,
   currentRecordingFolder: string,
-  storyId: string
+  segmentId: string
 ): { otherRecordingPath: string; otherStartTime: number; topic: string } | null {
   if (!alternateTellings) return null;
 
   for (const telling of alternateTellings) {
-    const currentRef = telling[currentRecordingFolder] as AlternateStoryRef | undefined;
-    if (currentRef && currentRef.storyId === storyId) {
+    const currentRef = telling[currentRecordingFolder] as
+      | AlternateSegmentRef
+      | AlternateStoryRef
+      | undefined;
+    if (!currentRef) continue;
+
+    // Handle new format (id field) or legacy format (storyId field)
+    const currentId =
+      "id" in currentRef ? currentRef.id : "storyId" in currentRef ? currentRef.storyId : null;
+
+    if (currentId === segmentId) {
       // Find the other recording in this telling
       for (const key of Object.keys(telling)) {
         if (key !== "topic" && key !== "confidence" && key !== currentRecordingFolder) {
-          const otherRef = telling[key] as AlternateStoryRef;
+          const otherRef = telling[key] as AlternateSegmentRef | AlternateStoryRef;
           const otherPath = `memoirs/${key}`;
           return {
             otherRecordingPath: otherPath,
@@ -177,13 +186,13 @@ export function Chapters({
           const chapterStories = storiesByChapter.get(index) || [];
           const hasStories = chapterStories.length > 0;
 
-          // Count alternate tellings in this chapter's stories
-          const storyAlternateTellings = chapterStories
-            .map((story) =>
-              findAlternateTellingForStory(alternateTellings, currentRecordingFolder, story.id)
-            )
-            .filter(Boolean);
-          const alternateCount = storyAlternateTellings.length;
+          // Check if this chapter itself has an alternate telling
+          const chapterId = `chapter-${index}`;
+          const chapterAlternate = findAlternateTellingForSegment(
+            alternateTellings,
+            currentRecordingFolder,
+            chapterId
+          );
 
           return (
             <div
@@ -207,13 +216,31 @@ export function Chapters({
 
                 <span className={styles.timestamp}>{formatTime(chapter.startTime)}</span>
 
-                {alternateCount > 0 && (
+                {chapterAlternate && (
                   <span
-                    className={styles.alternateCount}
-                    title={`${alternateCount} alternate telling${alternateCount > 1 ? "s" : ""}`}
+                    className={styles.alternateTelling}
+                    onClick={(e) =>
+                      handleAlternateClick(
+                        e,
+                        chapterAlternate.otherRecordingPath,
+                        chapterAlternate.otherStartTime
+                      )
+                    }
+                    title={`Alternate telling: ${chapterAlternate.topic}`}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        handleAlternateClick(
+                          e as unknown as React.MouseEvent,
+                          chapterAlternate.otherRecordingPath,
+                          chapterAlternate.otherStartTime
+                        );
+                      }
+                    }}
                   >
                     <FontAwesomeIcon icon={faCommentDots} />
-                    <span className={styles.alternateCountNumber}>{alternateCount}</span>
                   </span>
                 )}
               </button>
@@ -224,7 +251,7 @@ export function Chapters({
                   {chapterStories.map((story) => {
                     const isStoryActive = story.id === currentStoryId;
                     const isStoryPast = story.startTime < currentTime && !isStoryActive;
-                    const storyAlternate = findAlternateTellingForStory(
+                    const storyAlternate = findAlternateTellingForSegment(
                       alternateTellings,
                       currentRecordingFolder,
                       story.id

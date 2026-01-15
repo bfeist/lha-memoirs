@@ -16,9 +16,36 @@ Make sure Ollama is running locally with one of these models:
 """
 
 import json
+import re
 import sys
 import time
 from pathlib import Path
+
+
+def sanitize_llm_json(response_text: str) -> str:
+    """Sanitize common LLM JSON errors before parsing.
+    
+    Fixes issues like:
+    - "startTime": 4697s -> "startTime": 4697
+    - "startTime": [4697s] -> "startTime": 4697
+    - "startTime": 7603" -> "startTime": 7603 (missing opening quote)
+    - "startTime": 7867s" -> "startTime": 7867 (s and trailing quote)
+    - "correctedStartTime": 123s -> "correctedStartTime": 123
+    """
+    # Extract from markdown code blocks if present
+    if "```json" in response_text:
+        response_text = response_text.split("```json")[1].split("```")[0]
+    elif "```" in response_text:
+        response_text = response_text.split("```")[1].split("```")[0]
+    
+    # Fix numeric values with 's' suffix, brackets, or stray quotes
+    # Handles: 4697s, [4697s], 4697", 4697s", [4697], etc.
+    response_text = re.sub(r'"startTime"\s*:\s*\[?(\d+)s?"?\]?', r'"startTime": \1', response_text)
+    response_text = re.sub(r'"endsAt"\s*:\s*\[?(\d+)s?"?\]?', r'"endsAt": \1', response_text)
+    response_text = re.sub(r'"correctedStartTime"\s*:\s*\[?(\d+)s?"?\]?', r'"correctedStartTime": \1', response_text)
+    
+    return response_text.strip()
+
 
 print("=" * 60)
 print("CHAPTER ANALYSIS SCRIPT")
@@ -172,6 +199,84 @@ MIN_CHAPTER_DURATION = 180  # 3 minutes minimum for chapters
 MIN_STORY_DURATION = 45  # 45 seconds minimum for stories
 
 
+def analyze_opening_content(segments: list, model_name: str) -> dict | None:
+    """
+    Explicitly analyze the very beginning of the recording to identify the opening topic.
+    This ensures we don't miss content before the first detected transition.
+    """
+    if not segments:
+        return None
+    
+    # Get the first ~3 minutes of content (or all content if recording is shorter)
+    opening_segments = [seg for seg in segments if seg["start"] < 180]
+    
+    if not opening_segments:
+        return None
+    
+    # Build transcript text with timestamps
+    transcript_lines = []
+    for seg in opening_segments:
+        transcript_lines.append(f"[{seg['start']:.0f}s] {seg['text']}")
+    
+    opening_text = "\n".join(transcript_lines)
+    
+    prompt = f"""/no_think
+Analyze the OPENING of this recording and identify the FIRST topic being discussed.
+
+The recording begins with:
+
+{opening_text}
+
+What is the narrator talking about at the very START of this recording (at timestamp 0)?
+The title must describe the content that BEGINS the recording.
+
+IMPORTANT: Common opening topics include:
+- Recording introductions (date announcements, stating purpose)
+- Obituary dictation
+- Family history recitation
+- Childhood memories
+- Setting the scene for memoirs
+
+Respond with ONLY valid JSON:
+{{"title": "2-5 word title for opening topic", "description": "What the narrator discusses at the start", "endsAt": <approximate second when this topic ends or transitions>}}"""
+
+    print("\n   🎬 Analyzing opening content...")
+    sys.stdout.flush()
+    
+    try:
+        response_text = ""
+        for chunk in ollama.generate(
+            model=model_name,
+            prompt=prompt,
+            stream=True,
+            options={"temperature": 0.2, "num_ctx": 4096},
+            keep_alive="10m"
+        ):
+            text = chunk.get("response", "")
+            if text:
+                response_text += text
+                sys.stdout.write(text)
+                sys.stdout.flush()
+        
+        print()  # Newline after stream
+        
+        # Parse JSON with sanitization
+        response_text = sanitize_llm_json(response_text)
+        result = json.loads(response_text)
+        
+        # Return as a transition at time 0
+        return {
+            "title": result.get("title", "Introduction"),
+            "startTime": 0,
+            "description": result.get("description", ""),
+            "endsAt": result.get("endsAt", 180)  # Default to 3 min if not specified
+        }
+        
+    except Exception as e:
+        print(f"   ⚠️  Could not analyze opening: {e}")
+        return None
+
+
 def analyze_content_for_chapters(segments: list, model_name: str, total_duration: float = None) -> dict:
     """Use LLM to analyze transcript and identify logical chapters and stories."""
     
@@ -182,11 +287,20 @@ def analyze_content_for_chapters(segments: list, model_name: str, total_duration
     if total_duration is None:
         total_duration = segments[-1]["end"] if segments else 0
     
+    # FIRST: Explicitly analyze the opening content
+    opening_topic = analyze_opening_content(segments, model_name)
+    
     # Process in 8-minute windows with 3-minute overlap for better transition detection
     WINDOW_SIZE = 480  # 8 minutes
     OVERLAP = 180  # 3 minutes overlap to catch transitions
     
     all_transitions = []
+    
+    # Add opening topic as first transition if found
+    if opening_topic:
+        all_transitions.append(opening_topic)
+        print(f"   📍 Opening topic: '{opening_topic['title']}' (ends ~{opening_topic.get('endsAt', 180)}s)")
+    
     window_start = 0
     chunk_num = 0
     
@@ -211,28 +325,39 @@ def analyze_content_for_chapters(segments: list, model_name: str, total_duration
             continue
         
         # Format for prompt - include seconds directly
+        # For longer segments (WhisperX style), also include segment end times for clarity
         transcript_lines = []
         for seg in window_segments:
-            total_secs = seg["start"]
-            transcript_lines.append(f"[{total_secs:.0f}s] {seg['text']}")
+            start_secs = seg["start"]
+            end_secs = seg.get("end", start_secs)
+            duration = end_secs - start_secs
+            # For longer segments, show the range
+            if duration > 15:
+                transcript_lines.append(f"[{start_secs:.0f}s-{end_secs:.0f}s] {seg['text']}")
+            else:
+                transcript_lines.append(f"[{start_secs:.0f}s] {seg['text']}")
         
         chunk_text = "\n".join(transcript_lines)
         
         # Create focused prompt - ask for topic TRANSITIONS, not just chapters
+        # Improved prompt for longer WhisperX segments
         prompt = f"""/no_think
-Analyze this transcript and identify where the narrator TRANSITIONS to a new topic.
+Analyze this transcript chunk and identify where the narrator TRANSITIONS to a new topic.
 
-CRITICAL: The title must describe what is BEING SAID at that exact timestamp, not what comes later.
+CRITICAL RULES:
+1. The title must describe what is BEING SAID at that exact timestamp
+2. Look for EXPLICIT transition phrases or clear topic shifts
+3. Each segment may contain multiple sentences - a transition can occur MID-SEGMENT
+4. Use the START time of the segment where the transition occurs
 
-Look for explicit transitions like:
-- "Now I'll tell you about..." / "Let me go back to..."
+Look for transitions like:
+- "Now I'll tell you about..." / "Now I'm going to..." / "Let me go back to..."
 - "Another time..." / "And then..." / "After that..."
 - Year/date changes (e.g., "In 1924...")
-- Location changes (moving to a new place)
-- New people being introduced
-- Shift from one life event to another
+- "The next thing..." / "I also..."
+- Location changes, new people introduced, life event shifts
 
-Transcript (numbers are seconds from recording start):
+Transcript (timestamps in seconds from recording start):
 
 {chunk_text}
 
@@ -274,13 +399,9 @@ Respond with ONLY valid JSON:
             
             print()  # Newline after stream
             
-            # Parse JSON
-            if "```json" in response_text:
-                response_text = response_text.split("```json")[1].split("```")[0]
-            elif "```" in response_text:
-                response_text = response_text.split("```")[1].split("```")[0]
-            
-            chunk_result = json.loads(response_text.strip())
+            # Parse JSON with sanitization
+            response_text = sanitize_llm_json(response_text)
+            chunk_result = json.loads(response_text)
             
             # Add transitions from this chunk
             for transition in chunk_result.get("transitions", chunk_result.get("chapters", [])):
@@ -327,7 +448,11 @@ Respond with ONLY valid JSON:
 
 
 def deduplicate_transitions(transitions: list) -> list:
-    """Remove duplicate transitions found in overlapping windows."""
+    """Remove duplicate transitions found in overlapping windows.
+    
+    Special handling: The first transition (from analyze_opening_content) 
+    should be preserved as the opening topic.
+    """
     if not transitions:
         return []
     
@@ -340,11 +465,21 @@ def deduplicate_transitions(transitions: list) -> list:
         last = deduped[-1]
         time_diff = abs(trans["startTime"] - last["startTime"])
         
-        # If within 30 seconds of each other, they're likely the same transition
-        if time_diff < 30:
-            # Keep the one with better description or combine them
-            if len(trans.get("description", "")) > len(last.get("description", "")):
-                deduped[-1] = trans
+        # If within 45 seconds of each other, they're likely the same transition
+        # (increased from 30 to handle longer WhisperX segments)
+        if time_diff < 45:
+            # Special case: if last is at time 0 (opening), prefer keeping it
+            # unless the new one has a much better description
+            if last["startTime"] == 0:
+                # Keep the opening topic, but maybe update with better info
+                if len(trans.get("description", "")) > len(last.get("description", "")) * 1.5:
+                    # Significantly better description - merge the info
+                    last["description"] = trans.get("description", last.get("description", ""))
+                # Keep last (opening) either way
+            else:
+                # Keep the one with better description or combine them
+                if len(trans.get("description", "")) > len(last.get("description", "")):
+                    deduped[-1] = trans
         else:
             deduped.append(trans)
     
@@ -408,13 +543,9 @@ Respond with ONLY valid JSON."""
             )
             response_text = response.get("response", "")
             
-            # Parse JSON
-            if "```json" in response_text:
-                response_text = response_text.split("```json")[1].split("```")[0]
-            elif "```" in response_text:
-                response_text = response_text.split("```")[1].split("```")[0]
-            
-            result = json.loads(response_text.strip())
+            # Parse JSON with sanitization
+            response_text = sanitize_llm_json(response_text)
+            result = json.loads(response_text)
             
             if result.get("valid", True):
                 validated.append(trans)
@@ -452,10 +583,13 @@ def group_into_chapters_and_stories(transitions: list, total_duration: float) ->
     chapters = []
     stories = []
     
-    # Always start with a chapter at time 0
+    # The first transition should already be at time 0 (from analyze_opening_content)
+    # If not, we need to handle it properly
     first_trans = transitions[0]
-    if first_trans["startTime"] > 30:
-        # Create an intro chapter
+    
+    # If first transition is already near 0, use it directly
+    if first_trans["startTime"] <= 30:
+        first_trans["startTime"] = 0.0  # Snap to 0
         chapters.append({
             "title": first_trans["title"],
             "startTime": 0.0,
@@ -463,17 +597,25 @@ def group_into_chapters_and_stories(transitions: list, total_duration: float) ->
         })
         first_trans["isChapter"] = True
     else:
-        first_trans["startTime"] = 0.0
+        # First transition is NOT at the beginning - this shouldn't happen often
+        # now that we have analyze_opening_content, but handle it gracefully
+        # Create a generic intro chapter that ends at the first real transition
         chapters.append({
-            "title": first_trans["title"],
+            "title": "Introduction",
             "startTime": 0.0,
-            "description": first_trans.get("description", "")
+            "description": "Recording introduction"
         })
-        first_trans["isChapter"] = True
+        # The first transition becomes a potential chapter/story
+        # It will be evaluated in the loop below
+        # We need to include it in the transitions to process
+        pass  # transitions list already includes first_trans
     
     current_chapter_start = 0.0
     
-    for i, trans in enumerate(transitions[1:], 1):
+    # Process all transitions (including first if it wasn't at 0)
+    start_idx = 1 if first_trans["startTime"] <= 30 else 0
+    
+    for i, trans in enumerate(transitions[start_idx:], start_idx):
         time_since_chapter = trans["startTime"] - current_chapter_start
         
         # Determine next transition time for duration calc
@@ -499,16 +641,24 @@ def group_into_chapters_and_stories(transitions: list, total_duration: float) ->
             # It's a story within the current chapter
             trans["isChapter"] = False
     
-    # Now assign stories (all transitions are potential stories)
-    for i, trans in enumerate(transitions):
+    # Now assign stories - skip transitions that became chapters (same title/time)
+    story_id = 0
+    for trans in transitions:
         chapter_idx = find_chapter_index(trans["startTime"], chapters)
+        chapter = chapters[chapter_idx] if chapter_idx < len(chapters) else None
+        
+        # Skip if this transition is the same as the chapter it belongs to
+        if chapter and abs(trans["startTime"] - chapter["startTime"]) < 1.0 and trans["title"] == chapter["title"]:
+            continue
+        
         stories.append({
             "title": trans["title"],
             "startTime": trans["startTime"],
             "description": trans.get("description", ""),
             "chapterIndex": chapter_idx,
-            "id": f"story-{i}"
+            "id": f"story-{story_id}"
         })
+        story_id += 1
     
     # Merge chapters that are too short
     chapters = merge_short_chapters(chapters, total_duration)
@@ -797,13 +947,9 @@ Respond with ONLY: {{"correctedStartTime": <number>, "reason": "brief"}}"""
                     sys.stdout.flush()
             print()  # Newline after stream
             
-            # Parse JSON
-            if "```json" in response_text:
-                response_text = response_text.split("```json")[1].split("```")[0]
-            elif "```" in response_text:
-                response_text = response_text.split("```")[1].split("```")[0]
-            
-            result = json.loads(response_text.strip())
+            # Parse JSON with sanitization
+            response_text = sanitize_llm_json(response_text)
+            result = json.loads(response_text)
             corrected_time = float(result.get("correctedStartTime", chapter["startTime"]))
             reason = result.get("reason", "")
             

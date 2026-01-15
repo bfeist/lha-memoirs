@@ -1,2056 +1,2094 @@
 {
   "primaryRecording": "Norm_red",
   "secondaryRecording": "TDK_D60_edited_through_air",
-  "description": "Cross-references between overlapping stories in both memoir recordings (story-level precision)",
+  "description": "Cross-references between overlapping segments (chapters and stories) in both memoir recordings",
   "alternateTellings": [
     {
-      "topic": "Nebraska farming family history",
-      "confidence": "MEDIUM",
+      "topic": "Family farm challenges and resilience",
+      "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-0",
-        "startTime": 38,
-        "title": "Family Background and Farming"
+        "id": "chapter-0",
+        "type": "chapter",
+        "startTime": 0.0,
+        "title": "Narrator's Birth and Early Life"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-2",
-        "startTime": 2581,
-        "title": "Moving to Nebraska Farming"
+        "id": "story-10",
+        "type": "story",
+        "startTime": 1787,
+        "title": "Managing the Farm After a Loss"
       }
     },
     {
-      "topic": "Immigration to Alberta, Canada",
+      "topic": "Canadian immigration and settlement",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-1",
+        "id": "chapter-1",
+        "type": "chapter",
         "startTime": 85,
-        "title": "Move to Canada"
+        "title": "Canada Land Opportunity"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-41",
-        "startTime": 8608,
-        "title": "Alberta Farm Work"
+        "id": "chapter-1",
+        "type": "chapter",
+        "startTime": 217,
+        "title": "Move to Canada - 1907"
       }
     },
     {
-      "topic": "Immigration to Regina, Canada",
+      "topic": "Immigration to Canada",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-2",
-        "startTime": 123,
-        "title": "Migration to Canada"
+        "id": "story-0",
+        "type": "story",
+        "startTime": 132,
+        "title": "Travel to Canada"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-36",
-        "startTime": 8101,
-        "title": "Journey to Regina"
+        "id": "chapter-1",
+        "type": "chapter",
+        "startTime": 217,
+        "title": "Move to Canada - 1907"
       }
     },
     {
-      "topic": "Early life experiences and work",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-4",
-        "startTime": 329,
-        "title": "Childhood Snow Memory & Farm Move"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-37",
-        "startTime": 8175,
-        "title": "1948 Job Acquisition and Cypress Line Construction"
-      }
-    },
-    {
-      "topic": "Early Nebraska farm life",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-11",
-        "startTime": 760,
-        "title": "Hay Rack and Thrashing"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-2",
-        "startTime": 2581,
-        "title": "Moving to Nebraska Farming"
-      }
-    },
-    {
-      "topic": "Early 20th century Saskatchewan life",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-13",
-        "startTime": 950,
-        "title": "Quitting School and Trapping"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-42",
-        "startTime": 8640,
-        "title": "Shaunavon to East End Line"
-      }
-    },
-    {
-      "topic": "Early agricultural work experiences",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-18",
-        "startTime": 1437,
-        "title": "Childhood Labor"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-28",
-        "startTime": 7335,
-        "title": "Early Crew Management and Pole Setting"
-      }
-    },
-    {
-      "topic": "Nebraska farm relocation and livestock",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-19",
-        "startTime": 1560,
-        "title": "Livestock and Farming"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-2",
-        "startTime": 2581,
-        "title": "Moving to Nebraska Farming"
-      }
-    },
-    {
-      "topic": "Farm equipment and recording issues",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-20",
-        "startTime": 1596,
-        "title": "Tractor Purchase & Crop"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
-      }
-    },
-    {
-      "topic": "Early farming and mechanical work",
+      "topic": "Immigration to Canada, 1907",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-21",
-        "startTime": 1634,
-        "title": "Running the Threshing Outfit & Early Career"
+        "id": "story-1",
+        "type": "story",
+        "startTime": 217,
+        "title": "Arrival at Halbright"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-2",
-        "startTime": 2581,
-        "title": "Moving to Nebraska Farming"
+        "id": "chapter-1",
+        "type": "chapter",
+        "startTime": 217,
+        "title": "Move to Canada - 1907"
       }
     },
     {
-      "topic": "Agricultural history and audio shifts",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-22",
-        "startTime": 1664,
-        "title": "Early Farming and Work"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
-      }
-    },
-    {
-      "topic": "Settling in Nebraska pioneer life",
+      "topic": "Nebraska heatwave family history",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-24",
-        "startTime": 1872,
-        "title": "Social Life & Recreation"
+        "id": "chapter-2",
+        "type": "chapter",
+        "startTime": 364,
+        "title": "House Expansion and Childhood Memories"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-2",
-        "startTime": 2581,
-        "title": "Moving to Nebraska Farming"
+        "id": "story-14",
+        "type": "story",
+        "startTime": 2744,
+        "title": "Extreme Heat in Nebraska"
       }
     },
     {
-      "topic": "Farming relocation and family",
-      "confidence": "HIGH",
+      "topic": "School experiences in Crow Lake",
+      "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-28",
-        "startTime": 2259,
-        "title": "Post-Harvest Travels and Family Visit"
+        "id": "story-2",
+        "type": "story",
+        "startTime": 458,
+        "title": "Crow Lake School"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-2",
-        "startTime": 2581,
-        "title": "Moving to Nebraska Farming"
+        "id": "chapter-2",
+        "type": "chapter",
+        "startTime": 460,
+        "title": "Lindy's School Years"
       }
     },
     {
-      "topic": "Finding work in North Dakota",
-      "confidence": "HIGH",
+      "topic": "Harvesting grain on a farm",
+      "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-29",
-        "startTime": 2341,
-        "title": "Getting a Job on a Line Crew"
+        "id": "story-3",
+        "type": "story",
+        "startTime": 754,
+        "title": "Farm Work & Chores"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
+        "id": "story-16",
+        "type": "story",
+        "startTime": 2950,
+        "title": "Operating the Thrasher"
       }
     },
     {
-      "topic": "Iowa Family Migration and Labor",
+      "topic": "Farm machinery accident and training",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-4",
+        "type": "story",
+        "startTime": 989,
+        "title": "Zip's Education and Farm Work"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-5",
+        "type": "story",
+        "startTime": 1108,
+        "title": "Separating Machine Incident"
+      }
+    },
+    {
+      "topic": "Coyote trapping and fur market",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-6",
+        "type": "chapter",
+        "startTime": 1144,
+        "title": "Trapping and Fur Sales"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-3",
+        "type": "chapter",
+        "startTime": 652,
+        "title": "Coyote Pelt Prices and Scouting"
+      }
+    },
+    {
+      "topic": "Family life during wartime",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-7",
+        "type": "chapter",
+        "startTime": 1242,
+        "title": "World War II and Family Responsibilities"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-4",
+        "type": "chapter",
+        "startTime": 777,
+        "title": "Marriage and Floods in 1916-1917"
+      }
+    },
+    {
+      "topic": "Farm building and community life",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-5",
+        "type": "story",
+        "startTime": 1345,
+        "title": "Barn Construction Details"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-4",
+        "type": "chapter",
+        "startTime": 777,
+        "title": "Marriage and Floods in 1916-1917"
+      }
+    },
+    {
+      "topic": "Cattle farm water shortage response",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-30",
+        "id": "story-6",
+        "type": "story",
+        "startTime": 1391,
+        "title": "Water Hauling for Cattle"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-10",
+        "type": "story",
+        "startTime": 1787,
+        "title": "Managing the Farm After a Loss"
+      }
+    },
+    {
+      "topic": "Life in the early 20th century",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-8",
+        "type": "chapter",
+        "startTime": 1529,
+        "title": "Early Farming & Work Experiences"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-4",
+        "type": "chapter",
+        "startTime": 777,
+        "title": "Marriage and Floods in 1916-1917"
+      }
+    },
+    {
+      "topic": "Farm equipment malfunction and family dispute",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-7",
+        "type": "story",
+        "startTime": 1612,
+        "title": "Thrashing Machine Responsibilities & Family Conflict"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-5",
+        "type": "story",
+        "startTime": 1108,
+        "title": "Separating Machine Incident"
+      }
+    },
+    {
+      "topic": "Rural community during difficult times",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-9",
+        "type": "chapter",
+        "startTime": 1860,
+        "title": "Simple Rural Life and Social Gatherings"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-4",
+        "type": "story",
+        "startTime": 1029,
+        "title": "Farm Hardship and Relief"
+      }
+    },
+    {
+      "topic": "Community life during wartime",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-8",
+        "type": "story",
+        "startTime": 1920,
+        "title": "Sunday Mass & Picnics"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-7",
+        "type": "chapter",
+        "startTime": 1405,
+        "title": "Schooling and Early News of World War I"
+      }
+    },
+    {
+      "topic": "Loss grief and remembrance",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-10",
+        "type": "chapter",
+        "startTime": 1971,
+        "title": "Dad's Death Story"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-8",
+        "type": "chapter",
+        "startTime": 1714,
+        "title": "Father's Funeral & Travel"
+      }
+    },
+    {
+      "topic": "Farm worker wage dispute",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-11",
+        "type": "chapter",
+        "startTime": 2198,
+        "title": "Disagreement Over Farm Wages"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-11",
+        "type": "story",
+        "startTime": 1929,
+        "title": "Quitting the Farm Over Wages"
+      }
+    },
+    {
+      "topic": "Returning to work after travel",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-9",
+        "type": "story",
+        "startTime": 2268,
+        "title": "Seeking Work After Travel"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-10",
+        "type": "chapter",
+        "startTime": 2092,
+        "title": "Job Relocation and Career Progression"
+      }
+    },
+    {
+      "topic": "Utility work and construction",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-10",
+        "type": "story",
+        "startTime": 2344,
+        "title": "Power Line Restubbing Job"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-12",
+        "type": "story",
+        "startTime": 2181,
+        "title": "Digging Holes - January 1927"
+      }
+    },
+    {
+      "topic": "Iowa job and relocation",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-12",
+        "type": "chapter",
         "startTime": 2441,
         "title": "Moving to Sioux City"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-46",
-        "startTime": 8870,
-        "title": "Rural Farm Work in 53"
+        "id": "story-60",
+        "type": "story",
+        "startTime": 10512,
+        "title": "Wage Increase in Iowa"
       }
     },
     {
-      "topic": "Community Impact and Loss",
+      "topic": "Laurie's health and family challenges",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-31",
-        "startTime": 2531,
-        "title": "Brother's Illness and Grief"
+        "id": "story-11",
+        "type": "story",
+        "startTime": 2564,
+        "title": "Brother Laurie's Difficulties"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-25",
-        "startTime": 7150,
+        "id": "chapter-11",
+        "type": "chapter",
+        "startTime": 2385,
+        "title": "Man's Illness and Family Struggles"
+      }
+    },
+    {
+      "topic": "Leaving a family farm",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-12",
+        "type": "story",
+        "startTime": 2611,
+        "title": "Returning to the Family Farm"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-13",
+        "type": "story",
+        "startTime": 2467,
+        "title": "Discussion of a Transient Lifestyle and Departure"
+      }
+    },
+    {
+      "topic": "Nebraska crop impact from heat",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-13",
+        "type": "chapter",
+        "startTime": 2686,
+        "title": "Corn Farm Differences"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-14",
+        "type": "story",
+        "startTime": 2744,
+        "title": "Extreme Heat in Nebraska"
+      }
+    },
+    {
+      "topic": "Nebraska harvest struggles and assistance",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-13",
+        "type": "story",
+        "startTime": 2741,
+        "title": "Crop Damage & Oats"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-12",
+        "type": "chapter",
+        "startTime": 2581,
+        "title": "Nebraska Harvest Help"
+      }
+    },
+    {
+      "topic": "Agricultural equipment malfunction",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-14",
+        "type": "story",
+        "startTime": 2847,
+        "title": "Thrashing Outfit Troubles"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-20",
+        "type": "story",
+        "startTime": 3561,
+        "title": "Wet Thrashing Season"
+      }
+    },
+    {
+      "topic": "Agricultural labor and machinery",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-14",
+        "type": "chapter",
+        "startTime": 2912,
+        "title": "Seeking a Threshing Job"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-14",
+        "type": "chapter",
+        "startTime": 2866,
+        "title": "Seeking Work with a Martin-Twight Separator"
+      }
+    },
+    {
+      "topic": "Harvesting equipment operation and maintenance",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-15",
+        "type": "story",
+        "startTime": 2969,
+        "title": "Machine Breakdown & Repair"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-16",
+        "type": "story",
+        "startTime": 2950,
+        "title": "Operating the Thrasher"
+      }
+    },
+    {
+      "topic": "Heavy equipment operational demands",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-16",
+        "type": "story",
+        "startTime": 3028,
+        "title": "Intense Thrashing Schedule"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-17",
+        "type": "story",
+        "startTime": 3044,
+        "title": "Intense Machine Operation and Maintenance"
+      }
+    },
+    {
+      "topic": "Nebraska Weather and Shelter",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-15",
+        "type": "chapter",
+        "startTime": 3117,
+        "title": "Barn Sleeping Conditions"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-14",
+        "type": "story",
+        "startTime": 2744,
+        "title": "Extreme Heat in Nebraska"
+      }
+    },
+    {
+      "topic": "Canada trip car trouble",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-17",
+        "type": "story",
+        "startTime": 3204,
+        "title": "Travel to Canada"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-18",
+        "type": "story",
+        "startTime": 3263,
+        "title": "Car Accident and Repair"
+      }
+    },
+    {
+      "topic": "Early construction work assignment",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-18",
+        "type": "story",
+        "startTime": 3278,
+        "title": "Meeting the Foreman"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-12",
+        "type": "story",
+        "startTime": 2181,
+        "title": "Digging Holes - January 1927"
+      }
+    },
+    {
+      "topic": "Bill Oberts and a Dawson tragedy",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-16",
+        "type": "chapter",
+        "startTime": 3347,
+        "title": "Foreman's Death in Dawson, ND"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-17",
+        "type": "chapter",
+        "startTime": 3407,
+        "title": "Foreman Bill Oberts Arrives"
+      }
+    },
+    {
+      "topic": "Industrial machinery operation and upkeep",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-19",
+        "type": "story",
+        "startTime": 3457,
+        "title": "Boring Machine Operation"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-17",
+        "type": "story",
+        "startTime": 3044,
+        "title": "Intense Machine Operation and Maintenance"
+      }
+    },
+    {
+      "topic": "Harvesting grain in Frederick",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-20",
+        "type": "story",
+        "startTime": 3516,
+        "title": "Threshing Job in Frederick"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-20",
+        "type": "story",
+        "startTime": 3561,
+        "title": "Wet Thrashing Season"
+      }
+    },
+    {
+      "topic": "Employment with an agricultural separator",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-17",
+        "type": "chapter",
+        "startTime": 3596,
+        "title": "Working for Leo O'Grady"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-14",
+        "type": "chapter",
+        "startTime": 2866,
+        "title": "Seeking Work with a Martin-Twight Separator"
+      }
+    },
+    {
+      "topic": "Railroad work and labor",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-21",
+        "type": "story",
+        "startTime": 3642,
+        "title": "Joining a Line Gang"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-12",
+        "type": "story",
+        "startTime": 2181,
+        "title": "Digging Holes - January 1927"
+      }
+    },
+    {
+      "topic": "Immigrant Registration and Enforcement",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-22",
+        "type": "story",
+        "startTime": 3752,
+        "title": "Flying Squad Territory"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-22",
+        "type": "story",
+        "startTime": 3774,
+        "title": "Citizenship and Voting Issues"
+      }
+    },
+    {
+      "topic": "Farm management transition",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-18",
+        "type": "chapter",
+        "startTime": 3876,
+        "title": "Planning to Take Over the Farm"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-9",
+        "type": "chapter",
+        "startTime": 1848,
+        "title": "Taking Over Farm Management"
+      }
+    },
+    {
+      "topic": "Electrical line construction training",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-19",
+        "type": "chapter",
+        "startTime": 4030,
+        "title": "Early Career Foreman Opportunity"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-42",
+        "type": "story",
+        "startTime": 7154,
         "title": "High Voltage Line Construction"
       }
     },
     {
-      "topic": "Laurie and Ogham family conflict",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-32",
-        "startTime": 2573,
-        "title": "Brother Laurie's Hardship"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-43",
-        "startTime": 8681,
-        "title": "Ogham Line Dispute"
-      }
-    },
-    {
-      "topic": "Family farm relocation Nebraska",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-33",
-        "startTime": 2603,
-        "title": "Taking Over Brother's Farm"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-2",
-        "startTime": 2581,
-        "title": "Moving to Nebraska Farming"
-      }
-    },
-    {
-      "topic": "Long-term farm work and finances",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-34",
-        "startTime": 2673,
-        "title": "Farm Experience Reflection"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-79",
-        "startTime": 10888,
-        "title": "Wage Stability Over 12 Years"
-      }
-    },
-    {
-      "topic": "Severe weather and employee response",
+      "topic": "School district transportation changes",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-35",
-        "startTime": 2734,
-        "title": "Hailstorm Damage"
+        "id": "story-25",
+        "type": "story",
+        "startTime": 4114,
+        "title": "Superintendent's Service Offer"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-65",
-        "startTime": 9904,
-        "title": "Narrator's Approach to Management and Maintaining Connection with Workers"
+        "id": "story-29",
+        "type": "story",
+        "startTime": 4915,
+        "title": "Travel Restrictions & Meter Reading"
       }
     },
     {
-      "topic": "Nebraska farm harvest and migration",
+      "topic": "Family farm homecoming",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-36",
-        "startTime": 2802,
-        "title": "Thrashing Grain in Nebraska"
+        "id": "story-26",
+        "type": "story",
+        "startTime": 4176,
+        "title": "Return to the Farm"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-2",
-        "startTime": 2581,
-        "title": "Moving to Nebraska Farming"
+        "id": "story-24",
+        "type": "story",
+        "startTime": 4152,
+        "title": "Return to Farm and Mother"
       }
     },
     {
-      "topic": "Dust Bowl Migration and Labor",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-38",
-        "startTime": 2924,
-        "title": "Seeking Thrashing Job"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-2",
-        "startTime": 2581,
-        "title": "Moving to Nebraska Farming"
-      }
-    },
-    {
-      "topic": "Unexpected system recording issues",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-39",
-        "startTime": 2973,
-        "title": "Machine Malfunction and Repair"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
-      }
-    },
-    {
-      "topic": "Worker interview audio recordings",
+      "topic": "Sudden crew leadership transition",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-40",
-        "startTime": 3026,
-        "title": "Wages and Daily Routine"
+        "id": "chapter-20",
+        "type": "chapter",
+        "startTime": 4300,
+        "title": "Unexpected Crew Leadership Assignment"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
+        "id": "story-26",
+        "type": "story",
+        "startTime": 4550,
+        "title": "Crew Leadership Change and Injury"
       }
     },
     {
-      "topic": "Rural family relocation and farm life",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-41",
-        "startTime": 3114,
-        "title": "Sleeping in the Barns"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-2",
-        "startTime": 2581,
-        "title": "Moving to Nebraska Farming"
-      }
-    },
-    {
-      "topic": "Relocation and New Beginnings",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-42",
-        "startTime": 3199,
-        "title": "Trip to Canada"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-2",
-        "startTime": 2581,
-        "title": "Moving to Nebraska Farming"
-      }
-    },
-    {
-      "topic": "Job seeking with Frank Wenner",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-44",
-        "startTime": 3275,
-        "title": "Meeting Foreman Frank Wenner"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
-      }
-    },
-    {
-      "topic": "Prohibition era liquor transport",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-45",
-        "startTime": 3326,
-        "title": "Frederick and Bootleg Liquor"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-36",
-        "startTime": 8101,
-        "title": "Journey to Regina"
-      }
-    },
-    {
-      "topic": "Farm crew introductions and changes",
+      "topic": "Eskaban Project Debriefing",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-46",
-        "startTime": 3356,
-        "title": "Introduction of Bill Oberts and Crew Changes"
+        "id": "story-27",
+        "type": "story",
+        "startTime": 4377,
+        "title": "Return to Eskaban & Voltage Change"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-50",
-        "startTime": 9058,
-        "title": "Farm Operation Discussion"
+        "id": "story-21",
+        "type": "story",
+        "startTime": 3729,
+        "title": "Recalling Past Work Experiences"
       }
     },
     {
-      "topic": "Tunnel boring and power lines",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-47",
-        "startTime": 3421,
-        "title": "Operating a Boring Machine 24/7"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-25",
-        "startTime": 7150,
-        "title": "High Voltage Line Construction"
-      }
-    },
-    {
-      "topic": "Mining equipment and recording issues",
+      "topic": "Power Commission job opportunity",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-48",
-        "startTime": 3468,
-        "title": "Boring Machine Assignment"
+        "id": "story-28",
+        "type": "story",
+        "startTime": 4429,
+        "title": "Considering a Job with the Power Commission"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-6",
-        "startTime": 3727,
-        "title": "Recalling Past Work Experiences and Technical Issues with Recordings"
-      }
-    },
-    {
-      "topic": "Prairie Farming and Migration",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-49",
-        "startTime": 3524,
-        "title": "Threshing in South Dakota"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-2",
-        "startTime": 2581,
-        "title": "Moving to Nebraska Farming"
-      }
-    },
-    {
-      "topic": "Job searching in North Dakota",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-50",
-        "startTime": 3591,
-        "title": "Seeking Work in North Dakota"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
-      }
-    },
-    {
-      "topic": "Immigration and job seeking",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-51",
-        "startTime": 3632,
-        "title": "Canada Escape and Job"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
-      }
-    },
-    {
-      "topic": "Securing a Power Line Project",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-52",
-        "startTime": 3713,
-        "title": "Becoming a Top Worker on the Job"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-22",
-        "startTime": 6977,
-        "title": "Bidding on Power Line Project"
-      }
-    },
-    {
-      "topic": "North Dakota employment during crisis",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-53",
-        "startTime": 3747,
-        "title": "Flying Squad Work Details"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
-      }
-    },
-    {
-      "topic": "Unexplained aerial phenomenon investigation",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-54",
-        "startTime": 3790,
-        "title": "Strange Encounter and Mention of Crosby Supzuk"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-27",
-        "startTime": 7272,
-        "title": "Crew and Pole Setting"
-      }
-    },
-    {
-      "topic": "Early 20th Century Nebraska Farming",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-56",
-        "startTime": 3916,
-        "title": "Farming in 1924"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-2",
-        "startTime": 2581,
-        "title": "Moving to Nebraska Farming"
-      }
-    },
-    {
-      "topic": "Power line project recruitment",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-58",
-        "startTime": 3993,
-        "title": "Seeking Employment with a Power Gang"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-22",
-        "startTime": 6977,
-        "title": "Bidding on Power Line Project"
-      }
-    },
-    {
-      "topic": "Power line project job opportunity",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-59",
-        "startTime": 4055,
-        "title": "Foreman Opportunity and a Temporary Job"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-22",
-        "startTime": 6977,
-        "title": "Bidding on Power Line Project"
-      }
-    },
-    {
-      "topic": "Returning servicemember job search",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-60",
-        "startTime": 4113,
-        "title": "District Serviceman Role"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
-      }
-    },
-    {
-      "topic": "New job, labor disagreement",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-61",
-        "startTime": 4220,
-        "title": "Wage Dispute Begins"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-38",
-        "startTime": 8235,
-        "title": "Swift Current Job Start"
-      }
-    },
-    {
-      "topic": "Recording environment and personnel",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-63",
-        "startTime": 4333,
-        "title": "Work Locations Shift"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
-      }
-    },
-    {
-      "topic": "Regina infrastructure project job opportunity",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-64",
-        "startTime": 4415,
+        "id": "chapter-23",
+        "type": "chapter",
+        "startTime": 4846,
         "title": "Power Commission Job Offer"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-23",
-        "startTime": 7036,
-        "title": "North Regina Work & Saskatoon"
       }
     },
     {
-      "topic": "Sudden job relocation and secrecy",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-65",
-        "startTime": 4466,
-        "title": "Unexpected Phone Call and Secret Travel"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-38",
-        "startTime": 8235,
-        "title": "Swift Current Job Start"
-      }
-    },
-    {
-      "topic": "Career beginnings and audio evolution",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-66",
-        "startTime": 4555,
-        "title": "Early Job in Saskatoon"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
-      }
-    },
-    {
-      "topic": "Moving from Rosetown to Regina",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-67",
-        "startTime": 4606,
-        "title": "Rosetown Transfer & Correction"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-36",
-        "startTime": 8101,
-        "title": "Journey to Regina"
-      }
-    },
-    {
-      "topic": "Initial construction crew staffing",
+      "topic": "Superintendent selection and employment",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-68",
-        "startTime": 4652,
-        "title": "Unauthorized Hiring of Help"
+        "id": "chapter-22",
+        "type": "chapter",
+        "startTime": 4540,
+        "title": "Superintendent's Hiring"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-28",
-        "startTime": 7335,
-        "title": "Early Crew Management and Pole Setting"
+        "id": "story-46",
+        "type": "story",
+        "startTime": 7770,
+        "title": "New Job Offer and Negotiation"
+      }
+    },
+    {
+      "topic": "Rosetown Construction and Job Seeking",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-29",
+        "type": "story",
+        "startTime": 4612,
+        "title": "Taking Charge in Rosetown & Correcting Construction Errors"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-30",
+        "type": "story",
+        "startTime": 4966,
+        "title": "Seeking Work During Economic Hardship"
+      }
+    },
+    {
+      "topic": "New employment transitions",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-30",
+        "type": "story",
+        "startTime": 4693,
+        "title": "Leaving a Job and Seeking Approval"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-31",
+        "type": "chapter",
+        "startTime": 6294,
+        "title": "Contracting Years Begin"
+      }
+    },
+    {
+      "topic": "Mydale Power Line Installation",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-23",
+        "type": "chapter",
+        "startTime": 4757,
+        "title": "Power Plant in Mydale"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-48",
+        "type": "story",
+        "startTime": 7994,
+        "title": "November Wire Stringing"
+      }
+    },
+    {
+      "topic": "Harvesting grain with machinery",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-31",
+        "type": "story",
+        "startTime": 4863,
+        "title": "Farm Work and Harvest"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-16",
+        "type": "story",
+        "startTime": 2950,
+        "title": "Operating the Thrasher"
+      }
+    },
+    {
+      "topic": "Electric company employee relocation",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-24",
+        "type": "chapter",
+        "startTime": 4938,
+        "title": "Dominion Electric Return"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-29",
+        "type": "chapter",
+        "startTime": 5856,
+        "title": "Temporary Assignment to Estevan"
+      }
+    },
+    {
+      "topic": "Winter electrical wiring projects",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-32",
+        "type": "story",
+        "startTime": 5014,
+        "title": "Winter Wiring Jobs"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-34",
+        "type": "story",
+        "startTime": 5372,
+        "title": "Wiring in Gull Lake"
+      }
+    },
+    {
+      "topic": "Modernizing Logistics and Leadership",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-33",
+        "type": "story",
+        "startTime": 5060,
+        "title": "Overhauling Distribution System"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-33",
+        "type": "chapter",
+        "startTime": 6603,
+        "title": "Early Career and Management Experience"
+      }
+    },
+    {
+      "topic": "Midwest Power Outage and Heat",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-25",
+        "type": "chapter",
+        "startTime": 5160,
+        "title": "Dominion Electric Job"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-14",
+        "type": "story",
+        "startTime": 2744,
+        "title": "Extreme Heat in Nebraska"
+      }
+    },
+    {
+      "topic": "Dominion Electric early career experiences",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-34",
+        "type": "story",
+        "startTime": 5287,
+        "title": "Odd Jobs for Dominion Electric"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-62",
+        "type": "story",
+        "startTime": 10747,
+        "title": "Early Employment and Finances"
+      }
+    },
+    {
+      "topic": "Power plant relocation and sale",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-26",
+        "type": "chapter",
+        "startTime": 5436,
+        "title": "Dauphin Power Plant Deal"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-28",
+        "type": "chapter",
+        "startTime": 5810,
+        "title": "Dyer's Move to Winnipegosis"
+      }
+    },
+    {
+      "topic": "Mining work in Estevan, Saskatchewan",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-35",
+        "type": "story",
+        "startTime": 5525,
+        "title": "Work and Logistics in the Mining Industry"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-29",
+        "type": "chapter",
+        "startTime": 5856,
+        "title": "Temporary Assignment to Estevan"
+      }
+    },
+    {
+      "topic": "Starting a career and family",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-27",
+        "type": "chapter",
+        "startTime": 5595,
+        "title": "Work Assignments and Marriage"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-62",
+        "type": "story",
+        "startTime": 10747,
+        "title": "Early Employment and Finances"
       }
     },
     {
       "topic": "Power line project bidding process",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-69",
-        "startTime": 4719,
-        "title": "Praise and Job Uncertainty"
+        "id": "story-36",
+        "type": "story",
+        "startTime": 5741,
+        "title": "Power Line Bidding"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-22",
-        "startTime": 6977,
-        "title": "Bidding on Power Line Project"
+        "id": "story-41",
+        "type": "story",
+        "startTime": 6969,
+        "title": "Power Line Construction Bid"
       }
     },
     {
-      "topic": "Mydale Power Plant Construction",
+      "topic": "Power line construction project",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-70",
-        "startTime": 4752,
-        "title": "Power Plant in Mydale"
+        "id": "chapter-28",
+        "type": "chapter",
+        "startTime": 5883,
+        "title": "Line Construction Details"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-28",
-        "startTime": 7335,
-        "title": "Early Crew Management and Pole Setting"
+        "id": "story-41",
+        "type": "story",
+        "startTime": 6969,
+        "title": "Power Line Construction Bid"
       }
     },
     {
-      "topic": "Workplace challenges and compensation",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-71",
-        "startTime": 4818,
-        "title": "Frustration with Job Prospects and a Supervisor"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-74",
-        "startTime": 10636,
-        "title": "Wage Increase from Foreman"
-      }
-    },
-    {
-      "topic": "Agricultural work and recording issues",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-72",
-        "startTime": 4875,
-        "title": "Harvesting with Thrashing Outfit"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
-      }
-    },
-    {
-      "topic": "Telephone line construction accident",
+      "topic": "Power line construction and bidding",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-73",
-        "startTime": 4940,
-        "title": "Dominion Electric Phone Call"
+        "id": "story-37",
+        "type": "story",
+        "startTime": 5930,
+        "title": "Stout Line Bid"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-25",
-        "startTime": 7150,
+        "id": "story-38",
+        "type": "story",
+        "startTime": 6405,
+        "title": "Power Line Project Details"
+      }
+    },
+    {
+      "topic": "Truck Acquisition and Modification",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-29",
+        "type": "chapter",
+        "startTime": 6008,
+        "title": "Truck and Vehicle Purchases"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-34",
+        "type": "chapter",
+        "startTime": 6795,
+        "title": "Building a Wooden Derrick for a Truck"
+      }
+    },
+    {
+      "topic": "Housing construction in Rijada",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-38",
+        "type": "story",
+        "startTime": 6066,
+        "title": "Building Development in Rijada"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-35",
+        "type": "chapter",
+        "startTime": 7038,
+        "title": "Wartime Housing Construction"
+      }
+    },
+    {
+      "topic": "Business transition and workforce development",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-39",
+        "type": "story",
+        "startTime": 6177,
+        "title": "Hiring & Training Young Men"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-48",
+        "type": "chapter",
+        "startTime": 9530,
+        "title": "Company Sale & ARCT"
+      }
+    },
+    {
+      "topic": "Power line construction project",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-30",
+        "type": "chapter",
+        "startTime": 6321,
+        "title": "1945-1946 Construction"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-42",
+        "type": "story",
+        "startTime": 7154,
         "title": "High Voltage Line Construction"
       }
     },
     {
-      "topic": "Gull Lake Recording System Updates",
+      "topic": "Tunneling equipment acquisition and use",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-74",
-        "startTime": 5024,
-        "title": "Overhauling Gull Lake Wiring"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
-      }
-    },
-    {
-      "topic": "Power plant maintenance and recovery",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-75",
-        "startTime": 5127,
-        "title": "Power Plant Winter Work"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-10",
-        "startTime": 3911,
-        "title": "Returning to the Game"
-      }
-    },
-    {
-      "topic": "Minot workforce development and infrastructure",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-76",
-        "startTime": 5172,
-        "title": "Power Line Repair Project"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
-      }
-    },
-    {
-      "topic": "Power company acquisition",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-77",
-        "startTime": 5248,
-        "title": "Buying Tompkins Electric"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-11",
-        "startTime": 5457,
-        "title": "Acquiring a Diesel Plant"
-      }
-    },
-    {
-      "topic": "Railroad tragedy and its aftermath",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-78",
-        "startTime": 5402,
-        "title": "Diesel Superintendent's Son"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
-      }
-    },
-    {
-      "topic": "Gosis Power Plant Business Deal",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-79",
-        "startTime": 5448,
-        "title": "Power Plant Deal in Gosis"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-13",
-        "startTime": 5823,
-        "title": "Jack Dyer's Business Troubles and Departure"
-      }
-    },
-    {
-      "topic": "Gosis Town Recording Alterations",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-80",
-        "startTime": 5491,
-        "title": "Wiring Gosis Town"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
-      }
-    },
-    {
-      "topic": "Utility advertising and personnel decisions",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-82",
-        "startTime": 5753,
-        "title": "Power Commission Advertising"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-17",
-        "startTime": 6632,
-        "title": "Handling Men & Experience"
-      }
-    },
-    {
-      "topic": "Power line project bidding",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-83",
-        "startTime": 5812,
-        "title": "Bidding on Power Lines"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-22",
-        "startTime": 6977,
-        "title": "Bidding on Power Line Project"
-      }
-    },
-    {
-      "topic": "Power line project bidding",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-84",
-        "startTime": 5844,
-        "title": "Telegram Bidding Details"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-22",
-        "startTime": 6977,
-        "title": "Bidding on Power Line Project"
-      }
-    },
-    {
-      "topic": "Postwar military vehicle acquisition",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-85",
-        "startTime": 6034,
-        "title": "Army Truck Purchase"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-20",
-        "startTime": 6809,
-        "title": "Acquiring Military Surplus After the War"
-      }
-    },
-    {
-      "topic": "Regina development and construction",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-86",
-        "startTime": 6071,
-        "title": "Regina Building Development"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-23",
-        "startTime": 7036,
-        "title": "North Regina Work & Saskatoon"
-      }
-    },
-    {
-      "topic": "Migration to Minot, North Dakota",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-87",
-        "startTime": 6287,
-        "title": "Line to South 46"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
-      }
-    },
-    {
-      "topic": "Post-war labor and infrastructure",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-88",
-        "startTime": 6320,
-        "title": "1945-1946 Work Details"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-25",
-        "startTime": 7150,
-        "title": "High Voltage Line Construction"
-      }
-    },
-    {
-      "topic": "Equipment acquisition and recording issues",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-89",
-        "startTime": 6383,
+        "id": "story-40",
+        "type": "story",
+        "startTime": 6381,
         "title": "Boring Machine Purchase"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
+        "id": "story-12",
+        "type": "story",
+        "startTime": 2181,
+        "title": "Digging Holes - January 1927"
       }
     },
     {
-      "topic": "Job search during construction",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-90",
-        "startTime": 6451,
-        "title": "Rosetown Job & Crew"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
-      }
-    },
-    {
-      "topic": "Early film crew formation",
+      "topic": "Relocation and Railway Line",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-91",
-        "startTime": 6489,
-        "title": "Yorkton & Bush Country"
+        "id": "chapter-31",
+        "type": "chapter",
+        "startTime": 6446,
+        "title": "Moving to Yorkton for Work"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-26",
-        "startTime": 7222,
-        "title": "Hiring and Building a Crew"
+        "id": "chapter-43",
+        "type": "chapter",
+        "startTime": 8450,
+        "title": "Yorkton to Melville Line"
       }
     },
     {
-      "topic": "Business travel and logistics",
+      "topic": "Construction and financial hardship",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-92",
-        "startTime": 6531,
-        "title": "Job Management and Travel"
+        "id": "story-41",
+        "type": "story",
+        "startTime": 6719,
+        "title": "City Work and Rental Income"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-36",
-        "startTime": 8101,
-        "title": "Journey to Regina"
+        "id": "story-12",
+        "type": "story",
+        "startTime": 2181,
+        "title": "Digging Holes - January 1927"
       }
     },
     {
-      "topic": "Early film production staffing",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-93",
-        "startTime": 6632,
-        "title": "Work in 1948"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-26",
-        "startTime": 7222,
-        "title": "Hiring and Building a Crew"
-      }
-    },
-    {
-      "topic": "Public Works and Labor Costs",
+      "topic": "Rural electrification project struggles",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-94",
-        "startTime": 6720,
-        "title": "City Pole Installation"
+        "id": "chapter-32",
+        "type": "chapter",
+        "startTime": 6853,
+        "title": "Work-Life Balance Challenges in 1947"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-79",
-        "startTime": 10888,
-        "title": "Wage Stability Over 12 Years"
+        "id": "story-41",
+        "type": "story",
+        "startTime": 6969,
+        "title": "Power Line Construction Bid"
       }
     },
     {
-      "topic": "Balancing work and family time",
+      "topic": "Employee compensation and workplace conduct",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-95",
-        "startTime": 6858,
-        "title": "Work and Family Separation"
+        "id": "story-42",
+        "type": "story",
+        "startTime": 6912,
+        "title": "Payroll and Bookkeeping"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-31",
-        "startTime": 7672,
-        "title": "Family Reunion Planning"
+        "id": "story-49",
+        "type": "story",
+        "startTime": 8119,
+        "title": "Crew Payday & Discipline"
       }
     },
     {
-      "topic": "Power Line Project Approval",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-96",
-        "startTime": 6988,
-        "title": "Superintendent's Inspection"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-22",
-        "startTime": 6977,
-        "title": "Bidding on Power Line Project"
-      }
-    },
-    {
-      "topic": "Rail line construction workforce",
+      "topic": "Pipeline inspection and maintenance",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-97",
+        "id": "story-43",
+        "type": "story",
+        "startTime": 6985,
+        "title": "Superintendent Line Inspection"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-39",
+        "type": "chapter",
+        "startTime": 7610,
+        "title": "Reviewing 1947 Work"
+      }
+    },
+    {
+      "topic": "Power line construction 1949",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-33",
+        "type": "chapter",
         "startTime": 7043,
-        "title": "Building Another Line"
+        "title": "Starting 1949 Work"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-17",
-        "startTime": 6632,
-        "title": "Handling Men & Experience"
+        "id": "story-42",
+        "type": "story",
+        "startTime": 7154,
+        "title": "High Voltage Line Construction"
       }
     },
     {
-      "topic": "Alberta farm labor and communication",
+      "topic": "Relocation due to power line work",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-98",
-        "startTime": 7132,
-        "title": "Alberta and Farm Lines"
+        "id": "chapter-34",
+        "type": "chapter",
+        "startTime": 7105,
+        "title": "Move to Alberta"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-41",
-        "startTime": 8608,
-        "title": "Alberta Farm Work"
+        "id": "chapter-18",
+        "type": "chapter",
+        "startTime": 3666,
+        "title": "High-Voltage Work Hesitation"
       }
     },
     {
-      "topic": "Early Antarctic Research Expedition",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-99",
-        "startTime": 7194,
-        "title": "Wind-up of 49, Spring of 50"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-28",
-        "startTime": 7335,
-        "title": "Early Crew Management and Pole Setting"
-      }
-    },
-    {
-      "topic": "Power line project bidding",
+      "topic": "Union contract negotiations",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-100",
-        "startTime": 7240,
-        "title": "Discussion of a Job Near Regina"
+        "id": "story-44",
+        "type": "story",
+        "startTime": 7235,
+        "title": "Refusal of a Job and Subsequent Negotiation"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-22",
-        "startTime": 6977,
-        "title": "Bidding on Power Line Project"
+        "id": "story-54",
+        "type": "story",
+        "startTime": 9183,
+        "title": "Line Building in '60"
       }
     },
     {
       "topic": "Rural infrastructure development",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-101",
-        "startTime": 7293,
-        "title": "Negotiating Work Assignment"
+        "id": "chapter-35",
+        "type": "chapter",
+        "startTime": 7338,
+        "title": "Construction Work in Multiple Towns"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-40",
-        "startTime": 8548,
-        "title": "Farm Electrification Projects"
+        "id": "story-50",
+        "type": "story",
+        "startTime": 8550,
+        "title": "Farm Electrification Begins"
       }
     },
     {
-      "topic": "Shaunavon grain elevator collapse",
-      "confidence": "HIGH",
+      "topic": "Starting a business in the 50s",
+      "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-102",
-        "startTime": 7350,
-        "title": "Ogema, Shaunavon Area"
+        "id": "story-45",
+        "type": "story",
+        "startTime": 7435,
+        "title": "Incorporation and Shop"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-17",
-        "startTime": 6632,
-        "title": "Handling Men & Experience"
+        "id": "chapter-44",
+        "type": "chapter",
+        "startTime": 8770,
+        "title": "Work in the Early 1950s"
       }
     },
     {
-      "topic": "Power line project bidding process",
+      "topic": "Agricultural programs and farm operations",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-103",
-        "startTime": 7513,
-        "title": "Bidding and Contracting Practices"
+        "id": "story-46",
+        "type": "story",
+        "startTime": 7480,
+        "title": "Farm Program Expansion"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-22",
-        "startTime": 6977,
-        "title": "Bidding on Power Line Project"
+        "id": "chapter-45",
+        "type": "chapter",
+        "startTime": 8985,
+        "title": "1955 Farm Operations"
       }
     },
     {
-      "topic": "High voltage line project bids",
+      "topic": "Collusion and corporate misconduct",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-104",
+        "id": "chapter-36",
+        "type": "chapter",
         "startTime": 7547,
-        "title": "Tendering and Larger Contractors"
+        "title": "Tendering and Price Fixing"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-25",
-        "startTime": 7150,
-        "title": "High Voltage Line Construction"
+        "id": "chapter-46",
+        "type": "chapter",
+        "startTime": 9122,
+        "title": "1958 - Financial Struggles and Business Practices"
       }
     },
     {
-      "topic": "Construction recording audio issues",
+      "topic": "Farmhand transitions and changes",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-105",
-        "startTime": 7602,
-        "title": "Foundation Piling Sideline"
+        "id": "chapter-37",
+        "type": "chapter",
+        "startTime": 7603,
+        "title": "Shifting to Sideline Work"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
+        "id": "chapter-45",
+        "type": "chapter",
+        "startTime": 8985,
+        "title": "1955 Farm Operations"
       }
     },
     {
-      "topic": "Early factory automation and upkeep",
+      "topic": "Potash mine construction project",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-106",
-        "startTime": 7640,
-        "title": "Machine Development & Maintenance"
+        "id": "chapter-38",
+        "type": "chapter",
+        "startTime": 7884,
+        "title": "Construction Bidding and Swift Current Job"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-45",
-        "startTime": 8829,
-        "title": "Year 1952 Operations"
+        "id": "chapter-47",
+        "type": "chapter",
+        "startTime": 9345,
+        "title": "Potash Mine Work Begins"
       }
     },
     {
-      "topic": "Unexpected business transition",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-107",
-        "startTime": 7676,
-        "title": "Narrator's Heart Attack and Art Miller's Responsibility"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-57",
-        "startTime": 9530,
-        "title": "Company Ownership Shift"
-      }
-    },
-    {
-      "topic": "Early career woman's financial journey",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-108",
-        "startTime": 7814,
-        "title": "Financial Success in 1958"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-17",
-        "startTime": 6632,
-        "title": "Handling Men & Experience"
-      }
-    },
-    {
-      "topic": "Potash mine worker assistance",
+      "topic": "Camp setup and weather delays",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-109",
-        "startTime": 7889,
-        "title": "Potash Mine Distributions"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-54",
-        "startTime": 9352,
-        "title": "Potash Mine Work"
-      }
-    },
-    {
-      "topic": "Travel for job opportunity",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-110",
+        "id": "story-47",
+        "type": "story",
         "startTime": 7934,
-        "title": "Swift Current Job Details"
+        "title": "Swift Current Project Challenges"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-36",
-        "startTime": 8101,
-        "title": "Journey to Regina"
+        "id": "story-56",
+        "type": "story",
+        "startTime": 9424,
+        "title": "Weather Impact & Camp Setup"
       }
     },
     {
-      "topic": "Power line project profitability",
+      "topic": "Company acquisition and sale",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-111",
-        "startTime": 7991,
-        "title": "Job Profitability Analysis"
+        "id": "chapter-39",
+        "type": "chapter",
+        "startTime": 8114,
+        "title": "Business Sale Terms"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-22",
-        "startTime": 6977,
-        "title": "Bidding on Power Line Project"
-      }
-    },
-    {
-      "topic": "Business transfer of ownership",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-112",
-        "startTime": 8153,
-        "title": "Selling the Business"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-57",
+        "id": "chapter-48",
+        "type": "chapter",
         "startTime": 9530,
-        "title": "Company Ownership Shift"
+        "title": "Company Sale & ARCT"
       }
     },
     {
-      "topic": "Company compensation and background",
+      "topic": "Employee Departure and Business Transition",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-113",
-        "startTime": 8195,
-        "title": "Sale Terms and Salary"
+        "id": "chapter-40",
+        "type": "chapter",
+        "startTime": 8166,
+        "title": "Leaving Government Work"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-60",
-        "startTime": 9660,
-        "title": "Company History & Employees"
+        "id": "chapter-48",
+        "type": "chapter",
+        "startTime": 9530,
+        "title": "Company Sale & ARCT"
       }
     },
     {
-      "topic": "Rising rents and audio shifts",
+      "topic": "Property Change and Financial Transition",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-114",
+        "id": "chapter-41",
+        "type": "chapter",
         "startTime": 8252,
-        "title": "Rent Increases Begin"
+        "title": "Rent Increase Details"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
-      }
-    },
-    {
-      "topic": "Art McIntyre's Kenora employment",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-115",
-        "startTime": 8344,
-        "title": "Art's Financial Security and Sudden Death"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-33",
-        "startTime": 7819,
-        "title": "Kenora Job Details"
-      }
-    },
-    {
-      "topic": "Company leadership and transitions",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-116",
-        "startTime": 8414,
-        "title": "Share Ownership Changes"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-60",
-        "startTime": 9660,
-        "title": "Company History & Employees"
-      }
-    },
-    {
-      "topic": "Network infrastructure repair",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-117",
-        "startTime": 8465,
-        "title": "Underground Cable Installation"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-10",
-        "startTime": 3911,
-        "title": "Returning to the Game"
-      }
-    },
-    {
-      "topic": "Company timeline and personnel",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-118",
-        "startTime": 8522,
-        "title": "Time and Company Status"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-60",
-        "startTime": 9660,
-        "title": "Company History & Employees"
-      }
-    },
-    {
-      "topic": "Apprenticeship contract and documentation",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-119",
-        "startTime": 8581,
-        "title": "Retainer Agreement"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-70",
-        "startTime": 10282,
-        "title": "Journeyman's Paper Details"
-      }
-    },
-    {
-      "topic": "Electrical infrastructure construction memories",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-120",
-        "startTime": 8695,
-        "title": "Reflecting on Past Work Experience"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-25",
-        "startTime": 7150,
-        "title": "High Voltage Line Construction"
-      }
-    },
-    {
-      "topic": "Career choices and exploration",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-121",
-        "startTime": 8726,
-        "title": "Engineer Project Rotation"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-5",
-        "startTime": 3651,
-        "title": "Avoiding a Power Company Job"
-      }
-    },
-    {
-      "topic": "Tad Gurnum and Job Seeking",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-122",
-        "startTime": 8784,
-        "title": "Relationship with Tad Gurnum"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
-      }
-    },
-    {
-      "topic": "Power line project labor dispute",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-123",
-        "startTime": 8872,
-        "title": "Union vs. Non-Union"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-22",
-        "startTime": 6977,
-        "title": "Bidding on Power Line Project"
-      }
-    },
-    {
-      "topic": "Kenora contractor job issues",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-124",
-        "startTime": 8939,
-        "title": "Contractor Demotion Warnings"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-33",
-        "startTime": 7819,
-        "title": "Kenora Job Details"
-      }
-    },
-    {
-      "topic": "Unexpected business opportunity and problem-solving",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-125",
-        "startTime": 8995,
-        "title": "Narrator's Experience and Management Skills"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-18",
-        "startTime": 6710,
-        "title": "Acquiring a Truck"
-      }
-    },
-    {
-      "topic": "Navigating Loss and Professional Growth",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-126",
-        "startTime": 9051,
-        "title": "Father's Death & Early Career"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-17",
-        "startTime": 6632,
-        "title": "Handling Men & Experience"
-      }
-    },
-    {
-      "topic": "Employee relations and company history",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-127",
-        "startTime": 9101,
-        "title": "Maintaining Employee Loyalty and Avoiding Unionization"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-60",
-        "startTime": 9660,
-        "title": "Company History & Employees"
-      }
-    },
-    {
-      "topic": "Building infrastructure and labor struggles",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-128",
-        "startTime": 9237,
-        "title": "Early Attempts at Unionization"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-25",
-        "startTime": 7150,
-        "title": "High Voltage Line Construction"
-      }
-    },
-    {
-      "topic": "Union negotiations Saskatchewan workplaces",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-129",
-        "startTime": 9350,
-        "title": "Power Corporation Union Issues"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-23",
-        "startTime": 7036,
-        "title": "North Regina Work & Saskatoon"
-      }
-    },
-    {
-      "topic": "Career transitions and planning",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-130",
-        "startTime": 9468,
-        "title": "Construction Department Offer"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-59",
-        "startTime": 9613,
-        "title": "Retirement & Avoiding Burnout"
-      }
-    },
-    {
-      "topic": "Job application and technical challenges",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-131",
-        "startTime": 9501,
-        "title": "Negotiating a Construction Job"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-6",
-        "startTime": 3727,
-        "title": "Recalling Past Work Experiences and Technical Issues with Recordings"
-      }
-    },
-    {
-      "topic": "Planning for a fulfilling retirement",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-132",
-        "startTime": 9647,
-        "title": "Retirement and Inflation"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-59",
-        "startTime": 9613,
-        "title": "Retirement & Avoiding Burnout"
-      }
-    },
-    {
-      "topic": "Union negotiations and workplace dynamics",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-133",
-        "startTime": 9712,
-        "title": "Labor Disputes and Strike Negotiations"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-17",
-        "startTime": 6632,
-        "title": "Handling Men & Experience"
-      }
-    },
-    {
-      "topic": "Union negotiations and audio issues",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-134",
-        "startTime": 9751,
-        "title": "Labor Dispute Resolution"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
-      }
-    },
-    {
-      "topic": "Farmers protesting grain handling practices",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-135",
-        "startTime": 9870,
-        "title": "Pole Climbing Wage Demands"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-36",
-        "startTime": 8101,
-        "title": "Journey to Regina"
-      }
-    },
-    {
-      "topic": "Factory Incident and Recovery",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-136",
-        "startTime": 9950,
-        "title": "Employee Loss & Tragic Accident"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-10",
-        "startTime": 3911,
-        "title": "Returning to the Game"
-      }
-    },
-    {
-      "topic": "Student behavioral and recording inconsistencies",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-137",
-        "startTime": 10003,
-        "title": "Truancy & Family Issues"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
-      }
-    },
-    {
-      "topic": "Camping crew termination and management",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-138",
-        "startTime": 10044,
-        "title": "Fired Camping Crew"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-17",
-        "startTime": 6632,
-        "title": "Handling Men & Experience"
-      }
-    },
-    {
-      "topic": "Recovering Evidence from Recordings",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-141",
-        "startTime": 10265,
-        "title": "Analyzing the Tape"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-18",
-        "startTime": 6710,
-        "title": "Acquiring a Truck"
-      }
-    },
-    {
-      "topic": "Drilling Rig Construction and Labor",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-142",
-        "startTime": 10301,
-        "title": "Auger and Equipment Design"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-79",
-        "startTime": 10888,
-        "title": "Wage Stability Over 12 Years"
-      }
-    },
-    {
-      "topic": "North Dakota agricultural innovation",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-144",
-        "startTime": 10599,
-        "title": "Pole Straightener Development"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
-      }
-    },
-    {
-      "topic": "Kenora construction equipment theft",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-145",
-        "startTime": 10753,
-        "title": "Borrowed Drilling Machine"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-33",
-        "startTime": 7819,
-        "title": "Kenora Job Details"
-      }
-    },
-    {
-      "topic": "Job search and community rumors",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-146",
-        "startTime": 10872,
-        "title": "Noise Spreads About Clutch"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
-      }
-    },
-    {
-      "topic": "Machinery repair and job opportunities",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-148",
-        "startTime": 10983,
-        "title": "Acquiring and Repairing Machinery"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-33",
-        "startTime": 7819,
-        "title": "Kenora Job Details"
-      }
-    },
-    {
-      "topic": "Power plant funding and partnerships",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-149",
-        "startTime": 11071,
-        "title": "Financing and Bank Relationship"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-11",
-        "startTime": 5457,
-        "title": "Acquiring a Diesel Plant"
-      }
-    },
-    {
-      "topic": "Community loan program challenges",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-150",
-        "startTime": 11121,
-        "title": "Dealing with Bank Managers"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-67",
-        "startTime": 10008,
-        "title": "Estevan Education"
-      }
-    },
-    {
-      "topic": "Winter storm assistance and transportation",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-152",
-        "startTime": 11291,
-        "title": "1954 Sleet Storm Relief"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-18",
-        "startTime": 6710,
-        "title": "Acquiring a Truck"
-      }
-    },
-    {
-      "topic": "Construction project payment initiation",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-153",
-        "startTime": 11336,
-        "title": "Contractor Payment System"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-38",
-        "startTime": 8235,
-        "title": "Swift Current Job Start"
-      }
-    },
-    {
-      "topic": "Career choices and transitions",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-154",
-        "startTime": 11443,
-        "title": "Construction Job Offer Declined"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-59",
-        "startTime": 9613,
-        "title": "Retirement & Avoiding Burnout"
-      }
-    },
-    {
-      "topic": "Winter travel medical assistance",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-155",
-        "startTime": 11516,
-        "title": "Christmas Time Emergency Service"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-36",
-        "startTime": 8101,
-        "title": "Journey to Regina"
-      }
-    },
-    {
-      "topic": "Business practices and company history",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-156",
-        "startTime": 11603,
-        "title": "Contractor Business Practices"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-60",
-        "startTime": 9660,
-        "title": "Company History & Employees"
-      }
-    },
-    {
-      "topic": "Company Performance and Compensation",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-157",
-        "startTime": 11795,
-        "title": "Recalling Limited Business Growth"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-79",
-        "startTime": 10888,
-        "title": "Wage Stability Over 12 Years"
-      }
-    },
-    {
-      "topic": "Project loss and career shift",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-161",
-        "startTime": 12202,
-        "title": "Loss of Business Acquaintances and Changing Retirement"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-22",
-        "startTime": 6977,
-        "title": "Bidding on Power Line Project"
-      }
-    },
-    {
-      "topic": "Employee experiences and transitions",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-162",
-        "startTime": 12335,
-        "title": "Retirement and Health After Leaving Work"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-60",
-        "startTime": 9660,
-        "title": "Company History & Employees"
-      }
-    },
-    {
-      "topic": "Company ownership transfer",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-163",
-        "startTime": 12393,
-        "title": "Business Succession & Name"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-57",
+        "id": "chapter-48",
+        "type": "chapter",
         "startTime": 9530,
-        "title": "Company Ownership Shift"
+        "title": "Company Sale & ARCT"
       }
     },
     {
-      "topic": "Tower construction project start",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-164",
-        "startTime": 12464,
-        "title": "Key Employee - Miller"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-28",
-        "startTime": 7335,
-        "title": "Early Crew Management and Pole Setting"
-      }
-    },
-    {
-      "topic": "Alaska Utility Pole Installation",
-      "confidence": "MEDIUM",
-      "Norm_red": {
-        "storyId": "story-165",
-        "startTime": 12644,
-        "title": "Alaska Job Estimate"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-28",
-        "startTime": 7335,
-        "title": "Early Crew Management and Pole Setting"
-      }
-    },
-    {
-      "topic": "Radio transmission anomalies",
+      "topic": "Loss and guidance",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-166",
-        "startTime": 12763,
-        "title": "Regina to Estevan Line"
+        "id": "chapter-42",
+        "type": "chapter",
+        "startTime": 8343,
+        "title": "Deaths and Inheritance"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
+        "id": "chapter-53",
+        "type": "chapter",
+        "startTime": 10429,
+        "title": "Value of Mentorship"
       }
     },
     {
-      "topic": "Island pier construction project",
+      "topic": "Telephone line installation",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-167",
-        "startTime": 12821,
+        "id": "chapter-44",
+        "type": "chapter",
+        "startTime": 8469,
+        "title": "Work and Employee Dedication"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-48",
+        "type": "story",
+        "startTime": 7994,
+        "title": "November Wire Stringing"
+      }
+    },
+    {
+      "topic": "Post-war housing development",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-48",
+        "type": "story",
+        "startTime": 8689,
+        "title": "Early Work at the Power Commission"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-35",
+        "type": "chapter",
+        "startTime": 7038,
+        "title": "Wartime Housing Construction"
+      }
+    },
+    {
+      "topic": "Ted Durnan business dealings",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-46",
+        "type": "chapter",
+        "startTime": 8782,
+        "title": "Relationship with Ted Durnan"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-31",
+        "type": "chapter",
+        "startTime": 6294,
+        "title": "Contracting Years Begin"
+      }
+    },
+    {
+      "topic": "Government contract business challenges",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-47",
+        "type": "chapter",
+        "startTime": 8962,
+        "title": "Contractor Business Failures"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-31",
+        "type": "chapter",
+        "startTime": 6294,
+        "title": "Contracting Years Begin"
+      }
+    },
+    {
+      "topic": "Workplace conflict and guidance",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-48",
+        "type": "chapter",
+        "startTime": 9092,
+        "title": "Union Issues Arise"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-53",
+        "type": "chapter",
+        "startTime": 10429,
+        "title": "Value of Mentorship"
+      }
+    },
+    {
+      "topic": "Business challenges in 1958",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-49",
+        "type": "chapter",
+        "startTime": 9150,
+        "title": "Business Survival and Communication"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-46",
+        "type": "chapter",
+        "startTime": 9122,
+        "title": "1958 - Financial Struggles and Business Practices"
+      }
+    },
+    {
+      "topic": "Power line contract negotiations",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-50",
+        "type": "story",
+        "startTime": 9240,
+        "title": "Contract Negotiation Challenges"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-38",
+        "type": "story",
+        "startTime": 6405,
+        "title": "Power Line Project Details"
+      }
+    },
+    {
+      "topic": "Government leadership transition costs",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-51",
+        "type": "story",
+        "startTime": 9323,
+        "title": "New President Rotation"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-57",
+        "type": "story",
+        "startTime": 9575,
+        "title": "Contracting & Price Increases"
+      }
+    },
+    {
+      "topic": "Power line project and workplace issues",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-50",
+        "type": "chapter",
+        "startTime": 9410,
+        "title": "Dealing with Power Corporation & Workplace Dynamics"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-38",
+        "type": "story",
+        "startTime": 6405,
+        "title": "Power Line Project Details"
+      }
+    },
+    {
+      "topic": "Leaving a construction job",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-52",
+        "type": "story",
+        "startTime": 9461,
+        "title": "1948 Construction Offer"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-13",
+        "type": "story",
+        "startTime": 2467,
+        "title": "Discussion of a Transient Lifestyle and Departure"
+      }
+    },
+    {
+      "topic": "South Dakota job market and pay",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-53",
+        "type": "story",
+        "startTime": 9536,
+        "title": "Job Hopping Experience"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-61",
+        "type": "story",
+        "startTime": 10566,
+        "title": "Aberdeen, SD Wages"
+      }
+    },
+    {
+      "topic": "Agricultural worker labor negotiations",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-54",
+        "type": "story",
+        "startTime": 9739,
+        "title": "Labor Disputes and Wage Negotiations"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-19",
+        "type": "story",
+        "startTime": 3513,
+        "title": "Harvest Time and Separator"
+      }
+    },
+    {
+      "topic": "Power line construction accident",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-52",
+        "type": "chapter",
+        "startTime": 9877,
+        "title": "Swift Current Pole Climbing Strike"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-54",
+        "type": "story",
+        "startTime": 9183,
+        "title": "Line Building in '60"
+      }
+    },
+    {
+      "topic": "Company Restructuring and Departures",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-55",
+        "type": "story",
+        "startTime": 9936,
+        "title": "Former Employees Returning"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-48",
+        "type": "chapter",
+        "startTime": 9530,
+        "title": "Company Sale & ARCT"
+      }
+    },
+    {
+      "topic": "Youth trauma and recovered memories",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-56",
+        "type": "story",
+        "startTime": 10002,
+        "title": "Dealing with Troubled Youth"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-58",
+        "type": "story",
+        "startTime": 9771,
+        "title": "Visitors & Return to Electrical Field Memories"
+      }
+    },
+    {
+      "topic": "Arctic research contract negotiations",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-53",
+        "type": "chapter",
+        "startTime": 10087,
+        "title": "George Kukachuk's Deception"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-31",
+        "type": "chapter",
+        "startTime": 6294,
+        "title": "Contracting Years Begin"
+      }
+    },
+    {
+      "topic": "Employee Departure and Associated Context",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-54",
+        "type": "chapter",
+        "startTime": 10151,
+        "title": "Employee Quit Requests and War-Era Procedures"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-13",
+        "type": "story",
+        "startTime": 2467,
+        "title": "Discussion of a Transient Lifestyle and Departure"
+      }
+    },
+    {
+      "topic": "Construction work in 1927",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-57",
+        "type": "story",
+        "startTime": 10296,
+        "title": "Machinery and Equipment"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-12",
+        "type": "story",
+        "startTime": 2181,
+        "title": "Digging Holes - January 1927"
+      }
+    },
+    {
+      "topic": "Engineering and Financial Resilience",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-55",
+        "type": "chapter",
+        "startTime": 10599,
+        "title": "Pole Straightener Design"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-30",
+        "type": "story",
+        "startTime": 4966,
+        "title": "Seeking Work During Economic Hardship"
+      }
+    },
+    {
+      "topic": "Agricultural machinery maintenance",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-58",
+        "type": "story",
+        "startTime": 10753,
+        "title": "Modifying a Drilling Machine"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-16",
+        "type": "story",
+        "startTime": 2950,
+        "title": "Operating the Thrasher"
+      }
+    },
+    {
+      "topic": "Machine troubleshooting and repair",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-56",
+        "type": "chapter",
+        "startTime": 10866,
+        "title": "Discussing a Solution to Mechanical Problems"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-17",
+        "type": "story",
+        "startTime": 3044,
+        "title": "Intense Machine Operation and Maintenance"
+      }
+    },
+    {
+      "topic": "Acquiring and using a machine",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-59",
+        "type": "story",
+        "startTime": 10943,
+        "title": "Secondhand Machine Purchase"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-17",
+        "type": "story",
+        "startTime": 3044,
+        "title": "Intense Machine Operation and Maintenance"
+      }
+    },
+    {
+      "topic": "Business funding and employment",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-57",
+        "type": "chapter",
+        "startTime": 11071,
+        "title": "Financing History Begins"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-35",
+        "type": "story",
+        "startTime": 5520,
+        "title": "Financial Assistance and a Job Offer"
+      }
+    },
+    {
+      "topic": "Farm business financial recovery",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-60",
+        "type": "story",
+        "startTime": 11157,
+        "title": "Overdraft & Uninvoiced Work"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-10",
+        "type": "story",
+        "startTime": 1787,
+        "title": "Managing the Farm After a Loss"
+      }
+    },
+    {
+      "topic": "Contract pricing and invoicing issues",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-61",
+        "type": "story",
+        "startTime": 11242,
+        "title": "Power Corporation Invoicing"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-57",
+        "type": "story",
+        "startTime": 9575,
+        "title": "Contracting & Price Increases"
+      }
+    },
+    {
+      "topic": "Farm winter weather challenges",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-58",
+        "type": "chapter",
+        "startTime": 11293,
+        "title": "Sleet Storm Assistance"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-44",
+        "type": "story",
+        "startTime": 7430,
+        "title": "Hay Pulley Solution"
+      }
+    },
+    {
+      "topic": "Subcontracting work and oversight",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-62",
+        "type": "story",
+        "startTime": 11338,
+        "title": "Contractor Subbing"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-47",
+        "type": "story",
+        "startTime": 7936,
+        "title": "Subcontracting Wire Stringing and Leaving Jack Gardner in Charge"
+      }
+    },
+    {
+      "topic": "Farm succession and transitions",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-63",
+        "type": "story",
+        "startTime": 11442,
+        "title": "Ted Durnan's Job Offer"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-10",
+        "type": "story",
+        "startTime": 1787,
+        "title": "Managing the Farm After a Loss"
+      }
+    },
+    {
+      "topic": "Wartime Housing Labor Disputes",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-59",
+        "type": "chapter",
+        "startTime": 11500,
+        "title": "Union Interference & Service Requests"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-35",
+        "type": "chapter",
+        "startTime": 7038,
+        "title": "Wartime Housing Construction"
+      }
+    },
+    {
+      "topic": "Post-war labor disputes",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-64",
+        "type": "story",
+        "startTime": 11551,
+        "title": "Dealing with Overtime and Management"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-39",
+        "type": "chapter",
+        "startTime": 7610,
+        "title": "Reviewing 1947 Work"
+      }
+    },
+    {
+      "topic": "1953 City Infrastructure Improvements",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-60",
+        "type": "chapter",
+        "startTime": 11615,
+        "title": "City Work & Pole Setting"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-52",
+        "type": "story",
+        "startTime": 8870,
+        "title": "Reflecting on 1953"
+      }
+    },
+    {
+      "topic": "Union negotiations and worker compensation",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-65",
+        "type": "story",
+        "startTime": 11701,
+        "title": "Nichols Contract Retrieval"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-54",
+        "type": "chapter",
+        "startTime": 10636,
+        "title": "First-Class Lineman Raise"
+      }
+    },
+    {
+      "topic": "Company acquisition and evolution",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-61",
+        "type": "chapter",
+        "startTime": 11784,
+        "title": "Company History & Limited Expansion"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-48",
+        "type": "chapter",
+        "startTime": 9530,
+        "title": "Company Sale & ARCT"
+      }
+    },
+    {
+      "topic": "Post-war reconstruction and retail",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "story-66",
+        "type": "story",
+        "startTime": 11880,
+        "title": "Shop Operations & Competitors"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-35",
+        "type": "chapter",
+        "startTime": 7038,
+        "title": "Wartime Housing Construction"
+      }
+    },
+    {
+      "topic": "Unexpected job change and upheaval",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-63",
+        "type": "chapter",
+        "startTime": 12210,
+        "title": "Loss of Friends and Relocation"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-33",
+        "type": "chapter",
+        "startTime": 6603,
+        "title": "Early Career and Management Experience"
+      }
+    },
+    {
+      "topic": "Achen Construction Company Transition",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "chapter-64",
+        "type": "chapter",
+        "startTime": 12393,
+        "title": "Achen Construction Legacy"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-48",
+        "type": "chapter",
+        "startTime": 9530,
+        "title": "Company Sale & ARCT"
+      }
+    },
+    {
+      "topic": "Alaska construction project bidding",
+      "confidence": "MEDIUM",
+      "Norm_red": {
+        "id": "chapter-65",
+        "type": "chapter",
+        "startTime": 12643,
+        "title": "Alaska Job Bid"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-57",
+        "type": "story",
+        "startTime": 9575,
+        "title": "Contracting & Price Increases"
+      }
+    },
+    {
+      "topic": "Saskatoon Archives Project Meeting",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-70",
+        "type": "story",
+        "startTime": 12702,
+        "title": "Saskatoon Office Visit"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "chapter-39",
+        "type": "chapter",
+        "startTime": 7610,
+        "title": "Reviewing 1947 Work"
+      }
+    },
+    {
+      "topic": "Railroad contract acquisition and transport",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-71",
+        "type": "story",
+        "startTime": 12768,
+        "title": "Regina to Estevan Circuit"
+      },
+      "TDK_D60_edited_through_air": {
+        "id": "story-37",
+        "type": "story",
+        "startTime": 6207,
+        "title": "Bidding on Contracts"
+      }
+    },
+    {
+      "topic": "Island pole setting project",
+      "confidence": "HIGH",
+      "Norm_red": {
+        "id": "story-72",
+        "type": "story",
+        "startTime": 12820,
         "title": "Swift Current Island Job"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-27",
-        "startTime": 7272,
-        "title": "Crew and Pole Setting"
+        "id": "chapter-37",
+        "type": "chapter",
+        "startTime": 7300,
+        "title": "Discussing Pole Setting"
       }
     },
     {
-      "topic": "Alberta Line Recording Anomaly",
+      "topic": "Power line maintenance and issues",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-168",
-        "startTime": 12891,
-        "title": "Alberta Line Fuse Issue"
+        "id": "chapter-66",
+        "type": "chapter",
+        "startTime": 12882,
+        "title": "Line Trouble in Bird"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-0",
-        "startTime": 115,
-        "title": "Changes in Recording Voice"
+        "id": "story-38",
+        "type": "story",
+        "startTime": 6405,
+        "title": "Power Line Project Details"
       }
     },
     {
-      "topic": "Towns mechanical issues recovery",
+      "topic": "Wire installation complications",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-169",
-        "startTime": 12956,
-        "title": "Troubleshooting Mechanical Issues in Towns"
+        "id": "story-73",
+        "type": "story",
+        "startTime": 12933,
+        "title": "Trouble with Wires"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-10",
-        "startTime": 3911,
-        "title": "Returning to the Game"
+        "id": "story-47",
+        "type": "story",
+        "startTime": 7936,
+        "title": "Subcontracting Wire Stringing and Leaving Jack Gardner in Charge"
       }
     },
     {
-      "topic": "Automotive repair shop experience",
+      "topic": "Navigating Unexpected Workplace Challenges",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-170",
-        "startTime": 12992,
-        "title": "Troubleshooting a Carburetor"
+        "id": "story-74",
+        "type": "story",
+        "startTime": 12991,
+        "title": "Problem Solving/Troubleshooting Process"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-64",
-        "startTime": 9856,
-        "title": "Working with Foremen"
+        "id": "chapter-50",
+        "type": "chapter",
+        "startTime": 9884,
+        "title": "Early Career Experiences"
       }
     },
     {
-      "topic": "New employee onboarding and tenure",
+      "topic": "Public service career reflections",
       "confidence": "MEDIUM",
       "Norm_red": {
-        "storyId": "story-171",
-        "startTime": 13046,
-        "title": "Long Career and Continued Involvement"
+        "id": "chapter-67",
+        "type": "chapter",
+        "startTime": 13042,
+        "title": "Continued Involvement in Government Affairs"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-38",
-        "startTime": 8235,
-        "title": "Swift Current Job Start"
+        "id": "chapter-33",
+        "type": "chapter",
+        "startTime": 6603,
+        "title": "Early Career and Management Experience"
       }
     },
     {
-      "topic": "Experiences of early work and wages",
+      "topic": "Navigating Grief and Career Transitions",
       "confidence": "HIGH",
       "Norm_red": {
-        "storyId": "story-172",
-        "startTime": 13117,
-        "title": "Wage and Work Changes"
+        "id": "chapter-68",
+        "type": "chapter",
+        "startTime": 13257,
+        "title": "Taking Charge After Father's Death"
       },
       "TDK_D60_edited_through_air": {
-        "storyId": "story-72",
-        "startTime": 10489,
-        "title": "Early Work Experience"
-      }
-    },
-    {
-      "topic": "Workplace rule changes and history",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-173",
-        "startTime": 13160,
-        "title": "Changes in Workplace Regulations and Advice"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-60",
-        "startTime": 9660,
-        "title": "Company History & Employees"
-      }
-    },
-    {
-      "topic": "Rural development and mentorship",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-174",
-        "startTime": 13216,
-        "title": "Early Career Advice"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-40",
-        "startTime": 8548,
-        "title": "Farm Electrification Projects"
-      }
-    },
-    {
-      "topic": "Young adult navigating loss and work",
-      "confidence": "HIGH",
-      "Norm_red": {
-        "storyId": "story-175",
-        "startTime": 13258,
-        "title": "Taking Over the Farm After Father's Death"
-      },
-      "TDK_D60_edited_through_air": {
-        "storyId": "story-4",
-        "startTime": 3615,
-        "title": "Seeking a Job in Minot"
+        "id": "story-21",
+        "type": "story",
+        "startTime": 3729,
+        "title": "Recalling Past Work Experiences"
       }
     }
   ],
   "stats": {
-    "totalMatches": 146,
-    "primaryStoryCount": 176,
-    "secondaryStoryCount": 80
+    "totalMatches": 130,
+    "primaryChapterCount": 69,
+    "primaryStoryCount": 75,
+    "secondaryChapterCount": 55,
+    "secondaryStoryCount": 63
   }
 }

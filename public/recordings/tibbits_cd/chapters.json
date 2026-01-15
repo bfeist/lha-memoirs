@@ -1,293 +1,141 @@
 {
   "chapters": [
     {
-      "title": "Snowstorm Description",
+      "title": "Snowstorm Discussion and Audio Recording Context",
       "startTime": 0.0,
-      "description": "Lindy begins describing a recent snowstorm and its effects on the area."
+      "description": "The narrator is setting the context for a longer recording, explaining where a previous recording began (Ben taping planes, playing, Reverend Shuler speaking) and indicating where they want the listener to focus on (grandmother's conversation)."
     },
     {
-      "title": "Answering Depression Questions",
-      "startTime": 206,
-      "description": "Lindy and his grandmother announce they will now answer questions about the Depression era."
+      "title": "Historical Coffee Substitutes",
+      "startTime": 224,
+      "description": "Lindy and his grandmother begin answering Leslie's question about how coffee was made during the Depression era, providing examples of alternatives used."
     },
     {
-      "title": "Clothing in the Depression",
-      "startTime": 421,
-      "description": "Lindy talks about inadequate clothing during the Depression."
+      "title": "Farm Work and Livestock",
+      "startTime": 470,
+      "description": "Lindy transitions to describing his experience working on a farm and the types of livestock they had."
     },
     {
-      "title": "Tape Instructions and Ben",
-      "startTime": 601,
-      "description": "Lindy gives instructions about the tape and addresses someone named Ben."
+      "title": "Plea for Friendship and Cat Food Frustration",
+      "startTime": 681,
+      "description": "Lindy abruptly shifts to a personal message directed at 'Ben,' expressing a desire for friendship and correspondence."
     },
     {
-      "title": "Selena and Obi Interview",
-      "startTime": 809,
-      "description": "Lindy begins interviewing Selena and Obi, asking them questions about their ages and experiences."
+      "title": "Leslie Introduces Herself and Discusses Family Plans",
+      "startTime": 974,
+      "description": "Lindy transitions to interviewing a new person, Leslie, who shares personal details about her age, family, and upcoming trip."
     },
     {
-      "title": "Leslie's Personal Details",
-      "startTime": 1027,
-      "description": "Lindy transitions to Leslie providing personal details about her age, family, and upcoming plans."
+      "title": "Confusing Explanation of a Story/Plot Point",
+      "startTime": 1166,
+      "description": "Lindy announces the next show's topic: interviewing Shadastonio cats and Beagle mouse."
     },
     {
-      "title": "Hidden Speaker Game",
-      "startTime": 1229,
-      "description": "Lindy describes a simulation involving ants moving in troops."
+      "title": "Secret Instructions and Accusations",
+      "startTime": 1276,
+      "description": "Lindy begins a hidden message for Leslie, instructing her to find the speaker and warning against misusing the tape recorder."
     },
     {
-      "title": "Accusations and Confusion",
-      "startTime": 1305,
-      "description": "Lindy warns against taking the tape recorder around due to Grandpa's potential anger."
+      "title": "Unexpected Washroom Encounter",
+      "startTime": 1486,
+      "description": "Lindy describes an unexpected encounter in the washroom, setting up a narrative about Leslie's actions."
     },
     {
-      "title": "Leslie's Room Departure",
-      "startTime": 1525,
-      "description": "Lindy describes Leslie stomping out of the room."
+      "title": "Confused Ramblings and Allegations",
+      "startTime": 1690,
+      "description": "Lindy abruptly changes the subject to someone named Wes, and then to a discussion about something new."
     },
     {
-      "title": "Plastic Piece Identification",
-      "startTime": 1832,
-      "description": "Lindy discusses a small, gold-colored plastic piece found, attempting to identify its origin."
-    },
-    {
-      "title": "Grandchild's Mischief",
-      "startTime": 1863,
-      "description": "Lindy abruptly warns someone not to put something in the toilet.; Lindy describes a ceremony where students leaving for a new school were asked to stand up."
+      "title": "School Picture Discussion",
+      "startTime": 1931,
+      "description": "Lindy references an old school picture and the process of hiring a photographer.; Lindy abruptly shifts to discussing someone named Rec and their past involvement with a San Francisco band."
     }
   ],
   "summary": "A personal memoir recording covering family memories and life stories.",
   "stories": [
     {
-      "title": "Snowstorm Description",
-      "startTime": 33,
-      "description": "Lindy begins describing a recent snowstorm and its effects on the area.",
+      "title": "Wally and Willa Visit",
+      "startTime": 93,
+      "description": "Lindy shifts the conversation to a visit from Wally and Willa, including their doctor's appointments and evening card games.",
       "chapterIndex": 0,
       "id": "story-0"
     },
     {
-      "title": "Wally and Willa Visit",
-      "startTime": 84,
-      "description": "Lindy shifts to discussing a visit from Wally and Willa.",
-      "chapterIndex": 0,
+      "title": "Tape Instructions and Recording",
+      "startTime": 599,
+      "description": "Lindy begins giving instructions about the tape recording and its placement.",
+      "chapterIndex": 2,
       "id": "story-1"
     },
     {
-      "title": "Answering Depression Questions",
-      "startTime": 206,
-      "description": "Lindy and his grandmother announce they will now answer questions about the Depression era.",
-      "chapterIndex": 1,
+      "title": "Mock Speech and Mrs. Jekyll",
+      "startTime": 747,
+      "description": "Lindy transitions into a mock speech directed at 'Mrs. Jekyll,' expressing negative sentiments.",
+      "chapterIndex": 3,
       "id": "story-2"
     },
     {
-      "title": "Substitute Coffee and Economic Hardship",
-      "startTime": 240,
-      "description": "Lindy and his grandmother begin answering the first question: How did they make coffee in the 1930s?",
-      "chapterIndex": 1,
+      "title": "Kids' Ages and Misdeeds",
+      "startTime": 810,
+      "description": "Lindy begins interviewing the Couch Patch Kids, asking their names and ages, and discussing their behavior.",
+      "chapterIndex": 3,
       "id": "story-3"
     },
     {
-      "title": "Farm Work Wages",
-      "startTime": 303,
-      "description": "Lindy discusses wages for farm work during the Depression era.",
-      "chapterIndex": 1,
+      "title": "Absurd Claims and Noisy Children",
+      "startTime": 1045,
+      "description": "Lindy abruptly shifts to a person claiming to be three years old with a large family and noisy feet, signaling a final departure.",
+      "chapterIndex": 4,
       "id": "story-4"
     },
     {
-      "title": "Cars and Licenses",
-      "startTime": 350,
-      "description": "Lindy discusses not being able to afford a car license.",
-      "chapterIndex": 1,
+      "title": "Playing a Game/Hiding",
+      "startTime": 1218,
+      "description": "Lindy begins discussing rising cat food prices and relates it to an ant infestation.",
+      "chapterIndex": 5,
       "id": "story-5"
     },
     {
-      "title": "Clothing in the Depression",
-      "startTime": 421,
-      "description": "Lindy talks about inadequate clothing during the Depression.",
-      "chapterIndex": 2,
+      "title": "Frustration and Interview Interruption",
+      "startTime": 1367,
+      "description": "Lindy praises 'Little,' seemingly referring to a previous action or person.",
+      "chapterIndex": 6,
       "id": "story-6"
     },
     {
-      "title": "Farm Work and Livestock",
-      "startTime": 466,
-      "description": "Lindy begins discussing his time working on a farm during the Depression.",
-      "chapterIndex": 2,
+      "title": "Confrontation and Evasive Tactics",
+      "startTime": 1584,
+      "description": "Lindy confronts Leslie about being found in the closet, escalating into a discussion about recording and accusations.",
+      "chapterIndex": 7,
       "id": "story-7"
     },
     {
-      "title": "Card Games with Matches",
-      "startTime": 520,
-      "description": "Lindy describes playing poker with matches as currency.",
-      "chapterIndex": 2,
+      "title": "Escalating Conflict and Technical Issues",
+      "startTime": 1645,
+      "description": "Lindy and someone else discuss the ability to say bad things due to the recording.",
+      "chapterIndex": 7,
       "id": "story-8"
     },
     {
-      "title": "Tape Instructions and Ben",
-      "startTime": 601,
-      "description": "Lindy gives instructions about the tape and addresses someone named Ben.",
-      "chapterIndex": 3,
+      "title": "Geological Exploration",
+      "startTime": 1757,
+      "description": "Lindy transitions to a discussion about Russian geological exploration in the U.S., starting in the early 70s.",
+      "chapterIndex": 8,
       "id": "story-9"
     },
     {
-      "title": "Friendship Declaration",
-      "startTime": 672,
-      "description": "Lindy declares his intention to befriend Ben and become his pen pal.",
-      "chapterIndex": 3,
+      "title": "Mystery Item on the Floor",
+      "startTime": 1832,
+      "description": "Lindy and another person observe a table resembling classical designs.",
+      "chapterIndex": 8,
       "id": "story-10"
     },
     {
-      "title": "Cat Food Complaint",
-      "startTime": 708,
-      "description": "Lindy abruptly shifts to complaining about cat food and Mrs. Jekyll's opinion.",
-      "chapterIndex": 3,
-      "id": "story-11"
-    },
-    {
-      "title": "Selena and Obi Interview",
-      "startTime": 809,
-      "description": "Lindy begins interviewing Selena and Obi, asking them questions about their ages and experiences.",
-      "chapterIndex": 4,
-      "id": "story-12"
-    },
-    {
-      "title": "Age and Family Details",
-      "startTime": 961,
-      "description": "Lindy begins listing ages and family members, including Auntie Jane and P.E.L.",
-      "chapterIndex": 4,
-      "id": "story-13"
-    },
-    {
-      "title": "Leslie's Personal Details",
-      "startTime": 1027,
-      "description": "Lindy transitions to Leslie providing personal details about her age, family, and upcoming plans.",
-      "chapterIndex": 5,
-      "id": "story-14"
-    },
-    {
-      "title": "Meeting Children",
-      "startTime": 1061,
-      "description": "Lindy states they are going to interview him.",
-      "chapterIndex": 5,
-      "id": "story-15"
-    },
-    {
-      "title": "Confusing Explanation of a Story",
-      "startTime": 1191,
-      "description": "Lindy explains the meaning of a previous statement about raising cat food prices.",
-      "chapterIndex": 5,
-      "id": "story-16"
-    },
-    {
-      "title": "Hidden Speaker Game",
-      "startTime": 1229,
-      "description": "Lindy describes a simulation involving ants moving in troops.",
-      "chapterIndex": 6,
-      "id": "story-17"
-    },
-    {
-      "title": "T'Leslie's Hidden Game",
-      "startTime": 1275,
-      "description": "Lindy announces a game where someone needs to find 'T'Leslie' and play a recording.",
-      "chapterIndex": 6,
-      "id": "story-18"
-    },
-    {
-      "title": "Accusations and Confusion",
-      "startTime": 1305,
-      "description": "Lindy warns against taking the tape recorder around due to Grandpa's potential anger.",
-      "chapterIndex": 7,
-      "id": "story-19"
-    },
-    {
-      "title": "Random Rambling/Interview Prep",
-      "startTime": 1359,
-      "description": "Lindy discusses something called the 'oomph mark' and its value.",
-      "chapterIndex": 7,
-      "id": "story-20"
-    },
-    {
-      "title": "Interview Interrupted by Commentary on Leslie's Behavior",
-      "startTime": 1424,
-      "description": "Lindy states they are giving an interview and asks about an 'easy trick'.",
-      "chapterIndex": 7,
-      "id": "story-21"
-    },
-    {
-      "title": "Accusations Against Leslie",
-      "startTime": 1481,
-      "description": "Lindy accuses Leslie of perverted behavior, specifically walking into a room unexpectedly.",
-      "chapterIndex": 7,
-      "id": "story-22"
-    },
-    {
-      "title": "Leslie's Room Departure",
-      "startTime": 1525,
-      "description": "Lindy describes Leslie stomping out of the room.",
-      "chapterIndex": 8,
-      "id": "story-23"
-    },
-    {
-      "title": "Idea and Peanut Butter",
-      "startTime": 1607,
-      "description": "Lindy proposes an idea and then discusses a peanut butter sandwich.",
-      "chapterIndex": 8,
-      "id": "story-24"
-    },
-    {
-      "title": "Microphone Testing and Playful Banter",
-      "startTime": 1650,
-      "description": "Lindy and someone else discuss saying 'I' statements.",
-      "chapterIndex": 8,
-      "id": "story-25"
-    },
-    {
-      "title": "Plastic Piece Identification",
-      "startTime": 1832,
-      "description": "Lindy discusses a small, gold-colored plastic piece found, attempting to identify its origin.",
+      "title": "School Transition and Student Recognition",
+      "startTime": 2026,
+      "description": "Lindy begins to tell a story about an experience after school, involving cleaning and classmates.",
       "chapterIndex": 9,
-      "id": "story-26"
-    },
-    {
-      "title": "Grandchild's Mischief",
-      "startTime": 1863,
-      "description": "Lindy abruptly warns someone not to put something in the toilet.",
-      "chapterIndex": 10,
-      "id": "story-27"
-    },
-    {
-      "title": "Confused Conversation",
-      "startTime": 1903,
-      "description": "Lindy shifts to discussing a grandchild's mischievous behavior involving putting things on the floor.",
-      "chapterIndex": 10,
-      "id": "story-28"
-    },
-    {
-      "title": "School Departure Reactions",
-      "startTime": 2004,
-      "description": "Lindy begins recounting reactions to his departure from school, specifically mentioning classmates and Gladys.",
-      "chapterIndex": 10,
-      "id": "story-29"
-    },
-    {
-      "title": "School Ceremony Confusion",
-      "startTime": 2043,
-      "description": "Lindy describes a ceremony where students leaving for a new school were asked to stand up.",
-      "chapterIndex": 10,
-      "id": "story-30"
-    },
-    {
-      "title": "Reflections on Work and Past Experiences",
-      "startTime": 2089,
-      "description": "Lindy discusses a frustrating experience with a malfunctioning radio.",
-      "chapterIndex": 10,
-      "id": "story-31"
-    },
-    {
-      "title": "Conversation with Ben",
-      "startTime": 2161,
-      "description": "Lindy discusses his work and a past association with a San Francisco band.",
-      "chapterIndex": 10,
-      "id": "story-32"
+      "id": "story-11"
     }
   ]
 }

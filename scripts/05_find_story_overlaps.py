@@ -71,6 +71,38 @@ def load_chapters_and_stories(recording_name: str) -> tuple[list[dict], list[dic
     return data.get('chapters', []), data.get('stories', [])
 
 
+def build_segments_list(chapters: list[dict], stories: list[dict]) -> list[dict]:
+    """Combine chapters and stories into a single sorted list of segments for matching.
+    
+    Each segment gets a 'type' field ('chapter' or 'story') and its original index.
+    Stories that duplicate chapter titles are already filtered out by 04_analyze_chapters.py.
+    """
+    segments = []
+    
+    # Add chapters with type marker
+    for i, ch in enumerate(chapters):
+        segments.append({
+            **ch,
+            'type': 'chapter',
+            'originalIndex': i,
+            'id': f'chapter-{i}'
+        })
+    
+    # Add stories with type marker
+    for i, st in enumerate(stories):
+        segments.append({
+            **st,
+            'type': 'story',
+            'originalIndex': i
+            # stories already have 'id' field
+        })
+    
+    # Sort by start time
+    segments.sort(key=lambda s: s.get('startTime', 0))
+    
+    return segments
+
+
 def load_transcript(recording_name: str) -> list[dict]:
     """Load transcript segments from a recording."""
     path = MEMOIRS_DIR / recording_name / "transcript.json"
@@ -79,81 +111,114 @@ def load_transcript(recording_name: str) -> list[dict]:
     return data.get('segments', [])
 
 
-def get_story_text(transcript: list[dict], start_time: float, end_time: float, max_words: int = 100) -> str:
+def get_story_text(transcript: list[dict], start_time: float, end_time: float, max_words: int = 100, max_seconds: float = 90) -> str:
     """Extract transcript text for a story's time range.
     
-    Only uses the FIRST max_words to focus on the story's opening,
-    which typically identifies the specific event being discussed.
+    Only uses the FIRST max_words (or max_seconds, whichever comes first) to focus 
+    on the story's opening, which typically identifies the specific event being discussed.
+    
+    With WhisperX's longer segments, we need both word and time limits to avoid
+    including too much content from adjacent stories.
     """
     words = []
+    time_limit = start_time + max_seconds
+    
     for segment in transcript:
         seg_start = segment.get('start', 0)
         seg_end = segment.get('end', 0)
+        seg_text = segment.get('text', '')
+        
+        # Skip segments that end before our start time
+        if seg_end < start_time:
+            continue
+        
+        # Stop if we've gone past our time limit
+        if seg_start >= time_limit or seg_start >= end_time:
+            break
         
         # Include segment if it overlaps with story time range
         if seg_end >= start_time and seg_start < end_time:
-            words.extend(segment.get('text', '').split())
+            # For long segments that start before our story, try to estimate
+            # where the relevant text begins (rough approximation)
+            if seg_start < start_time and seg_end > start_time:
+                # Segment spans the story start - estimate portion to skip
+                seg_duration = seg_end - seg_start
+                if seg_duration > 0:
+                    skip_ratio = (start_time - seg_start) / seg_duration
+                    seg_words = seg_text.split()
+                    skip_words = int(len(seg_words) * skip_ratio)
+                    words.extend(seg_words[skip_words:])
+                else:
+                    words.extend(seg_text.split())
+            else:
+                words.extend(seg_text.split())
+            
             if len(words) >= max_words:
                 break
     
     return ' '.join(words[:max_words])
 
 
-def get_story_end_time(stories: list[dict], story_index: int, total_duration: float) -> float:
-    """Get the end time of a story (start of next story or end of recording)."""
-    if story_index + 1 < len(stories):
-        return stories[story_index + 1].get('startTime', total_duration)
+def get_segment_end_time(segments: list[dict], segment_index: int, total_duration: float) -> float:
+    """Get the end time of a segment (start of next segment or end of recording)."""
+    if segment_index + 1 < len(segments):
+        return segments[segment_index + 1].get('startTime', total_duration)
     return total_duration
 
 
-def format_stories_for_analysis(recording_name: str, stories: list[dict], transcript: list[dict], total_duration: float) -> str:
-    """Format stories with actual transcript excerpts for Gemma analysis."""
+def format_stories_for_analysis(recording_name: str, segments: list[dict], transcript: list[dict], total_duration: float) -> str:
+    """Format segments with actual transcript excerpts for Gemma analysis."""
     # Use clear prefix for each recording
     prefix = "N" if "Norm" in recording_name else "T"
-    lines = [f"=== {recording_name} ({len(stories)} stories) ==="]
+    lines = [f"=== {recording_name} ({len(segments)} segments) ==="]
     
-    for i, story in enumerate(stories):
-        title = story.get('title', 'Untitled')
-        time = story.get('startTime', 0)
-        end_time = get_story_end_time(stories, i, total_duration)
+    for i, segment in enumerate(segments):
+        title = segment.get('title', 'Untitled')
+        time = segment.get('startTime', 0)
+        seg_type = segment.get('type', 'story')
+        end_time = get_segment_end_time(segments, i, total_duration)
         
-        # Extract transcript text
-        text = get_story_text(transcript, time, end_time, max_words=150)
+        # Extract transcript text (150 words, 90 seconds max)
+        text = get_story_text(transcript, time, end_time, max_words=150, max_seconds=90)
         
         mins = int(time // 60)
         secs = int(time % 60)
+        type_marker = "[C]" if seg_type == 'chapter' else ""
         
-        lines.append(f"\n[{prefix}{i}] {title} (starts at {mins}:{secs:02d})")
+        lines.append(f"\n[{prefix}{i}]{type_marker} {title} (starts at {mins}:{secs:02d})")
         lines.append(f"Text: {text}...")
     
     return "\n".join(lines)
 
 
 def find_story_overlaps(recordings: list[str]) -> dict:
-    """Use LLM to find overlapping stories between recordings.
+    """Use LLM to find overlapping segments (chapters + stories) between recordings.
     
-    Process each Norm_red story against each TDK story one-by-one.
-    At the end of each Norm_red story, store the best match if any.
+    Process each Norm_red segment against each TDK segment one-by-one.
+    At the end of each Norm_red segment, store the best match if any.
     """
     
-    print("Loading stories and transcripts...")
-    all_stories = {}
+    print("Loading chapters, stories, and transcripts...")
+    all_segments = {}
     all_transcripts = {}
     
     for rec in recordings:
         chapters, stories = load_chapters_and_stories(rec)
+        segments = build_segments_list(chapters, stories)
         transcript = load_transcript(rec)
         
-        if not stories:
-            print(f"  WARNING: {rec}: No stories found! Run 05_analyze_stories.py first")
-            return {'error': f'No stories found in {rec}'}
+        if not segments:
+            print(f"  WARNING: {rec}: No chapters or stories found!")
+            return {'error': f'No chapters or stories found in {rec}'}
         
-        all_stories[rec] = stories
+        all_segments[rec] = segments
         all_transcripts[rec] = transcript
-        print(f"  {rec}: {len(stories)} stories, {len(transcript)} transcript segments")
+        ch_count = sum(1 for s in segments if s.get('type') == 'chapter')
+        st_count = sum(1 for s in segments if s.get('type') == 'story')
+        print(f"  {rec}: {ch_count} chapters + {st_count} stories = {len(segments)} segments")
     
-    norm_stories = all_stories['Norm_red']
-    tdk_stories = all_stories['TDK_D60_edited_through_air']
+    norm_segments = all_segments['Norm_red']
+    tdk_segments = all_segments['TDK_D60_edited_through_air']
     norm_transcript = all_transcripts['Norm_red']
     tdk_transcript = all_transcripts['TDK_D60_edited_through_air']
     
@@ -162,63 +227,74 @@ def find_story_overlaps(recordings: list[str]) -> dict:
     
     all_matches = []
     
-    # Pre-extract all TDK story texts (100 words = focus on story opening)
+    # Pre-extract all TDK segment texts (120 words, 90 seconds = focus on segment opening)
     tdk_texts = []
-    for i, tdk_story in enumerate(tdk_stories):
-        if i + 1 < len(tdk_stories):
-            tdk_end = tdk_stories[i + 1].get('startTime', tdk_duration)
-        else:
-            tdk_end = tdk_duration
-        tdk_texts.append(get_story_text(tdk_transcript, tdk_story['startTime'], tdk_end, max_words=100))
+    for i, tdk_seg in enumerate(tdk_segments):
+        tdk_end = get_segment_end_time(tdk_segments, i, tdk_duration)
+        tdk_texts.append(get_story_text(tdk_transcript, tdk_seg['startTime'], tdk_end, max_words=120, max_seconds=90))
     
-    print(f"\nComparing {len(norm_stories)} Norm_red stories against {len(tdk_stories)} TDK stories...")
+    print(f"\nComparing {len(norm_segments)} Norm_red segments against {len(tdk_segments)} TDK segments...")
     print("   One-by-one comparison for each pair.\n")
     
-    for norm_idx, norm_story in enumerate(norm_stories):
-        # Get the end time for this story
-        if norm_idx + 1 < len(norm_stories):
-            norm_end = norm_stories[norm_idx + 1].get('startTime', norm_duration)
-        else:
-            norm_end = norm_duration
+    for norm_idx, norm_seg in enumerate(norm_segments):
+        # Get the end time for this segment
+        norm_end = get_segment_end_time(norm_segments, norm_idx, norm_duration)
         
-        # Get actual transcript text (100 words = focus on story opening)
-        norm_text = get_story_text(norm_transcript, norm_story['startTime'], norm_end, max_words=100)
-        norm_time = norm_story.get('startTime', 0)
+        # Get actual transcript text (120 words, 90 seconds = focus on segment opening)
+        norm_text = get_story_text(norm_transcript, norm_seg['startTime'], norm_end, max_words=120, max_seconds=90)
+        norm_time = norm_seg.get('startTime', 0)
+        norm_type = norm_seg.get('type', 'story')
         
         mins = int(norm_time // 60)
         secs = int(norm_time % 60)
+        type_marker = "[C]" if norm_type == 'chapter' else ""
         
-        print(f"   [R{norm_idx+1}/{len(norm_stories)}] ({mins}:{secs:02d}) ", end="", flush=True)
+        print(f"   [N{norm_idx+1}/{len(norm_segments)}]{type_marker} ({mins}:{secs:02d}) ", end="", flush=True)
         
-        # Track best match for this Norm story
-        best_match = None
+        # Track best match for this Norm segment
         best_score = 0
+        tied_candidates = []  # Track all candidates at the best score
         
-        # Compare against each TDK story one-by-one
+        # Compare against each TDK segment one-by-one
         for tdk_idx, tdk_text in enumerate(tdk_texts):
             score = compare_two_stories(norm_text, tdk_text, verbose=False)
             print(f"T{tdk_idx}={score} ", end="", flush=True)
             
             if score > best_score:
                 best_score = score
-                best_match = tdk_idx
+                tied_candidates = [(tdk_idx, tdk_text)]
+            elif score == best_score and score >= MATCH_THRESHOLD:
+                tied_candidates.append((tdk_idx, tdk_text))
         
         print()  # newline after all T comparisons
         
+        # Handle ties with a second round
+        best_match = None
+        if best_score >= MATCH_THRESHOLD:
+            if len(tied_candidates) == 1:
+                best_match = tied_candidates[0][0]
+            elif len(tied_candidates) > 1:
+                # Tiebreaker round with more detailed comparison
+                print(f"   🔄 Tiebreaker: {len(tied_candidates)} candidates at score {best_score}...")
+                best_match = break_tie(norm_text, tied_candidates, tdk_segments)
+        
         # Store best match if found (threshold 8+ for stricter matching)
         if best_match is not None and best_score >= MATCH_THRESHOLD:
-            # Generate a topic from the matched stories
-            tdk_story = tdk_stories[best_match]
-            topic = generate_topic(norm_story['title'], tdk_story['title'])
+            # Generate a topic from the matched segments
+            tdk_seg = tdk_segments[best_match]
+            topic = generate_topic(norm_seg['title'], tdk_seg['title'])
             
             all_matches.append({
-                'norm_red_story': norm_idx,
-                'tdk_story': best_match,
+                'norm_red_idx': norm_idx,
+                'norm_red_type': norm_type,
+                'tdk_idx': best_match,
+                'tdk_type': tdk_seg.get('type', 'story'),
                 'topic': topic,
                 'confidence': 'HIGH' if best_score >= 9 else 'MEDIUM',
                 'score': best_score
             })
-            print(f"   BEST -> T{best_match} (score: {best_score}) - {topic}")
+            tdk_type_marker = "[C]" if tdk_seg.get('type') == 'chapter' else ""
+            print(f"   BEST -> T{best_match}{tdk_type_marker} (score: {best_score}) - {topic}")
         else:
             print(f"   no match (best: {best_score})")
     
@@ -226,10 +302,64 @@ def find_story_overlaps(recordings: list[str]) -> dict:
     
     return {
         'recordings': recordings,
-        'stories': all_stories,
+        'segments': all_segments,
         'transcripts': all_transcripts,
         'matches': all_matches
     }
+
+
+def break_tie(norm_text: str, candidates: list[tuple[int, str]], tdk_segments: list[dict]) -> int:
+    """Break a tie between multiple candidates with a more detailed comparison.
+    
+    Args:
+        norm_text: The source text we're matching
+        candidates: List of (tdk_idx, tdk_text) tuples that tied
+        tdk_segments: Full segment list for title info
+    
+    Returns:
+        The tdk_idx of the best match
+    """
+    # Build a comparison prompt with all candidates
+    candidate_parts = []
+    for i, (tdk_idx, tdk_text) in enumerate(candidates):
+        seg = tdk_segments[tdk_idx]
+        title = seg.get('title', 'Untitled')
+        candidate_parts.append(f"[{i}] \"{title}\": {tdk_text[:200]}...")
+    
+    candidates_text = "\n\n".join(candidate_parts)
+    
+    prompt = f"""These memoir excerpts all scored similarly when matching against a source text.
+Pick the ONE that is the BEST match - the same specific event, people, places, and timeframe.
+
+SOURCE TEXT:
+{norm_text}
+
+CANDIDATES:
+{candidates_text}
+
+Which candidate [0-{len(candidates)-1}] is the BEST match for the source? Consider:
+- Same specific people mentioned
+- Same specific location or place
+- Same time period or date
+- Same specific event or anecdote (not just similar topic)
+
+Answer with just the number."""
+
+    response = call_llm(prompt, stream_output=True)
+    print()  # newline after stream
+    
+    # Parse the response
+    match = re.search(r'\b(\d+)\b', response)
+    if match:
+        idx = int(match.group(1))
+        if 0 <= idx < len(candidates):
+            winner_idx = candidates[idx][0]
+            print(f"   → Winner: T{winner_idx} ({tdk_segments[winner_idx].get('title', 'Untitled')})")
+            return winner_idx
+    
+    # Fallback to first candidate if parsing fails
+    print(f"   → Fallback to first: T{candidates[0][0]}")
+    return candidates[0][0]
 
 
 def compare_two_stories(text_a: str, text_b: str, verbose: bool = False) -> int:
@@ -273,10 +403,14 @@ Write a brief topic label (3-6 words) that captures what both are about. Just th
 
 def create_alternate_tellings_json(
     recordings: list[str],
-    stories: dict,
+    segments: dict,
     matches: list[dict]
 ) -> dict:
-    """Create alternate_tellings.json with proper story-level time references."""
+    """Create alternate_tellings.json with proper segment-level time references.
+    
+    Segments include both chapters and stories. Each match includes the type
+    (chapter or story) and the appropriate ID.
+    """
     
     primary = 'Norm_red'
     secondary = 'TDK_D60_edited_through_air'
@@ -284,44 +418,54 @@ def create_alternate_tellings_json(
     alternate_tellings = []
     
     for m in matches:
-        norm_idx = m['norm_red_story']
-        tdk_idx = m['tdk_story']
+        norm_idx = m['norm_red_idx']
+        tdk_idx = m['tdk_idx']
         
         # Validate indices
-        if norm_idx >= len(stories[primary]):
-            print(f"  WARNING: Invalid Norm_red story index {norm_idx}, skipping")
+        if norm_idx >= len(segments[primary]):
+            print(f"  WARNING: Invalid Norm_red segment index {norm_idx}, skipping")
             continue
-        if tdk_idx >= len(stories[secondary]):
-            print(f"  WARNING: Invalid TDK story index {tdk_idx}, skipping")
+        if tdk_idx >= len(segments[secondary]):
+            print(f"  WARNING: Invalid TDK segment index {tdk_idx}, skipping")
             continue
         
-        norm_story = stories[primary][norm_idx]
-        tdk_story = stories[secondary][tdk_idx]
+        norm_seg = segments[primary][norm_idx]
+        tdk_seg = segments[secondary][tdk_idx]
         
         alternate_tellings.append({
             'topic': m['topic'],
             'confidence': m['confidence'],
             'Norm_red': {
-                'storyId': norm_story.get('id', f'story-{norm_idx}'),
-                'startTime': norm_story.get('startTime'),
-                'title': norm_story.get('title')
+                'id': norm_seg.get('id'),
+                'type': norm_seg.get('type', 'story'),
+                'startTime': norm_seg.get('startTime'),
+                'title': norm_seg.get('title')
             },
             'TDK_D60_edited_through_air': {
-                'storyId': tdk_story.get('id', f'story-{tdk_idx}'),
-                'startTime': tdk_story.get('startTime'),
-                'title': tdk_story.get('title')
+                'id': tdk_seg.get('id'),
+                'type': tdk_seg.get('type', 'story'),
+                'startTime': tdk_seg.get('startTime'),
+                'title': tdk_seg.get('title')
             }
         })
+    
+    # Count chapters and stories in each recording
+    norm_chapters = sum(1 for s in segments[primary] if s.get('type') == 'chapter')
+    norm_stories = sum(1 for s in segments[primary] if s.get('type') == 'story')
+    tdk_chapters = sum(1 for s in segments[secondary] if s.get('type') == 'chapter')
+    tdk_stories = sum(1 for s in segments[secondary] if s.get('type') == 'story')
     
     return {
         'primaryRecording': primary,
         'secondaryRecording': secondary,
-        'description': 'Cross-references between overlapping stories in both memoir recordings (story-level precision)',
+        'description': 'Cross-references between overlapping segments (chapters and stories) in both memoir recordings',
         'alternateTellings': alternate_tellings,
         'stats': {
             'totalMatches': len(alternate_tellings),
-            'primaryStoryCount': len(stories[primary]),
-            'secondaryStoryCount': len(stories[secondary])
+            'primaryChapterCount': norm_chapters,
+            'primaryStoryCount': norm_stories,
+            'secondaryChapterCount': tdk_chapters,
+            'secondaryStoryCount': tdk_stories
         }
     }
 
@@ -330,7 +474,7 @@ def main():
     import argparse
     
     parser = argparse.ArgumentParser(
-        description='Find overlapping stories between memoir recordings using transcript analysis'
+        description='Find overlapping segments (chapters + stories) between memoir recordings using transcript analysis'
     )
     parser.add_argument(
         '--dry-run',
@@ -340,12 +484,12 @@ def main():
     args = parser.parse_args()
     
     print("=" * 60)
-    print("MEMOIR STORY OVERLAP ANALYSIS (STORY-LEVEL PRECISION)")
+    print("MEMOIR SEGMENT OVERLAP ANALYSIS (CHAPTERS + STORIES)")
     print("=" * 60)
     print("\nNarrator: Linden 'Lindy' Achen (male)")
     print("Recordings: Norm_red (later), TDK_D60_edited_through_air (earlier)")
-    print("\nThis will analyze the actual spoken text within each STORY")
-    print("to find matching anecdotes between recordings.")
+    print("\nThis will analyze the actual spoken text within each segment")
+    print("(chapters and stories) to find matching anecdotes between recordings.")
     
     recordings = ['Norm_red', 'TDK_D60_edited_through_air']
     
@@ -359,23 +503,28 @@ def main():
     # Get matches from result (already parsed during iteration)
     matches = result.get('matches', [])
     
-    print(f"\n\nTotal: {len(matches)} story matches found")
+    print(f"\n\nTotal: {len(matches)} segment matches found")
     
     if matches:
-        print("\nMatched Stories:")
+        print("\nMatched Segments:")
         for m in matches:
+            norm_idx = m['norm_red_idx']
+            tdk_idx = m['tdk_idx']
+            
             # Validate indices before accessing
-            if m['norm_red_story'] >= len(result['stories']['Norm_red']):
-                print(f"  WARNING: Invalid Norm_red index {m['norm_red_story']}, skipping")
+            if norm_idx >= len(result['segments']['Norm_red']):
+                print(f"  WARNING: Invalid Norm_red index {norm_idx}, skipping")
                 continue
-            if m['tdk_story'] >= len(result['stories']['TDK_D60_edited_through_air']):
-                print(f"  WARNING: Invalid TDK index {m['tdk_story']}, skipping")
+            if tdk_idx >= len(result['segments']['TDK_D60_edited_through_air']):
+                print(f"  WARNING: Invalid TDK index {tdk_idx}, skipping")
                 continue
                 
-            norm_st = result['stories']['Norm_red'][m['norm_red_story']]
-            tdk_st = result['stories']['TDK_D60_edited_through_air'][m['tdk_story']]
-            print(f"  R{m['norm_red_story']}: {norm_st['title']} ({norm_st['startTime']:.0f}s)")
-            print(f"  T{m['tdk_story']}: {tdk_st['title']} ({tdk_st['startTime']:.0f}s)")
+            norm_seg = result['segments']['Norm_red'][norm_idx]
+            tdk_seg = result['segments']['TDK_D60_edited_through_air'][tdk_idx]
+            norm_type = "[C]" if norm_seg.get('type') == 'chapter' else ""
+            tdk_type = "[C]" if tdk_seg.get('type') == 'chapter' else ""
+            print(f"  N{norm_idx}{norm_type}: {norm_seg['title']} ({norm_seg['startTime']:.0f}s)")
+            print(f"  T{tdk_idx}{tdk_type}: {tdk_seg['title']} ({tdk_seg['startTime']:.0f}s)")
             print(f"    Score: {m.get('score', '?')}, Confidence: {m['confidence']}")
             print()
     
@@ -383,7 +532,7 @@ def main():
         # Create alternate_tellings.json
         output = create_alternate_tellings_json(
             recordings,
-            result['stories'],
+            result['segments'],
             matches
         )
         

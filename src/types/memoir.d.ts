@@ -59,11 +59,14 @@ interface WaveformData {
   data: number[];
 }
 
-interface AlternateChapterRef {
+interface AlternateSegmentRef {
+  id: string; // "chapter-0" or "story-5"
+  type: "chapter" | "story";
   startTime: number;
   title: string;
 }
 
+// Legacy format (kept for backwards compatibility)
 interface AlternateStoryRef {
   storyId: string;
   startTime: number;
@@ -73,7 +76,7 @@ interface AlternateStoryRef {
 interface AlternateTelling {
   topic: string;
   confidence: "HIGH" | "MEDIUM" | "LOW";
-  [recordingKey: string]: string | AlternateChapterRef | AlternateStoryRef;
+  [recordingKey: string]: string | AlternateSegmentRef | AlternateStoryRef;
 }
 
 interface AlternateTellingsData {
