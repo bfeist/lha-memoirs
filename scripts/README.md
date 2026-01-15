@@ -96,6 +96,17 @@ Each script accepts an optional recording path argument:
    uv run 01_transcribe.py [recording_path]
    ```
 
+   Uses WhisperX for transcription with word-level alignment via wav2vec2.
+
+   **Resume from a specific time** (preserves manual edits before that point):
+
+   ```bash
+   uv run 01_transcribe.py memoirs/Norm_red --startsecs 1200
+   ```
+
+   This is useful when you've manually corrected segments up to a certain point
+   and want to re-transcribe only the remaining portion with better alignment.
+
 2. **Correct transcript** (applies domain-specific corrections)
 
    ```bash

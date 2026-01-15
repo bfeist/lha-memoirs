@@ -1,36 +1,41 @@
 """
-Transcribe audio using faster-whisper (CTranslate2) with word-level alignment.
-Run with: uv run 01_transcribe.py [recording_path]
+Transcribe audio using WhisperX with word-level alignment.
+Run with: uv run 01_transcribe.py [recording_path] [--startsecs N]
 
 Processes all recording folders in source_audio/ (including nested folders),
-or a specific one if path is provided (e.g., "memoirs/HF_60").
+or a specific one if path is provided (e.g., "memoirs/Norm_red").
 Each recording folder can contain multiple WAV files which will be processed
 in sorted order to create a continuous transcript.
 
-Skips recordings that already have a transcript.json file.
+The --startsecs option allows resuming transcription from a specific time,
+preserving all manually corrected segments before that point.
 
-Requires: pip install faster-whisper torch
-Or with uv: uv pip install faster-whisper torch
+Skips recordings that already have a transcript.json file (unless --startsecs is used).
+
+Requires: uv pip install whisperx
 """
 
+import argparse
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
 
 # Add progress indication
 print("=" * 60)
-print("FASTER-WHISPER TRANSCRIPTION SCRIPT")
+print("WHISPERX TRANSCRIPTION SCRIPT")
 print("=" * 60)
 
 # Check for required packages
 try:
-    from faster_whisper import WhisperModel
+    import whisperx
     import torch
 except ImportError as e:
     print(f"\nMissing required package: {e}")
     print("\nInstall with:")
-    print("  uv pip install faster-whisper torch")
+    print("  uv pip install whisperx")
+    print("  uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121")
     sys.exit(1)
 
 # Paths
@@ -65,7 +70,6 @@ def find_all_recordings(base_dir: Path) -> list[Path]:
         audio_files = get_audio_files_in_folder(folder)
         if audio_files:
             recordings.append(folder)
-        # Also check subdirectories
         for item in sorted(folder.iterdir()):
             if item.is_dir():
                 scan_folder(item)
@@ -77,21 +81,17 @@ def find_all_recordings(base_dir: Path) -> list[Path]:
 def get_recording_folders(specific_recording: str | None = None) -> list[Path]:
     """Get recording folders from source_audio, or a specific one by relative path."""
     if specific_recording:
-        # Support nested paths like "memoirs/HF_60"
         folder = SOURCE_AUDIO_DIR / specific_recording
         if folder.exists() and folder.is_dir():
-            # Check if it has audio files directly, or scan for nested recordings
             audio_files = get_audio_files_in_folder(folder)
             if audio_files:
                 return [folder]
             else:
-                # Maybe it's a parent folder with nested recordings
                 return find_all_recordings(folder)
         else:
             print(f"❌ Recording folder not found: {folder}")
             return []
     
-    # Find all recordings recursively
     return find_all_recordings(SOURCE_AUDIO_DIR)
 
 
@@ -100,80 +100,87 @@ def get_relative_recording_path(recording_folder: Path) -> str:
     return str(recording_folder.relative_to(SOURCE_AUDIO_DIR)).replace("\\", "/")
 
 
-def transcribe_with_word_alignment(audio_path: Path, model):
-    """Transcribe audio with segment-level timestamps using faster-whisper."""
-    print(f"\n📝 Transcribing: {audio_path.name}")
-    print("   This may take a while for large files...")
-    
-    # Transcribe without word timestamps (faster, we only use segments)
-    segments, info = model.transcribe(
-        str(audio_path),
-        language="en",
-        word_timestamps=False,
-        beam_size=5,
-        vad_filter=True,  # Voice activity detection for better accuracy
-    )
-    
-    print(f"   Detected language: {info.language} (probability: {info.language_probability:.2f})")
-    print(f"   Audio duration: {info.duration:.1f}s")
-    
-    # Convert generator to list with progress
-    segment_list = []
-    for segment in segments:
-        segment_list.append(segment)
-        # Print progress every 10 segments
-        if len(segment_list) % 10 == 0:
-            progress = segment.end / info.duration * 100
-            print(f"   Progress: {progress:.1f}%", end="\r")
-    
-    print(f"   Progress: 100.0%")
-    
-    return segment_list, info
+def get_audio_duration(audio_path: Path) -> float:
+    """Get duration of an audio file in seconds using whisperx's audio loading."""
+    audio = whisperx.load_audio(str(audio_path))
+    return len(audio) / 16000  # whisperx uses 16kHz sample rate
 
 
-def format_transcript_data(all_file_results: list[dict]) -> dict:
-    """Format faster-whisper results from multiple files into structured data for the app.
+def transcribe_and_align(audio_path: Path, model, model_a, metadata, device: str, 
+                         start_offset: float = 0.0, time_offset: float = 0.0) -> tuple[list[dict], float]:
+    """
+    Transcribe audio with WhisperX and align to get accurate word-level timestamps.
     
     Args:
-        all_file_results: List of dicts with keys: file_name, segments, info, time_offset
+        audio_path: Path to audio file
+        model: WhisperX ASR model
+        model_a: WhisperX alignment model
+        metadata: Alignment model metadata
+        device: cuda or cpu
+        start_offset: Seconds into this file to start transcription
+        time_offset: Offset to add to all timestamps (for multi-file recordings)
     
     Returns:
-        Combined transcript data with file boundaries tracked.
-        Segments use fileIndex to reference the files array (avoids repetitive sourceFile strings).
+        Tuple of (list of segment dicts, duration of processed audio)
     """
-    formatted_segments = []
-    files_info = []
+    print(f"\n📝 Transcribing: {audio_path.name}")
+    if start_offset > 0:
+        print(f"   Starting from {start_offset:.1f}s into file")
     
-    for file_idx, file_result in enumerate(all_file_results):
-        file_name = file_result["file_name"]
-        segments = file_result["segments"]
-        info = file_result["info"]
-        time_offset = file_result["time_offset"]
+    # Load full audio
+    audio = whisperx.load_audio(str(audio_path))
+    sample_rate = 16000
+    
+    # Trim to start_offset if needed
+    if start_offset > 0:
+        start_sample = int(start_offset * sample_rate)
+        audio = audio[start_sample:]
+    
+    duration = len(audio) / sample_rate
+    print(f"   Audio duration: {duration:.1f}s")
+    
+    # Transcribe with batched inference
+    print("   Transcribing...")
+    result = model.transcribe(audio, batch_size=16)
+    print(f"   Found {len(result['segments'])} segments")
+    
+    # Align for accurate timestamps
+    print("   Aligning timestamps...")
+    result = whisperx.align(
+        result["segments"], 
+        model_a, 
+        metadata, 
+        audio, 
+        device, 
+        return_char_alignments=False
+    )
+    print(f"   Aligned {len(result['segments'])} segments")
+    
+    # Format segments with proper offsets
+    segments = []
+    for seg in result["segments"]:
+        # Add start_offset (position within file) and time_offset (cumulative from previous files)
+        # Round to 2 decimal places for cleaner output
+        seg_start = round(seg["start"] + start_offset + time_offset, 2)
+        seg_end = round(seg["end"] + start_offset + time_offset, 2)
         
-        # Track file timing boundaries (for multi-file recordings)
-        files_info.append({
-            "startTime": time_offset,
-            "endTime": time_offset + info.duration,
-            "duration": info.duration,
+        segments.append({
+            "start": seg_start,
+            "end": seg_end,
+            "text": seg["text"].strip(),
         })
-        
-        for segment in segments:
-            seg_data = {
-                "start": segment.start + time_offset,
-                "end": segment.end + time_offset,
-                "text": segment.text.strip(),
-            }
-            # Only include fileIndex if there are multiple files
-            if len(all_file_results) > 1:
-                seg_data["fileIndex"] = file_idx
-            formatted_segments.append(seg_data)
     
+    return segments, duration
+
+
+def format_transcript_data(all_segments: list[dict], files_info: list[dict], language: str = "en") -> dict:
+    """Format all segments into the final transcript structure."""
     total_duration = sum(f["duration"] for f in files_info)
     
     result = {
-        "segments": formatted_segments,
+        "segments": all_segments,
         "totalDuration": total_duration,
-        "language": all_file_results[0]["info"].language if all_file_results else "en",
+        "language": language,
     }
     
     # Only include files array if there are multiple files
@@ -183,14 +190,63 @@ def format_transcript_data(all_file_results: list[dict]) -> dict:
     return result
 
 
-def process_recording(recording_folder: Path, model) -> bool:
+def load_existing_transcript(transcript_path: Path) -> dict | None:
+    """Load existing transcript if it exists."""
+    if transcript_path.exists():
+        with open(transcript_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return None
+
+
+def merge_transcripts(existing: dict, new_segments: list[dict], start_secs: float) -> dict:
+    """
+    Merge existing transcript with new segments, preserving everything before start_secs.
+    
+    Args:
+        existing: Existing transcript data
+        new_segments: New segments from transcription
+        start_secs: Time in seconds where new transcription starts
+    
+    Returns:
+        Merged transcript data
+    """
+    # Keep all segments that end before start_secs
+    preserved_segments = [
+        seg for seg in existing["segments"] 
+        if seg["end"] <= start_secs
+    ]
+    
+    print(f"   Preserved {len(preserved_segments)} segments before {start_secs}s")
+    print(f"   Adding {len(new_segments)} new segments")
+    
+    # Combine preserved + new
+    merged_segments = preserved_segments + new_segments
+    
+    # Sort by start time just in case
+    merged_segments.sort(key=lambda s: s["start"])
+    
+    # Create merged result, preserving metadata from existing
+    result = {
+        "segments": merged_segments,
+        "totalDuration": existing.get("totalDuration", 0),
+        "language": existing.get("language", "en"),
+    }
+    
+    if "files" in existing:
+        result["files"] = existing["files"]
+    
+    return result
+
+
+def process_recording(recording_folder: Path, model, model_a, metadata, device: str, 
+                      start_secs: float | None = None) -> bool:
     """Process all audio files in a recording folder."""
     relative_path = get_relative_recording_path(recording_folder)
     output_dir = OUTPUT_BASE_DIR / relative_path
     transcript_path = output_dir / "transcript.json"
     
-    # Skip if already processed
-    if transcript_path.exists():
+    # Check if we should skip
+    if transcript_path.exists() and start_secs is None:
         print(f"\n⏭️  Skipping {relative_path} (transcript.json exists)")
         return True
     
@@ -199,6 +255,8 @@ def process_recording(recording_folder: Path, model) -> bool:
     print(f"\n{'='*60}")
     print(f"📂 Processing recording: {relative_path}")
     print(f"   Output: {output_dir}")
+    if start_secs is not None:
+        print(f"   Starting from: {start_secs}s (preserving earlier segments)")
     print(f"{'='*60}")
     
     audio_files = get_audio_files_in_folder(recording_folder)
@@ -210,49 +268,98 @@ def process_recording(recording_folder: Path, model) -> bool:
     for f in audio_files:
         print(f"      - {f.name}")
     
-    # Process each audio file, tracking cumulative time offset
-    all_file_results = []
-    time_offset = 0.0
+    # Calculate file durations and determine which to process
+    files_info = []
+    cumulative_time = 0.0
     
     for audio_file in audio_files:
-        segments, info = transcribe_with_word_alignment(audio_file, model)
-        
-        all_file_results.append({
-            "file_name": audio_file.name,
-            "segments": segments,
-            "info": info,
-            "time_offset": time_offset,
+        duration = get_audio_duration(audio_file)
+        files_info.append({
+            "startTime": cumulative_time,
+            "endTime": cumulative_time + duration,
+            "duration": duration,
         })
-        
-        time_offset += info.duration
+        cumulative_time += duration
     
-    # Format combined transcript data
-    transcript_data = format_transcript_data(all_file_results)
+    print(f"   Total duration: {cumulative_time:.1f}s")
+    
+    # Determine starting point
+    effective_start = start_secs if start_secs is not None else 0.0
+    
+    # Process each audio file
+    all_new_segments = []
+    
+    for file_idx, audio_file in enumerate(audio_files):
+        file_info = files_info[file_idx]
+        file_start = file_info["startTime"]
+        file_end = file_info["endTime"]
+        
+        # Skip files that end before our start point
+        if file_end <= effective_start:
+            print(f"\n⏭️  Skipping {audio_file.name} (ends at {file_end:.1f}s, before start)")
+            continue
+        
+        # Calculate offset within this file
+        offset_in_file = max(0, effective_start - file_start)
+        
+        segments, _ = transcribe_and_align(
+            audio_file, model, model_a, metadata, device,
+            start_offset=offset_in_file,
+            time_offset=file_start
+        )
+        
+        # Add fileIndex if multiple files
+        if len(audio_files) > 1:
+            for seg in segments:
+                seg["fileIndex"] = file_idx
+        
+        all_new_segments.extend(segments)
+    
+    # Merge with existing or create new
+    existing = load_existing_transcript(transcript_path)
+    
+    if existing and start_secs is not None:
+        transcript_data = merge_transcripts(existing, all_new_segments, start_secs)
+    else:
+        transcript_data = format_transcript_data(all_new_segments, files_info)
+    
+    # Backup existing transcript
+    if transcript_path.exists():
+        backup_path = transcript_path.with_suffix(".json.bak")
+        shutil.copy(transcript_path, backup_path)
+        print(f"\n   📦 Backed up existing transcript to {backup_path.name}")
     
     # Save transcript JSON
     with open(transcript_path, "w", encoding="utf-8") as f:
         json.dump(transcript_data, f, indent=2, ensure_ascii=False)
     print(f"\n   ✅ Saved transcript: {transcript_path}")
-    file_count = len(transcript_data.get('files', [audio_files[0]]))
-    print(f"      Total duration: {transcript_data['totalDuration']:.1f}s across {file_count} file(s)")
-    
-    # Clean up old unused files if they exist
-    old_files = ["words.json", "segments.json", "transcript.txt", "audio.wav"]
-    for old_file in old_files:
-        old_path = output_dir / old_file
-        if old_path.exists():
-            old_path.unlink()
-            print(f"   🧹 Removed unused file: {old_file}")
+    print(f"      Total segments: {len(transcript_data['segments'])}")
     
     return True
 
 
 def main():
-    # Parse command line args for specific recording
-    specific_recording = None
-    if len(sys.argv) > 1:
-        specific_recording = sys.argv[1]
-        print(f"\n🎯 Processing specific recording: {specific_recording}")
+    parser = argparse.ArgumentParser(
+        description="Transcribe audio using WhisperX with word-level alignment"
+    )
+    parser.add_argument(
+        "recording", 
+        nargs="?", 
+        help="Specific recording path (e.g., memoirs/Norm_red)"
+    )
+    parser.add_argument(
+        "--startsecs", 
+        type=float, 
+        default=None,
+        help="Start transcription from this time (seconds), preserving earlier segments"
+    )
+    
+    args = parser.parse_args()
+    
+    if args.recording:
+        print(f"\n>>> Processing specific recording: {args.recording}")
+    if args.startsecs is not None:
+        print(f">>> Starting from {args.startsecs}s")
     
     # Check CUDA availability
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -261,12 +368,12 @@ def main():
     print(f"\n🖥️  Using device: {device}")
     if device == "cuda":
         print(f"   GPU: {torch.cuda.get_device_name(0)}")
-        print(f"   Compute type: {compute_type} (optimized for speed)")
+        print(f"   Compute type: {compute_type}")
     else:
         print("   ⚠️  CUDA not available, using CPU (will be slower)")
     
     # Get recording folders to process
-    recording_folders = get_recording_folders(specific_recording)
+    recording_folders = get_recording_folders(args.recording)
     if not recording_folders:
         print(f"\n❌ No recording folders found in {SOURCE_AUDIO_DIR}")
         sys.exit(1)
@@ -277,22 +384,27 @@ def main():
         audio_count = len(get_audio_files_in_folder(folder))
         print(f"   - {rel_path} ({audio_count} audio file(s))")
     
-    # Load faster-whisper model
-    print("\n🔄 Loading faster-whisper large-v3 model...")
+    # Load WhisperX model
+    print("\n🔄 Loading WhisperX large-v3 model...")
     print("   (First run will download the model)")
     
-    model = WhisperModel(
+    model = whisperx.load_model(
         "large-v3",
-        device=device,
+        device,
         compute_type=compute_type,
-        num_workers=4,  # Parallel processing
+        language="en"
     )
-    print("   ✅ Model loaded!")
+    print("   ✅ ASR model loaded!")
+    
+    # Load alignment model
+    print("\n🔄 Loading alignment model...")
+    model_a, metadata = whisperx.load_align_model(language_code="en", device=device)
+    print("   ✅ Alignment model loaded!")
     
     # Process each recording folder
     success_count = 0
     for recording_folder in recording_folders:
-        if process_recording(recording_folder, model):
+        if process_recording(recording_folder, model, model_a, metadata, device, args.startsecs):
             success_count += 1
     
     print("\n" + "=" * 60)

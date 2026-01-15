@@ -10,8 +10,8 @@
 # If installed via requirements.txt, this will be CPU-only:
 torch>=2.0.0
 
-# Faster-Whisper for transcription (CTranslate2-based, faster than openai-whisper)
-faster-whisper>=1.0.0
+# WhisperX for transcription with word-level alignment (includes faster-whisper)
+whisperx>=3.7.0
 
 # Ollama for LLM-based content analysis
 ollama>=0.3.0
