@@ -308,11 +308,6 @@ def process_recording(recording_folder: Path, model, model_a, metadata, device: 
             time_offset=file_start
         )
         
-        # Add fileIndex if multiple files
-        if len(audio_files) > 1:
-            for seg in segments:
-                seg["fileIndex"] = file_idx
-        
         all_new_segments.extend(segments)
     
     # Merge with existing or create new
