@@ -558,7 +558,7 @@
     {
       "start": 441.54,
       "end": 445.18,
-      "text": "the line, he said, there's got to be and end to handouts."
+      "text": "the line, he said, \"There's got to be and end to handouts.\""
     },
     {
       "start": 447.28,
@@ -598,7 +598,7 @@
     {
       "start": 476.2,
       "end": 478.22,
-      "text": "He said their own a bunch of crooks."
+      "text": "He said \"Their all a bunch of crooks.\""
     },
     {
       "start": 480.06,
@@ -883,7 +883,7 @@
     {
       "start": 678.99,
       "end": 680.01,
-      "text": "I'll never get out of here."
+      "text": "\"I'll never get out of here.\""
     },
     {
       "start": 680.21,
@@ -1003,12 +1003,12 @@
     {
       "start": 752.42,
       "end": 756.52,
-      "text": "He said, we didn't expect you guys to come that far to"
+      "text": "He said, \"We didn't expect you guys to come that far to"
     },
     {
       "start": 757.2,
       "end": 759.72,
-      "text": "just spend an afternoon at a wedding."
+      "text": "just spend an afternoon at a wedding.\""
     },
     {
       "start": 761.08,
@@ -1018,7 +1018,7 @@
     {
       "start": 763.3,
       "end": 766.66,
-      "text": "He said, I don't expect you people to come up."
+      "text": "He said, \"I don't expect you people to come up.\""
     },
     {
       "start": 766.68,
@@ -1578,7 +1578,7 @@
     {
       "start": 1130.6,
       "end": 1131.48,
-      "text": "the dickens. She said,"
+      "text": "the dickens. She said, \""
     },
     {
       "start": 1131.66,
@@ -2013,12 +2013,12 @@
     {
       "start": 1335.54,
       "end": 1337.12,
-      "text": "He said, I can't wait till I'm 60."
+      "text": "He said, \"I can't wait till I'm 60."
     },
     {
       "start": 1337.28,
       "end": 1338.16,
-      "text": "I want to get out."
+      "text": "I want to get out.\""
     },
     {
       "start": 1338.3,
@@ -2718,7 +2718,7 @@
     {
       "start": 1739.62,
       "end": 1740.46,
-      "text": "I said, you're Kenny."
+      "text": "I said, \"You're Kenny.\""
     },
     {
       "start": 1740.68,
@@ -2728,7 +2728,7 @@
     {
       "start": 1741.6,
       "end": 1744.42,
-      "text": "And he said, I didn't think you recognized me."
+      "text": "And he said, \"I didn't think you recognized me.\""
     },
     {
       "start": 1745.08,
@@ -3003,7 +3003,7 @@
     {
       "start": 2025.92,
       "end": 2027.02,
-      "text": "And I said, yeah, then I'd have to"
+      "text": "And I said, \"Yeah, then I'd have to"
     },
     {
       "start": 2027.02,
@@ -3013,12 +3013,12 @@
     {
       "start": 2028.78,
       "end": 2031.32,
-      "text": "Or else get them readjusted around the race band."
+      "text": "Or else get them readjusted around the race band.\""
     },
     {
       "start": 2032.44,
       "end": 2034.0,
-      "text": "So I said, I'm heavy enough."
+      "text": "So I said, \"I'm heavy enough.\""
     },
     {
       "start": 2035.48,
@@ -3038,7 +3038,7 @@
     {
       "start": 2043.62,
       "end": 2049.66,
-      "text": "He said, boy, you could put on - take some of Phyllis's excess weight around you"
+      "text": "He said, \"Boy, you could put on - take some of Phyllis's excess weight around you;"
     },
     {
       "start": 2049.76,
@@ -3048,7 +3048,7 @@
     {
       "start": 2050.74,
       "end": 2051.54,
-      "text": "and she could look better."
+      "text": "and she could look better.\""
     },
     {
       "start": 2051.88,
@@ -3363,7 +3363,7 @@
     {
       "start": 2285.76,
       "end": 2286.9,
-      "text": "I said, I don't know."
+      "text": "I said, \"I don't know.\""
     },
     {
       "start": 2287.64,
@@ -3617,5 +3617,9 @@
     }
   ],
   "language": "en",
-  "duration": 2472.2133125
+  "duration": 2472.2133125,
+  "_dialog_corrections": {
+    "applied_at": "2026-01-17T17:15:57.095408",
+    "modified_segments": 19
+  }
 }

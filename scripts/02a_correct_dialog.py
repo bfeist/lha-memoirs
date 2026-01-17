@@ -38,7 +38,7 @@ RECORDINGS_DIR = BASE_DIR / "public" / "recordings"
 MEMOIRS_DIR = RECORDINGS_DIR / "memoirs"
 
 # Recordings to skip (already manually corrected)
-SKIP_RECORDINGS = {"christmas1986"}
+SKIP_RECORDINGS = {}
 
 # Model preferences (same as 04_analyze_chapters.py)
 PREFERRED_MODEL = "gemma3:12b"

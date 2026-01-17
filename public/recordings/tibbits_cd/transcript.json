@@ -478,7 +478,7 @@
     {
       "start": 566.72,
       "end": 576.09,
-      "text": "If you went to a dance, I said earlier, a country dance would cost you maybe 35 cents admission."
+      "text": "If you went to a dance, I said earlier, \"A country dance would cost you maybe 35 cents admission.\""
     },
     {
       "start": 576.11,
@@ -2198,7 +2198,7 @@
     {
       "start": 2026.49,
       "end": 2032.96,
-      "text": "After school, I said, what's the hard idea about?"
+      "text": "After school, I said, \"What's the hard idea about?\""
     },
     {
       "start": 2033.04,
@@ -2327,5 +2327,9 @@
     "applied_at": "2026-01-14T22:19:13.023396",
     "modified_segments": 6,
     "total_corrections": 6
+  },
+  "_dialog_corrections": {
+    "applied_at": "2026-01-17T16:52:50.900342",
+    "modified_segments": 2
   }
 }

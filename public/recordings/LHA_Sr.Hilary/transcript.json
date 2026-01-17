@@ -348,7 +348,7 @@
     {
       "start": 761.16,
       "end": 765.17,
-      "text": "I said, I'm going to this world on my own."
+      "text": "I said, \"I'm going to this world on my own.\""
     },
     {
       "start": 766.15,
@@ -497,5 +497,9 @@
     "applied_at": "2026-01-14T22:19:29.203592",
     "modified_segments": 7,
     "total_corrections": 9
+  },
+  "_dialog_corrections": {
+    "applied_at": "2026-01-17T16:51:02.939164",
+    "modified_segments": 1
   }
 }
