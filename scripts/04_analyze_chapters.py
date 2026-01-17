@@ -18,7 +18,6 @@ Make sure Ollama is running locally with one of these models:
 import json
 import re
 import sys
-import time
 from pathlib import Path
 
 
@@ -660,7 +659,7 @@ def group_into_chapters_and_stories(transitions: list, total_duration: float) ->
         time_since_chapter = trans["startTime"] - current_chapter_start
         
         # Determine next transition time for duration calc
-        if I + 1 < len(transitions):
+        if i + 1 < len(transitions):
             next_time = transitions[i + 1]["startTime"]
         else:
             next_time = total_duration
@@ -750,7 +749,7 @@ def is_major_transition(title: str, description: str) -> bool:
 
 def find_chapter_index(time: float, chapters: list) -> int:
     """Find which chapter a given timestamp belongs to."""
-    for I in range(len(chapters) - 1, -1, -1):
+    for i in range(len(chapters) - 1, -1, -1):
         if time >= chapters[i]["startTime"]:
             return i
     return 0
@@ -886,7 +885,7 @@ def merge_similar_chapters(chapters: list) -> list:
     # by checking duration to next chapter
     final_merged = []
     for i, chapter in enumerate(merged):
-        if I == 0:
+        if i == 0:
             final_merged.append(chapter)
             continue
         
