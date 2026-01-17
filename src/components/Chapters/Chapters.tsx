@@ -181,10 +181,14 @@ export function Chapters({
 
       <nav ref={containerRef} className={styles.tocList} aria-label="Table of Contents">
         {chapters.map((chapter, index) => {
-          const isActive = index === currentChapterIndex;
-          const isPast = chapter.startTime < currentTime && !isActive;
           const chapterStories = storiesByChapter.get(index) || [];
           const hasStories = chapterStories.length > 0;
+          // If this chapter has stories and one of them is active, don't highlight the chapter
+          const isCurrentStoryInThisChapter =
+            hasStories && currentStoryId && chapterStories.some((s) => s.id === currentStoryId);
+          const isActive = index === currentChapterIndex && !isCurrentStoryInThisChapter;
+          const isPast =
+            chapter.startTime < currentTime && !isActive && !isCurrentStoryInThisChapter;
 
           // Check if this chapter itself has an alternate telling
           const chapterId = `chapter-${index}`;
@@ -249,7 +253,9 @@ export function Chapters({
               {hasStories && (
                 <div className={styles.storiesList}>
                   {chapterStories.map((story) => {
-                    const isStoryActive = story.id === currentStoryId;
+                    // A story is only active if it matches currentStoryId AND we're still in this chapter
+                    const isStoryActive =
+                      story.id === currentStoryId && index === currentChapterIndex;
                     const isStoryPast = story.startTime < currentTime && !isStoryActive;
                     const storyAlternate = findAlternateTellingForSegment(
                       alternateTellings,

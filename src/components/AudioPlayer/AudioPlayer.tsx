@@ -17,7 +17,7 @@ interface AudioPlayerProps {
   regions?: PeaksRegion[];
   currentChapterId?: string | null;
   onTimeUpdate?: (currentTime: number) => void;
-  onRegionClick?: (regionId: string) => void;
+  onDurationChange?: (duration: number) => void;
   onReady?: (peaksInstance: PeaksInstance) => void;
   onReload?: () => void;
 }
@@ -41,7 +41,7 @@ function throttle<T extends (...args: Parameters<T>) => void>(
 
 // Segment color constants
 const SEGMENT_COLOR_DEFAULT = "rgba(100, 149, 237, 0.3)";
-const SEGMENT_COLOR_ACTIVE = "rgba(212, 175, 55, 0.5)";
+const SEGMENT_COLOR_ACTIVE = "rgba(222, 185, 65, 0.85)";
 
 export function AudioPlayer({
   audioUrl,
@@ -50,7 +50,7 @@ export function AudioPlayer({
   regions = [],
   currentChapterId,
   onTimeUpdate,
-  onRegionClick,
+  onDurationChange,
   onReady,
   onReload,
 }: AudioPlayerProps): React.ReactElement {
@@ -61,7 +61,7 @@ export function AudioPlayer({
 
   // Store callbacks in refs to avoid dependency issues
   const onTimeUpdateRef = useRef(onTimeUpdate);
-  const onRegionClickRef = useRef(onRegionClick);
+  const onDurationChangeRef = useRef(onDurationChange);
   const onReadyRef = useRef(onReady);
   const regionsRef = useRef(regions);
   const previousChapterIdRef = useRef<string | null | undefined>(null);
@@ -69,7 +69,7 @@ export function AudioPlayer({
   // Keep refs updated
   useEffect(() => {
     onTimeUpdateRef.current = onTimeUpdate;
-    onRegionClickRef.current = onRegionClick;
+    onDurationChangeRef.current = onDurationChange;
     onReadyRef.current = onReady;
     regionsRef.current = regions;
   });
@@ -114,7 +114,7 @@ export function AudioPlayer({
       zoomview: {
         container: zoomviewContainerRef.current,
         waveformColor: "rgba(200, 170, 120, 0.7)",
-        playedWaveformColor: "rgba(222, 185, 65, 0.95)",
+        playedWaveformColor: "rgba(200, 170, 120, 0.7)",
         playheadColor: "#e4bf47",
         playheadTextColor: "#ffffff",
         axisLabelColor: "#bbbbbb",
@@ -123,7 +123,7 @@ export function AudioPlayer({
       overview: {
         container: overviewContainerRef.current,
         waveformColor: "rgba(200, 170, 120, 0.5)",
-        playedWaveformColor: "rgba(222, 185, 65, 0.8)",
+        playedWaveformColor: "rgba(200, 170, 120, 0.5)",
         playheadColor: "#e4bf47",
         highlightColor: "rgba(212, 175, 55, 0.15)",
         axisLabelColor: "#bbbbbb",
@@ -172,11 +172,13 @@ export function AudioPlayer({
         if (audio) {
           const handleLoadedMetadata = (): void => {
             setDuration(audio.duration);
+            onDurationChangeRef.current?.(audio.duration);
           };
           audio.addEventListener("loadedmetadata", handleLoadedMetadata);
 
           if (audio.duration) {
             setDuration(audio.duration);
+            onDurationChangeRef.current?.(audio.duration);
           }
         }
 
@@ -224,13 +226,6 @@ export function AudioPlayer({
           audioEl.addEventListener("pause", () => setIsPlaying(false));
           audioEl.addEventListener("play", () => setIsPlaying(true));
         }
-
-        // Segment click handler
-        peaks.on("segments.click", (event) => {
-          if (event.segment) {
-            onRegionClickRef.current?.(event.segment.id ?? "");
-          }
-        });
 
         onReadyRef.current?.(peaks);
       }

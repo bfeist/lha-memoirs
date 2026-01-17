@@ -772,13 +772,13 @@
       }
     },
     {
-      "topic": "Mydale Power Line Installation",
+      "topic": "Midale Power Line Installation",
       "confidence": "HIGH",
       "Norm_red": {
         "id": "chapter-23",
         "type": "chapter",
         "startTime": 4757,
-        "title": "Power Plant in Mydale"
+        "title": "Power Plant in Midale"
       },
       "TDK_D60_edited_through_air": {
         "id": "story-48",

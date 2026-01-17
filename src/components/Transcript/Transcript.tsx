@@ -5,11 +5,13 @@ import styles from "./Transcript.module.css";
 export function Transcript({
   segments,
   chapters,
+  stories,
   currentTime,
   onSegmentClick,
 }: {
   segments: TranscriptSegment[];
   chapters: Chapter[];
+  stories?: Story[];
   currentTime: number;
   onSegmentClick?: (time: number) => void;
 }): React.ReactElement {
@@ -18,6 +20,32 @@ export function Transcript({
   const activeSegmentRef = useRef<HTMLSpanElement>(null);
   const lastScrolledChapterId = useRef<string | null>(null);
   const lastScrolledSegmentIndex = useRef<number | null>(null);
+
+  // Pre-compute which segment index is the first for each story
+  // Maps segment index -> Story (only for the first segment of each story)
+  const storyStartSegments = useMemo(() => {
+    const map = new Map<number, Story>();
+    if (!stories || stories.length === 0) return map;
+
+    for (const story of stories) {
+      // Find the first segment that starts at or after the story's start time
+      let firstSegmentIndex = -1;
+      for (let i = 0; i < segments.length; i++) {
+        if (segments[i].start >= story.startTime) {
+          firstSegmentIndex = i;
+          break;
+        }
+      }
+      if (firstSegmentIndex !== -1) {
+        // Only set if not already claimed by another story
+        // (earlier stories take precedence if they share a segment)
+        if (!map.has(firstSegmentIndex)) {
+          map.set(firstSegmentIndex, story);
+        }
+      }
+    }
+    return map;
+  }, [stories, segments]);
 
   // Group segments by chapter
   const chapterGroups = useMemo(() => {
@@ -31,11 +59,12 @@ export function Transcript({
             description: "",
           },
           segments: segments,
+          chapterIndex: 0,
         },
       ];
     }
 
-    const groups: { chapter: Chapter; segments: TranscriptSegment[] }[] = [];
+    const groups: { chapter: Chapter; segments: TranscriptSegment[]; chapterIndex: number }[] = [];
     const sortedChapters = [...chapters].sort((a, b) => a.startTime - b.startTime);
 
     for (let i = 0; i < sortedChapters.length; i++) {
@@ -50,6 +79,7 @@ export function Transcript({
       groups.push({
         chapter,
         segments: chapterSegments,
+        chapterIndex: i,
       });
     }
 
@@ -180,22 +210,34 @@ export function Transcript({
                   const isPastSegment = segment.end < currentTime;
                   const isPlayingSegment =
                     currentTime >= segment.start && currentTime < segment.end;
+                  const storyStart = storyStartSegments.get(actualSegmentIndex);
 
                   return (
-                    <span
-                      key={segmentIndex}
-                      ref={isCurrentSegment ? activeSegmentRef : null}
-                      className={`${styles.segmentText} ${isCurrentSegment ? styles.activeSegment : ""} ${isPastSegment ? styles.pastSegment : ""} ${isPlayingSegment ? styles.playingSegment : ""}`}
-                      onClick={() => handleClick(segment.start)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          handleClick(segment.start);
-                        }
-                      }}
-                    >
-                      {segment.text}{" "}
+                    <span key={segmentIndex}>
+                      {storyStart && (
+                        <button
+                          type="button"
+                          className={styles.storyMarker}
+                          onClick={() => handleClick(storyStart.startTime)}
+                          title={storyStart.title}
+                        >
+                          {storyStart.title}
+                        </button>
+                      )}
+                      <span
+                        ref={isCurrentSegment ? activeSegmentRef : null}
+                        className={`${styles.segmentText} ${isCurrentSegment ? styles.activeSegment : ""} ${isPastSegment ? styles.pastSegment : ""} ${isPlayingSegment ? styles.playingSegment : ""}`}
+                        onClick={() => handleClick(segment.start)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            handleClick(segment.start);
+                          }
+                        }}
+                      >
+                        {segment.text}{" "}
+                      </span>
                     </span>
                   );
                 })}

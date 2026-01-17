@@ -222,6 +222,150 @@
   color: #d4af37;
 }
 
+/* Resume banner */
+.resumeBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  background: linear-gradient(135deg, rgb(212 175 55 / 15%) 0%, rgb(180 140 40 / 10%) 100%);
+  border: 1px solid rgb(212 175 55 / 40%);
+  border-radius: 8px;
+  animation: slide-in 0.3s ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resumeInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.resumeIcon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.resumeText {
+  font-size: 0.875rem;
+  color: #e0e0e0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.resumeText strong {
+  color: #d4af37;
+  font-weight: 600;
+}
+
+.resumeProgress {
+  color: #999999;
+}
+
+.resumeTime {
+  color: #777777;
+  font-size: 0.8rem;
+}
+
+.resumeActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.resumeButton {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  background: linear-gradient(135deg, #d4af37 0%, #c4a030 100%);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resumeButton:hover {
+  background: linear-gradient(135deg, #e4bf47 0%, #d4af37 100%);
+  transform: translateY(-1px);
+}
+
+.resumeStartOver {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #999999;
+  background: rgb(255 255 255 / 5%);
+  border: 1px solid rgb(255 255 255 / 15%);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resumeStartOver:hover {
+  color: #cccccc;
+  background: rgb(255 255 255 / 10%);
+  border-color: rgb(255 255 255 / 25%);
+}
+
+.resumeDismiss {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  color: #777777;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.resumeDismiss:hover {
+  color: #cccccc;
+}
+
+/* Responsive adjustments for resume banner */
+@media (width <= 600px) {
+  .resumeBanner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .resumeInfo {
+    justify-content: center;
+  }
+
+  .resumeText {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .resumeActions {
+    justify-content: center;
+  }
+
+  .resumeTime {
+    display: none;
+  }
+}
+
 /* Footer */
 .footer {
   padding: 0.5rem 1rem;

@@ -5,8 +5,14 @@ import { Chapters } from "../components/Chapters/Chapters";
 import { Transcript } from "../components/Transcript/Transcript";
 import { ResizablePanels } from "../components/ResizablePanels/ResizablePanels";
 import { useRecordingData } from "../hooks/useRecordingData";
+import {
+  usePlaybackProgress,
+  formatProgressTime,
+  formatTimeSince,
+} from "../hooks/usePlaybackProgress";
 import { getRecordingById, getRandomBackgroundImage } from "../config/recordings";
 import styles from "./RecordingPlayer.module.css";
+import { PeaksInstance } from "peaks.js";
 
 function RecordingPlayer(): React.ReactElement {
   const { recordingId } = useParams<{ recordingId: string }>();
@@ -15,9 +21,19 @@ function RecordingPlayer(): React.ReactElement {
   // Track which recording the player is ready for (null = not ready)
   const [readyForRecordingId, setReadyForRecordingId] = useState<string | null>(null);
   const pendingSeekTime = useRef<number | null>(null);
+  const peaksInstanceRef = useRef<PeaksInstance | null>(null);
 
   // Player is ready only if it's ready for the CURRENT recording
   const isPlayerReady = readyForRecordingId === recordingId;
+
+  // Track audio duration for progress saving
+  const [audioDuration, setAudioDuration] = useState(0);
+  // Whether the user has dismissed the resume banner for this session
+  const [resumeDismissed, setResumeDismissed] = useState(false);
+
+  // Playback progress (bookmarking)
+  const { savedProgress, saveProgress, clearProgress, hasSavedProgress, progressPercentage } =
+    usePlaybackProgress(recordingId);
 
   // Capture the time parameter immediately on mount or when URL changes
   useEffect(() => {
@@ -78,14 +94,30 @@ function RecordingPlayer(): React.ReactElement {
   }, [isPlayerReady, seekTo]);
 
   // Handle time updates from audio player
-  const handleTimeUpdate = useCallback((time: number) => {
-    setCurrentTime(time);
+  const handleTimeUpdate = useCallback(
+    (time: number) => {
+      setCurrentTime(time);
+      // Save progress periodically (the hook throttles this internally)
+      if (audioDuration > 0) {
+        saveProgress(time, audioDuration);
+      }
+    },
+    [audioDuration, saveProgress]
+  );
+
+  // Handle duration change from audio player
+  const handleDurationChange = useCallback((duration: number) => {
+    setAudioDuration(duration);
   }, []);
 
   // Handle player ready - mark which recording is now ready
-  const handlePlayerReady = useCallback(() => {
-    setReadyForRecordingId(recordingId ?? null);
-  }, [recordingId]);
+  const handlePlayerReady = useCallback(
+    (peaksInstance: PeaksInstance) => {
+      setReadyForRecordingId(recordingId ?? null);
+      peaksInstanceRef.current = peaksInstance;
+    },
+    [recordingId]
+  );
 
   // Handle TOC entry click
   const handleChapterClick = useCallback(
@@ -103,21 +135,29 @@ function RecordingPlayer(): React.ReactElement {
     [seekTo]
   );
 
-  // Handle region click
-  const handleRegionClick = useCallback(
-    (regionId: string) => {
-      // regionId is in format "chapter-{index}"
-      const match = regionId.match(/^chapter-(\d+)$/);
-      if (match && chapters) {
-        const index = parseInt(match[1], 10);
-        const chapter = chapters[index];
-        if (chapter) {
-          seekTo(chapter.startTime);
-        }
-      }
-    },
-    [chapters, seekTo]
-  );
+  // Handle resume button click
+  const handleResume = useCallback(() => {
+    if (savedProgress) {
+      seekTo(savedProgress.time);
+      setResumeDismissed(true);
+      // Start playing after seeking
+      setTimeout(() => {
+        peaksInstanceRef.current?.player.play();
+      }, 100);
+    }
+  }, [savedProgress, seekTo]);
+
+  // Handle dismiss resume banner
+  const handleDismissResume = useCallback(() => {
+    setResumeDismissed(true);
+  }, []);
+
+  // Handle start from beginning
+  const handleStartFromBeginning = useCallback(() => {
+    clearProgress();
+    setResumeDismissed(true);
+    seekTo(0);
+  }, [clearProgress, seekTo]);
 
   // Calculate the current chapter ID based on playback time
   const currentChapterId = useMemo(() => {
@@ -199,10 +239,49 @@ function RecordingPlayer(): React.ReactElement {
             regions={regions.data || []}
             currentChapterId={currentChapterId}
             onTimeUpdate={handleTimeUpdate}
-            onRegionClick={handleRegionClick}
+            onDurationChange={handleDurationChange}
             onReady={handlePlayerReady}
             onReload={refetchAll}
           />
+
+          {/* Resume banner - show when there's saved progress and player is ready */}
+          {isPlayerReady && hasSavedProgress && !resumeDismissed && savedProgress && (
+            <div className={styles.resumeBanner}>
+              <div className={styles.resumeInfo}>
+                <span className={styles.resumeIcon}>📍</span>
+                <span className={styles.resumeText}>
+                  You left off at <strong>{formatProgressTime(savedProgress.time)}</strong>
+                  {progressPercentage !== null && (
+                    <span className={styles.resumeProgress}> ({progressPercentage}% complete)</span>
+                  )}
+                  <span className={styles.resumeTime}>
+                    {" "}
+                    • {formatTimeSince(savedProgress.savedAt)}
+                  </span>
+                </span>
+              </div>
+              <div className={styles.resumeActions}>
+                <button type="button" className={styles.resumeButton} onClick={handleResume}>
+                  Resume
+                </button>
+                <button
+                  type="button"
+                  className={styles.resumeStartOver}
+                  onClick={handleStartFromBeginning}
+                >
+                  Start Over
+                </button>
+                <button
+                  type="button"
+                  className={styles.resumeDismiss}
+                  onClick={handleDismissResume}
+                  aria-label="Dismiss"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+          )}
 
           {!isPlayerReady && !isLoading && (
             <div className={styles.playHint}>
@@ -236,6 +315,7 @@ function RecordingPlayer(): React.ReactElement {
               <Transcript
                 segments={transcript.data.segments}
                 chapters={chapters}
+                stories={stories}
                 currentTime={currentTime}
                 onSegmentClick={handleWordClick}
               />
