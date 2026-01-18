@@ -15,6 +15,9 @@ dist-ssr
 # Generated files
 public/changelog.json
 
+# Static assets (audio files) - hosted separately, not in git
+public/static_assets/
+
 # Editor directories and files
 .idea
 .DS_Store
