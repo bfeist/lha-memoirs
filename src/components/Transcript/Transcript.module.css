@@ -144,8 +144,8 @@
   color: #999999;
 }
 
-/* Story markers - subtle inline indicators */
-.storyMarker {
+/* Minor chapter markers - subtle inline indicators */
+.minorChapterMarker {
   display: inline-block;
   padding: 0.1rem 0.4rem;
   margin: 0.15rem 0.25rem 0.15rem 0;
@@ -167,7 +167,7 @@
   vertical-align: middle;
 }
 
-.storyMarker:hover {
+.minorChapterMarker:hover {
   background: rgb(139 115 85 / 22%);
   border-color: rgb(139 115 85 / 45%);
   color: #a8916f;

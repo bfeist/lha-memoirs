@@ -6,6 +6,12 @@
       "description": "The narrator is setting the context for the recording, explaining where the recording begins (Ben taping planes, playing with someone, potential Reverend Shuler audio) and what they want the listener to focus on (grandmother's and narrator's conversation)."
     },
     {
+      "title": "Wally and Willa Visit",
+      "startTime": 92.94,
+      "description": "Lindy shifts the conversation to a visit from Wally and Willa, including their doctor's appointments and evening card games.",
+      "minor": true
+    },
+    {
       "title": "Historical Coffee Substitutes",
       "startTime": 224.17,
       "description": "Lindy and his grandmother begin answering Leslie's question about how coffee was made during the Depression era, detailing the use of roasted wheat or barley."
@@ -16,9 +22,33 @@
       "description": "Lindy shifts to discussing clothing and the challenges of walking to school in cold weather."
     },
     {
+      "title": "Card Games and Family Gatherings",
+      "startTime": 516.9,
+      "description": "Lindy describes playing card games with neighbors and family gatherings.",
+      "minor": true
+    },
+    {
+      "title": "Tape Instructions and Recording",
+      "startTime": 599.15,
+      "description": "Lindy begins giving instructions about the tape recording and its placement.",
+      "minor": true
+    },
+    {
       "title": "Regina & Friendship",
       "startTime": 657.49,
       "description": "Lindy shifts to a personal anecdote about being in Regina and expressing a desire for friendship."
+    },
+    {
+      "title": "Frustration and Departure",
+      "startTime": 708.82,
+      "description": "Lindy abruptly transitions to a discussion with Mrs. Jekyll about cat food and expresses dislike.",
+      "minor": true
+    },
+    {
+      "title": "Kids' Ages & Misdeeds",
+      "startTime": 809.56,
+      "description": "Lindy begins interviewing the Couch Patch Kids, asking their names and ages, and inquiring about misbehavior.",
+      "minor": true
     },
     {
       "title": "Family Details and Upcoming Trip",
@@ -26,9 +56,21 @@
       "description": "Lindy transitions to interviewing Leslie, who shares personal information about age, family, and travel plans."
     },
     {
+      "title": "Imaginary Family Play",
+      "startTime": 1065.21,
+      "description": "Lindy abruptly shifts to a bizarre scenario involving a three-year-old claiming to have numerous husbands and children.",
+      "minor": true
+    },
+    {
       "title": "Confusing Explanation of Characters and Ending the Broadcast",
       "startTime": 1159.65,
       "description": "Lindy announces they must leave and teases a future interview with 'Shadastonio cats and Beagle mouse.'"
+    },
+    {
+      "title": "Random Ramblings with Mentions of Ants and a Vacuum",
+      "startTime": 1217.82,
+      "description": "Lindy begins discussing rising cat food prices and relates it to ants and a horse.",
+      "minor": true
     },
     {
       "title": "Seeking Help/Instructions",
@@ -36,9 +78,27 @@
       "description": "Lindy begins a message intended for 'Leslie,' instructing her to find Lindy and warning against misusing the tape recorder."
     },
     {
+      "title": "Confused Rambling",
+      "startTime": 1342.23,
+      "description": "Lindy shouts 'Muscle man!' in a seemingly random interjection.",
+      "minor": true
+    },
+    {
       "title": "Leslie's Pants and Behavior",
       "startTime": 1504.43,
       "description": "Lindy comments on Leslie's actions, suggesting she was acting like a 'little perv'."
+    },
+    {
+      "title": "Technical Difficulties and Rambling",
+      "startTime": 1599.63,
+      "description": "Lindy states Leslie has said something and then announces he has an idea related to the interview.",
+      "minor": true
+    },
+    {
+      "title": "Reciprocal Insults",
+      "startTime": 1645.29,
+      "description": "Lindy and Leslie discuss the ability to say bad things about each other due to the recording.",
+      "minor": true
     },
     {
       "title": "Discussion of 'Alpha Gel'",
@@ -46,103 +106,28 @@
       "description": "Lindy transitions to a discussion about 'alpha gel' and its presence in glasses."
     },
     {
-      "title": "Confused Conversation & Jokes",
-      "startTime": 1946.35,
-      "description": "Lindy enters a confusing segment involving a surprise, facial markings, and seemingly nonsensical statements and jokes.; Lindy abruptly changes the subject to someone named Rec and their past involvement with a San Francisco band."
-    }
-  ],
-  "summary": "A personal memoir recording covering family memories and life stories.",
-  "stories": [
-    {
-      "title": "Wally and Willa Visit",
-      "startTime": 92.94,
-      "description": "Lindy shifts the conversation to a visit from Wally and Willa, including their doctor's appointments and evening card games.",
-      "chapterIndex": 0,
-      "id": "story-0"
-    },
-    {
-      "title": "Card Games and Family Gatherings",
-      "startTime": 516.9,
-      "description": "Lindy describes playing card games with neighbors and family gatherings.",
-      "chapterIndex": 2,
-      "id": "story-1"
-    },
-    {
-      "title": "Tape Instructions and Recording",
-      "startTime": 599.15,
-      "description": "Lindy begins giving instructions about the tape recording and its placement.",
-      "chapterIndex": 2,
-      "id": "story-2"
-    },
-    {
-      "title": "Frustration and Departure",
-      "startTime": 708.82,
-      "description": "Lindy abruptly transitions to a discussion with Mrs. Jekyll about cat food and expresses dislike.",
-      "chapterIndex": 3,
-      "id": "story-3"
-    },
-    {
-      "title": "Kids' Ages & Misdeeds",
-      "startTime": 809.56,
-      "description": "Lindy begins interviewing the Couch Patch Kids, asking their names and ages, and inquiring about misbehavior.",
-      "chapterIndex": 3,
-      "id": "story-4"
-    },
-    {
-      "title": "Imaginary Family Play",
-      "startTime": 1065.21,
-      "description": "Lindy abruptly shifts to a bizarre scenario involving a three-year-old claiming to have numerous husbands and children.",
-      "chapterIndex": 4,
-      "id": "story-5"
-    },
-    {
-      "title": "Random Ramblings with Mentions of Ants and a Vacuum",
-      "startTime": 1217.82,
-      "description": "Lindy begins discussing rising cat food prices and relates it to ants and a horse.",
-      "chapterIndex": 5,
-      "id": "story-6"
-    },
-    {
-      "title": "Confused Rambling",
-      "startTime": 1342.23,
-      "description": "Lindy shouts 'Muscle man!' in a seemingly random interjection.",
-      "chapterIndex": 6,
-      "id": "story-7"
-    },
-    {
-      "title": "Technical Difficulties and Rambling",
-      "startTime": 1599.63,
-      "description": "Lindy states Leslie has said something and then announces he has an idea related to the interview.",
-      "chapterIndex": 7,
-      "id": "story-8"
-    },
-    {
-      "title": "Reciprocal Insults",
-      "startTime": 1645.29,
-      "description": "Lindy and Leslie discuss the ability to say bad things about each other due to the recording.",
-      "chapterIndex": 7,
-      "id": "story-9"
-    },
-    {
       "title": "Coffee Table Observation",
       "startTime": 1831.92,
       "description": "Lindy observes a table resembling classical designs.",
-      "chapterIndex": 8,
-      "id": "story-10"
+      "minor": true
     },
     {
       "title": "Discussion of Family Photos and Childhood Behavior",
       "startTime": 1896.2,
       "description": "Lindy begins recounting past incidents involving someone throwing something on the floor and attempting to dispose of it.",
-      "chapterIndex": 8,
-      "id": "story-11"
+      "minor": true
+    },
+    {
+      "title": "Confused Conversation & Jokes",
+      "startTime": 1946.35,
+      "description": "Lindy enters a confusing segment involving a surprise, facial markings, and seemingly nonsensical statements and jokes.; Lindy abruptly changes the subject to someone named Rec and their past involvement with a San Francisco band."
     },
     {
       "title": "Leaving School and Transitioning",
       "startTime": 2026.49,
       "description": "Lindy starts sharing experiences from school, including cleaning and reactions from classmates.",
-      "chapterIndex": 9,
-      "id": "story-12"
+      "minor": true
     }
-  ]
+  ],
+  "summary": "A personal memoir recording covering family memories and life stories."
 }

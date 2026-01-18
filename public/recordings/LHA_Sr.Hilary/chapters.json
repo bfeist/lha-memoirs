@@ -21,9 +21,27 @@
       "description": "Lindy begins listing his various business ventures and affiliations, starting with Tompkins Electric."
     },
     {
+      "title": "Organizational Memberships",
+      "startTime": 395.36,
+      "description": "Lindy begins listing various organizations he was a member of.",
+      "minor": true
+    },
+    {
       "title": "Company Sale and Family History",
       "startTime": 578.08,
       "description": "Lindy transitions to discussing the history of Achen Construction Company, its sale, and its continued operation."
+    },
+    {
+      "title": "Family and Mortality",
+      "startTime": 624.76,
+      "description": "Lindy shifts to discussing his sister and reflecting on his life's accomplishments.",
+      "minor": true
+    },
+    {
+      "title": "Sprinkler System Discussion",
+      "startTime": 716.19,
+      "description": "Lindy abruptly changes the subject to a discussion about a sprinkler system and water pressure.",
+      "minor": true
     },
     {
       "title": "Mail Order Poetry Catalogs and Childhood Memories",
@@ -34,37 +52,13 @@
       "title": "History of Property Sale",
       "startTime": 874.75,
       "description": "Lindy introduces a historical account of selling property and company shares."
-    }
-  ],
-  "summary": "A personal memoir recording covering family memories and life stories.",
-  "stories": [
-    {
-      "title": "Organizational Memberships",
-      "startTime": 395.36,
-      "description": "Lindy begins listing various organizations he was a member of.",
-      "chapterIndex": 3,
-      "id": "story-0"
-    },
-    {
-      "title": "Family and Mortality",
-      "startTime": 624.76,
-      "description": "Lindy shifts to discussing his sister and reflecting on his life's accomplishments.",
-      "chapterIndex": 4,
-      "id": "story-1"
-    },
-    {
-      "title": "Sprinkler System Discussion",
-      "startTime": 716.19,
-      "description": "Lindy abruptly changes the subject to a discussion about a sprinkler system and water pressure.",
-      "chapterIndex": 4,
-      "id": "story-2"
     },
     {
       "title": "Listening to Recordings and Date/Time",
       "startTime": 931.75,
       "description": "Lindy states the date as July 1st, 1989 and comments on the beautiful weather.",
-      "chapterIndex": 6,
-      "id": "story-3"
+      "minor": true
     }
-  ]
+  ],
+  "summary": "A personal memoir recording covering family memories and life stories."
 }

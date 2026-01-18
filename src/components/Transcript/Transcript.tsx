@@ -5,13 +5,11 @@ import styles from "./Transcript.module.css";
 export function Transcript({
   segments,
   chapters,
-  stories,
   currentTime,
   onSegmentClick,
 }: {
   segments: TranscriptSegment[];
   chapters: Chapter[];
-  stories?: Story[];
   currentTime: number;
   onSegmentClick?: (time: number) => void;
 }): React.ReactElement {
@@ -21,36 +19,42 @@ export function Transcript({
   const lastScrolledChapterId = useRef<string | null>(null);
   const lastScrolledSegmentIndex = useRef<number | null>(null);
 
-  // Pre-compute which segment index is the first for each story
-  // Maps segment index -> Story (only for the first segment of each story)
-  const storyStartSegments = useMemo(() => {
-    const map = new Map<number, Story>();
-    if (!stories || stories.length === 0) return map;
+  // Extract minor chapters from the chapters array
+  const minorChapters = useMemo(() => chapters.filter((ch) => ch.minor), [chapters]);
 
-    for (const story of stories) {
-      // Find the first segment that starts at or after the story's start time
+  // Pre-compute which segment index is the first for each minor chapter
+  // Maps segment index -> Chapter (only for the first segment of each minor chapter)
+  const minorChapterStartSegments = useMemo(() => {
+    const map = new Map<number, Chapter>();
+    if (minorChapters.length === 0) return map;
+
+    for (const minorChapter of minorChapters) {
+      // Find the first segment that starts at or after the minor chapter's start time
       let firstSegmentIndex = -1;
       for (let i = 0; i < segments.length; i++) {
-        if (segments[i].start >= story.startTime) {
+        if (segments[i].start >= minorChapter.startTime) {
           firstSegmentIndex = i;
           break;
         }
       }
       if (firstSegmentIndex !== -1) {
-        // Only set if not already claimed by another story
-        // (earlier stories take precedence if they share a segment)
+        // Only set if not already claimed by another minor chapter
+        // (earlier minor chapters take precedence if they share a segment)
         if (!map.has(firstSegmentIndex)) {
-          map.set(firstSegmentIndex, story);
+          map.set(firstSegmentIndex, minorChapter);
         }
       }
     }
     return map;
-  }, [stories, segments]);
+  }, [minorChapters, segments]);
 
-  // Group segments by chapter
+  // Get only major chapters for grouping segments
+  const majorChapters = useMemo(() => chapters.filter((ch) => !ch.minor), [chapters]);
+
+  // Group segments by major chapter
   const chapterGroups = useMemo(() => {
-    if (!chapters || chapters.length === 0) {
-      // If no chapters, treat all segments as one group
+    if (!majorChapters || majorChapters.length === 0) {
+      // If no major chapters, treat all segments as one group
       return [
         {
           chapter: {
@@ -65,11 +69,11 @@ export function Transcript({
     }
 
     const groups: { chapter: Chapter; segments: TranscriptSegment[]; chapterIndex: number }[] = [];
-    const sortedChapters = [...chapters].sort((a, b) => a.startTime - b.startTime);
+    const sortedMajorChapters = [...majorChapters].sort((a, b) => a.startTime - b.startTime);
 
-    for (let i = 0; i < sortedChapters.length; i++) {
-      const chapter = sortedChapters[i];
-      const nextChapter = sortedChapters[i + 1];
+    for (let i = 0; i < sortedMajorChapters.length; i++) {
+      const chapter = sortedMajorChapters[i];
+      const nextChapter = sortedMajorChapters[i + 1];
       const chapterEnd = nextChapter ? nextChapter.startTime : Infinity;
 
       const chapterSegments = segments.filter(
@@ -84,17 +88,17 @@ export function Transcript({
     }
 
     return groups;
-  }, [segments, chapters]);
+  }, [segments, majorChapters]);
 
-  // Find current chapter and segment based on playback time
+  // Find current major chapter and segment based on playback time
   const { currentChapterId, currentSegmentIndex } = useMemo(() => {
     let chapterIndex = 0;
     let segmentIndex = 0;
 
-    // Find current chapter
-    if (chapters && chapters.length > 0) {
-      for (let i = chapters.length - 1; i >= 0; i--) {
-        if (currentTime >= chapters[i].startTime) {
+    // Find current major chapter
+    if (majorChapters && majorChapters.length > 0) {
+      for (let i = majorChapters.length - 1; i >= 0; i--) {
+        if (currentTime >= majorChapters[i].startTime) {
           chapterIndex = i;
           break;
         }
@@ -110,7 +114,7 @@ export function Transcript({
     }
 
     return { currentChapterId: `chapter-${chapterIndex}`, currentSegmentIndex: segmentIndex };
-  }, [chapters, segments, currentTime]);
+  }, [majorChapters, segments, currentTime]);
 
   // Auto-scroll only when chapter changes
   useEffect(() => {
@@ -210,18 +214,18 @@ export function Transcript({
                   const isPastSegment = segment.end < currentTime;
                   const isPlayingSegment =
                     currentTime >= segment.start && currentTime < segment.end;
-                  const storyStart = storyStartSegments.get(actualSegmentIndex);
+                  const minorChapterStart = minorChapterStartSegments.get(actualSegmentIndex);
 
                   return (
                     <span key={segmentIndex}>
-                      {storyStart && (
+                      {minorChapterStart && (
                         <button
                           type="button"
-                          className={styles.storyMarker}
-                          onClick={() => handleClick(storyStart.startTime)}
-                          title={storyStart.title}
+                          className={styles.minorChapterMarker}
+                          onClick={() => handleClick(minorChapterStart.startTime)}
+                          title={minorChapterStart.title}
                         >
-                          {storyStart.title}
+                          {minorChapterStart.title}
                         </button>
                       )}
                       <span

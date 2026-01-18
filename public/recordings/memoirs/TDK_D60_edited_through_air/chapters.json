@@ -6,14 +6,38 @@
       "description": "The narrator begins by stating the date (May 3rd, 1986), explaining their attempt to record their life story, acknowledging potential errors and omissions, and outlining the scope of the project (covering 85 years of life, starting with childhood memories after leaving Iowa)."
     },
     {
+      "title": "Initial Microphone Setup and Life History Recording",
+      "startTime": 160.44,
+      "description": "Lindy adjusts microphone distance and experiments with recording quality.",
+      "minor": true
+    },
+    {
       "title": "Move to Canada - 1907",
       "startTime": 217.35,
       "description": "Lindy begins recounting his family's move to Canada in 1907 when he was four and a half years old."
     },
     {
+      "title": "Temporary Housing and Travel to the Farm",
+      "startTime": 299.06,
+      "description": "Lindy describes his family's initial living situation in a small-town hotel.",
+      "minor": true
+    },
+    {
+      "title": "Building a New House",
+      "startTime": 377.34,
+      "description": "Lindy describes the new house his father built, detailing its layout and size.",
+      "minor": true
+    },
+    {
       "title": "Farm Expansion and Childhood Transportation",
       "startTime": 440.8,
       "description": "Lindy describes the construction of the new house and its features (basement, dining room, living room)."
+    },
+    {
+      "title": "Starting a Track Line",
+      "startTime": 599.66,
+      "description": "Lindy elaborates on the specifics of his trapping activities, including the types of animals he trapped.",
+      "minor": true
     },
     {
       "title": "Coyote Trading Begins",
@@ -26,9 +50,27 @@
       "description": "Lindy details how others copied his fur trading business and the resulting end of his initial venture."
     },
     {
+      "title": "1917-1918 Flu Pandemic",
+      "startTime": 856.25,
+      "description": "Lindy transitions to recounting the severe influenza pandemic of 1917-1918 and its impact on his family and community.",
+      "minor": true
+    },
+    {
       "title": "New Tractor Arrival",
       "startTime": 979.96,
       "description": "Lindy begins discussing the arrival of a new tractor on the farm and its novelty in the community."
+    },
+    {
+      "title": "Grasshopper Infestation",
+      "startTime": 1062.36,
+      "description": "Lindy transitions to describing a significant grasshopper infestation and the efforts to combat it.",
+      "minor": true
+    },
+    {
+      "title": "Separator Argument",
+      "startTime": 1108.26,
+      "description": "Lindy shifts the narrative to an incident involving a separator and an argument between several individuals.",
+      "minor": true
     },
     {
       "title": "Seeking Financial Assistance and Father's Illness",
@@ -36,9 +78,33 @@
       "description": "Lindy begins discussing his father's declining health, doctor visits, and subsequent hospitalization.; Lindy recounts needing financial assistance to travel to his father's hospital."
     },
     {
+      "title": "Discussing Family Events and a Future Story",
+      "startTime": 1350.92,
+      "description": "Lindy explicitly states he is pausing the narrative and will return to the story of his father later.",
+      "minor": true
+    },
+    {
+      "title": "Reflecting on Early Childhood",
+      "startTime": 1414.99,
+      "description": "Lindy shifts to reminiscing about his early childhood experiences and memories.",
+      "minor": true
+    },
+    {
+      "title": "Witnessing a Fatal Train Accident",
+      "startTime": 1469.27,
+      "description": "Lindy recalls a traumatic event involving a runaway train and a tragic accident.",
+      "minor": true
+    },
+    {
       "title": "Early Radio and World War News",
       "startTime": 1568.88,
       "description": "Lindy talks about the limited news about World War I and his first experience with a radio."
+    },
+    {
+      "title": "Summer Interests",
+      "startTime": 1649.28,
+      "description": "Lindy transitions to talking about his summer interests, including baseball and wrestling.",
+      "minor": true
     },
     {
       "title": "Father's Funeral in 1924",
@@ -51,9 +117,21 @@
       "description": "Lindy begins discussing taking over the farm after his father's death and the responsibilities involved."
     },
     {
+      "title": "Disputes Over Compensation and Farm Management",
+      "startTime": 1904.53,
+      "description": "Lindy begins discussing his financial compensation for managing the farm and subsequent complaints from others.",
+      "minor": true
+    },
+    {
       "title": "Blacksmith Shop Visit",
       "startTime": 2105.77,
       "description": "Lindy recounts a visit to the blacksmith shop with Cousin Jake and the ensuing rainstorm."
+    },
+    {
+      "title": "Power Gang Job Offer",
+      "startTime": 2154.95,
+      "description": "Lindy receives a tip about a job opening on a power gang and applies for the position.",
+      "minor": true
     },
     {
       "title": "Becoming Top Production Man and Relocation",
@@ -61,9 +139,21 @@
       "description": "Lindy describes becoming the top production man on the power gang and moving around the country."
     },
     {
+      "title": "Lori Farmer's Difficult Situation",
+      "startTime": 2384.67,
+      "description": "Lindy encounters Lori, a farmer in distress, and decides to quit his job to help him with his crops.",
+      "minor": true
+    },
+    {
       "title": "Narrator's Decision to Quit",
       "startTime": 2466.87,
       "description": "Lindy informs his boss of his departure to assist Lori and expresses his dislike for the transient lifestyle."
+    },
+    {
+      "title": "Nebraska Harvest Help",
+      "startTime": 2580.75,
+      "description": "Lindy recounts traveling to Nebraska to help his cousin with the harvest.",
+      "minor": true
     },
     {
       "title": "Janie's Baby & Upcoming Trip to London",
@@ -71,9 +161,33 @@
       "description": "Lindy mentions visiting Janie and her new baby, and her plans to visit Norm in London."
     },
     {
+      "title": "Extreme Heat in Nebraska",
+      "startTime": 2744.38,
+      "description": "Lindy describes the intense heat he experienced during the Nebraska harvest in 1927.",
+      "minor": true
+    },
+    {
+      "title": "Visit to Larry's and Aberdeen",
+      "startTime": 2804.88,
+      "description": "Lindy recounts his travels after leaving Diener's, including a stop at Larry's and his journey to Aberdeen, South Dakota.",
+      "minor": true
+    },
+    {
       "title": "Meeting the Threshing Machine Owner",
       "startTime": 2866.45,
       "description": "Lindy describes his encounter with a renowned threshing machine owner and his decision to visit him."
+    },
+    {
+      "title": "Machine Breakdown and Repair",
+      "startTime": 2965.55,
+      "description": "Lindy details the breakdown of the threshing machine during the trial run and the subsequent repairs.",
+      "minor": true
+    },
+    {
+      "title": "Service Station Conversation",
+      "startTime": 3026.36,
+      "description": "Lindy relays a conversation he had with a service station attendant about his age and experience.",
+      "minor": true
     },
     {
       "title": "Uncle's Compound Machine",
@@ -81,9 +195,27 @@
       "description": "Lindy transitions to discussing his work at his uncle's farm with a compound threshing machine."
     },
     {
+      "title": "Power Line Job Begins",
+      "startTime": 3298.29,
+      "description": "Lindy describes finding and starting a job on a power line in Loyola, North Dakota.",
+      "minor": true
+    },
+    {
       "title": "Fetching Whiskey for Foreman",
       "startTime": 3357.28,
       "description": "Lindy describes the unusual circumstances of his job, including a foreman who was often drunk and required Lindy to obtain whiskey."
+    },
+    {
+      "title": "Building Power Line North",
+      "startTime": 3447.89,
+      "description": "Lindy describes building a large power line across country, including the challenges of the terrain.",
+      "minor": true
+    },
+    {
+      "title": "Harvest Time and Separator",
+      "startTime": 3513.36,
+      "description": "Lindy shifts the discussion to harvest time and the need to return to Frederick to operate a separator.",
+      "minor": true
     },
     {
       "title": "High-Voltage Crew Encounter",
@@ -91,14 +223,50 @@
       "description": "Lindy recounts an encounter with a high-voltage crew and his hesitation to join them due to lack of experience."
     },
     {
+      "title": "Tape Recording Issues and Line Construction",
+      "startTime": 3751.13,
+      "description": "Lindy expresses concerns about the recording process and potential duplication of information on separate tapes.",
+      "minor": true
+    },
+    {
+      "title": "Farm Finances and Paperwork",
+      "startTime": 3823.72,
+      "description": "Lindy shifts to discussing his interactions with immigration authorities and returning to the farm.",
+      "minor": true
+    },
+    {
       "title": "Tape Recording Issues",
       "startTime": 3877.77,
       "description": "Lindy acknowledges issues with the tape recording and his intention to avoid chronological order."
     },
     {
+      "title": "January Date and Recollections",
+      "startTime": 3941.47,
+      "description": "Lindy states the date as January 30, 1981, and begins reminiscing about Christmas and the family's departure.",
+      "minor": true
+    },
+    {
+      "title": "Seeking Employment After the Harvest of 1929",
+      "startTime": 4007.93,
+      "description": "Lindy transitions to discussing his farming experience with Mac in the spring of 1929.",
+      "minor": true
+    },
+    {
       "title": "Work Assignment in Afghanistan",
       "startTime": 4073.82,
       "description": "Lindy abruptly changes the subject to a job in Afghanistan, detailing his role as a head lineman."
+    },
+    {
+      "title": "Return to Farm and Mother",
+      "startTime": 4152.43,
+      "description": "Lindy describes returning to the farm and visiting his mother in Waverton.",
+      "minor": true
+    },
+    {
+      "title": "Workplace Dispute and Armed Protest",
+      "startTime": 4245.24,
+      "description": "Lindy transitions to a story about a labor dispute and his subsequent one-man strike.",
+      "minor": true
     },
     {
       "title": "Funeral and Farm Lunch",
@@ -111,14 +279,44 @@
       "description": "Lindy discusses a crew member leaving to work for the coal company and Bill Wilson taking over."
     },
     {
+      "title": "Crew Management and Work",
+      "startTime": 4639.57,
+      "description": "Lindy details his experience leading a crew and the work they performed that summer, including locations and equipment.",
+      "minor": true
+    },
+    {
+      "title": "Severe October Snowstorm",
+      "startTime": 4705.56,
+      "description": "Lindy recounts a severe snowstorm in October and its impact on the region.",
+      "minor": true
+    },
+    {
       "title": "Bill Wilson's Return",
       "startTime": 4759.61,
       "description": "Lindy discusses Bill Wilson's return to work and his own return to Estevan."
     },
     {
+      "title": "Power Commission Job Offer",
+      "startTime": 4846.06,
+      "description": "Lindy receives an offer from the power commission and puts in an application for a lineman position.",
+      "minor": true
+    },
+    {
+      "title": "District Supervisor Responsibilities",
+      "startTime": 4903.45,
+      "description": "Lindy is assigned to a district in Saskatoon and given responsibility for multiple towns.",
+      "minor": true
+    },
+    {
       "title": "Unemployment and Rosetown Duties",
       "startTime": 4965.77,
       "description": "Lindy discusses the widespread unemployment and his responsibilities in Rosetown, including straightening the distribution system."
+    },
+    {
+      "title": "Iowa Trip with Mother",
+      "startTime": 5072.81,
+      "description": "Lindy decides to take a three-month leave to take his mother on a trip to Iowa.",
+      "minor": true
     },
     {
       "title": "Power Plant Construction",
@@ -131,9 +329,33 @@
       "description": "Lindy recounts a confrontation with the general manager and his frustration with the power company's management."
     },
     {
+      "title": "Timeline of Farm Work and Wiring Jobs (1932-1934)",
+      "startTime": 5326.31,
+      "description": "Lindy clarifies the timeline of his work, mentioning the year 1932.",
+      "minor": true
+    },
+    {
       "title": "Jack Dyer's Financial Troubles",
       "startTime": 5467.11,
       "description": "Lindy begins discussing Jack Dyer's financial difficulties and dissatisfaction with running the power plant."
+    },
+    {
+      "title": "Financial Backing from Power Corp",
+      "startTime": 5519.72,
+      "description": "Lindy receives financial backing from the Power Corporation to purchase the Tompkins power plant.",
+      "minor": true
+    },
+    {
+      "title": "Virginia Electrics Job",
+      "startTime": 5580.08,
+      "description": "Lindy transitions to discussing his work for Virginia Electrics and the associated living arrangements.",
+      "minor": true
+    },
+    {
+      "title": "Preparing for an Electrician's Exam",
+      "startTime": 5635.3,
+      "description": "Lindy shifts the conversation to his experience taking and passing the electrician's exam in 1934.",
+      "minor": true
     },
     {
       "title": "Power Plant Abandonment",
@@ -156,9 +378,27 @@
       "description": "Lindy shifts the discussion to the company's relocation to the Peace River country and his responsibilities at Estevan."
     },
     {
+      "title": "Power Commission Opportunity",
+      "startTime": 6153.35,
+      "description": "Lindy expresses his interest in working for the power commission and building power lines.",
+      "minor": true
+    },
+    {
+      "title": "Securing Initial Contracts",
+      "startTime": 6236.85,
+      "description": "Lindy details securing his first contracts for line construction from Halbrite to Midale and Estevan to South.",
+      "minor": true
+    },
+    {
       "title": "Contracting History Delayed",
       "startTime": 6302.75,
       "description": "Lindy states he will postpone detailing his contracting history and doesn't know when he'll return to the recording."
+    },
+    {
+      "title": "Highdale and Estevan Projects",
+      "startTime": 6404.82,
+      "description": "Lindy details the two projects he bid on: the power line at Highdale 2 and the Estevan to Stoughton line.",
+      "minor": true
     },
     {
       "title": "Future Contracting Outline",
@@ -171,9 +411,27 @@
       "description": "Lindy discusses the challenges of piecing together recordings made over five years, which had been partially erased."
     },
     {
+      "title": "Acquiring a Truck",
+      "startTime": 6712.22,
+      "description": "Lindy describes how he acquired his first truck, highlighting the difficulty in obtaining one at the time.",
+      "minor": true
+    },
+    {
       "title": "Airport Dismantling Job",
       "startTime": 6895.05,
       "description": "Lindy transitions to discussing a specific job dismantling airports and the challenges involved."
+    },
+    {
+      "title": "Bidding Process Details",
+      "startTime": 6979.87,
+      "description": "Lindy discusses the bidding process for the power line construction project, including the number of bids and the price differences.",
+      "minor": true
+    },
+    {
+      "title": "North Regina Work",
+      "startTime": 7037.97,
+      "description": "Lindy shifts to describing work performed for the Power Commission in North Regina.",
+      "minor": true
     },
     {
       "title": "Davidson Electric Work",
@@ -181,9 +439,27 @@
       "description": "Lindy moves on to describe work done for Dominion Electric in Davidson."
     },
     {
+      "title": "High Voltage Line Construction",
+      "startTime": 7153.78,
+      "description": "Lindy begins detailing the construction of a high voltage line.",
+      "minor": true
+    },
+    {
+      "title": "Relating Assistance to Men",
+      "startTime": 7236.12,
+      "description": "Lindy begins to describe how he secured help for the men working on the project, starting with a fellow named Jack Gardner.",
+      "minor": true
+    },
+    {
       "title": "Pole Setting Process",
       "startTime": 7304.14,
       "description": "Lindy describes the process of setting poles, including the use of machinery and the size of the poles."
+    },
+    {
+      "title": "Detailing Pole Setting Process",
+      "startTime": 7351.17,
+      "description": "Lindy describes the process of setting poles, including hand tamping and the number of men involved.",
+      "minor": true
     },
     {
       "title": "Listening to Mulroney",
@@ -196,14 +472,50 @@
       "description": "Lindy transitions from describing the weather to discussing his first job in 1947, building a line from Weyburn to Radville."
     },
     {
+      "title": "Decision Regarding Family Reunion",
+      "startTime": 7694.66,
+      "description": "Lindy shifts from discussing his 1947 work to recounting a family reunion in Oregon and the circumstances surrounding his decision to attend.",
+      "minor": true
+    },
+    {
+      "title": "New Job Offer and Negotiation",
+      "startTime": 7770.35,
+      "description": "Lindy transitions from the reunion to discussing a new job assigned by the superintendent, running from Kenora to Priestville and Norquay.",
+      "minor": true
+    },
+    {
       "title": "Power Sends Boring Machine",
       "startTime": 7865.64,
       "description": "Lindy transitions to describing the arrival of the power company's boring machine."
     },
     {
+      "title": "Jockeying Between Jobs",
+      "startTime": 7923.24,
+      "description": "Lindy shifts to describing his efforts to manage both the Kenora and Dinsmore jobs before winter.",
+      "minor": true
+    },
+    {
+      "title": "Jack Gardner's Work Habits",
+      "startTime": 7968.72,
+      "description": "Lindy transitions to discussing Jack Gardner, a former employee, and his leadership style.",
+      "minor": true
+    },
+    {
       "title": "Sunday Work & Crew Discipline",
       "startTime": 8047.23,
       "description": "Lindy describes an attempt to work on Sunday and the crew's subsequent behavior."
+    },
+    {
+      "title": "Regina Return & Crew Pay",
+      "startTime": 8117.63,
+      "description": "Lindy recounts his return to Regina and the issue of paying the crew.",
+      "minor": true
+    },
+    {
+      "title": "Starting Work in 1948",
+      "startTime": 8189.59,
+      "description": "Lindy transitions to discussing the 1948 season and the challenges of securing jobs.",
+      "minor": true
     },
     {
       "title": "Early Job Locations and Construction",
@@ -216,9 +528,27 @@
       "description": "Lindy describes the line from Yorkton to Melville and down to Kalele, and the challenges of completing it due to weather."
     },
     {
+      "title": "Farm Electrification Projects",
+      "startTime": 8550.25,
+      "description": "Lindy shifts to discussing farm electrification projects and the number of farms they worked on.",
+      "minor": true
+    },
+    {
+      "title": "Alberta Farm Work",
+      "startTime": 8615.29,
+      "description": "Lindy transitions to discussing his work building farms in Alberta around Lloydminster and Beggarville.",
+      "minor": true
+    },
+    {
       "title": "Years 1950-1952",
       "startTime": 8785.96,
       "description": "Lindy transitions to a chronological recounting of his work, detailing the years 1950, 1951, and 1952, including mileage of line built and number of farms."
+    },
+    {
+      "title": "1953 Farm Operations",
+      "startTime": 8870.34,
+      "description": "Lindy shifts to describing farm operations specifically in 1953, detailing the number of farms worked and the daily work routine.",
+      "minor": true
     },
     {
       "title": "Farm Operation Changes",
@@ -226,9 +556,21 @@
       "description": "Lindy shifts from discussing large farm runs to a discussion of scattered filling operations and crew management."
     },
     {
+      "title": "Bidding and 1959",
+      "startTime": 9144.93,
+      "description": "Lindy transitions to discussing bidding practices and the year 1959, explaining his refusal to bid below cost and the profitability of that year.",
+      "minor": true
+    },
+    {
       "title": "River Crossing Project Details",
       "startTime": 9261.74,
       "description": "Lindy transitions from discussing general work conditions to a specific joint bid on a high-voltage line from Shellbrook to Prince Albert."
+    },
+    {
+      "title": "Swift Current Project Details",
+      "startTime": 9385.46,
+      "description": "Lindy transitions from discussing the general timeline to detailing a specific, large project at Swift Current and the associated challenges.",
+      "minor": true
     },
     {
       "title": "Project Profitability Analysis",
@@ -236,9 +578,27 @@
       "description": "Lindy explains how he had his assistant review the Swift Current project's finances to determine profitability."
     },
     {
+      "title": "Contracting & Power Prices",
+      "startTime": 9575.0,
+      "description": "Lindy transitions to discussing the changing landscape of power contracting and rising prices.",
+      "minor": true
+    },
+    {
       "title": "Death of Bill Zaharachuk & Business Partnerships",
       "startTime": 9710.15,
       "description": "Lindy discusses the deaths of Ron Kennedy and Bill Zaharachuk and subsequent changes in company ownership."
+    },
+    {
+      "title": "Recalling Visitors and Resuming Recording",
+      "startTime": 9762.35,
+      "description": "Lindy announces his intention to review his previous statements and generalize about past events.",
+      "minor": true
+    },
+    {
+      "title": "Life in Electrical Field",
+      "startTime": 9820.65,
+      "description": "Lindy transitions to discussing his experiences in the electrical field, describing it as a 'hectic time.'",
+      "minor": true
     },
     {
       "title": "Management and Team Dynamics in Contracting",
@@ -256,9 +616,27 @@
       "description": "Lindy transitions to discussing his experience with inside wiring and obtaining his journeyman's papers.; Lindy explains how Art Miller's company keeps him on retainer due to his journeyman's paper."
     },
     {
+      "title": "Technician vs. Electrician",
+      "startTime": 10338.68,
+      "description": "Lindy differentiates his electrical expertise from his lack of knowledge in other technical fields like radio and tape recorders.",
+      "minor": true
+    },
+    {
       "title": "Value of Mentorship",
       "startTime": 10424.14,
       "description": "Lindy recounts a former employee's praise for his company and the valuable experience gained there."
+    },
+    {
+      "title": "Early Wage Details",
+      "startTime": 10483.47,
+      "description": "Lindy begins discussing his early wages and working conditions in Worthington, Iowa.",
+      "minor": true
+    },
+    {
+      "title": "South Dakota Lineman Work",
+      "startTime": 10537.57,
+      "description": "Lindy transitions to discussing his work as a lineman in South Dakota and the associated wages and room/board.",
+      "minor": true
     },
     {
       "title": "Wage Increase and Training",
@@ -266,460 +644,16 @@
       "description": "Lindy describes a foreman offering him a raise to fifty cents an hour and introducing him to hotline work."
     },
     {
+      "title": "Early Employment and Wages",
+      "startTime": 10746.93,
+      "description": "Lindy shifts to discussing his time operating a power plant and the subsequent wage change.",
+      "minor": true
+    },
+    {
       "title": "Incorporation and Salary Advice",
       "startTime": 10840.34,
       "description": "Lindy shifts to discussing the incorporation of the company in 1953 and seeking advice from auditors regarding his salary."
     }
   ],
-  "summary": "A personal memoir recording covering family memories and life stories.",
-  "stories": [
-    {
-      "title": "Initial Microphone Setup and Life History Recording",
-      "startTime": 160.44,
-      "description": "Lindy adjusts microphone distance and experiments with recording quality.",
-      "chapterIndex": 0,
-      "id": "story-0"
-    },
-    {
-      "title": "Temporary Housing and Travel to the Farm",
-      "startTime": 299.06,
-      "description": "Lindy describes his family's initial living situation in a small-town hotel.",
-      "chapterIndex": 1,
-      "id": "story-1"
-    },
-    {
-      "title": "Building a New House",
-      "startTime": 377.34,
-      "description": "Lindy describes the new house his father built, detailing its layout and size.",
-      "chapterIndex": 1,
-      "id": "story-2"
-    },
-    {
-      "title": "Starting a Track Line",
-      "startTime": 599.66,
-      "description": "Lindy elaborates on the specifics of his trapping activities, including the types of animals he trapped.",
-      "chapterIndex": 2,
-      "id": "story-3"
-    },
-    {
-      "title": "1917-1918 Flu Pandemic",
-      "startTime": 856.25,
-      "description": "Lindy transitions to recounting the severe influenza pandemic of 1917-1918 and its impact on his family and community.",
-      "chapterIndex": 4,
-      "id": "story-4"
-    },
-    {
-      "title": "Grasshopper Infestation",
-      "startTime": 1062.36,
-      "description": "Lindy transitions to describing a significant grasshopper infestation and the efforts to combat it.",
-      "chapterIndex": 5,
-      "id": "story-5"
-    },
-    {
-      "title": "Separator Argument",
-      "startTime": 1108.26,
-      "description": "Lindy shifts the narrative to an incident involving a separator and an argument between several individuals.",
-      "chapterIndex": 5,
-      "id": "story-6"
-    },
-    {
-      "title": "Discussing Family Events and a Future Story",
-      "startTime": 1350.92,
-      "description": "Lindy explicitly states he is pausing the narrative and will return to the story of his father later.",
-      "chapterIndex": 6,
-      "id": "story-7"
-    },
-    {
-      "title": "Reflecting on Early Childhood",
-      "startTime": 1414.99,
-      "description": "Lindy shifts to reminiscing about his early childhood experiences and memories.",
-      "chapterIndex": 6,
-      "id": "story-8"
-    },
-    {
-      "title": "Witnessing a Fatal Train Accident",
-      "startTime": 1469.27,
-      "description": "Lindy recalls a traumatic event involving a runaway train and a tragic accident.",
-      "chapterIndex": 6,
-      "id": "story-9"
-    },
-    {
-      "title": "Summer Interests",
-      "startTime": 1649.28,
-      "description": "Lindy transitions to talking about his summer interests, including baseball and wrestling.",
-      "chapterIndex": 7,
-      "id": "story-10"
-    },
-    {
-      "title": "Disputes Over Compensation and Farm Management",
-      "startTime": 1904.53,
-      "description": "Lindy begins discussing his financial compensation for managing the farm and subsequent complaints from others.",
-      "chapterIndex": 9,
-      "id": "story-11"
-    },
-    {
-      "title": "Power Gang Job Offer",
-      "startTime": 2154.95,
-      "description": "Lindy receives a tip about a job opening on a power gang and applies for the position.",
-      "chapterIndex": 10,
-      "id": "story-12"
-    },
-    {
-      "title": "Lori Farmer's Difficult Situation",
-      "startTime": 2384.67,
-      "description": "Lindy encounters Lori, a farmer in distress, and decides to quit his job to help him with his crops.",
-      "chapterIndex": 11,
-      "id": "story-13"
-    },
-    {
-      "title": "Nebraska Harvest Help",
-      "startTime": 2580.75,
-      "description": "Lindy recounts traveling to Nebraska to help his cousin with the harvest.",
-      "chapterIndex": 12,
-      "id": "story-14"
-    },
-    {
-      "title": "Extreme Heat in Nebraska",
-      "startTime": 2744.38,
-      "description": "Lindy describes the intense heat he experienced during the Nebraska harvest in 1927.",
-      "chapterIndex": 13,
-      "id": "story-15"
-    },
-    {
-      "title": "Visit to Larry's and Aberdeen",
-      "startTime": 2804.88,
-      "description": "Lindy recounts his travels after leaving Diener's, including a stop at Larry's and his journey to Aberdeen, South Dakota.",
-      "chapterIndex": 13,
-      "id": "story-16"
-    },
-    {
-      "title": "Machine Breakdown and Repair",
-      "startTime": 2965.55,
-      "description": "Lindy details the breakdown of the threshing machine during the trial run and the subsequent repairs.",
-      "chapterIndex": 14,
-      "id": "story-17"
-    },
-    {
-      "title": "Service Station Conversation",
-      "startTime": 3026.36,
-      "description": "Lindy relays a conversation he had with a service station attendant about his age and experience.",
-      "chapterIndex": 14,
-      "id": "story-18"
-    },
-    {
-      "title": "Power Line Job Begins",
-      "startTime": 3298.29,
-      "description": "Lindy describes finding and starting a job on a power line in Loyola, North Dakota.",
-      "chapterIndex": 15,
-      "id": "story-19"
-    },
-    {
-      "title": "Building Power Line North",
-      "startTime": 3447.89,
-      "description": "Lindy describes building a large power line across country, including the challenges of the terrain.",
-      "chapterIndex": 16,
-      "id": "story-20"
-    },
-    {
-      "title": "Harvest Time and Separator",
-      "startTime": 3513.36,
-      "description": "Lindy shifts the discussion to harvest time and the need to return to Frederick to operate a separator.",
-      "chapterIndex": 16,
-      "id": "story-21"
-    },
-    {
-      "title": "Tape Recording Issues and Line Construction",
-      "startTime": 3751.13,
-      "description": "Lindy expresses concerns about the recording process and potential duplication of information on separate tapes.",
-      "chapterIndex": 17,
-      "id": "story-22"
-    },
-    {
-      "title": "Farm Finances and Paperwork",
-      "startTime": 3823.72,
-      "description": "Lindy shifts to discussing his interactions with immigration authorities and returning to the farm.",
-      "chapterIndex": 17,
-      "id": "story-23"
-    },
-    {
-      "title": "January Date and Recollections",
-      "startTime": 3941.47,
-      "description": "Lindy states the date as January 30, 1981, and begins reminiscing about Christmas and the family's departure.",
-      "chapterIndex": 18,
-      "id": "story-24"
-    },
-    {
-      "title": "Seeking Employment After the Harvest of 1929",
-      "startTime": 4007.93,
-      "description": "Lindy transitions to discussing his farming experience with Mac in the spring of 1929.",
-      "chapterIndex": 18,
-      "id": "story-25"
-    },
-    {
-      "title": "Return to Farm and Mother",
-      "startTime": 4152.43,
-      "description": "Lindy describes returning to the farm and visiting his mother in Waverton.",
-      "chapterIndex": 19,
-      "id": "story-26"
-    },
-    {
-      "title": "Workplace Dispute and Armed Protest",
-      "startTime": 4245.24,
-      "description": "Lindy transitions to a story about a labor dispute and his subsequent one-man strike.",
-      "chapterIndex": 19,
-      "id": "story-27"
-    },
-    {
-      "title": "Crew Management and Work",
-      "startTime": 4639.57,
-      "description": "Lindy details his experience leading a crew and the work they performed that summer, including locations and equipment.",
-      "chapterIndex": 21,
-      "id": "story-28"
-    },
-    {
-      "title": "Severe October Snowstorm",
-      "startTime": 4705.56,
-      "description": "Lindy recounts a severe snowstorm in October and its impact on the region.",
-      "chapterIndex": 21,
-      "id": "story-29"
-    },
-    {
-      "title": "Power Commission Job Offer",
-      "startTime": 4846.06,
-      "description": "Lindy receives an offer from the power commission and puts in an application for a lineman position.",
-      "chapterIndex": 22,
-      "id": "story-30"
-    },
-    {
-      "title": "District Supervisor Responsibilities",
-      "startTime": 4903.45,
-      "description": "Lindy is assigned to a district in Saskatoon and given responsibility for multiple towns.",
-      "chapterIndex": 22,
-      "id": "story-31"
-    },
-    {
-      "title": "Iowa Trip with Mother",
-      "startTime": 5072.81,
-      "description": "Lindy decides to take a three-month leave to take his mother on a trip to Iowa.",
-      "chapterIndex": 23,
-      "id": "story-32"
-    },
-    {
-      "title": "Timeline of Farm Work and Wiring Jobs (1932-1934)",
-      "startTime": 5326.31,
-      "description": "Lindy clarifies the timeline of his work, mentioning the year 1932.",
-      "chapterIndex": 25,
-      "id": "story-33"
-    },
-    {
-      "title": "Financial Backing from Power Corp",
-      "startTime": 5519.72,
-      "description": "Lindy receives financial backing from the Power Corporation to purchase the Tompkins power plant.",
-      "chapterIndex": 26,
-      "id": "story-34"
-    },
-    {
-      "title": "Virginia Electrics Job",
-      "startTime": 5580.08,
-      "description": "Lindy transitions to discussing his work for Virginia Electrics and the associated living arrangements.",
-      "chapterIndex": 26,
-      "id": "story-35"
-    },
-    {
-      "title": "Preparing for an Electrician's Exam",
-      "startTime": 5635.3,
-      "description": "Lindy shifts the conversation to his experience taking and passing the electrician's exam in 1934.",
-      "chapterIndex": 26,
-      "id": "story-36"
-    },
-    {
-      "title": "Power Commission Opportunity",
-      "startTime": 6153.35,
-      "description": "Lindy expresses his interest in working for the power commission and building power lines.",
-      "chapterIndex": 30,
-      "id": "story-37"
-    },
-    {
-      "title": "Securing Initial Contracts",
-      "startTime": 6236.85,
-      "description": "Lindy details securing his first contracts for line construction from Halbrite to Midale and Estevan to South.",
-      "chapterIndex": 30,
-      "id": "story-38"
-    },
-    {
-      "title": "Highdale and Estevan Projects",
-      "startTime": 6404.82,
-      "description": "Lindy details the two projects he bid on: the power line at Highdale 2 and the Estevan to Stoughton line.",
-      "chapterIndex": 31,
-      "id": "story-39"
-    },
-    {
-      "title": "Acquiring a Truck",
-      "startTime": 6712.22,
-      "description": "Lindy describes how he acquired his first truck, highlighting the difficulty in obtaining one at the time.",
-      "chapterIndex": 33,
-      "id": "story-40"
-    },
-    {
-      "title": "Bidding Process Details",
-      "startTime": 6979.87,
-      "description": "Lindy discusses the bidding process for the power line construction project, including the number of bids and the price differences.",
-      "chapterIndex": 34,
-      "id": "story-41"
-    },
-    {
-      "title": "North Regina Work",
-      "startTime": 7037.97,
-      "description": "Lindy shifts to describing work performed for the Power Commission in North Regina.",
-      "chapterIndex": 34,
-      "id": "story-42"
-    },
-    {
-      "title": "High Voltage Line Construction",
-      "startTime": 7153.78,
-      "description": "Lindy begins detailing the construction of a high voltage line.",
-      "chapterIndex": 35,
-      "id": "story-43"
-    },
-    {
-      "title": "Relating Assistance to Men",
-      "startTime": 7236.12,
-      "description": "Lindy begins to describe how he secured help for the men working on the project, starting with a fellow named Jack Gardner.",
-      "chapterIndex": 35,
-      "id": "story-44"
-    },
-    {
-      "title": "Detailing Pole Setting Process",
-      "startTime": 7351.17,
-      "description": "Lindy describes the process of setting poles, including hand tamping and the number of men involved.",
-      "chapterIndex": 36,
-      "id": "story-45"
-    },
-    {
-      "title": "Decision Regarding Family Reunion",
-      "startTime": 7694.66,
-      "description": "Lindy shifts from discussing his 1947 work to recounting a family reunion in Oregon and the circumstances surrounding his decision to attend.",
-      "chapterIndex": 38,
-      "id": "story-46"
-    },
-    {
-      "title": "New Job Offer and Negotiation",
-      "startTime": 7770.35,
-      "description": "Lindy transitions from the reunion to discussing a new job assigned by the superintendent, running from Kenora to Priestville and Norquay.",
-      "chapterIndex": 38,
-      "id": "story-47"
-    },
-    {
-      "title": "Jockeying Between Jobs",
-      "startTime": 7923.24,
-      "description": "Lindy shifts to describing his efforts to manage both the Kenora and Dinsmore jobs before winter.",
-      "chapterIndex": 39,
-      "id": "story-48"
-    },
-    {
-      "title": "Jack Gardner's Work Habits",
-      "startTime": 7968.72,
-      "description": "Lindy transitions to discussing Jack Gardner, a former employee, and his leadership style.",
-      "chapterIndex": 39,
-      "id": "story-49"
-    },
-    {
-      "title": "Regina Return & Crew Pay",
-      "startTime": 8117.63,
-      "description": "Lindy recounts his return to Regina and the issue of paying the crew.",
-      "chapterIndex": 40,
-      "id": "story-50"
-    },
-    {
-      "title": "Starting Work in 1948",
-      "startTime": 8189.59,
-      "description": "Lindy transitions to discussing the 1948 season and the challenges of securing jobs.",
-      "chapterIndex": 40,
-      "id": "story-51"
-    },
-    {
-      "title": "Farm Electrification Projects",
-      "startTime": 8550.25,
-      "description": "Lindy shifts to discussing farm electrification projects and the number of farms they worked on.",
-      "chapterIndex": 42,
-      "id": "story-52"
-    },
-    {
-      "title": "Alberta Farm Work",
-      "startTime": 8615.29,
-      "description": "Lindy transitions to discussing his work building farms in Alberta around Lloydminster and Beggarville.",
-      "chapterIndex": 42,
-      "id": "story-53"
-    },
-    {
-      "title": "1953 Farm Operations",
-      "startTime": 8870.34,
-      "description": "Lindy shifts to describing farm operations specifically in 1953, detailing the number of farms worked and the daily work routine.",
-      "chapterIndex": 43,
-      "id": "story-54"
-    },
-    {
-      "title": "Bidding and 1959",
-      "startTime": 9144.93,
-      "description": "Lindy transitions to discussing bidding practices and the year 1959, explaining his refusal to bid below cost and the profitability of that year.",
-      "chapterIndex": 44,
-      "id": "story-55"
-    },
-    {
-      "title": "Swift Current Project Details",
-      "startTime": 9385.46,
-      "description": "Lindy transitions from discussing the general timeline to detailing a specific, large project at Swift Current and the associated challenges.",
-      "chapterIndex": 45,
-      "id": "story-56"
-    },
-    {
-      "title": "Contracting & Power Prices",
-      "startTime": 9575.0,
-      "description": "Lindy transitions to discussing the changing landscape of power contracting and rising prices.",
-      "chapterIndex": 46,
-      "id": "story-57"
-    },
-    {
-      "title": "Recalling Visitors and Resuming Recording",
-      "startTime": 9762.35,
-      "description": "Lindy announces his intention to review his previous statements and generalize about past events.",
-      "chapterIndex": 47,
-      "id": "story-58"
-    },
-    {
-      "title": "Life in Electrical Field",
-      "startTime": 9820.65,
-      "description": "Lindy transitions to discussing his experiences in the electrical field, describing it as a 'hectic time.'",
-      "chapterIndex": 47,
-      "id": "story-59"
-    },
-    {
-      "title": "Technician vs. Electrician",
-      "startTime": 10338.68,
-      "description": "Lindy differentiates his electrical expertise from his lack of knowledge in other technical fields like radio and tape recorders.",
-      "chapterIndex": 50,
-      "id": "story-60"
-    },
-    {
-      "title": "Early Wage Details",
-      "startTime": 10483.47,
-      "description": "Lindy begins discussing his early wages and working conditions in Worthington, Iowa.",
-      "chapterIndex": 51,
-      "id": "story-61"
-    },
-    {
-      "title": "South Dakota Lineman Work",
-      "startTime": 10537.57,
-      "description": "Lindy transitions to discussing his work as a lineman in South Dakota and the associated wages and room/board.",
-      "chapterIndex": 51,
-      "id": "story-62"
-    },
-    {
-      "title": "Early Employment and Wages",
-      "startTime": 10746.93,
-      "description": "Lindy shifts to discussing his time operating a power plant and the subsequent wage change.",
-      "chapterIndex": 52,
-      "id": "story-63"
-    }
-  ]
+  "summary": "A personal memoir recording covering family memories and life stories."
 }

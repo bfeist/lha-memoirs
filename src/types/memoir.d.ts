@@ -25,19 +25,12 @@ interface Chapter {
   title: string;
   startTime: number;
   description: string;
-}
-
-interface Story {
-  id: string;
-  title: string;
-  startTime: number;
-  description: string;
-  chapterIndex: number;
+  /** If true, this is a minor chapter (sub-section/story within a parent chapter) */
+  minor?: boolean;
 }
 
 interface ChaptersData {
   chapters: Chapter[];
-  stories?: Story[];
   summary: string;
 }
 
@@ -60,10 +53,11 @@ interface WaveformData {
 }
 
 interface AlternateSegmentRef {
-  id: string; // "chapter-0" or "story-5"
-  type: "chapter" | "story";
+  id: string; // "chapter-0" or "chapter-5" (for minor chapters, previously "story-5")
+  type: "chapter";
   startTime: number;
   title: string;
+  minor?: boolean;
 }
 
 // Legacy format (kept for backwards compatibility)

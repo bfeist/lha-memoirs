@@ -473,16 +473,18 @@ Respond with ONLY valid JSON:
     print("\n🔍 Validating transitions against actual transcript content...")
     validated_transitions = validate_transitions_against_content(all_transitions, segments, model_name)
     
-    # Group into chapters (major) and stories (minor)
-    chapters, stories = group_into_chapters_and_stories(validated_transitions, total_duration)
+    # Group into chapters - major chapters and minor chapters (sub-sections)
+    all_chapters = group_into_chapters(validated_transitions, total_duration)
+    
+    # Separate for summary generation (major chapters only)
+    major_chapters = [ch for ch in all_chapters if not ch.get("minor")]
     
     # Generate overall summary
     print("\n   Generating overall summary...")
-    summary = generate_summary(segments, model_name, chapters)
+    summary = generate_summary(segments, model_name, major_chapters)
     
     return {
-        "chapters": chapters,
-        "stories": stories,
+        "chapters": all_chapters,
         "summary": summary
     }
 
@@ -605,15 +607,17 @@ Respond with ONLY valid JSON."""
     return validated
 
 
-def group_into_chapters_and_stories(transitions: list, total_duration: float) -> tuple[list, list]:
+def group_into_chapters(transitions: list, total_duration: float) -> list:
     """
-    Group transitions into chapters (major sections) and stories (sub-sections).
+    Group transitions into chapters - both major chapters and minor chapters (sub-sections).
     
-    Chapters are major topic shifts (e.g., life stages, major events).
-    Stories are individual anecdotes within chapters.
+    Major chapters are significant topic shifts (e.g., life stages, major events).
+    Minor chapters are individual anecdotes/sub-sections within major chapters.
+    
+    Returns a single list of chapters, with minor chapters having `minor: True`.
     """
     if not transitions:
-        return [], []
+        return []
     
     # Sort by time
     transitions = sorted(transitions, key=lambda t: t["startTime"])
@@ -621,7 +625,6 @@ def group_into_chapters_and_stories(transitions: list, total_duration: float) ->
     # First, identify natural chapter boundaries by looking at duration gaps
     # and topic significance
     chapters = []
-    stories = []
     
     # The first transition should already have the correct start time from analyze_opening_content
     # (which uses the first segment's actual start time)
@@ -678,36 +681,34 @@ def group_into_chapters_and_stories(transitions: list, total_duration: float) ->
             current_chapter_start = trans["startTime"]
             trans["isChapter"] = True
         else:
-            # It's a story within the current chapter
+            # It's a minor chapter (sub-section) within the current chapter
             trans["isChapter"] = False
     
-    # Now assign stories - skip transitions that became chapters (same title/time)
-    story_id = 0
+    # Collect minor chapters - skip transitions that became major chapters (same title/time)
+    minor_chapters = []
     for trans in transitions:
         chapter_idx = find_chapter_index(trans["startTime"], chapters)
         chapter = chapters[chapter_idx] if chapter_idx < len(chapters) else None
         
-        # Skip if this transition is the same as the chapter it belongs to
+        # Skip if this transition is the same as the major chapter it belongs to
         if chapter and abs(trans["startTime"] - chapter["startTime"]) < 1.0 and trans["title"] == chapter["title"]:
             continue
         
-        stories.append({
+        minor_chapters.append({
             "title": trans["title"],
             "startTime": trans["startTime"],
             "description": trans.get("description", ""),
-            "chapterIndex": chapter_idx,
-            "id": f"story-{story_id}"
+            "minor": True
         })
-        story_id += 1
     
     # Merge chapters that are too short
     chapters = merge_short_chapters(chapters, total_duration)
     
-    # Update story chapter indices after merge
-    for story in stories:
-        story["chapterIndex"] = find_chapter_index(story["startTime"], chapters)
+    # Combine major and minor chapters into a single sorted list
+    all_chapters = chapters + minor_chapters
+    all_chapters = sorted(all_chapters, key=lambda c: c["startTime"])
     
-    return chapters, stories
+    return all_chapters
 
 
 def is_major_transition(title: str, description: str) -> bool:
@@ -1056,14 +1057,21 @@ Be direct and factual."""
 
 
 def finalize_chapters(chapters: list) -> list:
-    """Finalize chapters for the output format."""
+    """Finalize chapters for the output format.
+    
+    Preserves the 'minor' property for sub-section chapters.
+    """
     finalized = []
     for chapter in chapters:
-        finalized.append({
+        ch = {
             "title": chapter["title"],
             "startTime": chapter["startTime"],
             "description": chapter.get("description", ""),
-        })
+        }
+        # Preserve minor property if present
+        if chapter.get("minor"):
+            ch["minor"] = True
+        finalized.append(ch)
     
     return finalized
 
@@ -1109,31 +1117,27 @@ def process_recording(recording_folder: Path, model_name: str) -> bool:
         print("\n❌ Chapter analysis failed!")
         return False
     
-    chapters = result["chapters"]
-    stories = result.get("stories", [])
+    all_chapters = result["chapters"]
+    major_chapters = [ch for ch in all_chapters if not ch.get("minor")]
+    minor_chapters = [ch for ch in all_chapters if ch.get("minor")]
     
-    print(f"\n📚 Identified {len(chapters)} chapters:")
-    for ch in chapters:
+    print(f"\n📚 Identified {len(major_chapters)} major chapters:")
+    for ch in major_chapters:
         minutes = int(ch["startTime"] // 60)
         seconds = int(ch["startTime"] % 60)
         print(f"   [{minutes:02d}:{seconds:02d}] {ch['title']}")
     
-    if stories:
-        print(f"\n📖 Identified {len(stories)} stories")
+    if minor_chapters:
+        print(f"\n📖 Identified {len(minor_chapters)} minor chapters (sub-sections)")
     
     # Finalize chapters
-    finalized_chapters = finalize_chapters(chapters)
-    
-    # Update story chapterIndex references after chapter finalization
-    for story in stories:
-        story["chapterIndex"] = find_chapter_index(story["startTime"], finalized_chapters)
+    finalized_chapters = finalize_chapters(all_chapters)
     
     # Save chapters data (files info is in transcript.json, not duplicated here)
     chapters_path = recording_folder / "chapters.json"
     chapters_output = {
         "chapters": finalized_chapters,
         "summary": result.get("summary", ""),
-        "stories": stories,
     }
     
     with open(chapters_path, "w", encoding="utf-8") as f:

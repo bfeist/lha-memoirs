@@ -12,7 +12,7 @@ function getRecordingFolderName(recordingPath: string): string {
   return parts[parts.length - 1];
 }
 
-// Find alternate telling for a segment (chapter or story) by matching id
+// Find alternate telling for a segment (chapter) by matching id
 function findAlternateTellingForSegment(
   alternateTellings: AlternateTelling[] | undefined,
   currentRecordingFolder: string,
@@ -49,36 +49,49 @@ function findAlternateTellingForSegment(
   return null;
 }
 
-// Group stories by chapter index
-function groupStoriesByChapter(stories: Story[] | undefined): Map<number, Story[]> {
-  const grouped = new Map<number, Story[]>();
-  if (!stories) return grouped;
+/** Represents a major chapter with its associated minor chapters */
+interface ChapterGroup {
+  majorChapter: Chapter;
+  majorIndex: number;
+  minorChapters: { chapter: Chapter; globalIndex: number }[];
+}
 
-  for (const story of stories) {
-    const chapterIdx = story.chapterIndex;
-    if (!grouped.has(chapterIdx)) {
-      grouped.set(chapterIdx, []);
+/**
+ * Group chapters into major chapters with their minor sub-chapters.
+ * Minor chapters are assigned to the most recent major chapter before them.
+ */
+function groupChaptersByMajor(chapters: Chapter[]): ChapterGroup[] {
+  const groups: ChapterGroup[] = [];
+
+  chapters.forEach((chapter, globalIndex) => {
+    if (!chapter.minor) {
+      // Major chapter - start a new group
+      groups.push({
+        majorChapter: chapter,
+        majorIndex: groups.length,
+        minorChapters: [],
+      });
+    } else {
+      // Minor chapter - add to the most recent major chapter group
+      if (groups.length > 0) {
+        groups[groups.length - 1].minorChapters.push({ chapter, globalIndex });
+      }
     }
-    grouped.get(chapterIdx)!.push(story);
-  }
+  });
 
-  return grouped;
+  return groups;
 }
 
 export function Chapters({
   chapters,
-  stories,
   currentTime,
   onChapterClick,
-  onStoryClick,
   alternateTellings,
   recordingPath,
 }: {
   chapters: Chapter[];
-  stories?: Story[];
   currentTime: number;
   onChapterClick: (chapter: Chapter) => void;
-  onStoryClick?: (story: Story) => void;
   alternateTellings?: AlternateTelling[];
   recordingPath?: string;
 }): React.ReactElement {
@@ -93,10 +106,10 @@ export function Chapters({
     [recordingPath]
   );
 
-  // Group stories by chapter
-  const storiesByChapter = useMemo(() => groupStoriesByChapter(stories), [stories]);
+  // Group chapters into major chapters with their minor sub-chapters
+  const chapterGroups = useMemo(() => groupChaptersByMajor(chapters), [chapters]);
 
-  // Determine which chapter is currently active
+  // Determine which chapter (major or minor) is currently active by global index
   const currentChapterIndex = useMemo((): number | null => {
     for (let i = chapters.length - 1; i >= 0; i--) {
       if (currentTime >= chapters[i].startTime) {
@@ -106,16 +119,24 @@ export function Chapters({
     return chapters.length > 0 ? 0 : null;
   }, [chapters, currentTime]);
 
-  // Determine which story is currently active
-  const currentStoryId = useMemo((): string | null => {
-    if (!stories || stories.length === 0) return null;
-    for (let i = stories.length - 1; i >= 0; i--) {
-      if (currentTime >= stories[i].startTime) {
-        return stories[i].id;
+  // Determine which major chapter group contains the current chapter
+  const currentMajorGroupIndex = useMemo((): number | null => {
+    if (currentChapterIndex === null) return null;
+    // Find which group contains this chapter index
+    for (let i = chapterGroups.length - 1; i >= 0; i--) {
+      const group = chapterGroups[i];
+      // Check if current chapter is this major chapter or one of its minors
+      const majorChapterGlobalIndex = chapters.findIndex((c) => c === group.majorChapter);
+      if (currentChapterIndex >= majorChapterGlobalIndex) {
+        // Check if it's within this group's range
+        const nextGroup = chapterGroups[i + 1];
+        if (!nextGroup) return i;
+        const nextMajorGlobalIndex = chapters.findIndex((c) => c === nextGroup.majorChapter);
+        if (currentChapterIndex < nextMajorGlobalIndex) return i;
       }
     }
-    return stories.length > 0 ? stories[0].id : null;
-  }, [stories, currentTime]);
+    return chapterGroups.length > 0 ? 0 : null;
+  }, [chapters, chapterGroups, currentChapterIndex]);
 
   // Auto-scroll to keep current chapter in view
   useEffect(() => {
@@ -158,19 +179,10 @@ export function Chapters({
     }
   };
 
-  // Handle story click
-  const handleStoryClick = (story: Story, e: React.MouseEvent) => {
+  // Handle minor chapter click
+  const handleMinorChapterClick = (chapter: Chapter, e: React.MouseEvent) => {
     e.stopPropagation();
-    if (onStoryClick) {
-      onStoryClick(story);
-    } else {
-      // Fallback: create a chapter-like object to use onChapterClick
-      onChapterClick({
-        title: story.title,
-        startTime: story.startTime,
-        description: story.description,
-      });
-    }
+    onChapterClick(chapter);
   };
 
   return (
@@ -180,18 +192,25 @@ export function Chapters({
       <p className={styles.hint}>Click a chapter to jump to that section</p>
 
       <nav ref={containerRef} className={styles.tocList} aria-label="Table of Contents">
-        {chapters.map((chapter, index) => {
-          const chapterStories = storiesByChapter.get(index) || [];
-          const hasStories = chapterStories.length > 0;
-          // If this chapter has stories and one of them is active, don't highlight the chapter
-          const isCurrentStoryInThisChapter =
-            hasStories && currentStoryId && chapterStories.some((s) => s.id === currentStoryId);
-          const isActive = index === currentChapterIndex && !isCurrentStoryInThisChapter;
-          const isPast =
-            chapter.startTime < currentTime && !isActive && !isCurrentStoryInThisChapter;
+        {chapterGroups.map((group, groupIndex) => {
+          const { majorChapter, minorChapters } = group;
+          const majorChapterGlobalIndex = chapters.findIndex((c) => c === majorChapter);
+          const hasMinorChapters = minorChapters.length > 0;
 
-          // Check if this chapter itself has an alternate telling
-          const chapterId = `chapter-${index}`;
+          // Check if a minor chapter in this group is active
+          const activeMinorInGroup = minorChapters.find(
+            ({ globalIndex }) => globalIndex === currentChapterIndex
+          );
+          const isMinorActiveInThisGroup = !!activeMinorInGroup;
+
+          // Major chapter is active only if it's the current chapter and no minor is active
+          const isMajorActive =
+            currentChapterIndex === majorChapterGlobalIndex && !isMinorActiveInThisGroup;
+          const isMajorPast =
+            majorChapter.startTime < currentTime && !isMajorActive && !isMinorActiveInThisGroup;
+
+          // Check if this major chapter has an alternate telling
+          const chapterId = `chapter-${majorChapterGlobalIndex}`;
           const chapterAlternate = findAlternateTellingForSegment(
             alternateTellings,
             currentRecordingFolder,
@@ -200,25 +219,25 @@ export function Chapters({
 
           return (
             <div
-              key={index}
-              ref={isActive ? activeChapterRef : null}
+              key={groupIndex}
+              ref={groupIndex === currentMajorGroupIndex ? activeChapterRef : null}
               className={styles.chapterGroup}
             >
               <button
-                onClick={() => onChapterClick(chapter)}
-                className={`${styles.tocItem} ${isActive ? styles.active : ""} ${isPast ? styles.past : ""}`}
-                aria-current={isActive ? "true" : undefined}
+                onClick={() => onChapterClick(majorChapter)}
+                className={`${styles.tocItem} ${isMajorActive ? styles.active : ""} ${isMajorPast ? styles.past : ""}`}
+                aria-current={isMajorActive ? "true" : undefined}
               >
-                <span className={styles.chapterNumber}>{index + 1}</span>
+                <span className={styles.chapterNumber}>{groupIndex + 1}</span>
 
                 <div className={styles.chapterInfo}>
-                  <span className={styles.chapterTitle}>{chapter.title}</span>
-                  {chapter.description && (
-                    <span className={styles.chapterDescription}>{chapter.description}</span>
+                  <span className={styles.chapterTitle}>{majorChapter.title}</span>
+                  {majorChapter.description && (
+                    <span className={styles.chapterDescription}>{majorChapter.description}</span>
                   )}
                 </div>
 
-                <span className={styles.timestamp}>{formatTime(chapter.startTime)}</span>
+                <span className={styles.timestamp}>{formatTime(majorChapter.startTime)}</span>
 
                 {chapterAlternate && (
                   <span
@@ -249,46 +268,49 @@ export function Chapters({
                 )}
               </button>
 
-              {/* Nested stories */}
-              {hasStories && (
-                <div className={styles.storiesList}>
-                  {chapterStories.map((story) => {
-                    // A story is only active if it matches currentStoryId AND we're still in this chapter
-                    const isStoryActive =
-                      story.id === currentStoryId && index === currentChapterIndex;
-                    const isStoryPast = story.startTime < currentTime && !isStoryActive;
-                    const storyAlternate = findAlternateTellingForSegment(
+              {/* Nested minor chapters */}
+              {hasMinorChapters && (
+                <div className={styles.minorChaptersList}>
+                  {minorChapters.map(({ chapter: minorChapter, globalIndex }) => {
+                    const isMinorActive = globalIndex === currentChapterIndex;
+                    const isMinorPast = minorChapter.startTime < currentTime && !isMinorActive;
+
+                    // Check if this minor chapter has an alternate telling
+                    const minorChapterId = `chapter-${globalIndex}`;
+                    const minorAlternate = findAlternateTellingForSegment(
                       alternateTellings,
                       currentRecordingFolder,
-                      story.id
+                      minorChapterId
                     );
 
                     return (
                       <button
-                        key={story.id}
-                        onClick={(e) => handleStoryClick(story, e)}
-                        className={`${styles.storyItem} ${isStoryActive ? styles.active : ""} ${isStoryPast ? styles.past : ""}`}
-                        aria-current={isStoryActive ? "true" : undefined}
+                        key={globalIndex}
+                        onClick={(e) => handleMinorChapterClick(minorChapter, e)}
+                        className={`${styles.minorChapterItem} ${isMinorActive ? styles.active : ""} ${isMinorPast ? styles.past : ""}`}
+                        aria-current={isMinorActive ? "true" : undefined}
                       >
-                        <span className={styles.storyBullet}>•</span>
+                        <span className={styles.minorChapterBullet}>•</span>
 
-                        <div className={styles.storyInfo}>
-                          <span className={styles.storyTitle}>{story.title}</span>
+                        <div className={styles.minorChapterInfo}>
+                          <span className={styles.minorChapterTitle}>{minorChapter.title}</span>
                         </div>
 
-                        <span className={styles.timestamp}>{formatTime(story.startTime)}</span>
+                        <span className={styles.timestamp}>
+                          {formatTime(minorChapter.startTime)}
+                        </span>
 
-                        {storyAlternate && (
+                        {minorAlternate && (
                           <span
                             className={styles.alternateTelling}
                             onClick={(e) =>
                               handleAlternateClick(
                                 e,
-                                storyAlternate.otherRecordingPath,
-                                storyAlternate.otherStartTime
+                                minorAlternate.otherRecordingPath,
+                                minorAlternate.otherStartTime
                               )
                             }
-                            title={`Alternate telling: ${storyAlternate.topic}`}
+                            title={`Alternate telling: ${minorAlternate.topic}`}
                             role="button"
                             tabIndex={0}
                             onKeyDown={(e) => {
@@ -296,8 +318,8 @@ export function Chapters({
                                 e.preventDefault();
                                 handleAlternateClick(
                                   e as unknown as React.MouseEvent,
-                                  storyAlternate.otherRecordingPath,
-                                  storyAlternate.otherStartTime
+                                  minorAlternate.otherRecordingPath,
+                                  minorAlternate.otherStartTime
                                 );
                               }
                             }}

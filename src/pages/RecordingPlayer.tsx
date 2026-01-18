@@ -74,9 +74,8 @@ function RecordingPlayer(): React.ReactElement {
     isMemoir,
   } = useRecordingData(recordingConfig?.path ?? "", recordingConfig?.hasEnhancedAudio ?? false);
 
-  // Extract chapters and stories arrays for convenience
+  // Extract chapters array for convenience
   const chapters = chaptersQuery.data?.chapters;
-  const stories = chaptersQuery.data?.stories;
 
   // Get seek function from peaks.js
   const seekTo = usePeaksSeek();
@@ -297,7 +296,6 @@ function RecordingPlayer(): React.ReactElement {
             chapters && chapters.length > 0 ? (
               <Chapters
                 chapters={chapters}
-                stories={stories}
                 currentTime={currentTime}
                 onChapterClick={handleChapterClick}
                 alternateTellings={isMemoir ? alternateTellings.data?.alternateTellings : undefined}
@@ -315,7 +313,6 @@ function RecordingPlayer(): React.ReactElement {
               <Transcript
                 segments={transcript.data.segments}
                 chapters={chapters}
-                stories={stories}
                 currentTime={currentTime}
                 onSegmentClick={handleWordClick}
               />
