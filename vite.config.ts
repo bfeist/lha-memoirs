@@ -21,4 +21,25 @@ export default defineConfig({
       styles: path.resolve(__dirname, "./src/styles"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          // React ecosystem (React, Router, Query)
+          if (
+            id.includes("react") ||
+            id.includes("react-dom") ||
+            id.includes("react-router") ||
+            id.includes("@tanstack/react-query")
+          ) {
+            return "vendor";
+          }
+          // Audio visualization libraries (Peaks.js, Konva, waveform-data)
+          if (id.includes("peaks.js") || id.includes("waveform-data") || id.includes("konva")) {
+            return "audio-viz";
+          }
+        },
+      },
+    },
+  },
 });

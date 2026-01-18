@@ -55,7 +55,8 @@ jobs:
           sshpass -e ssh "$DREAMHOST_USER@$DREAMHOST_HOST" "mkdir -p $DREAMHOST_PATH"
 
           if [ -d ./dist ]; then
-            sshpass -e rsync -avz --delete ./dist/ "$DREAMHOST_USER@$DREAMHOST_HOST":"$DREAMHOST_PATH"
+            # Exclude static_assets from sync and deletion - manually managed on server
+            sshpass -e rsync -avz --delete --exclude='static_assets/' ./dist/ "$DREAMHOST_USER@$DREAMHOST_HOST":"$DREAMHOST_PATH"
           else
             echo "Error: ./dist directory is missing. Skipping deployment."
             exit 1
