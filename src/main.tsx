@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/:recordingId" element={<RecordingPlayer />} />
+          <Route path="/recording/:recordingId" element={<RecordingPlayer />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

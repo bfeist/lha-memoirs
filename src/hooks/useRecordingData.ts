@@ -116,13 +116,15 @@ export function useRegions(recordingPath: string): {
 
 // Get audio URL - returns enhanced if available, otherwise original
 export function getAudioUrl(recordingPath: string, hasEnhancedAudio: boolean): string {
-  const basePath = getRecordingBasePath(recordingPath);
-  return hasEnhancedAudio ? `${basePath}/audio_enhanced.mp3` : `${basePath}/audio_original.mp3`;
+  const audioBasePath = `/static_assets/${recordingPath}`;
+  return hasEnhancedAudio
+    ? `${audioBasePath}/audio_enhanced.mp3`
+    : `${audioBasePath}/audio_original.mp3`;
 }
 
 // Get original audio URL (non-enhanced version) - only valid if hasEnhancedAudio is true
 export function getOriginalAudioUrl(recordingPath: string): string {
-  return `${getRecordingBasePath(recordingPath)}/audio_original.mp3`;
+  return `/static_assets/${recordingPath}/audio_original.mp3`;
 }
 
 // Get waveform data URL
