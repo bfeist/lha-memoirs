@@ -169,7 +169,7 @@ def format_stories_for_analysis(recording_name: str, segments: list[dict], trans
         end_time = get_segment_end_time(segments, i, total_duration)
         
         # Extract transcript text (150 words, 90 seconds max)
-        text = get_story_text(transcript, time, end_time, max_words=150, max_seconds=90)
+        text = get_segment_text(transcript, time, end_time, max_words=150, max_seconds=90)
         
         mins = int(time // 60)
         secs = int(time % 60)
