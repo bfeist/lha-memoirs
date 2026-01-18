@@ -2,12 +2,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { fileURLToPath } from "url";
+import { gitChangelogPlugin } from "./vite-plugin-git-changelog";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), gitChangelogPlugin()],
   server: {
     host: "0.0.0.0", // all hosts
     port: 9200,

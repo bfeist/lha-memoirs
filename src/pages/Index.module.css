@@ -41,6 +41,45 @@
   font-style: italic;
 }
 
+/* What's New section */
+.whatsNewContainer {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.whatsNewButton {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #d4af37;
+  cursor: pointer;
+  background: rgb(212 175 55 / 10%);
+  border: 1px solid rgb(212 175 55 / 30%);
+  border-radius: 6px;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.whatsNewButton:hover {
+  background: rgb(212 175 55 / 20%);
+  border-color: rgb(212 175 55 / 50%);
+}
+
+.lastUpdated {
+  font-size: 0.65rem;
+  color: #666666;
+  font-style: italic;
+}
+
 /* Main content */
 .main {
   position: fixed;
@@ -238,5 +277,23 @@
 
   .portraitFrame {
     width: 220px;
+  }
+
+  .whatsNewContainer {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .whatsNewButton {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .whatsNewButton span {
+    display: none;
+  }
+
+  .lastUpdated {
+    font-size: 0.6rem;
   }
 }

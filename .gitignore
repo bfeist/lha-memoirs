@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Generated files
+public/changelog.json
+
 # Editor directories and files
 .idea
 .DS_Store
