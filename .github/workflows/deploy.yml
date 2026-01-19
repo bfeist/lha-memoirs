@@ -46,6 +46,7 @@ jobs:
           DREAMHOST_HOST: ${{ vars.DREAMHOST_HOST }}
           DREAMHOST_PATH: ${{ vars.DREAMHOST_PATH }}
           SSHPASS: ${{ secrets.DREAMHOST_PASS }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: |
           sudo apt-get update && sudo apt-get install -y sshpass
 
@@ -53,6 +54,23 @@ jobs:
           ssh-keyscan -H "$DREAMHOST_HOST" >> ~/.ssh/known_hosts
 
           sshpass -e ssh "$DREAMHOST_USER@$DREAMHOST_HOST" "mkdir -p $DREAMHOST_PATH"
+
+          # Inject API key and uploaded files JSON into stream.php before deployment
+          if [ -f ./dist/stream.php ]; then
+            sed -i "s|%%GOOGLE_API_KEY%%|$GOOGLE_API_KEY|g" ./dist/stream.php
+            
+            # Read uploaded_files.json and escape for sed
+            if [ -f ./token_friendly/uploaded_files.json ]; then
+              UPLOADED_FILES_JSON=$(cat ./token_friendly/uploaded_files.json | jq -c '.')
+              # Escape special characters for sed
+              UPLOADED_FILES_JSON=$(echo "$UPLOADED_FILES_JSON" | sed 's/[\/&]/\\&/g')
+              sed -i "s|%%UPLOADED_FILES_JSON%%|$UPLOADED_FILES_JSON|g" ./dist/stream.php
+              echo "✓ Injected API key and uploaded files into stream.php"
+            else
+              echo "Warning: token_friendly/uploaded_files.json not found"
+              echo "✓ Injected API key into stream.php"
+            fi
+          fi
 
           if [ -d ./dist ]; then
             # Exclude static_assets from sync and deletion - manually managed on server

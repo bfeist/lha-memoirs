@@ -134,6 +134,58 @@
   font-style: italic;
 }
 
+/* Chat with Grandpa section */
+.chatSection {
+  max-width: 800px;
+  width: calc(100% - 2rem);
+  margin: 0 auto;
+}
+
+.chatButton {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, rgb(212 175 55 / 15%) 0%, rgb(212 175 55 / 5%) 100%);
+  border: 1px solid rgb(212 175 55 / 40%);
+  border-radius: 12px;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.chatButton:hover {
+  background: linear-gradient(135deg, rgb(212 175 55 / 25%) 0%, rgb(212 175 55 / 10%) 100%);
+  border-color: rgb(212 175 55 / 60%);
+  transform: translateY(-2px);
+}
+
+.chatIcon {
+  font-size: 2rem;
+  color: #d4af37;
+}
+
+.chatButtonText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.chatButtonTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #d4af37;
+}
+
+.chatButtonSubtitle {
+  font-size: 0.85rem;
+  color: #999999;
+}
+
 /* Section titles */
 .sectionTitle {
   display: flex;

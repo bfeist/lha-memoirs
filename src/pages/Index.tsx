@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faRobot } from "@fortawesome/free-solid-svg-icons";
 import { getRecordingsByCategory, type RecordingConfig } from "../config/recordings";
 import WhatsNew from "../components/WhatsNew/WhatsNew";
+import LhaGpt from "../components/LhaGpt/LhaGpt";
 import { useChangelog } from "../hooks/useChangelog";
 import styles from "./Index.module.css";
 import "../global/global.css";
@@ -23,6 +24,7 @@ function RecordingCard({ recording }: { recording: RecordingConfig }): React.Rea
 
 function Index(): React.ReactElement {
   const [showWhatsNew, setShowWhatsNew] = useState(false);
+  const [showChat, setShowChat] = useState(false);
   const { data: changelog } = useChangelog();
   const recordings = getRecordingsByCategory("recording");
   const memoirs = getRecordingsByCategory("memoir");
@@ -31,6 +33,9 @@ function Index(): React.ReactElement {
     <div className={styles.container}>
       {/* What's New Modal */}
       <WhatsNew isOpen={showWhatsNew} onClose={() => setShowWhatsNew(false)} />
+
+      {/* LHA-GPT Chat Modal */}
+      <LhaGpt isOpen={showChat} onClose={() => setShowChat(false)} />
 
       {/* Header */}
       <header className={styles.header}>
@@ -67,6 +72,17 @@ function Index(): React.ReactElement {
             />
           </div>
           <p className={styles.portraitCaption}>L.H.A., 1942</p>
+        </section>
+
+        {/* LHA-GPT section */}
+        <section className={styles.chatSection}>
+          <button className={styles.chatButton} onClick={() => setShowChat(true)}>
+            <FontAwesomeIcon icon={faRobot} className={styles.chatIcon} />
+            <div className={styles.chatButtonText}>
+              <span className={styles.chatButtonTitle}>LHA-GPT</span>
+              <span className={styles.chatButtonSubtitle}>Ask AI about Grandpa&apos;s life</span>
+            </div>
+          </button>
         </section>
 
         {/* Memoirs section */}

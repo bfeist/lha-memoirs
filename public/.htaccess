@@ -1,9 +1,27 @@
+# Enable PHP execution
+AddHandler application/x-httpd-php .php
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
+
+# Serve existing files directly (including PHP files)
 RewriteRule ^index\.html$ - [L]
+
+# Allow stream.php to be served directly
+RewriteRule ^stream\.php$ - [L]
+
+# For all other requests, check if file/directory exists
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-l
+# Exclude PHP files from SPA fallback
+RewriteCond %{REQUEST_URI} !\.php$
 RewriteRule . /index.html [L]
 </IfModule>
+
+# Security: Prevent direct access to sensitive files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

@@ -16,5 +16,11 @@ whisperx>=3.7.0
 # Ollama for LLM-based content analysis
 ollama>=0.3.0
 
+# Google Generative AI for Gemini API integration
+google-generativeai>=0.8.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
 # Progress bars and CLI utilities
 tqdm>=4.65.0

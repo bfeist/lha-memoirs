@@ -31,3 +31,8 @@ public/static_assets/
 .venv
 
 source_audio/
+
+# Token-friendly output for Gemini upload
+token_friendly/
+
+.env
