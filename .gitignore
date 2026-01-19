@@ -31,3 +31,9 @@ public/static_assets/
 .venv
 
 source_audio/
+
+# RAG Backend
+scripts/rag/.venv
+scripts/rag/chroma_db/
+scripts/rag/__pycache__/
+scripts/rag/*.pyc

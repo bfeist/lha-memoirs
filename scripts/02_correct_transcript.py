@@ -67,6 +67,7 @@ PLACE_CORRECTIONS = [
     (r'\bSonovan\b', 'Shaunavon'),
     (r'\bShonovan\b', 'Shaunavon'),
     (r'\bEstadan\b', 'Estevan'),
+    (r'\bEstaban\b', 'Estevan'),
     (r'\bBencoff\b', 'Bethune'),
     (r'\bOgamah\b', 'Ogema'),
     (r'\bDinsmoor\b', 'Dinsmore'),

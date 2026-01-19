@@ -41,11 +41,41 @@
   font-style: italic;
 }
 
-/* What's New section */
-.whatsNewContainer {
+/* Header buttons container */
+.headerButtons {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+/* LHA-GPT Chat button */
+.chatButton {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #d4af37;
+  cursor: pointer;
+  background: rgb(212 175 55 / 10%);
+  border: 1px solid rgb(212 175 55 / 30%);
+  border-radius: 6px;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.chatButton:hover {
+  background: rgb(212 175 55 / 20%);
+  border-color: rgb(212 175 55 / 50%);
+}
+
+/* What's New section */
+.whatsNewContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-end;

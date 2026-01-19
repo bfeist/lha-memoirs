@@ -1,0 +1,387 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgb(0 0 0 / 70%);
+  backdrop-filter: blur(4px);
+}
+
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 750px;
+  max-height: 80vh;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgb(0 0 0 / 50%);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: linear-gradient(180deg, #222222 0%, #1a1a1a 100%);
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.headerInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.headerIcon {
+  font-size: 1.5rem;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #d4af37;
+}
+
+.headerButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.clearButton {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  color: #aaaaaa;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #444444;
+  border-radius: 6px;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.clearButton:hover {
+  color: #d4af37;
+  background: rgb(255 255 255 / 5%);
+  border-color: rgb(212 175 55 / 40%);
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: 1.5rem;
+  color: #999999;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.closeButton:hover {
+  color: #ffffff;
+  background: rgb(255 255 255 / 10%);
+}
+
+/* Messages container */
+.messagesContainer {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.welcomeMessage {
+  padding: 1rem;
+  text-align: center;
+  color: #999999;
+  background: rgb(255 255 255 / 5%);
+  border-radius: 8px;
+}
+
+.welcomeMessage p {
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.welcomeMessage p:last-child {
+  margin-bottom: 0;
+}
+
+.examplePrompts {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #777777;
+}
+
+/* Messages */
+.message {
+  max-width: 85%;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+}
+
+.userMessage {
+  margin-left: auto;
+  color: #ffffff;
+  background: #3a3a3a;
+  border-bottom-right-radius: 4px;
+}
+
+.assistantMessage {
+  margin-right: auto;
+  color: #e0e0e0;
+  background: rgb(212 175 55 / 10%);
+  border: 1px solid rgb(212 175 55 / 20%);
+  border-bottom-left-radius: 4px;
+}
+
+.messageContent {
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  color: #d4af37;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Markdown styling in assistant messages */
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  margin: 0.125rem 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #d4af37;
+}
+
+.markdown p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.markdown p .citationButton {
+  margin: 0 0.25rem;
+  vertical-align: baseline;
+  display: inline-flex;
+  align-items: center;
+}
+
+.markdown ul,
+.markdown ol {
+  margin: 0.125rem 0;
+  padding-left: 1.25rem;
+}
+
+.markdown li {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.markdown strong {
+  font-weight: 600;
+  color: #d4af37;
+}
+
+.markdown em {
+  font-style: italic;
+  color: #cccccc;
+}
+
+.markdown code {
+  padding: 0.0625rem 0.25rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.9em;
+  background: rgb(255 255 255 / 10%);
+  border-radius: 3px;
+}
+
+.markdown pre {
+  margin: 0.25rem 0;
+  padding: 0.5rem;
+  overflow-x: auto;
+  background: rgb(255 255 255 / 5%);
+  border-radius: 4px;
+}
+
+.markdown pre code {
+  padding: 0;
+  background: none;
+}
+
+.markdown blockquote {
+  margin: 0.125rem 0;
+  padding-left: 0.75rem;
+  color: #aaaaaa;
+  border-left: 3px solid #d4af37;
+}
+
+/* Citations */
+.citations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid rgb(212 175 55 / 20%);
+}
+
+.citationsLabel {
+  font-size: 0.8rem;
+  color: #888888;
+}
+
+.citationButton {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  color: #d4af37;
+  cursor: pointer;
+  background: rgb(212 175 55 / 10%);
+  border: 1px solid rgb(212 175 55 / 30%);
+  border-radius: 4px;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.citationButton:hover {
+  background: rgb(212 175 55 / 20%);
+  border-color: rgb(212 175 55 / 50%);
+}
+
+.inlineCitation {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0;
+  margin: 0 0.125rem;
+  font-size: 0.9em;
+  vertical-align: middle;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  opacity: 0.7;
+  transition:
+    opacity 0.2s,
+    background 0.2s,
+    transform 0.2s;
+}
+
+.inlineCitation:hover {
+  opacity: 1;
+  background: rgb(212 175 55 / 20%);
+  transform: scale(1.1);
+}
+
+/* Input area */
+.inputContainer {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+  padding: 1rem;
+  background: #1a1a1a;
+  border-top: 1px solid #2a2a2a;
+}
+
+.input {
+  flex: 1;
+  max-height: 120px;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #e0e0e0;
+  resize: none;
+  background: #0d0d0d;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: rgb(212 175 55 / 50%);
+  outline: none;
+}
+
+.input::placeholder {
+  color: #666666;
+}
+
+.input:disabled {
+  opacity: 0.6;
+}
+
+.sendButton {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  font-size: 1.25rem;
+  color: #0d0d0d;
+  cursor: pointer;
+  background: #d4af37;
+  border: none;
+  border-radius: 8px;
+  transition:
+    background 0.2s,
+    opacity 0.2s;
+}
+
+.sendButton:hover:not(:disabled) {
+  background: #e6c455;
+}
+
+.sendButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Responsive */
+@media (width <= 768px) {
+  .overlay {
+    padding: 0;
+  }
+
+  .chatContainer {
+    max-width: none;
+    max-height: none;
+    height: 100%;
+    border-radius: 0;
+  }
+}

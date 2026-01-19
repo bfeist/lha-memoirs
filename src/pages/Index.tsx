@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faRobot } from "@fortawesome/free-solid-svg-icons";
 import { getRecordingsByCategory, type RecordingConfig } from "../config/recordings";
 import WhatsNew from "../components/WhatsNew/WhatsNew";
+import LhaGpt from "../components/LhaGpt";
 import { useChangelog } from "../hooks/useChangelog";
 import styles from "./Index.module.css";
 import "../global/global.css";
@@ -23,6 +24,7 @@ function RecordingCard({ recording }: { recording: RecordingConfig }): React.Rea
 
 function Index(): React.ReactElement {
   const [showWhatsNew, setShowWhatsNew] = useState(false);
+  const [showLhaGpt, setShowLhaGpt] = useState(false);
   const { data: changelog } = useChangelog();
   const recordings = getRecordingsByCategory("recording");
   const memoirs = getRecordingsByCategory("memoir");
@@ -32,26 +34,43 @@ function Index(): React.ReactElement {
       {/* What's New Modal */}
       <WhatsNew isOpen={showWhatsNew} onClose={() => setShowWhatsNew(false)} />
 
+      {import.meta.env.DEV && (
+        <>
+          {/* LHA-GPT Chat Modal */}
+          <LhaGpt isOpen={showLhaGpt} onClose={() => setShowLhaGpt(false)} />
+        </>
+      )}
+
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <h1 className={styles.title}>The Memoirs of Linden Hilary Achen</h1>
           <p className={styles.subtitle}>(1902 - 1994)</p>
         </div>
-        <div className={styles.whatsNewContainer}>
+        <div className={styles.headerButtons}>
           <button
-            className={styles.whatsNewButton}
-            onClick={() => setShowWhatsNew(true)}
-            aria-label="What's New"
+            className={styles.chatButton}
+            onClick={() => setShowLhaGpt(true)}
+            aria-label="Chat with LHA-GPT"
           >
-            <FontAwesomeIcon icon={faStar} />
-            <span>What&apos;s New</span>
+            <FontAwesomeIcon icon={faRobot} />
+            <span>LHA-GPT</span>
           </button>
-          {changelog?.generatedAt && (
-            <span className={styles.lastUpdated}>
-              Last updated: {new Date(changelog.generatedAt).toLocaleDateString()}
-            </span>
-          )}
+          <div className={styles.whatsNewContainer}>
+            <button
+              className={styles.whatsNewButton}
+              onClick={() => setShowWhatsNew(true)}
+              aria-label="What's New"
+            >
+              <FontAwesomeIcon icon={faStar} />
+              <span>What&apos;s New</span>
+            </button>
+            {changelog?.generatedAt && (
+              <span className={styles.lastUpdated}>
+                Last updated: {new Date(changelog.generatedAt).toLocaleDateString()}
+              </span>
+            )}
+          </div>
         </div>
       </header>
 
