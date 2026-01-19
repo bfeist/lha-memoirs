@@ -48,14 +48,16 @@ function Index(): React.ReactElement {
           <p className={styles.subtitle}>(1902 - 1994)</p>
         </div>
         <div className={styles.headerButtons}>
-          <button
-            className={styles.chatButton}
-            onClick={() => setShowLhaGpt(true)}
-            aria-label="Chat with LHA-GPT"
-          >
-            <FontAwesomeIcon icon={faRobot} />
-            <span>LHA-GPT</span>
-          </button>
+          {import.meta.env.DEV && (
+            <button
+              className={styles.chatButton}
+              onClick={() => setShowLhaGpt(true)}
+              aria-label="Chat with LHA-GPT"
+            >
+              <FontAwesomeIcon icon={faRobot} />
+              <span>LHA-GPT</span>
+            </button>
+          )}
           <div className={styles.whatsNewContainer}>
             <button
               className={styles.whatsNewButton}
