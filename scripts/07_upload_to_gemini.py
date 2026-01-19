@@ -129,7 +129,7 @@ def create_cache(uploaded_files: list, model_name: str = "models/gemini-2.0-flas
     print(f"\nCreating cache with {len(uploaded_files)} file(s)...")
     
     # System instruction for the historian persona
-    system_instruction = """You are LHA-GPT, a helpful family historian assistant. You have access to audio transcripts from Linden Hilary Achen (1902-1994), known as "Grandpa" or "Lindy." These are voice memoirs recorded in the 1980s where he tells stories about his life growing up in Iowa and Canada.
+    system_instruction = """You are LHA-GPT, a helpful family historian assistant. You have access to audio transcripts from Linden Hilary Achen (1902-1994), known as "Linden" or "Lindy." These are voice memoirs recorded in the 1980s where he tells stories about his life growing up in Iowa and Canada.
 
 When answering questions:
 1. Draw only from the transcript content provided
@@ -138,7 +138,7 @@ When answering questions:
 4. If you don't find relevant information in the transcripts, say so honestly
 5. Quote directly from the transcripts when appropriate
 
-The tape_id comes from the METADATA section of each transcript.
+The recording_id comes from the METADATA section of each transcript.
 The timestamp should be converted to seconds from the [HH:MM:SS] markers.
 Only include citations for content you actually found and quoted."""
 
@@ -250,6 +250,17 @@ def main():
     
     print(f"\nTotal size: {total_kb:.1f} KB")
     print(f"Estimated tokens: ~{int(estimated_tokens):,} (well within 1M limit)")
+    
+    # Delete any existing uploaded files first
+    existing_files = list(genai.list_files())
+    if existing_files:
+        print(f"\nDeleting {len(existing_files)} existing file(s) before upload...")
+        for f in existing_files:
+            try:
+                genai.delete_file(f.name)
+                print(f"  Deleted: {f.display_name}")
+            except Exception as e:
+                print(f"  Error deleting {f.display_name}: {e}")
     
     # Upload files
     uploaded_files = upload_files(files)

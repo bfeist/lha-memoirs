@@ -73,20 +73,20 @@ def convert_recording_to_text(recording_path: Path, output_dir: Path) -> bool:
     # Build the output text
     lines: list[str] = []
     
-    # Derive a tape ID from the path relative to recordings/
+    # Derive a recording ID from the path relative to recordings/
     # e.g., "memoirs/Norm_red" or "christmas1986"
-    tape_id = recording_path.name
+    recording_id = recording_path.name
     parent_name = recording_path.parent.name
     if parent_name != "recordings":
-        tape_id = f"{parent_name}/{tape_id}"
+        recording_id = f"{parent_name}/{recording_id}"
     
-    # Get first chapter title as a potential title, or use tape_id
-    title = chapters[0]["title"] if chapters else tape_id.replace("_", " ").replace("/", " - ")
+    # Get first chapter title as a potential title, or use recording_id
+    title = chapters[0]["title"] if chapters else recording_id.replace("_", " ").replace("/", " - ")
     
     # METADATA section
     lines.append("METADATA:")
     lines.append(f"Title: {title}")
-    lines.append(f"Tape ID: {tape_id}")
+    lines.append(f"Recording ID: {recording_id}")
     lines.append("")
     
     # CHAPTERS section (if available)
@@ -116,8 +116,8 @@ def convert_recording_to_text(recording_path: Path, output_dir: Path) -> bool:
     
     # Write output file
     output_dir.mkdir(parents=True, exist_ok=True)
-    # Sanitize the tape_id for filename (replace / with _)
-    safe_filename = tape_id.replace("/", "_").replace("\\", "_")
+    # Sanitize the recording_id for filename (replace / with _)
+    safe_filename = recording_id.replace("/", "_").replace("\\", "_")
     output_file = output_dir / f"{safe_filename}.txt"
     
     with open(output_file, "w", encoding="utf-8") as f:

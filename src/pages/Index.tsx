@@ -80,7 +80,7 @@ function Index(): React.ReactElement {
             <FontAwesomeIcon icon={faRobot} className={styles.chatIcon} />
             <div className={styles.chatButtonText}>
               <span className={styles.chatButtonTitle}>LHA-GPT</span>
-              <span className={styles.chatButtonSubtitle}>Ask AI about Grandpa&apos;s life</span>
+              <span className={styles.chatButtonSubtitle}>Ask AI about Lindy&apos;s life</span>
             </div>
           </button>
         </section>

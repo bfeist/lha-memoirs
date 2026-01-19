@@ -4,7 +4,7 @@ import { getRecordingByPath } from "../../config/recordings";
 import styles from "./LhaGpt.module.css";
 
 interface Citation {
-  tape_id: string;
+  recording_id: string;
   timestamp: number;
   quote_snippet: string;
 }
@@ -27,10 +27,14 @@ function formatTimestamp(seconds: number): string {
   return `${mins}:${secs.toString().padStart(2, "0")}`;
 }
 
-// Map tape_id (folder path) to recording route ID using recordings.ts
-function getRecordingRoute(tapeId: string): string {
-  const recording = getRecordingByPath(tapeId);
-  return recording?.id || tapeId;
+// Map recording_id (folder path) to recording route ID using recordings.ts
+function getRecordingRoute(recordingId: string): string | null {
+  const recording = getRecordingByPath(recordingId);
+  if (!recording) {
+    console.warn(`Unknown recording_id: ${recordingId} - citation may be hallucinated`);
+    return null;
+  }
+  return recording.id;
 }
 
 const LhaGpt: React.FC<{
@@ -48,7 +52,11 @@ const LhaGpt: React.FC<{
   }, []);
 
   const handleCitationClick = (citation: Citation) => {
-    const recordingId = getRecordingRoute(citation.tape_id);
+    const recordingId = getRecordingRoute(citation.recording_id);
+    if (!recordingId) {
+      // Invalid recording_id - don't navigate
+      return;
+    }
     // Navigate to the recording with timestamp
     navigate(`/recording/${recordingId}?t=${Math.floor(citation.timestamp)}`);
     onClose();
@@ -228,8 +236,8 @@ const LhaGpt: React.FC<{
           {messages.length === 0 && (
             <div className={styles.welcomeMessage}>
               <p>
-                <strong>LHA-GPT</strong> can search through all of Grandpa&apos;s recorded memoirs
-                and answer questions about his life growing up in Iowa and Canada.
+                <strong>LHA-GPT</strong> can search through all of Linden&apos;s recorded memoirs
+                and answer questions about his life growing up and working in Iowa and Canada.
               </p>
               <p className={styles.examplePrompts}>
                 Try asking:
@@ -258,16 +266,22 @@ const LhaGpt: React.FC<{
               {msg.citations && msg.citations.length > 0 && (
                 <div className={styles.citations}>
                   <span className={styles.citationsLabel}>Sources:</span>
-                  {msg.citations.map((citation, cidx) => (
-                    <button
-                      key={cidx}
-                      className={styles.citationButton}
-                      onClick={() => handleCitationClick(citation)}
-                      title={citation.quote_snippet}
-                    >
-                      📼 {citation.tape_id} @ {formatTimestamp(citation.timestamp)}
-                    </button>
-                  ))}
+                  {msg.citations
+                    .filter((citation) => getRecordingRoute(citation.recording_id) !== null)
+                    .map((citation, cidx) => {
+                      const recording = getRecordingByPath(citation.recording_id);
+                      return (
+                        <button
+                          key={cidx}
+                          className={styles.citationButton}
+                          onClick={() => handleCitationClick(citation)}
+                          title={citation.quote_snippet}
+                        >
+                          📼 {recording?.title || citation.recording_id} @{" "}
+                          {formatTimestamp(citation.timestamp)}
+                        </button>
+                      );
+                    })}
                 </div>
               )}
             </div>
@@ -282,7 +296,7 @@ const LhaGpt: React.FC<{
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Ask about Grandpa's life..."
+            placeholder="Ask about Lindy's life..."
             disabled={isLoading}
             rows={1}
           />
