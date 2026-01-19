@@ -129,7 +129,7 @@ export function getOriginalAudioUrl(recordingPath: string): string {
 
 // Get waveform data URL
 export function getWaveformDataUrl(recordingPath: string): string {
-  return `${getRecordingBasePath(recordingPath)}/waveform.json`;
+  return `/static_assets/${recordingPath}/waveform.json`;
 }
 
 // Comprehensive hook that combines all data fetching for a recording

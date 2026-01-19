@@ -29,7 +29,7 @@ print("=" * 60)
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 SOURCE_AUDIO_DIR = PROJECT_ROOT / "source_audio"
-OUTPUT_BASE_DIR = PROJECT_ROOT / "public" / "recordings"
+OUTPUT_BASE_DIR = PROJECT_ROOT / "public" / "static_assets"
 
 # Supported audio extensions
 AUDIO_EXTENSIONS = {".wav", ".mp3", ".m4a", ".flac", ".ogg", ".aiff"}
