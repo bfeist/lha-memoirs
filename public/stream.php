@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Check if API key is configured
-if ($GEMINI_API_KEY === '%%GOOGLE_API_KEY%%' || empty($GEMINI_API_KEY)) {
+if (empty($GEMINI_API_KEY) || strpos($GEMINI_API_KEY, '%%') === 0) {
     http_response_code(500);
     echo "data: " . json_encode(['error' => 'API key not configured']) . "\n\n";
     exit;

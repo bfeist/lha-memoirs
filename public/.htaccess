@@ -1,5 +1,5 @@
 # Enable PHP execution
-AddHandler application/x-httpd-php .php
+AddType application/x-httpd-php .php
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
@@ -8,7 +8,7 @@ RewriteBase /
 # Serve existing files directly (including PHP files)
 RewriteRule ^index\.html$ - [L]
 
-# Allow stream.php to be served directly
+# Allow stream.php to be served directly and NOT rewritten
 RewriteRule ^stream\.php$ - [L]
 
 # For all other requests, check if file/directory exists
