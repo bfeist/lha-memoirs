@@ -34,12 +34,10 @@ function Index(): React.ReactElement {
       {/* What's New Modal */}
       <WhatsNew isOpen={showWhatsNew} onClose={() => setShowWhatsNew(false)} />
 
-      {import.meta.env.DEV && (
-        <>
-          {/* LHA-GPT Chat Modal */}
-          <LhaGpt isOpen={showLhaGpt} onClose={() => setShowLhaGpt(false)} />
-        </>
-      )}
+      <>
+        {/* LHA-GPT Chat Modal */}
+        <LhaGpt isOpen={showLhaGpt} onClose={() => setShowLhaGpt(false)} />
+      </>
 
       {/* Header */}
       <header className={styles.header}>
@@ -48,16 +46,14 @@ function Index(): React.ReactElement {
           <p className={styles.subtitle}>(1902 - 1994)</p>
         </div>
         <div className={styles.headerButtons}>
-          {import.meta.env.DEV && (
-            <button
-              className={styles.chatButton}
-              onClick={() => setShowLhaGpt(true)}
-              aria-label="Chat with LHA-GPT"
-            >
-              <FontAwesomeIcon icon={faRobot} />
-              <span>LHA-GPT</span>
-            </button>
-          )}
+          <button
+            className={styles.chatButton}
+            onClick={() => setShowLhaGpt(true)}
+            aria-label="Chat with LHA-GPT"
+          >
+            <FontAwesomeIcon icon={faRobot} />
+            <span>LHA-GPT</span>
+          </button>
           <div className={styles.whatsNewContainer}>
             <button
               className={styles.whatsNewButton}

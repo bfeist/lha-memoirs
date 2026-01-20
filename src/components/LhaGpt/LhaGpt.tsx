@@ -20,8 +20,8 @@ interface Message {
   thinking?: string;
 }
 
-// RAG API base URL - configurable via environment variable
-const RAG_API_URL = import.meta.env.VITE_RAG_API_URL || "http://localhost:8000";
+// RAG API base URL - always use production proxy (works for local dev too)
+const RAG_API_URL = "https://lindenhilaryachen-gpt.benfeist.com";
 
 // Map recording_id (folder path or ID) to recording route ID using recordings.ts
 function getRecordingRoute(recordingId: string): string | null {
@@ -64,6 +64,7 @@ const LhaGpt: React.FC<{
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [expandedThinking, setExpandedThinking] = useState<Set<number>>(new Set());
+  const [serverOnline, setServerOnline] = useState(false); // Start pessimistic, set true on connect
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const isAtBottomRef = useRef(true);
@@ -77,6 +78,66 @@ const LhaGpt: React.FC<{
       console.error("Failed to save chat history:", e);
     }
   }, [messages]);
+
+  // Monitor server health using persistent SSE connection
+  useEffect(() => {
+    if (!isOpen) return;
+
+    let eventSource: EventSource | null = null;
+    let reconnectTimeout: number | null = null;
+
+    const connect = () => {
+      try {
+        eventSource = new EventSource(`${RAG_API_URL}/health/stream`);
+
+        eventSource.onopen = () => {
+          setServerOnline(true);
+          // Clear any pending reconnect attempts
+          if (reconnectTimeout) {
+            clearTimeout(reconnectTimeout);
+            reconnectTimeout = null;
+          }
+        };
+
+        eventSource.onmessage = (event) => {
+          try {
+            const data = JSON.parse(event.data);
+            if (data.status === "connected" || data.status === "alive") {
+              setServerOnline(true);
+            }
+          } catch (e) {
+            console.error("Failed to parse health event:", e);
+          }
+        };
+
+        eventSource.onerror = () => {
+          setServerOnline(false);
+          eventSource?.close();
+
+          // Attempt to reconnect after 5 seconds
+          if (!reconnectTimeout) {
+            reconnectTimeout = window.setTimeout(() => {
+              reconnectTimeout = null;
+              connect();
+            }, 5000);
+          }
+        };
+      } catch (error) {
+        console.error("Failed to create EventSource:", error);
+        setServerOnline(false);
+      }
+    };
+
+    // Initial connection
+    connect();
+
+    return () => {
+      if (reconnectTimeout) {
+        clearTimeout(reconnectTimeout);
+      }
+      eventSource?.close();
+    };
+  }, [isOpen]);
 
   // Check if user is at the bottom of the messages
   const checkIfAtBottom = useCallback(() => {
@@ -368,6 +429,13 @@ const LhaGpt: React.FC<{
           ref={messagesContainerRef}
           onScroll={checkIfAtBottom}
         >
+          {!serverOnline && (
+            <div className={styles.offlineWarning}>
+              The AI server is currently offline.
+              <br /> Text Ben and ask him to turn it on for you.
+            </div>
+          )}
+
           {messages.length === 0 && (
             <div className={styles.welcomeMessage}>
               <div className={styles.welcomeHeader}>
@@ -386,7 +454,7 @@ const LhaGpt: React.FC<{
                 <p className={styles.promptsLabel}>Try asking:</p>
                 <ul className={styles.promptsList}>
                   <li>&quot;When was Lindy born?&quot;</li>
-                  <li>&quot;What work did he do?&quot;</li>
+                  <li>&quot;What was his brother, Zip like?&quot;</li>
                   <li>&quot;Tell me about moving to Canada&quot;</li>
                   <li>&quot;Tell me about his Model T Ford&quot;</li>
                 </ul>
@@ -411,7 +479,8 @@ const LhaGpt: React.FC<{
                           onClick={() => toggleThinking(idx)}
                           aria-expanded={expandedThinking.has(idx)}
                         >
-                          {expandedThinking.has(idx) ? "▼" : "▶"} Thinking process
+                          {expandedThinking.has(idx) ? "▼" : "▶"}{" "}
+                          {msg.content ? "Thinking" : "Thinking ..."}
                         </button>
                         {expandedThinking.has(idx) && (
                           <div className={styles.thinkingContent}>{msg.thinking}</div>

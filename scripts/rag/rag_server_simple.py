@@ -16,16 +16,28 @@ import shutil
 from pathlib import Path
 from typing import Any
 from contextlib import asynccontextmanager
+import logging
+from dotenv import load_dotenv
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 
-from fastapi import FastAPI, HTTPException
+# Load environment variables from .env file
+load_dotenv()
+
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from rank_bm25 import BM25Okapi
 import httpx
+
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Configuration
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
@@ -33,6 +45,15 @@ EMBED_MODEL = os.getenv("EMBED_MODEL", "nomic-embed-text")
 CHAT_MODEL = os.getenv("CHAT_MODEL", "gpt-oss:20b")
 CHROMA_PERSIST_DIR = os.getenv("CHROMA_PERSIST_DIR", "./chroma_db")
 PUBLIC_DIR = Path(__file__).parent.parent.parent / "public" / "recordings"
+
+# Security Configuration
+MAX_QUERY_LENGTH = 500
+REQUEST_SIZE_LIMIT = 1024 * 10  # 10KB max request body
+CORS_ORIGINS = os.getenv("CORS_ORIGINS").split(",")
+
+# Rate limiting (30 req/min prevents DoS)
+RATE_LIMIT_QUERIES = "30/minute"
+RATE_LIMIT_STREAM = "20/minute"
 
 # Chunking: 3 minutes with 30 second overlap
 # With 128K context window, we can use larger chunks for better story context
@@ -49,34 +70,119 @@ RECORDING_ID_MAP = {
 }
 
 
+import asyncio
+
+# Initialize rate limiter
+limiter = Limiter(key_func=get_remote_address)
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("Startup: Wiping and re-ingesting transcripts...")
+    
     # Always start fresh to avoid stale embeddings
     if os.path.exists(CHROMA_PERSIST_DIR):
-        shutil.rmtree(CHROMA_PERSIST_DIR)
+        try:
+            shutil.rmtree(CHROMA_PERSIST_DIR)
+        except OSError:
+            print(f"Warning: Could not delete {CHROMA_PERSIST_DIR}. Continuing...")
+    
     await run_ingestion()
     yield
 
 
 app = FastAPI(
     title="LHA Memoirs RAG API",
-    description="Local RAG backend for chatting with family audio transcripts",
-    version="2.0.0",
+    description="Local RAG backend for chatting with family audio transcripts", 
+    version="2.1.0",
     lifespan=lifespan,
 )
 
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+# CORS: Primary security for frontend-facing APIs
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=CORS_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type"],
+    max_age=3600,
 )
+
+# Security middleware to add headers 
+@app.middleware("http")
+async def security_headers(request: Request, call_next):
+    response = await call_next(request)
+    
+    # Prevent clickjacking
+    response.headers["X-Frame-Options"] = "DENY"
+    
+    # Prevent MIME sniffing
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    
+    # Enable XSS protection
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    
+    # Content Security Policy
+    response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'"
+    
+    # Referrer Policy
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    
+    return response
+
+
+# Middleware to check request body size
+@app.middleware("http")
+async def enforce_request_size(request: Request, call_next):
+    """Prevent oversized request bodies that could cause DoS."""
+    # Skip size check for CORS preflight and other safe methods
+    if request.method in ["POST", "PUT"]:
+        content_length = request.headers.get("content-length")
+        if content_length and int(content_length) > REQUEST_SIZE_LIMIT:
+            raise HTTPException(
+                status_code=413,
+                detail=f"Request body too large. Max {REQUEST_SIZE_LIMIT} bytes"
+            )
+    
+    return await call_next(request)
 
 
 class ChatRequest(BaseModel):
     query: str
+    
+    @field_validator("query")
+    @classmethod
+    def validate_query(cls, v: str) -> str:
+        """Validate and sanitize query input."""
+        # Remove leading/trailing whitespace
+        v = v.strip()
+        
+        # Check length
+        if not v:
+            raise ValueError("Query cannot be empty")
+        if len(v) > MAX_QUERY_LENGTH:
+            raise ValueError(f"Query too long. Maximum {MAX_QUERY_LENGTH} characters")
+        
+        # Prevent common injection patterns
+        # (While queries are low-risk in RAG context, defense in depth is good)
+        dangerous_patterns = [
+            r"<script",
+            r"javascript:",
+            r"on\w+\s*=",
+            r"__import__",
+            r"eval\(",
+            r"exec\(",
+        ]
+        
+        query_lower = v.lower()
+        for pattern in dangerous_patterns:
+            if re.search(pattern, query_lower):
+                raise ValueError("Query contains suspicious content")
+        
+        return v
 
 
 class Citation(BaseModel):
@@ -91,10 +197,16 @@ class ChatResponse(BaseModel):
 
 
 # Initialize embeddings - NO custom prefixes, just use the model directly
-embeddings = OllamaEmbeddings(
-    model=EMBED_MODEL,
-    base_url=OLLAMA_BASE_URL,
-)
+embeddings: OllamaEmbeddings | None = None
+
+def get_embeddings() -> OllamaEmbeddings:
+    global embeddings
+    if embeddings is None:
+        embeddings = OllamaEmbeddings(
+            model=EMBED_MODEL,
+            base_url=OLLAMA_BASE_URL,
+        )
+    return embeddings
 
 vectorstore: Chroma | None = None
 bm25_index: BM25Okapi | None = None
@@ -106,7 +218,7 @@ def get_vectorstore() -> Chroma:
     if vectorstore is None:
         vectorstore = Chroma(
             collection_name="lha_memoirs_v2",
-            embedding_function=embeddings,
+            embedding_function=get_embeddings(),
             persist_directory=CHROMA_PERSIST_DIR,
         )
     return vectorstore
@@ -321,16 +433,51 @@ OTHER RULES:
 """
 
 
-@app.get("/")
+@app.get("/", include_in_schema=False)
 async def root():
-    return {"status": "ok", "version": "2.0.0"}
+    """Return generic error to hide server identity."""
+    from fastapi.responses import PlainTextResponse
+    return PlainTextResponse("Bad Request", status_code=400)
+
+
+@app.get("/health/stream") 
+async def health_stream():
+    """
+    SSE endpoint for persistent health monitoring.
+    Sends a heartbeat every 30 seconds.
+    """
+    import asyncio
+    
+    async def event_generator():
+        try:
+            # Send initial connection event
+            yield f"data: {json.dumps({'status': 'connected', 'timestamp': asyncio.get_event_loop().time()})}\n\n"
+            
+            # Send periodic heartbeats every 30 seconds
+            while True:
+                await asyncio.sleep(30)
+                yield f"data: {json.dumps({'status': 'alive', 'timestamp': asyncio.get_event_loop().time()})}\n\n"
+        except asyncio.CancelledError:
+            # Client disconnected or server shutting down
+            pass
+    
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",  # Disable buffering in nginx
+        }
+    )
 
 
 @app.post("/chat", response_model=ChatResponse)
-async def chat(request: ChatRequest):
-    query = request.query.strip()
-    if not query:
-        raise HTTPException(status_code=400, detail="Query cannot be empty")
+@limiter.limit(RATE_LIMIT_QUERIES)
+async def chat(request: Request, chat_request: ChatRequest):
+    """Chat endpoint with rate limiting."""
+    query = chat_request.query
+    logger.info(f"Chat from {request.client.host}: {query[:50]}...")
     
     # Use hybrid search (vector + BM25) - get more, then use top ones
     docs = hybrid_search(query, k=20)
@@ -368,18 +515,21 @@ Look through ALL the context above and provide a complete answer."""
             {"role": "user", "content": user_message},
         ])
         answer = response.content
+        logger.info(f"Chat response generated: {len(answer)} chars")
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"LLM failed: {e}")
+        logger.error(f"LLM error: {e}")
+        raise HTTPException(status_code=500, detail=f"LLM failed: {str(e)[:100]}")
     
     citations = extract_citations(answer, docs)
     return ChatResponse(answer=answer, citations=citations)
 
 
 @app.post("/chat/stream")
-async def chat_stream(request: ChatRequest):
-    query = request.query.strip()
-    if not query:
-        raise HTTPException(status_code=400, detail="Query cannot be empty")
+@limiter.limit(RATE_LIMIT_STREAM)
+async def chat_stream(request: Request, chat_request: ChatRequest):
+    """Streaming chat endpoint with rate limiting."""
+    query = chat_request.query
+    logger.info(f"Stream from {request.client.host}: {query[:50]}...")
     
     # Use hybrid search (vector + BM25)
     # Reduced context to avoid overwhelming the model with too much to process
@@ -421,7 +571,7 @@ Look through ALL the context above and provide a complete answer."""
                     "POST",
                     f"{OLLAMA_BASE_URL}/api/chat",
                     json={
-                        "model": CHAT_MODEL,
+                        "model": CHAT_MODEL, 
                         "messages": [
                             {"role": "system", "content": SYSTEM_PROMPT},
                             {"role": "user", "content": user_message},
@@ -436,7 +586,7 @@ Look through ALL the context above and provide a complete answer."""
                                 message = data.get("message", {})
                                 
                                 # Stream thinking if present
-                                thinking_chunk = message.get("thinking", "")
+                                thinking_chunk = message.get("thinking", "") 
                                 if thinking_chunk:
                                     accumulated_thinking += thinking_chunk
                                     yield f"data: {json.dumps({'type': 'thinking', 'content': thinking_chunk})}\n\n"
@@ -449,7 +599,8 @@ Look through ALL the context above and provide a complete answer."""
                             except json.JSONDecodeError:
                                 continue
         except Exception as e:
-            yield f"data: {json.dumps({'type': 'error', 'content': str(e)})}\n\n"
+            logger.error(f"Stream error: {e}")
+            yield f"data: {json.dumps({'type': 'error', 'content': str(e)[:100]})}\n\n"
         
         citations = extract_citations(accumulated_text, docs_for_llm)
         citations_data = [c.model_dump() for c in citations]

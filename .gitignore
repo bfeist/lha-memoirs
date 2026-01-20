@@ -37,3 +37,5 @@ scripts/rag/.venv
 scripts/rag/chroma_db/
 scripts/rag/__pycache__/
 scripts/rag/*.pyc
+
+.env

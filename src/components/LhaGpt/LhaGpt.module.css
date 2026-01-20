@@ -111,7 +111,7 @@
   max-width: 600px;
   padding: 2rem;
   margin: 2rem auto;
-  text-align: center;
+  text-align: left;
   color: #cccccc;
   background: linear-gradient(135deg, rgb(255 255 255 / 8%) 0%, rgb(255 255 255 / 3%) 100%);
   border: 1px solid rgb(255 255 255 / 10%);
@@ -121,9 +121,9 @@
 .welcomeHeader {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
+  justify-content: flex-start;
 }
 
 .welcomeIcon {
@@ -149,6 +149,18 @@
   border-radius: 4px;
 }
 
+.offlineWarning {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #ff6b6b;
+  background: rgb(255 107 107 / 10%);
+  border: 1px solid rgb(255 107 107 / 30%);
+  border-radius: 6px;
+  text-align: center;
+}
+
 .welcomeDescription {
   margin: 0 0 1.5rem;
   font-size: 1rem;
@@ -168,7 +180,7 @@
   font-size: 0.9rem;
   font-weight: 500;
   color: #999999;
-  text-align: center;
+  text-align: left;
 }
 
 .promptsList {
