@@ -35,8 +35,58 @@ from langchain_core.documents import Document
 from rank_bm25 import BM25Okapi
 import httpx
 
-# Setup logging
-logging.basicConfig(level=logging.INFO)
+# Setup logging with consistent timestamped format for all libraries
+LOG_FORMAT = "%(asctime)s %(levelname)s: %(name)s: %(message)s"
+DATE_FMT = "%Y-%m-%d %H:%M:%S"
+
+# Try to enable color support on Windows if colorama is available
+try:
+    import colorama
+    colorama.init()
+    _COLORAMA_AVAILABLE = True
+except Exception:
+    _COLORAMA_AVAILABLE = False
+
+logging.basicConfig(level=logging.INFO, format=LOG_FORMAT, datefmt=DATE_FMT)
+
+# Color map for level names (ANSI)
+RESET = "\x1b[0m"
+LEVEL_COLORS = {
+    "DEBUG": "\x1b[36m",     # cyan
+    "INFO": "\x1b[32m",      # green
+    "WARNING": "\x1b[33m",   # yellow
+    "ERROR": "\x1b[31m",     # red
+    "CRITICAL": "\x1b[41m\x1b[1m",  # red background + bold
+}
+
+class ColorFormatter(logging.Formatter):
+    """Logging formatter that colors the levelname portion of the message."""
+    def format(self, record: logging.LogRecord) -> str:
+        original_level = record.levelname
+        color = LEVEL_COLORS.get(original_level, "")
+        if color:
+            try:
+                record.levelname = f"{color}{original_level}{RESET}"
+                return super().format(record)
+            finally:
+                record.levelname = original_level
+        return super().format(record)
+
+# Apply the color formatter to existing root handlers
+root_logger = logging.getLogger()
+color_formatter = ColorFormatter(LOG_FORMAT, DATE_FMT)
+for handler in list(root_logger.handlers):
+    handler.setFormatter(color_formatter)
+
+# Propagate the root logger handlers to common third-party loggers (uvicorn, httpx, asyncio)
+# This ensures their messages use the same timestamped format and coloring as our module logs.
+for name in ("uvicorn", "uvicorn.error", "uvicorn.access", "httpx", "asyncio"):
+    lib_logger = logging.getLogger(name)
+    # Replace any custom handlers with the root handlers so format is consistent
+    lib_logger.handlers = root_logger.handlers
+    lib_logger.setLevel(root_logger.level)
+    lib_logger.propagate = False
+
 logger = logging.getLogger(__name__)
 
 # Configuration
@@ -78,14 +128,14 @@ limiter = Limiter(key_func=get_remote_address)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print("Startup: Wiping and re-ingesting transcripts...")
+    logger.info("Startup: Wiping and re-ingesting transcripts...")
     
     # Always start fresh to avoid stale embeddings
     if os.path.exists(CHROMA_PERSIST_DIR):
         try:
             shutil.rmtree(CHROMA_PERSIST_DIR)
         except OSError:
-            print(f"Warning: Could not delete {CHROMA_PERSIST_DIR}. Continuing...")
+            logger.warning(f"Warning: Could not delete {CHROMA_PERSIST_DIR}. Continuing...")
     
     await run_ingestion()
     yield
@@ -308,7 +358,7 @@ async def run_ingestion():
     for path, rec_id in RECORDING_ID_MAP.items():
         transcript_file = PUBLIC_DIR / path / "transcript.json"
         if not transcript_file.exists():
-            print(f"  Skipping {rec_id}: no transcript")
+            logger.info(f"Skipping {rec_id}: no transcript")
             continue
         
         with open(transcript_file, "r", encoding="utf-8") as f:
@@ -321,7 +371,7 @@ async def run_ingestion():
         docs = chunk_transcript(segments, rec_id)
         if docs:
             all_docs.extend(docs)
-            print(f"  Ingested {rec_id}: {len(docs)} chunks")
+            logger.info(f"Ingested {rec_id}: {len(docs)} chunks")
     
     # Add to vector store
     if all_docs:
@@ -330,7 +380,7 @@ async def run_ingestion():
     # Build BM25 index for hybrid search
     build_bm25_index(all_docs)
     
-    print(f"Total: {len(all_docs)} chunks ingested")
+    logger.info(f"Total: {len(all_docs)} chunks ingested")
 
 
 def extract_citations(answer: str, docs: list[Document]) -> list[Citation]:
