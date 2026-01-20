@@ -408,6 +408,27 @@ def extract_citations(answer: str, docs: list[Document]) -> list[Citation]:
     return citations
 
 
+def expand_query_with_year_abbreviations(query: str) -> str:
+    """
+    Expand queries containing 4-digit years (1900-1999) to include abbreviated forms.
+    Example: "1917" -> "1917 '17"
+    This helps match narrator's year abbreviations like '38 for 1938.
+    """
+    # Find all 4-digit years in the 1900s (the relevant century for these memoirs)
+    year_pattern = r'\b(19\d{2})\b'
+    matches = re.findall(year_pattern, query)
+    
+    expanded_query = query
+    for year in matches:
+        # Extract last 2 digits and add abbreviated form
+        abbrev = "'" + year[-2:]
+        # Add the abbreviation to the query if not already present
+        if abbrev not in expanded_query:
+            expanded_query += f" {abbrev}"
+    
+    return expanded_query
+
+
 def hybrid_search(query: str, k: int = 60) -> list[Document]:
     """
     Hybrid search combining vector similarity and BM25 keyword matching.
@@ -416,12 +437,17 @@ def hybrid_search(query: str, k: int = 60) -> list[Document]:
     """
     global bm25_index, all_documents
     
+    # Expand query to include year abbreviations
+    expanded_query = expand_query_with_year_abbreviations(query)
+    if expanded_query != query:
+        logger.info(f"Query expanded: '{query}' -> '{expanded_query}'")
+    
     results_map: dict[str, tuple[Document, float]] = {}
     
     # 1. Vector search (semantic)
     vs = get_vectorstore()
     try:
-        vector_results = vs.similarity_search_with_score(query, k=k)
+        vector_results = vs.similarity_search_with_score(expanded_query, k=k)
         for doc, score in vector_results:
             # Lower score is better in Chroma (distance)
             # Normalize to 0-1 where 1 is best
@@ -433,7 +459,7 @@ def hybrid_search(query: str, k: int = 60) -> list[Document]:
     
     # 2. BM25 keyword search
     if bm25_index and all_documents:
-        query_tokens = query.lower().split()
+        query_tokens = expanded_query.lower().split()
         bm25_scores = bm25_index.get_scores(query_tokens)
         
         # Get top k by BM25 score
