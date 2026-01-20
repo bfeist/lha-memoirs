@@ -25,17 +25,19 @@ from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from rank_bm25 import BM25Okapi
+import httpx
 
 # Configuration
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 EMBED_MODEL = os.getenv("EMBED_MODEL", "nomic-embed-text")
-CHAT_MODEL = os.getenv("CHAT_MODEL", "gemma3:12b")
+CHAT_MODEL = os.getenv("CHAT_MODEL", "gpt-oss:20b")
 CHROMA_PERSIST_DIR = os.getenv("CHROMA_PERSIST_DIR", "./chroma_db")
 PUBLIC_DIR = Path(__file__).parent.parent.parent / "public" / "recordings"
 
-# Chunking: 2 minutes with 1 minute overlap = lots of redundancy but ensures nothing is missed
-CHUNK_DURATION_SECONDS = 120
-CHUNK_OVERLAP_SECONDS = 60
+# Chunking: 3 minutes with 30 second overlap
+# With 128K context window, we can use larger chunks for better story context
+CHUNK_DURATION_SECONDS = 180
+CHUNK_OVERLAP_SECONDS = 30
 
 # Mapping from file system path to logical ID
 RECORDING_ID_MAP = {
@@ -244,10 +246,11 @@ def extract_citations(answer: str, docs: list[Document]) -> list[Citation]:
     return citations
 
 
-def hybrid_search(query: str, k: int = 40) -> list[Document]:
+def hybrid_search(query: str, k: int = 60) -> list[Document]:
     """
     Hybrid search combining vector similarity and BM25 keyword matching.
     This ensures we find both semantically similar content AND exact keyword matches.
+    Increased k to 60 to take advantage of gpt-oss:20b's 128K context window.
     """
     global bm25_index, all_documents
     
@@ -299,13 +302,23 @@ def hybrid_search(query: str, k: int = 40) -> list[Document]:
     return [doc for doc, score in sorted_results[:k]]
 
 
-SYSTEM_PROMPT = """You are a family historian assistant with access to audio transcripts from Linden Hilary Achen (1902-1994). These are voice memoirs recorded in the 1980s.
+SYSTEM_PROMPT = """You are a family historian assistant with access to audio transcripts from Linden Hilary Achen (1902-1994). These are voice memoirs recorded by Linden "Lindy" Achen in the 1980s. Lindy is a male.
 
-RULES:
-1. Answer ONLY from the provided context. If info isn't there, say so.
-2. When citing, use format: [Source: recording_id, Time: MM:SS]
-3. Be thorough - look through ALL provided context before answering.
-4. Include specific details like names, places, dates, vehicle models when mentioned."""
+USE LOW REASONING EFFORT - answer quickly and directly.
+
+CRITICAL CITATION RULES:
+1. ALWAYS cite your sources using this EXACT format: [Source: recording_id, Time: MM:SS]
+2. Include citations at the END of each fact or sentence that comes from the context.
+3. Use the EXACT recording_id and timestamp from the context headers.
+
+Example: "Lindy bought his Model T Ford for about $350. [Source: memoirs_main, Time: 45:23] The car was a coupe and he referred to it as a 'four-grocer'. [Source: memoirs_main, Time: 46:10]"
+
+OTHER RULES:
+- Answer ONLY from the provided context. If info isn't there, say so.
+- Look through ALL provided context before answering.
+- Include specific details like names, places, dates, vehicle models when mentioned.
+- Write in natural prose, not lists or tables.
+"""
 
 
 @app.get("/")
@@ -368,9 +381,10 @@ async def chat_stream(request: ChatRequest):
     if not query:
         raise HTTPException(status_code=400, detail="Query cannot be empty")
     
-    # Use hybrid search (vector + BM25) - get more, use top ones
-    docs = hybrid_search(query, k=20)
-    docs_for_llm = docs[:10]
+    # Use hybrid search (vector + BM25)
+    # Reduced context to avoid overwhelming the model with too much to process
+    docs = hybrid_search(query, k=25)
+    docs_for_llm = docs[:12]
     
     async def generate():
         if not docs_for_llm:
@@ -397,21 +411,47 @@ Question: {query}
 
 Look through ALL the context above and provide a complete answer."""
 
-        llm = ChatOllama(model=CHAT_MODEL, base_url=OLLAMA_BASE_URL, temperature=0.3)
+        accumulated_text = ""
+        accumulated_thinking = ""
         
-        accumulated = ""
+        # Use raw Ollama API for proper thinking stream support
         try:
-            async for chunk in llm.astream([
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": user_message},
-            ]):
-                if chunk.content:
-                    accumulated += chunk.content
-                    yield f"data: {json.dumps({'type': 'text', 'content': chunk.content})}\n\n"
+            async with httpx.AsyncClient(timeout=120.0) as client:
+                async with client.stream(
+                    "POST",
+                    f"{OLLAMA_BASE_URL}/api/chat",
+                    json={
+                        "model": CHAT_MODEL,
+                        "messages": [
+                            {"role": "system", "content": SYSTEM_PROMPT},
+                            {"role": "user", "content": user_message},
+                        ],
+                        "stream": True,
+                    },
+                ) as response:
+                    async for line in response.aiter_lines():
+                        if line.strip():
+                            try:
+                                data = json.loads(line)
+                                message = data.get("message", {})
+                                
+                                # Stream thinking if present
+                                thinking_chunk = message.get("thinking", "")
+                                if thinking_chunk:
+                                    accumulated_thinking += thinking_chunk
+                                    yield f"data: {json.dumps({'type': 'thinking', 'content': thinking_chunk})}\n\n"
+                                
+                                # Stream content if present
+                                content_chunk = message.get("content", "")
+                                if content_chunk:
+                                    accumulated_text += content_chunk
+                                    yield f"data: {json.dumps({'type': 'text', 'content': content_chunk})}\n\n"
+                            except json.JSONDecodeError:
+                                continue
         except Exception as e:
             yield f"data: {json.dumps({'type': 'error', 'content': str(e)})}\n\n"
         
-        citations = extract_citations(accumulated, docs_for_llm)
+        citations = extract_citations(accumulated_text, docs_for_llm)
         citations_data = [c.model_dump() for c in citations]
         yield f"data: {json.dumps({'type': 'citations', 'citations': citations_data})}\n\n"
         yield "data: [DONE]\n\n"

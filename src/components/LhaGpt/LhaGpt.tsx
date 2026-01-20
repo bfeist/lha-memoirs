@@ -17,16 +17,11 @@ interface Message {
   content: string;
   citations?: Citation[];
   isStreaming?: boolean;
+  thinking?: string;
 }
 
 // RAG API base URL - configurable via environment variable
 const RAG_API_URL = import.meta.env.VITE_RAG_API_URL || "http://localhost:8000";
-
-function formatTimestamp(seconds: number): string {
-  const mins = Math.floor(seconds / 60);
-  const secs = Math.floor(seconds % 60);
-  return `${mins}:${secs.toString().padStart(2, "0")}`;
-}
 
 // Map recording_id (folder path or ID) to recording route ID using recordings.ts
 function getRecordingRoute(recordingId: string): string | null {
@@ -68,7 +63,10 @@ const LhaGpt: React.FC<{
   });
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [expandedThinking, setExpandedThinking] = useState<Set<number>>(new Set());
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const isAtBottomRef = useRef(true);
   const navigate = useNavigate();
 
   // Persist messages to localStorage
@@ -80,25 +78,29 @@ const LhaGpt: React.FC<{
     }
   }, [messages]);
 
+  // Check if user is at the bottom of the messages
+  const checkIfAtBottom = useCallback(() => {
+    const container = messagesContainerRef.current;
+    if (!container) return true;
+
+    const threshold = 50; // pixels from bottom to consider "at bottom"
+    const isAtBottom =
+      container.scrollHeight - container.scrollTop - container.clientHeight < threshold;
+    isAtBottomRef.current = isAtBottom;
+    return isAtBottom;
+  }, []);
+
   const scrollToBottom = useCallback(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (isAtBottomRef.current) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   }, []);
 
   const clearHistory = useCallback(() => {
     setMessages([]);
+    setExpandedThinking(new Set());
     localStorage.removeItem(STORAGE_KEY);
   }, []);
-
-  const handleCitationClick = (citation: Citation) => {
-    const recordingId = getRecordingRoute(citation.recording_id);
-    if (!recordingId) {
-      // Invalid recording_id - don't navigate
-      return;
-    }
-    // Navigate to the recording with timestamp
-    navigate(`/recording/${recordingId}?t=${Math.floor(citation.timestamp)}`);
-    onClose();
-  };
 
   const handleInlineSourceClick = (source: string, timeStr: string) => {
     const recordingId = getRecordingRoute(source);
@@ -108,6 +110,20 @@ const LhaGpt: React.FC<{
     const seconds = parseTimeToSeconds(timeStr);
     navigate(`/recording/${recordingId}?t=${seconds}`);
     onClose();
+  };
+
+  const toggleThinking = (messageIndex: number) => {
+    // Stop auto-scrolling when user expands thinking
+    isAtBottomRef.current = false;
+    setExpandedThinking((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(messageIndex)) {
+        newSet.delete(messageIndex);
+      } else {
+        newSet.add(messageIndex);
+      }
+      return newSet;
+    });
   };
 
   // Helper to process children and replace source text with buttons
@@ -178,6 +194,12 @@ const LhaGpt: React.FC<{
     setMessages((prev) => [...(prev || []), { role: "user", content: userMessage }]);
     setIsLoading(true);
 
+    // Re-enable auto-scroll when user sends a message
+    isAtBottomRef.current = true;
+
+    // User is sending a message, ensure we're at the bottom
+    isAtBottomRef.current = true;
+
     // Add placeholder for streaming response
     setMessages((prev) => [...prev, { role: "assistant", content: "", isStreaming: true }]);
 
@@ -202,14 +224,18 @@ const LhaGpt: React.FC<{
       const decoder = new TextDecoder();
       let accumulatedData = "";
       let accumulatedText = "";
+      let accumulatedThinking = "";
       let citations: Citation[] = [];
 
-      const updateStreamingMessage = (text: string, cites?: Citation[]) => {
+      const updateStreamingMessage = (text: string, thinking?: string, cites?: Citation[]) => {
         setMessages((prev) => {
           const newMessages = [...prev];
           const lastMsg = newMessages[newMessages.length - 1];
           if (lastMsg?.isStreaming) {
             lastMsg.content = text;
+            if (thinking !== undefined) {
+              lastMsg.thinking = thinking;
+            }
             if (cites) {
               lastMsg.citations = cites;
             }
@@ -239,10 +265,13 @@ const LhaGpt: React.FC<{
 
                 if (data.type === "text" && data.content) {
                   accumulatedText += data.content;
-                  updateStreamingMessage(accumulatedText);
+                  updateStreamingMessage(accumulatedText, accumulatedThinking);
+                } else if (data.type === "thinking" && data.content) {
+                  accumulatedThinking += data.content;
+                  updateStreamingMessage(accumulatedText, accumulatedThinking);
                 } else if (data.type === "citations" && data.citations) {
                   citations = data.citations;
-                  updateStreamingMessage(accumulatedText, citations);
+                  updateStreamingMessage(accumulatedText, accumulatedThinking, citations);
                 } else if (data.type === "error") {
                   throw new Error(data.content || "Unknown error");
                 }
@@ -295,13 +324,7 @@ const LhaGpt: React.FC<{
     }
   };
 
-  const handleOverlayClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
-  };
-
-  const handleOverlayKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Escape") {
       onClose();
     }
@@ -310,14 +333,7 @@ const LhaGpt: React.FC<{
   if (!isOpen) return null;
 
   return (
-    <div
-      className={styles.overlay}
-      onClick={handleOverlayClick}
-      onKeyDown={handleOverlayKeyDown}
-      role="button"
-      tabIndex={0}
-      aria-label="Close chat"
-    >
+    <div className={styles.overlay} onKeyDown={handleKeyDown} role="presentation">
       <div
         className={styles.chatContainer}
         role="dialog"
@@ -347,22 +363,34 @@ const LhaGpt: React.FC<{
         </div>
 
         {/* Messages */}
-        <div className={styles.messagesContainer}>
+        <div
+          className={styles.messagesContainer}
+          ref={messagesContainerRef}
+          onScroll={checkIfAtBottom}
+        >
           {messages.length === 0 && (
             <div className={styles.welcomeMessage}>
-              <p>
-                <strong>LHA-GPT</strong> can search through all of Linden&apos;s recorded memoirs
-                and answer questions about his life growing up and working in Iowa and Canada.
+              <div className={styles.welcomeHeader}>
+                <span className={styles.welcomeIcon}>🤖</span>
+                <h3>Welcome to LHA-GPT</h3>
+                <span className={styles.experimentalBadge}>Experimental</span>
+              </div>
+
+              <p className={styles.welcomeDescription}>
+                Ask questions about Linden&apos;s life and I&apos;ll search through all of his
+                recorded memoirs to find answers. I can tell you about his childhood in Iowa, his
+                work across the Midwest and Canada, and the stories he shared.
               </p>
-              <p className={styles.examplePrompts}>
-                Try asking:
-                <br />
-                &quot;When was Lindy born?&quot;
-                <br />
-                &quot;What work did he do?&quot;
-                <br />
-                &quot;Tell me about moving to Canada&quot;
-              </p>
+
+              <div className={styles.examplePrompts}>
+                <p className={styles.promptsLabel}>Try asking:</p>
+                <ul className={styles.promptsList}>
+                  <li>&quot;When was Lindy born?&quot;</li>
+                  <li>&quot;What work did he do?&quot;</li>
+                  <li>&quot;Tell me about moving to Canada&quot;</li>
+                  <li>&quot;Tell me about his Model T Ford&quot;</li>
+                </ul>
+              </div>
             </div>
           )}
 
@@ -375,38 +403,30 @@ const LhaGpt: React.FC<{
             >
               <div className={styles.messageContent}>
                 {msg.role === "assistant" ? (
-                  <div className={styles.markdown}>
-                    <ReactMarkdown components={components}>{msg.content}</ReactMarkdown>
-                    {msg.isStreaming && <span className={styles.cursor}>▌</span>}
-                  </div>
+                  <>
+                    {msg.thinking && (
+                      <div className={styles.thinkingSection}>
+                        <button
+                          className={styles.thinkingToggle}
+                          onClick={() => toggleThinking(idx)}
+                          aria-expanded={expandedThinking.has(idx)}
+                        >
+                          {expandedThinking.has(idx) ? "▼" : "▶"} Thinking process
+                        </button>
+                        {expandedThinking.has(idx) && (
+                          <div className={styles.thinkingContent}>{msg.thinking}</div>
+                        )}
+                      </div>
+                    )}
+                    <div className={styles.markdown}>
+                      <ReactMarkdown components={components}>{msg.content}</ReactMarkdown>
+                      {msg.isStreaming && <span className={styles.cursor}>▌</span>}
+                    </div>
+                  </>
                 ) : (
                   msg.content
                 )}
               </div>
-
-              {msg.citations && msg.citations.length > 0 && (
-                <div className={styles.citations}>
-                  <span className={styles.citationsLabel}>Sources:</span>
-                  {msg.citations
-                    .filter((citation) => getRecordingRoute(citation.recording_id) !== null)
-                    .map((citation, cidx) => {
-                      const recording =
-                        getRecordingById(citation.recording_id) ||
-                        getRecordingByPath(citation.recording_id);
-                      return (
-                        <button
-                          key={cidx}
-                          className={styles.citationButton}
-                          onClick={() => handleCitationClick(citation)}
-                          title={citation.quote_snippet}
-                        >
-                          📼 {recording?.title || citation.recording_id} @{" "}
-                          {formatTimestamp(citation.timestamp)}
-                        </button>
-                      );
-                    })}
-                </div>
-              )}
             </div>
           ))}
           <div ref={messagesEndRef} />
