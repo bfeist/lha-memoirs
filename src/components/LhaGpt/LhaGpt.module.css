@@ -41,6 +41,7 @@
 
 .headerIcon {
   font-size: 1.5rem;
+  color: #d4af37;
 }
 
 .header h2 {
@@ -123,11 +124,18 @@
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
-  justify-content: flex-start;
+  justify-content: space-between;
+}
+
+.welcomeTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .welcomeIcon {
   font-size: 2rem;
+  color: #d4af37;
 }
 
 .welcomeHeader h3 {
@@ -135,6 +143,23 @@
   font-size: 1.5rem;
   font-weight: 600;
   color: #d4af37;
+}
+
+@media (width <= 520px) {
+  .welcomeHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .welcomeHeader h3 {
+    font-size: 1.3rem;
+  }
+
+  .experimentalBadge {
+    flex-basis: 100%;
+    margin-top: 0.25rem;
+  }
 }
 
 .experimentalBadge {

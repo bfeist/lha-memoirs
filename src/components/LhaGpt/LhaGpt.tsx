@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { getRecordingByPath, getRecordingById } from "../../config/recordings";
 import styles from "./LhaGpt.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleChevronRight, faRobot } from "@fortawesome/free-solid-svg-icons";
 
 const STORAGE_KEY = "lha-gpt-chat-history";
 
@@ -404,7 +406,9 @@ const LhaGpt: React.FC<{
         {/* Header */}
         <div className={styles.header}>
           <div className={styles.headerInfo}>
-            <span className={styles.headerIcon}>🤖</span>
+            <span className={styles.headerIcon}>
+              <FontAwesomeIcon icon={faRobot} />
+            </span>
             <h2 id="lha-gpt-title">LHA-GPT</h2>
           </div>
           <div className={styles.headerButtons}>
@@ -439,8 +443,12 @@ const LhaGpt: React.FC<{
           {messages.length === 0 && (
             <div className={styles.welcomeMessage}>
               <div className={styles.welcomeHeader}>
-                <span className={styles.welcomeIcon}>🤖</span>
-                <h3>Welcome to LHA-GPT</h3>
+                <div className={styles.welcomeTitle}>
+                  <span className={styles.welcomeIcon}>
+                    <FontAwesomeIcon icon={faRobot} />
+                  </span>
+                  <h3>Welcome to LHA-GPT</h3>
+                </div>
                 <span className={styles.experimentalBadge}>Experimental</span>
               </div>
 
@@ -517,7 +525,7 @@ const LhaGpt: React.FC<{
             onClick={sendMessage}
             disabled={isLoading || !input.trim()}
           >
-            {isLoading ? "..." : "→"}
+            {isLoading ? "..." : <FontAwesomeIcon icon={faCircleChevronRight} />}
           </button>
         </div>
       </div>
