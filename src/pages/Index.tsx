@@ -34,10 +34,8 @@ function Index(): React.ReactElement {
       {/* What's New Modal */}
       <WhatsNew isOpen={showWhatsNew} onClose={() => setShowWhatsNew(false)} />
 
-      <>
-        {/* LHA-GPT Chat Modal */}
-        <LhaGpt isOpen={showLhaGpt} onClose={() => setShowLhaGpt(false)} />
-      </>
+      {/* LHA-GPT Chat Modal */}
+      <LhaGpt isOpen={showLhaGpt} onClose={() => setShowLhaGpt(false)} />
 
       {/* Header */}
       <header className={styles.header}>
@@ -64,24 +62,28 @@ function Index(): React.ReactElement {
         {/* Interactive Features Buttons */}
         <section className={styles.featuresSection}>
           <button
-            className={styles.featureButton}
+            className={`${styles.featureButton} ${styles.featurePrimary}`}
             onClick={() => setShowLhaGpt(true)}
             aria-label="Chat with LHA-GPT"
           >
-            <FontAwesomeIcon icon={faRobot} className={styles.featureIcon} />
             <div className={styles.featureContent}>
-              <span className={styles.featureTitle}>LHA-GPT</span>
+              <div className={styles.featureTitleLine}>
+                <FontAwesomeIcon icon={faRobot} className={styles.featureIcon} />
+                <span className={styles.featureTitle}>LHA-GPT</span>
+              </div>
               <span className={styles.featureDescription}>Ask questions about the memoirs</span>
             </div>
           </button>
           <button
-            className={styles.featureButton}
+            className={`${styles.featureButton} ${styles.featureSecondary}`}
             onClick={() => setShowWhatsNew(true)}
             aria-label="What's New"
           >
-            <FontAwesomeIcon icon={faStar} className={styles.featureIcon} />
             <div className={styles.featureContent}>
-              <span className={styles.featureTitle}>What&apos;s New</span>
+              <div className={styles.featureTitleLine}>
+                <FontAwesomeIcon icon={faStar} className={styles.featureIcon} />
+                <span className={styles.featureTitle}>What&apos;s New</span>
+              </div>
               <span className={styles.featureDescription}>
                 {changelog?.generatedAt
                   ? `Updated ${new Date(changelog.generatedAt).toLocaleDateString()}`

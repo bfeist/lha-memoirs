@@ -22,6 +22,8 @@ function RecordingPlayer(): React.ReactElement {
   const [readyForRecordingId, setReadyForRecordingId] = useState<string | null>(null);
   const pendingSeekTime = useRef<number | null>(null);
   const peaksInstanceRef = useRef<PeaksInstance | null>(null);
+  // Track chapters panel collapse state on mobile
+  const [chaptersExpanded, setChaptersExpanded] = useState(false);
 
   // Player is ready only if it's ready for the CURRENT recording
   const isPlayerReady = readyForRecordingId === recordingId;
@@ -158,6 +160,11 @@ function RecordingPlayer(): React.ReactElement {
     seekTo(0);
   }, [clearProgress, seekTo]);
 
+  // Toggle chapters panel on mobile
+  const toggleChapters = useCallback(() => {
+    setChaptersExpanded((prev) => !prev);
+  }, []);
+
   // Calculate the current chapter ID based on playback time
   const currentChapterId = useMemo(() => {
     if (!chapters || chapters.length === 0) return null;
@@ -202,12 +209,12 @@ function RecordingPlayer(): React.ReactElement {
       className={styles.container}
       style={{ "--background-image": `url(${backgroundImage})` } as React.CSSProperties}
     >
+      <Link to="/" className={styles.backButton} aria-label="Back to home">
+        ←<span className={styles.backButtonText}> Back</span>
+      </Link>
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <Link to="/" className={styles.backButton} aria-label="Back to home">
-            ←<span className={styles.backButtonText}> Back</span>
-          </Link>
           <h1 className={styles.title}>
             <Link to="/">
               Linden Hilary Achen - {recordingConfig.title}{" "}
@@ -292,6 +299,8 @@ function RecordingPlayer(): React.ReactElement {
 
         {/* Content with resizable panels: TOC and Transcript */}
         <ResizablePanels
+          chaptersExpanded={chaptersExpanded}
+          onToggleChapters={toggleChapters}
           leftPanel={
             chapters && chapters.length > 0 ? (
               <Chapters

@@ -261,6 +261,7 @@ The recording begins with:
 
 {opening_text}
 
+These are voice memoirs recorded by Linden "Lindy" Achen recorded in the 1980s. Lindy is a male.
 What is the narrator talking about at the very START of this recording (at timestamp 0)?
 The title must describe the content that BEGINS the recording.
 

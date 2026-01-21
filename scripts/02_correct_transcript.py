@@ -36,7 +36,7 @@ SKIP_RECORDINGS = {"christmas1986"}
 
 # ============================================================================
 # ACHEN FAMILY CORRECTIONS
-# The narrator is Linden "Lindy" Achen
+# Lindy is Linden "Lindy" Achen
 # ============================================================================
 FAMILY_CORRECTIONS = [
     # Achen family name - all variants

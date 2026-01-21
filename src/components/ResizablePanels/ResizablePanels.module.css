@@ -5,6 +5,7 @@
   min-height: 0;
   overflow: hidden;
   gap: 0;
+  position: relative;
 }
 
 .leftPanel {
@@ -58,10 +59,52 @@
   height: 100%;
 }
 
-/* Hide resizable panels on mobile and use stacked layout */
+/* Mobile toggle button - hidden on desktop */
+.mobileToggle {
+  display: none;
+}
+
+/* Mobile layout - chapters collapsible, transcript always visible */
 @media (width <= 1024px) {
   .container {
     flex-direction: column;
+  }
+
+  .mobileToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, rgb(212 175 55 / 15%) 0%, rgb(180 140 40 / 10%) 100%);
+    border: 1px solid rgb(212 175 55 / 40%);
+    border-radius: 8px;
+    color: #d4af37;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .mobileToggle:hover {
+    background: linear-gradient(135deg, rgb(212 175 55 / 20%) 0%, rgb(180 140 40 / 15%) 100%);
+    border-color: rgb(212 175 55 / 60%);
+  }
+
+  .mobileToggle:active {
+    transform: scale(0.98);
+  }
+
+  .toggleIcon {
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+  }
+
+  .toggleText {
+    font-size: 0.875rem;
   }
 
   .divider {
@@ -70,9 +113,42 @@
 
   .leftPanel {
     width: 100% !important;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease-out,
+      margin-bottom 0.3s ease-out;
+    margin-bottom: 0;
+  }
+
+  .leftPanel.expanded {
+    max-height: 50vh;
+    margin-bottom: 0.5rem;
+    overflow-y: auto;
+    /* Enable momentum scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
   }
 
   .rightPanel {
     flex: 1;
+    min-height: 0;
+    /* Enable momentum scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Extra small screens - make chapters take less space when expanded */
+@media (width <= 600px) {
+  .leftPanel.expanded {
+    max-height: 40vh;
+  }
+
+  .mobileToggle {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.85rem;
+  }
+
+  .toggleText {
+    font-size: 0.8rem;
   }
 }

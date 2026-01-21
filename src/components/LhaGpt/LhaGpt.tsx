@@ -489,7 +489,7 @@ const LhaGpt: React.FC<{
                     )}
                     <div className={styles.markdown}>
                       <ReactMarkdown components={components}>{msg.content}</ReactMarkdown>
-                      {msg.isStreaming && <span className={styles.cursor}>▌</span>}
+                      {msg.isStreaming && <span className={styles.loader} aria-hidden="true" />}
                     </div>
                   </>
                 ) : (

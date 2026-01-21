@@ -490,7 +490,7 @@ def hybrid_search(query: str, k: int = 60) -> list[Document]:
     return [doc for doc, score in sorted_results[:k]]
 
 
-SYSTEM_PROMPT = """You are a family historian assistant with access to audio transcripts from Linden Hilary Achen (1902-1994). These are voice memoirs recorded by Linden "Lindy" Achen in the 1980s. Lindy is a male.
+SYSTEM_PROMPT = """You are a family historian assistant with access to audio transcripts from Linden Hilary Achen (1902-1994). These are voice memoirs recorded by Linden "Lindy" Achen recorded in the 1980s. Lindy is a male.
 
 USE LOW REASONING EFFORT - answer quickly and directly.
 

@@ -7,12 +7,16 @@ export const ResizablePanels: React.FC<{
   defaultLeftWidth?: number;
   minLeftWidth?: number;
   maxLeftWidth?: number;
+  chaptersExpanded?: boolean;
+  onToggleChapters?: () => void;
 }> = ({
   leftPanel,
   rightPanel,
   defaultLeftWidth = 320,
   minLeftWidth = 200,
   maxLeftWidth = 600,
+  chaptersExpanded = false,
+  onToggleChapters,
 }) => {
   const [leftWidth, setLeftWidth] = useState(defaultLeftWidth);
   const [isDragging, setIsDragging] = useState(false);
@@ -86,7 +90,25 @@ export const ResizablePanels: React.FC<{
 
   return (
     <div ref={containerRef} className={styles.container}>
-      <div className={styles.leftPanel} style={{ width: `${leftWidth}px` }}>
+      {/* Mobile toggle button - only visible on mobile */}
+      {onToggleChapters && (
+        <button
+          type="button"
+          className={styles.mobileToggle}
+          onClick={onToggleChapters}
+          aria-label={chaptersExpanded ? "Hide chapters" : "Show chapters"}
+        >
+          <span className={styles.toggleIcon}>{chaptersExpanded ? "▼" : "▶"}</span>
+          <span className={styles.toggleText}>
+            {chaptersExpanded ? "Hide Chapters" : "Show Chapters"}
+          </span>
+        </button>
+      )}
+
+      <div
+        className={`${styles.leftPanel} ${chaptersExpanded ? styles.expanded : ""}`}
+        style={{ width: `${leftWidth}px` }}
+      >
         {leftPanel}
       </div>
 
