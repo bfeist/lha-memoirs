@@ -41,75 +41,6 @@
   font-style: italic;
 }
 
-/* Header buttons container */
-.headerButtons {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-
-/* LHA-GPT Chat button */
-.chatButton {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #d4af37;
-  cursor: pointer;
-  background: rgb(212 175 55 / 10%);
-  border: 1px solid rgb(212 175 55 / 30%);
-  border-radius: 6px;
-  transition:
-    background 0.2s,
-    border-color 0.2s;
-}
-
-.chatButton:hover {
-  background: rgb(212 175 55 / 20%);
-  border-color: rgb(212 175 55 / 50%);
-}
-
-/* What's New section */
-.whatsNewContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.25rem;
-}
-
-.whatsNewButton {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #d4af37;
-  cursor: pointer;
-  background: rgb(212 175 55 / 10%);
-  border: 1px solid rgb(212 175 55 / 30%);
-  border-radius: 6px;
-  transition:
-    background 0.2s,
-    border-color 0.2s;
-}
-
-.whatsNewButton:hover {
-  background: rgb(212 175 55 / 20%);
-  border-color: rgb(212 175 55 / 50%);
-}
-
-.lastUpdated {
-  font-size: 0.65rem;
-  color: #666666;
-  font-style: italic;
-}
-
 /* Main content */
 .main {
   position: fixed;
@@ -117,7 +48,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  padding-top: 9.5rem;
+  padding-top: 7rem;
   max-width: none;
   width: 100%;
   margin: 0;
@@ -162,6 +93,62 @@
   font-size: 0.9rem;
   color: #999999;
   font-style: italic;
+}
+
+/* Features section */
+.featuresSection {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: calc(100% - 2rem);
+}
+
+.featureButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, rgb(212 175 55 / 15%) 0%, rgb(180 140 40 / 10%) 100%);
+  border: 1px solid rgb(212 175 55 / 30%);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  flex: 1;
+}
+
+.featureButton:hover {
+  background: linear-gradient(135deg, rgb(212 175 55 / 25%) 0%, rgb(180 140 40 / 15%) 100%);
+  border-color: rgb(212 175 55 / 50%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
+}
+
+.featureIcon {
+  font-size: 1.75rem;
+  color: #d4af37;
+  flex-shrink: 0;
+}
+
+.featureContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.featureTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #d4af37;
+}
+
+.featureDescription {
+  font-size: 0.8rem;
+  color: #999999;
 }
 
 /* Section titles */
@@ -309,21 +296,24 @@
     width: 220px;
   }
 
-  .whatsNewContainer {
-    top: 0.5rem;
-    right: 0.5rem;
+  .main {
+    padding-top: 6rem;
   }
 
-  .whatsNewButton {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.75rem;
+  .featureButton {
+    padding: 0.75rem 0.5rem;
+    gap: 0.5rem;
   }
 
-  .whatsNewButton span {
-    display: none;
+  .featureIcon {
+    font-size: 1.5rem;
   }
 
-  .lastUpdated {
-    font-size: 0.6rem;
+  .featureTitle {
+    font-size: 0.9rem;
+  }
+
+  .featureDescription {
+    font-size: 0.7rem;
   }
 }

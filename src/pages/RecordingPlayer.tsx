@@ -206,7 +206,7 @@ function RecordingPlayer(): React.ReactElement {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <Link to="/" className={styles.backButton} aria-label="Back to home">
-            ← Back
+            ←<span className={styles.backButtonText}> Back</span>
           </Link>
           <h1 className={styles.title}>
             <Link to="/">

@@ -45,31 +45,6 @@ function Index(): React.ReactElement {
           <h1 className={styles.title}>The Memoirs of Linden Hilary Achen</h1>
           <p className={styles.subtitle}>(1902 - 1994)</p>
         </div>
-        <div className={styles.headerButtons}>
-          <button
-            className={styles.chatButton}
-            onClick={() => setShowLhaGpt(true)}
-            aria-label="Chat with LHA-GPT"
-          >
-            <FontAwesomeIcon icon={faRobot} />
-            <span>LHA-GPT</span>
-          </button>
-          <div className={styles.whatsNewContainer}>
-            <button
-              className={styles.whatsNewButton}
-              onClick={() => setShowWhatsNew(true)}
-              aria-label="What's New"
-            >
-              <FontAwesomeIcon icon={faStar} />
-              <span>What&apos;s New</span>
-            </button>
-            {changelog?.generatedAt && (
-              <span className={styles.lastUpdated}>
-                Last updated: {new Date(changelog.generatedAt).toLocaleDateString()}
-              </span>
-            )}
-          </div>
-        </div>
       </header>
 
       {/* Main content */}
@@ -84,6 +59,36 @@ function Index(): React.ReactElement {
             />
           </div>
           <p className={styles.portraitCaption}>L.H.A., 1942</p>
+        </section>
+
+        {/* Interactive Features Buttons */}
+        <section className={styles.featuresSection}>
+          <button
+            className={styles.featureButton}
+            onClick={() => setShowLhaGpt(true)}
+            aria-label="Chat with LHA-GPT"
+          >
+            <FontAwesomeIcon icon={faRobot} className={styles.featureIcon} />
+            <div className={styles.featureContent}>
+              <span className={styles.featureTitle}>LHA-GPT</span>
+              <span className={styles.featureDescription}>Ask questions about the memoirs</span>
+            </div>
+          </button>
+          <button
+            className={styles.featureButton}
+            onClick={() => setShowWhatsNew(true)}
+            aria-label="What's New"
+          >
+            <FontAwesomeIcon icon={faStar} className={styles.featureIcon} />
+            <div className={styles.featureContent}>
+              <span className={styles.featureTitle}>What&apos;s New</span>
+              <span className={styles.featureDescription}>
+                {changelog?.generatedAt
+                  ? `Updated ${new Date(changelog.generatedAt).toLocaleDateString()}`
+                  : "Recent updates"}
+              </span>
+            </div>
+          </button>
         </section>
 
         {/* Memoirs section */}
