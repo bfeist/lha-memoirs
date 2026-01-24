@@ -40,8 +40,14 @@ function Index(): React.ReactElement {
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <h1 className={styles.title}>The Memoirs of Linden Hilary Achen</h1>
-          <p className={styles.subtitle}>(1902 - 1994)</p>
+          <h1 className={styles.title}>
+            A Life on the Canadian Prairies: The Memoirs of Linden Hilary Achen
+          </h1>
+          <p className={styles.subtitle}>
+            The recorded memoirs of Linden &quot;Lindy&quot; Hilary Achen (1902–1994), recounting
+            his life farming on the Canadian Prairies and his work expanding rural electricity
+            across western Canada
+          </p>
         </div>
       </header>
 
@@ -56,7 +62,7 @@ function Index(): React.ReactElement {
               className={styles.portrait}
             />
           </div>
-          <p className={styles.portraitCaption}>L.H.A., 1942</p>
+          <p className={styles.portraitCaption}>Lindy Achen, 1942</p>
         </section>
 
         {/* Interactive Features Buttons */}
