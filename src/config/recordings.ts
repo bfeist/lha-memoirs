@@ -5,7 +5,7 @@ export interface RecordingConfig {
   path: string; // Path relative to /recordings/
   title: string;
   subtitle: string;
-  icon: string;
+  categoryLabel: string;
   backgroundImages: string[];
   category: "recording" | "memoir";
   hasEnhancedAudio: boolean; // Whether this recording has both original and enhanced audio files
@@ -18,7 +18,7 @@ export const RECORDINGS: RecordingConfig[] = [
     path: "christmas1986",
     title: "Christmas 1986",
     subtitle: "A letter to his son, Norman Achen. Recorded on November 26, 1986.",
-    icon: "🎄",
+    categoryLabel: "Letter Recording",
     backgroundImages: ["/photos/P1010033.jpg", "/photos/P1010034.jpg", "/photos/P1010038.jpg"],
     category: "recording",
     hasEnhancedAudio: true,
@@ -27,8 +27,8 @@ export const RECORDINGS: RecordingConfig[] = [
     id: "glynn_interview",
     path: "glynn_interview",
     title: "Glynn Interview",
-    subtitle: "An interview with Glynn about family history and life experiences.",
-    icon: "🎙️",
+    subtitle: "Lindy Achen interviewed by Arlene Glynn about life during the Great Depression.",
+    categoryLabel: "Interview",
     backgroundImages: ["/photos/P1010033.jpg", "/photos/P1010034.jpg"],
     category: "recording",
     hasEnhancedAudio: false,
@@ -37,8 +37,8 @@ export const RECORDINGS: RecordingConfig[] = [
     id: "lha_sr_hilary",
     path: "LHA_Sr.Hilary",
     title: "Sister Hilary Recording",
-    subtitle: "Recordings with Sister Hilary discussing family and career.",
-    icon: "📼",
+    subtitle: "Recordings with his older sister, Sister Hilary, discussing family and career.",
+    categoryLabel: "Family Recording",
     backgroundImages: ["/photos/P1010033.jpg", "/photos/P1010034.jpg"],
     category: "recording",
     hasEnhancedAudio: false,
@@ -47,8 +47,9 @@ export const RECORDINGS: RecordingConfig[] = [
     id: "tibbits_cd",
     path: "tibbits_cd",
     title: "Tibbits CD",
-    subtitle: "Stories and recordings from a CD created by Leslie Feist.",
-    icon: "💿",
+    subtitle:
+      "Stories and recordings from a CD compilation of early audio created by his granddaughter, Leslie Feist.",
+    categoryLabel: "Audio Collection",
     backgroundImages: ["/photos/P1010033.jpg", "/photos/P1010034.jpg"],
     category: "recording",
     hasEnhancedAudio: false,
@@ -58,8 +59,9 @@ export const RECORDINGS: RecordingConfig[] = [
     id: "memoirs_main",
     path: "memoirs/Norm_red",
     title: "Memoirs",
-    subtitle: "Lindy Achen's voice memoirs about his working life.",
-    icon: "📕",
+    subtitle:
+      "Lindy Achen's voice memoirs recounting his life farming on the Canadian Prairies and his work expanding rural electricity across western Canada",
+    categoryLabel: "Featured",
     backgroundImages: ["/photos/P1010033.jpg", "/photos/P1010034.jpg"],
     category: "memoir",
     hasEnhancedAudio: false,
@@ -70,7 +72,7 @@ export const RECORDINGS: RecordingConfig[] = [
     title: "Memoirs - Draft Telling",
     subtitle:
       "A draft recording of Lindy Achen's voice memoirs, recorded before the finished product.",
-    icon: "📗",
+    categoryLabel: "Draft",
     backgroundImages: ["/photos/P1010033.jpg", "/photos/P1010034.jpg"],
     category: "memoir",
     hasEnhancedAudio: false,

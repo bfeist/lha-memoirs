@@ -216,10 +216,12 @@ function RecordingPlayer(): React.ReactElement {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <h1 className={styles.title}>
-            <Link to="/">
-              Linden Hilary Achen - {recordingConfig.title}{" "}
-              <span className={styles.titleIcon}>{recordingConfig.icon}</span>
-            </Link>
+            <Link to="/">Linden Hilary Achen - {recordingConfig.title}</Link>
+            <span
+              className={`${styles.categoryBadge} ${styles[`badge${recordingConfig.category.charAt(0).toUpperCase() + recordingConfig.category.slice(1)}`]}`}
+            >
+              {recordingConfig.categoryLabel}
+            </span>
           </h1>
           <p className={styles.subtitle}>{recordingConfig.subtitle}</p>
         </div>

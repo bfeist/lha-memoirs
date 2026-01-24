@@ -12,9 +12,15 @@ import "../global/global.css";
 function RecordingCard({ recording }: { recording: RecordingConfig }): React.ReactElement {
   return (
     <Link to={`/recording/${recording.id}`} className={styles.letterCard}>
-      <span className={styles.letterIcon}>{recording.icon}</span>
       <div className={styles.letterInfo}>
-        <h3>{recording.title}</h3>
+        <div className={styles.titleRow}>
+          <h3>{recording.title}</h3>
+          <span
+            className={`${styles.categoryBadge} ${styles[`badge${recording.category.charAt(0).toUpperCase() + recording.category.slice(1)}`]}`}
+          >
+            {recording.categoryLabel}
+          </span>
+        </div>
         <p>{recording.subtitle}</p>
       </div>
       <span className={styles.arrow}>→</span>

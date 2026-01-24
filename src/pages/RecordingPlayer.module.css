@@ -54,7 +54,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.625rem;
   margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
@@ -75,8 +75,29 @@
   cursor: pointer;
 }
 
-.titleIcon {
-  font-size: 1.25rem;
+.categoryBadge {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badgeMemoir {
+  background: linear-gradient(135deg, rgb(212 175 55 / 35%) 0%, rgb(180 140 40 / 25%) 100%);
+  color: #f0d06b;
+  border: 1px solid rgb(212 175 55 / 55%);
+  box-shadow: 0 0 8px rgb(212 175 55 / 15%);
+}
+
+.badgeRecording {
+  background: linear-gradient(135deg, rgb(70 130 180 / 30%) 0%, rgb(30 80 120 / 25%) 100%);
+  color: #87ceeb;
+  border: 1px solid rgb(70 130 180 / 45%);
 }
 
 .subtitle {
