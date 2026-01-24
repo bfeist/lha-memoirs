@@ -1,0 +1,73 @@
+{
+  "video_file": "Grama and Grampa by flowers (LA).mp4",
+  "video_path": "F:\\premiere_renders\\Grama and Grampa by flowers (LA).mp4",
+  "total_scenes": 2,
+  "scenes": [
+    {
+      "title": "Family poses near fountain, likely at a World's Fair",
+      "summary": "The video shows a family posing for a photo near a large fountain and modern building.  The scene appears to be outdoors, possibly at a World's Fair or similar exposition, given the architecture and landscaping.",
+      "details": [
+        "The video is likely home movie footage, judging by the amateur filming style.",
+        "A large fountain dominates the background, with water spraying upwards.",
+        "The building behind the family has a mid-century modern architectural style.",
+        "The landscaping includes manicured lawns, flowerbeds, and palm trees.",
+        "The people in the video are dressed in clothing typical of the mid-20th century.",
+        "A young boy is present in the second frame, partially obscuring the view."
+      ],
+      "tags": [
+        "family",
+        "fountain",
+        "architecture",
+        "mid-century",
+        "World's Fair",
+        "home movie",
+        "travel",
+        "outdoors",
+        "1950s",
+        "1960s"
+      ],
+      "people_visible": [
+        "Lindy Achen",
+        "Phyllis Achen"
+      ],
+      "era_estimate": "1950s-1960s",
+      "scene_index": 0,
+      "start_seconds": 0.0,
+      "end_seconds": 5.61,
+      "duration_seconds": 5.61
+    },
+    {
+      "title": "Couple walks through field, likely on a rural outing",
+      "summary": "The video shows a couple walking along a path beside a field of yellow crops, likely canola or sunflowers. They appear to be enjoying a leisurely stroll in a rural setting.",
+      "details": [
+        "The couple is walking away from the camera.",
+        "The woman is wearing a light-colored dress and a dark jacket.",
+        "The man is wearing a suit and tie.",
+        "A dog is walking alongside them.",
+        "The background features trees and a distant building.",
+        "The video has a slightly faded, aged color quality characteristic of older home movies."
+      ],
+      "tags": [
+        "couple",
+        "rural",
+        "field",
+        "walk",
+        "vintage",
+        "home movie",
+        "1960s",
+        "Saskatchewan",
+        "dog",
+        "outdoors"
+      ],
+      "people_visible": [
+        "Lindy Achen",
+        "Phyllis Achen"
+      ],
+      "era_estimate": "1960s",
+      "scene_index": 1,
+      "start_seconds": 5.61,
+      "end_seconds": 12.81,
+      "duration_seconds": 7.21
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+[project]
+name = "vid-scenes"
+version = "0.1.0"
+description = "Video scene detection and description using PySceneDetect and Ollama vision"
+requires-python = ">=3.11"
+dependencies = [
+    "scenedetect[opencv]>=0.6",
+    "httpx>=0.27",
+    "pillow>=10.0",
+]
+
+[tool.uv]
+dev-dependencies = []

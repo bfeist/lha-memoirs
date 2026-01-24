@@ -39,3 +39,19 @@ scripts/rag/__pycache__/
 scripts/rag/*.pyc
 
 .env
+
+# Vid Scenes Script
+# Python/uv
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+vid_scenes.egg-info/
+
+# Temporary files
+*.tmp
+*.log
