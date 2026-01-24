@@ -636,36 +636,61 @@
       "description": "Lindy begins discussing the company's practices of acquiring and maintaining machinery and equipment, specifically focusing on earth-boring machines and augers."
     },
     {
+      "title": "Clutch Problems",
+      "startTime": 10437.23,
+      "description": "Lindy details issues with the clutch on their machinery, including the challenges faced and the solutions implemented.",
+      "minor": true
+    },
+    {
+      "title": "Machinery Repairs and Modifications",
+      "startTime": 10505.54,
+      "description": "Lindy continues discussing machinery issues, specifically focusing on repairs and modifications made to improve performance.",
+      "minor": true
+    },
+    {
       "title": "Pole Straightener Design",
       "startTime": 10599.38,
       "description": "Lindy shifts from discussing clutch issues to describing the Power Corporation's attempt to design a pole straightener and Lindy's subsequent involvement in building one."
     },
     {
-      "title": "Acquiring Equipment in Montana",
+      "title": "Continued Machinery Discussion",
+      "startTime": 10693.27,
+      "description": ""
+    },
+    {
+      "title": "Retelling - Acquiring Equipment in Montana",
       "startTime": 10752.61,
       "description": "Lindy transitions to discussing the purchase of a drilling machine in Billings, Montana, and the subsequent modifications made to it.",
       "minor": true
     },
     {
-      "title": "Addressing Clutch Issues",
-      "startTime": 10865.86,
-      "description": "Lindy returns to the topic of clutch problems, detailing the solution implemented and the subsequent inquiries from other companies."
+      "title": "Retelling - Addressing Clutch Issues",
+      "startTime": 10806.26,
+      "description": "Lindy returns to the topic of clutch problems, detailing the solution implemented and the subsequent inquiries from other companies.",
+      "minor": true
     },
     {
-      "title": "Experiences with Machines",
-      "startTime": 10952.21,
-      "description": "Lindy begins discussing purchasing and overhauling older machines, specifically mentioning a machine bought from the city."
+      "title": "Retelling - Second-handed Machines",
+      "startTime": 10943.38,
+      "description": "Lindy begins discussing purchasing and overhauling older machines, specifically mentioning a machine bought from the city.",
+      "minor": true
+    },
+    {
+      "title": "Buying Machines in North Dakota",
+      "startTime": 10999.58,
+      "description": "",
+      "minor": true
     },
     {
       "title": "Financing and Banking",
       "startTime": 11071.04,
-      "description": "Lindy transitions to discussing his experiences with financing and banking, specifically his relationship with the bank in Estevan.",
-      "minor": true
+      "description": "Lindy transitions to discussing his experiences with financing and banking, specifically his relationship with the bank in Estevan."
     },
     {
       "title": "Overdraft & Uninvoiced Work",
       "startTime": 11157.21,
-      "description": "Lindy discusses his relationship with Bill Mullins and how it impacted his banking experience."
+      "description": "Lindy discusses his relationship with Bill Mullins and how it impacted his banking experience.",
+      "minor": true
     },
     {
       "title": "Contractor Payment Practices",
@@ -676,45 +701,44 @@
     {
       "title": "1954 Sleet Storm Assistance",
       "startTime": 11293.44,
-      "description": "Lindy begins recounting his involvement in assisting Manitoba after a sleet storm in 1954.",
-      "minor": true
+      "description": "Lindy begins recounting his involvement in assisting Manitoba after a sleet storm in 1954."
     },
     {
       "title": "Contractor Supervision Pay",
-      "startTime": 11380.69,
+      "startTime": 11410.59,
       "description": "Lindy explains how he calculated his payment for supervising the sleet storm crews."
     },
     {
-      "title": "Ted Durnan's Job Offer",
+      "title": "Retelling - Ted Durnan's Job Offer",
       "startTime": 11442.35,
       "description": "Lindy discusses a job offer from Ted Durnan to run his construction outfit and Lindy's response.",
       "minor": true
     },
     {
-      "title": "Christmas Job Requests",
+      "title": "Retelling - Christmas Job Requests",
       "startTime": 11513.31,
       "description": "Lindy describes how Durnan would ask Lindy to provide crews for urgent jobs, particularly around Christmas.",
       "minor": true
     },
     {
       "title": "Contractor Business Practices & Subcontracting",
-      "startTime": 11614.93,
+      "startTime": 11601.47,
       "description": "Lindy transitions to discussing a 10-year contract for city work, including equipment and rates."
     },
     {
-      "title": "Nichols Contract Retrieval",
+      "title": "Retelling - Nichols Contract Retrieval",
       "startTime": 11701.01,
       "description": "Lindy discusses a past contract with Nichols and the superintendent's request for a copy.",
       "minor": true
     },
     {
-      "title": "Office and Shop History",
-      "startTime": 11810.57,
+      "title": "Resisting Company Expansion",
+      "startTime": 11782.97,
       "description": "Lindy begins detailing the history of his office and shop, including its initial construction and subsequent expansions."
     },
     {
       "title": "Business Operations & Problem Solving",
-      "startTime": 11879.53,
+      "startTime": 11881.05,
       "description": "Lindy discusses the company's financial stability and compares it to other businesses, highlighting their differences."
     },
     {
@@ -730,21 +754,20 @@
       "minor": true
     },
     {
-      "title": "Computerized Payroll Systems",
+      "title": "The Computer Age",
       "startTime": 12100.19,
       "description": "Lindy discusses the necessity of computers for tracking rapidly changing prices and managing repairs, contrasting it with manual methods."
     },
     {
       "title": "Coffee Shop Technology",
-      "startTime": 12156.35,
+      "startTime": 12156.24,
       "description": "Lindy shifts to observing the complexity of modern technology, exemplified by the process of ringing up a simple cup of coffee.",
       "minor": true
     },
     {
-      "title": "Reflecting on Past Friendships",
-      "startTime": 12202.56,
-      "description": "Lindy transitions to reminiscing about past friendships and the changes he's observed over the years, particularly the loss of colleagues.",
-      "minor": true
+      "title": "Reflecting on Retirement and Past Friendships",
+      "startTime": 12192.33,
+      "description": "Lindy transitions to reminiscing about past friendships and the changes he's observed over the years, particularly the loss of colleagues."
     },
     {
       "title": "Achen Construction Legacy",
@@ -759,34 +782,42 @@
     },
     {
       "title": "Estimating Job Bids",
-      "startTime": 12637.25,
+      "startTime": 12590.29,
       "description": "Lindy begins to recount a specific instance of estimating a job bid with Miller and a colleague from Yorkton, detailing their process and a surprising outcome."
     },
     {
-      "title": "Negotiating a Construction Job",
-      "startTime": 12701.96,
-      "description": "Lindy recounts a scenario where he was running the office for Art and joined a happy hour.",
+      "title": "Advantages of Business Experience",
+      "startTime": 12637.25,
+      "description": "",
       "minor": true
     },
     {
       "title": "Regina to Estevan Bid",
-      "startTime": 12767.87,
+      "startTime": 12762.87,
       "description": "Lindy transitions to discussing another bidding scenario, this time for stringing a second circuit from Regina to Estevan.",
       "minor": true
     },
     {
       "title": "Swift Current Island Job",
       "startTime": 12819.61,
-      "description": "Lindy shifts the discussion to a unique job in Swift Current involving an island and frozen river."
+      "description": "Lindy shifts the discussion to a unique job in Swift Current involving an island and frozen river.",
+      "minor": true
     },
     {
-      "title": "Trouble with Wires",
+      "title": "Alberta Job Problem Solving",
+      "startTime": 12886.97,
+      "description": "",
+      "minor": true
+    },
+
+    {
+      "title": "Troubleshooting Wires",
       "startTime": 12933.32,
       "description": "Lindy describes a situation where a wire was bucked up and how he predicted it, leading to a discussion of other incidents.",
       "minor": true
     },
     {
-      "title": "Trouble with Machines",
+      "title": "Troubleshooting Machines",
       "startTime": 12990.86,
       "description": "Lindy shifts to discussing a separate incident involving a malfunctioning boring machine and diagnosing the problem.",
       "minor": true
@@ -797,19 +828,25 @@
       "description": "Lindy transitions to a discussion of his career, spanning from 1928 to 1975, and reflecting on his experiences."
     },
     {
+      "title": "Time to Reminisce",
+      "startTime": 13095.4,
+      "description": "",
+      "minor": true
+    },
+    {
       "title": "Changes in Work Ethic",
       "startTime": 13139.3,
       "description": "Lindy begins discussing how things have changed, specifically regarding the reliability of workers and wages.",
       "minor": true
     },
     {
-      "title": "Career Advice for Young Men",
-      "startTime": 13189.06,
+      "title": "Anticipation of Questions From His Children",
+      "startTime": 13183.18,
       "description": "Lindy shifts to addressing Danny and Norm, offering advice about their careers and the importance of continuous improvement."
     },
     {
-      "title": "Taking Charge After Father's Death",
-      "startTime": 13257.03,
+      "title": "\"Over and Out\"",
+      "startTime": 13252.95,
       "description": "Lindy begins discussing his personal experiences, specifically being put in charge of things at home and inheriting the farm after his father's death."
     }
   ],
