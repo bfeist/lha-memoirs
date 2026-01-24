@@ -8,6 +8,11 @@ word_counts = {}
 
 # Find all transcript.json files
 for transcript_path in recordings_dir.rglob("transcript.json"):
+    # Skip transcripts under tibbits_cd directory
+    relative = transcript_path.relative_to(recordings_dir)
+    if relative.parts and relative.parts[0] == "tibbits_cd":
+        print(f"Skipping {relative} (tibbits_cd)")
+        continue
     try:
         with open(transcript_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -19,25 +24,9 @@ for transcript_path in recordings_dir.rglob("transcript.json"):
             if 'segments' in data and isinstance(data['segments'], list):
                 for segment in data['segments']:
                     if isinstance(segment, dict) and 'text' in segment:
-                        text += " " + segment['text']
-            # If it's a dictionary with transcript key
-            elif 'transcript' in data:
-                if isinstance(data['transcript'], list):
-                    for segment in data['transcript']:
-                        if isinstance(segment, dict) and 'text' in segment:
-                            text += " " + segment['text']
-                else:
-                    text = data['transcript']
+                        text += " " + segment['text']            
             elif 'text' in data:
-                text = data['text']
-        elif isinstance(data, list):
-            # If it's a list of segments
-            for segment in data:
-                if isinstance(segment, dict):
-                    if 'text' in segment:
-                        text += " " + segment['text']
-                    elif 'transcript' in segment:
-                        text += " " + segment['transcript']
+                text = data['text']        
         
         # Count words
         word_count = len(text.split())
