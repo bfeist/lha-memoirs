@@ -47,8 +47,7 @@ export const RECORDINGS: RecordingConfig[] = [
     id: "tibbits_cd",
     path: "tibbits_cd",
     title: "Tibbits CD",
-    subtitle:
-      "Stories and recordings from a CD compilation of early audio created by his granddaughter, Leslie Feist.",
+    subtitle: "Stories and early Tibbits Rd. audio compiled by his granddaughter, Leslie Feist.",
     categoryLabel: "Audio Collection",
     backgroundImages: ["/photos/P1010033.jpg", "/photos/P1010034.jpg"],
     category: "recording",
