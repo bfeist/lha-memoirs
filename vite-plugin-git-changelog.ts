@@ -38,41 +38,31 @@ function getGitCommits(maxCommits: number = 50): CommitInfo[] {
   }
 }
 
+function generateChangelog() {
+  const commits = getGitCommits();
+  const changelog: ChangelogData = {
+    generatedAt: new Date().toISOString(),
+    commits,
+  };
+
+  const publicDir = path.resolve(process.cwd(), "public");
+  if (!existsSync(publicDir)) {
+    mkdirSync(publicDir, { recursive: true });
+  }
+
+  const outputPath = path.join(publicDir, "changelog.json");
+  writeFileSync(outputPath, JSON.stringify(changelog, null, 2));
+  console.log(`✓ Generated changelog.json with ${commits.length} commits`);
+}
+
 export function gitChangelogPlugin(): Plugin {
   return {
     name: "vite-plugin-git-changelog",
     buildStart() {
-      const commits = getGitCommits();
-      const changelog: ChangelogData = {
-        generatedAt: new Date().toISOString(),
-        commits,
-      };
-
-      const publicDir = path.resolve(process.cwd(), "public");
-      if (!existsSync(publicDir)) {
-        mkdirSync(publicDir, { recursive: true });
-      }
-
-      const outputPath = path.join(publicDir, "changelog.json");
-      writeFileSync(outputPath, JSON.stringify(changelog, null, 2));
-      console.log(`✓ Generated changelog.json with ${commits.length} commits`);
+      generateChangelog();
     },
-    configureServer(_server) {
-      // Also generate on dev server start
-      const commits = getGitCommits();
-      const changelog: ChangelogData = {
-        generatedAt: new Date().toISOString(),
-        commits,
-      };
-
-      const publicDir = path.resolve(process.cwd(), "public");
-      if (!existsSync(publicDir)) {
-        mkdirSync(publicDir, { recursive: true });
-      }
-
-      const outputPath = path.join(publicDir, "changelog.json");
-      writeFileSync(outputPath, JSON.stringify(changelog, null, 2));
-      console.log(`✓ Generated changelog.json with ${commits.length} commits`);
-    },
+    // handleHotUpdate() {
+    //   generateChangelog();
+    // },
   };
 }
