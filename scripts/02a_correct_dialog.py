@@ -17,12 +17,17 @@ Make sure Ollama is running locally with a model like:
   - ollama run gemma3:12b
 """
 
-import json
 import re
 import sys
 import argparse
 from pathlib import Path
 from datetime import datetime
+
+# Add scripts directory to path for imports
+SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR))
+
+from transcript_utils import load_transcript, save_transcript, get_transcript_path
 
 # Check for required packages
 try:
@@ -33,7 +38,7 @@ except ImportError as e:
     print("  uv pip install ollama")
     sys.exit(1)
 
-BASE_DIR = Path(__file__).parent.parent
+BASE_DIR = SCRIPT_DIR.parent
 RECORDINGS_DIR = BASE_DIR / "public" / "recordings"
 MEMOIRS_DIR = RECORDINGS_DIR / "memoirs"
 
@@ -129,12 +134,12 @@ def find_recording_dir(recording_name: str) -> Path | None:
     """Find the directory for a recording (in memoirs or top-level)."""
     # Check memoirs subdirectory first
     memoirs_path = MEMOIRS_DIR / recording_name
-    if memoirs_path.exists() and (memoirs_path / "transcript.json").exists():
+    if memoirs_path.exists() and get_transcript_path(memoirs_path) is not None:
         return memoirs_path
     
     # Check top-level recordings directory
     top_level_path = RECORDINGS_DIR / recording_name
-    if top_level_path.exists() and (top_level_path / "transcript.json").exists():
+    if top_level_path.exists() and get_transcript_path(top_level_path) is not None:
         return top_level_path
     
     return None
@@ -147,13 +152,13 @@ def get_all_recordings() -> list[str]:
     # Get memoir recordings
     if MEMOIRS_DIR.exists():
         for d in MEMOIRS_DIR.iterdir():
-            if d.is_dir() and (d / "transcript.json").exists():
+            if d.is_dir() and get_transcript_path(d) is not None:
                 if d.name not in SKIP_RECORDINGS:
                     recordings.append(d.name)
     
     # Get top-level recordings
     for d in RECORDINGS_DIR.iterdir():
-        if d.is_dir() and d.name != "memoirs" and (d / "transcript.json").exists():
+        if d.is_dir() and d.name != "memoirs" and get_transcript_path(d) is not None:
             if d.name not in SKIP_RECORDINGS:
                 recordings.append(d.name)
     
@@ -501,11 +506,16 @@ def process_transcript(
         print(f"  ERROR: Recording '{recording_name}' not found")
         return {"error": "Recording not found"}
     
-    input_path = recording_dir / "transcript.json"
+    input_path = get_transcript_path(recording_dir)
+    if input_path is None:
+        print(f"  ERROR: No transcript found for '{recording_name}'")
+        return {"error": "No transcript found"}
     
-    # Load transcript
-    with open(input_path, 'r', encoding='utf-8') as f:
-        data = json.load(f)
+    # Load transcript (supports both CSV and JSON)
+    data = load_transcript(recording_dir)
+    if data is None:
+        print(f"  ERROR: Failed to load transcript for '{recording_name}'")
+        return {"error": "Failed to load transcript"}
     
     segments = data.get('segments', [])
     if verbose:
@@ -568,32 +578,21 @@ def process_transcript(
     
     if not dry_run and all_changes:
         # Backup original (if not already backed up by 02_correct_transcript.py)
-        backup_path = recording_dir / "transcript_original.json"
+        backup_suffix = input_path.suffix
+        backup_path = recording_dir / f"transcript_original{backup_suffix}"
         if not backup_path.exists():
-            with open(input_path, 'r', encoding='utf-8') as f:
-                original_data = f.read()
-            with open(backup_path, 'w', encoding='utf-8') as f:
-                f.write(original_data)
+            import shutil
+            shutil.copy(input_path, backup_path)
             if verbose:
                 print(f"\n  Backup saved: {backup_path.name}")
         
-        # Save corrected transcript
+        # Save corrected transcript as CSV
         data['segments'] = segments
-        
-        # Update or create dialog corrections metadata
-        if '_dialog_corrections' not in data:
-            data['_dialog_corrections'] = {}
-        
-        data['_dialog_corrections'] = {
-            'applied_at': datetime.now().isoformat(),
-            'modified_segments': len(all_changes),
-        }
-        
-        with open(input_path, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
+        # Note: CSV format doesn't store metadata like _dialog_corrections
+        output_path = save_transcript(recording_dir, data, format='csv')
         
         if verbose:
-            print(f"  Saved: {input_path.name}")
+            print(f"  Saved: {output_path.name}")
     
     return result
 

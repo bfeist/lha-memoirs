@@ -21,18 +21,84 @@ export function formatTime(seconds: number): string {
   return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
 }
 
-// Fetch transcript data for a recording
+// CSV delimiter used in transcript files
+const CSV_DELIMITER = "|";
+
+/**
+ * Parse pipe-delimited CSV transcript format into TranscriptData.
+ *
+ * Format:
+ * - Header row: start|end|text
+ * - Data rows: 6.45|10.61|I go right back, and it starts in where I taped ...
+ */
+function parseTranscriptCsv(csvText: string): TranscriptData {
+  const lines = csvText.split("\n");
+  const segments: TranscriptSegment[] = [];
+
+  let dataStart = 0;
+
+  // Find data start (skip comments and header)
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (line.startsWith("#")) {
+      // Skip comment lines
+      continue;
+    } else if (line.toLowerCase().startsWith("start")) {
+      // Skip header row
+      dataStart = i + 1;
+      break;
+    } else if (line) {
+      // Non-empty, non-comment, non-header line - data starts here
+      dataStart = i;
+      break;
+    }
+  }
+
+  // Parse data rows
+  for (let i = dataStart; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line || line.startsWith("#")) continue;
+
+    // Split by delimiter, but only first 2 splits (text may contain |)
+    const firstPipe = line.indexOf(CSV_DELIMITER);
+    if (firstPipe === -1) continue;
+
+    const secondPipe = line.indexOf(CSV_DELIMITER, firstPipe + 1);
+    if (secondPipe === -1) continue;
+
+    const startStr = line.substring(0, firstPipe);
+    const endStr = line.substring(firstPipe + 1, secondPipe);
+    let text = line.substring(secondPipe + 1);
+
+    // Unescape double pipes back to single pipes
+    text = text.replace(/\|\|/g, "|");
+
+    const start = parseFloat(startStr);
+    const end = parseFloat(endStr);
+
+    if (!isNaN(start) && !isNaN(end)) {
+      segments.push({ start, end, text });
+    }
+  }
+
+  return {
+    segments,
+  };
+}
+
+// Fetch transcript data for a recording (CSV format)
 export function useTranscript(recordingPath: string): UseQueryResult<TranscriptData, Error> {
   const basePath = getRecordingBasePath(recordingPath);
 
   return useQuery<TranscriptData>({
     queryKey: ["recording", recordingPath, "transcript"],
     queryFn: async () => {
-      const response = await fetch(`${basePath}/transcript.json`);
+      const response = await fetch(`${basePath}/transcript.csv`);
       if (!response.ok) {
         throw new Error("Failed to load transcript");
       }
-      return response.json();
+      const csvText = await response.text();
+      return parseTranscriptCsv(csvText);
     },
     enabled: !!recordingPath,
     // Keep data fresh for 10 minutes - these files don't change during a session

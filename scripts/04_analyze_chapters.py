@@ -69,17 +69,22 @@ SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 OUTPUT_BASE_DIR = PROJECT_ROOT / "public" / "recordings"
 
+# Add scripts directory to path for imports
+import sys
+sys.path.insert(0, str(SCRIPT_DIR))
+from transcript_utils import load_transcript, get_transcript_path
+
 # Model to use (try these in order - optimized for RTX 4090 24GB with ~17GB available)
 PREFERRED_MODEL = "gemma3:12b"
 MODELS_TO_TRY = ["gemma3:12b", "qwen3:14b", "gpt-oss:20b", "devstral:24b", "gemma3:27b"]
 
 
 def find_all_recordings(base_dir: Path) -> list[Path]:
-    """Recursively find all folders containing transcript.json."""
+    """Recursively find all folders containing a transcript (CSV or JSON)."""
     recordings = []
     
     def scan_folder(folder: Path):
-        if (folder / "transcript.json").exists():
+        if get_transcript_path(folder) is not None:
             recordings.append(folder)
         for item in sorted(folder.iterdir()):
             if item.is_dir():
@@ -95,7 +100,7 @@ def get_recording_folders(specific_recording: str | None = None) -> list[Path]:
     if specific_recording:
         folder = OUTPUT_BASE_DIR / specific_recording
         if folder.exists() and folder.is_dir():
-            if (folder / "transcript.json").exists():
+            if get_transcript_path(folder) is not None:
                 return [folder]
             else:
                 # Maybe it's a parent folder with nested recordings
@@ -1084,15 +1089,15 @@ def finalize_chapters(chapters: list) -> list:
 def redescribe_chapters(recording_folder: Path, model_name: str) -> bool:
     """Redescribe existing chapters without changing their timing."""
     relative_path = get_relative_recording_path(recording_folder)
-    transcript_file = recording_folder / "transcript.json"
+    transcript_path = get_transcript_path(recording_folder)
     chapters_file = recording_folder / "chapters.json"
     
     print(f"\n{'='*60}")
     print(f"📝 Redescribing chapters for: {relative_path}")
     print(f"{'='*60}")
     
-    if not transcript_file.exists():
-        print(f"   ⚠️  No transcript.json found, skipping")
+    if transcript_path is None:
+        print(f"   ⚠️  No transcript found, skipping")
         return False
     
     if not chapters_file.exists():
@@ -1100,9 +1105,8 @@ def redescribe_chapters(recording_folder: Path, model_name: str) -> bool:
         return False
     
     # Load transcript
-    print(f"\n📂 Loading transcript from: {transcript_file}")
-    with open(transcript_file, "r", encoding="utf-8") as f:
-        transcript_data = json.load(f)
+    print(f"\n📂 Loading transcript from: {transcript_path}")
+    transcript_data = load_transcript(recording_folder)
     
     segments = transcript_data.get("segments", [])
     print(f"   Found {len(segments)} segments")
@@ -1240,7 +1244,7 @@ Description (no quotes):"""
 def process_recording(recording_folder: Path, model_name: str) -> bool:
     """Process a single recording folder."""
     relative_path = get_relative_recording_path(recording_folder)
-    transcript_file = recording_folder / "transcript.json"
+    transcript_path = get_transcript_path(recording_folder)
     chapters_file = recording_folder / "chapters.json"
     
     # Skip if already processed
@@ -1252,14 +1256,13 @@ def process_recording(recording_folder: Path, model_name: str) -> bool:
     print(f"📂 Processing recording: {relative_path}")
     print(f"{'='*60}")
     
-    if not transcript_file.exists():
-        print(f"   ❌ Transcript file not found: {transcript_file}")
+    if transcript_path is None:
+        print(f"   ❌ Transcript file not found")
         print("   Run 01_transcribe.py first")
         return False
     
-    print(f"\n📂 Loading transcript from: {transcript_file}")
-    with open(transcript_file, "r", encoding="utf-8") as f:
-        transcript_data = json.load(f)
+    print(f"\n📂 Loading transcript from: {transcript_path}")
+    transcript_data = load_transcript(recording_folder)
     
     segments = transcript_data.get("segments", [])
     files_info = transcript_data.get("files", None)
@@ -1359,7 +1362,7 @@ def main():
     # Get recording folders to process
     recording_folders = get_recording_folders(specific_recording)
     if not recording_folders:
-        print(f"\n❌ No recording folders with transcript.json found in {OUTPUT_BASE_DIR}")
+        print(f"\n❌ No recording folders with transcript found in {OUTPUT_BASE_DIR}")
         print("   Run 01_transcribe.py first to create transcripts.")
         sys.exit(1)
     

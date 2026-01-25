@@ -10,17 +10,29 @@ in sorted order to create a continuous transcript.
 The --startsecs option allows resuming transcription from a specific time,
 preserving all manually corrected segments before that point.
 
-Skips recordings that already have a transcript.json file (unless --startsecs is used).
+Skips recordings that already have a transcript.csv file (unless --startsecs is used).
+
+Output format: transcript.csv (pipe-delimited)
 
 Requires: uv pip install whisperx
 """
 
 import argparse
-import json
 import re
 import shutil
 import sys
 from pathlib import Path
+
+# Add scripts directory to path for imports
+SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR))
+
+from transcript_utils import (
+    load_transcript,
+    save_transcript,
+    write_transcript_csv,
+    get_transcript_path,
+)
 
 # Add progress indication
 print("=" * 60)
@@ -190,12 +202,9 @@ def format_transcript_data(all_segments: list[dict], files_info: list[dict], lan
     return result
 
 
-def load_existing_transcript(transcript_path: Path) -> dict | None:
-    """Load existing transcript if it exists."""
-    if transcript_path.exists():
-        with open(transcript_path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return None
+def load_existing_transcript(output_dir: Path) -> dict | None:
+    """Load existing transcript if it exists (supports both CSV and JSON)."""
+    return load_transcript(output_dir)
 
 
 def merge_transcripts(existing: dict, new_segments: list[dict], start_secs: float) -> dict:
@@ -243,11 +252,12 @@ def process_recording(recording_folder: Path, model, model_a, metadata, device: 
     """Process all audio files in a recording folder."""
     relative_path = get_relative_recording_path(recording_folder)
     output_dir = OUTPUT_BASE_DIR / relative_path
-    transcript_path = output_dir / "transcript.json"
+    transcript_path = output_dir / "transcript.csv"
     
-    # Check if we should skip
-    if transcript_path.exists() and start_secs is None:
-        print(f"\n⏭️  Skipping {relative_path} (transcript.json exists)")
+    # Check if we should skip (check both CSV and JSON for backwards compatibility)
+    existing_path = get_transcript_path(output_dir)
+    if existing_path is not None and start_secs is None:
+        print(f"\n⏭️  Skipping {relative_path} (transcript exists)")
         return True
     
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -311,7 +321,7 @@ def process_recording(recording_folder: Path, model, model_a, metadata, device: 
         all_new_segments.extend(segments)
     
     # Merge with existing or create new
-    existing = load_existing_transcript(transcript_path)
+    existing = load_existing_transcript(output_dir)
     
     if existing and start_secs is not None:
         transcript_data = merge_transcripts(existing, all_new_segments, start_secs)
@@ -319,14 +329,14 @@ def process_recording(recording_folder: Path, model, model_a, metadata, device: 
         transcript_data = format_transcript_data(all_new_segments, files_info)
     
     # Backup existing transcript
-    if transcript_path.exists():
-        backup_path = transcript_path.with_suffix(".json.bak")
-        shutil.copy(transcript_path, backup_path)
+    existing_path = get_transcript_path(output_dir)
+    if existing_path is not None:
+        backup_path = existing_path.with_suffix(existing_path.suffix + ".bak")
+        shutil.copy(existing_path, backup_path)
         print(f"\n   📦 Backed up existing transcript to {backup_path.name}")
     
-    # Save transcript JSON
-    with open(transcript_path, "w", encoding="utf-8") as f:
-        json.dump(transcript_data, f, indent=2, ensure_ascii=False)
+    # Save transcript as CSV
+    write_transcript_csv(transcript_path, transcript_data)
     print(f"\n   ✅ Saved transcript: {transcript_path}")
     print(f"      Total segments: {len(transcript_data['segments'])}")
     

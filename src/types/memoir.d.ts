@@ -1,12 +1,5 @@
 // Global type definitions for memoir audio data
 
-interface TranscriptWord {
-  word: string;
-  start: number;
-  end: number;
-  segment_id: number;
-}
-
 interface TranscriptSegment {
   start: number;
   end: number;
@@ -14,11 +7,7 @@ interface TranscriptSegment {
 }
 
 interface TranscriptData {
-  full_text?: string; // Optional - stripped after generation to reduce file size
   segments: TranscriptSegment[];
-  words: TranscriptWord[];
-  language: string;
-  duration: number;
 }
 
 interface Chapter {

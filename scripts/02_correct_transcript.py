@@ -21,13 +21,19 @@ Recordings:
     - christmas1986: EXCLUDED (manually corrected)
 """
 
-import json
 import re
 import argparse
+import sys
 from pathlib import Path
 from datetime import datetime
 
-BASE_DIR = Path(__file__).parent.parent
+# Add scripts directory to path for imports
+SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR))
+
+from transcript_utils import load_transcript, save_transcript, get_transcript_path
+
+BASE_DIR = SCRIPT_DIR.parent
 RECORDINGS_DIR = BASE_DIR / "public" / "recordings"
 MEMOIRS_DIR = RECORDINGS_DIR / "memoirs"
 
@@ -223,12 +229,12 @@ def find_recording_dir(recording_name: str) -> Path | None:
     """Find the directory for a recording (in memoirs or top-level)."""
     # Check memoirs subdirectory first
     memoirs_path = MEMOIRS_DIR / recording_name
-    if memoirs_path.exists() and (memoirs_path / "transcript.json").exists():
+    if memoirs_path.exists() and get_transcript_path(memoirs_path) is not None:
         return memoirs_path
     
     # Check top-level recordings directory
     top_level_path = RECORDINGS_DIR / recording_name
-    if top_level_path.exists() and (top_level_path / "transcript.json").exists():
+    if top_level_path.exists() and get_transcript_path(top_level_path) is not None:
         return top_level_path
     
     return None
@@ -311,29 +317,23 @@ def process_transcript(
     }
     
     if not dry_run and all_changes:
-        # Backup original
-        backup_path = recording_dir / "transcript_original.json"
+        # Backup original (preserve original file with appropriate extension)
+        backup_suffix = input_path.suffix
+        backup_path = recording_dir / f"transcript_original{backup_suffix}"
         if not backup_path.exists():
-            with open(input_path, 'r', encoding='utf-8') as f:
-                original_data = f.read()
-            with open(backup_path, 'w', encoding='utf-8') as f:
-                f.write(original_data)
+            import shutil
+            shutil.copy(input_path, backup_path)
             if verbose:
                 print(f"\n  Backup saved: {backup_path.name}")
         
-        # Save corrected transcript
+        # Save corrected transcript as CSV
         data['segments'] = segments
-        data['_corrections'] = {
-            'applied_at': datetime.now().isoformat(),
-            'modified_segments': modified_count,
-            'total_corrections': sum(len(c['changes']) for c in all_changes)
-        }
-        
-        with open(input_path, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
+        # Note: CSV format doesn't store metadata like _corrections
+        # We save as CSV only
+        output_path = save_transcript(recording_dir, data, format='csv')
         
         if verbose:
-            print(f"  Saved: {input_path.name}")
+            print(f"  Saved: {output_path.name}")
     
     return result
 
@@ -345,13 +345,13 @@ def get_all_recordings() -> list[str]:
     # Get memoir recordings
     if MEMOIRS_DIR.exists():
         for d in MEMOIRS_DIR.iterdir():
-            if d.is_dir() and (d / "transcript.json").exists():
+            if d.is_dir() and get_transcript_path(d) is not None:
                 if d.name not in SKIP_RECORDINGS:
                     recordings.append(d.name)
     
     # Get top-level recordings (glynn_interview, tibbits_cd, LHA_Sr.Hilary, etc.)
     for d in RECORDINGS_DIR.iterdir():
-        if d.is_dir() and d.name != "memoirs" and (d / "transcript.json").exists():
+        if d.is_dir() and d.name != "memoirs" and get_transcript_path(d) is not None:
             if d.name not in SKIP_RECORDINGS:
                 recordings.append(d.name)
     

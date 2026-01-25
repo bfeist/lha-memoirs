@@ -59,7 +59,8 @@ function RecordingPlayer(): React.ReactElement {
 
   // Pick a random background image at component load time
   const backgroundImage = useMemo(
-    () => (recordingConfig ? getRandomBackgroundImage(recordingConfig) : "/photos/P1010034.jpg"),
+    () =>
+      recordingConfig ? getRandomBackgroundImage(recordingConfig) : "/photos/tibbits/P1010034.jpg",
     [recordingConfig]
   );
 

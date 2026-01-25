@@ -18,7 +18,12 @@ import sys
 from pathlib import Path
 import ollama
 
-BASE_DIR = Path(__file__).parent.parent
+# Add scripts directory to path for imports
+SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR))
+from transcript_utils import load_transcript
+
+BASE_DIR = SCRIPT_DIR.parent
 MEMOIRS_DIR = BASE_DIR / "public" / "recordings" / "memoirs"
 
 # Model to use - gemma3 works well with simple prompts
@@ -93,11 +98,12 @@ def build_segments_list(chapters: list[dict]) -> list[dict]:
     return segments
 
 
-def load_transcript(recording_name: str) -> list[dict]:
+def load_recording_transcript(recording_name: str) -> list[dict]:
     """Load transcript segments from a recording."""
-    path = MEMOIRS_DIR / recording_name / "transcript.json"
-    with open(path, 'r', encoding='utf-8') as f:
-        data = json.load(f)
+    recording_dir = MEMOIRS_DIR / recording_name
+    data = load_transcript(recording_dir)
+    if data is None:
+        return []
     return data.get('segments', [])
 
 
@@ -195,7 +201,7 @@ def find_story_overlaps(recordings: list[str]) -> dict:
     for rec in recordings:
         chapters = load_chapters(rec)
         segments = build_segments_list(chapters)
-        transcript = load_transcript(rec)
+        transcript = load_recording_transcript(rec)
         
         if not segments:
             print(f"  WARNING: {rec}: No chapters found!")
