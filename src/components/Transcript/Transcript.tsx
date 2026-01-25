@@ -1,9 +1,11 @@
-import { useRef, useEffect, useMemo, useCallback } from "react";
+import { useRef, useEffect, useMemo, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCodeBranch } from "@fortawesome/free-solid-svg-icons";
 import { formatTime } from "../../hooks/useRecordingData";
 import { getRecordingByPath } from "../../config/recordings";
+import { InlinePhotoSlider } from "./InlinePhotoSlider";
+import { PhotoModal } from "./PhotoModal";
 import styles from "./Transcript.module.css";
 
 // Extract recording folder name from a path like "memoirs/Norm_red" -> "Norm_red"
@@ -54,6 +56,8 @@ export function Transcript({
   onSegmentClick,
   alternateTellings,
   recordingPath,
+  photos,
+  mediaPlacements,
 }: {
   segments: TranscriptSegment[];
   chapters: Chapter[];
@@ -61,6 +65,8 @@ export function Transcript({
   onSegmentClick?: (time: number) => void;
   alternateTellings?: AlternateTelling[];
   recordingPath?: string;
+  photos?: Photo[];
+  mediaPlacements?: MediaPlacement[];
 }): React.ReactElement {
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -69,11 +75,76 @@ export function Transcript({
   const lastScrolledChapterId = useRef<string | null>(null);
   const lastScrolledSegmentIndex = useRef<number | null>(null);
 
+  // Modal state for viewing full-res photos
+  const [modalPhoto, setModalPhoto] = useState<Photo | null>(null);
+
   // Get current recording folder name for matching
   const currentRecordingFolder = useMemo(
     () => (recordingPath ? getRecordingFolderName(recordingPath) : ""),
     [recordingPath]
   );
+
+  // Create a lookup map for photos by filename
+  const photosByFilename = useMemo(() => {
+    const map = new Map<string, Photo>();
+    if (photos) {
+      for (const photo of photos) {
+        map.set(photo.filename, photo);
+      }
+    }
+    return map;
+  }, [photos]);
+
+  // Pre-compute which segment index should display photos
+  // Maps segment index -> array of Photo objects
+  const segmentPhotos = useMemo(() => {
+    const map = new Map<number, Photo[]>();
+    if (!mediaPlacements || mediaPlacements.length === 0 || segments.length === 0) return map;
+
+    for (const placement of mediaPlacements) {
+      // Only handle photo placements for now
+      if (placement.type !== "photo" || !placement.filenames) continue;
+
+      // Find the segment that contains this seconds marker
+      // The photo should appear before/at the segment that starts at or after this time
+      let targetSegmentIndex = -1;
+      for (let i = 0; i < segments.length; i++) {
+        if (segments[i].start >= placement.seconds) {
+          targetSegmentIndex = i;
+          break;
+        }
+      }
+      // If no segment starts after the placement time, put it at the last segment
+      if (targetSegmentIndex === -1) {
+        targetSegmentIndex = segments.length - 1;
+      }
+
+      // Collect the photos for this placement
+      const placementPhotos: Photo[] = [];
+      for (const filename of placement.filenames) {
+        const photo = photosByFilename.get(filename);
+        if (photo) {
+          placementPhotos.push(photo);
+        }
+      }
+
+      if (placementPhotos.length > 0) {
+        // Merge with existing photos at this segment if any
+        const existing = map.get(targetSegmentIndex) || [];
+        map.set(targetSegmentIndex, [...existing, ...placementPhotos]);
+      }
+    }
+    return map;
+  }, [mediaPlacements, segments, photosByFilename]);
+
+  // Handlers for photo modal
+  const handlePhotoClick = useCallback((photo: Photo) => {
+    setModalPhoto(photo);
+  }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setModalPhoto(null);
+  }, []);
 
   // Extract minor chapters from the chapters array
   const minorChapters = useMemo(() => chapters.filter((ch) => ch.minor), [chapters]);
@@ -321,6 +392,7 @@ export function Transcript({
                   const isPlayingSegment =
                     currentTime >= segment.start && currentTime < segment.end;
                   const minorChapterStart = minorChapterStartSegments.get(actualSegmentIndex);
+                  const photosForSegment = segmentPhotos.get(actualSegmentIndex);
 
                   let minorAlternate = null;
                   if (minorChapterStart) {
@@ -333,8 +405,19 @@ export function Transcript({
                     );
                   }
 
+                  // Alternate float direction for photos (odd segments left, even right)
+                  const photoFloat = segmentIndex % 2 === 0 ? "right" : "left";
+
                   return (
                     <span key={segmentIndex}>
+                      {/* Inline photo slider - displayed before the segment text */}
+                      {photosForSegment && photosForSegment.length > 0 && (
+                        <InlinePhotoSlider
+                          photos={photosForSegment}
+                          onPhotoClick={handlePhotoClick}
+                          float={photoFloat}
+                        />
+                      )}
                       {minorChapterStart && (
                         <>
                           <button
@@ -391,11 +474,16 @@ export function Transcript({
                     </span>
                   );
                 })}
+                {/* Clearfix for floated photos */}
+                <span className={styles.clearfix} />
               </p>
             </div>
           );
         })}
       </div>
+
+      {/* Photo Modal for viewing full-resolution photos */}
+      <PhotoModal photo={modalPhoto} onClose={handleCloseModal} />
     </div>
   );
 }

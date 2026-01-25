@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faRobot } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faRobot, faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { getRecordingsByCategory, type RecordingConfig } from "../config/recordings";
 import WhatsNew from "../components/WhatsNew/WhatsNew";
 import LhaGpt from "../components/LhaGpt";
@@ -23,7 +23,9 @@ function RecordingCard({ recording }: { recording: RecordingConfig }): React.Rea
         </div>
         <p>{recording.subtitle}</p>
       </div>
-      <span className={styles.arrow}>→</span>
+      <span className={styles.arrow}>
+        <FontAwesomeIcon icon={faArrowAltCircleRight} />
+      </span>
     </Link>
   );
 }

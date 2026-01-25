@@ -1,0 +1,14 @@
+{
+  "placements": [
+    {
+      "seconds": 10,
+      "type": "photo",
+      "filenames": ["1980s_LHA_Phyllis_60th_anniversary_oakville_IMG_4329"]
+    },
+    {
+      "seconds": 2201,
+      "type": "photo",
+      "filenames": ["1910_external_threshing"]
+    }
+  ]
+}

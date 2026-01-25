@@ -68,3 +68,32 @@ interface AlternateTellingsData {
   description: string;
   alternateTellings: AlternateTelling[];
 }
+
+// Photo data from photos.json
+interface Photo {
+  filename: string;
+  caption: string;
+  location: string;
+  date: string;
+  credit: string;
+}
+
+interface PhotosData {
+  photos: Photo[];
+}
+
+// Media placement for inline transcript media
+interface MediaPlacement {
+  /** Seconds marker where the media should be placed */
+  seconds: number;
+  /** Type of media - 'photo' for photo slider, 'video' for video player */
+  type: "photo" | "video";
+  /** Array of filenames (for photos) - references filename in photos.json */
+  filenames?: string[];
+  /** Video filename (for future video support) */
+  videoFilename?: string;
+}
+
+interface MediaPlacementData {
+  placements: MediaPlacement[];
+}

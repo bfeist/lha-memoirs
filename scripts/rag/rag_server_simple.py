@@ -13,6 +13,7 @@ import json
 import os
 import re
 import shutil
+import csv
 from pathlib import Path
 from typing import Any
 from contextlib import asynccontextmanager
@@ -356,15 +357,26 @@ async def run_ingestion():
     all_docs = []
     
     for path, rec_id in RECORDING_ID_MAP.items():
-        transcript_file = PUBLIC_DIR / path / "transcript.json"
+        transcript_file = PUBLIC_DIR / path / "transcript.csv"
         if not transcript_file.exists():
             logger.info(f"Skipping {rec_id}: no transcript")
             continue
         
+        # Read CSV file with pipe delimiter
+        segments = []
         with open(transcript_file, "r", encoding="utf-8") as f:
-            data = json.load(f)
+            reader = csv.DictReader(f, delimiter="|")
+            for row in reader:
+                try:
+                    segments.append({
+                        "start": float(row["start"]),
+                        "end": float(row["end"]),
+                        "text": row["text"]
+                    })
+                except (ValueError, KeyError) as e:
+                    logger.warning(f"Skipping invalid row in {rec_id}: {e}")
+                    continue
         
-        segments = data.get("segments", [])
         if not segments:
             continue
         

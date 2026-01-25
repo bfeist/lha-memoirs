@@ -110,6 +110,13 @@
   line-height: 1.8;
   font-size: 0.95rem;
   color: #cccccc;
+  overflow: hidden; /* Contain floated photos */
+}
+
+/* Clearfix for floated inline photos */
+.clearfix {
+  display: block;
+  clear: both;
 }
 
 /* Individual segment text (inline spans) */

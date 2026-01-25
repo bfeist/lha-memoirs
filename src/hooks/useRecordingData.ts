@@ -152,6 +152,51 @@ export function useAlternateTellings(
   });
 }
 
+// Fetch photos data (global photos.json)
+export function usePhotos(): UseQueryResult<PhotosData, Error> {
+  return useQuery<PhotosData>({
+    queryKey: ["photos"],
+    queryFn: async () => {
+      const response = await fetch("/photos.json");
+      if (!response.ok) {
+        throw new Error("Failed to load photos");
+      }
+      return response.json();
+    },
+    // Keep data fresh for 10 minutes - these files don't change during a session
+    staleTime: 10 * 60 * 1000,
+    // Keep cached data for 30 minutes
+    gcTime: 30 * 60 * 1000,
+  });
+}
+
+// Fetch media placements for a recording
+export function useMediaPlacements(
+  recordingPath: string
+): UseQueryResult<MediaPlacementData, Error> {
+  const basePath = getRecordingBasePath(recordingPath);
+
+  return useQuery<MediaPlacementData>({
+    queryKey: ["recording", recordingPath, "mediaPlacements"],
+    queryFn: async () => {
+      const response = await fetch(`${basePath}/mediaPlacement.json`);
+      if (!response.ok) {
+        // Return empty placements if file doesn't exist
+        if (response.status === 404) {
+          return { placements: [] };
+        }
+        throw new Error("Failed to load media placements");
+      }
+      return response.json();
+    },
+    enabled: !!recordingPath,
+    // Keep data fresh for 10 minutes - these files don't change during a session
+    staleTime: 10 * 60 * 1000,
+    // Keep cached data for 30 minutes
+    gcTime: 30 * 60 * 1000,
+  });
+}
+
 // Derive peaks.js regions from chapters
 export function useRegions(recordingPath: string): {
   data: PeaksRegion[] | undefined;
@@ -206,6 +251,8 @@ export function useRecordingData(
   transcript: UseQueryResult<TranscriptData, Error>;
   chapters: UseQueryResult<ChaptersData, Error>;
   alternateTellings: UseQueryResult<AlternateTellingsData, Error>;
+  photos: UseQueryResult<PhotosData, Error>;
+  mediaPlacements: UseQueryResult<MediaPlacementData, Error>;
   regions: { data: PeaksRegion[] | undefined; isLoading: boolean; error: Error | null };
   isLoading: boolean;
   hasError: boolean;
@@ -220,6 +267,8 @@ export function useRecordingData(
   const transcript = useTranscript(recordingPath);
   const chapters = useChapters(recordingPath);
   const alternateTellings = useAlternateTellings(recordingPath);
+  const photos = usePhotos();
+  const mediaPlacements = useMediaPlacements(recordingPath);
   const regions = useRegions(recordingPath);
 
   const isLoading =
@@ -230,7 +279,13 @@ export function useRecordingData(
   const hasError = (!!transcript.error && !transcript.data) || (!!chapters.error && !chapters.data);
 
   const refetchAll = async () => {
-    await Promise.all([transcript.refetch(), chapters.refetch(), alternateTellings.refetch()]);
+    await Promise.all([
+      transcript.refetch(),
+      chapters.refetch(),
+      alternateTellings.refetch(),
+      photos.refetch(),
+      mediaPlacements.refetch(),
+    ]);
   };
 
   const urls = {
@@ -243,6 +298,8 @@ export function useRecordingData(
     transcript,
     chapters,
     alternateTellings,
+    photos,
+    mediaPlacements,
     regions,
     isLoading,
     hasError,

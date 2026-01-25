@@ -13,6 +13,8 @@ import {
 import { getRecordingById, getRandomBackgroundImage } from "../config/recordings";
 import styles from "./RecordingPlayer.module.css";
 import { PeaksInstance } from "peaks.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 function RecordingPlayer(): React.ReactElement {
   const { recordingId } = useParams<{ recordingId: string }>();
@@ -69,6 +71,8 @@ function RecordingPlayer(): React.ReactElement {
     transcript,
     chapters: chaptersQuery,
     alternateTellings,
+    photos,
+    mediaPlacements,
     regions,
     isLoading,
     hasError,
@@ -211,7 +215,8 @@ function RecordingPlayer(): React.ReactElement {
       style={{ "--background-image": `url(${backgroundImage})` } as React.CSSProperties}
     >
       <Link to="/" className={styles.backButton} aria-label="Back to home">
-        ←<span className={styles.backButtonText}> Back</span>
+        <FontAwesomeIcon icon={faArrowAltCircleLeft} />
+        <span className={styles.backButtonText}> Back</span>
       </Link>
       {/* Header */}
       <header className={styles.header}>
@@ -327,6 +332,8 @@ function RecordingPlayer(): React.ReactElement {
                 onSegmentClick={handleWordClick}
                 alternateTellings={isMemoir ? alternateTellings.data?.alternateTellings : undefined}
                 recordingPath={recordingConfig?.path}
+                photos={photos.data?.photos}
+                mediaPlacements={mediaPlacements.data?.placements}
               />
             ) : (
               <div className={styles.placeholderBox}>
