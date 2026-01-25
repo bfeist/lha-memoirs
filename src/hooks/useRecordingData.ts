@@ -116,7 +116,7 @@ export function useRegions(recordingPath: string): {
 
 // Get audio URL - returns enhanced if available, otherwise original
 export function getAudioUrl(recordingPath: string, hasEnhancedAudio: boolean): string {
-  const audioBasePath = `/static_assets/${recordingPath}`;
+  const audioBasePath = `/static_assets/audio/${recordingPath}`;
   return hasEnhancedAudio
     ? `${audioBasePath}/audio_enhanced.mp3`
     : `${audioBasePath}/audio_original.mp3`;
@@ -124,12 +124,12 @@ export function getAudioUrl(recordingPath: string, hasEnhancedAudio: boolean): s
 
 // Get original audio URL (non-enhanced version) - only valid if hasEnhancedAudio is true
 export function getOriginalAudioUrl(recordingPath: string): string {
-  return `/static_assets/${recordingPath}/audio_original.mp3`;
+  return `/static_assets/audio/${recordingPath}/audio_original.mp3`;
 }
 
 // Get waveform data URL
 export function getWaveformDataUrl(recordingPath: string): string {
-  return `/static_assets/${recordingPath}/waveform.json`;
+  return `/static_assets/audio/${recordingPath}/waveform.json`;
 }
 
 // Comprehensive hook that combines all data fetching for a recording

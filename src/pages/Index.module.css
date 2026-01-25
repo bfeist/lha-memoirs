@@ -11,14 +11,11 @@
 
 /* Header */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   padding: 1rem 1rem;
   background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
   border-bottom: 1px solid #2a2a2a;
   z-index: 100;
+  flex-shrink: 0;
 }
 
 .headerContent {
@@ -43,12 +40,8 @@
 
 /* Main content */
 .main {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding-top: 10rem;
+  flex: 1;
+  padding-top: 2rem;
   max-width: none;
   width: 100%;
   margin: 0;
@@ -134,7 +127,7 @@
 
 .featureSecondary {
   /* Make this take ~25% of the features row */
-  flex: 0 0 25%;
+  flex: 0 0 33%;
 }
 
 .featureIcon {
@@ -329,20 +322,24 @@
 
 /* Responsive */
 @media (width <= 600px) {
+  .header {
+    padding: 0.75rem 1rem;
+  }
+
   .title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   .subtitle {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
   .portraitFrame {
-    width: 220px;
+    width: 200px;
   }
 
   .main {
-    padding-top: 6rem;
+    padding-top: 1rem;
   }
 
   .featureButton {
@@ -358,18 +355,34 @@
     gap: 0.3rem;
   }
 
+  .featuresSection {
+    flex-direction: row;
+    gap: 0.5rem;
+    width: calc(100% - 1.25rem);
+  }
+
+  .featurePrimary {
+    flex: 1.5;
+  }
+
+  .featureSecondary {
+    flex: 1;
+    min-width: 0;
+  }
+
   .featureTitle {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
   }
 
   .featureDescription {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+    white-space: nowrap;
   }
 
-  /* Stack feature buttons on small screens */
+  /* Keep feature buttons side by side */
   .featurePrimary,
   .featureSecondary {
-    flex: initial;
-    width: 100%;
+    width: auto;
   }
 }
