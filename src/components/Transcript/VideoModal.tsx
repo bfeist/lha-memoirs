@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
-import { formatVideoCaption, getVideoUrl } from "./InlineVideoPlayer";
+import { formatVideoCaption, getVideoUrl } from "./VideoInlinePlayer";
 import styles from "./VideoModal.module.css";
 
 export const VideoModal: React.FC<{

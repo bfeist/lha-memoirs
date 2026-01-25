@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCodeBranch } from "@fortawesome/free-solid-svg-icons";
 import { formatTime } from "../../hooks/useRecordingData";
 import { getRecordingByPath } from "../../config/recordings";
-import { InlinePhotoSlider } from "./InlinePhotoSlider";
-import { InlineVideoPlayer } from "./InlineVideoPlayer";
+import { PhotoInlineSlider } from "./PhotoInlineSlider";
+import { VideoInlinePlayer } from "./VideoInlinePlayer";
 import { PhotoModal } from "./PhotoModal";
 import { VideoModal } from "./VideoModal";
 import styles from "./Transcript.module.css";
@@ -493,7 +493,7 @@ export function Transcript({
                       {videosForSegment &&
                         videosForSegment.length > 0 &&
                         videosForSegment.map((vp, vIdx) => (
-                          <InlineVideoPlayer
+                          <VideoInlinePlayer
                             key={`video-${vp.video.filename}-${vIdx}`}
                             video={vp.video}
                             startTime={vp.startTime}
@@ -506,7 +506,7 @@ export function Transcript({
                         ))}
                       {/* Inline photo slider - displayed before the segment text */}
                       {photosForSegment && photosForSegment.length > 0 && (
-                        <InlinePhotoSlider
+                        <PhotoInlineSlider
                           photos={photosForSegment}
                           onPhotoClick={handlePhotoClick}
                           float={mediaFloat}

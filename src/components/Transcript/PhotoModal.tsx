@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { formatCaption, getPhotoFullUrl } from "./InlinePhotoSlider";
+import { formatCaption, getPhotoFullUrl } from "./PhotoInlineSlider";
 import styles from "./PhotoModal.module.css";
 
 export const PhotoModal: React.FC<{

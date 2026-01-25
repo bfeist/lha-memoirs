@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import styles from "./InlinePhotoSlider.module.css";
+import styles from "./PhotoInlineSlider.module.css";
 
 // Build photo URLs from filename
 function getPhotoSmallUrl(filename: string): string {
@@ -42,7 +42,7 @@ export function formatCaption(photo: Photo): string {
   return parts.join(" ");
 }
 
-export const InlinePhotoSlider: React.FC<{
+export const PhotoInlineSlider: React.FC<{
   photos: Photo[];
   onPhotoClick: (photo: Photo) => void;
   float?: "left" | "right";

@@ -1,7 +1,7 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faExpand } from "@fortawesome/free-solid-svg-icons";
-import styles from "./InlineVideoPlayer.module.css";
+import styles from "./VideoInlinePlayer.module.css";
 
 // Build video URL from filename
 export function getVideoUrl(filename: string): string {
@@ -38,7 +38,7 @@ export function formatVideoCaption(video: Video): string {
   return parts.join(" ");
 }
 
-export const InlineVideoPlayer: React.FC<{
+export const VideoInlinePlayer: React.FC<{
   video: Video;
   startTime?: number;
   endTime?: number;

@@ -215,13 +215,13 @@ function RecordingPlayer(): React.ReactElement {
       className={styles.container}
       style={{ "--background-image": `url(${backgroundImage})` } as React.CSSProperties}
     >
-      <Link to="/" className={styles.backButton} aria-label="Back to home">
-        <FontAwesomeIcon icon={faArrowAltCircleLeft} />
-        <span className={styles.backButtonText}> Back</span>
-      </Link>
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
+          <Link to="/" className={styles.backButton} aria-label="Back to home">
+            <FontAwesomeIcon icon={faArrowAltCircleLeft} />
+            <span className={styles.backButtonText}> Back</span>
+          </Link>
           <h1 className={styles.title}>
             <Link to="/">Linden Hilary Achen - {recordingConfig.title}</Link>
             <span
