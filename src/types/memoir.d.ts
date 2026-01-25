@@ -82,6 +82,19 @@ interface PhotosData {
   photos: Photo[];
 }
 
+// Video data from videos.json
+interface Video {
+  filename: string;
+  caption: string;
+  location: string;
+  date: string;
+  credit: string;
+}
+
+interface VideosData {
+  videos: Video[];
+}
+
 // Media placement for inline transcript media
 interface MediaPlacement {
   /** Seconds marker where the media should be placed */
@@ -90,8 +103,10 @@ interface MediaPlacement {
   type: "photo" | "video";
   /** Array of filenames (for photos) - references filename in photos.json */
   filenames?: string[];
-  /** Video filename (for future video support) */
-  videoFilename?: string;
+  /** Start time in seconds for video loop (optional, defaults to 0) */
+  start?: number;
+  /** End time in seconds for video loop (optional, defaults to video end) */
+  end?: number;
 }
 
 interface MediaPlacementData {

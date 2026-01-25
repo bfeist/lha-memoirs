@@ -5,7 +5,9 @@ import { faCodeBranch } from "@fortawesome/free-solid-svg-icons";
 import { formatTime } from "../../hooks/useRecordingData";
 import { getRecordingByPath } from "../../config/recordings";
 import { InlinePhotoSlider } from "./InlinePhotoSlider";
+import { InlineVideoPlayer } from "./InlineVideoPlayer";
 import { PhotoModal } from "./PhotoModal";
+import { VideoModal } from "./VideoModal";
 import styles from "./Transcript.module.css";
 
 // Extract recording folder name from a path like "memoirs/Norm_red" -> "Norm_red"
@@ -57,6 +59,7 @@ export function Transcript({
   alternateTellings,
   recordingPath,
   photos,
+  videos,
   mediaPlacements,
 }: {
   segments: TranscriptSegment[];
@@ -66,6 +69,7 @@ export function Transcript({
   alternateTellings?: AlternateTelling[];
   recordingPath?: string;
   photos?: Photo[];
+  videos?: Video[];
   mediaPlacements?: MediaPlacement[];
 }): React.ReactElement {
   const navigate = useNavigate();
@@ -77,6 +81,13 @@ export function Transcript({
 
   // Modal state for viewing full-res photos
   const [modalPhoto, setModalPhoto] = useState<Photo | null>(null);
+
+  // Modal state for viewing videos in fullscreen
+  const [modalVideo, setModalVideo] = useState<{
+    video: Video;
+    startTime?: number;
+    endTime?: number;
+  } | null>(null);
 
   // Get current recording folder name for matching
   const currentRecordingFolder = useMemo(
@@ -94,6 +105,17 @@ export function Transcript({
     }
     return map;
   }, [photos]);
+
+  // Create a lookup map for videos by filename
+  const videosByFilename = useMemo(() => {
+    const map = new Map<string, Video>();
+    if (videos) {
+      for (const video of videos) {
+        map.set(video.filename, video);
+      }
+    }
+    return map;
+  }, [videos]);
 
   // Pre-compute which segment index should display photos
   // Maps segment index -> array of Photo objects
@@ -137,6 +159,53 @@ export function Transcript({
     return map;
   }, [mediaPlacements, segments, photosByFilename]);
 
+  // Video placement info includes video metadata plus start/end times
+  interface VideoPlacement {
+    video: Video;
+    startTime?: number;
+    endTime?: number;
+  }
+
+  // Pre-compute which segment index should display videos
+  // Maps segment index -> array of VideoPlacement objects
+  const segmentVideos = useMemo(() => {
+    const map = new Map<number, VideoPlacement[]>();
+    if (!mediaPlacements || mediaPlacements.length === 0 || segments.length === 0) return map;
+
+    for (const placement of mediaPlacements) {
+      // Only handle video placements
+      if (placement.type !== "video" || !placement.filenames || placement.filenames.length === 0)
+        continue;
+
+      // Find the segment that contains this seconds marker
+      let targetSegmentIndex = -1;
+      for (let i = 0; i < segments.length; i++) {
+        if (segments[i].start >= placement.seconds) {
+          targetSegmentIndex = i;
+          break;
+        }
+      }
+      // If no segment starts after the placement time, put it at the last segment
+      if (targetSegmentIndex === -1) {
+        targetSegmentIndex = segments.length - 1;
+      }
+
+      // Get the video for this placement (use first filename)
+      const video = videosByFilename.get(placement.filenames[0]);
+      if (video) {
+        const videoPlacement: VideoPlacement = {
+          video,
+          startTime: placement.start,
+          endTime: placement.end,
+        };
+        // Merge with existing videos at this segment if any
+        const existing = map.get(targetSegmentIndex) || [];
+        map.set(targetSegmentIndex, [...existing, videoPlacement]);
+      }
+    }
+    return map;
+  }, [mediaPlacements, segments, videosByFilename]);
+
   // Handlers for photo modal
   const handlePhotoClick = useCallback((photo: Photo) => {
     setModalPhoto(photo);
@@ -144,6 +213,15 @@ export function Transcript({
 
   const handleCloseModal = useCallback(() => {
     setModalPhoto(null);
+  }, []);
+
+  // Handlers for video modal
+  const handleOpenVideoModal = useCallback((video: Video, startTime?: number, endTime?: number) => {
+    setModalVideo({ video, startTime, endTime });
+  }, []);
+
+  const handleCloseVideoModal = useCallback(() => {
+    setModalVideo(null);
   }, []);
 
   // Extract minor chapters from the chapters array
@@ -393,6 +471,7 @@ export function Transcript({
                     currentTime >= segment.start && currentTime < segment.end;
                   const minorChapterStart = minorChapterStartSegments.get(actualSegmentIndex);
                   const photosForSegment = segmentPhotos.get(actualSegmentIndex);
+                  const videosForSegment = segmentVideos.get(actualSegmentIndex);
 
                   let minorAlternate = null;
                   if (minorChapterStart) {
@@ -405,17 +484,32 @@ export function Transcript({
                     );
                   }
 
-                  // Alternate float direction for photos (odd segments left, even right)
-                  const photoFloat = segmentIndex % 2 === 0 ? "right" : "left";
+                  // Alternate float direction for media (odd segments left, even right)
+                  const mediaFloat = segmentIndex % 2 === 0 ? "right" : "left";
 
                   return (
                     <span key={segmentIndex}>
+                      {/* Inline video player - displayed before the segment text */}
+                      {videosForSegment &&
+                        videosForSegment.length > 0 &&
+                        videosForSegment.map((vp, vIdx) => (
+                          <InlineVideoPlayer
+                            key={`video-${vp.video.filename}-${vIdx}`}
+                            video={vp.video}
+                            startTime={vp.startTime}
+                            endTime={vp.endTime}
+                            float={mediaFloat}
+                            onOpenModal={() =>
+                              handleOpenVideoModal(vp.video, vp.startTime, vp.endTime)
+                            }
+                          />
+                        ))}
                       {/* Inline photo slider - displayed before the segment text */}
                       {photosForSegment && photosForSegment.length > 0 && (
                         <InlinePhotoSlider
                           photos={photosForSegment}
                           onPhotoClick={handlePhotoClick}
-                          float={photoFloat}
+                          float={mediaFloat}
                         />
                       )}
                       {minorChapterStart && (
@@ -484,6 +578,14 @@ export function Transcript({
 
       {/* Photo Modal for viewing full-resolution photos */}
       <PhotoModal photo={modalPhoto} onClose={handleCloseModal} />
+
+      {/* Video Modal for fullscreen video playback */}
+      <VideoModal
+        video={modalVideo?.video ?? null}
+        startTime={modalVideo?.startTime}
+        endTime={modalVideo?.endTime}
+        onClose={handleCloseVideoModal}
+      />
     </div>
   );
 }

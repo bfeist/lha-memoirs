@@ -72,6 +72,7 @@ function RecordingPlayer(): React.ReactElement {
     chapters: chaptersQuery,
     alternateTellings,
     photos,
+    videos,
     mediaPlacements,
     regions,
     isLoading,
@@ -333,6 +334,7 @@ function RecordingPlayer(): React.ReactElement {
                 alternateTellings={isMemoir ? alternateTellings.data?.alternateTellings : undefined}
                 recordingPath={recordingConfig?.path}
                 photos={photos.data?.photos}
+                videos={videos.data?.videos}
                 mediaPlacements={mediaPlacements.data?.placements}
               />
             ) : (

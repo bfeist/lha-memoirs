@@ -170,6 +170,24 @@ export function usePhotos(): UseQueryResult<PhotosData, Error> {
   });
 }
 
+// Fetch videos data (global videos.json)
+export function useVideos(): UseQueryResult<VideosData, Error> {
+  return useQuery<VideosData>({
+    queryKey: ["videos"],
+    queryFn: async () => {
+      const response = await fetch("/videos.json");
+      if (!response.ok) {
+        throw new Error("Failed to load videos");
+      }
+      return response.json();
+    },
+    // Keep data fresh for 10 minutes - these files don't change during a session
+    staleTime: 10 * 60 * 1000,
+    // Keep cached data for 30 minutes
+    gcTime: 30 * 60 * 1000,
+  });
+}
+
 // Fetch media placements for a recording
 export function useMediaPlacements(
   recordingPath: string
@@ -252,6 +270,7 @@ export function useRecordingData(
   chapters: UseQueryResult<ChaptersData, Error>;
   alternateTellings: UseQueryResult<AlternateTellingsData, Error>;
   photos: UseQueryResult<PhotosData, Error>;
+  videos: UseQueryResult<VideosData, Error>;
   mediaPlacements: UseQueryResult<MediaPlacementData, Error>;
   regions: { data: PeaksRegion[] | undefined; isLoading: boolean; error: Error | null };
   isLoading: boolean;
@@ -268,6 +287,7 @@ export function useRecordingData(
   const chapters = useChapters(recordingPath);
   const alternateTellings = useAlternateTellings(recordingPath);
   const photos = usePhotos();
+  const videos = useVideos();
   const mediaPlacements = useMediaPlacements(recordingPath);
   const regions = useRegions(recordingPath);
 
@@ -284,6 +304,7 @@ export function useRecordingData(
       chapters.refetch(),
       alternateTellings.refetch(),
       photos.refetch(),
+      videos.refetch(),
       mediaPlacements.refetch(),
     ]);
   };
@@ -299,6 +320,7 @@ export function useRecordingData(
     chapters,
     alternateTellings,
     photos,
+    videos,
     mediaPlacements,
     regions,
     isLoading,

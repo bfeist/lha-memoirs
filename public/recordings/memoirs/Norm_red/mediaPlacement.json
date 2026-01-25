@@ -106,19 +106,26 @@
       "filenames": ["1930_IMG_4380"]
     },
     {
-      "seconds": 6445.74,
+      "seconds": 6381.12,
       "type": "photo",
       "filenames": ["1947_IMG_4357"]
     },
     {
-      "seconds": 6445.74,
+      "seconds": 6381.12,
       "type": "photo",
       "filenames": ["1947_IMG_4358"]
     },
     {
-      "seconds": 6445.74,
+      "seconds": 6381.12,
       "type": "photo",
       "filenames": ["1947_IMG_4372"]
+    },
+    {
+      "seconds": 6492.22,
+      "type": "video",
+      "filenames": ["Climbing poles in bush (Frisco-5)"],
+      "start": 0,
+      "end": 98
     },
     {
       "seconds": 6578.49,
@@ -134,6 +141,21 @@
       "seconds": 7443.57,
       "type": "photo",
       "filenames": ["1953_family_reunion_angus_cres_IMG_4337"]
+    },
+    {
+      "seconds": 8409.07,
+      "type": "video",
+      "filenames": ["Grama and Grampa by flowers (LA)"]
+    },
+    {
+      "seconds": 10300.97,
+      "type": "video",
+      "filenames": ["Power-2"]
+    },
+    {
+      "seconds": 10599.38,
+      "type": "video",
+      "filenames": ["Power-7"]
     }
   ]
 }

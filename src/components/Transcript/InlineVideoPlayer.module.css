@@ -1,0 +1,125 @@
+.videoPlayer {
+  width: 100%;
+  margin: 0.75rem 0;
+  max-width: 500px;
+  background: #242424;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #333333;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
+}
+
+/* Magazine-style text wrap */
+.floatRight {
+  float: right;
+  margin-left: 1rem;
+  margin-right: 0;
+  clear: right;
+}
+
+.floatLeft {
+  float: left;
+  margin-right: 1rem;
+  margin-left: 0;
+  clear: left;
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #1a1a1a;
+  cursor: pointer;
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Controls bar - appears on hover/touch */
+.controlsBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: linear-gradient(transparent, rgb(0 0 0 / 70%));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.videoContainer:hover .controlsBar,
+.videoContainer:focus-within .controlsBar {
+  opacity: 1;
+}
+
+/* Touch devices - show controls on tap */
+@media (hover: none) {
+  .controlsBar {
+    opacity: 1;
+  }
+}
+
+.controlButton {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255 255 255 / 15%);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.controlButton:hover {
+  background: rgb(255 255 255 / 25%);
+  transform: scale(1.05);
+}
+
+.controlButton:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+/* Caption styling */
+.caption {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  color: #aaaaaa;
+  line-height: 1.4;
+  font-style: italic;
+  border-top: 1px solid #333333;
+}
+
+/* Responsive adjustments */
+@media (width <= 600px) {
+  .videoPlayer {
+    float: none !important;
+    max-width: 100%;
+    margin: 0.75rem 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .controlButton {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+}
