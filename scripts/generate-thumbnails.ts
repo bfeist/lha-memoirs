@@ -3,7 +3,7 @@ import * as path from "path";
 import sharp from "sharp";
 
 const THUMBNAIL_WIDTH = 600;
-const PHOTO_DIRECTORIES = ["public/photos/historical"];
+const PHOTO_DIRECTORIES = ["public/static_assets/photos/historical"];
 const SMALL_FOLDER = "small";
 const SMALL_SUFFIX = ".small";
 

@@ -276,7 +276,7 @@ def format_timestamp(seconds: float) -> str:
 def process_video(video_path: Path, output_dir: Path) -> dict:
     """
     Process a single video: detect scenes, extract frames, describe each scene.
-    Writes JSON incrementally after each scene is processed.
+    Returns the video's scene data dict (no per-video file output).
     """
     print(f"\nProcessing: {video_path.name}")
     
@@ -299,9 +299,6 @@ def process_video(video_path: Path, output_dir: Path) -> dict:
             duration = 60.0  # Fallback
         scenes = [(0.0, duration)]
     
-    # Prepare output file path
-    output_file = output_dir / f"{video_path.stem}.scene_cards.json"
-    
     # Initialize result structure
     result = {
         "video_file": video_path.name,
@@ -310,7 +307,7 @@ def process_video(video_path: Path, output_dir: Path) -> dict:
         "scenes": []
     }
     
-    # Process each scene and write incrementally
+    # Process each scene
     for i, (start, end) in enumerate(scenes):
         print(f"  Scene {i+1}/{len(scenes)}: {format_timestamp(start)} - {format_timestamp(end)}")
         
@@ -327,12 +324,7 @@ def process_video(video_path: Path, output_dir: Path) -> dict:
         result["scenes"].append(scene_data)
         
         print(f"    Title: {scene_data.get('title', 'N/A')}")
-        
-        # Write incrementally after each scene
-        with open(output_file, "w", encoding="utf-8") as f:
-            json.dump(result, f, indent=2, ensure_ascii=False)
     
-    print(f"  Saved: {output_file.name}")
     return result
 
 
@@ -380,7 +372,7 @@ def main():
         all_results.append(result)
     
     # Save combined results
-    combined_file = output_dir / "all_scene_cards.json"
+    combined_file = output_dir / "video_scene_cards.json"
     with open(combined_file, "w", encoding="utf-8") as f:
         json.dump(all_results, f, indent=2, ensure_ascii=False)
     print(f"\nCombined results saved to: {combined_file}")

@@ -1,227 +1,171 @@
 {
   "photos": [
     {
-      "filename": "1907_external_halbrite-15.jpg",
-      "path": "/photos/historical/1907_external_halbrite-15.jpg",
+      "filename": "1907_external_halbrite-15",
       "caption": "",
       "location": "Halbrite, Saskatchewan",
-      "classification": "Landscape",
       "date": "1907"
     },
     {
-      "filename": "1913_external_halbrite-16.jpg",
-      "path": "/photos/historical/1913_external_halbrite-16.jpg",
+      "filename": "1913_external_halbrite-16",
       "caption": "",
       "location": "Halbrite, Saskatchewan",
-      "classification": "Landscape",
       "date": "1913"
     },
     {
-      "filename": "1916_Achen_farm_IMG_4356.jpeg",
-      "path": "/photos/historical/1916_Achen_farm_IMG_4356.jpeg",
+      "filename": "1916_Achen_farm_IMG_4356",
       "caption": "",
       "location": "Unknown",
-      "classification": "Landscape",
       "date": "1916"
     },
     {
-      "filename": "1917c_First_car_homemade_bug_IMG_4339.jpeg",
-      "path": "/photos/historical/1917c_First_car_homemade_bug_IMG_4339.jpeg",
+      "filename": "1917c_First_car_homemade_bug_IMG_4339",
       "caption": "",
       "location": "Unknown",
-      "classification": "Vehicle",
       "date": "circa 1917"
     },
     {
-      "filename": "1920_external_midale-30.jpg",
-      "path": "/photos/historical/1920_external_midale-30.jpg",
+      "filename": "1920_external_midale-30",
       "caption": "",
       "location": "Midale, Saskatchewan",
-      "classification": "Landscape",
       "date": "1920"
     },
     {
-      "filename": "1928_IMG_4376.jpeg",
-      "path": "/photos/historical/1928_IMG_4376.jpeg",
+      "filename": "1928_IMG_4376",
       "caption": "Power line crew",
       "location": "Unknown",
-      "classification": "Work/Construction",
       "date": "1928"
     },
     {
-      "filename": "1928_IMG_4377.jpeg",
-      "path": "/photos/historical/1928_IMG_4377.jpeg",
+      "filename": "1928_IMG_4377",
       "caption": "Power line crew",
       "location": "Unknown",
-      "classification": "Work/Construction",
       "date": "1928"
     },
     {
-      "filename": "1928_IMG_4383.jpeg",
-      "path": "/photos/historical/1928_IMG_4383.jpeg",
+      "filename": "1928_IMG_4383",
       "caption": "Power line crew",
       "location": "Unknown",
-      "classification": "Work/Construction",
       "date": "1928"
     },
     {
-      "filename": "1928_IMG_4385.jpeg",
-      "path": "/photos/historical/1928_IMG_4385.jpeg",
+      "filename": "1928_IMG_4385",
       "caption": "Power line crew",
       "location": "Unknown",
-      "classification": "Work/Construction",
       "date": "1928"
     },
     {
-      "filename": "1929c_Model-A_IMG_4353.jpeg",
-      "path": "/photos/historical/1929c_Model-A_IMG_4353.jpeg",
+      "filename": "1929c_Model-A_IMG_4353",
       "caption": "Power line crew",
       "location": "Unknown",
-      "classification": "Work/Construction",
       "date": "circa 1929"
     },
     {
-      "filename": "1930_IMG_4375.jpeg",
-      "path": "/photos/historical/1930_IMG_4375.jpeg",
+      "filename": "1930_IMG_4375",
       "caption": "Power line crew",
       "location": "Unknown",
-      "classification": "Work/Construction",
       "date": "1930"
     },
     {
-      "filename": "1930_IMG_4379.jpeg",
-      "path": "/photos/historical/1930_IMG_4379.jpeg",
+      "filename": "1930_IMG_4379",
       "caption": "Power line crew",
       "location": "Unknown",
-      "classification": "Work/Construction",
       "date": "1930"
     },
     {
-      "filename": "1930_IMG_4380.jpeg",
-      "path": "/photos/historical/1930_IMG_4380.jpeg",
+      "filename": "1930_IMG_4380",
       "caption": "Power line crew",
       "location": "Unknown",
-      "classification": "Work/Construction",
       "date": "1930"
     },
     {
-      "filename": "1934c_LHA_mother_train_from_iowa_IMG_4338.jpeg",
-      "path": "/photos/historical/1934c_LHA_mother_train_from_iowa_IMG_4338.jpeg",
+      "filename": "1934c_LHA_mother_train_from_iowa_IMG_4338",
       "caption": "Lindy's mother",
       "location": "Unknown",
-      "classification": "Portrait",
       "date": "circa 1934"
     },
     {
-      "filename": "1935_IMG_4343.jpeg",
-      "path": "/photos/historical/1935_IMG_4343.jpeg",
+      "filename": "1935_IMG_4343",
       "caption": "",
       "location": "Unknown",
-      "classification": "Portrait",
       "date": "1935"
     },
     {
-      "filename": "1937_LHA_beach_IMG_4346.jpeg",
-      "path": "/photos/historical/1937_LHA_beach_IMG_4346.jpeg",
+      "filename": "1937_LHA_beach_IMG_4346",
       "caption": "",
       "location": "Unknown",
-      "classification": "Portrait",
       "date": "1937"
     },
     {
-      "filename": "1940_external_midale-26.jpg",
-      "path": "/photos/historical/1940_external_midale-26.jpg",
+      "filename": "1940_external_midale-26",
       "caption": "",
       "location": "Midale, Saskatchewan",
-      "classification": "Landscape",
       "date": "1940"
     },
     {
-      "filename": "1942_LHA.jpg",
-      "path": "/photos/historical/1942_LHA.jpg",
+      "filename": "1942_LHA",
       "caption": "",
       "location": "Unknown",
-      "classification": "Portrait",
       "date": "1942"
     },
     {
-      "filename": "1946_IMG_4368.jpeg",
-      "path": "/photos/historical/1946_IMG_4368.jpeg",
+      "filename": "1946_IMG_4368",
       "caption": "Power line crew",
       "location": "Unknown",
-      "classification": "Work/Construction",
       "date": "1946"
     },
     {
-      "filename": "1946_IMG_4389.jpeg",
-      "path": "/photos/historical/1946_IMG_4389.jpeg",
+      "filename": "1946_IMG_4389",
       "caption": "Power line crew",
       "location": "Unknown",
-      "classification": "Work/Construction",
       "date": "1946"
     },
     {
-      "filename": "1947_IMG_4357.jpeg",
-      "path": "/photos/historical/1947_IMG_4357.jpeg",
+      "filename": "1947_IMG_4357",
       "caption": "Power line crew",
       "location": "Unknown",
-      "classification": "Work/Construction",
       "date": "1947"
     },
     {
-      "filename": "1947_IMG_4358.jpeg",
-      "path": "/photos/historical/1947_IMG_4358.jpeg",
+      "filename": "1947_IMG_4358",
       "caption": "",
       "location": "Unknown",
-      "classification": "Landscape",
       "date": "1947"
     },
     {
-      "filename": "1947_IMG_4372.jpeg",
-      "path": "/photos/historical/1947_IMG_4372.jpeg",
+      "filename": "1947_IMG_4372",
       "caption": "Power line crew",
       "location": "Unknown",
-      "classification": "Work/Construction",
       "date": "1947"
     },
     {
-      "filename": "1947c_LHA_with_twins_IMG_4350.jpeg",
-      "path": "/photos/historical/1947c_LHA_with_twins_IMG_4350.jpeg",
+      "filename": "1947c_LHA_with_twins_IMG_4350",
       "caption": "Lindy with twins",
       "location": "Unknown",
-      "classification": "Portrait",
       "date": "circa 1947"
     },
     {
-      "filename": "1951c_LHA_Phyllis_grass_IMG_4336.jpeg",
-      "path": "/photos/historical/1951c_LHA_Phyllis_grass_IMG_4336.jpeg",
+      "filename": "1951c_LHA_Phyllis_grass_IMG_4336",
       "caption": "Lindy and Phyllis",
       "location": "Unknown",
-      "classification": "Portrait",
       "date": "circa 1951"
     },
     {
-      "filename": "1953_family_reunion_angus_cres_IMG_4337.jpeg",
-      "path": "/photos/historical/1953_family_reunion_angus_cres_IMG_4337.jpeg",
+      "filename": "1953_family_reunion_angus_cres_IMG_4337",
       "caption": "Family reunion",
       "location": "Angus Cres",
-      "classification": "Group",
       "date": "1953"
     },
     {
-      "filename": "1980s_LHA_Phyllis_60th_anniversary_oakville_IMG_4329.jpeg",
-      "path": "/photos/historical/1980s_LHA_Phyllis_60th_anniversary_oakville_IMG_4329.jpeg",
+      "filename": "1980s_LHA_Phyllis_60th_anniversary_oakville_IMG_4329",
       "caption": "Lindy and Phyllis",
       "location": "Oakville",
-      "classification": "Portrait",
       "date": "1980"
     },
     {
-      "filename": "1980s_LHA_sister_hilary_IMG_4327.jpeg",
-      "path": "/photos/historical/1980s_LHA_sister_hilary_IMG_4327.jpeg",
+      "filename": "1980s_LHA_sister_hilary_IMG_4327",
       "caption": "Sister Hilary",
       "location": "Unknown",
-      "classification": "Portrait",
       "date": "1980"
     }
   ]

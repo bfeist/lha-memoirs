@@ -121,9 +121,8 @@ def analyze_image(image_path: Path, filename: str) -> dict:
     
     Also determine:
     - "location": Extract from filename or describe visible setting (e.g., "Midale, Saskatchewan" or "Unknown")
-    - "classification": One of ["Portrait", "Group", "Landscape", "Work/Construction", "Vehicle", "Building", "Other"]
 
-    Return ONLY valid JSON with fields: caption, location, classification
+    Return ONLY valid JSON with fields: caption, location
 
     Example captions:
     - "Lindy and Phyllis"
@@ -175,8 +174,7 @@ def analyze_image(image_path: Path, filename: str) -> dict:
             print(f"    Failed to parse JSON response. Raw: {content[:50]}...")
             data = {
                 "caption": "",
-                "location": "Unknown",
-                "classification": "Other"
+                "location": "Unknown"
             }
         
         # Add date field separately
@@ -189,8 +187,7 @@ def analyze_image(image_path: Path, filename: str) -> dict:
         return {
             "caption": "",
             "date": date_str,
-            "location": "Unknown",
-            "classification": "Error"
+            "location": "Unknown"
         }
 
 def main():
@@ -206,6 +203,18 @@ def main():
 
     print(f"Scanning {args.input}...")
     
+    # Load existing photo metadata if it exists
+    existing_photos = {}
+    if args.output.exists():
+        try:
+            with open(args.output, "r", encoding="utf-8") as f:
+                existing_data = json.load(f)
+                for photo in existing_data.get("photos", []):
+                    existing_photos[photo["filename"]] = photo
+            print(f"Loaded {len(existing_photos)} existing photo entries")
+        except (json.JSONDecodeError, KeyError) as e:
+            print(f"Warning: Could not load existing metadata: {e}")
+    
     # Attempt to unload other models to ensure vision model fits
     unload_all_models()
 
@@ -216,8 +225,11 @@ def main():
     
     for file_path in files:
         if file_path.name.lower().endswith(('.jpg', '.jpeg', '.png', '.webp')):
-            # Logic to skip the reference image if we don't want it in the output? 
-            # The user uses it as a reference but it's also a file in the folder, so it should probably be included in the gallery.
+            # Skip if already processed
+            if file_path.name in existing_photos:
+                print(f"  Skipping {file_path.name} (already processed)")
+                photos.append(existing_photos[file_path.name])
+                continue
             
             # Determine public relative path
             # Assuming standard structure: .../public/photos/historical/image.jpg -> /photos/historical/image.jpg
@@ -238,8 +250,7 @@ def main():
             
             # Add file info
             photo_entry = {
-                "filename": file_path.name,
-                "path": web_path,
+                "filename": file_path.stem,  # Just the stub, no extension
                 **metadata
             }
             

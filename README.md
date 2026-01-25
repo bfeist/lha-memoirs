@@ -7,17 +7,19 @@ A digital archive of the voice memoirs of Linden "Lindy" Hilary Achen (1902–19
 **Linden "Lindy" Hilary Achen** was born on October 7, 1902, in Remsen, Iowa. In 1907, at the age of four, his family immigrated to Saskatchewan, Canada, settling near Halbright during the great wave of prairie pioneers.
 
 Lindy's memoirs capture a vivid picture of the era:
-*   **Pioneer Life:** Farming with horse teams, surviving the 1918 flu pandemic, and early prairie settlements.
-*   **Career:** Challenging work as a power lineman and construction foreman across Western Canada and the US Midwest (1920s–1960s).
-*   **Family History:** Detailed recollections of the Achen family recorded in the 1980s.
+
+- **Pioneer Life:** Farming with horse teams, surviving the 1918 flu pandemic, and early prairie settlements.
+- **Career:** Challenging work as a power lineman and construction foreman across Western Canada and the US Midwest (1920s–1960s).
+- **Family History:** Detailed recollections of the Achen family recorded in the 1980s.
 
 ## Project Features
 
 This application provides an interactive way to explore the recordings:
-*   **Audio Playback:** Listen to the original memoir tapes, digitized and restored.
-*   **Interactive Transcripts:** Read along with time-synced transcripts.
-*   **Search:** Find specific stories and topics within the hours of recordings.
-*   **Chapters & Stories:** AI-generated breakdowns of chapters and individual anecdotes.
+
+- **Audio Playback:** Listen to the original memoir tapes, digitized and restored.
+- **Interactive Transcripts:** Read along with time-synced transcripts.
+- **Search:** Find specific stories and topics within the hours of recordings.
+- **Chapters & Stories:** Chapter markers of individual anecdotes.
 
 ## Running the Project
 
@@ -25,8 +27,8 @@ This is a modern web application built with React, Vite, and TanStack Query.
 
 ### Prerequisites
 
-*   Node.js (v22 recommended)
-*   npm
+- Node.js (v22 recommended)
+- npm
 
 ### Development
 
