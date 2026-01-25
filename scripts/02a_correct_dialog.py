@@ -4,7 +4,7 @@ Correct dialog punctuation in transcripts using Ollama LLM.
 
 This script identifies dialog segments (e.g., "I said", "he said") and adds
 proper punctuation (quotation marks, commas) to the spoken dialog.
-
+Transcripts are in CSV format (transcript.csv).
 Usage:
     python 02a_correct_dialog.py <recording_name>
     python 02a_correct_dialog.py --all  # Process all recordings
@@ -684,7 +684,7 @@ def main():
                 print(f"\nERROR: Recording '{args.recording}' not found")
                 print(f"Available: {', '.join(recordings)}")
             else:
-                print(f"\nERROR: Recording '{args.recording}' has no transcript.json")
+                print(f"\nERROR: Recording '{args.recording}' has no transcript.csv")
             return
         to_process = [args.recording]
     else:

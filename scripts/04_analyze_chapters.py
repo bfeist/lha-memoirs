@@ -5,6 +5,7 @@ Run with: uv run 03_analyze_chapters.py [recording_path] [--redescribe]
 Processes all recording folders in public/recordings/ (including nested folders),
 or a specific one if path is provided (e.g., "memoirs/HF_60").
 
+Transcripts must be in CSV format (transcript.csv).
 Skips recordings that already have a chapters.json file.
 
 Options:
@@ -1297,7 +1298,7 @@ def process_recording(recording_folder: Path, model_name: str) -> bool:
     # Finalize chapters
     finalized_chapters = finalize_chapters(all_chapters)
     
-    # Save chapters data (files info is in transcript.json, not duplicated here)
+    # Save chapters data (files info is in transcript.csv, not duplicated here)
     chapters_path = recording_folder / "chapters.json"
     chapters_output = {
         "chapters": finalized_chapters,

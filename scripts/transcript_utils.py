@@ -12,9 +12,6 @@ Example:
     6.45|10.61|I go right back, and it starts in where I taped ...
     25.24|28.24|I'll roll this back now and see what's happening.
 """
-import csv
-import json
-import re
 from pathlib import Path
 
 DELIMITER = "|"
@@ -94,73 +91,36 @@ def write_transcript_csv(path: Path, data: dict) -> None:
             f.write(f"{start}{DELIMITER}{end}{DELIMITER}{text}\n")
 
 
-def read_transcript_json(path: Path) -> dict:
+def get_transcript_path(recording_dir: Path) -> Path | None:
     """
-    Read a transcript JSON file (for conversion purposes).
-    """
-    with open(path, 'r', encoding='utf-8') as f:
-        return json.load(f)
-
-
-def convert_json_to_csv(json_path: Path, csv_path: Path) -> None:
-    """
-    Convert a transcript.json file to transcript.csv format.
-    """
-    data = read_transcript_json(json_path)
-    write_transcript_csv(csv_path, data)
-
-
-def get_transcript_path(recording_dir: Path, prefer_csv: bool = True) -> Path | None:
-    """
-    Get the transcript file path for a recording directory.
-    
-    Prefers CSV if it exists when prefer_csv=True, otherwise returns JSON path.
-    Returns None if neither exists.
+    Get the transcript CSV file path for a recording directory.
+    Returns None if it doesn't exist.
     """
     csv_path = recording_dir / "transcript.csv"
-    json_path = recording_dir / "transcript.json"
-    
-    if prefer_csv and csv_path.exists():
-        return csv_path
-    if json_path.exists():
-        return json_path
-    if csv_path.exists():
-        return csv_path
-    return None
+    return csv_path if csv_path.exists() else None
 
 
 def load_transcript(recording_dir: Path) -> dict | None:
     """
-    Load a transcript from a recording directory, supporting both CSV and JSON formats.
-    Prefers CSV if both exist.
+    Load a transcript CSV from a recording directory.
     """
     path = get_transcript_path(recording_dir)
     if path is None:
         return None
-    
-    if path.suffix == '.csv':
-        return read_transcript_csv(path)
-    else:
-        return read_transcript_json(path)
+    return read_transcript_csv(path)
 
 
-def save_transcript(recording_dir: Path, data: dict, format: str = 'csv') -> Path:
+def save_transcript(recording_dir: Path, data: dict) -> Path:
     """
-    Save a transcript to a recording directory.
+    Save a transcript to CSV format in a recording directory.
     
     Args:
         recording_dir: Directory to save to
         data: Transcript data dict
-        format: 'csv' or 'json'
     
     Returns:
         Path to the saved file
     """
-    if format == 'csv':
-        path = recording_dir / "transcript.csv"
-        write_transcript_csv(path, data)
-    else:
-        path = recording_dir / "transcript.json"
-        with open(path, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
+    path = recording_dir / "transcript.csv"
+    write_transcript_csv(path, data)
     return path

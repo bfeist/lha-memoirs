@@ -252,11 +252,13 @@ def process_transcript(
         print(f"  ERROR: Recording '{recording_name}' not found")
         return {"error": "Recording not found"}
     
-    input_path = recording_dir / "transcript.json"
+    input_path = recording_dir / "transcript.csv"
     
     # Load transcript
-    with open(input_path, 'r', encoding='utf-8') as f:
-        data = json.load(f)
+    data = load_transcript(recording_dir)
+    if data is None:
+        print(f"  ERROR: Could not load transcript from '{recording_name}'")
+        return {"error": "Could not load transcript"}
     
     segments = data.get('segments', [])
     if verbose:
@@ -415,7 +417,7 @@ def main():
                 print(f"\nERROR: Recording '{args.recording}' not found")
                 print(f"Available: {', '.join(recordings)}")
             else:
-                print(f"\nERROR: Recording '{args.recording}' has no transcript.json")
+                print(f"\nERROR: Recording '{args.recording}' has no transcript.csv")
             return
         to_process = [args.recording]
     else:
