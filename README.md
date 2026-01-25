@@ -1,33 +1,58 @@
-# LHA Memoirs
+# Lindy Achen Memoirs
 
-## Notes on tapes
+A digital archive of the voice memoirs of Linden "Lindy" Hilary Achen (1902–1994). This project preserves and presents his oral history, recounting life in the early 20th century, from his childhood in Iowa to pioneer life in Saskatchewan and his career bringing electricity to rural communities.
 
-Different sets of tapes:
+## About Lindy Achen
 
-- 6 side story with 30 minutes per side "2nd version"
-  - TDK_D60 - from mom - digitized
-- 4 side story with 60 minutes per side "1st version" "badly taped"
-  - Supertape Gold 120 - from mom? - digitized
-  - Realistic 120 - from Norm - probably grampa's original - digitized
-- 8 side story with 30 minutes per side
-  - Sony HF60 - from Norm
+**Linden "Lindy" Hilary Achen** was born on October 7, 1902, in Remsen, Iowa. In 1907, at the age of four, his family immigrated to Saskatchewan, Canada, settling near Halbright during the great wave of prairie pioneers.
 
-Glynn interview:
+Lindy's memoirs capture a vivid picture of the era:
+*   **Pioneer Life:** Farming with horse teams, surviving the 1918 flu pandemic, and early prairie settlements.
+*   **Career:** Challenging work as a power lineman and construction foreman across Western Canada and the US Midwest (1920s–1960s).
+*   **Family History:** Detailed recollections of the Achen family recorded in the 1980s.
 
-- 4 sides
-  - IMEA C60 - digitized
+## Project Features
 
-"XMAS_86" tape:
+This application provides an interactive way to explore the recordings:
+*   **Audio Playback:** Listen to the original memoir tapes, digitized and restored.
+*   **Interactive Transcripts:** Read along with time-synced transcripts.
+*   **Search:** Find specific stories and topics within the hours of recordings.
+*   **Chapters & Stories:** AI-generated breakdowns of chapters and individual anecdotes.
 
-- Letter to Norm recorded Nov 1986
-- 19:00 talkes about the memoir tapes
-- "didn't talk about your family"
+## Running the Project
 
-"Sr. Hilary"
+This is a modern web application built with React, Vite, and TanStack Query.
 
-- Recorded Nov 28 1988
-- LHA Autobiographical Obituary on tape
-- More history memoir at 4:00
-- Sister Hilary singing at 11:25
-- Sitting in back yard with grandma and sister hilary at 20:00
-- More company history at 14:30 - July 1 1989
+### Prerequisites
+
+*   Node.js (v22 recommended)
+*   npm
+
+### Development
+
+To start the development server:
+
+```bash
+npm install
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`.
+
+### Build
+
+To build for production:
+
+```bash
+npm run build
+```
+
+## Data Processing
+
+The audio processing pipeline (transcription, alignment, and analysis) is handled by a set of Python scripts.
+
+For detailed documentation on the data processing workflow, see [scripts/README.md](scripts/README.md).
+
+## Research Notes
+
+Original inventory notes on the physical tapes can be found in [docs/tape_inventory.md](docs/tape_inventory.md).
