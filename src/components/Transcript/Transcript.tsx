@@ -1,23 +1,79 @@
 import { useRef, useEffect, useMemo, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCodeBranch } from "@fortawesome/free-solid-svg-icons";
 import { formatTime } from "../../hooks/useRecordingData";
+import { getRecordingByPath } from "../../config/recordings";
 import styles from "./Transcript.module.css";
+
+// Extract recording folder name from a path like "memoirs/Norm_red" -> "Norm_red"
+function getRecordingFolderName(recordingPath: string): string {
+  const parts = recordingPath.split("/");
+  return parts[parts.length - 1];
+}
+
+// Find alternate telling for a segment (chapter) by matching id
+function findAlternateTellingForSegment(
+  alternateTellings: AlternateTelling[] | undefined,
+  currentRecordingFolder: string,
+  segmentId: string
+): { otherRecordingPath: string; otherStartTime: number; topic: string } | null {
+  if (!alternateTellings) return null;
+
+  for (const telling of alternateTellings) {
+    const currentRef = telling[currentRecordingFolder] as
+      | AlternateSegmentRef
+      | AlternateStoryRef
+      | undefined;
+    if (!currentRef) continue;
+
+    const currentId =
+      "id" in currentRef ? currentRef.id : "storyId" in currentRef ? currentRef.storyId : null;
+
+    if (currentId === segmentId) {
+      for (const key of Object.keys(telling)) {
+        if (key !== "topic" && key !== "confidence" && key !== currentRecordingFolder) {
+          const otherRef = telling[key] as AlternateSegmentRef | AlternateStoryRef;
+          const otherPath = `memoirs/${key}`;
+          return {
+            otherRecordingPath: otherPath,
+            otherStartTime: otherRef.startTime,
+            topic: telling.topic,
+          };
+        }
+      }
+    }
+  }
+  return null;
+}
 
 export function Transcript({
   segments,
   chapters,
   currentTime,
   onSegmentClick,
+  alternateTellings,
+  recordingPath,
 }: {
   segments: TranscriptSegment[];
   chapters: Chapter[];
   currentTime: number;
   onSegmentClick?: (time: number) => void;
+  alternateTellings?: AlternateTelling[];
+  recordingPath?: string;
 }): React.ReactElement {
+  const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
   const activeChapterRef = useRef<HTMLDivElement>(null);
   const activeSegmentRef = useRef<HTMLSpanElement>(null);
   const lastScrolledChapterId = useRef<string | null>(null);
   const lastScrolledSegmentIndex = useRef<number | null>(null);
+
+  // Get current recording folder name for matching
+  const currentRecordingFolder = useMemo(
+    () => (recordingPath ? getRecordingFolderName(recordingPath) : ""),
+    [recordingPath]
+  );
 
   // Extract minor chapters from the chapters array
   const minorChapters = useMemo(() => chapters.filter((ch) => ch.minor), [chapters]);
@@ -178,6 +234,19 @@ export function Transcript({
     [onSegmentClick]
   );
 
+  // Handle alternate telling click - navigate to other recording
+  const handleAlternateClick = (
+    e: React.MouseEvent,
+    otherRecordingPath: string,
+    otherStartTime: number
+  ) => {
+    e.stopPropagation();
+    const otherRecording = getRecordingByPath(otherRecordingPath);
+    if (otherRecording) {
+      navigate(`/recording/${otherRecording.id}?t=${Math.floor(otherStartTime)}`);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <p className={styles.hint}>Click any text to jump to that moment</p>
@@ -187,6 +256,15 @@ export function Transcript({
           const chapterIdString = `chapter-${groupIndex}`;
           const isCurrentChapter = chapterIdString === currentChapterId;
           const isPastChapter = group.chapter.startTime < currentTime && !isCurrentChapter;
+
+          // Find alternate telling for this major chapter
+          const majorChapterGlobalIndex = chapters.findIndex((c) => c === group.chapter);
+          const majorChapterId = `chapter-${majorChapterGlobalIndex}`;
+          const chapterAlternate = findAlternateTellingForSegment(
+            alternateTellings,
+            currentRecordingFolder,
+            majorChapterId
+          );
 
           return (
             <div
@@ -201,6 +279,34 @@ export function Transcript({
               >
                 {group.chapter.title}
                 <span className={styles.chapterTime}>{formatTime(group.chapter.startTime)}</span>
+
+                {chapterAlternate && (
+                  <span
+                    className={styles.alternateTellingButton}
+                    onClick={(e) =>
+                      handleAlternateClick(
+                        e,
+                        chapterAlternate.otherRecordingPath,
+                        chapterAlternate.otherStartTime
+                      )
+                    }
+                    title={`Alternate telling: ${chapterAlternate.topic}`}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        handleAlternateClick(
+                          e as unknown as React.MouseEvent,
+                          chapterAlternate.otherRecordingPath,
+                          chapterAlternate.otherStartTime
+                        );
+                      }
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faCodeBranch} />
+                  </span>
+                )}
               </button>
 
               {group.chapter.description && (
@@ -216,17 +322,57 @@ export function Transcript({
                     currentTime >= segment.start && currentTime < segment.end;
                   const minorChapterStart = minorChapterStartSegments.get(actualSegmentIndex);
 
+                  let minorAlternate = null;
+                  if (minorChapterStart) {
+                    const minorGlobalIndex = chapters.findIndex((c) => c === minorChapterStart);
+                    const minorChapterId = `chapter-${minorGlobalIndex}`;
+                    minorAlternate = findAlternateTellingForSegment(
+                      alternateTellings,
+                      currentRecordingFolder,
+                      minorChapterId
+                    );
+                  }
+
                   return (
                     <span key={segmentIndex}>
                       {minorChapterStart && (
-                        <button
-                          type="button"
-                          className={styles.minorChapterMarker}
-                          onClick={() => handleClick(minorChapterStart.startTime)}
-                          title={minorChapterStart.title}
-                        >
-                          {minorChapterStart.title}
-                        </button>
+                        <>
+                          <button
+                            type="button"
+                            className={styles.minorChapterMarker}
+                            onClick={() => handleClick(minorChapterStart.startTime)}
+                            title={minorChapterStart.title}
+                          >
+                            {minorChapterStart.title}
+                          </button>
+                          {minorAlternate && (
+                            <span
+                              className={styles.alternateTellingButton}
+                              onClick={(e) =>
+                                handleAlternateClick(
+                                  e,
+                                  minorAlternate.otherRecordingPath,
+                                  minorAlternate.otherStartTime
+                                )
+                              }
+                              title={`Alternate telling: ${minorAlternate.topic}`}
+                              role="button"
+                              tabIndex={0}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                  e.preventDefault();
+                                  handleAlternateClick(
+                                    e as unknown as React.MouseEvent,
+                                    minorAlternate.otherRecordingPath,
+                                    minorAlternate.otherStartTime
+                                  );
+                                }
+                              }}
+                            >
+                              <FontAwesomeIcon icon={faCodeBranch} />
+                            </span>
+                          )}
+                        </>
                       )}
                       <span
                         ref={isCurrentSegment ? activeSegmentRef : null}

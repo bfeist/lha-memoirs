@@ -309,8 +309,6 @@ function RecordingPlayer(): React.ReactElement {
                 chapters={chapters}
                 currentTime={currentTime}
                 onChapterClick={handleChapterClick}
-                alternateTellings={isMemoir ? alternateTellings.data?.alternateTellings : undefined}
-                recordingPath={recordingConfig?.path}
               />
             ) : (
               <div className={styles.placeholderBox}>
@@ -326,6 +324,8 @@ function RecordingPlayer(): React.ReactElement {
                 chapters={chapters}
                 currentTime={currentTime}
                 onSegmentClick={handleWordClick}
+                alternateTellings={isMemoir ? alternateTellings.data?.alternateTellings : undefined}
+                recordingPath={recordingConfig?.path}
               />
             ) : (
               <div className={styles.placeholderBox}>

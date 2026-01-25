@@ -137,51 +137,12 @@
 .timestamp {
   color: #666666;
   font-family: "SF Mono", Monaco, Inconsolata, monospace;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   flex-shrink: 0;
 }
 
 .active .timestamp {
   color: #d4af37;
-}
-
-.alternateTelling {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  padding: 0;
-  color: #88ffaa;
-  font-size: 0.7rem;
-  border-radius: 4px;
-  flex-shrink: 0;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.alternateTelling:hover {
-  background: rgb(136 255 170 / 20%);
-  color: #aaffcc;
-}
-
-.alternateTelling:focus {
-  outline: 2px solid #88ffaa;
-  outline-offset: 1px;
-}
-
-.alternateCount {
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
-  color: #88ffaa;
-  font-size: 0.65rem;
-  flex-shrink: 0;
-}
-
-.alternateCountNumber {
-  font-weight: 600;
-  font-size: 0.6rem;
 }
 
 /* Nested minor chapters list */
@@ -237,7 +198,7 @@
 
 .minorChapterTitle {
   color: #aaaaaa;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   line-height: 1.3;
   overflow-wrap: break-word;
   display: block;
@@ -249,13 +210,7 @@
 }
 
 .minorChapterItem .timestamp {
-  font-size: 0.65rem;
-}
-
-.minorChapterItem .alternateTelling {
-  width: 1.25rem;
-  height: 1.25rem;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 
 @media (width <= 774px) {

@@ -29,7 +29,7 @@ DEFAULT_OUTPUT_FILE = Path(__file__).parent.parent.parent / "public" / "photos.j
 # Common locations from the memoir context
 COMMON_LOCATIONS = [
     "Iowa", "Remsen", "Sioux City",
-    "Saskatchewan", "Halbright", "Crow Lake", "DeVille", "Midale", "Estevan", "Regina", "Griffin", "Frobisher",
+    "Saskatchewan", "Halbrite", "Crow Lake", "DeVille", "Midale", "Estevan", "Regina", "Griffin", "Frobisher",
     "North Dakota", "Dawson", "Kenmare",
     "Manitoba", "Winnipegosis",
     "Minnesota", "Minneapolis",
@@ -104,7 +104,7 @@ def analyze_image(image_path: Path, filename: str) -> dict:
 
     CONTEXT:
     This is from the memoir collection of Linden "Lindy" Hilary Achen (LHA), a power line construction foreman.
-    Timeline: Born 1902 in Iowa, moved to Saskatchewan (Halbright) as a child, worked across Saskatchewan and North Dakota.
+    Timeline: Born 1902 in Iowa, moved to Saskatchewan (Halbrite) as a child, worked across Saskatchewan and North Dakota.
     Wife: Phyllis. Sister: Hilary.
     
     Common locations: {', '.join(COMMON_LOCATIONS)}.

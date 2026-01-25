@@ -4,7 +4,7 @@ A digital archive of the voice memoirs of Linden "Lindy" Hilary Achen (1902–19
 
 ## About Lindy Achen
 
-**Linden "Lindy" Hilary Achen** was born on October 7, 1902, in Remsen, Iowa. In 1907, at the age of four, his family immigrated to Saskatchewan, Canada, settling near Halbright during the great wave of prairie pioneers.
+**Linden "Lindy" Hilary Achen** was born on October 7, 1902, in Remsen, Iowa. In 1907, at the age of four, his family immigrated to Saskatchewan, Canada, settling near Halbrite during the great wave of prairie pioneers.
 
 Lindy's memoirs capture a vivid picture of the era:
 

@@ -1,53 +1,6 @@
 import { useMemo, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
 import { formatTime } from "../../hooks/useRecordingData";
-import { getRecordingByPath } from "../../config/recordings";
 import styles from "./Chapters.module.css";
-
-// Extract recording folder name from a path like "memoirs/Norm_red" -> "Norm_red"
-function getRecordingFolderName(recordingPath: string): string {
-  const parts = recordingPath.split("/");
-  return parts[parts.length - 1];
-}
-
-// Find alternate telling for a segment (chapter) by matching id
-function findAlternateTellingForSegment(
-  alternateTellings: AlternateTelling[] | undefined,
-  currentRecordingFolder: string,
-  segmentId: string
-): { otherRecordingPath: string; otherStartTime: number; topic: string } | null {
-  if (!alternateTellings) return null;
-
-  for (const telling of alternateTellings) {
-    const currentRef = telling[currentRecordingFolder] as
-      | AlternateSegmentRef
-      | AlternateStoryRef
-      | undefined;
-    if (!currentRef) continue;
-
-    // Handle new format (id field) or legacy format (storyId field)
-    const currentId =
-      "id" in currentRef ? currentRef.id : "storyId" in currentRef ? currentRef.storyId : null;
-
-    if (currentId === segmentId) {
-      // Find the other recording in this telling
-      for (const key of Object.keys(telling)) {
-        if (key !== "topic" && key !== "confidence" && key !== currentRecordingFolder) {
-          const otherRef = telling[key] as AlternateSegmentRef | AlternateStoryRef;
-          const otherPath = `memoirs/${key}`;
-          return {
-            otherRecordingPath: otherPath,
-            otherStartTime: otherRef.startTime,
-            topic: telling.topic,
-          };
-        }
-      }
-    }
-  }
-  return null;
-}
 
 /** Represents a major chapter with its associated minor chapters */
 interface ChapterGroup {
@@ -86,25 +39,14 @@ export function Chapters({
   chapters,
   currentTime,
   onChapterClick,
-  alternateTellings,
-  recordingPath,
 }: {
   chapters: Chapter[];
   currentTime: number;
   onChapterClick: (chapter: Chapter) => void;
-  alternateTellings?: AlternateTelling[];
-  recordingPath?: string;
 }): React.ReactElement {
-  const navigate = useNavigate();
   const containerRef = useRef<HTMLElement>(null);
   const activeChapterRef = useRef<HTMLDivElement>(null);
   const lastScrolledChapterIndex = useRef<number | null>(null);
-
-  // Get current recording folder name for matching
-  const currentRecordingFolder = useMemo(
-    () => (recordingPath ? getRecordingFolderName(recordingPath) : ""),
-    [recordingPath]
-  );
 
   // Group chapters into major chapters with their minor sub-chapters
   const chapterGroups = useMemo(() => groupChaptersByMajor(chapters), [chapters]);
@@ -166,19 +108,6 @@ export function Chapters({
     }
   }, [currentChapterIndex]);
 
-  // Handle alternate telling click - navigate to other recording
-  const handleAlternateClick = (
-    e: React.MouseEvent,
-    otherRecordingPath: string,
-    otherStartTime: number
-  ) => {
-    e.stopPropagation();
-    const otherRecording = getRecordingByPath(otherRecordingPath);
-    if (otherRecording) {
-      navigate(`/recording/${otherRecording.id}?t=${Math.floor(otherStartTime)}`);
-    }
-  };
-
   // Handle minor chapter click
   const handleMinorChapterClick = (chapter: Chapter, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -209,14 +138,6 @@ export function Chapters({
           const isMajorPast =
             majorChapter.startTime < currentTime && !isMajorActive && !isMinorActiveInThisGroup;
 
-          // Check if this major chapter has an alternate telling
-          const chapterId = `chapter-${majorChapterGlobalIndex}`;
-          const chapterAlternate = findAlternateTellingForSegment(
-            alternateTellings,
-            currentRecordingFolder,
-            chapterId
-          );
-
           return (
             <div
               key={groupIndex}
@@ -238,34 +159,6 @@ export function Chapters({
                 </div>
 
                 <span className={styles.timestamp}>{formatTime(majorChapter.startTime)}</span>
-
-                {chapterAlternate && (
-                  <span
-                    className={styles.alternateTelling}
-                    onClick={(e) =>
-                      handleAlternateClick(
-                        e,
-                        chapterAlternate.otherRecordingPath,
-                        chapterAlternate.otherStartTime
-                      )
-                    }
-                    title={`Alternate telling: ${chapterAlternate.topic}`}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        handleAlternateClick(
-                          e as unknown as React.MouseEvent,
-                          chapterAlternate.otherRecordingPath,
-                          chapterAlternate.otherStartTime
-                        );
-                      }
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faCommentDots} />
-                  </span>
-                )}
               </button>
 
               {/* Nested minor chapters */}
@@ -274,14 +167,6 @@ export function Chapters({
                   {minorChapters.map(({ chapter: minorChapter, globalIndex }) => {
                     const isMinorActive = globalIndex === currentChapterIndex;
                     const isMinorPast = minorChapter.startTime < currentTime && !isMinorActive;
-
-                    // Check if this minor chapter has an alternate telling
-                    const minorChapterId = `chapter-${globalIndex}`;
-                    const minorAlternate = findAlternateTellingForSegment(
-                      alternateTellings,
-                      currentRecordingFolder,
-                      minorChapterId
-                    );
 
                     return (
                       <button
@@ -299,34 +184,6 @@ export function Chapters({
                         <span className={styles.timestamp}>
                           {formatTime(minorChapter.startTime)}
                         </span>
-
-                        {minorAlternate && (
-                          <span
-                            className={styles.alternateTelling}
-                            onClick={(e) =>
-                              handleAlternateClick(
-                                e,
-                                minorAlternate.otherRecordingPath,
-                                minorAlternate.otherStartTime
-                              )
-                            }
-                            title={`Alternate telling: ${minorAlternate.topic}`}
-                            role="button"
-                            tabIndex={0}
-                            onKeyDown={(e) => {
-                              if (e.key === "Enter" || e.key === " ") {
-                                e.preventDefault();
-                                handleAlternateClick(
-                                  e as unknown as React.MouseEvent,
-                                  minorAlternate.otherRecordingPath,
-                                  minorAlternate.otherStartTime
-                                );
-                              }
-                            }}
-                          >
-                            <FontAwesomeIcon icon={faCommentDots} />
-                          </span>
-                        )}
                       </button>
                     );
                   })}
