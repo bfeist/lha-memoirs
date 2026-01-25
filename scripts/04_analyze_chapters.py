@@ -1,11 +1,14 @@
 """
 Analyze transcript content and generate chapter structure using Ollama.
-Run with: uv run 03_analyze_chapters.py [recording_path]
+Run with: uv run 03_analyze_chapters.py [recording_path] [--redescribe]
 
 Processes all recording folders in public/recordings/ (including nested folders),
 or a specific one if path is provided (e.g., "memoirs/HF_60").
 
 Skips recordings that already have a chapters.json file.
+
+Options:
+  --redescribe: Only rewrite chapter descriptions without changing timing
 
 Requires: pip install ollama tqdm
 Or with uv: uv pip install ollama tqdm
@@ -15,6 +18,7 @@ Make sure Ollama is running locally with one of these models:
   - ollama run qwen2.5:20b (or similar)
 """
 
+import argparse
 import json
 import re
 import sys
@@ -1077,6 +1081,162 @@ def finalize_chapters(chapters: list) -> list:
     return finalized
 
 
+def redescribe_chapters(recording_folder: Path, model_name: str) -> bool:
+    """Redescribe existing chapters without changing their timing."""
+    relative_path = get_relative_recording_path(recording_folder)
+    transcript_file = recording_folder / "transcript.json"
+    chapters_file = recording_folder / "chapters.json"
+    
+    print(f"\n{'='*60}")
+    print(f"📝 Redescribing chapters for: {relative_path}")
+    print(f"{'='*60}")
+    
+    if not transcript_file.exists():
+        print(f"   ⚠️  No transcript.json found, skipping")
+        return False
+    
+    if not chapters_file.exists():
+        print(f"   ⚠️  No chapters.json found, skipping")
+        return False
+    
+    # Load transcript
+    print(f"\n📂 Loading transcript from: {transcript_file}")
+    with open(transcript_file, "r", encoding="utf-8") as f:
+        transcript_data = json.load(f)
+    
+    segments = transcript_data.get("segments", [])
+    print(f"   Found {len(segments)} segments")
+    
+    # Load existing chapters
+    print(f"\n📂 Loading existing chapters from: {chapters_file}")
+    with open(chapters_file, "r", encoding="utf-8") as f:
+        chapters_data = json.load(f)
+    
+    existing_chapters = chapters_data.get("chapters", [])
+    print(f"   Found {len(existing_chapters)} chapters")
+    
+    # Sort chapters by start time
+    existing_chapters = sorted(existing_chapters, key=lambda c: c["startTime"])
+    
+    # Redescribe each chapter
+    redescribed_chapters = []
+    
+    for i, chapter in enumerate(existing_chapters):
+        start_time = chapter["startTime"]
+        title = chapter["title"]
+        is_minor = chapter.get("minor", False)
+        
+        print(f"\n   📝 Redescribing: '{title}' at {start_time:.2f}s")
+        sys.stdout.flush()
+        
+        # Find the segment just before this chapter
+        before_segments = [seg for seg in segments if seg["start"] < start_time]
+        before_text = ""
+        if before_segments:
+            last_before = before_segments[-1]
+            before_text = f"[{last_before['start']:.0f}s] {last_before['text']}"
+        
+        # Find all segments from this chapter to the next (or end)
+        if i + 1 < len(existing_chapters):
+            next_start = existing_chapters[i + 1]["startTime"]
+            chapter_segments = [seg for seg in segments 
+                              if seg["start"] >= start_time and seg["start"] < next_start]
+        else:
+            chapter_segments = [seg for seg in segments if seg["start"] >= start_time]
+        
+        # Build context text
+        context_lines = []
+        if before_text:
+            context_lines.append(f"[Previous segment]\n{before_text}\n")
+        
+        context_lines.append(f"[Chapter starts at {start_time:.0f}s: \"{title}\"]")
+        
+        for seg in chapter_segments[:50]:  # Limit to first 50 segments for context
+            context_lines.append(f"[{seg['start']:.0f}s] {seg['text']}")
+        
+        if len(chapter_segments) > 50:
+            context_lines.append(f"... ({len(chapter_segments) - 50} more segments)")
+        
+        context_text = "\n".join(context_lines)
+        
+        # Generate new description with LLM
+        prompt = f"""/no_think
+Write a VERY SHORT label for this chapter (appears above transcript - user will read details there).
+
+Title: "{title}"
+
+{context_text}
+
+RULES:
+- Maximum 8-12 words (shorter is better)
+- Fragment or simple sentence - NOT "This section..." or "Lindy discusses..."
+- Factual themes/topics, not literary descriptions
+- Direct and plain language
+- Vary your structure each time
+- DO NOT repeat what's already in the title - add NEW context or themes
+
+GOOD examples (note how they ADD to the title, not repeat it):
+* Title: "Hauling Grain" → Description: "Winter work with father during his declining health."
+* Title: "Power Line Job" → Description: "First lineman position, buying Model T Ford."
+* Title: "Trip to See Brother" → Description: "Family crisis and difficult caregiving decision."
+* Title: "Farm Management" → Description: "Taking charge after father's death, payment disputes."
+
+BAD examples:
+* Title: "Father's Death" → "Father died in Kenmare" (repeats title)
+* Title: "Moving to Sioux City" → "Company relocated to Sioux City" (repeats title)
+* "This section recounts..." (too formal/wordy)
+* "A fragmented recollection of..." (too literary)
+
+Description (no quotes):"""
+
+        try:
+            response_text = ""
+            for chunk in ollama.generate(
+                model=model_name,
+                prompt=prompt,
+                stream=True,
+                options={"temperature": 0.2, "num_ctx": 8192},
+                keep_alive="10m"
+            ):
+                if chunk.get('response'):
+                    chunk_text = chunk['response']
+                    response_text += chunk_text
+                    print(chunk_text, end='', flush=True)
+            
+            print()  # Newline after stream
+            
+            new_description = response_text.strip().strip('"').strip()
+            
+            # Keep the chapter structure intact, only update description
+            redescribed_chapter = {
+                "title": title,
+                "startTime": start_time,
+                "description": new_description
+            }
+            
+            if is_minor:
+                redescribed_chapter["minor"] = True
+            
+            redescribed_chapters.append(redescribed_chapter)
+            
+        except Exception as e:
+            print(f"\n   ⚠️  Error redescribing chapter: {e}")
+            # Keep original chapter on error
+            redescribed_chapters.append(chapter)
+    
+    # Save updated chapters
+    chapters_output = {
+        "chapters": redescribed_chapters,
+        "summary": chapters_data.get("summary", ""),
+    }
+    
+    with open(chapters_file, "w", encoding="utf-8") as f:
+        json.dump(chapters_output, f, indent=2, ensure_ascii=False)
+    
+    print(f"\n   ✅ Saved redescribed chapters: {chapters_file}")
+    return True
+
+
 def process_recording(recording_folder: Path, model_name: str) -> bool:
     """Process a single recording folder."""
     relative_path = get_relative_recording_path(recording_folder)
@@ -1157,10 +1317,27 @@ def process_recording(recording_folder: Path, model_name: str) -> bool:
 
 
 def main():
-    # Parse command line args for specific recording
-    specific_recording = None
-    if len(sys.argv) > 1:
-        specific_recording = sys.argv[1]
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(
+        description="Analyze transcript content and generate chapter structure using Ollama."
+    )
+    parser.add_argument(
+        "recording_path",
+        nargs="?",
+        help="Specific recording path to process (e.g., 'memoirs/HF_60'). If omitted, processes all recordings."
+    )
+    parser.add_argument(
+        "--redescribe",
+        action="store_true",
+        help="Only rewrite chapter descriptions without changing timing (requires existing chapters.json)"
+    )
+    
+    args = parser.parse_args()
+    
+    specific_recording = args.recording_path
+    redescribe_mode = args.redescribe
+    
+    if specific_recording:
         print(f"\n🎯 Processing specific recording: {specific_recording}")
     
     # Check Ollama connection
@@ -1175,6 +1352,9 @@ def main():
         sys.exit(1)
     
     print(f"\n📦 Using model: {model_name}")
+    
+    if redescribe_mode:
+        print("\n🔄 MODE: Redescribe existing chapters (timing unchanged)")
     
     # Get recording folders to process
     recording_folders = get_recording_folders(specific_recording)
@@ -1191,14 +1371,19 @@ def main():
     # Process each recording folder
     success_count = 0
     for recording_folder in recording_folders:
-        if process_recording(recording_folder, model_name):
-            success_count += 1
+        if redescribe_mode:
+            if redescribe_chapters(recording_folder, model_name):
+                success_count += 1
+        else:
+            if process_recording(recording_folder, model_name):
+                success_count += 1
     
     # Unload model to free memory
     # unload_model(model_name)
     
     print("\n" + "=" * 60)
-    print(f"✅ CHAPTER ANALYSIS COMPLETE! ({success_count}/{len(recording_folders)} recordings)")
+    mode_text = "REDESCRIPTION" if redescribe_mode else "CHAPTER ANALYSIS"
+    print(f"✅ {mode_text} COMPLETE! ({success_count}/{len(recording_folders)} recordings)")
     print("=" * 60)
 
 
