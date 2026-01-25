@@ -75,6 +75,7 @@ PLACE_CORRECTIONS = [
     (r'\bGuttalink\b', 'Gull Lake'),
     (r'\bWalmart\b', 'Wawota'),
     (r'\bAlbright\b', 'Halbrite'),
+    (r'\bHalbright\b', 'Halbrite'),  # Another Whisper variant
     (r'\bMacoon\b', 'Macoun'),
     (r'\bKalali\b', 'Kelliher'),
     (r'\bBean Faith\b', 'Bienfait'),
@@ -109,6 +110,11 @@ NAME_CORRECTIONS = [
     # Linden vs Lyndon
     (r'\bLyndon Hillary\b', 'Linden Hilary'),
     (r'\bAchen Lyndon Hillary\b', 'Achen, Linden Hilary'),
+    # Brother's name - Lorry not Larry (context: brother at Sioux Falls)
+    # Note: Only correct "Larry" when it appears to be referring to Lorry
+    # This is tricky because Larry could be a different person
+    (r'\bbrother,? Larry\b', 'brother Lorry'),
+    (r'\bbrother Larry\b', 'brother Lorry'),
 ]
 
 # ============================================================================
