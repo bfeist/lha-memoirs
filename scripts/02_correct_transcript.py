@@ -3,7 +3,7 @@
 Generalized transcript correction for Achen family memoirs.
 
 This applies corrections to ANY memoir recording based on:
-- Achen family names (Linden "Lindy" Achen, Zip, Phyllis, Sister Hilary, Sister Aloysius)
+- Achen family names (Linden "Lindy" Achen, Zip, Phyllis, Sister Hilary, Sister Aloysia)
 - Saskatchewan, Iowa, North Dakota, Montana place names
 - Known company names (SaskPower, Finning, etc.)
 - Common Whisper transcription errors
