@@ -60,7 +60,17 @@ export const PhotoModal: React.FC<{
         <FontAwesomeIcon icon={faTimes} />
       </button>
 
-      <div className={styles.content}>
+      <div
+        className={styles.content}
+        onClick={onClose}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            onClose();
+          }
+        }}
+        tabIndex={0}
+        role="button"
+      >
         <img
           src={getPhotoFullUrl(photo.filename)}
           alt={caption || "Historical photo"}

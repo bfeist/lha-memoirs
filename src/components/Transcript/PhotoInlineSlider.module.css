@@ -70,10 +70,6 @@
   opacity: 1;
 }
 
-.imageButton:hover .image {
-  transform: scale(1.02);
-}
-
 /* Navigation buttons for slider */
 .navButton {
   position: absolute;

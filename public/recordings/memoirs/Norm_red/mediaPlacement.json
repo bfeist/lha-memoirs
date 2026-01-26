@@ -86,12 +86,12 @@
       "filenames": ["1928_IMG_4383"]
     },
     {
-      "seconds": 4300.12,
+      "seconds": 4540.49,
       "type": "photo",
       "filenames": ["1928_IMG_4385"]
     },
     {
-      "seconds": 4540.49,
+      "seconds": 4752.92,
       "type": "photo",
       "filenames": ["1929c_Model-A_IMG_4353"]
     },
@@ -123,9 +123,7 @@
     {
       "seconds": 6492.22,
       "type": "video",
-      "filenames": ["Climbing poles in bush (Frisco-5)"],
-      "start": 0,
-      "end": 98
+      "filenames": ["Climbing poles in bush (Frisco-5)"]
     },
     {
       "seconds": 6578.49,
