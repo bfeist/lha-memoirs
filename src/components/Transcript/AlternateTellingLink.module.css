@@ -1,0 +1,115 @@
+/* Alternate telling button - green variant */
+.alternateTellingButton {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  margin: 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #4caf50; /* Green */
+  background: rgb(76 175 80 / 12%); /* Green background */
+  border: 1px solid rgb(76 175 80 / 25%);
+  border-radius: 3px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.alternateTellingButton:hover {
+  background: rgb(76 175 80 / 22%);
+  border-color: rgb(76 175 80 / 45%);
+  color: #66bb6a;
+}
+
+/* Preview modal that appears on hover - rendered via portal */
+.previewModal {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 0.5rem));
+  padding: 0.75rem;
+  background: #2a2a2a;
+  border: 1px solid #4caf50;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 40%);
+  z-index: 99999;
+  min-width: 250px;
+  max-width: 400px;
+  pointer-events: auto;
+  animation: fade-in 0.2s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 0.25rem));
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - 0.5rem));
+  }
+}
+
+/* Arrow pointing down */
+.previewModal::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #4caf50;
+}
+
+.previewTopic {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #4caf50;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.previewText {
+  font-size: 0.8rem;
+  color: #cccccc;
+  line-height: 1.5;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for preview text */
+.previewText::-webkit-scrollbar {
+  width: 4px;
+}
+
+.previewText::-webkit-scrollbar-track {
+  background: rgb(255 255 255 / 5%);
+  border-radius: 2px;
+}
+
+.previewText::-webkit-scrollbar-thumb {
+  background: rgb(76 175 80 / 30%);
+  border-radius: 2px;
+}
+
+.previewText::-webkit-scrollbar-thumb:hover {
+  background: rgb(76 175 80 / 50%);
+}
+
+@media (width <= 774px) {
+  .previewModal {
+    min-width: 200px;
+    max-width: 300px;
+    padding: 0.5rem;
+  }
+
+  .previewTopic {
+    font-size: 0.8rem;
+  }
+
+  .previewText {
+    font-size: 0.75rem;
+  }
+}

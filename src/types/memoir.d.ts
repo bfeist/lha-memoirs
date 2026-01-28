@@ -42,32 +42,37 @@ interface WaveformData {
   data: number[];
 }
 
-interface AlternateSegmentRef {
-  id: string; // "chapter-0" or "chapter-5" (for minor chapters, previously "story-5")
-  type: "chapter";
+// New format for alternate tellings v2.0
+interface AlternateRecordingSegment {
   startTime: number;
-  title: string;
-  minor?: boolean;
-}
-
-// Legacy format (kept for backwards compatibility)
-interface AlternateStoryRef {
-  storyId: string;
-  startTime: number;
-  title: string;
+  endTime: number;
+  preview: string;
 }
 
 interface AlternateTelling {
   topic: string;
   confidence: "HIGH" | "MEDIUM" | "LOW";
-  [recordingKey: string]: string | AlternateSegmentRef | AlternateStoryRef;
+  score: number;
+  Norm_red?: AlternateRecordingSegment;
+  TDK_D60_edited_through_air?: AlternateRecordingSegment;
 }
 
 interface AlternateTellingsData {
+  version: string;
+  description: string;
   primaryRecording: string;
   secondaryRecording: string;
-  description: string;
+  matchingMethod: string;
+  windowConfig?: {
+    duration: number;
+    overlap: number;
+  };
   alternateTellings: AlternateTelling[];
+  stats?: {
+    totalMatches: number;
+    highConfidence: number;
+    mediumConfidence: number;
+  };
 }
 
 // Photo data from photos.json

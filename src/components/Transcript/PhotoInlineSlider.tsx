@@ -21,11 +21,11 @@ export function formatCaption(photo: Photo): string {
   }
 
   const metadata: string[] = [];
-  if (photo.date) {
-    metadata.push(photo.date);
-  }
   if (photo.location && photo.location !== "Unknown") {
     metadata.push(photo.location);
+  }
+  if (photo.date) {
+    metadata.push(photo.date);
   }
   if (photo.credit) {
     metadata.push(`Photo courtesy of ${photo.credit}`);

@@ -194,27 +194,39 @@
       "description": "Unexpected Failure and Quick Repair",
       "minor": true
     },
-    {
-      "title": "Service Station Conversation",
-      "startTime": 3026.36,
-      "description": "Relentless Work and Sleep Deprivation on the Separator",
-      "minor": true
-    },
+
     {
       "title": "Uncle's Compound Machine",
       "startTime": 3152.86,
       "description": "Machine Repair and a Lucky Car Crash"
     },
     {
-      "title": "Power Line Job Begins",
-      "startTime": 3298.29,
-      "description": "Winter work: Power line construction and a questionable foreman.",
+      "title": "Heading back to Canada",
+      "startTime": 3211.87,
+      "description": "Returning Home After Nebraska Work",
       "minor": true
+    },
+    {
+      "title": "Model T Car Crash",
+      "startTime": 3259.21,
+      "description": "Unexpected Accident and Lucky Escape"
+    },
+    {
+      "title": "Power Line Job Begins",
+      "startTime": 3303.14,
+      "description": "Winter work: Power line construction and a questionable foreman."
     },
     {
       "title": "Fetching Whiskey for Foreman",
       "startTime": 3357.28,
-      "description": "Foreman's Habits & Subsequent Crew Changes"
+      "description": "Foreman's Habits & Subsequent Crew Changes",
+      "minor": true
+    },
+    {
+      "title": "Crew moves to Dawson, North Dakota",
+      "startTime": 3370.31,
+      "description": "",
+      "minor": true
     },
     {
       "title": "Building Power Line North",
@@ -223,14 +235,13 @@
       "minor": true
     },
     {
-      "title": "Harvest Time and Separator",
-      "startTime": 3513.36,
-      "description": "A Better Wage and Wet Thrashing",
-      "minor": true
+      "title": "Another Job with Twight",
+      "startTime": 3513.29,
+      "description": "A Better Wage and Wet Thrashing"
     },
     {
       "title": "High-Voltage Crew Encounter",
-      "startTime": 3651.04,
+      "startTime": 3660.41,
       "description": "Unexpected Job Offer & Quick Advancement"
     },
     {

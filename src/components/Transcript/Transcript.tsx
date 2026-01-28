@@ -1,54 +1,18 @@
 import { useRef, useEffect, useMemo, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCodeBranch } from "@fortawesome/free-solid-svg-icons";
 import { formatTime } from "../../hooks/useRecordingData";
 import { getRecordingByPath } from "../../config/recordings";
 import { PhotoInlineSlider } from "./PhotoInlineSlider";
 import { VideoInlinePlayer } from "./VideoInlinePlayer";
 import { PhotoModal } from "./PhotoModal";
 import { VideoModal } from "./VideoModal";
+import { AlternateTellingLink } from "./AlternateTellingLink";
 import styles from "./Transcript.module.css";
 
 // Extract recording folder name from a path like "memoirs/Norm_red" -> "Norm_red"
 function getRecordingFolderName(recordingPath: string): string {
   const parts = recordingPath.split("/");
   return parts[parts.length - 1];
-}
-
-// Find alternate telling for a segment (chapter) by matching id
-function findAlternateTellingForSegment(
-  alternateTellings: AlternateTelling[] | undefined,
-  currentRecordingFolder: string,
-  segmentId: string
-): { otherRecordingPath: string; otherStartTime: number; topic: string } | null {
-  if (!alternateTellings) return null;
-
-  for (const telling of alternateTellings) {
-    const currentRef = telling[currentRecordingFolder] as
-      | AlternateSegmentRef
-      | AlternateStoryRef
-      | undefined;
-    if (!currentRef) continue;
-
-    const currentId =
-      "id" in currentRef ? currentRef.id : "storyId" in currentRef ? currentRef.storyId : null;
-
-    if (currentId === segmentId) {
-      for (const key of Object.keys(telling)) {
-        if (key !== "topic" && key !== "confidence" && key !== currentRecordingFolder) {
-          const otherRef = telling[key] as AlternateSegmentRef | AlternateStoryRef;
-          const otherPath = `memoirs/${key}`;
-          return {
-            otherRecordingPath: otherPath,
-            otherStartTime: otherRef.startTime,
-            topic: telling.topic,
-          };
-        }
-      }
-    }
-  }
-  return null;
 }
 
 export function Transcript({
@@ -205,6 +169,61 @@ export function Transcript({
     }
     return map;
   }, [mediaPlacements, segments, videosByFilename]);
+
+  // Pre-compute which alternate tellings should appear before each segment
+  // Maps segment index -> array of alternate telling info
+  interface AlternatePlacement {
+    topic: string;
+    preview: string;
+    otherRecordingPath: string;
+    otherStartTime: number;
+  }
+
+  const segmentAlternateTellings = useMemo(() => {
+    const map = new Map<number, AlternatePlacement[]>();
+    if (!alternateTellings || alternateTellings.length === 0 || segments.length === 0) return map;
+
+    for (const telling of alternateTellings) {
+      // Get the current and other recording data
+      const currentData = telling[currentRecordingFolder as keyof AlternateTelling] as
+        | AlternateRecordingSegment
+        | undefined;
+      if (!currentData || typeof currentData !== "object" || !currentData.startTime) continue;
+
+      // Find the other recording (the one that's not current)
+      const otherRecordingKey =
+        currentRecordingFolder === "Norm_red" ? "TDK_D60_edited_through_air" : "Norm_red";
+      const otherData = telling[otherRecordingKey as keyof AlternateTelling] as
+        | AlternateRecordingSegment
+        | undefined;
+      if (!otherData || typeof otherData !== "object" || !otherData.startTime) continue;
+
+      // Find the segment that contains or comes after this timestamp
+      let targetSegmentIndex = -1;
+      for (let i = 0; i < segments.length; i++) {
+        if (segments[i].start >= currentData.startTime) {
+          targetSegmentIndex = i;
+          break;
+        }
+      }
+      // If no segment starts after the placement time, put it at the last segment
+      if (targetSegmentIndex === -1) {
+        targetSegmentIndex = segments.length - 1;
+      }
+
+      const placement: AlternatePlacement = {
+        topic: telling.topic,
+        preview: currentData.preview,
+        otherRecordingPath: `memoirs/${otherRecordingKey}`,
+        otherStartTime: otherData.startTime,
+      };
+
+      // Merge with existing alternate tellings at this segment if any
+      const existing = map.get(targetSegmentIndex) || [];
+      map.set(targetSegmentIndex, [...existing, placement]);
+    }
+    return map;
+  }, [alternateTellings, segments, currentRecordingFolder]);
 
   // Handlers for photo modal
   const handlePhotoClick = useCallback((photo: Photo) => {
@@ -383,19 +402,6 @@ export function Transcript({
     [onSegmentClick]
   );
 
-  // Handle alternate telling click - navigate to other recording
-  const handleAlternateClick = (
-    e: React.MouseEvent,
-    otherRecordingPath: string,
-    otherStartTime: number
-  ) => {
-    e.stopPropagation();
-    const otherRecording = getRecordingByPath(otherRecordingPath);
-    if (otherRecording) {
-      navigate(`/recording/${otherRecording.id}?t=${Math.floor(otherStartTime)}`);
-    }
-  };
-
   return (
     <div className={styles.container}>
       <p className={styles.hint}>Click any text to jump to that moment</p>
@@ -405,15 +411,6 @@ export function Transcript({
           const chapterIdString = `chapter-${groupIndex}`;
           const isCurrentChapter = chapterIdString === currentChapterId;
           const isPastChapter = group.chapter.startTime < currentTime && !isCurrentChapter;
-
-          // Find alternate telling for this major chapter
-          const majorChapterGlobalIndex = chapters.findIndex((c) => c === group.chapter);
-          const majorChapterId = `chapter-${majorChapterGlobalIndex}`;
-          const chapterAlternate = findAlternateTellingForSegment(
-            alternateTellings,
-            currentRecordingFolder,
-            majorChapterId
-          );
 
           return (
             <div
@@ -428,34 +425,6 @@ export function Transcript({
               >
                 {group.chapter.title}
                 <span className={styles.chapterTime}>{formatTime(group.chapter.startTime)}</span>
-
-                {chapterAlternate && (
-                  <span
-                    className={styles.alternateTellingButton}
-                    onClick={(e) =>
-                      handleAlternateClick(
-                        e,
-                        chapterAlternate.otherRecordingPath,
-                        chapterAlternate.otherStartTime
-                      )
-                    }
-                    title={`Alternate telling: ${chapterAlternate.topic}`}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        handleAlternateClick(
-                          e as unknown as React.MouseEvent,
-                          chapterAlternate.otherRecordingPath,
-                          chapterAlternate.otherStartTime
-                        );
-                      }
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faCodeBranch} />
-                  </span>
-                )}
               </button>
 
               {group.chapter.description && (
@@ -472,17 +441,8 @@ export function Transcript({
                   const minorChapterStart = minorChapterStartSegments.get(actualSegmentIndex);
                   const photosForSegment = segmentPhotos.get(actualSegmentIndex);
                   const videosForSegment = segmentVideos.get(actualSegmentIndex);
-
-                  let minorAlternate = null;
-                  if (minorChapterStart) {
-                    const minorGlobalIndex = chapters.findIndex((c) => c === minorChapterStart);
-                    const minorChapterId = `chapter-${minorGlobalIndex}`;
-                    minorAlternate = findAlternateTellingForSegment(
-                      alternateTellings,
-                      currentRecordingFolder,
-                      minorChapterId
-                    );
-                  }
+                  const alternateTellingsForSegment =
+                    segmentAlternateTellings.get(actualSegmentIndex);
 
                   // Alternate float direction for media (odd segments left, even right)
                   const mediaFloat = segmentIndex % 2 === 0 ? "right" : "left";
@@ -512,44 +472,33 @@ export function Transcript({
                           float={mediaFloat}
                         />
                       )}
-                      {minorChapterStart && (
-                        <>
-                          <button
-                            type="button"
-                            className={styles.minorChapterMarker}
-                            onClick={() => handleClick(minorChapterStart.startTime)}
-                            title={minorChapterStart.title}
-                          >
-                            {minorChapterStart.title}
-                          </button>
-                          {minorAlternate && (
-                            <span
-                              className={styles.alternateTellingButton}
-                              onClick={(e) =>
-                                handleAlternateClick(
-                                  e,
-                                  minorAlternate.otherRecordingPath,
-                                  minorAlternate.otherStartTime
-                                )
+                      {/* Alternate telling links - displayed before the segment text */}
+                      {alternateTellingsForSegment &&
+                        alternateTellingsForSegment.length > 0 &&
+                        alternateTellingsForSegment.map((alt, altIdx) => (
+                          <AlternateTellingLink
+                            key={`alt-${actualSegmentIndex}-${altIdx}`}
+                            topic={alt.topic}
+                            preview={alt.preview}
+                            onClick={() => {
+                              const otherRecording = getRecordingByPath(alt.otherRecordingPath);
+                              if (otherRecording) {
+                                navigate(
+                                  `/recording/${otherRecording.id}?t=${Math.floor(alt.otherStartTime)}`
+                                );
                               }
-                              title={`Alternate telling: ${minorAlternate.topic}`}
-                              role="button"
-                              tabIndex={0}
-                              onKeyDown={(e) => {
-                                if (e.key === "Enter" || e.key === " ") {
-                                  e.preventDefault();
-                                  handleAlternateClick(
-                                    e as unknown as React.MouseEvent,
-                                    minorAlternate.otherRecordingPath,
-                                    minorAlternate.otherStartTime
-                                  );
-                                }
-                              }}
-                            >
-                              <FontAwesomeIcon icon={faCodeBranch} />
-                            </span>
-                          )}
-                        </>
+                            }}
+                          />
+                        ))}
+                      {minorChapterStart && (
+                        <button
+                          type="button"
+                          className={styles.minorChapterMarker}
+                          onClick={() => handleClick(minorChapterStart.startTime)}
+                          title={minorChapterStart.title}
+                        >
+                          {minorChapterStart.title}
+                        </button>
                       )}
                       <span
                         ref={isCurrentSegment ? activeSegmentRef : null}
