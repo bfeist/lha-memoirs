@@ -19,6 +19,7 @@ Make sure Ollama is running locally with a model like:
 
 import re
 import sys
+import json
 import argparse
 from pathlib import Path
 from datetime import datetime
@@ -511,7 +512,7 @@ def process_transcript(
         print(f"  ERROR: No transcript found for '{recording_name}'")
         return {"error": "No transcript found"}
     
-    # Load transcript (supports both CSV and JSON)
+    # Load transcript (CSV format)
     data = load_transcript(recording_dir)
     if data is None:
         print(f"  ERROR: Failed to load transcript for '{recording_name}'")
@@ -586,10 +587,9 @@ def process_transcript(
             if verbose:
                 print(f"\n  Backup saved: {backup_path.name}")
         
-        # Save corrected transcript as CSV
+        # Save corrected transcript
         data['segments'] = segments
-        # Note: CSV format doesn't store metadata like _dialog_corrections
-        output_path = save_transcript(recording_dir, data, format='csv')
+        output_path = save_transcript(recording_dir, data)
         
         if verbose:
             print(f"  Saved: {output_path.name}")
