@@ -152,8 +152,13 @@ def transcribe_and_align(audio_path: Path, model, model_a, metadata, device: str
     print(f"   Audio duration: {duration:.1f}s")
     
     # Transcribe with batched inference
+    # Using batch_size=1 for maximum accuracy on poor quality audio
+    # (decoding parameters are set during model loading)
     print("   Transcribing...")
-    result = model.transcribe(audio, batch_size=16)
+    result = model.transcribe(
+        audio, 
+        batch_size=1  # Slowest but most accurate for poor quality audio
+    )
     print(f"   Found {len(result['segments'])} segments")
     
     # Align for accurate timestamps
@@ -389,17 +394,33 @@ def main():
         audio_count = len(get_audio_files_in_folder(folder))
         print(f"   - {rel_path} ({audio_count} audio file(s))")
     
-    # Load WhisperX model
+    # Load WhisperX model with aggressive decoding options for poor quality audio
     print("\n🔄 Loading WhisperX large-v3 model...")
     print("   (First run will download the model)")
+    
+    # ASR options for maximum accuracy on poor quality cassette tapes
+    asr_options = {
+        "beam_size": 5,  # Improve word recovery
+        "best_of": 5,  # Consider multiple decoding candidates
+        "temperatures": [0],  # Prevent hallucinated paraphrasing
+        "compression_ratio_threshold": 2.4,  # Relaxed to avoid rejecting compressed speech
+        "log_prob_threshold": -1.0,  # More permissive log probability threshold
+        "no_speech_threshold": 0.3,  # Lower threshold to catch quiet speech
+    }
     
     model = whisperx.load_model(
         "large-v3",
         device,
         compute_type=compute_type,
-        language="en"
+        language="en",
+        asr_options=asr_options,
+        vad_options={"vad_onset": 0.3, "vad_offset": 0.3}  # Very permissive VAD for faint speech
     )
     print("   ✅ ASR model loaded!")
+    print("   Using aggressive decoding for poor quality audio:")
+    print("     - beam_size=5, best_of=5")
+    print("     - temperature=0 (no hallucinations)")
+    print("     - Relaxed thresholds for faint speech")
     
     # Load alignment model
     print("\n🔄 Loading alignment model...")
