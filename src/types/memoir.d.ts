@@ -16,6 +16,7 @@ interface Chapter {
   description: string;
   /** If true, this is a minor chapter (sub-section/story within a parent chapter) */
   minor?: boolean;
+  uuid?: string;
 }
 
 interface ChaptersData {
