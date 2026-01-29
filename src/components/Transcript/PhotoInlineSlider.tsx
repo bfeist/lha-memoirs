@@ -97,7 +97,8 @@ export const PhotoInlineSlider: React.FC<{
 
   if (!currentPhoto) return null;
 
-  const caption = formatCaption(currentPhoto);
+  const currentCaption = formatCaption(currentPhoto);
+  const hasAnyCaption = photos.some((p) => formatCaption(p).length > 0);
 
   return (
     <figure
@@ -109,7 +110,7 @@ export const PhotoInlineSlider: React.FC<{
           className={styles.imageButton}
           onClick={handleClick}
           onKeyDown={handleKeyDown}
-          aria-label={caption || "View historical photo"}
+          aria-label={currentCaption || "View historical photo"}
         >
           {photos.map((photo, index) => (
             <img
@@ -147,7 +148,18 @@ export const PhotoInlineSlider: React.FC<{
         )}
       </div>
 
-      {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
+      {hasAnyCaption && (
+        <figcaption className={styles.captionContainer}>
+          {photos.map((photo, index) => (
+            <div
+              key={photo.filename}
+              className={`${styles.captionText} ${index === currentIndex ? styles.visible : ""}`}
+            >
+              {formatCaption(photo)}
+            </div>
+          ))}
+        </figcaption>
+      )}
     </figure>
   );
 };

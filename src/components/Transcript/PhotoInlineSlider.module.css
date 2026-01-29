@@ -130,13 +130,23 @@
 }
 
 /* Caption styling */
-.caption {
+.captionContainer {
+  display: grid;
   padding: 0.5rem 0.75rem;
+  border-top: 1px solid #333333;
+}
+
+.captionText {
+  grid-area: 1 / 1;
+  visibility: hidden;
   font-size: 0.75rem;
   color: #aaaaaa;
   line-height: 1.4;
   font-style: italic;
-  border-top: 1px solid #333333;
+}
+
+.captionText.visible {
+  visibility: visible;
 }
 
 /* Responsive adjustments */

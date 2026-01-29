@@ -17,7 +17,7 @@
     "test:monitor": "vitest",
     "test:ui": "vitest --ui",
     "test:all": "npm run lint && npm run tsc && npm run build && npm run test",
-    "thumbnails": "tsx scripts/generate-thumbnails.ts"
+    "photos": "tsx scripts/generate-thumbnails.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.1.0",

@@ -1,3 +1,9 @@
 {
-  "placements": []
+  "placements": [
+    {
+      "seconds": 1603.45,
+      "type": "photo",
+      "filenames": ["1922_LHA_telephone_graduation"]
+    }
+  ]
 }
