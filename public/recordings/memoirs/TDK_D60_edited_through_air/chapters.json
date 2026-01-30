@@ -373,20 +373,20 @@
       "description": "Leaving and Returning to Work"
     },
     {
-      "title": "Timeline of Farm Work and Wiring Jobs (1932-1934)",
+      "title": "Timeline of Farm Work and Wiring Jobs",
       "startTime": 5309.64,
       "description": "Farm work, wiring jobs, and moves across Saskatchewan.",
       "minor": true
     },
     {
-      "title": "Jack Dyer's Financial Troubles",
+      "title": "Lindy Buys a Power Plant Job",
       "startTime": 5457.2,
       "description": "Buying Out Dyer: Debt, a Car, and a Deal with Stosser"
     },
     {
       "title": "Financial Backing from Power Corp",
       "startTime": 5519.72,
-      "description": "Financial support, a truck, and brother Matt joins the operation.",
+      "description": "Financial support, a truck, and brother Mack joins the operation.",
       "minor": true
     },
     {
@@ -396,67 +396,90 @@
       "minor": true
     },
     {
-      "title": "Preparing for an Electrician's Exam",
+      "title": "Preparing for Journyman Exam",
       "startTime": 5635.3,
-      "description": "Exam Prep & a Code Book Headache",
+      "description": "Exam Prep and a Code Book Headache",
       "minor": true
     },
     {
-      "title": "Power Plant Abandonment",
+      "title": "Setting Up Plant in Winnipegosis",
       "startTime": 5725.58,
       "description": "Job Loss and New Opportunities"
     },
     {
       "title": "Dyer's Move to British Columbia After Business Failure",
-      "startTime": 5810.03,
-      "description": "Business Failure Leads to British Columbia"
+      "startTime": 5808.0,
+      "description": "Business Failure Leads to British Columbia",
+      "minor": true
+    },
+    {
+      "title": "Winnipegosis Continued",
+      "startTime": 5860.78,
+      "description": "",
+      "minor": true
+    },
+    {
+      "title": "Return to Estevan for the War Years",
+      "startTime": 5912.37,
+      "description": "Returning to Estevan After finishing the Winnipegosis Project "
+    },
+    {
+      "title": "Applying to the Navy",
+      "startTime": 5978.58,
+      "description": "And deciding against it.",
+      "minor": true
     },
     {
       "title": "Military Draft and Deferment Problems",
-      "startTime": 6045.84,
+      "startTime": 6039.23,
       "description": "Unexpected Draft, Quick Resolution"
     },
     {
       "title": "Generator Failure and Inspection",
-      "startTime": 6103.02,
+      "startTime": 6102.83,
       "description": "Unexpected Generator Breakdown and Reporting to New York."
     },
     {
-      "title": "Power Commission Opportunity",
+      "title": "Take a Chance at Contracting",
       "startTime": 6153.35,
-      "description": "Seeking Contracts: A Power Commission Opportunity Arises",
-      "minor": true
+      "description": "Seeking Contracts: A Power Commission Opportunity Arises"
     },
     {
-      "title": "Securing Initial Contracts",
-      "startTime": 6236.85,
+      "title": "First Contract in Lindy's Home Town",
+      "startTime": 6236.83,
       "description": "Early Contracts & a Contractor's Start",
       "minor": true
     },
     {
-      "title": "Contracting History Delayed",
-      "startTime": 6302.75,
-      "description": "Starting a Contracting Business"
+      "title": "Starting as a General Contractor",
+      "startTime": 6317.11,
+      "description": "Lindy Starts an Independent Contracting Business"
     },
     {
-      "title": "Highdale and Estevan Projects",
+      "title": "Midale and Estevan Projects",
       "startTime": 6404.82,
-      "description": "Tendering for Power Line Projects: Highdale and Estevan",
+      "description": "Tendering for Power Line Projects: Midale and Estevan",
       "minor": true
     },
     {
-      "title": "Future Contracting Outline",
-      "startTime": 6511.08,
-      "description": "Five Years of Unfinished Thoughts"
+      "title": "Tape Recording Intermission",
+      "startTime": 6483.43,
+      "description": ""
     },
     {
-      "title": "Early Career and Management Experience",
-      "startTime": 6603.31,
+      "title": "Early General Contracting and Management Experience",
+      "startTime": 6614.9,
       "description": "Leading a Crew: Early Challenges and Workforce Management"
     },
     {
-      "title": "Acquiring a Truck",
-      "startTime": 6712.22,
+      "title": "Starting from Midale",
+      "startTime": 6697.15,
+      "description": "Lindy's First Steps in Contracting",
+      "minor": true
+    },
+    {
+      "title": "Acquiring Military Surplus Trucks",
+      "startTime": 6752.93,
       "description": "Acquiring and Revamping Military Trucks",
       "minor": true
     },

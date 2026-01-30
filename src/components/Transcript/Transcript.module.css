@@ -168,7 +168,7 @@
     border-color 0.15s ease,
     color 0.15s ease;
   white-space: nowrap;
-  max-width: 200px;
+  max-width: 250px;
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: middle;
