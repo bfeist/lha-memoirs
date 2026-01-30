@@ -301,7 +301,7 @@ function RecordingPlayer(): React.ReactElement {
           {!isPlayerReady && !isLoading && (
             <div className={styles.playHint}>
               <span className={styles.playIcon}>▶️</span>
-              <span>Press play to begin listening to Grandpa&apos;s words</span>
+              <span>Press play to begin listening to Lindy&apos;s words</span>
             </div>
           )}
         </section>

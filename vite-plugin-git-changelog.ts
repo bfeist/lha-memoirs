@@ -14,10 +14,11 @@ interface ChangelogData {
   commits: CommitInfo[];
 }
 
-function getGitCommits(maxCommits: number = 50): CommitInfo[] {
+function getGitCommits(maxCommits?: number): CommitInfo[] {
   try {
     // Format: hash|date|message
-    const result = execSync(`git log --pretty=format:"%H|%ad|%s" --date=short -n ${maxCommits}`, {
+    const limitFlag = maxCommits ? `-n ${maxCommits}` : "";
+    const result = execSync(`git log --pretty=format:"%H|%ad|%s" --date=short ${limitFlag}`, {
       encoding: "utf-8",
     });
 

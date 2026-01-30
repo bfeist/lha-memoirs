@@ -63,6 +63,7 @@ export function AudioPlayer({
   const onTimeUpdateRef = useRef(onTimeUpdate);
   const onDurationChangeRef = useRef(onDurationChange);
   const onReadyRef = useRef(onReady);
+  const onReloadRef = useRef(onReload);
   const regionsRef = useRef(regions);
   const previousChapterIdRef = useRef<string | null | undefined>(null);
 
@@ -71,6 +72,7 @@ export function AudioPlayer({
     onTimeUpdateRef.current = onTimeUpdate;
     onDurationChangeRef.current = onDurationChange;
     onReadyRef.current = onReady;
+    onReloadRef.current = onReload;
     regionsRef.current = regions;
   });
 
@@ -82,6 +84,8 @@ export function AudioPlayer({
   // Toggle between original and enhanced audio
   // Default to original (false) so the unprocessed audio plays by default
   const [useEnhanced, setUseEnhanced] = useState(false);
+  // Toggle auto-copy on pause in dev mode
+  const [autoCopyOnPause, setAutoCopyOnPause] = useState(false);
 
   // Format time as MM:SS
   const formatTime = useCallback((seconds: number): string => {
@@ -359,6 +363,13 @@ export function AudioPlayer({
 
     if (isPlaying) {
       peaks.player.pause();
+
+      // In dev mode: copy current time to clipboard when pausing (if enabled)
+      if (import.meta.env.DEV && autoCopyOnPause) {
+        navigator.clipboard.writeText(currentTime.toFixed(2)).catch((err) => {
+          console.error("Failed to copy to clipboard:", err);
+        });
+      }
     } else {
       // For iOS compatibility: call play() on audio element first to satisfy
       // user interaction requirement.
@@ -376,7 +387,12 @@ export function AudioPlayer({
           });
       }
     }
-  }, [isPlaying]);
+
+    // In dev mode: reload after toggling play/pause
+    if (import.meta.env.DEV) {
+      onReloadRef.current?.();
+    }
+  }, [isPlaying, currentTime, autoCopyOnPause]);
 
   // Seek to specific time
   const seekTo = useCallback((time: number) => {
@@ -529,7 +545,17 @@ export function AudioPlayer({
         )}
 
         {import.meta.env.DEV && (
-          <span className={styles.secondsDisplay}>{currentTime.toFixed(2)}</span>
+          <div className={styles.devControls}>
+            <label className={styles.autoCopyLabel}>
+              <input
+                type="checkbox"
+                checked={autoCopyOnPause}
+                onChange={(e) => setAutoCopyOnPause(e.target.checked)}
+                aria-label="Auto-copy current time on pause"
+              />
+              <span className={styles.secondsDisplay}>{currentTime.toFixed(2)}</span>
+            </label>
+          </div>
         )}
       </div>
 
