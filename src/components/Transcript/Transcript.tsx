@@ -431,7 +431,7 @@ export function Transcript({
                 <p className={styles.chapterDescription}>{group.chapter.description}</p>
               )}
 
-              <p className={styles.paragraph}>
+              <div className={styles.paragraph}>
                 {group.segments.map((segment, segmentIndex) => {
                   const actualSegmentIndex = segments.findIndex((s) => s === segment);
                   const isCurrentSegment = actualSegmentIndex === currentSegmentIndex;
@@ -519,7 +519,7 @@ export function Transcript({
                 })}
                 {/* Clearfix for floated photos */}
                 <span className={styles.clearfix} />
-              </p>
+              </div>
             </div>
           );
         })}

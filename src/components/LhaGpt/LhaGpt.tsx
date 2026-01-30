@@ -1,17 +1,16 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
-import { getRecordingByPath, getRecordingById } from "../../config/recordings";
 import styles from "./LhaGpt.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleChevronRight, faRobot } from "@fortawesome/free-solid-svg-icons";
+import ReactMarkdown from "react-markdown";
+import { PlayableQuotation } from "./PlayableQuotation";
 
 const STORAGE_KEY = "lha-gpt-chat-history";
 
 interface Citation {
   recording_id: string;
-  timestamp: number;
-  quote_snippet: string;
+  start_seconds: number;
+  segment_count?: number; // Optional: AI can specify how many segments to play (defaults to 3)
 }
 
 interface Message {
@@ -24,32 +23,6 @@ interface Message {
 
 // RAG API base URL - always use production proxy (works for local dev too)
 const RAG_API_URL = "https://lindenhilaryachen-gpt.benfeist.com";
-
-// Map recording_id (folder path or ID) to recording route ID using recordings.ts
-function getRecordingRoute(recordingId: string): string | null {
-  // First try lookup by ID
-  const recordingById = getRecordingById(recordingId);
-  if (recordingById) return recordingById.id;
-
-  // Fallback to path lookup
-  const recording = getRecordingByPath(recordingId);
-  if (!recording) {
-    console.warn(`Unknown recording_id: ${recordingId} - citation may be hallucinated`);
-    return null;
-  }
-  return recording.id;
-}
-
-// Parse time from MM:SS format to seconds
-function parseTimeToSeconds(timeStr: string): number {
-  const parts = timeStr.split(":");
-  if (parts.length === 2) {
-    const mins = parseInt(parts[0], 10);
-    const secs = parseInt(parts[1], 10);
-    return mins * 60 + secs;
-  }
-  return 0;
-}
 
 const LhaGpt: React.FC<{
   isOpen: boolean;
@@ -66,11 +39,12 @@ const LhaGpt: React.FC<{
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [expandedThinking, setExpandedThinking] = useState<Set<number>>(new Set());
+  const [expandedCitations, setExpandedCitations] = useState<Set<number>>(new Set());
   const [serverOnline, setServerOnline] = useState(false); // Start pessimistic, set true on connect
+  const [playingQuotationKey, setPlayingQuotationKey] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const isAtBottomRef = useRef(true);
-  const navigate = useNavigate();
 
   // Persist messages to localStorage
   useEffect(() => {
@@ -162,18 +136,9 @@ const LhaGpt: React.FC<{
   const clearHistory = useCallback(() => {
     setMessages([]);
     setExpandedThinking(new Set());
+    setExpandedCitations(new Set());
     localStorage.removeItem(STORAGE_KEY);
   }, []);
-
-  const handleInlineSourceClick = (source: string, timeStr: string) => {
-    const recordingId = getRecordingRoute(source);
-    if (!recordingId) {
-      return;
-    }
-    const seconds = parseTimeToSeconds(timeStr);
-    navigate(`/recording/${recordingId}?t=${seconds}`);
-    onClose();
-  };
 
   const toggleThinking = (messageIndex: number) => {
     // Stop auto-scrolling when user expands thinking
@@ -189,64 +154,37 @@ const LhaGpt: React.FC<{
     });
   };
 
-  // Helper to process children and replace source text with buttons
-  const processCitationText = (children: React.ReactNode): React.ReactNode => {
-    return React.Children.map(children, (child) => {
-      if (typeof child !== "string") {
-        return child;
+  const toggleCitations = (messageIndex: number) => {
+    // Stop auto-scrolling when user expands citations
+    isAtBottomRef.current = false;
+    setExpandedCitations((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(messageIndex)) {
+        newSet.delete(messageIndex);
+      } else {
+        newSet.add(messageIndex);
       }
-
-      const parts: (string | React.ReactElement)[] = [];
-      let lastIndex = 0;
-      const regex = /\[Source:\s*([^,]+),\s*Time:\s*(\d+:\d+)\]/g;
-      let match;
-      let matchCount = 0;
-
-      while ((match = regex.exec(child)) !== null) {
-        if (match.index > lastIndex) {
-          parts.push(child.slice(lastIndex, match.index));
-        }
-
-        const source = match[1].trim();
-        const timeStr = match[2];
-        // Try to find recording by ID first, then Path
-        const recording = getRecordingById(source) || getRecordingByPath(source);
-
-        if (recording) {
-          parts.push(
-            <button
-              key={`inline-cite-${matchCount}-${lastIndex}`}
-              className={styles.inlineCitation}
-              onClick={() => handleInlineSourceClick(source, timeStr)}
-              title={`Source: ${recording.title} (Time: ${timeStr})`}
-              aria-label={`Source: ${recording.title} at ${timeStr}`}
-            >
-              🔗
-            </button>
-          );
-        } else {
-          parts.push(match[0]);
-        }
-
-        matchCount++;
-        lastIndex = regex.lastIndex;
-      }
-
-      if (lastIndex < child.length) {
-        parts.push(child.slice(lastIndex));
-      }
-
-      return parts.length > 0 ? parts : child;
+      return newSet;
     });
   };
 
-  const components = {
-    p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-      <p {...props}>{processCitationText(children)}</p>
-    ),
-    li: ({ children, ...props }: React.LiHTMLAttributes<HTMLLIElement>) => (
-      <li {...props}>{processCitationText(children)}</li>
-    ),
+  /**
+   * Post-process LLM response text to replace "the narrator" with "Lindy"
+   * This ensures consistent naming since Lindy is the one speaking
+   */
+  const normalizeNarratorReferences = (text: string): string => {
+    // Replace "the narrator" with "Lindy" (case-insensitive)
+    return text.replace(/the narrator/gi, "Lindy");
+  };
+
+  /**
+   * Remove inline citation markers from text and replace with paragraph breaks
+   * Removes patterns like [Source: X, Time: Y] or [Source: X, Time: Y, Segments: N]
+   */
+  const removeCitationMarkers = (text: string): string => {
+    // Replace citation markers with double newlines to maintain paragraph structure
+    // Also remove any trailing period after the citation marker
+    return text.replace(/\s*\[Source:\s*[^\]]+\]\s*\.?/g, "\n\n").trim();
   };
 
   const sendMessage = async () => {
@@ -328,13 +266,23 @@ const LhaGpt: React.FC<{
 
                 if (data.type === "text" && data.content) {
                   accumulatedText += data.content;
-                  updateStreamingMessage(accumulatedText, accumulatedThinking);
+                  // Normalize narrator references and remove citation markers as we stream
+                  const cleanedText = removeCitationMarkers(
+                    normalizeNarratorReferences(accumulatedText)
+                  );
+                  updateStreamingMessage(cleanedText, accumulatedThinking);
                 } else if (data.type === "thinking" && data.content) {
                   accumulatedThinking += data.content;
-                  updateStreamingMessage(accumulatedText, accumulatedThinking);
+                  const cleanedText = removeCitationMarkers(
+                    normalizeNarratorReferences(accumulatedText)
+                  );
+                  updateStreamingMessage(cleanedText, accumulatedThinking);
                 } else if (data.type === "citations" && data.citations) {
                   citations = data.citations;
-                  updateStreamingMessage(accumulatedText, accumulatedThinking, citations);
+                  const cleanedText = removeCitationMarkers(
+                    normalizeNarratorReferences(accumulatedText)
+                  );
+                  updateStreamingMessage(cleanedText, accumulatedThinking, citations);
                 } else if (data.type === "error") {
                   throw new Error(data.content || "Unknown error");
                 }
@@ -496,9 +444,42 @@ const LhaGpt: React.FC<{
                       </div>
                     )}
                     <div className={styles.markdown}>
-                      <ReactMarkdown components={components}>{msg.content}</ReactMarkdown>
+                      <ReactMarkdown>{msg.content}</ReactMarkdown>
                       {msg.isStreaming && <span className={styles.loader} aria-hidden="true" />}
                     </div>
+                    {msg.citations && msg.citations.length > 0 && (
+                      <div className={styles.citationsSection}>
+                        <button
+                          className={styles.citationsToggle}
+                          onClick={() => toggleCitations(idx)}
+                          aria-expanded={expandedCitations.has(idx)}
+                        >
+                          {expandedCitations.has(idx) ? "▼" : "▶"} Citations ({msg.citations.length}
+                          )
+                        </button>
+                        {expandedCitations.has(idx) && (
+                          <div className={styles.citationsContent}>
+                            {msg.citations.map((citation, citationIdx) => {
+                              const citationKey = `msg-${idx}-cite-${citationIdx}`;
+                              return (
+                                <PlayableQuotation
+                                  key={citationKey}
+                                  recordingId={citation.recording_id}
+                                  startSeconds={citation.start_seconds}
+                                  segmentCount={citation.segment_count}
+                                  onPlay={() => setPlayingQuotationKey(citationKey)}
+                                  shouldStop={
+                                    playingQuotationKey !== null &&
+                                    playingQuotationKey !== citationKey
+                                  }
+                                  onNavigate={onClose}
+                                />
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </>
                 ) : (
                   msg.content

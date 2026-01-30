@@ -27,6 +27,7 @@
     "/^cd /F/_repos/lha-memoirs/scripts && source \\.venv/Scripts/activate && python 02a_correct_dialog\\.py Norm_red --dry-run 2>&1 \\| head -100$/": {
       "approve": true,
       "matchCommandLine": true
-    }
+    },
+    "timeout": true
   }
 }

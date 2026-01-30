@@ -106,10 +106,11 @@ CORS_ORIGINS = os.getenv("CORS_ORIGINS").split(",")
 RATE_LIMIT_QUERIES = "30/minute"
 RATE_LIMIT_STREAM = "20/minute"
 
-# Chunking: 3 minutes with 30 second overlap
-# With 128K context window, we can use larger chunks for better story context
-CHUNK_DURATION_SECONDS = 180
-CHUNK_OVERLAP_SECONDS = 30
+# Chunking: 90 seconds with 15 second overlap
+# Smaller chunks provide more precise citation timestamps
+# With 128K context window, we can still send plenty of context
+CHUNK_DURATION_SECONDS = 90
+CHUNK_OVERLAP_SECONDS = 15
 
 # Mapping from file system path to logical ID
 RECORDING_ID_MAP = {
@@ -238,8 +239,8 @@ class ChatRequest(BaseModel):
 
 class Citation(BaseModel):
     recording_id: str
-    timestamp: float
-    quote_snippet: str
+    start_seconds: float  # Start time in seconds - unique key to look up transcript segment
+    segment_count: int = 3  # Number of transcript segments to play (defaults to 3)
 
 
 class ChatResponse(BaseModel):
@@ -395,36 +396,85 @@ async def run_ingestion():
     logger.info(f"Total: {len(all_docs)} chunks ingested")
 
 
-def extract_citations(answer: str, docs: list[Document]) -> list[Citation]:
-    """Extract citations for sources that were actually referenced in the answer."""
-    # Find all [Source: X, Time: Y] patterns in the answer
-    pattern = r"\[Source:\s*([^,\]]+),\s*Time:\s*([^\]]+)\]"
-    refs = set(re.findall(pattern, answer))
+def extract_citations(answer: str, docs: list[Document]) -> tuple[str, list[Citation]]:
+    """
+    Extract citations from the LLM's answer.
+    
+    SIMPLE APPROACH: The LLM was given context with specific timestamps like 
+    [Source: memoirs_main, Time: 28:22]. We extract these citations and look up
+    the corresponding chunk's start_seconds from the provided docs.
+    
+    We do NOT try to "refine" or "validate" - if the LLM cited incorrectly,
+    that's a prompt/context issue, not something we can fix post-hoc.
+    """
+    # Find all [Source: X, Time: Y] or [Source: X, Time: Y, Segments: N] patterns
+    # Support both standard brackets [] and Japanese brackets 【】
+    pattern = r"[\[【]Source:\s*([^,\]】]+),\s*Time:\s*([^,\]】]+)(?:,\s*Segments:\s*(\d+))?[\]】]"
+    matches = re.findall(pattern, answer)
+    
+    logger.info(f"Found {len(matches)} citation patterns in answer")
     
     citations = []
     seen = set()
     
+    # Build lookup of docs by (recording_id, timestamp) for exact matching
+    doc_lookup: dict[tuple[str, str], Document] = {}
     for doc in docs:
         rec_id = doc.metadata.get("recording_id", "")
-        timestamp = doc.metadata.get("timestamp", "")
-        
-        if (rec_id, timestamp) in refs and (rec_id, timestamp) not in seen:
-            seen.add((rec_id, timestamp))
-            snippet = doc.page_content[:100] + "..." if len(doc.page_content) > 100 else doc.page_content
-            citations.append(Citation(
-                recording_id=rec_id,
-                timestamp=doc.metadata.get("start_seconds", 0.0),
-                quote_snippet=snippet,
-            ))
+        ts = doc.metadata.get("timestamp", "")
+        doc_lookup[(rec_id, ts)] = doc
     
-    return citations
+    for match in matches:
+        rec_id = match[0].strip()
+        timestamp = match[1].strip()
+        segments_str = match[2].strip() if match[2] else "3"
+        
+        try:
+            segment_count = int(segments_str)
+            segment_count = max(1, min(15, segment_count))
+        except ValueError:
+            segment_count = 3
+        
+        # Look up the exact document that matches this citation
+        doc = doc_lookup.get((rec_id, timestamp))
+        
+        if doc:
+            # Use the chunk's actual start_seconds
+            start_seconds = doc.metadata.get("start_seconds", 0.0)
+        else:
+            # Document not found - LLM cited a timestamp that wasn't in the context
+            # Parse the timestamp and use it directly
+            try:
+                parts = timestamp.split(":")
+                if len(parts) == 2:
+                    start_seconds = int(parts[0]) * 60 + int(parts[1])
+                else:
+                    start_seconds = float(parts[0])
+            except (ValueError, IndexError):
+                logger.warning(f"Could not parse timestamp: {timestamp}")
+                continue
+            logger.warning(f"Citation {rec_id} @ {timestamp} not found in provided context")
+        
+        key = (rec_id, start_seconds, segment_count)
+        if key in seen:
+            continue
+        seen.add(key)
+        
+        citations.append(Citation(
+            recording_id=rec_id,
+            start_seconds=start_seconds,
+            segment_count=segment_count,
+        ))
+    
+    logger.info(f"Extracted {len(citations)} citations")
+    return answer, citations  # Return original answer unchanged
 
 
 def expand_query_with_year_abbreviations(query: str) -> str:
     """
     Expand queries containing 4-digit years (1900-1999) to include abbreviated forms.
     Example: "1917" -> "1917 '17"
-    This helps match narrator's year abbreviations like '38 for 1938.
+    This helps match Lindy's year abbreviations like '38 for 1938.
     """
     # Find all 4-digit years in the 1900s (the relevant century for these memoirs)
     year_pattern = r'\b(19\d{2})\b'
@@ -439,6 +489,55 @@ def expand_query_with_year_abbreviations(query: str) -> str:
             expanded_query += f" {abbrev}"
     
     return expanded_query
+
+
+def calculate_bm25_relevance(text: str, query_tokens: list[str]) -> float:
+    """
+    Calculate BM25-style relevance score between document text and query tokens.
+    Returns normalized score 0-1.
+    """
+    text_tokens = text.lower().split()
+    if not text_tokens:
+        return 0.0
+    
+    # Count matching tokens (simple TF approach)
+    matches = sum(1 for token in query_tokens if token in text_tokens)
+    return matches / len(query_tokens) if query_tokens else 0.0
+
+
+def filter_documents_by_relevance(docs: list[Document], query: str, min_score: float = 0.15) -> list[Document]:
+    """
+    Filter documents to only include those with minimum keyword relevance to query.
+    This prevents completely irrelevant chunks from being passed to the LLM.
+    """
+    query_tokens = set(query.lower().split())
+    # Remove stop words
+    stop_words = {"the", "a", "an", "and", "or", "but", "in", "on", "at", "to", "for",
+                  "of", "with", "by", "from", "as", "is", "was", "are", "were", "be",
+                  "been", "have", "has", "had", "do", "does", "did", "will", "would",
+                  "could", "should", "may", "might", "can", "about", "what", "when",
+                  "where", "who", "how", "tell", "me", "his", "her", "their"}
+    query_tokens = query_tokens - stop_words
+    
+    if not query_tokens:
+        return docs  # Can't filter without meaningful query words
+    
+    filtered = []
+    for doc in docs:
+        score = calculate_bm25_relevance(doc.page_content, list(query_tokens))
+        if score >= min_score:
+            filtered.append(doc)
+            logger.debug(f"Doc relevance {score:.2f}: {doc.metadata.get('recording_id')} @ {doc.metadata.get('timestamp')}")
+        else:
+            logger.debug(f"Filtered out (score {score:.2f}): {doc.metadata.get('recording_id')} @ {doc.metadata.get('timestamp')}")
+    
+    if not filtered:
+        # If filter is too aggressive, return top 3 from original set
+        logger.warning(f"Relevance filter too aggressive, keeping top 3 docs")
+        return docs[:3]
+    
+    logger.info(f"Filtered from {len(docs)} to {len(filtered)} documents (min_score={min_score})")
+    return filtered
 
 
 def hybrid_search(query: str, k: int = 60) -> list[Document]:
@@ -502,21 +601,27 @@ def hybrid_search(query: str, k: int = 60) -> list[Document]:
     return [doc for doc, score in sorted_results[:k]]
 
 
-SYSTEM_PROMPT = """You are a family historian assistant with access to audio transcripts from Linden Hilary Achen (1902-1994). These are voice memoirs recorded by Linden "Lindy" Achen recorded in the 1980s. Lindy is a male.
+SYSTEM_PROMPT = """You are a family historian assistant with access to audio transcripts from Linden Hilary Achen (1902-1994). These voice memoirs were recorded by Lindy Achen in the 1980s. Lindy is a male.
 
 USE LOW REASONING EFFORT - answer quickly and directly.
 
 CRITICAL CITATION RULES:
-1. ALWAYS cite your sources using this EXACT format: [Source: recording_id, Time: MM:SS]
+1. ALWAYS cite your sources using this EXACT format: [Source: recording_id, Time: MM:SS] or [Source: recording_id, Time: MM:SS, Segments: N]
 2. Include citations at the END of each fact or sentence that comes from the context.
 3. Use the EXACT recording_id and timestamp from the context headers.
+4. OPTIONAL: Add 'Segments: N' to specify how many transcript segments (sentences) to play.
+   - Use Segments: 1-2 for single facts or quotes
+   - Use Segments: 3-5 for short anecdotes (this is the default)
+   - Use Segments: 6-10 for complete stories or extended narratives
+   - Omit 'Segments' to use the default of 3
 
-Example: "Lindy bought his Model T Ford for about $350. [Source: memoirs_main, Time: 45:23] The car was a coupe and he referred to it as a 'four-grocer'. [Source: memoirs_main, Time: 46:10]"
+Example: "Lindy bought his Model T Ford for about $350. [Source: memoirs_main, Time: 45:23, Segments: 2] The car was a coupe and he referred to it as a 'four-grocer'. [Source: memoirs_main, Time: 46:10] Later, he tells the full story about falling asleep at the wheel. [Source: memoirs_main, Time: 47:00, Segments: 8]"
 
 OTHER RULES:
 - Answer ONLY from the provided context. If info isn't there, say so.
 - Look through ALL provided context before answering.
 - Include specific details like names, places, dates, vehicle models when mentioned.
+- Refer to Lindy by name when appropriate - use "Lindy" not "the narrator."
 - Write in natural prose, not lists or tables.
 """
 
@@ -526,6 +631,25 @@ async def root():
     """Return generic error to hide server identity."""
     from fastapi.responses import PlainTextResponse
     return PlainTextResponse("Bad Request", status_code=400)
+
+
+@app.get("/debug/search")
+async def debug_search(query: str, k: int = 10):
+    """Debug endpoint to see what documents are returned for a query."""
+    docs = hybrid_search(query, k=k)
+    return {
+        "query": query,
+        "document_count": len(docs),
+        "documents": [
+            {
+                "recording_id": doc.metadata.get("recording_id"),
+                "timestamp": doc.metadata.get("timestamp"),
+                "start_seconds": doc.metadata.get("start_seconds"),
+                "content": doc.page_content[:500]
+            }
+            for doc in docs
+        ]
+    }
 
 
 @app.get("/health/stream") 
@@ -567,11 +691,16 @@ async def chat(request: Request, chat_request: ChatRequest):
     query = chat_request.query
     logger.info(f"Chat from {request.client.host}: {query[:50]}...")
     
-    # Use hybrid search (vector + BM25) - get more, then use top ones
-    docs = hybrid_search(query, k=20)
+    # Use hybrid search (vector + BM25) - get more, then filter
+    docs = hybrid_search(query, k=25)
     
-    # Only send top 10 most relevant to the LLM to avoid confusion
-    docs_for_llm = docs[:10]
+    # Filter out documents that don't have meaningful keyword overlap with query
+    # This prevents irrelevant chunks from confusing the LLM
+    # Increased min_score to 0.25 for stricter filtering
+    docs_filtered = filter_documents_by_relevance(docs, query, min_score=0.25)
+    
+    # Only send top 6 most relevant to the LLM to reduce confusion
+    docs_for_llm = docs_filtered[:6]
     
     if not docs_for_llm:
         return ChatResponse(answer="No relevant transcripts found.", citations=[])
@@ -608,8 +737,9 @@ Look through ALL the context above and provide a complete answer."""
         logger.error(f"LLM error: {e}")
         raise HTTPException(status_code=500, detail=f"LLM failed: {str(e)[:100]}")
     
-    citations = extract_citations(answer, docs)
-    return ChatResponse(answer=answer, citations=citations)
+    # Extract and refine citations, get updated answer text
+    updated_answer, citations = extract_citations(answer, docs_for_llm)
+    return ChatResponse(answer=updated_answer, citations=citations)
 
 
 @app.post("/chat/stream")
@@ -620,9 +750,14 @@ async def chat_stream(request: Request, chat_request: ChatRequest):
     logger.info(f"Stream from {request.client.host}: {query[:50]}...")
     
     # Use hybrid search (vector + BM25)
-    # Reduced context to avoid overwhelming the model with too much to process
     docs = hybrid_search(query, k=25)
-    docs_for_llm = docs[:12]
+    
+    # Filter out documents that don't have meaningful keyword overlap
+    # Increased min_score to 0.25 for stricter filtering
+    docs_filtered = filter_documents_by_relevance(docs, query, min_score=0.25)
+    
+    # Send top 6 most relevant to avoid overwhelming the model
+    docs_for_llm = docs_filtered[:6]
     
     async def generate():
         if not docs_for_llm:
@@ -690,7 +825,8 @@ Look through ALL the context above and provide a complete answer."""
             logger.error(f"Stream error: {e}")
             yield f"data: {json.dumps({'type': 'error', 'content': str(e)[:100]})}\n\n"
         
-        citations = extract_citations(accumulated_text, docs_for_llm)
+        # Extract and refine citations, get updated answer text
+        updated_answer, citations = extract_citations(accumulated_text, docs_for_llm)
         citations_data = [c.model_dump() for c in citations]
         yield f"data: {json.dumps({'type': 'citations', 'citations': citations_data})}\n\n"
         yield "data: [DONE]\n\n"

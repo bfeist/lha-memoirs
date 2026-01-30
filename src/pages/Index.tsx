@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faRobot, faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { getRecordingsByCategory, type RecordingConfig } from "../config/recordings";
 import WhatsNew from "../components/WhatsNew/WhatsNew";
-import LhaGpt from "../components/LhaGpt";
+import LhaGpt from "../components/LhaGpt/LhaGpt";
 import { useChangelog } from "../hooks/useChangelog";
 import styles from "./Index.module.css";
 import "../global/global.css";

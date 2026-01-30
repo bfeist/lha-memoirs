@@ -289,6 +289,28 @@
   border-radius: 4px;
 }
 
+@keyframes expand-thinking {
+  from {
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+    overflow: hidden;
+  }
+
+  to {
+    opacity: 1;
+    max-height: 200px;
+    margin-top: 0.5rem;
+    overflow-y: auto;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .thinkingContent {
+    animation: expand-thinking 0.5s ease-out forwards;
+  }
+}
+
 .thinkingContent {
   margin-top: 0.5rem;
   padding: 0.75rem;
@@ -302,6 +324,74 @@
   border-radius: 4px;
   max-height: 200px;
   overflow-y: auto;
+}
+
+/* Citations Section */
+.citationsSection {
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  background: rgb(212 175 55 / 8%);
+  border: 1px solid rgb(212 175 55 / 20%);
+  border-radius: 6px;
+}
+
+.citationsToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: #c9a961;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: color 0.2s;
+}
+
+.citationsToggle:hover {
+  color: #d4af37;
+}
+
+.citationsToggle:focus {
+  outline: 2px solid rgb(212 175 55 / 50%);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@keyframes expand-citations {
+  from {
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+    overflow: hidden;
+  }
+
+  to {
+    opacity: 1;
+    max-height: 800px;
+    margin-top: 0.5rem;
+    overflow-y: auto;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .citationsContent {
+    animation: expand-citations 0.5s ease-out forwards;
+  }
+}
+
+.citationsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  overflow-y: auto;
+  background: rgb(0 0 0 / 20%);
+  border: 1px solid rgb(212 175 55 / 15%);
+  border-radius: 4px;
+  max-height: 400px;
 }
 
 .loader {
@@ -551,6 +641,16 @@
 .sendButton:disabled {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+/* Quotations section for playable transcript excerpts */
+.quotationsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgb(255 255 255 / 10%);
 }
 
 /* Responsive */
