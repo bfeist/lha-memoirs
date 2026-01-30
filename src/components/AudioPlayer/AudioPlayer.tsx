@@ -114,6 +114,13 @@ export function AudioPlayer({
     // Try JSON format first as it's more reliable, fall back to binary
     const useJsonWaveform = waveformDataUrl.endsWith(".json");
 
+    // Custom time formatter: display as MM:SS or MMM:SS instead of HH:MM:SS
+    const formatPeaksTime = (seconds: number): string => {
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+    };
+
     const options: PeaksOptions = {
       zoomview: {
         container: zoomviewContainerRef.current,
@@ -123,6 +130,7 @@ export function AudioPlayer({
         playheadTextColor: "#ffffff",
         axisLabelColor: "#bbbbbb",
         axisGridlineColor: "#444444",
+        formatAxisTime: formatPeaksTime,
       },
       overview: {
         container: overviewContainerRef.current,
@@ -132,6 +140,7 @@ export function AudioPlayer({
         highlightColor: "rgba(212, 175, 55, 0.15)",
         axisLabelColor: "#bbbbbb",
         axisGridlineColor: "#444444",
+        formatAxisTime: formatPeaksTime,
       },
       mediaElement: audioElementRef.current,
       dataUri: useJsonWaveform
