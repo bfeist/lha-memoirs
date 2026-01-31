@@ -1,4 +1,4 @@
-import { useMemo, useRef, useEffect } from "react";
+import { useMemo, useRef, useEffect, memo } from "react";
 import { formatTime } from "../../hooks/useRecordingData";
 import styles from "./Chapters.module.css";
 
@@ -35,7 +35,7 @@ function groupChaptersByMajor(chapters: Chapter[]): ChapterGroup[] {
   return groups;
 }
 
-export function Chapters({
+export const Chapters = memo(function Chapters({
   chapters,
   currentTime,
   onChapterClick,
@@ -195,4 +195,4 @@ export function Chapters({
       </nav>
     </div>
   );
-}
+});

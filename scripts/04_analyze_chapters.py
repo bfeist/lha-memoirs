@@ -1087,14 +1087,21 @@ def finalize_chapters(chapters: list) -> list:
     return finalized
 
 
-def redescribe_chapters(recording_folder: Path, model_name: str) -> bool:
-    """Redescribe existing chapters without changing their timing."""
+def redescribe_chapters(recording_folder: Path, model_name: str, empty_only: bool = False) -> bool:
+    """Redescribe existing chapters without changing their timing.
+    
+    Args:
+        recording_folder: Path to the recording folder
+        model_name: Name of the Ollama model to use
+        empty_only: If True, only redescribe chapters with empty descriptions
+    """
     relative_path = get_relative_recording_path(recording_folder)
     transcript_path = get_transcript_path(recording_folder)
     chapters_file = recording_folder / "chapters.json"
     
+    mode_text = "empty descriptions" if empty_only else "all chapters"
     print(f"\n{'='*60}")
-    print(f"📝 Redescribing chapters for: {relative_path}")
+    print(f"📝 Redescribing {mode_text} for: {relative_path}")
     print(f"{'='*60}")
     
     if transcript_path is None:
@@ -1130,6 +1137,13 @@ def redescribe_chapters(recording_folder: Path, model_name: str) -> bool:
         start_time = chapter["startTime"]
         title = chapter["title"]
         is_minor = chapter.get("minor", False)
+        existing_description = chapter.get("description", "").strip()
+        
+        # Skip chapters with existing descriptions if empty_only mode
+        if empty_only and existing_description:
+            print(f"\n   ⏭️  Skipping: '{title}' (already has description)")
+            redescribed_chapters.append(chapter)
+            continue
         
         print(f"\n   📝 Redescribing: '{title}' at {start_time:.2f}s")
         sys.stdout.flush()
@@ -1335,11 +1349,17 @@ def main():
         action="store_true",
         help="Only rewrite chapter descriptions without changing timing (requires existing chapters.json)"
     )
+    parser.add_argument(
+        "--redescribe-empty",
+        action="store_true",
+        help="Only rewrite chapter descriptions that are empty (requires existing chapters.json)"
+    )
     
     args = parser.parse_args()
     
     specific_recording = args.recording_path
-    redescribe_mode = args.redescribe
+    redescribe_mode = args.redescribe or getattr(args, 'redescribe_empty', False)
+    redescribe_empty_only = getattr(args, 'redescribe_empty', False)
     
     if specific_recording:
         print(f"\n🎯 Processing specific recording: {specific_recording}")
@@ -1358,7 +1378,10 @@ def main():
     print(f"\n📦 Using model: {model_name}")
     
     if redescribe_mode:
-        print("\n🔄 MODE: Redescribe existing chapters (timing unchanged)")
+        if redescribe_empty_only:
+            print("\n🔄 MODE: Redescribe empty chapter descriptions only (timing unchanged)")
+        else:
+            print("\n🔄 MODE: Redescribe existing chapters (timing unchanged)")
     
     # Get recording folders to process
     recording_folders = get_recording_folders(specific_recording)
@@ -1376,7 +1399,7 @@ def main():
     success_count = 0
     for recording_folder in recording_folders:
         if redescribe_mode:
-            if redescribe_chapters(recording_folder, model_name):
+            if redescribe_chapters(recording_folder, model_name, empty_only=redescribe_empty_only):
                 success_count += 1
         else:
             if process_recording(recording_folder, model_name):

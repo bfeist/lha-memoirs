@@ -52,7 +52,7 @@ export function usePlaybackProgress(recordingId: string | undefined): {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storageKey]);
 
-  // Save progress to localStorage
+  // Save progress to localStorage (without triggering re-renders)
   const saveProgress = useCallback(
     (time: number, duration?: number) => {
       if (!storageKey) return;
@@ -83,7 +83,9 @@ export function usePlaybackProgress(recordingId: string | undefined): {
 
       try {
         localStorage.setItem(storageKey, JSON.stringify(progress));
-        setSavedProgress(progress);
+        // Don't call setSavedProgress here - it causes unnecessary re-renders
+        // The savedProgress state is only used for showing the resume banner,
+        // which is displayed once at load time, not during playback
       } catch {
         // localStorage might be full or disabled
         console.warn("Failed to save playback progress");

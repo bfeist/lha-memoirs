@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback, useState } from "react";
+import { useEffect, useRef, useCallback, useState, memo } from "react";
 import Peaks, { type PeaksInstance, type PeaksOptions } from "peaks.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -18,6 +18,7 @@ interface AudioPlayerProps {
   currentChapterId?: string | null;
   onTimeUpdate?: (currentTime: number) => void;
   onDurationChange?: (duration: number) => void;
+  onPause?: (currentTime: number, duration: number) => void;
   onReady?: (peaksInstance: PeaksInstance) => void;
   onReload?: () => void;
 }
@@ -43,7 +44,7 @@ function throttle<T extends (...args: Parameters<T>) => void>(
 const SEGMENT_COLOR_DEFAULT = "rgba(100, 149, 237, 0.3)";
 const SEGMENT_COLOR_ACTIVE = "rgba(222, 185, 65, 0.85)";
 
-export function AudioPlayer({
+export const AudioPlayer = memo(function AudioPlayer({
   audioUrl,
   originalAudioUrl,
   waveformDataUrl,
@@ -51,6 +52,7 @@ export function AudioPlayer({
   currentChapterId,
   onTimeUpdate,
   onDurationChange,
+  onPause,
   onReady,
   onReload,
 }: AudioPlayerProps): React.ReactElement {
@@ -62,6 +64,7 @@ export function AudioPlayer({
   // Store callbacks in refs to avoid dependency issues
   const onTimeUpdateRef = useRef(onTimeUpdate);
   const onDurationChangeRef = useRef(onDurationChange);
+  const onPauseRef = useRef(onPause);
   const onReadyRef = useRef(onReady);
   const onReloadRef = useRef(onReload);
   const regionsRef = useRef(regions);
@@ -71,6 +74,7 @@ export function AudioPlayer({
   useEffect(() => {
     onTimeUpdateRef.current = onTimeUpdate;
     onDurationChangeRef.current = onDurationChange;
+    onPauseRef.current = onPause;
     onReadyRef.current = onReady;
     onReloadRef.current = onReload;
     regionsRef.current = regions;
@@ -230,13 +234,26 @@ export function AudioPlayer({
 
         // Set up play/pause handlers via Peaks.js events
         peaks.on("player.playing", () => setIsPlaying(true));
-        peaks.on("player.pause", () => setIsPlaying(false));
+        peaks.on("player.pause", () => {
+          setIsPlaying(false);
+          // Save progress on pause - get current time from audio element
+          const audio = audioElementRef.current;
+          if (audio && audio.duration > 0) {
+            onPauseRef.current?.(audio.currentTime, audio.duration);
+          }
+        });
 
         // Also listen directly on audio element for cases where we change src directly
         // (Peaks.js events may not fire when we swap audio sources)
         const audioEl = audioElementRef.current;
         if (audioEl) {
-          audioEl.addEventListener("pause", () => setIsPlaying(false));
+          audioEl.addEventListener("pause", () => {
+            setIsPlaying(false);
+            // Save progress on pause
+            if (audioEl.duration > 0) {
+              onPauseRef.current?.(audioEl.currentTime, audioEl.duration);
+            }
+          });
           audioEl.addEventListener("play", () => setIsPlaying(true));
         }
 
@@ -403,6 +420,15 @@ export function AudioPlayer({
     }
   }, [isPlaying, currentTime, autoCopyOnPause]);
 
+  // Track current time and duration in refs for skip function
+  // This avoids recreating the skip callback on every time update
+  const currentTimeRef = useRef(currentTime);
+  const durationRef = useRef(duration);
+  useEffect(() => {
+    currentTimeRef.current = currentTime;
+    durationRef.current = duration;
+  }, [currentTime, duration]);
+
   // Seek to specific time
   const seekTo = useCallback((time: number) => {
     const peaks = peaksInstanceRef.current;
@@ -420,12 +446,12 @@ export function AudioPlayer({
     };
   }, [seekTo]);
 
-  // Skip forward/backward
+  // Skip forward/backward - use refs to avoid recreating callback
   const skip = useCallback(
     (seconds: number) => {
-      seekTo(Math.max(0, Math.min(duration, currentTime + seconds)));
+      seekTo(Math.max(0, Math.min(durationRef.current, currentTimeRef.current + seconds)));
     },
-    [currentTime, duration, seekTo]
+    [seekTo]
   );
 
   if (error) {
@@ -571,7 +597,7 @@ export function AudioPlayer({
       {!isReady && <div className={styles.loading}>Loading audio...</div>}
     </div>
   );
-}
+});
 
 // Export a hook to get the seek function
 export function usePeaksSeek(): (time: number) => void {

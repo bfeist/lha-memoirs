@@ -16,6 +16,9 @@ import { PeaksInstance } from "peaks.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
+// Stable empty array to avoid creating new reference on each render
+const EMPTY_REGIONS: PeaksRegion[] = [];
+
 function RecordingPlayer(): React.ReactElement {
   const { recordingId } = useParams<{ recordingId: string }>();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -30,8 +33,8 @@ function RecordingPlayer(): React.ReactElement {
   // Player is ready only if it's ready for the CURRENT recording
   const isPlayerReady = readyForRecordingId === recordingId;
 
-  // Track audio duration for progress saving
-  const [audioDuration, setAudioDuration] = useState(0);
+  // Track audio duration for progress saving (use ref to avoid re-render dependency)
+  const audioDurationRef = useRef(0);
   // Whether the user has dismissed the resume banner for this session
   const [resumeDismissed, setResumeDismissed] = useState(false);
 
@@ -101,20 +104,22 @@ function RecordingPlayer(): React.ReactElement {
   }, [isPlayerReady, seekTo]);
 
   // Handle time updates from audio player
-  const handleTimeUpdate = useCallback(
-    (time: number) => {
-      setCurrentTime(time);
-      // Save progress periodically (the hook throttles this internally)
-      if (audioDuration > 0) {
-        saveProgress(time, audioDuration);
-      }
+  // Only updates currentTime state - no progress saving during playback
+  const handleTimeUpdate = useCallback((time: number) => {
+    setCurrentTime(time);
+  }, []);
+
+  // Handle pause - save progress only when user pauses playback
+  const handlePause = useCallback(
+    (time: number, duration: number) => {
+      saveProgress(time, duration);
     },
-    [audioDuration, saveProgress]
+    [saveProgress]
   );
 
   // Handle duration change from audio player
   const handleDurationChange = useCallback((duration: number) => {
-    setAudioDuration(duration);
+    audioDurationRef.current = duration;
   }, []);
 
   // Handle player ready - mark which recording is now ready
@@ -170,6 +175,9 @@ function RecordingPlayer(): React.ReactElement {
   const toggleChapters = useCallback(() => {
     setChaptersExpanded((prev) => !prev);
   }, []);
+
+  // Memoize regions to prevent unnecessary re-renders of AudioPlayer
+  const stableRegions = useMemo(() => regions.data ?? EMPTY_REGIONS, [regions.data]);
 
   // Calculate the current chapter ID based on playback time
   const currentChapterId = useMemo(() => {
@@ -251,10 +259,11 @@ function RecordingPlayer(): React.ReactElement {
             audioUrl={urls.audio}
             originalAudioUrl={urls.originalAudio}
             waveformDataUrl={urls.waveform}
-            regions={regions.data || []}
+            regions={stableRegions}
             currentChapterId={currentChapterId}
             onTimeUpdate={handleTimeUpdate}
             onDurationChange={handleDurationChange}
+            onPause={handlePause}
             onReady={handlePlayerReady}
             onReload={refetchAll}
           />

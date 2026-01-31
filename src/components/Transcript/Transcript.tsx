@@ -1,4 +1,4 @@
-import { useRef, useEffect, useMemo, useCallback, useState } from "react";
+import { useRef, useEffect, useMemo, useCallback, useState, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { formatTime } from "../../hooks/useRecordingData";
 import { getRecordingByPath } from "../../config/recordings";
@@ -15,7 +15,7 @@ function getRecordingFolderName(recordingPath: string): string {
   return parts[parts.length - 1];
 }
 
-export function Transcript({
+export const Transcript = memo(function Transcript({
   segments,
   chapters,
   currentTime,
@@ -537,4 +537,4 @@ export function Transcript({
       />
     </div>
   );
-}
+});

@@ -694,9 +694,9 @@
       "description": "Early Jobs & Broadening Skills"
     },
     {
-      "title": "Retained Journeyman Status",
+      "title": "Retained Journeyman Status and Career Reflections",
       "startTime": 10214.27,
-      "description": "Retainer for Journeyman Status"
+      "description": ""
     },
     {
       "title": "Technician vs. Electrician",
@@ -705,26 +705,26 @@
       "minor": true
     },
     {
-      "title": "Value of Mentorship",
+      "title": "\"It's an Exciting Life\"",
+      "startTime": 10409.42,
+      "description": ""
+    },
+    {
+      "title": "George Jenny's Reflections",
       "startTime": 10424.14,
-      "description": "Learning from Experienced Colleagues"
-    },
-    {
-      "title": "Early Wage Details",
-      "startTime": 10483.47,
-      "description": "Early Job: Raise Denied, Foreman's Intervention",
+      "description": "",
       "minor": true
     },
     {
-      "title": "South Dakota Lineman Work",
-      "startTime": 10537.57,
-      "description": "South Dakota Lineman Work: Aberdeen, wages, and unexpected crew changes.",
-      "minor": true
+      "title": "Overview of Lindy's Wage Progression",
+      "startTime": 10478.04,
+      "description": "Talking About Money"
     },
     {
       "title": "Wage Increase and Training",
       "startTime": 10636.15,
-      "description": "Learning Hotline Work and Rising Wages"
+      "description": "Learning Hotline Work and Rising Wages",
+      "minor": true
     },
     {
       "title": "Early Employment and Wages",
@@ -733,9 +733,20 @@
       "minor": true
     },
     {
-      "title": "Incorporation and Salary Advice",
-      "startTime": 10840.34,
-      "description": "Early Salary & Bonuses After Incorporation"
+      "title": "Meeting His Wife, Phyllis",
+      "startTime": 10773.45,
+      "description": "Boarding at her parents' home for $1 a day",
+      "minor": true
+    },
+    {
+      "title": "\"End of the History of L.H.A\"",
+      "startTime": 10857.61,
+      "description": "An interjection at the end of the tape"
+    },
+    {
+      "title": "Continued Wages Description",
+      "startTime": 10867.97,
+      "description": "Cut off at the end of the last tape"
     }
   ],
   "summary": "A personal memoir recording covering family memories and life stories."
