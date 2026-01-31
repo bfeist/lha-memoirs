@@ -74,7 +74,7 @@ export const RECORDINGS: RecordingConfig[] = [
     path: "memoirs/TDK_D60_edited_through_air",
     title: "Memoirs - Draft Telling",
     subtitle:
-      "A draft recording of Lindy Achen's voice memoirs, recorded before the finished product.",
+      "This recording is an early draft of Lindy Achen's voice memoirs, in which he brings together and edits recordings he made over the years 1981 to 1986 into a single narrative.",
     categoryLabel: "Draft",
     backgroundImages: ["/photos/tibbits/P1010033.jpg", "/photos/tibbits/P1010034.jpg"],
     category: "memoir",

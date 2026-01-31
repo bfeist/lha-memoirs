@@ -273,56 +273,33 @@ Return ONLY valid JSON array:
 
 def compare_windows(norm_window: TimeWindow, tdk_window: TimeWindow, 
                    norm_idx: int, tdk_idx: int, model: str, verbose: bool = False) -> tuple[float, str]:
-    """Compare two windows and return similarity score and matching topic."""
+    """Compare two windows and return similarity score and matching topic.
     
-    # Quick pre-filter: check for any overlapping topics/entities
-    norm_terms = set(t.lower() for t in norm_window.topics + norm_window.entities)
-    tdk_terms = set(t.lower() for t in tdk_window.topics + tdk_window.entities)
-    
-    # Check for obvious matches
-    overlap = norm_terms & tdk_terms
-    if not overlap and norm_terms and tdk_terms:
-        # No keyword overlap - do a quick semantic check
-        # Look for year/date patterns that might match
-        norm_years = set(re.findall(r"'?\d{2,4}", ' '.join(norm_window.topics + norm_window.entities)))
-        tdk_years = set(re.findall(r"'?\d{2,4}", ' '.join(tdk_window.topics + tdk_window.entities)))
-        
-        if not (norm_years & tdk_years):
-            # No year overlap and no keyword overlap - likely not a match
-            return 0, ""
-    
+    NOTE: We deliberately do NOT pre-filter based on keyword/year overlap.
+    The same story can be told with different words, so we trust the LLM
+    to detect semantic similarity rather than using shallow heuristics.
+    """
     # Build comparison prompt
     prompt = f"""/no_think
 Do these two memoir excerpts describe the SAME story/event?
 
-Both are from Linden "Lindy" Achen, telling his life story.
-Excerpt A = "Memoirs Recording"
-Excerpt B = "Memoirs Draft Recording"
+Both are from Lindy Achen telling his life story in two separate recordings.
 
-EXCERPT A (at {format_time(norm_window.start_time)}):
-Topics: {', '.join(norm_window.topics)}
-Entities: {', '.join(norm_window.entities)}
-Text: {norm_window.text[:400]}...
+EXCERPT A ({format_time(norm_window.start_time)}):
+{norm_window.text[:500]}
 
-EXCERPT B (at {format_time(tdk_window.start_time)}):
-Topics: {', '.join(tdk_window.topics)}
-Entities: {', '.join(tdk_window.entities)}
-Text: {tdk_window.text[:400]}...
-
-If SAME STORY (score 7+), write a brief description.
-STYLE GUIDELINES for description:
-1. CASUAL & DIRECT: Use plain English. "Lindy is told to go..." not "Lindy is instructed...". "Lindy's plan..." not "Lindy's intentions...". "Working at specific place" not "Employment experience".
-2. SPECIFIC: Use "Lindy" or "The Achen family" or "Dad/Joe/Zip". Avoid "The narrator", "A family".
-3. UNIFIED: Describe the SHARED EVENT. Do not say "Both excerpts describe..." or "Excerpt A says X while B says Y". Just tell the story.
-4. NO FLUFF: Start with the action. "The Achen family moves to Canada..." not "The story concerns a family's relocation...".
+EXCERPT B ({format_time(tdk_window.start_time)}):
+{tdk_window.text[:500]}
 
 Score 0-10:
-- 9-10: SAME STORY. Core event matches clearly.
-- 7-8: LIKELY SAME. Key elements align.
-- 0-6: DIFFERENT or unclear.
+- 9-10: Clearly the SAME story/event
+- 7-8: Likely the same, key elements match
+- 0-6: Different stories or unclear
 
-Respond with ONLY: SCORE|description
-Example: 9|The Achen family takes a train from Iowa to Canada during a snowstorm."""
+If score 7+, describe the shared story in one sentence (use "Lindy" not "the narrator").
+
+Respond ONLY: SCORE|description
+Example: 9|Lindy describes the family's train journey from Iowa to Canada."""
 
     response = call_llm(prompt, model=model, stream=verbose)
     if verbose:

@@ -489,8 +489,8 @@
       "description": "Cable, Excavation, and Power Line Construction"
     },
     {
-      "title": "Bidding Process Details",
-      "startTime": 6979.87,
+      "title": "Bidding Accuracy and Competition",
+      "startTime": 6952.9,
       "description": "Competitive Bids and Close Pricing",
       "minor": true
     },
@@ -501,8 +501,8 @@
       "minor": true
     },
     {
-      "title": "Davidson Electric Work",
-      "startTime": 7101.72,
+      "title": "Davidson Electric and Jobs in Weyburn Area",
+      "startTime": 7101.63,
       "description": "Temporary Work and Early Spring Jobs"
     },
     {
@@ -512,13 +512,12 @@
       "minor": true
     },
     {
-      "title": "Relating Assistance to Men",
-      "startTime": 7236.12,
-      "description": "Hiring and Crew: Early workers, linemen, and experienced diggers.",
-      "minor": true
+      "title": "Recruiting Men",
+      "startTime": 7235.47,
+      "description": "Hiring and Crew: Early workers, linemen, and experienced diggers."
     },
     {
-      "title": "Pole Setting Process",
+      "title": "Hiring Men and Setting Poles",
       "startTime": 7304.14,
       "description": "Heavy Lifting and a Growing Team"
     },
@@ -529,9 +528,15 @@
       "minor": true
     },
     {
+      "title": "Year by Year Work Summary",
+      "startTime": 7514.25,
+      "description": "",
+      "minor": true
+    },
+    {
       "title": "Listening to Mulroney",
       "startTime": 7554.48,
-      "description": "Mulroney Remarks and Outdoor Recording Conditions"
+      "description": "Mulroney Remarks and Outdoor Recording"
     },
     {
       "title": "Returning to 1947 Work",
@@ -540,30 +545,30 @@
     },
     {
       "title": "Decision Regarding Family Reunion",
-      "startTime": 7694.66,
+      "startTime": 7676.88,
       "description": "Advice and a Family Trip",
       "minor": true
     },
     {
       "title": "New Job Offer and Negotiation",
-      "startTime": 7770.35,
+      "startTime": 7770.34,
       "description": "Negotiating for Equipment and a New, Larger Project",
       "minor": true
     },
     {
       "title": "Power Sends Boring Machine",
-      "startTime": 7865.64,
+      "startTime": 7865.62,
       "description": "Clearing Brush and Organizing Labor."
     },
     {
       "title": "Jockeying Between Jobs",
-      "startTime": 7923.24,
+      "startTime": 7923.22,
       "description": "Balancing Work, Subcontracting, and Leaving a Job.",
       "minor": true
     },
     {
       "title": "Jack Gardner's Work Habits",
-      "startTime": 7968.72,
+      "startTime": 7960.5,
       "description": "Micromanagement and Crew Efficiency",
       "minor": true
     },
@@ -580,23 +585,29 @@
     },
     {
       "title": "Starting Work in 1948",
-      "startTime": 8189.59,
+      "startTime": 8189.52,
       "description": "Lost Bids and a Job North of Swift Current",
       "minor": true
     },
     {
-      "title": "Early Job Locations and Construction",
+      "title": "1948 Construction",
       "startTime": 8238.23,
       "description": "Early Projects and City Work"
     },
     {
-      "title": "Yorkton to Melville Line",
-      "startTime": 8450.21,
+      "title": "Work in Regina",
+      "startTime": 8307.58,
+      "description": "",
+      "minor": true
+    },
+    {
+      "title": "1949-1950, Projects Continue",
+      "startTime": 8409.65,
       "description": "Winter delays and a spring finish for the Yorkton line."
     },
     {
       "title": "Farm Electrification Projects",
-      "startTime": 8550.25,
+      "startTime": 8550.23,
       "description": "Early farm electrification and subsequent line construction jobs.",
       "minor": true
     },
@@ -607,19 +618,19 @@
       "minor": true
     },
     {
-      "title": "Years 1950-1952",
+      "title": "Expansion in 1951-1957",
       "startTime": 8785.96,
-      "description": "Building Lines and Farms"
+      "description": "Building Lines and Farms across Saskatchewan"
     },
     {
-      "title": "1953 Farm Operations",
-      "startTime": 8870.34,
+      "title": "Continuing with 1953",
+      "startTime": 8868.03,
       "description": "Rural Farm Work and Expansion",
       "minor": true
     },
     {
-      "title": "Farm Operation Changes",
-      "startTime": 9053.62,
+      "title": "Farm Operation Changes and Bidding Challenges",
+      "startTime": 9053.61,
       "description": "Shifting Work Methods and Unexpected Downtime"
     },
     {
@@ -629,20 +640,25 @@
       "minor": true
     },
     {
-      "title": "River Crossing Project Details",
-      "startTime": 9261.74,
+      "title": "1961-1964, Rivers and Potash",
+      "startTime": 9258.67,
       "description": "River Crossing & Early Potash Mine Work"
     },
     {
-      "title": "Swift Current Project Details",
-      "startTime": 9385.46,
-      "description": "Swift Current Project: Unexpected costs and logistical challenges.",
+      "title": "1965, Lindy's Last Year",
+      "startTime": 9384.51,
+      "description": "Swift Current Project: Unexpected costs and logistical challenges."
+    },
+    {
+      "title": "Near Loss on a Big Job",
+      "startTime": 9463.67,
+      "description": "Unexpected Losses & Succession",
       "minor": true
     },
     {
-      "title": "Project Profitability Analysis",
-      "startTime": 9463.67,
-      "description": "Unexpected Losses & Succession"
+      "title": "Selling Achen Construction to the Men",
+      "startTime": 9530.1,
+      "description": "Final Projects & Preparing to Retire"
     },
     {
       "title": "Contracting & Power Prices",

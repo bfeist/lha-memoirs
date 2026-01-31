@@ -21,6 +21,11 @@ import sys
 import tempfile
 from pathlib import Path
 
+# Fix encoding on Windows to support emoji characters
+if sys.stdout.encoding.lower() == 'cp1252':
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
 print("=" * 60)
 print("WAVEFORM & AUDIO CONVERSION SCRIPT")
 print("=" * 60)
@@ -135,7 +140,6 @@ def convert_single_to_mp3(input_path: Path, output_path: Path, bitrate: str = "1
         "-i", str(input_path),
         "-codec:a", "libmp3lame",
         "-b:a", bitrate,
-        "-ar", "44100",
         "-ac", "2",
         str(output_path),
     ]
@@ -216,7 +220,7 @@ def generate_waveform_json(audio_path: Path, output_path: Path, pixels_per_secon
 def process_recording(recording_folder: Path) -> bool:
     """Process a single recording folder."""
     relative_path = get_relative_recording_path(recording_folder)
-    output_dir = OUTPUT_BASE_DIR / relative_path
+    output_dir = OUTPUT_BASE_DIR / "audio" / relative_path
     output_mp3 = output_dir / "audio_original.mp3"
     output_waveform = output_dir / "waveform.json"
     
