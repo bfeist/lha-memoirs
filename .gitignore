@@ -52,6 +52,14 @@ build/
 *.egg
 vid_scenes.egg-info/
 
+# Place names
+geonames/
+
+# Output files (can be regenerated)
+output/*.json
+output/*.geojson
+
+
 # Temporary files
 *.tmp
 *.log
