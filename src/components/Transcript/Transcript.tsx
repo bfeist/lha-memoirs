@@ -9,6 +9,7 @@ import { PhotoModal } from "./PhotoModal";
 import { VideoModal } from "./VideoModal";
 import { AlternateTellingLink } from "./AlternateTellingLink";
 import { SegmentTextWithPlaces } from "./SegmentTextWithPlaces";
+import { PlacesMapModal } from "../PlacesMap";
 import styles from "./Transcript.module.css";
 
 // Extract recording folder name from a path like "memoirs/Norm_red" -> "Norm_red"
@@ -54,6 +55,10 @@ export const Transcript = memo(function Transcript({
     startTime?: number;
     endTime?: number;
   } | null>(null);
+
+  // Modal state for viewing places map
+  const [showPlacesMap, setShowPlacesMap] = useState(false);
+  const [selectedPlaceId, setSelectedPlaceId] = useState<number | null>(null);
 
   // Load places data for interactive tooltips
   const { places, placesByName } = usePlaces();
@@ -252,6 +257,17 @@ export const Transcript = memo(function Transcript({
 
   const handleCloseVideoModal = useCallback(() => {
     setModalVideo(null);
+  }, []);
+
+  // Handlers for places map modal
+  const handlePlaceClick = useCallback((place: Place) => {
+    setSelectedPlaceId(place.geonameid);
+    setShowPlacesMap(true);
+  }, []);
+
+  const handleClosePlacesMap = useCallback(() => {
+    setShowPlacesMap(false);
+    setSelectedPlaceId(null);
   }, []);
 
   // Extract minor chapters from the chapters array
@@ -527,7 +543,7 @@ export const Transcript = memo(function Transcript({
                           text={segment.text}
                           placesByName={placesByName}
                           placePattern={placePattern}
-                          currentTranscript={recordingPath}
+                          onPlaceClick={handlePlaceClick}
                         />
                       </span>
                     </span>
@@ -550,6 +566,14 @@ export const Transcript = memo(function Transcript({
         startTime={modalVideo?.startTime}
         endTime={modalVideo?.endTime}
         onClose={handleCloseVideoModal}
+      />
+
+      {/* Places Map Modal for viewing places */}
+      <PlacesMapModal
+        key={`places-map-${selectedPlaceId}`}
+        isOpen={showPlacesMap}
+        onClose={handleClosePlacesMap}
+        initialPlaceId={selectedPlaceId}
       />
     </div>
   );

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "total_places": 108,
-    "last_updated": "2026-01-31 19:30:58",
+    "last_updated": "2026-01-31 22:40:32",
     "reference_point": {
       "name": "Regina, Saskatchewan",
       "latitude": 50.4452,
@@ -23,6 +23,11 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "glynn_interview",
+          "context": "Oh, I was born in a little town of Remsen, Iowa, about 20 miles out of Sioux City, Iowa, in what was known as the Corn Belt of Iowa.",
+          "timestamp": 8.58
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "all the way up from Remsen, Iowa, up to Sioux Falls, Sioux City,",
           "timestamp": 188.36
@@ -33,14 +38,24 @@
           "timestamp": 2441.2
         },
         {
-          "transcript": "glynn_interview",
-          "context": "Oh, I was born in a little town of Remsen, Iowa, about 20 miles out of Sioux City, Iowa, in what was known as the Corn Belt of Iowa.",
-          "timestamp": 8.58
+          "transcript": "memoirs/Norm_red",
+          "context": "just south of Sioux City, Iowa, where we were working.",
+          "timestamp": 2506.96
         },
         {
           "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "Whatever possessed my dad to leave that rich farmland down around Sioux City, Iowa, and move up into the frozen, rocky prairies, I will never know. However,",
           "timestamp": 230.41
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "he said, \"We're moving out of here, we're moving across the state to Sioux City, to south of Sioux City, Iowa.",
+          "timestamp": 2285.28
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So we moved across to a town by the name of Winnebago, Nebraska, just south of Sioux City, Iowa.",
+          "timestamp": 2355.35
         }
       ]
     },
@@ -59,18 +74,28 @@
       "mentions": [
         {
           "transcript": "memoirs/Norm_red",
-          "context": "driving back to South Dakota, down to where my uncle lived at Frederick, out of Aberdeen, South Dakota.",
-          "timestamp": 3226.85
+          "context": "Well, we finished there and then I headed north I didn't know where I was going I stopped in at my brother's place in Sioux Falls and I had an uncle up near Aberdeen South Dakota so I",
+          "timestamp": 2892.3
         },
         {
           "transcript": "memoirs/Norm_red",
-          "context": "Well, we finished there and then I headed north I didn't know where I was going I stopped in at my brother's place in Sioux Falls and I had an uncle up near Aberdeen South Dakota so I",
-          "timestamp": 2892.3
+          "context": "driving back to South Dakota, down to where my uncle lived at Frederick, out of Aberdeen, South Dakota.",
+          "timestamp": 3226.85
         },
         {
           "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "After I finished there, I got in the car and I went up through by Lorry's place again, stopped there a couple of days, and then on up to Aberdeen, South Dakota, where I had an uncle and a cousin that - Irvine, the oldest boy was just my age.",
           "timestamp": 2803.4
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "near Aberdeen, South Dakota.",
+          "timestamp": 10560.69
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then when I started work the next time, I was up near Aberdeen, South Dakota.",
+          "timestamp": 10591.1
         }
       ]
     },
@@ -89,18 +114,43 @@
       "mentions": [
         {
           "transcript": "memoirs/Norm_red",
+          "context": "And a couple of weeks later, he still wasn't feeling well, so he went to Kenmare, North Dakota, where there were some renowned doctors.",
+          "timestamp": 2067.82
+        },
+        {
+          "transcript": "memoirs/Norm_red",
           "context": "When I got to Kenmare about two o'clock in the morning, well, I phoned the hospital and they said he was resting fine.",
           "timestamp": 2112.68
         },
         {
           "transcript": "memoirs/Norm_red",
-          "context": "And a couple of weeks later, he still wasn't feeling well, so he went to Kenmare, North Dakota, where there were some renowned doctors.",
-          "timestamp": 2067.82
+          "context": "So I go up to Kenmare and I go into the office and tell him that I'd been talking to Leo O'Grady, a foreman.",
+          "timestamp": 3686.57
         },
         {
           "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "And so he didn't feel any better, so he got on the train one day and went down to Kenmare, North Dakota.",
           "timestamp": 1255.84
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And we went to ... that night and caught the train and got into Kenmare at about 2 o'clock in the morning after a big layover at that - Portal, at the international border...",
+          "timestamp": 1307.89
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Do you want ... the head office in Kenmare and see if they'll hire you?",
+          "timestamp": 3705.89
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I worked with that outfit all winter, working up along the - from Kenmare, North Dakota, up to -",
+          "timestamp": 3769.31
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Kenmare, North Dakota, that was a year later.",
+          "timestamp": 10676.03
         }
       ]
     },
@@ -128,9 +178,24 @@
           "timestamp": 2563.89
         },
         {
+          "transcript": "memoirs/Norm_red",
+          "context": "So I went back up to Sioux Falls and",
+          "timestamp": 2646.16
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...there and then I headed north I didn't know where I was going I stopped in at my brother's place in Sioux Falls and I had an uncle up near Aberdeen South Dakota so I",
+          "timestamp": 2892.3
+        },
+        {
           "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "And I think I told you earlier in the story, when I quit in Nebraska and went up to work for my brother Lorry, who was sick at Sioux Falls, South Dakota.",
           "timestamp": 10544.63
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...er in the story, when I quit in Nebraska and went up to work for my brother, Lorry, who was sick at Sioux Falls, South Dakota.",
+          "timestamp": 10571.28
         }
       ]
     },
@@ -148,14 +213,44 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "glynn_interview",
+          "context": "The first that I noticed of the depression was in the fall of 30, we were working in Biggar.",
+          "timestamp": 1382.42
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "We finished the job at Estevan and then moved up to - down near the Assiniboia area and did some work, then up to Craik and Davidson, worked there for a while, and then up to Biggar.",
           "timestamp": 4335.56
         },
         {
           "transcript": "memoirs/Norm_red",
+          "context": "Now, Biggar is a town about 3,000.",
+          "timestamp": 4346.92
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...ke his leg in the spring, was ready to come back to work, and Doboy's superintendent had come up to Biggar.",
+          "timestamp": 4358.34
+        },
+        {
+          "transcript": "memoirs/Norm_red",
           "context": "when I got that finished, he took me up to Biggar, Saskatchewan.",
           "timestamp": 5046.07
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "possibly spent a month in Davidson, and then on up to Biggar, east of Saskatoon, where we were doing a complete rebuild of the distribution system in a town of...",
+          "timestamp": 4673.52
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I might relate that on the 4th day of October, we had a snowstorm that was so severe, and Biggar is on the main line of the CNR, all the trains were tied up.",
+          "timestamp": 4705.54
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "In the town of Biggar itself, the only thing that could move up and down the streets was a team of horses on a gray wagon...",
+          "timestamp": 4723.04
         }
       ]
     },
@@ -174,13 +269,23 @@
       "mentions": [
         {
           "transcript": "memoirs/Norm_red",
+          "context": "We bought a Williams boring machine from Billings, Montana, and it would only go down 18 feet.",
+          "timestamp": 10437.23
+        },
+        {
+          "transcript": "memoirs/Norm_red",
           "context": "We got the trouble book with it when we bought it from Billings, and the guy from the factory had been up there half a dozen times, couldn't figure why they were throwing clutches all the time.",
           "timestamp": 10473.66
         },
         {
           "transcript": "memoirs/Norm_red",
-          "context": "We bought a Williams boring machine from Billings, Montana, and it would only go down 18 feet.",
-          "timestamp": 10437.23
+          "context": "I'd tell about buying the machine down at Billings, Montana.",
+          "timestamp": 10747.6
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "While it was in Billings, they had a correspondence with the factory on it.",
+          "timestamp": 10794.28
         }
       ]
     },
@@ -199,13 +304,13 @@
       "mentions": [
         {
           "transcript": "memoirs/Norm_red",
-          "context": "And everything was going fine until while we were working in Crosby, North Dakota, and one night they pound at the door and it was the immigration -",
-          "timestamp": 3789.57
+          "context": "and somewhere past Crosby, about 30 miles, was the end of our last territory.",
+          "timestamp": 3770.57
         },
         {
           "transcript": "memoirs/Norm_red",
-          "context": "and somewhere past Crosby, about 30 miles, was the end of our last territory.",
-          "timestamp": 3770.57
+          "context": "And everything was going fine until while we were working in Crosby, North Dakota, and one night they pound at the door and it was the immigration -",
+          "timestamp": 3789.57
         }
       ]
     },
@@ -224,13 +329,13 @@
       "mentions": [
         {
           "transcript": "memoirs/Norm_red",
-          "context": "Mohall was on the east",
-          "timestamp": 3768.21
+          "context": "We had 150 miles of line from Mohall, North Dakota, over into the last town going out of North Dakota on the other side, Mohall -",
+          "timestamp": 3752.35
         },
         {
           "transcript": "memoirs/Norm_red",
-          "context": "We had 150 miles of line from Mohall, North Dakota, over into the last town going out of North Dakota on the other side, Mohall -",
-          "timestamp": 3752.35
+          "context": "Mohall was on the east",
+          "timestamp": 3768.21
         }
       ]
     },
@@ -251,6 +356,11 @@
           "transcript": "memoirs/Norm_red",
           "context": "From there we moved over into Dawson, North Dakota.",
           "timestamp": 3346.79
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And in Dawson, North Dakota, we were there building lines.",
+          "timestamp": 3355.96
         },
         {
           "transcript": "memoirs/TDK_D60_edited_through_air",
@@ -278,9 +388,39 @@
           "timestamp": 3226.85
         },
         {
+          "transcript": "memoirs/Norm_red",
+          "context": "Well, when we got from Leola, we went up to Frederick, and I was acquainted with Frederick, and he knew that, so he used to keep me in about every second...",
+          "timestamp": 3322.7
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So I leave the outfit, and I go up back to Frederick to -",
+          "timestamp": 3529.35
+        },
+        {
           "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "And when I got down there, well, I found out there's a power outfit working about 30 miles from there, and they were building a line into Frederick, South Dakota, what was where my uncle lived.",
           "timestamp": 3303.14
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "They went out from there, we went to Frederick, and then we moved up at - to Dawson, North Dakota, towards Spring.",
+          "timestamp": 3370.31
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...b just about finished when harvest time came, and I had a telegraph from Twight, the thrasher up in Frederick, to come back and run the separator,",
+          "timestamp": 3513.29
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "I headed back up to Frederick.",
+          "timestamp": 3559.6
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "I'll go back when I finish thrashing in Frederick and then headed north.",
+          "timestamp": 3596.0
         }
       ]
     },
@@ -298,14 +438,19 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "glynn_interview",
+          "context": "Oh, I was born in a little town of Remsen, Iowa, about 20 miles out of Sioux City, Iowa, in what was known as the Corn Belt of Iowa.",
+          "timestamp": 8.58
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "and go back and start relating the story from where I was born at Remsen, Iowa, October the 7th, 1902.",
           "timestamp": 37.57
         },
         {
-          "transcript": "glynn_interview",
-          "context": "Oh, I was born in a little town of Remsen, Iowa, about 20 miles out of Sioux City, Iowa, in what was known as the Corn Belt of Iowa.",
-          "timestamp": 8.58
+          "transcript": "memoirs/Norm_red",
+          "context": "all the way up from Remsen, Iowa, up to Sioux Falls, Sioux City,",
+          "timestamp": 188.36
         }
       ]
     },
@@ -353,9 +498,44 @@
           "timestamp": 5446.39
         },
         {
+          "transcript": "memoirs/Norm_red",
+          "context": "And they were moving that plant up to Winnipegosis.",
+          "timestamp": 5513.62
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So then I come back up to Winnipegosis, and I wound up there on Armistice Day.",
+          "timestamp": 5553.37
+        },
+        {
           "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "And they were going to put the power plant up to Winnipegosis, Manitoba.",
           "timestamp": 5739.92
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then I went up, they said, \"We're putting the plant up to Winnipegosis, Manitoba, and we want you to go up there and wire up the town.",
+          "timestamp": 5770.93
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "They shipped their stuff back to Estevan, and Mac came up to Winnipegosis, Manitoba with me where we wired houses there.",
+          "timestamp": 5799.97
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "This same man Dyer, when he left Tompkins, he went up to Winnipegosis and organized the starting of a power plant in Winnipegosis.",
+          "timestamp": 5810.03
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So we'll go on taping again about Winnipegosis.",
+          "timestamp": 5853.14
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So while I was wiring up at Winnipegosis, this fella took holidays, and they sent me down to Estevan for one month to take charge of the dis...",
+          "timestamp": 5891.85
         }
       ]
     },
@@ -399,13 +579,23 @@
       "mentions": [
         {
           "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "running from Canora, Saskatchewan, up to Preeceville, and over to Norquay.",
+          "timestamp": 7778.78
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "So I went to Canora and started that job, again without any help.",
           "timestamp": 7840.76
         },
         {
           "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "running from Canora, Saskatchewan, up to Preeceville, and over to Norquay.",
-          "timestamp": 7778.78
+          "context": "And then I - when I left the Canora job, left Jack Gardner in charge.",
+          "timestamp": 7960.5
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Yeah, after we finished up that line, then I got a job 30 miles from Yorkton to Canora.",
+          "timestamp": 8587.04
         }
       ]
     },
@@ -423,14 +613,49 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "memoirs/Norm_red",
+          "context": "They moved away from Worthington, where we had started, and one day the boss come along and said, we're moving across the state, down near Sioux City, Iowa.",
+          "timestamp": 2441.2
+        },
+        {
           "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "So with that, I threw in the towel, and I packed up my suitcase, and a cousin from Worthington, Iowa, by the name of Norbert Hemmer, was up harvesting with us.",
           "timestamp": 1965.11
         },
         {
-          "transcript": "memoirs/Norm_red",
-          "context": "They moved away from Worthington, where we had started, and one day the boss come along and said, we're moving across the state, down near Sioux City, Iowa.",
-          "timestamp": 2441.2
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I jumped in the car - in the car with him, and we drove straight through to Worthington, Iowa, which is about 1,300 miles.",
+          "timestamp": 1978.95
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So, anyway, I stayed with an uncle in Worthington, Iowa.",
+          "timestamp": 2020.08
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Well, I stayed in Worthington during December, doing nothing, just hanging around.",
+          "timestamp": 2064.22
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Worthington was about 300 people.",
+          "timestamp": 2093.85
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Worthington or working out of Worthington.",
+          "timestamp": 2148.74
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "We were moving around the country, not necessarily always in Worthington.",
+          "timestamp": 2277.77
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "When I started working in Worthington, Iowa, we were working nine hours a day, and I got 35 cents an hour, paid my own room and board, dr...",
+          "timestamp": 10488.42
         }
       ]
     },
@@ -471,6 +696,11 @@
           "transcript": "memoirs/Norm_red",
           "context": "I did a job from Vanguard to Aneroid, rebuilt a substation in there.",
           "timestamp": 6675.43
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Did a bunch of Mennonite settlements there, and then down and put a line from Vanguard to Aneroid.",
+          "timestamp": 8264.92
         }
       ]
     },
@@ -488,9 +718,49 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "glynn_interview",
+          "context": "I was out west between Shaunavon and Assiniboia in 1935 and 1936, and there it was terrible.",
+          "timestamp": 1739.96
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "And we were overhauling the power line that runs from Shaunavon to Assiniboia.",
+          "timestamp": 2747.72
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "We finished the job at Estevan and then moved up to - down near the Assiniboia area and did some work, then up to Craik and Davidson, worked there for a while, and then up to Biggar.",
           "timestamp": 4335.56
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I overhauled the power line from Shaunavon to Assiniboia for 120 miles.",
+          "timestamp": 5172.16
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...the next thing, George Jenney, he had saved his money, and he bought a section of land south of the Assiniboia.",
+          "timestamp": 8371.83
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I fired a guy down near Assiniboia.",
+          "timestamp": 10049.35
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "However, I had a pretty well organized crew and we spent that summer - we had gone out through Assiniboia, did a little work onto Kincaid, and from there north up to Davidson.",
+          "timestamp": 4655.13
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I went out and worked for them on the - overhauled the power line between Shaunavon and Assiniboia.",
+          "timestamp": 5593.65
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "down at Ogema and Assiniboia countries, bit off more than he can chew, and I want you to go down there and help him out.\"",
+          "timestamp": 8684.67
         }
       ]
     },
@@ -509,8 +779,13 @@
       "mentions": [
         {
           "transcript": "memoirs/Norm_red",
-          "context": "And then down in the Ogema - Shaunavon area, yeah, Fife Lake, and in that area we did a bunch of towns there in '50, '51, we were in the Ogema\u2013Bengough, and in through there we did 60 or 70 miles of line in a bunch of towns.",
+          "context": "And then down in the Ogema - Shaunavon area, yeah, Fife Lake, and in that area we did a bunch of towns there in '50, '51, we were in the Ogema–Bengough, and in through there we did 60 or 70 miles of line in a bunch of towns.",
           "timestamp": 7343.27
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "It was in the Sha - Ogema, Bengough,",
+          "timestamp": 8795.96
         }
       ]
     },
@@ -531,6 +806,11 @@
           "transcript": "memoirs/Norm_red",
           "context": "We finished the job at Estevan and then moved up to - down near the Assiniboia area and did some work, then up to Craik and Davidson, worked there for a while, and then up to Biggar.",
           "timestamp": 4335.56
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Then the old Dominion Electric had some work to do at Craik and Davidson, so I went down there and I worked there until the spring break up.",
+          "timestamp": 6094.72
         }
       ]
     },
@@ -588,9 +868,29 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "christmas1986",
+          "context": "around Eastend for mule deer.",
+          "timestamp": 1666.78
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I was in Eastend.",
+          "timestamp": 1318.67
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "When I finished that, I went down to the town of Eastend, which had another small decent plot, and down by Shaunavon.",
+          "timestamp": 5080.39
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "But while I was there, I lined up a lot of wiring jobs, so I wired for three months - for a month in Eastend.",
           "timestamp": 5114.75
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "From there down to Shaunavon to Eastend, that was 30 miles.",
+          "timestamp": 8655.05
         }
       ]
     },
@@ -608,9 +908,34 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "christmas1986",
+          "context": "She's keeping fine up in Edmonton.",
+          "timestamp": 738.0
+        },
+        {
+          "transcript": "christmas1986",
+          "context": "I'm afraid Hamilton will have trouble with Edmonton.",
+          "timestamp": 2085.64
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "He got on the phone and phoned Edmonton and got the repairs and put it in, and we never did have clutch trouble after that.",
           "timestamp": 10519.8
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...up and found out there's room enough to double the capacity of the clutch. Got on the phone, phoned Edmonton, got the unnecessary parts, and took it to a machine shop, had a few alterations made and",
+          "timestamp": 10846.47
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Harold and Al died long ago, and Jack Bell has moved up to Edmonton.",
+          "timestamp": 12276.2
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then I got an outfit from Edmonton to come down and -",
+          "timestamp": 9449.46
         }
       ]
     },
@@ -651,6 +976,36 @@
           "transcript": "memoirs/Norm_red",
           "context": "They were up at Elrose, hooking up a town, and they had trouble.",
           "timestamp": 12955.55
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...ust north of Weyburn, and from there I got a job building a line from Dinsmore to Eston and up from Elrose to Rosetown.",
+          "timestamp": 7635.03
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And back to the job up at Elrose.",
+          "timestamp": 7765.76
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Rosetown - Elrose pretty well underway, and Art Miller was able to take over it.",
+          "timestamp": 7835.98
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So finally, I went over to Dins - to Rosetown - Elrose, and stayed on that job to push the wire stringing.",
+          "timestamp": 7935.97
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Oh, yes, the Elrose job, they didn't get it quite completed.",
+          "timestamp": 8177.53
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Up north from Kyle to Elrose, and we did about 50 farms up in there, plus 7 or 8 towns.",
+          "timestamp": 8809.63
         }
       ]
     },
@@ -668,9 +1023,389 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "LHA_Sr.Hilary",
+          "context": "...ontana dakota power company in north dakota and then went to the dominion electric power company in estevan saskatchewan and the next electric company I worked for was the tompkins electric in saskatchewan w...",
+          "timestamp": 274.89
+        },
+        {
+          "transcript": "LHA_Sr.Hilary",
+          "context": "...ident of the Central Line Contractors Association, a charter member of the Kinsmen of Canada in the Estevan branch, a lifetime member of the BPOE Elks Lodge of Canada,",
+          "timestamp": 395.36
+        },
+        {
+          "transcript": "christmas1986",
+          "context": "to Estevan and I don't know how far beyond.",
+          "timestamp": 833.58
+        },
+        {
+          "transcript": "christmas1986",
+          "context": "or credit union in Estevan.",
+          "timestamp": 871.06
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "In the, you can say, Weyburn - Estevan area.",
+          "timestamp": 44.68
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "...started in Iowa, went to Nebraska, then South Dakota, then North Dakota, and finally I wound up at Estevan in 1929.",
+          "timestamp": 182.57
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "In 1930, when I started Estevan, I was making 82 cents an hour and paying my own keep.",
+          "timestamp": 246.35
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "And that winter they put me taking over service work in Estevan.",
+          "timestamp": 740.21
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Then the power company in Estevan phoned me up one day and asked me to come down for about a month.",
+          "timestamp": 1186.24
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "So I went down and I worked in Estevan for about a month.",
+          "timestamp": 1193.51
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Well, I could have bumped a married man in Estevan, but I said, \"No way.\"",
+          "timestamp": 1258.14
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "When I got back into Estevan again in 1937, all kinds of people were living off relief, right up until the war.",
+          "timestamp": 1497.56
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Like, again, I have to talk about Estevan and Bienfait, the coal mines where I knew every home.",
+          "timestamp": 1553.48
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Wherever you go, every small town, Waver and Estevan, the towns in between, all plugged full of used, good used cars, not junk cars, good used cars.",
+          "timestamp": 3412.57
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I drove into Estevan after they had the big strike, the coal miner strike down there and shot two or three guys.",
+          "timestamp": 4158.09
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "When the harvest was finished, a buddy of mine and myself got in the car one Saturday, and we were going out for a little fun, and went down to Estevan, and the country was dry at that time, and so we landed in on the bootleggers, and having a drink in there when another friend of ours from our hometown came in and got talking. I asked what he's doing.",
           "timestamp": 3974.22
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...had packed up my bag, which was the climbing tools and a few wrenches and a hammer, and I head for Estevan.",
+          "timestamp": 4029.82
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "In the meantime, I head back to Estevan to see if I can get a job.",
+          "timestamp": 4197.34
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "We finished the job at Estevan and then moved up to - down near the Assiniboia area and did some work, then up to Craik and Davids...",
+          "timestamp": 4335.56
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "He said, \"I want you to come back to Estevan and put Bill back in charge of the crew, and I want you to come back to Estevan.",
+          "timestamp": 4376.52
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "But she said, \"They've been trying to get a hold of you from Estevan.\"",
+          "timestamp": 4488.66
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So I worked in Estevan for about the month of October with the gang that was there.",
+          "timestamp": 4958.51
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "He was a steam engineer from Estevan, and he was leaving them and going out to set up this small plant to get on his own.",
+          "timestamp": 4988.04
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So I phoned Estevan and told him about it and they were glad to get rid of him.",
+          "timestamp": 5256.58
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "they needed me down at Estevan for a month.",
+          "timestamp": 5527.66
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I went down to Estevan for distribution, the mines and everything, for a month.",
+          "timestamp": 5534.55
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Well, when I went back to Estevan, I was back to Estevan by the end of, well, the middle of November.",
+          "timestamp": 5586.66
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Then I took over the distribution, operating, servicing all the mines and the town of Estevan.",
+          "timestamp": 5594.61
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Ohy, I got about two weeks on that and then come back to Estevan again.",
+          "timestamp": 5632.61
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And then I kept on working in Estevan until",
+          "timestamp": 5637.62
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And they were building an airport in Estevan, around '42, and ... one hell of a place to work.",
+          "timestamp": 5646.88
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So I pretty well had charge of everything in Estevan - distribution.",
+          "timestamp": 5695.01
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Then a little later, they bid on a line from Stoughton to Estevan.",
+          "timestamp": 5930.47
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I went to Estevan and really didn't do much of anything.",
+          "timestamp": 5989.43
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And then I went back to Estevan.",
+          "timestamp": 6103.83
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I was still living in Estevan at this time.",
+          "timestamp": 6106.85
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Went back to Estevan and started on my power line job, on my contract.",
+          "timestamp": 6109.58
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Oh, yeah, then we got the job building another chunk of the high-tension line from Estevan",
+          "timestamp": 7043.01
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I had one other fall when I was working for the power company in Estevan.",
+          "timestamp": 10132.36
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I think I told you I had $3,000 in the bank when I started, and I went to the bank manager in Estevan and told him I might need a little",
+          "timestamp": 11087.08
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...on overdraft. With the result that I never had to sign a note of any description. I operated out of Estevan",
+          "timestamp": 11095.13
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "who started me up in Estevan, is the manager at Moose Jaw, and he'll take care of me.\"",
+          "timestamp": 11151.42
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...Yorkton and Art would do the job, and they're bidding on stringing a second circuit from Regina to Estevan.",
+          "timestamp": 12767.87
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "A friend of mine and myself went on a little bit of a spree one Saturday afternoon and landed up in Estevan.",
+          "timestamp": 4034.7
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "I headed to work in Estevan.",
+          "timestamp": 4085.64
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So we just tore up the contract we had signed, and I went back to work in Estevan.",
+          "timestamp": 4178.22
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "He had come up from Estevan.",
+          "timestamp": 4465.68
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "He said, \"I thought you were back in Estevan working.\"",
+          "timestamp": 4467.86
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Well, I went back to Estevan.",
+          "timestamp": 4485.92
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...t word from the superintendent that Bill was coming to take over the crew and I was to come back to Estevan.",
+          "timestamp": 4766.57
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "I went back to Estevan and I was more or less a one-man crew there by myself.",
+          "timestamp": 4776.02
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "The roads were all bare from Estevan up here, and on the 21st day of January, if I recall correctly, I went to Saskatoon, and there was...",
+          "timestamp": 4888.29
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And in the fall, I went down to Estevan, and I went in to see the superintendent there.",
+          "timestamp": 5243.2
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "One of their men was a fellow that I worked under, while I was in Estevan,",
+          "timestamp": 5288.23
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then the spring of '34, Dubois, the superintendent, this was still the same company that was in Estevan, he said, \"I'm putting you down in Gull Lake to do some wiring there.",
+          "timestamp": 5372.17
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So I phoned up Walter Stasher, the general manager in Estevan, and told him about this deal.",
+          "timestamp": 5513.74
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...ded in my car, so I didn't have a car, so they wrestled me up an old truck they had sitting down in Estevan.",
+          "timestamp": 5551.91
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...- my brother Mac, and Ellen, they broke up housekeeping there, and she went back to her parents in Estevan.",
+          "timestamp": 5786.75
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "They shipped their stuff back to Estevan, and Mac came up to Winnipegosis, Manitoba with me where we wired houses there.",
+          "timestamp": 5799.97
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...d help him any, so I turned the whole issue over to the Dominion Electric, the old power company in Estevan.",
+          "timestamp": 5830.38
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...h yes, I was promised a job when they closed the plant down in Tompkins, that I would have a job at Estevan;",
+          "timestamp": 5869.13
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "back at Estevan again.",
+          "timestamp": 5885.22
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So while I was wiring up at Winnipegosis, this fella took holidays, and they sent me down to Estevan for one month to take charge of the district there.",
+          "timestamp": 5891.85
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I went back to Estevan and went to work.",
+          "timestamp": 5912.37
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I worked in Estevan.",
+          "timestamp": 5915.87
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So I spent the war years in Estevan.",
+          "timestamp": 6095.17
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So I was pretty well in charge of everything at Estevan.",
+          "timestamp": 6120.6
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "I won't promise you that you'll be back here in Estevan, but there'll be a job for you.",
+          "timestamp": 6188.41
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And at the same time bid on a big heavy, high voltage line from Estevan to Stoughton, and I get that too.",
+          "timestamp": 6251.57
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...tage suspension-type line, 72,000 volts, which was something new in Saskatchewan at that time, from Estevan to Stoughton, which was a distance of 40 miles.",
+          "timestamp": 6407.73
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "First thing I did, I went to a dealer in Estevan, and he had a half-ton truck there.",
+          "timestamp": 6710.44
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then I went back to Estevan and just sat in quiet until the spring, when the tenders come out.",
+          "timestamp": 7114.4
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then I went back to Estevan and started building the",
+          "timestamp": 7153.61
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "My old bank manager from Estevan, Bill Mullins, was the manager in Moose Jaw.",
+          "timestamp": 7697.01
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Along with that, the years in Estevan were really good educational years.",
+          "timestamp": 10010.61
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "In my years in Estevan - when I left Estevan, I could have written steam papers.",
+          "timestamp": 10051.54
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "I had 1200 customers in Estevan and I knew every one of them and they all knew me.",
+          "timestamp": 10153.87
         }
       ]
     },
@@ -689,7 +1424,7 @@
       "mentions": [
         {
           "transcript": "memoirs/Norm_red",
-          "context": "And then down in the Ogema - Shaunavon area, yeah, Fife Lake, and in that area we did a bunch of towns there in '50, '51, we were in the Ogema\u2013Bengough, and in through there we did 60 or 70 miles of line in a bunch of towns.",
+          "context": "And then down in the Ogema - Shaunavon area, yeah, Fife Lake, and in that area we did a bunch of towns there in '50, '51, we were in the Ogema–Bengough, and in through there we did 60 or 70 miles of line in a bunch of towns.",
           "timestamp": 7343.27
         }
       ]
@@ -711,6 +1446,11 @@
           "transcript": "memoirs/Norm_red",
           "context": "In the spring of '38, I went out and relieved out at Gravelbourg in Lafleche while they changed operators out there.",
           "timestamp": 5612.7
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And in the fall of '38, I was sent out to Shaunavon and Gravelbourg to calibrate meters.",
+          "timestamp": 5621.25
         }
       ]
     },
@@ -728,9 +1468,59 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "glynn_interview",
+          "context": "They were building another town out by Gull Lake.",
+          "timestamp": 1203.0
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Yeah, then in 34, then this same company said they'd put me into Gull Lake rewiring buildings, business places that were hay-wired in, you know, went and straightened up all...",
+          "timestamp": 1277.95
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "stores in that town all winter. So I was busy making a living and that was about all. Then the next spring my old company Dominion Electric Dubois hired me to go into Gull Lake. There was some bad wiring jobs and they couldn't meter it properly in three or four places involving business places. So I went in and I straightened all that out. And",
           "timestamp": 5016.96
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And then I come back to Gull Lake and I started overhauling the distribution system.",
+          "timestamp": 5060.11
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Well, I operated that for about a year and a half and then the company saw fit to build a line from Gull Lake to Tompkins and shut that down. Now we're into 1930 we're into 1930 - yeah I operated the plant '35...",
+          "timestamp": 5343.64
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...erintendent, this was still the same company that was in Estevan, he said, \"I'm putting you down in Gull Lake to do some wiring there.",
+          "timestamp": 5372.17
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So I went into Gull Lake, and I -",
+          "timestamp": 5396.92
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And, uh, as I remember it, I finished and went back up to Gull Lake on Armistice Day.",
+          "timestamp": 5432.71
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Well, there wasn't much to do around Gull Lake, so there was some wiring to be done in Tompkins, and I moved back to Tompkins.",
+          "timestamp": 5441.97
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then in '36, they decided they were going to run a power line from Gull Lake to Tompkins, and abandoned this little power plant.",
+          "timestamp": 5725.58
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Found out they could serve it cheaper in Gull Lake, and they had plenty of capacity there.",
+          "timestamp": 5734.95
         }
       ]
     },
@@ -748,9 +1538,139 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "christmas1986",
+          "context": "And, oh, yeah, the big city of Halbrite got on the news",
+          "timestamp": 819.64
+        },
+        {
+          "transcript": "christmas1986",
+          "context": "But when he's at Halbrite about 5 o'clock in the morning,",
+          "timestamp": 836.98
+        },
+        {
+          "transcript": "christmas1986",
+          "context": "and went about nine miles to north of Halbrite out into a field",
+          "timestamp": 858.98
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I was at Halbrite.",
+          "timestamp": 41.79
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I was brought up on a farm at Halbrite.",
+          "timestamp": 50.34
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "We're in a small community in Halbrite.",
+          "timestamp": 2925.14
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "and then up what they call the Sioux Line, up to Halbrite.",
           "timestamp": 194.36
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "However, we landed at Halbrite.",
+          "timestamp": 214.36
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Six miles north of Halbrite.",
+          "timestamp": 272.36
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And then she went to high school in Halbrite and got her grade nine.",
+          "timestamp": 1801.22
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Every other Sunday, we went to Mass in Halbrite.",
+          "timestamp": 1920.36
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So I phoned back up to Halbrite and talked to my Aunt Mary.",
+          "timestamp": 2135.53
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "We had the body shipped back to Halbrite for burial, and",
+          "timestamp": 2164.84
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "The way I go, I go down to Halbrite - Midale.",
+          "timestamp": 4749.07
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "tearing down airport lines at Midale and Halbrite, all in through there, and building up into power lines in those small towns.\"",
+          "timestamp": 5758.16
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...using that same material or what was usable, build a power line - well in one case, from Macoun to Halbrite. And we were all bidding that close. It was almost impossible to think that four men could sit down...",
+          "timestamp": 5898.09
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I tore down the airports, and I got the line going from Halbrite to Midale,",
+          "timestamp": 5972.39
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "We landed up at Halbrite the 17th day of March.",
+          "timestamp": 288.09
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "From there on, I got back to the hotel, and I phoned my aunt back at Halbrite to find out",
+          "timestamp": 1344.84
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "First, I distinctly remember coming to Halbrite when I was four and a half years old.",
+          "timestamp": 1437.99
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Well, I'll head up towards Halbrite.",
+          "timestamp": 3665.84
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "This funeral took place in Halbrite, and some of the big shots come up to the funeral.",
+          "timestamp": 4327.65
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And when they got to Halbrite, there was no place to eat, so they phoned out to the farm.",
+          "timestamp": 4336.75
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And when I got back to Halbrite - Midale, here Midale we're going to put in the power plant, and a power system.",
+          "timestamp": 5153.55
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And by God, I get - the first job I get is building a line from Halbrite to Midale and the distribution system in - yeah, and Macoun - and the distribution system in Macoun...",
+          "timestamp": 6236.83
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "One was a power line from Midale to Halbrite and Macoun,",
+          "timestamp": 6400.71
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then use all the usable material to build a power line, as I said, from Halbrite to Midale to Macoun.",
+          "timestamp": 6967.69
         }
       ]
     },
@@ -811,6 +1731,16 @@
           "transcript": "memoirs/Norm_red",
           "context": "Oh, yes, we'd come back up and build a line from Montmartre to Kipling, which was about 50 or 60 miles, and built two or three towns along with that.",
           "timestamp": 7220.53
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then after that, came in and went from Montmartre to Kipling.",
+          "timestamp": 8663.2
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Well, we never got as far as the Manitoba border, about Kipling to the east, and everything - always south of the valley, south of the Saskatchewan River and the Q...",
+          "timestamp": 8969.69
         }
       ]
     },
@@ -831,6 +1761,16 @@
           "transcript": "memoirs/Norm_red",
           "context": "So while I was there, my cousin said, hey, there's a power gang working down here at Leola, about 25 miles from there.",
           "timestamp": 3260.15
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Well, when we got from Leola, we went up to Frederick, and I was acquainted with Frederick, and he knew that, so he used to keep...",
+          "timestamp": 3322.7
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "got my car patched up enough that I was able to drive down to - to this town, Leola was the name of the town, see if I can get a job on this power line.",
+          "timestamp": 3317.38
         }
       ]
     },
@@ -851,6 +1791,16 @@
           "transcript": "memoirs/Norm_red",
           "context": "...Alberta about the end of harvest and we worked up there. We did some highline move where they're building a high - it was up at the Vermillion and Lloydminster area, They were moving a highway - or widening a highway, and we moved some line for that. And then we put in a - a section of farm land - farm line there, about 50 miles of farm line.",
           "timestamp": 7132.47
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "in Lloydminster had one, asked him, \"What do you do for clutch?\"",
+          "timestamp": 10537.32
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Built in a bunch of farms up around Lloydminster and Vegreville.",
+          "timestamp": 8616.9
         }
       ]
     },
@@ -871,6 +1821,26 @@
           "transcript": "memoirs/Norm_red",
           "context": "and, tearing down all these old power lines, and there's telephones and power and everything mixed up. And then, using that same material or what was usable, build a power line - well in one case, from Macoun to Halbrite. And we were all bidding that close. It was almost impossible to think that four men could sit down individually and come up within a thousand dollars from top to bottom. Anyway,",
           "timestamp": 5898.09
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "and then part of it to Macoun.",
+          "timestamp": 5977.89
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...rst job I get is building a line from Halbrite to Midale and the distribution system in - yeah, and Macoun - and the distribution system in Macoun and Halbrite.",
+          "timestamp": 6236.83
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "One was a power line from Midale to Halbrite and Macoun,",
+          "timestamp": 6400.71
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then use all the usable material to build a power line, as I said, from Halbrite to Midale to Macoun.",
+          "timestamp": 6967.69
         }
       ]
     },
@@ -888,9 +1858,119 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "glynn_interview",
+          "context": "And then when I come back, I get in the town of Midale, where my brother married a girl from Midale.",
+          "timestamp": 1116.59
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "And there they want to put a little power system in Midale.",
+          "timestamp": 1125.9
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Oh, well, I was, yeah, in Midale.",
+          "timestamp": 1434.1
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I wired homes all winter in Midale in 19... Who was paying for the wiring?",
+          "timestamp": 1435.08
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Midale doctor was the one that would come out.",
+          "timestamp": 2355.92
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Well, the barber in Midale, he's still living.",
+          "timestamp": 2699.39
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "The way I go, I go down to Halbrite - Midale.",
           "timestamp": 4749.07
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Mac was living in Midale.",
+          "timestamp": 4752.92
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Brother, Mac was living in Midale.",
+          "timestamp": 4754.24
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Midale wanted to put in a power plant.",
+          "timestamp": 4757.05
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "When I come back, I want to work in Iowa, or in Midale and put in the distribution system.",
+          "timestamp": 4787.91
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "tearing down airport lines at Midale and Halbrite, all in through there, and building up into power lines in those small towns.\"",
+          "timestamp": 5758.16
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I tore down the airports, and I got the line going from Halbrite to Midale,",
+          "timestamp": 5972.39
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "and I kept him going all winter in Midale.",
+          "timestamp": 5986.82
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And when I got back to Halbrite - Midale, here Midale we're going to put in the power plant, and a power system.",
+          "timestamp": 5153.55
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...d built the system, then my brother Mac and I started wiring houses, and we wired all the houses in Midale, which is a total winter job.",
+          "timestamp": 5196.47
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then Mac and I, we \"checked out\", as I said, about the middle of November, and he went back to Midale.",
+          "timestamp": 5903.62
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And by God, I get - the first job I get is building a line from Halbrite to Midale and the distribution system in - yeah, and Macoun - and the distribution system in Macoun and Halbr...",
+          "timestamp": 6236.83
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "One was a power line from Midale to Halbrite and Macoun,",
+          "timestamp": 6400.71
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So to get back to when I started out from Midale,",
+          "timestamp": 6697.15
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So I took those trucks and revamped them, took them down to Midale and,",
+          "timestamp": 6786.25
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then use all the usable material to build a power line, as I said, from Halbrite to Midale to Macoun.",
+          "timestamp": 6967.69
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "At the time I built the power system into the village of Midale.",
+          "timestamp": 10228.84
         }
       ]
     },
@@ -911,6 +1991,36 @@
           "transcript": "memoirs/Norm_red",
           "context": "And we would have had to stop possibly overnight in Minneapolis when we got there.",
           "timestamp": 163.36
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "and I still remember us being in Minneapolis.",
+          "timestamp": 655.59
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Then I remember going home from Minneapolis,",
+          "timestamp": 695.13
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "This train ride to Minneapolis home was about,",
+          "timestamp": 729.79
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "to Minneapolis, yes.",
+          "timestamp": 737.79
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "to get from our place up to Minneapolis.",
+          "timestamp": 741.79
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then mother stayed down in Iowa and Dad came home with me. And we stopped in Minneapolis, and I still remember him taking me to the bar room that night while he went in to have a drink,",
+          "timestamp": 1507.4
         }
       ]
     },
@@ -931,6 +2041,16 @@
           "transcript": "memoirs/Norm_red",
           "context": "I got up as far as Minot, North Dakota, and I stopped in the city there to see if I could get a job.",
           "timestamp": 3595.77
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "I got up as far as Minot.",
+          "timestamp": 3619.53
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "When I got to Minot, I thought I'd look for a job - and I meant to check in here.",
+          "timestamp": 3623.55
         }
       ]
     },
@@ -951,6 +2071,11 @@
           "transcript": "memoirs/Norm_red",
           "context": "Oh, yes, we'd come back up and build a line from Montmartre to Kipling, which was about 50 or 60 miles, and built two or three towns along with that.",
           "timestamp": 7220.53
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then after that, came in and went from Montmartre to Kipling.",
+          "timestamp": 8663.2
         }
       ]
     },
@@ -971,6 +2096,41 @@
           "transcript": "memoirs/Norm_red",
           "context": "The potash out at Kalium between here and Moose Jaw start up and we did all their distribution layout for - not only did the engineering as well as building the lines. And uh that lasted for I guess it's still going today. That",
           "timestamp": 7778.23
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And the first setback they had was when Vaughn Kennedy was electrocuted doing some work at the Moose Jaw Airport.",
+          "timestamp": 8343.49
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And I said, \"If you don't, I'll move my account to Moose Jaw where my old friend Bill Mullins",
+          "timestamp": 11146.25
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "who started me up in Estevan, is the manager at Moose Jaw, and he'll take care of me.\"",
+          "timestamp": 11151.42
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So, I went up to Moose Jaw and they held a writing in there, and it was the worst headache I ever had in my life. I went in th...",
+          "timestamp": 5648.68
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So I happened to be going through Moose Jaw.",
+          "timestamp": 7694.63
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "My old bank manager from Estevan, Bill Mullins, was the manager in Moose Jaw.",
+          "timestamp": 7697.01
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Ron Kennedy, as you know got - was electrocuted at Moose Jaw.",
+          "timestamp": 9704.71
         }
       ]
     },
@@ -989,8 +2149,18 @@
       "mentions": [
         {
           "transcript": "memoirs/Norm_red",
-          "context": "And then down in the Ogema - Shaunavon area, yeah, Fife Lake, and in that area we did a bunch of towns there in '50, '51, we were in the Ogema\u2013Bengough, and in through there we did 60 or 70 miles of line in a bunch of towns.",
+          "context": "And then down in the Ogema - Shaunavon area, yeah, Fife Lake, and in that area we did a bunch of towns there in '50, '51, we were in the Ogema–Bengough, and in through there we did 60 or 70 miles of line in a bunch of towns.",
           "timestamp": 7343.27
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "down at Ogema and Assiniboia countries, bit off more than he can chew, and I want you to go down there and help h...",
+          "timestamp": 8684.67
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "It was in the Sha - Ogema, Bengough,",
+          "timestamp": 8795.96
         }
       ]
     },
@@ -1011,6 +2181,16 @@
           "transcript": "memoirs/Norm_red",
           "context": "And then in - to get back to the story again, by this time, Dominion Electric were getting pretty big up in the Peace River country.",
           "timestamp": 5682.97
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So this night, Dubois phoned me from Peace River.",
+          "timestamp": 10151.32
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Oh yeah, the company had moved up into the Peace River country pretty strong by that time, and the superintendent spending a lot of time up there.",
+          "timestamp": 6110.48
         }
       ]
     },
@@ -1031,6 +2211,21 @@
           "transcript": "memoirs/Norm_red",
           "context": "He said, \"You'd better go to into Portal and report to",
           "timestamp": 3823.69
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So he took me into a Portal and that night and the next morning I went down to see the immigration chief and told him the story...",
+          "timestamp": 3832.57
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...ught the train and got into Kenmare at about 2 o'clock in the morning after a big layover at that - Portal, at the international border.",
+          "timestamp": 1307.89
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "to Portal, and then the east and west of that, we had about 150 miles of line, and we were called The Flying...",
+          "timestamp": 3777.79
         }
       ]
     },
@@ -1051,6 +2246,16 @@
           "transcript": "memoirs/Norm_red",
           "context": "I got some work building a line from Weyburn to Radville.",
           "timestamp": 6419.81
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then I got a... the first job was from Weyburn to Radville,",
+          "timestamp": 7123.79
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "1947, my first job was building a line from Weyburn to Radville and picking up the village of Trossachs on the way.",
+          "timestamp": 7618.87
         }
       ]
     },
@@ -1068,9 +2273,284 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "LHA_Sr.Hilary",
+          "context": "A member of the Regina Chamber of Commerce for 22 years.",
+          "timestamp": 447.02
+        },
+        {
+          "transcript": "christmas1986",
+          "context": "where they have the big, heavy crop, particularly in the Regina area here,",
+          "timestamp": 597.31
+        },
+        {
+          "transcript": "christmas1986",
+          "context": "And at six o'clock, the Regina news comes on.",
+          "timestamp": 1018.52
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I had a phone call in a couple of days to come up to Regina.",
+          "timestamp": 778.26
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "You worked here in Regina?",
+          "timestamp": 786.07
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I sent a bill in for the wages, and oh, the guy in Regina, he just raised a dick, and what authority did I have to hire a man?",
+          "timestamp": 995.09
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "guy in Regina that he better pull on his horns or I'll tell him to stick his job.",
+          "timestamp": 1045.96
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Who's in Regina?",
+          "timestamp": 1051.92
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "And the next spring, now we're into 32, and I come back up to Regina.",
+          "timestamp": 1148.96
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "well we'd have got power no matter if there's a liberal or conservative but what government was in regina uh when when they took over the ccf had just come in 1942 I think when they come in no but when who...",
+          "timestamp": 3271.11
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "uneducated way in Regina here.",
+          "timestamp": 3407.11
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Do you remember the big truck that came through Regina?",
+          "timestamp": 4128.49
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "So I came to Regina -",
           "timestamp": 4450.86
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...elephone operators kept very close track of what was going on when a long distance come for me from Regina.",
+          "timestamp": 4502.6
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I phoned back to Regina to this number, and here's the superintendent up in Regina here.",
+          "timestamp": 4533.37
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And then one day I got a letter from the superintendent eating me out as the superintendent in Regina, eating me out for",
+          "timestamp": 4652.26
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "when I came to Regina, I stopped in the head off at the head superintendent.",
+          "timestamp": 4719.62
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So about in May, I wander up to Regina here,",
+          "timestamp": 4819.99
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Well, I went and looked the jobs over, came into Regina, ...",
+          "timestamp": 5784.86
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So then I - oh yeah, that fall, that's right, there's some army trucks came for sale up in Regina.",
+          "timestamp": 6026.09
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "The Fall of '45, when I finished the airport, I came into Regina here and did some work.",
+          "timestamp": 6066.41
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "They were starting up a new building development, the first one in Regina for 20 years, I guess, and this was for returned soldiers.",
+          "timestamp": 6071.05
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Besides doing many odd jobs, I built the lines out of Regina down to the new radio stations six, eight miles south.",
+          "timestamp": 6331.42
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So I decided to move to Regina.",
+          "timestamp": 6604.91
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Phyllis, and I come up to Regina, and we looked around for a couple of days and found a house",
+          "timestamp": 6607.31
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...e come up about - maybe about the end of march or the middle of april sometime in there we moved to Regina. Now, I didn't have any work for '48 we had to tender. Well I still had a little work to finish up...",
+          "timestamp": 6614.16
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Phyllis was in Regina here",
+          "timestamp": 6871.97
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And at that, he took me down with him, showed me, oh, it was about 100 miles out of Regina, showed me what he wanted done.",
+          "timestamp": 7250.9
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "another project came up just outside of Regina, and a bunch of farms just south of Regina here, and we went out and did those.",
+          "timestamp": 7309.34
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Yeah, when the dust was settled in '58, well, I had my men, most of them were in Regina here.",
+          "timestamp": 7814.48
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And they jump in a truck, and they come into my house in Regina here.",
+          "timestamp": 9892.87
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...I've had them come to me when they had trouble, or not trouble, but they had a customer just out of Regina here that had to have service just at Christmas time.",
+          "timestamp": 11513.31
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Set all the poles and built all the lines in all the suburbs in Regina.",
+          "timestamp": 11661.81
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I made a lot of friends in the business, a lot of business friends in Regina.",
+          "timestamp": 12202.56
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...ellow from Yorkton and Art would do the job, and they're bidding on stringing a second circuit from Regina to Estevan.",
+          "timestamp": 12767.87
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "In the winter of '22, I came to Regina and took a telephone course in order to be able to maintain the telephones at home, the local rural...",
+          "timestamp": 1603.45
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So I come up to Regina and",
+          "timestamp": 4865.65
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "headquarters in Regina were riding me about these tools and I said, \"I'm going to tell him to stick the job up his rear en...",
+          "timestamp": 5044.09
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So I left and when I came through Regina",
+          "timestamp": 5123.63
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Drove in to Regina, and I came in here and picked it up, and I had a truck to work with.",
+          "timestamp": 5561.75
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "in Regina here, and they they called it off.",
+          "timestamp": 6090.73
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Come up to Regina, got a set of tender forms, and I sat down in a room -",
+          "timestamp": 6203.63
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So the first thing to do was to come to Regina and tender on work here.",
+          "timestamp": 6388.95
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then I got word that there was some military trucks being sold in Regina.",
+          "timestamp": 6752.93
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then a little later, I found out they had another two-ton truck in Regina that the military was selling off.",
+          "timestamp": 6847.52
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "north suburb, what they called North Regina, everything north of the CN tracks.",
+          "timestamp": 7042.98
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "fellows from Regina here that were experienced hole diggers.",
+          "timestamp": 7293.41
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "and headed for Regina.",
+          "timestamp": 8100.31
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Payday came, and I said, \"I'm not paying you guys until payday, and that - we'd be in Regina on that day.\"",
+          "timestamp": 8118.73
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And that was the start of a 10-year stint with the city of Regina.",
+          "timestamp": 8335.12
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Well, then when we finished that, went outside of Regina here, just south of Regina, and did a bunch of, of farms,",
+          "timestamp": 8760.41
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "maybe about 15 or 20 farms, just south of Regina.",
+          "timestamp": 8768.64
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "We built all the pole lines in Regina from Campion College south, and every suburb that went in after that.",
+          "timestamp": 8932.12
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "I was building a bunch of farms and 60 miles of high line north of Regina starting up at Bulyea, and running all the way, well 60 miles north and doing all the towns",
+          "timestamp": 9187.27
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Oh yes, the potash mine out here at Kalium, just out of Regina.",
+          "timestamp": 9351.37
+        },
+        {
+          "transcript": "tibbits_cd",
+          "context": "Recording over something so I just want to tell everyone that um I'm having fun in Regina and then",
+          "timestamp": 657.49
         }
       ]
     },
@@ -1088,9 +2568,109 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "glynn_interview",
+          "context": "In four months in Saskatoon, the superintendent asked me if I wanted to go out to Rosetown.",
+          "timestamp": 942.78
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "And I said, \"Why Rosetown?\"",
+          "timestamp": 948.04
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "So I was transferred to Rosetown.",
+          "timestamp": 955.2
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "So I went to Rosetown and took over there and enjoyed the work.",
+          "timestamp": 968.07
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "When I was at Rosetown in 1937, that's on the main road north from Swift Current, that people were migrating up there.",
+          "timestamp": 1750.39
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "class one district at Rosetown with a university graduate.",
           "timestamp": 4601.47
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So my superintendent said to me one day, how'd you like to be transferred to Rosetown?",
+          "timestamp": 4611.88
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Well, I took over Rosetown and more or less took charge of things.",
+          "timestamp": 4630.03
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And after that, I got a job up at, a big job up at the Rosetown area.",
+          "timestamp": 6445.76
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I had to leave my crew at Rosetown and go over and start up another crew out of the blue at Yorkton.",
+          "timestamp": 6481.31
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "However, I let Art Miller and the crew back at Rosetown, and I stuck with this job up there.",
+          "timestamp": 6538.91
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...ow, I didn't have any work for '48 we had to tender. Well I still had a little work to finish up at Rosetown and a little",
+          "timestamp": 6614.16
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And that wound her up to '50 - '51. We went up north in the Rosetown area and we had a big job up there, a lot of three-phase transmission line and about probably",
+          "timestamp": 7320.83
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then about in June of that year, the superintendent asked me if I would go to Rosetown.",
+          "timestamp": 4939.74
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...o difficulties, a good lineman, but he couldn't keep his bookwork straight, so I was transferred to Rosetown,",
+          "timestamp": 4945.57
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "I was in Rosetown, and there I had eight towns to look after.",
+          "timestamp": 4986.83
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "They went out in two different directions out of Rosetown.",
+          "timestamp": 4992.3
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...were going and I suppose independent as hell. I had money in the bank I'd bought a brand new car in Rosetown - a brand new Ford Coach for nine-hundred and -",
+          "timestamp": 5055.18
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...of Weyburn, and from there I got a job building a line from Dinsmore to Eston and up from Elrose to Rosetown.",
+          "timestamp": 7635.03
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Rosetown - Elrose pretty well underway, and Art Miller was able to take over it.",
+          "timestamp": 7835.98
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So finally, I went over to Dins - to Rosetown - Elrose, and stayed on that job to push the wire stringing.",
+          "timestamp": 7935.97
         }
       ]
     },
@@ -1108,9 +2688,119 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "glynn_interview",
+          "context": "No, they sent me to Saskatoon.",
+          "timestamp": 791.18
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "How long did I stay in Saskatoon?",
+          "timestamp": 828.5
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Yes, when I was hired in Saskatoon, they had another fellow that was a practical man but had university education.",
+          "timestamp": 830.06
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "which was Saskatoon.",
+          "timestamp": 844.98
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "When I went into Saskatoon, I was working directly under the superintendent.",
+          "timestamp": 848.7
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "So I had three areas to look after going out of Saskatoon.",
+          "timestamp": 879.98
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I left Saskatoon.",
+          "timestamp": 941.68
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "In four months in Saskatoon, the superintendent asked me if I wanted to go out to Rosetown.",
+          "timestamp": 942.78
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "So I told the superintendent in Saskatoon, I said, \"You tell that",
+          "timestamp": 1040.55
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "You talk about unemployment, I'll get back to that when I was in Saskatoon in the spring of 31.",
+          "timestamp": 3092.33
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "service work and I was posted to Saskatoon which was a Class B district my wages were $155 a month. I had my own car and I used my car on the job and I got 10 cents a mile for driving for using my own vehicle.",
           "timestamp": 4554.55
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "It's up by Saskatoon.",
+          "timestamp": 5050.54
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...e distribution system in there, that was in December and January, and then in February I went up to Saskatoon, they had the same thing up there.",
+          "timestamp": 6079.5
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "There were three of them, an outfit from Saskatoon, and Art, and this other fellow from Yorkton were going to bid on it jointly.",
+          "timestamp": 12680.08
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So I go up there and I walked in the door. The - the secretary of the outfit, the bookkeeper from Saskatoon.",
+          "timestamp": 12707.89
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...ay it back and see if I can find that other part, but I think I got some of that tape from ... from Saskatoon.",
+          "timestamp": 3858.93
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "possibly spent a month in Davidson, and then on up to Biggar, east of Saskatoon, where we were doing a complete rebuild of the distribution system in a town of about 2,500 people,...",
+          "timestamp": 4673.52
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...ere all bare from Estevan up here, and on the 21st day of January, if I recall correctly, I went to Saskatoon, and there was no snow on the highway on the way to Saskatoon.",
+          "timestamp": 4888.29
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And when I hit Saskatoon, I was put in charge of this district there.",
+          "timestamp": 4903.46
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Eleven towns running out - lines running out three different directions from Saskatoon.",
+          "timestamp": 4908.37
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So I was - told the superintendent in Saskatoon,",
+          "timestamp": 5036.59
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then after that we went to Saskatoon and did a similar job.",
+          "timestamp": 7064.46
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "But somehow, well, in Saskatoon it was in sandy ground, you couldn't dig, so I had to put fire, burn the frost out.",
+          "timestamp": 7081.65
         }
       ]
     },
@@ -1128,9 +2818,59 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "glynn_interview",
+          "context": "I was out west between Shaunavon and Assiniboia in 1935 and 1936, and there it was terrible.",
+          "timestamp": 1739.96
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I can remember working in Shaunavon in 1936.",
+          "timestamp": 2740.53
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "And we were overhauling the power line that runs from Shaunavon to Assiniboia.",
+          "timestamp": 2747.72
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "When I finished that, I went down to the town of Eastend, which had another small decent plot, and down by Shaunavon.",
           "timestamp": 5080.39
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I overhauled the power line from Shaunavon to Assiniboia for 120 miles.",
+          "timestamp": 5172.16
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And in the fall of '38, I was sent out to Shaunavon and Gravelbourg to calibrate meters.",
+          "timestamp": 5621.25
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...outside of Yorkton. Then moved down to Shaunavon -",
+          "timestamp": 7114.68
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "We built the piece out of Yorkton and then down to Shaunavon and then back up where?",
+          "timestamp": 7209.6
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And then down in the Ogema - Shaunavon area, yeah, Fife Lake, and in that area we did a bunch of towns there in '50, '51, we were in the O...",
+          "timestamp": 7343.27
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I went out and worked for them on the - overhauled the power line between Shaunavon and Assiniboia.",
+          "timestamp": 5593.65
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "From there down to Shaunavon to Eastend, that was 30 miles.",
+          "timestamp": 8655.05
         }
       ]
     },
@@ -1151,6 +2891,16 @@
           "transcript": "memoirs/Norm_red",
           "context": "I found out there was a place in St. Louis, Missouri",
           "timestamp": 1146.0
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I found a place in St. Louis that was paying exceptionally good prices.",
+          "timestamp": 659.11
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I found that I was getting pretty near twice as much by shipping to St. Louis.",
+          "timestamp": 675.25
         }
       ]
     },
@@ -1171,6 +2921,31 @@
           "transcript": "memoirs/Norm_red",
           "context": "Then a little later, they bid on a line from Stoughton to Estevan.",
           "timestamp": 5930.47
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I built that big line to Stoughton in '46.",
+          "timestamp": 6327.31
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And at the same time bid on a big heavy, high voltage line from Estevan to Stoughton, and I get that too.",
+          "timestamp": 6251.57
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...sion-type line, 72,000 volts, which was something new in Saskatchewan at that time, from Estevan to Stoughton, which was a distance of 40 miles.",
+          "timestamp": 6407.73
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I worked that crew up - by the time I'd finished the Stoughton job,",
+          "timestamp": 7374.32
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Well, anyway, that wound up the Stoughton job, and I finished that, as I remember, right on December the 9th, and then we folded up for the w...",
+          "timestamp": 7498.15
         }
       ]
     },
@@ -1188,9 +2963,64 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "glynn_interview",
+          "context": "When I was at Rosetown in 1937, that's on the main road north from Swift Current, that people were migrating up there.",
+          "timestamp": 1750.39
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Out of the dry country down south of Swift Current going north.",
+          "timestamp": 1762.5
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "I did an awful lot of work south of Swift Current in the Mennonite areas.",
           "timestamp": 6694.04
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "'65, I got a real good job at Swift Current.",
+          "timestamp": 7933.62
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And by God, it rained and rained and rained that summer down in Swift Current, where it never rains.",
+          "timestamp": 7950.39
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...n those days, I'm talking back in 1946, up to 1950, I had a bunch go on strike up - way up north of Swift Current.",
+          "timestamp": 9771.34
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Then in about two years later, I - Bill Zaharitzuk was out at Swift Current with a small crew, and he had",
+          "timestamp": 9863.44
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Another time, they were doing a job at Swift Current.",
+          "timestamp": 12819.61
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "It was a little town of 350 people out west of Swift Current.",
+          "timestamp": 5301.91
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And finally, they came along and they had a job out north of Swift Current, system to put there.",
+          "timestamp": 8226.73
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then come back down and worked around Swift Current.",
+          "timestamp": 8258.31
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "We got a big project out at Swift Current.",
+          "timestamp": 9388.43
         }
       ]
     },
@@ -1208,9 +3038,99 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "LHA_Sr.Hilary",
+          "context": "...n electric power company in estevan saskatchewan and the next electric company I worked for was the tompkins electric in saskatchewan where I operated the power plant and",
+          "timestamp": 274.89
+        },
+        {
+          "transcript": "LHA_Sr.Hilary",
+          "context": "And my first venture into business was to become the president and general manager of Tompkins Electric, which was just a small electric plant, diesel plant.",
+          "timestamp": 338.05
+        },
+        {
+          "transcript": "LHA_Sr.Hilary",
+          "context": "And I might mention that I was the president of Tompkins Electric, the president of Achen Minerals, the founding president of RAL Minerals Limited,",
+          "timestamp": 376.3
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "small town of Tompkins to build a power line in the fall of 33.",
+          "timestamp": 3157.49
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "I had enough work to carry me on for a month, and then I went back up to Tompkins, where this friend of mine was running the power plant, and...",
           "timestamp": 5123.32
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So back to Tompkins I go again.",
+          "timestamp": 5220.92
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...ey to swing the deal. I traded my car in. I borrowed 600 from my mother and here I was president of Tompkins Electric. Well, I was without transportation so in Dominion Electric my old superintendent saw that...",
+          "timestamp": 5263.47
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...ted that for about a year and a half and then the company saw fit to build a line from Gull Lake to Tompkins and shut that down. Now we're into 1930 we're into 1930 - yeah I operated the plant '35, '36 into t...",
+          "timestamp": 5343.64
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Everything was closed down in Tompkins.",
+          "timestamp": 5510.35
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then they were starting up a power plant out at Tompkins.",
+          "timestamp": 5283.79
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And he was dissatisfied there, so he went out to start up this plant at Tompkins.",
+          "timestamp": 5297.14
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So I packed up and went out to Tompkins and built the distribution system out there, and then again went into wiring for the winter.",
+          "timestamp": 5309.64
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And the fall of '32, I went to Tompkins.",
+          "timestamp": 5338.86
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Fall of '33, I landed out at Tompkins",
+          "timestamp": 5364.61
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Well, there wasn't much to do around Gull Lake, so there was some wiring to be done in Tompkins, and I moved back to Tompkins.",
+          "timestamp": 5441.97
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So then I went back to Tompkins, and between Mac and I, we had nothing much to do but run the power plant and a little wiring.",
+          "timestamp": 5616.74
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then in '36, they decided they were going to run a power line from Gull Lake to Tompkins, and abandoned this little power plant.",
+          "timestamp": 5725.58
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "This same man Dyer, when he left Tompkins, he went up to Winnipegosis and organized the starting of a power plant in Winnipegosis.",
+          "timestamp": 5810.03
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "..., so we packed up and went back to- oh yes, I was promised a job when they closed the plant down in Tompkins, that I would have a job at Estevan;",
+          "timestamp": 5869.13
         }
       ]
     },
@@ -1231,6 +3151,11 @@
           "transcript": "memoirs/Norm_red",
           "context": "I did a job from Vanguard to Aneroid, rebuilt a substation in there.",
           "timestamp": 6675.43
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Did a bunch of Mennonite settlements there, and then down and put a line from Vanguard to Aneroid.",
+          "timestamp": 8264.92
         }
       ]
     },
@@ -1248,9 +3173,89 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "christmas1986",
+          "context": "The guy that delivers mail from here down to Weyburn",
+          "timestamp": 826.8
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "In the, you can say, Weyburn - Estevan area.",
+          "timestamp": 44.68
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "mother was sick and whatever she would come with me and go to the doctor in Weyburn so we took her to Weyburn and doctor sent her away on a holiday that's all she needed to get away a...",
+          "timestamp": 392.83
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I never saw anything organized there really, or Weyburn.",
+          "timestamp": 2919.56
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "in Weyburn.",
           "timestamp": 1002.19
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "He went to Weyburn",
+          "timestamp": 1006.19
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "By that time, Mother and Bud had their fill of living in the city, living in Weyburn.",
+          "timestamp": 4183.46
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I got some work building a line from Weyburn to Radville.",
+          "timestamp": 6419.81
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "When we finish that, we did some farms around Weyburn.",
+          "timestamp": 6430.53
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...re driving by in the bobsleigh from the Orstead place, they were going down to catch the train into Weyburn.",
+          "timestamp": 807.61
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "They were going into Weyburn to get married.",
+          "timestamp": 814.16
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And when I got back to the farm, went up to Weyburn to see Mother, and by this time she had her fill of living in the city, she and Bud wanted to come...",
+          "timestamp": 4162.22
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I was on the train on the way up to Weyburn when the general manager of the company was on the train.",
+          "timestamp": 4455.7
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then I got a... the first job was from Weyburn to Radville,",
+          "timestamp": 7123.79
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "When I got that job finished, they had a bunch of farms around Weyburn, I did those.",
+          "timestamp": 7144.36
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "1947, my first job was building a line from Weyburn to Radville and picking up the village of Trossachs on the way.",
+          "timestamp": 7618.87
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "After we finished that job, we did about twenty farms just north of Weyburn, and from there I got a job building a line from Dinsmore to Eston and up from Elrose to Rosetown.",
+          "timestamp": 7635.03
         }
       ]
     },
@@ -1308,9 +3313,34 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "christmas1986",
+          "context": "and one in Winnipeg,",
+          "timestamp": 1411.59
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "well they they said the guy that come in there this uh annie buller she's a woman from winnipeg and what was the other fellow's name the ringleader, they said, \"He's a communist but he was making...",
+          "timestamp": 4233.7
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "I had a little box full of material left, and I sent it back to the wholesaler at Winnipeg, and they paid me back 75% on the dollar, what it was worth.",
           "timestamp": 5561.42
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "One day I heard there was a boring machine in Winnipeg and I jumped on the train and I went in and I bought a brand new boring machine.",
+          "timestamp": 6381.12
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Well, I went to Winnipeg.",
+          "timestamp": 7429.64
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "I went to Winnipeg, and I went to Ashdown Hardware, and I asked the guy, \"Have you got any wooden hay pulleys?",
+          "timestamp": 7441.41
         }
       ]
     },
@@ -1328,9 +3358,99 @@
       "needs_review": false,
       "mentions": [
         {
+          "transcript": "christmas1986",
+          "context": "I turn it on for the news from Yorkton.",
+          "timestamp": 1012.26
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "And I built up a crew and got them going, and then the power come along, they want me to go up to Yorkton area.",
           "timestamp": 6463.12
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I had to leave my crew at Rosetown and go over and start up another crew out of the blue at Yorkton.",
+          "timestamp": 6481.31
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "to finish up at Yorkton from the fall of '47.",
+          "timestamp": 6641.57
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "near Yorkton, up in the northeast again.",
+          "timestamp": 6965.11
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "that would extend right through to Yorkton.",
+          "timestamp": 7049.99
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "We got the piece from south of Melville up to Yorkton.",
+          "timestamp": 7052.07
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...outside of Yorkton. Then moved down to Shaunavon -",
+          "timestamp": 7114.68
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "We built the piece out of Yorkton and then down to Shaunavon and then back up where?",
+          "timestamp": 7209.6
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "When he joined up with this fellow from Yorkton, and they were taking on some big jobs.",
+          "timestamp": 12642.77
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "There were three of them, an outfit from Saskatoon, and Art, and this other fellow from Yorkton were going to bid on it jointly.",
+          "timestamp": 12680.08
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "This fellow from Yorkton and Art would do the job, and they're bidding on stringing a second circuit from Regina to Estevan.",
+          "timestamp": 12767.87
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And I walked in and this Glen Thorpe guy from Yorkton said,",
+          "timestamp": 12788.77
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "that's up near Melville, up to Yorkton.",
+          "timestamp": 8420.9
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "to do that line up from Yorkton to Melville and down to Killaly, another 18 miles.",
+          "timestamp": 8450.06
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Finished the wire stringing in some substations in Yorkton and Melville.",
+          "timestamp": 8511.8
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And in '50, I started out - built a line from Yorkton to Theodore.",
+          "timestamp": 8570.26
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Yeah, after we finished up that line, then I got a job 30 miles from Yorkton to Canora.",
+          "timestamp": 8587.04
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then in '50, I started out. Built that line from Yorkton to Theodore and from there, Lampman to Bienfait, that was another 18 miles.",
+          "timestamp": 8637.5
         }
       ]
     },
@@ -1351,6 +3471,26 @@
           "transcript": "christmas1986",
           "context": "and Janey, and Calgary, I presume.",
           "timestamp": 45.88
+        },
+        {
+          "transcript": "christmas1986",
+          "context": "No, Calgary, they'll be down here.",
+          "timestamp": 50.06
+        },
+        {
+          "transcript": "christmas1986",
+          "context": "a policeman in Calgary that had robbed 20,",
+          "timestamp": 375.4
+        },
+        {
+          "transcript": "christmas1986",
+          "context": "had staged 20 bank holdups in Calgary",
+          "timestamp": 380.26
+        },
+        {
+          "transcript": "tibbits_cd",
+          "context": "When you were on your way home Sunday, we were getting reports that the storm was coming into Calgary, and we wondered if you were going to run into it.",
+          "timestamp": 41.92
         }
       ]
     },
@@ -1375,66 +3515,6 @@
       ]
     },
     {
-      "name": "Langley",
-      "geonameid": 6049429,
-      "latitude": 49.10107,
-      "longitude": -122.65883,
-      "country_code": "CA",
-      "admin1_name": "British Columbia",
-      "population": 132603,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 1300.8039050171365,
-      "confidence": "low",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "christmas1986",
-          "context": "Langley, B.C.",
-          "timestamp": 1234.82
-        }
-      ]
-    },
-    {
-      "name": "Miami",
-      "geonameid": 6072606,
-      "latitude": 49.3711,
-      "longitude": -98.24466,
-      "country_code": "CA",
-      "admin1_name": "Manitoba",
-      "population": 464,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 471.66603105561774,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "christmas1986",
-          "context": "last Sunday. But the most impossible thing happened. I was up there the other night in Miami. It",
-          "timestamp": 2121.03
-        }
-      ]
-    },
-    {
-      "name": "Garnet",
-      "geonameid": 5351654,
-      "latitude": 33.927,
-      "longitude": -116.477,
-      "country_code": "US",
-      "admin1_name": "California",
-      "population": 7543,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 2074.512336450386,
-      "confidence": "low",
-      "needs_review": true,
-      "mentions": [
-        {
-          "transcript": "christmas1986",
-          "context": "for Palm Springs",
-          "timestamp": 1246.16
-        }
-      ]
-    },
-    {
       "name": "Raleigh",
       "geonameid": 4247770,
       "latitude": 37.82699,
@@ -1455,46 +3535,6 @@
       ]
     },
     {
-      "name": "Toronto",
-      "geonameid": 6167865,
-      "latitude": 43.70643,
-      "longitude": -79.39864,
-      "country_code": "CA",
-      "admin1_name": "Ontario",
-      "population": 2794356,
-      "feature_code": "PPLA",
-      "distance_from_regina_km": 2039.2448582421966,
-      "confidence": "low",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "christmas1986",
-          "context": "And the Phyllis has the parcels ready to ship -- Christmas parcels ready to ship to Toronto,",
-          "timestamp": 34.77
-        }
-      ]
-    },
-    {
-      "name": "Vancouver",
-      "geonameid": 6173331,
-      "latitude": 49.24966,
-      "longitude": -123.11934,
-      "country_code": "CA",
-      "admin1_name": "British Columbia",
-      "population": 662248,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 1329.6634696352282,
-      "confidence": "low",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "christmas1986",
-          "context": "The first minister's meeting in Vancouver,",
-          "timestamp": 418.06
-        }
-      ]
-    },
-    {
       "name": "Bienfait",
       "geonameid": 5899466,
       "latitude": 49.143,
@@ -1511,6 +3551,11 @@
           "transcript": "glynn_interview",
           "context": "Like, again, I have to talk about Estevan and Bienfait, the coal mines where I knew every home.",
           "timestamp": 1553.48
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then in '50, I started out. Built that line from Yorkton to Theodore and from there, Lampman to Bienfait, that was another 18 miles.",
+          "timestamp": 8637.5
         }
       ]
     },
@@ -1571,6 +3616,16 @@
           "transcript": "glynn_interview",
           "context": "They came in from Maple Creek.",
           "timestamp": 2856.24
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "From Maple Creek to Cypress Park, and then went north of town to Mendham and Leader up in there, and we were buildin...",
+          "timestamp": 8246.39
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "All the way from, you can say, from Maple Creek to the west to -",
+          "timestamp": 8954.96
         }
       ]
     },
@@ -1791,6 +3846,11 @@
           "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "And in '49, I went to - oh yeah, I got the piece of high voltage line, the 72,000 from Killaly,",
           "timestamp": 8409.65
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "to do that line up from Yorkton to Melville and down to Killaly, another 18 miles.",
+          "timestamp": 8450.06
         }
       ]
     },
@@ -1851,46 +3911,11 @@
           "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "Well, when this was over, while we were sitting there talking, and I said, \"I see by the Leader Post that they're advertising for line construction for the Power Commission.\"",
           "timestamp": 6153.43
-        }
-      ]
-    },
-    {
-      "name": "Springvale",
-      "geonameid": 4279887,
-      "latitude": 37.51196,
-      "longitude": -98.94621,
-      "country_code": "US",
-      "admin1_name": "Kansas",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 1506.9111445556348,
-      "confidence": "low",
-      "needs_review": false,
-      "mentions": [
+        },
         {
           "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "got my car patched up enough that I was able to drive down to - to this town, Lola was the name of the town, see if I can get a job on this power line.",
-          "timestamp": 3317.38
-        }
-      ]
-    },
-    {
-      "name": "London",
-      "geonameid": 4119617,
-      "latitude": 35.32897,
-      "longitude": -93.25296,
-      "country_code": "US",
-      "admin1_name": "Arkansas",
-      "population": 1046,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 1914.0298499804119,
-      "confidence": "low",
-      "needs_review": true,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "So from there, after spending ten days there, she's going on to London, England to visit Norm.",
-          "timestamp": 2635.42
+          "context": "From Maple Creek to Cypress Park, and then went north of town to Mendham and Leader up in there, and we were building in a bunch of farms and whatnot.",
+          "timestamp": 8246.39
         }
       ]
     },
@@ -1951,26 +3976,6 @@
           "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "And after that, we had 200 farms to go down at Oxbow.",
           "timestamp": 8281.51
-        }
-      ]
-    },
-    {
-      "name": "Pacific",
-      "geonameid": 5806017,
-      "latitude": 47.26455,
-      "longitude": -122.25012,
-      "country_code": "US",
-      "admin1_name": "Washington",
-      "population": 7123,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 1333.9734199265597,
-      "confidence": "low",
-      "needs_review": true,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "We worked on the main Northern Pacific line there.",
-          "timestamp": 3378.3
         }
       ]
     },
@@ -2111,6 +4116,16 @@
           "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "That was the last town, the - Sturgis.",
           "timestamp": 8079.83
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And Durnan had told me they had an old and broken down plant in Sturgis.",
+          "timestamp": 8082.99
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "He said, \"You've got to get Sturgis going before you come back in for Christmas.\"",
+          "timestamp": 8086.6
         }
       ]
     },
@@ -2131,6 +4146,11 @@
           "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "And in '50, I started out - built a line from Yorkton to Theodore.",
           "timestamp": 8570.26
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then in '50, I started out. Built that line from Yorkton to Theodore and from there, Lampman to Bienfait, that was another 18 miles.",
+          "timestamp": 8637.5
         }
       ]
     },
@@ -2211,66 +4231,6 @@
           "transcript": "memoirs/TDK_D60_edited_through_air",
           "context": "So we moved across to a town by the name of Winnebago, Nebraska, just south of Sioux City, Iowa.",
           "timestamp": 2355.35
-        }
-      ]
-    },
-    {
-      "name": "Yorktown",
-      "geonameid": 4562444,
-      "latitude": 39.97345,
-      "longitude": -75.15296,
-      "country_code": "US",
-      "admin1_name": "Pennsylvania",
-      "population": 5909,
-      "feature_code": "PPLX",
-      "distance_from_regina_km": 2562.1476483730476,
-      "confidence": "low",
-      "needs_review": true,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "to do that line up from Yorktown to Melville and down to Killaly, another 18 miles.",
-          "timestamp": 8450.06
-        }
-      ]
-    },
-    {
-      "name": "Finland",
-      "geonameid": 5952836,
-      "latitude": 48.84991,
-      "longitude": -93.91704,
-      "country_code": "CA",
-      "admin1_name": "Ontario",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 789.9014833698296,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "tibbits_cd",
-          "context": "And they began calling for a peninsula, which is up near Finland.",
-          "timestamp": 1785.65
-        }
-      ]
-    },
-    {
-      "name": "San Francisco",
-      "geonameid": 5391959,
-      "latitude": 37.77493,
-      "longitude": -122.41942,
-      "country_code": "US",
-      "admin1_name": "California",
-      "population": 827526,
-      "feature_code": "PPLA2",
-      "distance_from_regina_km": 1991.2839651589848,
-      "confidence": "low",
-      "needs_review": true,
-      "mentions": [
-        {
-          "transcript": "tibbits_cd",
-          "context": "Used to be in with some San Francisco band, but now mostly you feel that thing.",
-          "timestamp": 2158.65
         }
       ]
     }

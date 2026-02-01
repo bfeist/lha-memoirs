@@ -120,16 +120,6 @@
   box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
 }
 
-.featurePrimary {
-  /* Make this take ~75% of the features row */
-  flex: 1;
-}
-
-.featureSecondary {
-  /* Make this take ~25% of the features row */
-  flex: 0 0 33%;
-}
-
 .featureIcon {
   font-size: 1.4rem;
   color: #d4af37;

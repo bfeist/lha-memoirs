@@ -1,0 +1,26 @@
+/* Place link styling - clickable place names */
+.placeLink {
+  display: inline;
+  padding: 0;
+  color: #d4af37;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-color: rgb(212 175 55 / 60%);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font: inherit;
+  transition:
+    text-decoration-color 0.2s ease,
+    color 0.2s ease;
+  border-radius: 2px;
+}
+
+.placeLink:hover,
+.placeLink:focus {
+  color: #7eb8ff;
+  text-decoration-color: rgb(126 184 255 / 100%);
+  outline: none;
+}

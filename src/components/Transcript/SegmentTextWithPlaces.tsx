@@ -1,22 +1,22 @@
 import { memo, useMemo } from "react";
-import { PlaceTooltip } from "./PlaceTooltip";
 import { parseTextWithPlaces } from "../../hooks/usePlaces";
+import styles from "./SegmentTextWithPlaces.module.css";
 
 interface SegmentTextWithPlacesProps {
   text: string;
   placesByName: Map<string, Place>;
   placePattern: RegExp | null;
-  currentTranscript?: string;
+  onPlaceClick?: (place: Place) => void;
 }
 
 /**
- * Renders transcript segment text with interactive place name tooltips
+ * Renders transcript segment text with interactive place name links
  */
 export const SegmentTextWithPlaces = memo(function SegmentTextWithPlaces({
   text,
   placesByName,
   placePattern,
-  currentTranscript,
+  onPlaceClick,
 }: SegmentTextWithPlacesProps) {
   const segments = useMemo(
     () => parseTextWithPlaces(text, placesByName, placePattern),
@@ -33,13 +33,18 @@ export const SegmentTextWithPlaces = memo(function SegmentTextWithPlaces({
       {segments.map((segment, idx) => {
         if (segment.type === "place" && segment.place) {
           return (
-            <PlaceTooltip
+            <button
               key={`place-${idx}-${segment.place.geonameid}`}
-              place={segment.place}
-              currentTranscript={currentTranscript}
+              type="button"
+              className={styles.placeLink}
+              onClick={(e) => {
+                e.stopPropagation();
+                onPlaceClick?.(segment.place!);
+              }}
+              title={`View ${segment.place.name} on map`}
             >
               {segment.content}
-            </PlaceTooltip>
+            </button>
           );
         }
         return <span key={`text-${idx}`}>{segment.content}</span>;

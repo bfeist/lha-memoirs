@@ -1,0 +1,80 @@
+.mapContainer {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #2a2a2a;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+/* Apply sepia/historical filter to the map */
+.map canvas {
+  filter: sepia(0.15) contrast(0.95) brightness(0.95);
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background: rgb(42 42 42 / 90%);
+}
+
+.loading span {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  background: #1a1a1a;
+  border-radius: 6px;
+}
+
+/* stylelint-disable selector-pseudo-class-no-unknown, selector-class-pattern */
+
+/* Override MapLibre attribution styling */
+.mapContainer :global(.maplibregl-ctrl-attrib) {
+  padding: 2px 6px;
+  font-size: 10px;
+  background: rgb(255 255 255 / 70%) !important;
+  border-radius: 4px 0 0 0;
+}
+
+.mapContainer :global(.maplibregl-ctrl-attrib a) {
+  color: #555555;
+}
+
+/* Navigation controls styling */
+.mapContainer :global(.maplibregl-ctrl-group) {
+  background: #1a1a1a;
+  border: 1px solid #3a3a3a;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
+}
+
+.mapContainer :global(.maplibregl-ctrl-group button) {
+  width: 32px;
+  height: 32px;
+  background-color: #1a1a1a;
+  border-bottom-color: #3a3a3a;
+}
+
+.mapContainer :global(.maplibregl-ctrl-group button:hover) {
+  background-color: #2a2a2a;
+}
+
+.mapContainer :global(.maplibregl-ctrl-group button + button) {
+  border-top: 1px solid #3a3a3a;
+}
+
+/* Zoom button icons - make them visible on dark background */
+.mapContainer :global(.maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon),
+.mapContainer :global(.maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon) {
+  filter: invert(1) brightness(0.8);
+}
+
+/* stylelint-enable selector-pseudo-class-no-unknown, selector-class-pattern */

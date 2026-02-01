@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faRobot, faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faStar,
+  faRobot,
+  faMapMarkerAlt,
+  faArrowAltCircleRight,
+} from "@fortawesome/free-solid-svg-icons";
 import { getRecordingsByCategory, type RecordingConfig } from "../config/recordings";
 import WhatsNew from "../components/WhatsNew/WhatsNew";
 import LhaGpt from "../components/LhaGpt/LhaGpt";
+import { PlacesMapModal } from "../components/PlacesMap";
 import { useChangelog } from "../hooks/useChangelog";
 import styles from "./Index.module.css";
 import "../global/global.css";
@@ -33,6 +39,7 @@ function RecordingCard({ recording }: { recording: RecordingConfig }): React.Rea
 function Index(): React.ReactElement {
   const [showWhatsNew, setShowWhatsNew] = useState(false);
   const [showLhaGpt, setShowLhaGpt] = useState(false);
+  const [showPlacesMap, setShowPlacesMap] = useState(false);
   const { data: changelog } = useChangelog();
   const recordings = getRecordingsByCategory("recording");
   const memoirs = getRecordingsByCategory("memoir");
@@ -44,6 +51,9 @@ function Index(): React.ReactElement {
 
       {/* LHA-GPT Chat Modal */}
       <LhaGpt isOpen={showLhaGpt} onClose={() => setShowLhaGpt(false)} />
+
+      {/* Places Map Modal */}
+      <PlacesMapModal isOpen={showPlacesMap} onClose={() => setShowPlacesMap(false)} />
 
       {/* Header */}
       <header className={styles.header}>
@@ -76,7 +86,20 @@ function Index(): React.ReactElement {
         {/* Interactive Features Buttons */}
         <section className={styles.featuresSection}>
           <button
-            className={`${styles.featureButton} ${styles.featurePrimary}`}
+            className={`${styles.featureButton}`}
+            onClick={() => setShowPlacesMap(true)}
+            aria-label="Explore Places Map"
+          >
+            <div className={styles.featureContent}>
+              <div className={styles.featureTitleLine}>
+                <FontAwesomeIcon icon={faMapMarkerAlt} className={styles.featureIcon} />
+                <span className={styles.featureTitle}>Travel Map</span>
+              </div>
+              <span className={styles.featureDescription}>Where the stories happened</span>
+            </div>
+          </button>
+          <button
+            className={`${styles.featureButton}`}
             onClick={() => setShowLhaGpt(true)}
             aria-label="Chat with LHA-GPT"
           >
@@ -85,11 +108,11 @@ function Index(): React.ReactElement {
                 <FontAwesomeIcon icon={faRobot} className={styles.featureIcon} />
                 <span className={styles.featureTitle}>LHA-GPT</span>
               </div>
-              <span className={styles.featureDescription}>Ask questions about the memoirs</span>
+              <span className={styles.featureDescription}>Ask questions</span>
             </div>
           </button>
           <button
-            className={`${styles.featureButton} ${styles.featureSecondary}`}
+            className={`${styles.featureButton}`}
             onClick={() => setShowWhatsNew(true)}
             aria-label="What's New"
           >
