@@ -20,6 +20,9 @@ This application provides an interactive way to explore the recordings:
 - **Interactive Transcripts:** Read along with time-synced transcripts.
 - **Search:** Find specific stories and topics within the hours of recordings.
 - **Chapters & Stories:** Chapter markers of individual anecdotes.
+- **LHA-GPT:** Chat with a RAG-powered AI assistant to ask questions about Lindy's life and stories.
+- **Travel Map:** Explore geographic context with places Lindy mentions and visualize his journey.
+- **Alternate Tellings:** Discover how Lindy recounted the same stories differently across different memoirs.
 
 ## Running the Project
 

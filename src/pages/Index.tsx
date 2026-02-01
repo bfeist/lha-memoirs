@@ -1,12 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faStar,
-  faRobot,
-  faMapMarkerAlt,
-  faArrowAltCircleRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faRobot, faMapMarkerAlt, faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { getRecordingsByCategory, type RecordingConfig } from "../config/recordings";
 import WhatsNew from "../components/WhatsNew/WhatsNew";
 import LhaGpt from "../components/LhaGpt/LhaGpt";
@@ -15,6 +10,7 @@ import TranscriptSearch from "../components/TranscriptSearch/TranscriptSearch";
 import { useChangelog } from "../hooks/useChangelog";
 import styles from "./Index.module.css";
 import "../global/global.css";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 function RecordingCard({ recording }: { recording: RecordingConfig }): React.ReactElement {
   return (
@@ -101,7 +97,7 @@ function Index(): React.ReactElement {
                 <FontAwesomeIcon icon={faMapMarkerAlt} className={styles.featureIcon} />
                 <span className={styles.featureTitle}>Travel Map</span>
               </div>
-              <span className={styles.featureDescription}>Where the stories happened</span>
+              <span className={styles.featureDescription}>Places Lindy Mentions</span>
             </div>
           </button>
           <button
@@ -124,7 +120,7 @@ function Index(): React.ReactElement {
           >
             <div className={styles.featureContent}>
               <div className={styles.featureTitleLine}>
-                <FontAwesomeIcon icon={faStar} className={styles.featureIcon} />
+                <FontAwesomeIcon icon={faGithub} className={styles.featureIcon} />
                 <span className={styles.featureTitle}>What&apos;s New</span>
               </div>
               <span className={styles.featureDescription}>
