@@ -86,7 +86,6 @@ function Index(): React.ReactElement {
 
         {/* Search section */}
         <section className={styles.searchSection}>
-          <h2 className={styles.searchSectionTitle}>Search All Transcripts</h2>
           <TranscriptSearch />
         </section>
 

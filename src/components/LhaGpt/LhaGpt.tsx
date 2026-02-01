@@ -410,9 +410,9 @@ const LhaGpt: React.FC<{
                 <p className={styles.promptsLabel}>Try asking:</p>
                 <ul className={styles.promptsList}>
                   <li>&quot;When was Lindy born?&quot;</li>
-                  <li>&quot;What was his brother, Zip like?&quot;</li>
                   <li>&quot;Tell me about moving to Canada&quot;</li>
                   <li>&quot;Tell me about his Model T Ford&quot;</li>
+                  <li>&quot;Did he spend much time in Biggar?&quot;</li>
                 </ul>
               </div>
             </div>

@@ -96,6 +96,7 @@ EMBED_MODEL = os.getenv("EMBED_MODEL", "nomic-embed-text")
 CHAT_MODEL = os.getenv("CHAT_MODEL", "gpt-oss:20b")
 CHROMA_PERSIST_DIR = os.getenv("CHROMA_PERSIST_DIR", "./chroma_db")
 PUBLIC_DIR = Path(__file__).parent.parent.parent / "public" / "recordings"
+PLACES_FILE = Path(__file__).parent.parent.parent / "public" / "places.json"
 
 # Security Configuration
 MAX_QUERY_LENGTH = 500
@@ -131,6 +132,9 @@ limiter = Limiter(key_func=get_remote_address)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Startup: Wiping and re-ingesting transcripts...")
+    
+    # Load places data first
+    load_places_data()
     
     # Always start fresh to avoid stale embeddings
     if os.path.exists(CHROMA_PERSIST_DIR):
@@ -263,6 +267,32 @@ def get_embeddings() -> OllamaEmbeddings:
 vectorstore: Chroma | None = None
 bm25_index: BM25Okapi | None = None
 all_documents: list[Document] = []
+
+# Places data for geographic context
+places_data: dict[str, Any] = {}
+places_by_name: dict[str, dict] = {}  # lowercase name -> place info
+
+
+def load_places_data():
+    """Load places.json for geographic context enhancement."""
+    global places_data, places_by_name
+    
+    if not PLACES_FILE.exists():
+        logger.warning(f"Places file not found: {PLACES_FILE}")
+        return
+    
+    try:
+        with open(PLACES_FILE, "r", encoding="utf-8") as f:
+            places_data = json.load(f)
+        
+        # Build lookup by lowercase name for fuzzy matching
+        for place in places_data.get("places", []):
+            name_lower = place.get("name", "").lower()
+            places_by_name[name_lower] = place
+        
+        logger.info(f"Loaded {len(places_by_name)} places from places.json")
+    except Exception as e:
+        logger.error(f"Failed to load places.json: {e}")
 
 
 def get_vectorstore() -> Chroma:
@@ -398,7 +428,7 @@ async def run_ingestion():
 
 def extract_citations(answer: str, docs: list[Document]) -> tuple[str, list[Citation]]:
     """
-    Extract citations from the LLM's answer.
+    Extract citations from the LLM's answer and strip them from the text.
     
     SIMPLE APPROACH: The LLM was given context with specific timestamps like 
     [Source: memoirs_main, Time: 28:22]. We extract these citations and look up
@@ -408,11 +438,23 @@ def extract_citations(answer: str, docs: list[Document]) -> tuple[str, list[Cita
     that's a prompt/context issue, not something we can fix post-hoc.
     """
     # Find all [Source: X, Time: Y] or [Source: X, Time: Y, Segments: N] patterns
-    # Support both standard brackets [] and Japanese brackets 【】
-    pattern = r"[\[【]Source:\s*([^,\]】]+),\s*Time:\s*([^,\]】]+)(?:,\s*Segments:\s*(\d+))?[\]】]"
+    # Support square brackets [], parentheses (), and Japanese brackets 【】
+    pattern = r"[\[【(]Source:\s*([^,\]】)]+),\s*Time:\s*([^,\]】)]+)(?:,\s*Segments:\s*(\d+))?[\]】)]"
     matches = re.findall(pattern, answer)
     
     logger.info(f"Found {len(matches)} citation patterns in answer")
+    
+    # Strip citation markers from the answer text
+    cleaned_answer = re.sub(pattern, "", answer)
+    
+    # Also strip multi-citation brackets with semicolons like [Source: X, Time: Y; Source: Z, Time: W]
+    multi_cite_pattern = r"[\[【(]Source:[^\]】)]+[\]】)]"
+    cleaned_answer = re.sub(multi_cite_pattern, "", cleaned_answer)
+    
+    # Clean up any double spaces left behind
+    cleaned_answer = re.sub(r"  +", " ", cleaned_answer)
+    # Clean up spaces before punctuation
+    cleaned_answer = re.sub(r" +([.,;:!?])", r"\1", cleaned_answer)
     
     citations = []
     seen = set()
@@ -467,7 +509,7 @@ def extract_citations(answer: str, docs: list[Document]) -> tuple[str, list[Cita
         ))
     
     logger.info(f"Extracted {len(citations)} citations")
-    return answer, citations  # Return original answer unchanged
+    return cleaned_answer, citations
 
 
 def expand_query_with_year_abbreviations(query: str) -> str:
@@ -489,6 +531,125 @@ def expand_query_with_year_abbreviations(query: str) -> str:
             expanded_query += f" {abbrev}"
     
     return expanded_query
+
+
+def find_places_in_query(query: str) -> list[dict]:
+    """
+    Find any place names from places.json that appear in the query.
+    Returns list of matching place objects with their metadata.
+    """
+    if not places_by_name:
+        return []
+    
+    query_lower = query.lower()
+    query_words = set(re.findall(r'\b[a-z]+(?:\s+[a-z]+)?\b', query_lower))
+    
+    found_places = []
+    
+    # Check each place name against the query
+    for place_name_lower, place_info in places_by_name.items():
+        # Match whole words only to avoid partial matches
+        # Create a pattern that matches the place name as whole words
+        pattern = r'\b' + re.escape(place_name_lower) + r'\b'
+        if re.search(pattern, query_lower):
+            found_places.append(place_info)
+    
+    return found_places
+
+
+def get_place_mentions_context(places: list[dict]) -> tuple[str, list[Document]]:
+    """
+    Get transcript context for place mentions from places.json.
+    Returns both a formatted context string and pseudo-documents for citation extraction.
+    """
+    if not places:
+        return "", []
+    
+    context_parts = []
+    pseudo_docs = []
+    
+    for place in places:
+        place_name = place.get("name", "Unknown")
+        admin1 = place.get("admin1_name", "")
+        country = place.get("country_code", "")
+        distance_km = place.get("distance_from_regina_km", 0)
+        mentions = place.get("mentions", [])
+        
+        if not mentions:
+            continue
+        
+        # Add geographic context header
+        location_desc = f"{place_name}"
+        if admin1:
+            location_desc += f", {admin1}"
+        if country:
+            location_desc += f" ({country})"
+        if distance_km > 0:
+            location_desc += f" - {distance_km:.0f} km from Regina"
+        
+        context_parts.append(f"=== Place: {location_desc} ===")
+        context_parts.append(f"Lindy mentioned {place_name} {len(mentions)} time(s) in the recordings:\n")
+        
+        for mention in mentions:
+            transcript = mention.get("transcript", "")
+            context_text = mention.get("context", "")
+            start_secs = mention.get("startSecs", 0)
+            
+            # Map transcript path to recording_id
+            rec_id = RECORDING_ID_MAP.get(transcript, transcript.replace("/", "_"))
+            timestamp = format_timestamp(start_secs)
+            
+            context_parts.append(f"[Source: {rec_id}, Time: {timestamp}]")
+            context_parts.append(f'"{context_text}"')
+            context_parts.append("")
+            
+            # Create pseudo-document for citation extraction
+            pseudo_docs.append(Document(
+                page_content=context_text,
+                metadata={
+                    "recording_id": rec_id,
+                    "start_seconds": start_secs,
+                    "timestamp": timestamp,
+                    "place_name": place_name,
+                }
+            ))
+    
+    return "\n".join(context_parts), pseudo_docs
+
+
+def get_nearby_places(place_name: str, max_distance_km: float = 100) -> list[str]:
+    """
+    Get names of places within a certain distance of the given place.
+    Useful for geographic query expansion.
+    """
+    if not places_by_name:
+        return []
+    
+    place = places_by_name.get(place_name.lower())
+    if not place:
+        return []
+    
+    place_lat = place.get("latitude", 0)
+    place_lon = place.get("longitude", 0)
+    
+    # Simple Euclidean approximation (good enough for nearby places)
+    nearby = []
+    for other_name, other_place in places_by_name.items():
+        if other_name == place_name.lower():
+            continue
+        
+        other_lat = other_place.get("latitude", 0)
+        other_lon = other_place.get("longitude", 0)
+        
+        # Rough km conversion at this latitude
+        lat_diff = abs(place_lat - other_lat) * 111  # ~111 km per degree latitude
+        lon_diff = abs(place_lon - other_lon) * 85   # ~85 km per degree at ~50°N
+        distance = (lat_diff**2 + lon_diff**2) ** 0.5
+        
+        if distance <= max_distance_km:
+            nearby.append(other_place.get("name", other_name))
+    
+    return nearby
 
 
 def calculate_bm25_relevance(text: str, query_tokens: list[str]) -> float:
@@ -652,6 +813,60 @@ async def debug_search(query: str, k: int = 10):
     }
 
 
+@app.get("/debug/places")
+async def debug_places(query: str):
+    """Debug endpoint to see what places are found in a query."""
+    places = find_places_in_query(query)
+    place_context, place_docs = get_place_mentions_context(places)
+    
+    return {
+        "query": query,
+        "places_found": len(places),
+        "places": [
+            {
+                "name": p.get("name"),
+                "admin1_name": p.get("admin1_name"),
+                "country_code": p.get("country_code"),
+                "distance_from_regina_km": round(p.get("distance_from_regina_km", 0), 1),
+                "mention_count": len(p.get("mentions", [])),
+            }
+            for p in places
+        ],
+        "context_preview": place_context[:2000] if place_context else None,
+    }
+
+
+@app.get("/places")
+async def list_places():
+    """Return all places with mention counts for frontend exploration."""
+    if not places_data:
+        return {"places": [], "total": 0}
+    
+    places_summary = []
+    for place in places_data.get("places", []):
+        mentions = place.get("mentions", [])
+        if mentions:  # Only include places that are actually mentioned
+            places_summary.append({
+                "name": place.get("name"),
+                "admin1_name": place.get("admin1_name"),
+                "country_code": place.get("country_code"),
+                "latitude": place.get("latitude"),
+                "longitude": place.get("longitude"),
+                "distance_from_regina_km": round(place.get("distance_from_regina_km", 0), 1),
+                "mention_count": len(mentions),
+                "confidence": place.get("confidence"),
+            })
+    
+    # Sort by mention count descending
+    places_summary.sort(key=lambda x: x["mention_count"], reverse=True)
+    
+    return {
+        "places": places_summary,
+        "total": len(places_summary),
+        "reference_point": places_data.get("metadata", {}).get("reference_point"),
+    }
+
+
 @app.get("/health/stream") 
 async def health_stream():
     """
@@ -691,6 +906,13 @@ async def chat(request: Request, chat_request: ChatRequest):
     query = chat_request.query
     logger.info(f"Chat from {request.client.host}: {query[:50]}...")
     
+    # Check for place mentions in the query
+    mentioned_places = find_places_in_query(query)
+    place_context, place_docs = get_place_mentions_context(mentioned_places)
+    
+    if mentioned_places:
+        logger.info(f"Found {len(mentioned_places)} places in query: {[p.get('name') for p in mentioned_places]}")
+    
     # Use hybrid search (vector + BM25) - get more, then filter
     docs = hybrid_search(query, k=25)
     
@@ -702,11 +924,21 @@ async def chat(request: Request, chat_request: ChatRequest):
     # Only send top 6 most relevant to the LLM to reduce confusion
     docs_for_llm = docs_filtered[:6]
     
-    if not docs_for_llm:
+    # Combine place docs with search docs for citation extraction
+    all_docs_for_citations = place_docs + docs_for_llm
+    
+    if not docs_for_llm and not place_docs:
         return ChatResponse(answer="No relevant transcripts found.", citations=[])
     
     # Build context with clear source attribution
     context_parts = []
+    
+    # Add place-specific context first if available
+    if place_context:
+        context_parts.append("=== GEOGRAPHIC CONTEXT ===")
+        context_parts.append(place_context)
+        context_parts.append("\n=== TRANSCRIPT CHUNKS ===")
+    
     for doc in docs_for_llm:
         rec_id = doc.metadata.get("recording_id", "unknown")
         ts = doc.metadata.get("timestamp", "0:00")
@@ -738,7 +970,7 @@ Look through ALL the context above and provide a complete answer."""
         raise HTTPException(status_code=500, detail=f"LLM failed: {str(e)[:100]}")
     
     # Extract and refine citations, get updated answer text
-    updated_answer, citations = extract_citations(answer, docs_for_llm)
+    updated_answer, citations = extract_citations(answer, all_docs_for_citations)
     return ChatResponse(answer=updated_answer, citations=citations)
 
 
@@ -748,6 +980,13 @@ async def chat_stream(request: Request, chat_request: ChatRequest):
     """Streaming chat endpoint with rate limiting."""
     query = chat_request.query
     logger.info(f"Stream from {request.client.host}: {query[:50]}...")
+    
+    # Check for place mentions in the query
+    mentioned_places = find_places_in_query(query)
+    place_context, place_docs = get_place_mentions_context(mentioned_places)
+    
+    if mentioned_places:
+        logger.info(f"Found {len(mentioned_places)} places in query: {[p.get('name') for p in mentioned_places]}")
     
     # Use hybrid search (vector + BM25)
     docs = hybrid_search(query, k=25)
@@ -759,14 +998,24 @@ async def chat_stream(request: Request, chat_request: ChatRequest):
     # Send top 6 most relevant to avoid overwhelming the model
     docs_for_llm = docs_filtered[:6]
     
+    # Combine place docs with search docs for citation extraction
+    all_docs_for_citations = place_docs + docs_for_llm
+    
     async def generate():
-        if not docs_for_llm:
+        if not docs_for_llm and not place_docs:
             yield f"data: {json.dumps({'type': 'text', 'content': 'No relevant transcripts found.'})}\n\n"
             yield f"data: {json.dumps({'type': 'citations', 'citations': []})}\n\n"
             yield "data: [DONE]\n\n"
             return
         
         context_parts = []
+        
+        # Add place-specific context first if available
+        if place_context:
+            context_parts.append("=== GEOGRAPHIC CONTEXT ===")
+            context_parts.append(place_context)
+            context_parts.append("\n=== TRANSCRIPT CHUNKS ===")
+        
         for doc in docs_for_llm:
             rec_id = doc.metadata.get("recording_id", "unknown")
             ts = doc.metadata.get("timestamp", "0:00")
@@ -826,7 +1075,7 @@ Look through ALL the context above and provide a complete answer."""
             yield f"data: {json.dumps({'type': 'error', 'content': str(e)[:100]})}\n\n"
         
         # Extract and refine citations, get updated answer text
-        updated_answer, citations = extract_citations(accumulated_text, docs_for_llm)
+        updated_answer, citations = extract_citations(accumulated_text, all_docs_for_citations)
         citations_data = [c.model_dump() for c in citations]
         yield f"data: {json.dumps({'type': 'citations', 'citations': citations_data})}\n\n"
         yield "data: [DONE]\n\n"
