@@ -70,12 +70,12 @@ export const RECORDINGS: RecordingConfig[] = [
     hasEnhancedAudio: false,
   },
   {
-    id: "memoirs_draft_telling",
+    id: "memoirs_earlier_telling",
     path: "memoirs/TDK_D60_edited_through_air",
-    title: "Memoirs - Draft Telling",
+    title: "Memoirs - Earlier Telling",
     subtitle:
-      "This recording is an early draft of Lindy Achen's voice memoirs, in which he brings together and edits recordings he made over the years 1981 to 1986 into a single narrative.",
-    categoryLabel: "Draft",
+      "This originates before the main voice memoirs above. Here he brings together and edits recordings he made over the years 1981 to 1986 into a single narrative.",
+    categoryLabel: "Alternate",
     backgroundImages: ["/photos/tibbits/P1010033.jpg", "/photos/tibbits/P1010034.jpg"],
     category: "memoir",
     hasEnhancedAudio: false,

@@ -118,7 +118,7 @@ RECORDING_ID_MAP = {
     "glynn_interview": "glynn_interview",
     "LHA_Sr.Hilary": "lha_sr_hilary",
     "memoirs/Norm_red": "memoirs_main",
-    "memoirs/TDK_D60_edited_through_air": "memoirs_draft_telling",
+    "memoirs/TDK_D60_edited_through_air": "memoirs_earlier_telling",
 }
 
 

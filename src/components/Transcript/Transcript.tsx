@@ -327,8 +327,12 @@ export const Transcript = memo(function Transcript({
       const nextChapter = sortedMajorChapters[i + 1];
       const chapterEnd = nextChapter ? nextChapter.startTime : Infinity;
 
+      // For the first chapter, include segments that start slightly before it (up to 5 seconds)
+      // This handles cases where transcripts start a few seconds before the first chapter marker
+      const chapterStart = i === 0 ? Math.max(0, chapter.startTime - 5) : chapter.startTime;
+
       const chapterSegments = segments.filter(
-        (seg) => seg.start >= chapter.startTime && seg.start < chapterEnd
+        (seg) => seg.start >= chapterStart && seg.start < chapterEnd
       );
 
       groups.push({

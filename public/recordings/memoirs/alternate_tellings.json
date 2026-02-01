@@ -5,702 +5,792 @@
   "secondaryRecording": "TDK_D60_edited_through_air",
   "matchingMethod": "sliding_window_topic_extraction",
   "windowConfig": {
-    "duration": 60,
-    "overlap": 30
+    "duration": 90,
+    "overlap": 45
   },
   "alternateTellings": [
     {
-      "topic": "Dad, after working as a drayman and policeman, considered farming, especially because he had several teenage sons. A land agent suggested he move to Canada to farm, and eventually, the Achen family, including Lindy, moved from Iowa to Canada, although Lindy doesn’t understand why his dad left the fertile farmland around Sioux City.",
-      "confidence": "HIGH",
-      "score": 9,
+      "topic": "Both excerpts describe the family's move from Iowa to Canada.",
+      "confidence": "MEDIUM",
+      "score": 7,
       "Norm_red": {
-        "startTime": 60,
-        "endTime": 180,
-        "preview": "My dad had been a drayman and a policeman in a town of 1,200 with 11 barrooms in it. Those were the "
+        "startTime": 0,
+        "endTime": 90,
+        "preview": "I go right back, and it starts in where I taped ... I'll roll this back now and see what's happening"
       },
       "TDK_D60_edited_through_air": {
         "startTime": 210,
-        "endTime": 360,
+        "endTime": 300,
         "preview": "- be a long drawn-out affair as my memory goes back to the year 1907 when I was a small boy of four "
       }
     },
     {
-      "topic": "The Achen family traveled by train from Iowa to Minneapolis, transporting their belongings in a boxcar and the passenger train. Lindy recalls hazy memories of the journey, including the possibility of an overnight stop in Minneapolis.",
+      "topic": "The excerpts both describe a family’s move from Iowa to Canada due to the availability of cheap land.",
       "confidence": "MEDIUM",
-      "score": 7,
+      "score": 8,
       "Norm_red": {
-        "startTime": 150,
-        "endTime": 210,
-        "preview": "But along with what they took along, they had a boxcar load of it. And the rest was packed up in the"
+        "startTime": 45,
+        "endTime": 135,
+        "preview": "and go back and start relating the story from where I was born at Remsen, Iowa, October the 7th, 190"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 60,
-        "endTime": 120,
-        "preview": "two hours of recording. So as I go along there'll be errors and omissions and there'll be blank spac"
+        "startTime": 210,
+        "endTime": 300,
+        "preview": "- be a long drawn-out affair as my memory goes back to the year 1907 when I was a small boy of four "
       }
     },
     {
-      "topic": "The Achen family traveled by train from Remsen, Iowa to Halbrite, Canada, arriving on March 17th after a winter with heavy snowfall. They stayed in a hotel while livestock and machinery were loaded off the train. Lindy remembers the loading process and the train route, which included stops in Sioux Falls and Sioux City.",
-      "confidence": "HIGH",
-      "score": 9,
+      "topic": "Both excerpts recount the family's move from Iowa to Canada.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 90,
+        "endTime": 180,
+        "preview": "and suggested that with a gang of boys like he had, he should be up in Canada where land was cheap a"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 210,
+        "endTime": 300,
+        "preview": "- be a long drawn-out affair as my memory goes back to the year 1907 when I was a small boy of four "
+      }
+    },
+    {
+      "topic": "Both excerpts describe a family’s relocation from Iowa to Halbrite, Canada, arriving on March 17th.",
+      "confidence": "MEDIUM",
+      "score": 8,
+      "Norm_red": {
+        "startTime": 135,
+        "endTime": 225,
+        "preview": "Well, we went up to Canada and they had about three boxcars of, I guess, mostly animals and some mac"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 210,
+        "endTime": 300,
+        "preview": "- be a long drawn-out affair as my memory goes back to the year 1907 when I was a small boy of four "
+      }
+    },
+    {
+      "topic": "The excerpts likely describe the same event: a family's relocation from Iowa to Halbrite, Canada, in March 1907, facing significant snowfall.",
+      "confidence": "MEDIUM",
+      "score": 8,
       "Norm_red": {
         "startTime": 180,
         "endTime": 270,
         "preview": "And they tell of all the fun they had riding in those side door pullmans, if they call them, along w"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 270,
-        "endTime": 330,
-        "preview": "The idea was for each one of them to get a quarter section of land and become a farmer, which was a "
-      }
-    },
-    {
-      "topic": "Men from Iowa arrive at the Achen family farm, where they are surprised to find a heavy snowfall that requires them to dig out the barn.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 240,
-        "endTime": 300,
-        "preview": "And the boys came up with the livestock, and they had to unload. And take it out to the farm. Now, w"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 0,
-        "endTime": 60,
-        "preview": "This is May the 3rd, 1986. I'm going to make another attempt at re-taping the years of my life. I've"
-      }
-    },
-    {
-      "topic": "The Achen family arrives at a farm six miles north of Halbrite. Lindy recalls the house having two bedrooms, a combined dining/living room, and a large kitchen, and remembers it standing for 20-30 years. He also remembers arriving in Halbrite around age four and a half.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 270,
-        "endTime": 330,
-        "preview": "We landed in a farm. Six miles north of Halbrite. As I remember it, the house stood there for years "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1410,
-        "endTime": 1470,
-        "preview": "And I'll try to carry on from here. First off, I'll turn the clock back and sort of reminisce on som"
-      }
-    },
-    {
-      "topic": "The Achen family, with twelve children and Lindy (age four and a half) and Liona (age three), lived in a house, and Lindy remembers a time when snow was gone, then reappeared. Later, the family moved from Iowa to Canada, a move Lindy finds perplexing given his father's departure from Sioux City.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 300,
-        "endTime": 480,
-        "preview": "And I don't have any recollection of the sleeping arrangements, where we all slept or anything. But "
-      },
-      "TDK_D60_edited_through_air": {
         "startTime": 210,
-        "endTime": 480,
+        "endTime": 300,
         "preview": "- be a long drawn-out affair as my memory goes back to the year 1907 when I was a small boy of four "
       }
     },
     {
-      "topic": "When Lindy was about ten years old, his parents took a train trip back to Iowa, and he went with them. The reason for the trip is unclear, and Lindy isn't sure why he was chosen to go.",
+      "topic": "The excerpts likely describe the same event – the family's arrival in Canada from Iowa and initial settling near Halbrite.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
-        "startTime": 600,
-        "endTime": 690,
-        "preview": "You knew geography. You've got a good grounding in education. There's no... And writing. They're ver"
+        "startTime": 225,
+        "endTime": 315,
+        "preview": "And I have a faint recollection of us being in this hotel. This is Mother and all the children. And "
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 60,
-        "endTime": 120,
-        "preview": "two hours of recording. So as I go along there'll be errors and omissions and there'll be blank spac"
+        "startTime": 210,
+        "endTime": 300,
+        "preview": "- be a long drawn-out affair as my memory goes back to the year 1907 when I was a small boy of four "
       }
     },
     {
-      "topic": "Lindy and his dad traveled, stopping in Minneapolis where his dad took him to a bar offering free food and drinks (whiskey for his dad). Lindy also saw automated newspaper printing machines during the trip, likely at the bar or nearby. They were traveling through Iowa with Lindy’s mother remaining behind.",
+      "topic": "The excerpts both describe a family’s arrival and temporary stay in Halbrite, Saskatchewan, after moving from Iowa.",
+      "confidence": "HIGH",
+      "score": 9,
+      "Norm_red": {
+        "startTime": 270,
+        "endTime": 360,
+        "preview": "We landed in a farm. Six miles north of Halbrite. As I remember it, the house stood there for years "
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 210,
+        "endTime": 300,
+        "preview": "- be a long drawn-out affair as my memory goes back to the year 1907 when I was a small boy of four "
+      }
+    },
+    {
+      "topic": "The excerpts describe a family's move to and initial experiences at a new farm where the father was building a house.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
-        "startTime": 660,
-        "endTime": 720,
-        "preview": "and took me down with him. And there were all kinds of food. You could have all the food you wanted "
+        "startTime": 315,
+        "endTime": 405,
+        "preview": "But there were 12 of us and mother and dad lived in that house. And I can't figure out, we must have"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1500,
-        "endTime": 1560,
-        "preview": "The horses didn't get hurt. They went - run away wild, over the field. Then we visited through Iowa,"
+        "startTime": 390,
+        "endTime": 480,
+        "preview": "house with two bedrooms, a living room and dining room combined, and a kitchen. It would have been s"
       }
     },
     {
-      "topic": "For several years when Lindy was young, he and his family walked across fields to get to school, a journey that took about two miles. Later, the school moved closer to the main road, only half a mile away.",
+      "topic": "The excerpts both describe children encountering a house under construction and receiving treats, suggesting a shared event with differing recollections of details.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 750,
-        "endTime": 810,
-        "preview": "Oh, no, not any detail, except milking cows and doing chores, and you start doing that when you're e"
+        "startTime": 360,
+        "endTime": 540,
+        "preview": "And Liona was just past three, about 14 months younger than I was. And the two of us walked across t"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 510,
-        "endTime": 570,
-        "preview": "Until I became about eight or nine years old, and then as the farm was expanding, they needed the ho"
+        "startTime": 345,
+        "endTime": 525,
+        "preview": "And I well remember the problem they had keeping the horses on that narrow sway trail, horses that w"
       }
     },
     {
-      "topic": "When Lindy was 11 years old, he spent the winter at a convent, likely for schooling. He recalls the experience, mentioning it began around November and lasted until Easter time, and he was studying grade five. This visit to the convent is also referenced in Excerpt A, where it is mentioned alongside Lindy’s sister, Sister Aloysia, entering the convent.",
+      "topic": "Both excerpts describe a shared experience of walking to a rural school, navigating mosquito swarms, and utilizing shortcuts across fields.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 495,
+        "endTime": 585,
+        "preview": "Two miles again across country, no roads. We went there for, as I remember it, only one year. And th"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 435,
+        "endTime": 525,
+        "preview": "There was already what you'd call a bachelor's home, 14 by 20, on the place. And he was completing i"
+      }
+    },
+    {
+      "topic": "Both excerpts describe a childhood trip to Iowa involving a train journey and a tragic accident involving a horse-drawn buggy.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 540,
+        "endTime": 630,
+        "preview": "you'd run for another stretch - and that's the way you got your education, on foot to school and bac"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 1470,
+        "endTime": 1560,
+        "preview": "seeing a team of horses run away and run in front of our train and a man and lady sitting up high on"
+      }
+    },
+    {
+      "topic": "The excerpts describe a childhood trip to Iowa with parents and a subsequent event in Minneapolis, albeit with different focal points and details.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
-        "startTime": 780,
-        "endTime": 840,
-        "preview": "As soon as you were old enough to pull weeds, at five and six years old, you're out pulling weeds in"
+        "startTime": 585,
+        "endTime": 720,
+        "preview": "That was my education, going to school. But I will say this much, when you're in grade, by the time "
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1530,
-        "endTime": 1590,
-        "preview": "Homemade sausage and bread and butter or anything like that. I don't remember any more about the tri"
+        "startTime": 1425,
+        "endTime": 1605,
+        "preview": "Some of the things that I remember that were outstanding during that first, what was that, 22 years "
       }
     },
     {
-      "topic": "After finishing grade six around age fourteen, Lindy started grade seven but clashed with his teacher. Feeling dissatisfied, Lindy wanted to quit school and instead help with chores at home, which involved starting a trap line for animals like coyotes, skunks, and weasels. His mother agreed this was a good solution.",
+      "topic": "The excerpts both describe a period of time spent at a convent during the winter, roughly around age 11, but differ significantly in the details surrounding the event.",
       "confidence": "MEDIUM",
-      "score": 8,
+      "score": 7,
+      "Norm_red": {
+        "startTime": 810,
+        "endTime": 900,
+        "preview": "And Sister Hilary and I both went to the convent that winter. Mary got an education, too. I was 11 y"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 1515,
+        "endTime": 1605,
+        "preview": "And then mother stayed down in Iowa and Dad came home with me. And we stopped in Minneapolis, and I "
+      }
+    },
+    {
+      "topic": "Both excerpts describe a situation where the speaker left school to pursue trapping after a disagreement with a teacher and with his mother’s support.",
+      "confidence": "MEDIUM",
+      "score": 7,
       "Norm_red": {
         "startTime": 900,
-        "endTime": 1020,
+        "endTime": 990,
         "preview": "I passed my grade six, I would have been about... I must have been fourteen or at least fourteen or "
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 540,
-        "endTime": 600,
-        "preview": "And it was there that I finished my education, which took me through grade six and into about six we"
+        "startTime": 525,
+        "endTime": 615,
+        "preview": "I think it was about six or seven years later, they moved the school a half mile, which put it on th"
       }
     },
     {
-      "topic": "Both excerpts discuss Joe and Zip leaving the farm. Excerpt A mentions Joe being in the Army and Zip potentially attending school in Weyburn, while Excerpt B states Joe and Zip both left for the coast in 1921 and 1921-22 respectively, leaving Lindy and Mac to work the farm.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 990,
-        "endTime": 1050,
-        "preview": "And, now Joe - I think Joe was in the Army at that time. And now, Zip, I don't remember if he went. "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1140,
-        "endTime": 1200,
-        "preview": "... back to many other things besides that, to keep the grain wagons there and whatnot. And as it wa"
-      }
-    },
-    {
-      "topic": "Lindy left school to help with farm chores and started trapping animals like coyotes, skunks, and weasels as a side job. He spent his mornings cleaning barns and doing livestock work, and afternoons setting traps.",
+      "topic": "Both excerpts describe a decision to leave school and pursue trapping, although the context and timeline differ.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
-        "startTime": 1020,
-        "endTime": 1110,
-        "preview": "During that time, well, I was at home and we had a lot of livestock. There's always so much work to "
+        "startTime": 945,
+        "endTime": 1080,
+        "preview": "And I was dissatisfied then, and I said to Mother one day, I want to quit school. What are you going"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 525,
+        "endTime": 660,
+        "preview": "I think it was about six or seven years later, they moved the school a half mile, which put it on th"
+      }
+    },
+    {
+      "topic": "Both excerpts describe the speaker establishing and running a trap line for furs while living on a rural homestead.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 1035,
+        "endTime": 1125,
+        "preview": "Every animal had nice bedding, nice straw place to lay down. And then in the afternoon, I'd go out a"
       },
       "TDK_D60_edited_through_air": {
         "startTime": 570,
-        "endTime": 720,
+        "endTime": 660,
         "preview": "And between my mother and I, we decided that it was just as well if I stayed home and helped with th"
       }
     },
     {
-      "topic": "Lindy’s family receives news about the outside world, specifically the beginning of World War I, through his dad who brings information and newspapers home from trips to town. They were isolated and didn't have a radio until around 1921-1923.",
+      "topic": "Both excerpts describe the individual starting a trap line for coyotes, skunks, and weasels and discovering a market in St. Louis for increased profits.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
         "startTime": 1080,
-        "endTime": 1140,
+        "endTime": 1215,
         "preview": "you did it at night by coal or a lamp. And reading wasn't as common as it is today. We had no radio "
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1560,
-        "endTime": 1620,
-        "preview": "I was taking my grade five, I think. I can remember I couldn't write very good, anyway. And then I r"
+        "startTime": 570,
+        "endTime": 705,
+        "preview": "And between my mother and I, we decided that it was just as well if I stayed home and helped with th"
       }
     },
     {
-      "topic": "Lindy learns that St. Louis, Missouri, offers higher prices for coyote, skunk, and weasel pelts than he's been getting locally. He starts shipping his furs to St. Louis to take advantage of the better prices, and eventually finds a partner, a neighbor boy, to help with the trapping and shipping.",
-      "confidence": "HIGH",
-      "score": 9,
-      "Norm_red": {
-        "startTime": 1140,
-        "endTime": 1230,
-        "preview": "and it was the same thing over and over. And to get back to trapping, after I was trapping for a whi"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 660,
-        "endTime": 720,
-        "preview": "And I found a place in St. Louis that was paying exceptionally good prices. So I started nosing arou"
-      }
-    },
-    {
-      "topic": "Joe and Zip both leave home to go to the coast, leaving Lindy and Mac to work the farm. Joe leaves in the fall of 1921, and Zip follows during the winter of 1921-22. Bud starts helping out on the farm around this time, as he's growing older.",
+      "topic": "The excerpts recount the same encounter with a neighbor who had damaged coyote skins, although details regarding the quantity and price vary slightly.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
-        "startTime": 1230,
-        "endTime": 1290,
-        "preview": "well, that only lasted so long and then this all happened in about one winter that I was dealing in "
+        "startTime": 1170,
+        "endTime": 1260,
+        "preview": "from the neighbors with the, they would price them at what they could get in the Canadian market and"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1140,
-        "endTime": 1200,
-        "preview": "... back to many other things besides that, to keep the grain wagons there and whatnot. And as it wa"
+        "startTime": 615,
+        "endTime": 705,
+        "preview": "life was quite ordinary. Stayed home. Did chores, finished the chores about 10 o'clock in the mornin"
       }
     },
     {
-      "topic": "Lindy recalls a time when the Achen family worked long hours on their farm, relying on horses for labor. He remembers a particularly difficult winter when heavy snow made it hard to keep the horses on the trail during the journey to the farm, which was six miles north of town.",
+      "topic": "Both excerpts detail a period where the speaker engaged in fur trading as a side business while also performing farm chores, but the framing and specific details differ slightly.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 1260,
-        "endTime": 1320,
-        "preview": "And we always had to do all the chores. So you worked, worked, and worked. You would work eight, ten"
+        "startTime": 1215,
+        "endTime": 1305,
+        "preview": "with the cold oil lamp - lantern and then I redressed those hides and I put them on a proper stretch"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 330,
-        "endTime": 390,
-        "preview": "And then I very vividly remember the ride out to the farm which was six miles north of town. That in"
+        "startTime": 570,
+        "endTime": 660,
+        "preview": "And between my mother and I, we decided that it was just as well if I stayed home and helped with th"
       }
     },
     {
-      "topic": "Lindy, age 13 in the fall of 1915, recalls the construction of a new barn. Workers hauled rock and sand to fill the foundation before a cement layer was applied. Later, Lindy slept in the haymow of the barn, using a horse blanket and straw for a pillow while sleeping on the hard floor, and was awakened by the boss.",
+      "topic": "The excerpts both describe struggles with crop yields and farm work in the late 1910s and early 1920s, though they focus on different aspects of the hardship.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 1380,
-        "endTime": 1440,
-        "preview": "he put down the foundation everything then we had to haul all those rock in to fill that foundation "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3090,
-        "endTime": 3150,
-        "preview": "But sleeping in a haymow with a horse blanket was the only covers that you got. So I used to take my"
-      }
-    },
-    {
-      "topic": "Lindy and his brother Mac started working at a young age, helping the Achen family build a pasture around 1914. They were taken a mile and a half away to dig post holes, and Lindy quickly became a top hole-digger, outperforming older workers due to his strength. He worked on the job for about a month, impressing the boss with his productivity.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 1440,
-        "endTime": 1530,
-        "preview": "I don't remember the detail. But that gives you an idea of how hard we worked when we were young. I "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2250,
-        "endTime": 2310,
-        "preview": "So he got me a sharp bar. The third day I was able to dig as many holes as anybody on the gang. And "
-      }
-    },
-    {
-      "topic": "Both excerpts describe difficult years for Lindy and his family on their farm. Excerpt A details the hard work and short crops from 1914-1918, specifically mentioning Lindy's role hauling bundles at age 15 and becoming too tired to finish. Excerpt B focuses on the particularly harsh drought of 1918 and the family's struggle to find enough feed and seed, managing to survive without government assistance. They both highlight a period of hardship and labor for Lindy and his family.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 1500,
-        "endTime": 1620,
-        "preview": "through the 1914, '15, '16, it was the same thing. It was a repetitious thing. And short on help. I "
+        "startTime": 1485,
+        "endTime": 1575,
+        "preview": "And you'd get so tired that you'd stop and snare golfers once in a while, just for getting a little "
       },
       "TDK_D60_edited_through_air": {
         "startTime": 1020,
-        "endTime": 1080,
+        "endTime": 1110,
         "preview": "It would only pull about as much as five horses, I'd say. About equivalent to a five-horse load. Tha"
       }
     },
     {
-      "topic": "Dad bought a Titan tractor, initially around 1918 and later referenced in 1921 when the Achen family harvested a low-grade wheat crop. Lindy recalls the tractor's slow speed, less than three miles per hour, and its equivalent power to six horses. The purchase occurred during the 1917-1918 flu pandemic, which particularly impacted pregnant women.",
+      "topic": "Both excerpts describe the family acquiring a Titan tractor around 1918 and experiencing subsequent years of hardship (drought, grasshoppers), though they present slightly different perspectives on the tractor's capabilities.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
-        "startTime": 1590,
-        "endTime": 1650,
-        "preview": "In 1921, then, we got a crop. And Dad bought a... Oh, in the meantime, 1918, he had bought a little "
+        "startTime": 1530,
+        "endTime": 1620,
+        "preview": "Now by this time, I'm 15 years old, I'm taking a man's place hauling bundles. And I've been out haul"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 960,
-        "endTime": 1020,
-        "preview": "Fortunately, there wasn't anybody in our neighborhood that died from it, but there were an awful lot"
+        "startTime": 975,
+        "endTime": 1065,
+        "preview": "And that's all it takes through '17, 1918, still home on the farm. Well, that spring, Dad bought a b"
       }
     },
     {
-      "topic": "that results in Lindy, at age 19, being put in charge of the farm operation. Excerpt B describes a winter in 1923 when Lindy’s mother and Leona went to California, and Lindy and his father hauled grain with wagons instead of sleighs due to the mild weather.",
-      "confidence": "HIGH",
-      "score": 10,
-      "Norm_red": {
-        "startTime": 1620,
-        "endTime": 1680,
-        "preview": "It went about 20 bushels per acre, but a low grade of wheat. Dad bought a small separator for that t"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1200,
-        "endTime": 1260,
-        "preview": "And time went fast, you worked hard, you were tired when night come, you were satisfied to bed and c"
-      }
-    },
-    {
-      "topic": "The Achen family experienced good harvests in 1922 and 1923, which meant constant work on the farm. Lindy ran a thrashing outfit during this time and helped with the harvest. Life was filled with chores but occasionally included schoolhouse dances, card games with neighbors, and reading by lamplight. The good fortune ended in 1924 when the crop was poor, and Lindy's dad died in the spring.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 1650,
-        "endTime": 1710,
-        "preview": "So I was the chief cook and bottle washer around the thrashing machine. I was running the thrashing "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1170,
-        "endTime": 1230,
-        "preview": "And in '23, we were having good crops, '22, '23. And it was just work work work all the time. That's"
-      }
-    },
-    {
-      "topic": "Lindy, 22 years old in 1924, got a job running a thrashing outfit in Griffin. Shortly after starting the job, the machine malfunctioned. A cog fell out, damaged the blower, and caused significant damage – the blower required 20 horsepower to operate.",
+      "topic": "Both excerpts recount the purchase of a Titan tractor by the narrator's father in 1918.",
       "confidence": "HIGH",
       "score": 9,
       "Norm_red": {
-        "startTime": 1680,
+        "startTime": 1575,
+        "endTime": 1710,
+        "preview": "1918 short crop. 1919 less crop again but we always fared somehow we had a lot of always raised 50 6"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 975,
+        "endTime": 1200,
+        "preview": "And that's all it takes through '17, 1918, still home on the farm. Well, that spring, Dad bought a b"
+      }
+    },
+    {
+      "topic": "Both excerpts describe the death of the narrator's father in 1924, although they focus on different aspects of the experience.",
+      "confidence": "MEDIUM",
+      "score": 8,
+      "Norm_red": {
+        "startTime": 1665,
+        "endTime": 1755,
+        "preview": "'24, the spring of '24, my dad died. And that was a short crop that year. We had only maybe 18, 15 o"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 1650,
         "endTime": 1740,
-        "preview": "We were through harvesting real early. And, oh yes, in '24, in '24, yeah, we had finished. And then "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2970,
-        "endTime": 3030,
-        "preview": "It hadn't run for five minutes, and all of a sudden, bang-a-dee-bang, the pieces started flying arou"
+        "preview": "In the summertime, I played baseball. I always loved the game of baseball. I thought nothing of ridi"
       }
     },
     {
-      "topic": "Lindy prepares a thrasher for operation. Initially, he expected it to run smoothly all day and was confident in his ability to lace the belts correctly. When he returns for a trial run on Saturday, a hired worker doesn't show up, so Lindy and Martin Twight have to prepare the machine themselves, which involves attaching the belts to the steam engine.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 1710,
-        "endTime": 1770,
-        "preview": "Oh, I could tell you the incidental experiences that I had on those thrashing outfits when I got aro"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2940,
-        "endTime": 3000,
-        "preview": "And we're going to make a trial run on Saturday. So you come on back over on Saturday and we'll just"
-      }
-    },
-    {
-      "topic": "Both excerpts describe the death of Lindy's dad in 1924. Excerpt A focuses on Bud’s role on the farm after the death, noting Bud was 13 at the time and helping fill his dad's shoes while still attending school. Excerpt B details the funeral itself – it was a large, rainy event where Dad’s body was brought to the farm before being transported to town for burial, with people traveling by horse-drawn carriages.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 1740,
-        "endTime": 1800,
-        "preview": "Unless you thrashed, it would be very difficult for you to understand what I'm talking about. That w"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1710,
-        "endTime": 1770,
-        "preview": "Right now, I'll go back now to about 1924, yes. Dad was dead and buried. Big funeral; rainy day; dro"
-      }
-    },
-    {
-      "topic": "Both excerpts discuss the Achen family’s time in Halbrite. Excerpt A focuses on the education of Mac, Zip, and Leona, while Excerpt B describes Lindy’s early memories of arriving in Halbrite at age four and a half and starting school around age seven.",
+      "topic": "The excerpts both discuss farm work and the experiences of Bud and the narrator during the early 1920s, though they focus on slightly different aspects of that period.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 1770,
-        "endTime": 1830,
-        "preview": "Mac dropped out of school about grade seven, I'd say. Now, that's the farthest that he went to schoo"
+        "startTime": 1710,
+        "endTime": 1800,
+        "preview": "Oh, I could tell you the incidental experiences that I had on those thrashing outfits when I got aro"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1410,
-        "endTime": 1470,
-        "preview": "And I'll try to carry on from here. First off, I'll turn the clock back and sort of reminisce on som"
+        "startTime": 1155,
+        "endTime": 1245,
+        "preview": "Well, Bud was starting to grow up big enough then to be of a little help. He was born in 1911. And s"
       }
     },
     {
-      "topic": "The Achen family arrives in Halbrite, Saskatchewan, in March. They stay in a hotel while livestock and machinery are loaded, and Lindy remembers this vividly. Lindy later reflects on the education levels achieved by family members, including Leona who attended school in Halbrite and then moved to California.",
+      "topic": "Both excerpts describe a period of work, occasional dances, and, crucially, a mother and Leona's departure to California, although the timing and context surrounding that departure differ.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
         "startTime": 1800,
-        "endTime": 1860,
+        "endTime": 1890,
         "preview": "And Leona got her grade nine, I think, and grade eight in the convent. And then she went to high sch"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 270,
-        "endTime": 330,
-        "preview": "The idea was for each one of them to get a quarter section of land and become a farmer, which was a "
+        "startTime": 1155,
+        "endTime": 1245,
+        "preview": "Well, Bud was starting to grow up big enough then to be of a little help. He was born in 1911. And s"
       }
     },
     {
-      "topic": "Both excerpts describe Lindy’s time in Halbrite. Excerpt A focuses on the routine of attending Mass and summer picnics, while Excerpt B recalls arriving in Halbrite around the age of four and a half and starting school around age seven. Both recall Halbrite as a significant place in Lindy's early life.",
+      "topic": "Both excerpts describe a period of hard work, occasional dances, and grain hauling, suggesting a similar time and place.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 1920,
-        "endTime": 1980,
-        "preview": "Every other Sunday, we went to Mass in Halbrite. That took two or three hours out of the center of t"
+        "startTime": 1845,
+        "endTime": 1935,
+        "preview": "This is the morning of July the 23rd. I have a few minutes to go before I go for coffee, so I'll jus"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1410,
-        "endTime": 1470,
-        "preview": "And I'll try to carry on from here. First off, I'll turn the clock back and sort of reminisce on som"
+        "startTime": 1155,
+        "endTime": 1245,
+        "preview": "Well, Bud was starting to grow up big enough then to be of a little help. He was born in 1911. And s"
       }
     },
     {
-      "topic": "Following his father's death in 1924, the Achen family held a large funeral. Dad's body was initially brought to the farm and remained there for a couple of days before being transported to town for the service, which was held on a rainy day and required attendees to use horse-drawn carriages due to difficult road conditions. Lindy's mother had previously left for California in the fall of 1923, leaving Leona to manage the household.",
+      "topic": "The excerpts describe the same event: the death of the narrator's father in 1924.",
       "confidence": "HIGH",
       "score": 9,
       "Norm_red": {
-        "startTime": 1950,
-        "endTime": 2010,
-        "preview": "This is now on July the 20th, or August the 22nd. So I'll try to continue. I'm getting the story a b"
+        "startTime": 1890,
+        "endTime": 1980,
+        "preview": "It was all very primitive. You never saw your neighbors during the week. Only once a week that peopl"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1710,
-        "endTime": 1770,
-        "preview": "Right now, I'll go back now to about 1924, yes. Dad was dead and buried. Big funeral; rainy day; dro"
+        "startTime": 1335,
+        "endTime": 1425,
+        "preview": "And the next morning, when I walked down to see him, which was about 9 o'clock in the morning when I"
       }
     },
     {
-      "topic": "In the fall of 1923, Lindy’s mother and Leona traveled to California while Lindy and his dad hauled grain with wagons. The winter that year was mild, so they didn’t need to use sleighs.",
+      "topic": "These excerpts describe the same event: the narrator and his father hauling grain during the fall of 1923 while his mother and Leona were in California.",
+      "confidence": "HIGH",
+      "score": 9,
+      "Norm_red": {
+        "startTime": 1935,
+        "endTime": 2025,
+        "preview": "In the summer, there would be picnics here and there that you'd attend. But you just went along. And"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 1155,
+        "endTime": 1245,
+        "preview": "Well, Bud was starting to grow up big enough then to be of a little help. He was born in 1911. And s"
+      }
+    },
+    {
+      "topic": "The excerpts describe the same event: a period of hauling grain in the fall of 1923 while the father's health declined, coinciding with the mother's trip to California.",
       "confidence": "HIGH",
       "score": 9,
       "Norm_red": {
         "startTime": 1980,
-        "endTime": 2190,
+        "endTime": 2115,
         "preview": "There I mentioned that our crop was fair and that Dad had died that year. And I'll go back and tell "
       },
       "TDK_D60_edited_through_air": {
+        "startTime": 1155,
+        "endTime": 1290,
+        "preview": "Well, Bud was starting to grow up big enough then to be of a little help. He was born in 1911. And s"
+      }
+    },
+    {
+      "topic": "These excerpts recount the same event: the speaker’s father’s sudden illness, travel to Kenmare, North Dakota, and subsequent death.",
+      "confidence": "HIGH",
+      "score": 9,
+      "Norm_red": {
+        "startTime": 2070,
+        "endTime": 2205,
+        "preview": "And a couple of weeks later, he still wasn't feeling well, so he went to Kenmare, North Dakota, wher"
+      },
+      "TDK_D60_edited_through_air": {
         "startTime": 1200,
-        "endTime": 1410,
+        "endTime": 1335,
         "preview": "And time went fast, you worked hard, you were tired when night come, you were satisfied to bed and c"
       }
     },
     {
-      "topic": "Following his father’s death, his body was brought to the Achen family farm and remained there for a couple of days before a large funeral was held in Halbrite. Lindy's mother traveled by train from Portland to attend. Lindy then took charge of the farm in 1924.",
+      "topic": "Both excerpts recount the same event: the narrator's dispute over wages with relatives returning from California, leading to his decision to leave the farm and go to Iowa.",
       "confidence": "HIGH",
       "score": 9,
       "Norm_red": {
         "startTime": 2160,
-        "endTime": 2220,
+        "endTime": 2340,
         "preview": "So we got a hold of her there, and I went back home. We had the body shipped back to Halbrite for bu"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1710,
-        "endTime": 1770,
-        "preview": "Right now, I'll go back now to about 1924, yes. Dad was dead and buried. Big funeral; rainy day; dro"
+        "startTime": 1875,
+        "endTime": 2145,
+        "preview": "But not - Mac and I got along very good. We run a good show here. At the end of the three years, the"
       }
     },
     {
-      "topic": "Both excerpts describe Lindy's mother and Leona traveling to California, likely for the winter. In 1924, Lindy and Mac ran the farm, with Bud and Leona also present, but Leona went to California. The winter of 1923 was mild, and Lindy and his dad hauled grain with wagons instead of sleighs.",
+      "topic": "The excerpts both describe a short stint working at a blacksmith shop helping with horseshoes during a period of icy weather.",
+      "confidence": "HIGH",
+      "score": 9,
+      "Norm_red": {
+        "startTime": 2295,
+        "endTime": 2475,
+        "preview": "And I visited around for a while. Finally, one day, they had the rain, and it got all icy. And I kne"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 2055,
+        "endTime": 2325,
+        "preview": "I went to the doctor about it. He said, \"Before you go to bed at night, you go out and take a good w"
+      }
+    },
+    {
+      "topic": "Both excerpts recount the same event, detailing a move across the state to Iowa and the boss's promise to fraudulently increase the narrator's pay.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
-        "startTime": 2190,
-        "endTime": 2250,
-        "preview": "mother,  mother got there by train it's funny how you could move around in those days. She'd come al"
+        "startTime": 2430,
+        "endTime": 2520,
+        "preview": "I had - In the meantime, I had bought a car, a Model T Ford, for about $350. Good, reliable car. And"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1200,
-        "endTime": 1260,
-        "preview": "And time went fast, you worked hard, you were tired when night come, you were satisfied to bed and c"
+        "startTime": 2235,
+        "endTime": 2325,
+        "preview": "The second day, one of the older fellows on the crew looked at the bar and he said, \"You can't dig w"
       }
     },
     {
-      "topic": "Lindy was working on the farm when relatives from California questioned his wages, which were $1,000 for one year and planned to be $1,200 the next. Lindy argued that if they thought the wages were too high, he would leave. He then packed a suitcase and left with his cousin Norbert Hemmer, traveling to Iowa (specifically Worthington) to help with the harvest.",
+      "topic": "The excerpts likely describe the same event, though with differing focuses on the narrator's progression and the boss's actions.",
       "confidence": "HIGH",
       "score": 9,
       "Norm_red": {
-        "startTime": 2220,
-        "endTime": 2310,
-        "preview": "'26, some of the boys came up from California, and they thought Mother was paying me too much money."
+        "startTime": 2475,
+        "endTime": 2655,
+        "preview": "He said, \"I like the way you work.\" When to get back, well, I said, \"Yeah, I'll go across to Iowa, b"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1950,
-        "endTime": 2010,
-        "preview": "So I got my Irish up and I said, \"Okay, if that's the way you feel about it, somebody else can run t"
+        "startTime": 2235,
+        "endTime": 2505,
+        "preview": "The second day, one of the older fellows on the crew looked at the bar and he said, \"You can't dig w"
       }
     },
     {
-      "topic": "Lindy visits relatives in Iowa and gets a temporary job helping a blacksmith, where he trims horses' feet while the blacksmith puts on shoes.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 2280,
-        "endTime": 2340,
-        "preview": "I had a few hundred dollars in my pocket. I got down to Iowa to where I had a lot of relatives. I'd "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 60,
-        "endTime": 120,
-        "preview": "two hours of recording. So as I go along there'll be errors and omissions and there'll be blank spac"
-      }
-    },
-    {
-      "topic": "Lindy asked for a job after hearing the boss was firing someone. He was hired and started working for 35 cents an hour, earning $3.50 a day, and paying $1 a day for room and board. He quickly became a very productive worker, digging more holes than anyone else.",
-      "confidence": "HIGH",
-      "score": 9,
-      "Norm_red": {
-        "startTime": 2400,
-        "endTime": 2640,
-        "preview": "I dug as many holes as anybody the fourth day, and the fifth day I dug more holes than anybody, and "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2160,
-        "endTime": 2430,
-        "preview": "I heard the boss say to another man, he's going to fire him tonight.\" So I went to the boss and I sa"
-      }
-    },
-    {
-      "topic": "Lindy decides to quit his job because the work requires a lot of travel and he wants to settle down. This decision happens after Joe and Zip leave to go to the coast, leaving Lindy and Mac to work the farm alone.",
+      "topic": "The excerpts both describe the narrator offering to help his brother on his farm, but differ in the details surrounding the situation and the brother’s challenges.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
         "startTime": 2610,
-        "endTime": 2700,
+        "endTime": 2925,
         "preview": "So I said, \"I'll quit my job, and I'll come up and I'll put your crop in for you,\" I said. When I we"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1140,
-        "endTime": 1200,
-        "preview": "... back to many other things besides that, to keep the grain wagons there and whatnot. And as it wa"
+        "startTime": 2370,
+        "endTime": 2820,
+        "preview": "And we were there for - into the spring break up. And one Sunday afternoon, I took a notion to drive"
       }
     },
     {
-      "topic": "Lindy, age 25, takes over his brother’s farm, which raises corn, cattle, and hogs. The farm is located six miles north of a small town in Canada, and the family arrives by train, with livestock and machinery loaded onto rail cars. Lindy recalls a particularly snowy winter during this time.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 2670,
-        "endTime": 2730,
-        "preview": "Well, after a pause and taking a bit of a rest, I'll start in at my brother's farm. Now remember, I'"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 300,
-        "endTime": 360,
-        "preview": "I don't have any recollection of our arriving at our destination, but I do remember living in a smal"
-      }
-    },
-    {
-      "topic": "A hailstorm flattened 40 acres of oats belonging to a farmer named Lorry. Lindy suggested calling the neighbors, and together they spent several days stacking the flattened oats into piles.",
-      "confidence": "HIGH",
-      "score": 9,
-      "Norm_red": {
-        "startTime": 2730,
-        "endTime": 2850,
-        "preview": "Everything went fine we got along good and had his crop all in the corn cultivated and everything go"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2550,
-        "endTime": 2640,
-        "preview": "Just now the tape cut off. And I can't just tell where it's going to start in, because when I go in "
-      }
-    },
-    {
-      "topic": "Lindy helped his neighbors thrash their harvested grain. He hauled bundles on the equipment and got frustrated when the operator wouldn’t move the machine, leading to a dusty day of work. This happened during a period when the Achen family had good crops in 1922 and 1923, alongside a lot of general farm work and occasional social events like dances and card games with neighbors.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 2820,
-        "endTime": 2880,
-        "preview": "And when that was finished, well, we started then thrashing. The neighbors had an outfit, and I haul"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1170,
-        "endTime": 1230,
-        "preview": "And in '23, we were having good crops, '22, '23. And it was just work work work all the time. That's"
-      }
-    },
-    {
-      "topic": "Lindy leaves a job and travels north, visiting his brother in Sioux Falls and then heading to Aberdeen, South Dakota, to see his uncle. Both excerpts mention Lindy’s uncle living near Aberdeen and Lindy’s travels in the area. Excerpt B adds details about a previous heatwave and a stop at Lorry's place before Aberdeen.",
+      "topic": "The excerpts describe the same event – a disastrous trial run of a thrashing machine where a crucial component broke and damaged the blower.",
       "confidence": "HIGH",
       "score": 9,
       "Norm_red": {
         "startTime": 2880,
-        "endTime": 3210,
+        "endTime": 2970,
         "preview": "that you couldn't plug it no how. The feeder would stop if it got coming in too fast. Well, he never"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 2790,
-        "endTime": 3150,
-        "preview": "And this - well I suppose it lasted for about a week that it was real bad, but it was a brand new ex"
+        "startTime": 2910,
+        "endTime": 3000,
+        "preview": "\"From morning 'til night. We bet that we wouldn't have any trouble during the day.\" However, I went "
       }
     },
     {
-      "topic": "Lindy earned $300 from a previous job and used the money to drive his Model T Ford to Canada to visit family. He spent a couple of weeks there before returning home in the fall. The trip occurred after a week-long heatwave, and Lindy stopped by Lorry's place before continuing on to Aberdeen, South Dakota.",
+      "topic": "The excerpts describe the same event involving a malfunctioning thrasher and two men repairing it after a significant mechanical failure.",
+      "confidence": "HIGH",
+      "score": 9,
+      "Norm_red": {
+        "startTime": 2925,
+        "endTime": 3015,
+        "preview": "Anyway, I said I was looking for a job. I'd like to run the thrashing outfit. This is what I was aft"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 2910,
+        "endTime": 3000,
+        "preview": "\"From morning 'til night. We bet that we wouldn't have any trouble during the day.\" However, I went "
+      }
+    },
+    {
+      "topic": "The excerpts describe a shared experience of working on a threshing machine and encountering a reputation for continuous operation, though details about the breakdown and subsequent repair differ.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
-        "startTime": 3180,
-        "endTime": 3270,
-        "preview": "However, that season wound up. I picked up my $300 or whatever it was. And then I headed north - yea"
+        "startTime": 2970,
+        "endTime": 3060,
+        "preview": "So we started thrashing, and we hadn't gone ten minutes, I don't think, and all of a sudden, biffity"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 2790,
-        "endTime": 2850,
-        "preview": "And this - well I suppose it lasted for about a week that it was real bad, but it was a brand new ex"
+        "startTime": 2820,
+        "endTime": 2910,
+        "preview": "After I finished there, I got in the car and I went up through by Lorry's place again, stopped there"
       }
     },
     {
-      "topic": "Lindy is looking for work and asks the boss for a job after hearing about a firing. The boss agrees and puts Lindy on a boring machine to help with a project that needs to run 24 hours a day, based on a recommendation from the timekeeper.",
+      "topic": "The excerpts describe the same event: a man securing a job running a separator for a man known for keeping the machine running continuously.",
+      "confidence": "MEDIUM",
+      "score": 8,
+      "Norm_red": {
+        "startTime": 3015,
+        "endTime": 3105,
+        "preview": "He got that all straightened out, and in an hour and a half, we were thrashing again. He come to me."
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 2820,
+        "endTime": 2910,
+        "preview": "After I finished there, I got in the car and I went up through by Lorry's place again, stopped there"
+      }
+    },
+    {
+      "topic": "The excerpts describe the same grueling work period on a threshing machine, characterized by long hours, minimal breaks, and sleeping in a haymow.",
+      "confidence": "HIGH",
+      "score": 9,
+      "Norm_red": {
+        "startTime": 3060,
+        "endTime": 3150,
+        "preview": "- what was it - 29 out of 31 days. We thrashed right through Sundays and all. We got laid out twice "
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 3045,
+        "endTime": 3135,
+        "preview": "We ran for 30 days straight. Went - ran right through, Sundays and all. We averaged 12 hours a day b"
+      }
+    },
+    {
+      "topic": "The excerpts describe the same grueling work experience of sleeping in a barn with minimal bedding and a very early wake-up call.",
+      "confidence": "HIGH",
+      "score": 9,
+      "Norm_red": {
+        "startTime": 3105,
+        "endTime": 3195,
+        "preview": "And then you'd thrash right through until about 6.30 or 7 o'clock at night. Then you had to do all y"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 3045,
+        "endTime": 3135,
+        "preview": "We ran for 30 days straight. Went - ran right through, Sundays and all. We averaged 12 hours a day b"
+      }
+    },
+    {
+      "topic": "The excerpts describe related events, including travel to South Dakota and attempts to find work related to harvesting, though the order and specific details diverge.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 3450,
-        "endTime": 3540,
-        "preview": "So they saw they were behind schedule, so they decided to run the outfit the boring machine 24 hours"
+        "startTime": 3150,
+        "endTime": 3240,
+        "preview": "take them off, put everything back on, excepting my high-top boots, and lay down. And by the time yo"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 2160,
-        "endTime": 2250,
-        "preview": "I heard the boss say to another man, he's going to fire him tonight.\" So I went to the boss and I sa"
+        "startTime": 2820,
+        "endTime": 2910,
+        "preview": "After I finished there, I got in the car and I went up through by Lorry's place again, stopped there"
       }
     },
     {
-      "topic": "Lindy received an offer from a man in South Dakota, Martin Twight, to run his separator for $12 a day. He left his current job to take the position and worked for Twight’s outfit for 30 days straight, including Sundays, averaging 12 hours a day.",
+      "topic": "The excerpts describe related experiences involving travel, work, and encounters with acquaintances, although details differ, suggesting a similar timeframe and geographical area.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 3195,
+        "endTime": 3285,
+        "preview": "And then I headed north - yeah, then I was home since - now it's fall. I wanted to come to Canada an"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 2820,
+        "endTime": 2910,
+        "preview": "After I finished there, I got in the car and I went up through by Lorry's place again, stopped there"
+      }
+    },
+    {
+      "topic": "Both excerpts describe the narrator's experience working on a power line construction job after a car accident.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 3240,
+        "endTime": 3330,
+        "preview": "About daylight in the morning, I rolled my car. The luckiest guy in the world. Smashed all the glass"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 2190,
+        "endTime": 2280,
+        "preview": "This was on January the 4th, 1927. I'll always remember that date. My first day was digging holes. T"
+      }
+    },
+    {
+      "topic": "The excerpts describe the same event of running a boring machine 24 hours a day to build a power line, though with differing perspectives and levels of detail.",
+      "confidence": "MEDIUM",
+      "score": 8,
+      "Norm_red": {
+        "startTime": 3375,
+        "endTime": 3465,
+        "preview": "He relied on his foreman bringing in reports to him. By this time, I'm pretty well recognized in the"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 3045,
+        "endTime": 3135,
+        "preview": "We ran for 30 days straight. Went - ran right through, Sundays and all. We averaged 12 hours a day b"
+      }
+    },
+    {
+      "topic": "The excerpts describe the same grueling experience of operating a boring machine to construct a power line, emphasizing the demanding 24-hour schedule and the necessary maintenance.",
+      "confidence": "HIGH",
+      "score": 9,
+      "Norm_red": {
+        "startTime": 3420,
+        "endTime": 3510,
+        "preview": "Then they put two crews together and we built a heavy line from Thunder Hawk, South Dakota, up to El"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 3045,
+        "endTime": 3135,
+        "preview": "We ran for 30 days straight. Went - ran right through, Sundays and all. We averaged 12 hours a day b"
+      }
+    },
+    {
+      "topic": "The excerpts both describe the narrator going to South Dakota to operate a thrasher after leaving a previous job, though with slightly different details regarding the circumstances.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 3465,
+        "endTime": 3555,
+        "preview": "And my friend, Elmer Jones, who was a lineman also, he got the job running the boring machine. So th"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 2775,
+        "endTime": 2865,
+        "preview": "You'd go to bed at night and you'd just lie on the cover on the bed without any covers no clothes on"
+      }
+    },
+    {
+      "topic": "Both excerpts recount the narrator's experience working with a thrasher/separator in South Dakota and then moving on to his uncle's similar machine, complicated by rainy weather.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
         "startTime": 3510,
-        "endTime": 3570,
+        "endTime": 3600,
         "preview": "on machines from the farm, so I had no trouble getting along with them. However, in the meantime, ha"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 3030,
-        "endTime": 3090,
-        "preview": "\"A kid like you run Martin Twight's outfit - separator?\" I said, \"Yes.\" \"Oh,\" he said, \"You're too y"
+        "startTime": 3090,
+        "endTime": 3169,
+        "preview": "But sleeping in a haymow with a horse blanket was the only covers that you got. So I used to take my"
       }
     },
     {
-      "topic": "After finishing a short thrashing job, Lindy decided to head to Canada, but stopped in Minot, North Dakota, to look for work.",
+      "topic": "The excerpts both describe a sequence of events following work on a thrashing machine and involving a job offer that is subsequently rejected, but differ in the immediate actions and locations.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 3570,
-        "endTime": 3660,
-        "preview": "<backwards it erases everything and I'm still finding out> - papers well we finished thrashing there"
+        "startTime": 3555,
+        "endTime": 3645,
+        "preview": "Well, I was making my $12 a day on the thrash and nothing, room and board only when we didn't thrash"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 2790,
-        "endTime": 2850,
-        "preview": "And this - well I suppose it lasted for about a week that it was real bad, but it was a brand new ex"
+        "startTime": 2775,
+        "endTime": 2865,
+        "preview": "You'd go to bed at night and you'd just lie on the cover on the bed without any covers no clothes on"
       }
     },
     {
-      "topic": "After moving from Iowa to Canada with his large family, Lindy drove north and stopped to talk to a line gang foreman. He told the foreman about his background.",
+      "topic": "The excerpts describe a similar experience of briefly avoiding a job in Minot, North Dakota, and subsequently joining a line gang.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 3630,
+        "startTime": 3600,
         "endTime": 3690,
-        "preview": "This is pretty heavy stuff, pretty hot stuff. I'll be working in here. So come Monday morning, I nev"
+        "preview": "I got up as far as Minot, North Dakota, and I stopped in the city there to see if I could get a job."
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 210,
-        "endTime": 270,
-        "preview": "- be a long drawn-out affair as my memory goes back to the year 1907 when I was a small boy of four "
+        "startTime": 2190,
+        "endTime": 2280,
+        "preview": "This was on January the 4th, 1927. I'll always remember that date. My first day was digging holes. T"
       }
     },
     {
-      "topic": "The Achen family moves from Iowa to Canada. Lindy recalls this move years later, wondering why his father left the farmland in Iowa. Later, Lindy plans to return to Canada and considers renting the family farm with his brother Mac, as his mother and brother Bud want to leave the farm.",
+      "topic": "The excerpts likely describe the same event – securing a job with a road construction crew – but with differing focuses on the details of the experience.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 3645,
+        "endTime": 3735,
+        "preview": "I hadn't got up the road 50 miles, and here I come across a small line gang working right along the "
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 2190,
+        "endTime": 2280,
+        "preview": "This was on January the 4th, 1927. I'll always remember that date. My first day was digging holes. T"
+      }
+    },
+    {
+      "topic": "The excerpts both describe the narrator's experiences starting a new job as a lineman, though they differ in specific details and timeframes.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 3690,
+        "endTime": 3780,
+        "preview": "So I go up to Kenmare and I go into the office and tell him that I'd been talking to Leo O'Grady, a "
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 2190,
+        "endTime": 2280,
+        "preview": "This was on January the 4th, 1927. I'll always remember that date. My first day was digging holes. T"
+      }
+    },
+    {
+      "topic": "The excerpts describe the same period of farming with the narrator and his brother, though they emphasize different aspects and offer slightly varying details.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
@@ -709,540 +799,405 @@
         "preview": "Well, to get ahead of the story, in the fall when I had gone back up to visit, Mother wanted to get "
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 210,
-        "endTime": 270,
-        "preview": "- be a long drawn-out affair as my memory goes back to the year 1907 when I was a small boy of four "
+        "startTime": 1830,
+        "endTime": 1920,
+        "preview": "I'm still having trouble. I'm still having trouble, but I'll get 'er in time sooner or later. You'll"
       }
     },
     {
-      "topic": "In 1924, Lindy started running the Achen family farm alongside Mac. It was a dry year, resulting in a smaller crop. Lindy's mother paid him $600 per year and let him use the car.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 3930,
-        "endTime": 3990,
-        "preview": "Now we're up to September the 11th, 1986. This is about three weeks ago when I last spoke into this "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1800,
-        "endTime": 1860,
-        "preview": "Right now I'll add a few words while I'm trying to get the tapes lined up again. This is something t"
-      }
-    },
-    {
-      "topic": "Lindy expresses a desire to learn new skills and tells his boss he can build more holes than anyone else. As a result, Lindy and the crew move to Winnebago, Nebraska, where Lindy’s boss promises to teach him other skills. Shortly after, the foreman recognizes Lindy’s building expertise and considers making him foreman, but is conflicted because he'd previously promised the position to Jack.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 4050,
-        "endTime": 4110,
-        "preview": "We were working 10 hours a day, six days a week. However, I got on this job, and they were a very in"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2340,
-        "endTime": 2400,
-        "preview": "I said, \"I can build more holes than anybody you've got around here and I kind of think it's time I "
-      }
-    },
-    {
-      "topic": "Lindy temporarily takes a job to earn money, intending to return to farming. He discusses this with a foreman named John, who agrees to let him work temporarily. This arrangement is influenced by a prior disagreement between Lindy's dad, Joe, and Zip, which led to Lindy being assigned to operate a new separator and tractor on the farm in the fall of 1921.",
+      "topic": "The excerpts describe a period of farming and subsequent financial disagreements, though with differing levels of detail.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 4080,
-        "endTime": 4140,
-        "preview": "Well, I said, \"I'll tell you, John, I just come down here to run a few dollars.\" I said, \"I'm farmin"
+        "startTime": 3915,
+        "endTime": 4005,
+        "preview": "or had a job, I should say, on the farm. We were going farming. And that was all there was to that. "
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1110,
-        "endTime": 1170,
-        "preview": "And then it was the fall of '21. Dad bought a little separator to go with the little Titan tractor w"
+        "startTime": 1830,
+        "endTime": 1920,
+        "preview": "I'm still having trouble. I'm still having trouble, but I'll get 'er in time sooner or later. You'll"
       }
     },
     {
-      "topic": "Lindy expresses a desire to learn new skills and is offered a position in service work by a superintendent. He's initially unfamiliar with tasks like meter reading, but the superintendent offers to train him. This leads to a move with the crew to Winnebago, Nebraska, where he’ll learn those new skills.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 4110,
-        "endTime": 4170,
-        "preview": "Well, as things worked out then, it wasn't very long, and the superintendent from downtown, and he p"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2340,
-        "endTime": 2400,
-        "preview": "I said, \"I can build more holes than anybody you've got around here and I kind of think it's time I "
-      }
-    },
-    {
-      "topic": "Lindy works a winter job servicing meters and customers, planning to return home in March. Around the 17th of March, the Achen family arrives in Halbrite, stays in a hotel, and loads livestock and machinery while Lindy anticipates returning to the farm at the end of March.",
+      "topic": "The excerpts likely recount related experiences surrounding farm work and a subsequent job opportunity, though they focus on different aspects and present the details with variation.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 4140,
-        "endTime": 4230,
-        "preview": "And then you'll have to get somebody else.\" \"Well,\" he said, \"that's okay. We'll deal with that when"
+        "startTime": 3960,
+        "endTime": 4050,
+        "preview": "Mother was paying me $600 for the year and of course I had the use of the car as I needed it. Everyt"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 270,
-        "endTime": 330,
-        "preview": "The idea was for each one of them to get a quarter section of land and become a farmer, which was a "
+        "startTime": 1830,
+        "endTime": 1920,
+        "preview": "I'm still having trouble. I'm still having trouble, but I'll get 'er in time sooner or later. You'll"
       }
     },
     {
-      "topic": "Lindy travels to Regina, Saskatchewan, initially to take a telephone course in the winter of 1922 to learn how to maintain rural telephones. Later, he considers contacting the Power Commission and receives advice about government takeover, and he visits a schoolteacher in the countryside while out of town.",
+      "topic": "The excerpts likely describe the same job, though the recounting differs in detail and emphasis.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 4440,
-        "endTime": 4590,
-        "preview": "He said - And I said, \"What would it mean if I called them?\" \"Well,\" he said, \"They'll be here long "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1590,
-        "endTime": 1650,
-        "preview": "I heard my first radio, I think it was 1921. Maybe later than that, it could have been '22 or '23, I"
-      }
-    },
-    {
-      "topic": "Lindy left his job, receiving praise from the superintendent who couldn’t guarantee his return. He then went to Regina, seemingly to take a telephone course, though he felt unhappy during this time.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 4710,
-        "endTime": 4770,
-        "preview": "\"Well,\" I said, \"I'll take it off and take my own chances of getting back to work when I get back.\" "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1590,
-        "endTime": 1650,
-        "preview": "I heard my first radio, I think it was 1921. Maybe later than that, it could have been '22 or '23, I"
-      }
-    },
-    {
-      "topic": "Lindy travels to Midale, where Mac is living, to discuss installing a power plant distribution system. Lindy requests a month in Iowa with his mother before beginning the work.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 4740,
-        "endTime": 4830,
-        "preview": "This is in the spring of 1931. No, in the fall of 1931. And anyway... The way I go, I go down to Hal"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 60,
-        "endTime": 120,
-        "preview": "two hours of recording. So as I go along there'll be errors and omissions and there'll be blank spac"
-      }
-    },
-    {
-      "topic": "After Joe and Zip leave for the coast, Lindy and his brother Mac work on the farm alone through 1921 and 1922. As the work finishes, Lindy travels to Regina in May to seek employment with the power commission, but he's turned away because they are laying off workers.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 4800,
-        "endTime": 4860,
-        "preview": "All the houses and stores had to be wired, so my brother Mac and I spent the winter there, wiring up"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1140,
-        "endTime": 1200,
-        "preview": "... back to many other things besides that, to keep the grain wagons there and whatnot. And as it wa"
-      }
-    },
-    {
-      "topic": "Lindy applies for a job at a work site, but the superintendent criticizes him for seeking work both in the winter and summer. He’s ultimately told they aren't hiring. Shortly after, Lindy successfully secures a job at 35 cents an hour, starting on January 4th, 1927.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 4830,
-        "endTime": 4890,
-        "preview": "See if I can get a job. \"Get a job? We're still laying off men. Things are that tough that we're sti"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2160,
-        "endTime": 2220,
-        "preview": "I heard the boss say to another man, he's going to fire him tonight.\" So I went to the boss and I sa"
-      }
-    },
-    {
-      "topic": "Both excerpts describe a poor harvest on the Achen family farm. Lindy was helping with chores alongside Bud and his cousin Tad, while Joe and Zip left for the coast, leaving Lindy and Mac to work the farm alone. Bud was starting to become more helpful on the farm at that time.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 4860,
-        "endTime": 4920,
-        "preview": "Well, he'll never know how close I come to climbing over his desk and punching him in the nose, but "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1140,
-        "endTime": 1200,
-        "preview": "... back to many other things besides that, to keep the grain wagons there and whatnot. And as it wa"
-      }
-    },
-    {
-      "topic": "Lindy, age 19, starts operating a newly acquired separator and tractor for the Achen family in the fall of 1921. An argument between Lindy’s dad, Joe, and Zip resulted in Lindy being assigned the task. He runs both the separator and the engine, earning a small wage while Bud, who hired him, makes more money from the operation.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 4890,
-        "endTime": 4950,
-        "preview": "We put our little thrashing outfit to work, and we got the harvests off of them. There were others a"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1110,
-        "endTime": 1170,
-        "preview": "And then it was the fall of '21. Dad bought a little separator to go with the little Titan tractor w"
-      }
-    },
-    {
-      "topic": "Lindy travels to a town that lacks wiring and power. He and his brother Mac are tasked with wiring the buildings, while a contractor builds the power lines. The timeframe includes June, with Mac joining about two weeks later. This work seems connected to Lorry’s business, and Lindy spends April, May, June, and part of July working for him.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 5490,
-        "endTime": 5550,
-        "preview": "There's no wiring in the town. There isn't a power of any kind in the town. There's about 120 places"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2490,
-        "endTime": 2550,
-        "preview": "get by with what we have to have in a good home.\" Well, he said, \"I'll tell you something. You'll le"
-      }
-    },
-    {
-      "topic": "Lindy worked for Martin Twight, running a separator machine for 30 days straight, including Sundays, and working an average of 12 hours a day. This work coincided with a period when Lindy was frequently on call and Dominion Electric was expanding operations in the Peace River country.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 5670,
-        "endTime": 5730,
-        "preview": "And there's '41, '42, '43, '44, on call, 24 hours a day, 30 days a month. But when I got holidays - "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3030,
-        "endTime": 3090,
-        "preview": "\"A kid like you run Martin Twight's outfit - separator?\" I said, \"Yes.\" \"Oh,\" he said, \"You're too y"
-      }
-    },
-    {
-      "topic": "Lindy trains young, inexperienced workers. He motivates them with a mix of encouragement and reprimands, fostering loyalty. He wakes them up early, around 4:45 AM, using the phrase \"Daylight in the swamp,\" so they can start the machines running by 6:00 AM.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 6210,
-        "endTime": 6270,
-        "preview": "You know, young guys, 18 years old. They knew nothing from nothing, and you train them. But I saw th"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3120,
-        "endTime": 3169,
-        "preview": "and his way of calling was, \"Daylight in the swamp, boys; daylight in the swamp.\" Well, after laying"
-      }
-    },
-    {
-      "topic": "Lindy trains new employees by having them dig anchor holes, initially instructing them with shovels. He demonstrates how to use the tools and expects them to work hard, ultimately \"hardening\" them. Later, Lindy himself becomes a top hole-digger on a crew, outperforming older workers due to his strength and youth, and earning recognition from the boss.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 6270,
-        "endTime": 6330,
-        "preview": "You'd have to let him go. There was an awful lot of shovel work in those days. You'd break a guy in "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2250,
-        "endTime": 2310,
-        "preview": "So he got me a sharp bar. The third day I was able to dig as many holes as anybody on the gang. And "
-      }
-    },
-    {
-      "topic": "Lindy provided equipment rental services for a city power project. He initially struggled with a dull digging tool, which an older crew member helped him remedy by providing a sharper one. Lindy's job involved billing every two weeks and receiving a commission, making it a steady income source.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 6750,
-        "endTime": 6810,
-        "preview": "Not a big crew. A crew about six men. mostly. Five, six men, boring machine, pole truck, and another"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2220,
-        "endTime": 2280,
-        "preview": "I got ahold of a bar for digging through frost that was just so dull. And I went out and I thought t"
-      }
-    },
-    {
-      "topic": "Lindy traveled to Regina to take a telephone maintenance course, which kept him away from his family for six weeks. Phyllis expressed concern about his absence, as they had multiple young children at home, but Lindy felt obligated to continue working.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 6870,
-        "endTime": 6930,
-        "preview": "There was one time that I didn't get home for six weeks. Phyllis was in Regina here with the kids. W"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1590,
-        "endTime": 1650,
-        "preview": "I heard my first radio, I think it was 1921. Maybe later than that, it could have been '22 or '23, I"
-      }
-    },
-    {
-      "topic": "Lindy and his crew were working in the Ogema - Shaunavon area in 1950-1951, constructing power lines. They started work very early, around 4:40 or 4:45 AM, with the boss waking them with the phrase \"Daylight in the swamp.\" The team needed to have the machinery running by 6:00 AM.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 7350,
-        "endTime": 7410,
-        "preview": "And then down in the Ogema - Shaunavon area, yeah, Fife Lake, and in that area we did a bunch of towns "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3120,
-        "endTime": 3169,
-        "preview": "and his way of calling was, \"Daylight in the swamp, boys; daylight in the swamp.\" Well, after laying"
-      }
-    },
-    {
-      "topic": "Lindy started a business doing foundation piling as a way to keep his crew employed when other work was scarce. He began by digging holes, which were difficult because the ground was frozen solid. As the new man on the crew, Lindy was given the least desirable tools, a dull bar for digging through the frozen ground.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 7590,
-        "endTime": 7650,
-        "preview": "And so when the work was all let out, I was sitting there, I didn't have any work. I said, \"Well, we"
+        "startTime": 4455,
+        "endTime": 4545,
+        "preview": "Oh, I wrote in, that's right. I wrote in and asked for a job and forgot all about it. I go out - out"
       },
       "TDK_D60_edited_through_air": {
         "startTime": 2190,
-        "endTime": 2250,
+        "endTime": 2280,
         "preview": "This was on January the 4th, 1927. I'll always remember that date. My first day was digging holes. T"
       }
     },
     {
-      "topic": "Lindy's company was building many farms and needed to maintain multiple machines, including one specifically designed for deep foundation boring. Lindy personally worked long hours preparing the machines each night and ensuring they didn’t stop, dealing with equipment problems like an engine governor issue and a brief shutdown of a separator.",
+      "topic": "The excerpts recount a period of time spent in Iowa following a visit and subsequent unemployment, although with differing levels of detail and focus.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 7650,
-        "endTime": 7710,
-        "preview": "When we were building 500 farms a year, we had to have two machines going steady in the country and "
+        "startTime": 4770,
+        "endTime": 4860,
+        "preview": "Well, that would be plenty of time. You get back here in November, that would be plenty of time to d"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 3060,
-        "endTime": 3120,
-        "preview": "And I want to tell you that every night I worked until midnight, lacing belts and getting everything"
+        "startTime": 2010,
+        "endTime": 2100,
+        "preview": "When I got there, I had chilblains so bad that I went to the doctor with them. And he said, \"This ge"
       }
     },
     {
-      "topic": "Both excerpts discuss George Jenney's decision to sell his land near Assiniboia, Saskatchewan, after paying it off after 20 years of work. Excerpt A focuses specifically on George's retirement and sale of shares, while Excerpt B implies George's land acquisition was part of a larger family move to Canada to acquire cheap land on the prairie.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 8370,
-        "endTime": 8430,
-        "preview": "And I'm sure he didn't, because when electricity hits you, you don't know what hits you. Then the ne"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 240,
-        "endTime": 300,
-        "preview": "Whatever possessed my dad to leave that rich farmland down around Sioux City, Iowa, and move up into"
-      }
-    },
-    {
-      "topic": "After Lindy's initial two-year apprenticeship ended, his employer put him on a retainer because he held an electrician's license, which was required for certain jobs. Although he rarely went on these jobs, his presence fulfilled a requirement for inspections.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 8580,
-        "endTime": 8640,
-        "preview": "And they pay their rent every month on the dot, and they still - Oh, yes, after my two years was up,"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2310,
-        "endTime": 2370,
-        "preview": "I see that you're doing more work than any of these other fellows, but you -\" He said, \"But you didn"
-      }
-    },
-    {
-      "topic": "After Dad died, Lindy, at 21, took over running the family farm, drawing on his experience with machinery and managing people, which he’d learned from his father. He was responsible for hiring and firing workers and making planting decisions, continuing the farm operations.",
+      "topic": "The excerpts both describe a job search and subsequent work operating a threshing machine, though with differing details regarding the initial rejection and the specifics of the farm setting.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
-        "startTime": 9030,
-        "endTime": 9090,
-        "preview": "And having my background and experience is what carried me through. It was - I knew a lot about mach"
+        "startTime": 4815,
+        "endTime": 4950,
+        "preview": "Well then, the job is finished, and it's spring. So about in May, I wander up to Regina here, going "
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1800,
-        "endTime": 1860,
-        "preview": "Right now I'll add a few words while I'm trying to get the tapes lined up again. This is something t"
+        "startTime": 2775,
+        "endTime": 2955,
+        "preview": "You'd go to bed at night and you'd just lie on the cover on the bed without any covers no clothes on"
       }
     },
     {
-      "topic": "Both excerpts recount the time following Dad's death. Excerpt B describes the funeral itself – it was a large, rainy affair where Dad’s body was brought to the farm before being moved for burial. Excerpt A picks up the story three years later, when Lindy began working in the power business and quickly took on leadership roles, emphasizing the importance of managing employees.",
+      "topic": "The excerpts both describe the narrator seeking and obtaining work operating a Martin Twight Separator.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 9060,
-        "endTime": 9120,
-        "preview": "After Dad died, when I was 21 years old, three years I spent there. Then when I started in the power"
+        "startTime": 4905,
+        "endTime": 4995,
+        "preview": "And for that, He was getting $4 an hour or $40 a day for this separator and myself and the farmer wh"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 1710,
-        "endTime": 1770,
-        "preview": "Right now, I'll go back now to about 1924, yes. Dad was dead and buried. Big funeral; rainy day; dro"
+        "startTime": 2820,
+        "endTime": 2910,
+        "preview": "After I finished there, I got in the car and I went up through by Lorry's place again, stopped there"
       }
     },
     {
-      "topic": "Lindy explains his job history to someone, mentioning he worked at Iowa Electric for four months before moving on to South Dakota. He also mentions that the Achen family left Iowa when he was a boy.",
+      "topic": "The excerpts both describe a significant disruption and repair of a generator at a power plant, although one focuses on the managerial perspective and the other on the worker's experience.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 5625,
+        "endTime": 5715,
+        "preview": "And in the fall of '38, I was sent out to Shaunavon and Gravelbourg to calibrate meters. Ohy, I got "
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 3045,
+        "endTime": 3135,
+        "preview": "We ran for 30 days straight. Went - ran right through, Sundays and all. We averaged 12 hours a day b"
+      }
+    },
+    {
+      "topic": "The excerpts likely describe the same initial experience of working on a construction project for returned soldiers, though with differing levels of detail and perspective.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 6075,
+        "endTime": 6165,
+        "preview": "They were starting up a new building development, the first one in Regina for 20 years, I guess, and"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 2190,
+        "endTime": 2280,
+        "preview": "This was on January the 4th, 1927. I'll always remember that date. My first day was digging holes. T"
+      }
+    },
+    {
+      "topic": "The excerpts describe a training/work experience involving digging, with a focus on adapting to difficult conditions and learning from experienced workers.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 6210,
+        "endTime": 6300,
+        "preview": "You know, young guys, 18 years old. They knew nothing from nothing, and you train them. But I saw th"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 2190,
+        "endTime": 2280,
+        "preview": "This was on January the 4th, 1927. I'll always remember that date. My first day was digging holes. T"
+      }
+    },
+    {
+      "topic": "The excerpts describe related activities - construction and fur trading - with a shared mention of Stoughton.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 6255,
+        "endTime": 6345,
+        "preview": "I always loved working with a bunch of men. And I knew how to get work out of them. Once in a while "
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 615,
+        "endTime": 705,
+        "preview": "life was quite ordinary. Stayed home. Did chores, finished the chores about 10 o'clock in the mornin"
+      }
+    },
+    {
+      "topic": "The excerpts likely describe the same project involving a newly acquired boring machine and significant labor challenges.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 6300,
+        "endTime": 6390,
+        "preview": "And that's just about... a lost art today, there is no more shovel work. You hire a guy today and yo"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 3045,
+        "endTime": 3135,
+        "preview": "We ran for 30 days straight. Went - ran right through, Sundays and all. We averaged 12 hours a day b"
+      }
+    },
+    {
+      "topic": "The excerpts likely describe the same event involving a boring machine and difficult working conditions on a line construction project.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 6345,
+        "endTime": 6435,
+        "preview": "And I did some work for the city at that time. And I finished that line on the 9th of December, that"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 3045,
+        "endTime": 3135,
+        "preview": "We ran for 30 days straight. Went - ran right through, Sundays and all. We averaged 12 hours a day b"
+      }
+    },
+    {
+      "topic": "The excerpts likely describe the same project involving a boring machine and equipment rental, though they focus on different aspects and perspectives.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 6750,
+        "endTime": 6840,
+        "preview": "Not a big crew. A crew about six men. mostly. Five, six men, boring machine, pole truck, and another"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 3045,
+        "endTime": 3135,
+        "preview": "We ran for 30 days straight. Went - ran right through, Sundays and all. We averaged 12 hours a day b"
+      }
+    },
+    {
+      "topic": "The excerpts describe a conflict regarding wages and management responsibilities on a farm.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 8955,
+        "endTime": 9045,
+        "preview": "And that sort of straightens things out. This is after Art took over. In the 20 years that I was con"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 1875,
+        "endTime": 1965,
+        "preview": "But not - Mac and I got along very good. We run a good show here. At the end of the three years, the"
+      }
+    },
+    {
+      "topic": "The excerpts both recount the death of the speaker's father, but with differing levels of detail and narrative focus.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 9000,
+        "endTime": 9090,
+        "preview": "But they didn't realize all the things that you had to look after when you run an outfit single-hand"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 1335,
+        "endTime": 1425,
+        "preview": "And the next morning, when I walked down to see him, which was about 9 o'clock in the morning when I"
+      }
+    },
+    {
+      "topic": "The excerpts both recount the death of the speaker's father and the immediate aftermath, though with differing levels of detail and narrative focus.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 9045,
+        "endTime": 9135,
+        "preview": "I hired and fired men when I was 21 years old. And from there on, I was always in charge of people. "
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 1335,
+        "endTime": 1425,
+        "preview": "And the next morning, when I walked down to see him, which was about 9 o'clock in the morning when I"
+      }
+    },
+    {
+      "topic": "The excerpts describe a negotiation regarding salary and job responsibilities, followed by a relocation to a new work location.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 9495,
+        "endTime": 9585,
+        "preview": "If I come in, contracting's finished. As long as it's contracting, I want to be a competitor. I'll b"
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 2280,
+        "endTime": 2370,
+        "preview": "We were moving around the country, not necessarily always in Worthington. And the boss come along on"
+      }
+    },
+    {
+      "topic": "The excerpts likely describe a related period of job searching and farm work in South Dakota, though with differing focuses and levels of detail.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
         "startTime": 9540,
-        "endTime": 9600,
+        "endTime": 9630,
         "preview": "He brought it up to me then. \"Well,\" he said, \"You've got a history of jumping around a lot.\" \"Well,"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 60,
-        "endTime": 120,
-        "preview": "two hours of recording. So as I go along there'll be errors and omissions and there'll be blank spac"
+        "startTime": 2820,
+        "endTime": 2910,
+        "preview": "After I finished there, I got in the car and I went up through by Lorry's place again, stopped there"
       }
     },
     {
-      "topic": "An employee wanted to quit his job, and Lindy was tasked with getting a release slip from unemployment insurance for him, a requirement during wartime. Lindy later tells his boss about this encounter and announces his own intention to quit at the end of the week, expressing a preference for a more stable life.",
+      "topic": "The excerpts both describe periods of intense, demanding work related to machinery, though with different focuses and levels of detail.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 10170,
-        "endTime": 10230,
-        "preview": "I said, every time you leave town, he comes in and says, He wants to quit. \"Where's the superintende"
+        "startTime": 9585,
+        "endTime": 9675,
+        "preview": "'31 to '45. That's about 15, 16 years. Not steady. I was on and off. But I worked in every possible "
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 2460,
-        "endTime": 2520,
-        "preview": "He said, \"Here, take this.\" He said, \"Just in case you have trouble.\" So I went down there. I, uh, I"
+        "startTime": 3045,
+        "endTime": 3135,
+        "preview": "We ran for 30 days straight. Went - ran right through, Sundays and all. We averaged 12 hours a day b"
       }
     },
     {
-      "topic": "Lindy's team bought a Williams boring machine from Billings, Montana, which initially could only bore 18 feet deep. Lindy and his team then modified the machine in their shop to extend its depth to 30 feet, requiring extensive preparation and maintenance, including working until midnight each night to keep it running.",
+      "topic": "The excerpts describe a shared experience of seeking work operating a thresher/separator, though with differing levels of detail and focus.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 10440,
-        "endTime": 10500,
-        "preview": "We bought a Williams boring machine from Billings, Montana, and it would only go down 18 feet. And w"
+        "startTime": 9720,
+        "endTime": 9810,
+        "preview": "\"index pension\" is what it was like as far as I was concerned. And uh what'll we go back to now. Yes"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 3060,
-        "endTime": 3120,
-        "preview": "And I want to tell you that every night I worked until midnight, lacing belts and getting everything"
+        "startTime": 2820,
+        "endTime": 2910,
+        "preview": "After I finished there, I got in the car and I went up through by Lorry's place again, stopped there"
       }
     },
     {
-      "topic": "Lindy arranged for Art to buy a drilling machine in Billings, Montana. The machine initially only drilled 20 feet, so Lindy and his team modified it to drill 32 feet. Later, Lindy prepared the machine for a test run, but a worker didn’t show up, so he and Martin Twight harnessed the steam engine to the machine to test it.",
+      "topic": "The excerpts describe a shared experience of using custom-made augers to dig through frozen ground, albeit with different focuses and levels of detail.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 10740,
-        "endTime": 10800,
-        "preview": "I may have said this earlier on the tape. I'd tell about buying the machine down at Billings, Montan"
+        "startTime": 10305,
+        "endTime": 10395,
+        "preview": "Trucks! We bought new trucks, but other boring machines, and cranes and things like that would buy s"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 2940,
-        "endTime": 3000,
-        "preview": "And we're going to make a trial run on Saturday. So you come on back over on Saturday and we'll just"
+        "startTime": 2190,
+        "endTime": 2280,
+        "preview": "This was on January the 4th, 1927. I'll always remember that date. My first day was digging holes. T"
       }
     },
     {
-      "topic": "Lindy buys a used boring machine to help with his company's work. He initially prepares for a test run on a Saturday but the hired worker doesn’t show up, so Lindy and Martin Twight work together to harness the steam engine to the machine using belts. Later, Lindy’s machine proves to be exceptionally efficient, digging more footage than a competitor had in a decade, despite him refusing to share the secrets to its success.",
+      "topic": "The excerpts both reference a Martin Twight Separator and someone’s skill in operating it, suggesting a shared, though potentially embellished, experience.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 10950,
-        "endTime": 11040,
-        "preview": "We would take them in and find their weakness. the city had one, ten years old and they had it in th"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2940,
-        "endTime": 3120,
-        "preview": "And we're going to make a trial run on Saturday. So you come on back over on Saturday and we'll just"
-      }
-    },
-    {
-      "topic": "Lindy buys some old, failing machines from a competitor, who later goes out of business. Lindy and his team repair the machines, and Lindy uses them successfully for ten years. A later conversation indicates Lindy was considering buying a machine from Martin Twight that had recently been overhauled.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 11010,
+        "startTime": 10980,
         "endTime": 11070,
-        "preview": "And I wouldn't have defied anybody to dig a hole with either one of those machines. And the guy said"
+        "preview": "We took it and we spent $600 on it. And we dug more footage with that machine in one year than what "
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 2910,
-        "endTime": 2970,
-        "preview": "\"From morning 'til night. We bet that we wouldn't have any trouble during the day.\" However, I went "
+        "startTime": 2820,
+        "endTime": 2910,
+        "preview": "After I finished there, I got in the car and I went up through by Lorry's place again, stopped there"
       }
     },
     {
-      "topic": "A trenching machine malfunctions shortly after starting up. A cog falls out and damages the blower, which requires 20 horsepower. Lindy's company contrasts their productivity with companies like Power Corporation, who had multiple stalls but weren't efficient and would often request urgent repairs on machinery like the malfunctioning trenching machine.",
+      "topic": "The excerpts describe a demanding construction job that required long hours and overtime, though with some differences in detail.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
-        "startTime": 11880,
-        "endTime": 11940,
-        "preview": "That's the biggest thing. I've seen these shops, you know, with five or six stalls in them. The Powe"
+        "startTime": 11475,
+        "endTime": 11565,
+        "preview": "I said, \"I figure I'm worth $10,000 to run your construction outfit with my experience.\" So that was"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 2970,
-        "endTime": 3030,
-        "preview": "It hadn't run for five minutes, and all of a sudden, bang-a-dee-bang, the pieces started flying arou"
+        "startTime": 3045,
+        "endTime": 3135,
+        "preview": "We ran for 30 days straight. Went - ran right through, Sundays and all. We averaged 12 hours a day b"
       }
     },
     {
-      "topic": "Lindy’s boss recognized he was outperforming his colleagues despite lacking seniority. The boss intervened and ensured Lindy would be paid 40 cents an hour. Afterward, the boss asked Lindy to move with them across the state.",
+      "topic": "The excerpts likely describe the same grueling period of work involving a machine and demanding schedule, although details about the work and conditions differ.",
+      "confidence": "MEDIUM",
+      "score": 7,
+      "Norm_red": {
+        "startTime": 11565,
+        "endTime": 11655,
+        "preview": "on the line.\" And he said, \"You're going to have to cut back and stand half that overtime yourself.\""
+      },
+      "TDK_D60_edited_through_air": {
+        "startTime": 3045,
+        "endTime": 3135,
+        "preview": "We ran for 30 days straight. Went - ran right through, Sundays and all. We averaged 12 hours a day b"
+      }
+    },
+    {
+      "topic": "The excerpts both recount the death of the narrator's father and the immediate aftermath, though they focus on different aspects and are presented in a disjointed, reminiscing style.",
       "confidence": "MEDIUM",
       "score": 8,
       "Norm_red": {
-        "startTime": 13080,
-        "endTime": 13140,
-        "preview": "And I said, \"It can't be anything else.\" They were looking in the substation. I was looking in the s"
+        "startTime": 13185,
+        "endTime": 13275,
+        "preview": "So I suppose after you listen to this you may have a lot of questions to ask me. To the women, the g"
       },
       "TDK_D60_edited_through_air": {
-        "startTime": 2310,
-        "endTime": 2370,
-        "preview": "I see that you're doing more work than any of these other fellows, but you -\" He said, \"But you didn"
+        "startTime": 1335,
+        "endTime": 1425,
+        "preview": "And the next morning, when I walked down to see him, which was about 9 o'clock in the morning when I"
       }
     },
     {
-      "topic": "After an argument between Lindy’s dad (Joe) and Zip, 19-year-old Lindy was put in charge of operating a new separator and tractor on the Achen family farm in the fall of 1921. Lindy considered himself lucky to have been given this responsibility at a young age, and it was part of a process of gaining authority in his work.",
+      "topic": "The excerpts describe a period around 1921 when the narrator, at age 19, took on significant responsibility on the farm, although the details and focus differ.",
       "confidence": "MEDIUM",
       "score": 7,
       "Norm_red": {
         "startTime": 13230,
-        "endTime": 13290,
+        "endTime": 13320,
         "preview": "the main thing is that you're always bettering your own position. Use the old saying, day by day, in"
       },
       "TDK_D60_edited_through_air": {
         "startTime": 1110,
-        "endTime": 1170,
+        "endTime": 1200,
         "preview": "And then it was the fall of '21. Dad bought a little separator to go with the little Titan tractor w"
-      }
-    },
-    {
-      "topic": "Lindy took over running the Achen family farm at age 19, following his father’s death when Lindy was 21. He managed the farm's operations, finances, and planting decisions, continuing the practices he learned from his dad. His mother and brothers, Mac and Bud, were also left on the farm.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 13260,
-        "endTime": 13320,
-        "preview": "And the fact that when I was home, I was put in charge of things from the time I was 19 years old. M"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1800,
-        "endTime": 1860,
-        "preview": "Right now I'll add a few words while I'm trying to get the tapes lined up again. This is something t"
       }
     }
   ],
   "stats": {
-    "totalMatches": 82,
-    "highConfidence": 12,
-    "mediumConfidence": 70
+    "totalMatches": 79,
+    "highConfidence": 14,
+    "mediumConfidence": 65
   }
 }

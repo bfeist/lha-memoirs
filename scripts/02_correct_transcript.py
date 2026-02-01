@@ -332,7 +332,7 @@ def process_transcript(
         data['segments'] = segments
         # Note: CSV format doesn't store metadata like _corrections
         # We save as CSV only
-        output_path = save_transcript(recording_dir, data, format='csv')
+        output_path = save_transcript(recording_dir, data)
         
         if verbose:
             print(f"  Saved: {output_path.name}")

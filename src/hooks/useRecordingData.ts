@@ -43,8 +43,8 @@ function parseTranscriptCsv(csvText: string): TranscriptData {
     if (line.startsWith("#")) {
       // Skip comment lines
       continue;
-    } else if (line.toLowerCase().startsWith("start")) {
-      // Skip header row
+    } else if (line.toLowerCase().startsWith("start|")) {
+      // Skip header row (must have pipe to distinguish from data)
       dataStart = i + 1;
       break;
     } else if (line) {

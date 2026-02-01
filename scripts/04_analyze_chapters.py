@@ -331,9 +331,11 @@ def analyze_content_for_chapters(segments: list, model_name: str, total_duration
     print(f"\n🤖 Analyzing content with {model_name}...")
     print("   Processing transcript in chunks to identify topic transitions...")
     
-    # Get total duration
-    if total_duration is None:
-        total_duration = segments[-1]["end"] if segments else 0
+    # Get total duration - fallback to last segment's end time if not provided or zero
+    if not total_duration and segments:
+        total_duration = segments[-1]["end"]
+    elif not total_duration:
+        total_duration = 0
     
     # FIRST: Explicitly analyze the opening content
     opening_topic = analyze_opening_content(segments, model_name)
