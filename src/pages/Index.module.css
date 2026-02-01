@@ -88,6 +88,22 @@
   font-style: italic;
 }
 
+/* Search section */
+.searchSection {
+  max-width: 800px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.searchSectionTitle {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #d4af37;
+  text-align: center;
+}
+
 /* Features section */
 .featuresSection {
   display: flex;
