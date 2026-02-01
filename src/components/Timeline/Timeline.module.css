@@ -1,0 +1,127 @@
+.timelineWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 1rem;
+}
+
+.yearPreview {
+  display: flex;
+  justify-content: center;
+  min-height: 2rem;
+  align-items: center;
+}
+
+.yearLabel {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #d4af37;
+}
+
+.ageLabel {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #808080;
+}
+
+.yearLabelEmpty {
+  font-size: 0.9rem;
+  color: #606060;
+  font-style: italic;
+}
+
+/* Timeline bar */
+.timeline {
+  position: relative;
+  height: 40px;
+  cursor: pointer;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #2a2a2a;
+  border-radius: 2px;
+  transform: translateY(-50%);
+}
+
+/* Entry segments */
+.segment {
+  position: absolute;
+  top: 50%;
+  height: 12px;
+  background: #5a4a38;
+  border-radius: 2px;
+  transform: translateY(-50%);
+  transition:
+    height 0.15s ease,
+    background 0.15s ease;
+}
+
+.segment.active {
+  height: 20px;
+  background: #8b7355;
+  z-index: 2;
+}
+
+.segment.selected {
+  background: #d4af37;
+}
+
+/* Decade markers */
+.decadeMarker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.decadeMarker::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  height: 8px;
+  background: #4a4a4a;
+}
+
+.decadeLabel {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  color: #606060;
+  white-space: nowrap;
+}
+
+/* Position indicator */
+.indicator {
+  position: absolute;
+  top: 50%;
+  width: 3px;
+  height: 28px;
+  background: #d4af37;
+  border-radius: 1.5px;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+  box-shadow: 0 0 8px rgb(212 175 55 / 50%);
+}
+
+/* Start/end year labels */
+.yearBounds {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #505050;
+  padding: 0 2px;
+}

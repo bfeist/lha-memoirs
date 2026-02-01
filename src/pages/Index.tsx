@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRobot, faMapMarkerAlt, faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faRobot,
+  faMapMarkerAlt,
+  faArrowAltCircleRight,
+  faClock,
+} from "@fortawesome/free-solid-svg-icons";
 import { getRecordingsByCategory, type RecordingConfig } from "../config/recordings";
 import WhatsNew from "../components/WhatsNew/WhatsNew";
 import LhaGpt from "../components/LhaGpt/LhaGpt";
 import { PlacesMapModal } from "../components/PlacesMap";
+import { TimelineModal } from "../components/Timeline";
 import TranscriptSearch from "../components/TranscriptSearch/TranscriptSearch";
 import { useChangelog } from "../hooks/useChangelog";
 import styles from "./Index.module.css";
@@ -37,6 +43,7 @@ function Index(): React.ReactElement {
   const [showWhatsNew, setShowWhatsNew] = useState(false);
   const [showLhaGpt, setShowLhaGpt] = useState(false);
   const [showPlacesMap, setShowPlacesMap] = useState(false);
+  const [showTimeline, setShowTimeline] = useState(false);
   const { data: changelog } = useChangelog();
   const recordings = getRecordingsByCategory("recording");
   const memoirs = getRecordingsByCategory("memoir");
@@ -51,6 +58,9 @@ function Index(): React.ReactElement {
 
       {/* Places Map Modal */}
       <PlacesMapModal isOpen={showPlacesMap} onClose={() => setShowPlacesMap(false)} />
+
+      {/* Timeline Modal */}
+      <TimelineModal isOpen={showTimeline} onClose={() => setShowTimeline(false)} />
 
       {/* Header */}
       <header className={styles.header}>
@@ -87,6 +97,19 @@ function Index(): React.ReactElement {
 
         {/* Interactive Features Buttons */}
         <section className={styles.featuresSection}>
+          <button
+            className={`${styles.featureButton}`}
+            onClick={() => setShowTimeline(true)}
+            aria-label="Explore Life Timeline"
+          >
+            <div className={styles.featureContent}>
+              <div className={styles.featureTitleLine}>
+                <FontAwesomeIcon icon={faClock} className={styles.featureIcon} />
+                <span className={styles.featureTitle}>Life Timeline</span>
+              </div>
+              <span className={styles.featureDescription}>1902–1966</span>
+            </div>
+          </button>
           <button
             className={`${styles.featureButton}`}
             onClick={() => setShowPlacesMap(true)}
