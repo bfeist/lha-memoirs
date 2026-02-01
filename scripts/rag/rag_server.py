@@ -451,10 +451,19 @@ def extract_citations(answer: str, docs: list[Document]) -> tuple[str, list[Cita
     multi_cite_pattern = r"[\[【(]Source:[^\]】)]+[\]】)]"
     cleaned_answer = re.sub(multi_cite_pattern, "", cleaned_answer)
     
+    # Fix missing periods where citations were stripped from end of sentences
+    # Pattern: lowercase/digit/quote followed by 2+ spaces then capital letter = missing period
+    cleaned_answer = re.sub(r'([a-z0-9"\'"])\s{2,}([A-Z])', r'\1. \2', cleaned_answer)
+    
     # Clean up any double spaces left behind
     cleaned_answer = re.sub(r"  +", " ", cleaned_answer)
     # Clean up spaces before punctuation
     cleaned_answer = re.sub(r" +([.,;:!?])", r"\1", cleaned_answer)
+    
+    # Ensure the answer ends with proper punctuation
+    cleaned_answer = cleaned_answer.rstrip()
+    if cleaned_answer and cleaned_answer[-1] not in '.!?:':
+        cleaned_answer += '.'
     
     citations = []
     seen = set()
