@@ -111,6 +111,20 @@ export const PlacesSidePanel = memo(function PlacesSidePanel({
             {place.admin1_name}, {place.country_code}
           </span>
         </div>
+        <div className={styles.mobileStats}>
+          <div className={styles.mobileStatItem}>
+            <span className={styles.mobileStatValue}>{totalMentions}</span>
+            <span className={styles.mobileStatLabel}>
+              {totalMentions === 1 ? "mention" : "mentions"}
+            </span>
+          </div>
+          <div className={styles.mobileStatItem}>
+            <span className={styles.mobileStatValue}>{groupedMentions.size}</span>
+            <span className={styles.mobileStatLabel}>
+              {groupedMentions.size === 1 ? "recording" : "recordings"}
+            </span>
+          </div>
+        </div>
         <button
           className={styles.closeButton}
           onClick={onClose}

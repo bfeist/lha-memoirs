@@ -1,250 +1,788 @@
 {
-  "version": "2.1",
-  "description": "Consolidated timestamp-to-timestamp story matches between memoir recordings",
-  "primaryRecording": "Norm_red",
-  "secondaryRecording": "TDK_D60_edited_through_air",
-  "matchingMethod": "sliding_window_topic_extraction_consolidated",
-  "windowConfig": {
-    "duration": 90,
-    "overlap": 45
+  "generated_at": "2026-02-01T11:36:07.674916",
+  "algorithm": "fast_3phase",
+  "settings": {
+    "window_duration": 90,
+    "window_overlap": 45,
+    "similarity_threshold": 0.12,
+    "match_threshold": 8,
+    "model": "gemma3:12b"
   },
-  "consolidationConfig": {
-    "tdk_exact_match": false,
-    "norm_gap_threshold": 60,
-    "filter_time_diff_threshold": 1800,
-    "filter_min_score": 8
-  },
-  "alternateTellings": [
-    {
-      "topic": "Lindyâ€™s family relocated from Iowa to a farm near Halbrite, Canada in 1907, seeking cheap land.",
-      "confidence": "HIGH",
-      "score": 9,
-      "Norm_red": {
-        "startTime": 0,
-        "endTime": 360,
-        "preview": "We landed in a farm. Six miles north of Halbrite. As I remember it, the house stood there for years "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 210,
-        "endTime": 300,
-        "preview": "- be a long drawn-out affair as my memory goes back to the year 1907 when I was a small boy of four "
-      }
-    },
-    {
-      "topic": "Lindy's family built a new house a mile from their farm in Canada, likely around 1907, while Lindy was around four and a half.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 315,
-        "endTime": 585,
-        "preview": "But there were 12 of us and mother and dad lived in that house. And I can't figure out, we must have"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 345,
-        "endTime": 525,
-        "preview": "house with two bedrooms, a living room and dining room combined, and a kitchen. It would have been s"
-      }
-    },
-    {
-      "topic": "Lindy recalls his early childhood, including a train trip to Iowa and witnessing a tragic accident in the States.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 540,
-        "endTime": 720,
-        "preview": "That was my education, going to school. But I will say this much, when you're in grade, by the time "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1425,
-        "endTime": 1605,
-        "preview": "Some of the things that I remember that were outstanding during that first, what was that, 22 years "
-      }
-    },
-    {
-      "topic": "Lindy's time at a convent near Minneapolis during winter, around age 11, is recalled alongside a brief family trip.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 810,
-        "endTime": 900,
-        "preview": "And Sister Hilary and I both went to the convent that winter. Mary got an education, too. I was 11 y"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1515,
-        "endTime": 1605,
-        "preview": "And then mother stayed down in Iowa and Dad came home with me. And we stopped in Minneapolis, and I "
-      }
-    },
-    {
-      "topic": "Lindy quit school around 1912 to start a trap line and help with chores on the family farm.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 900,
-        "endTime": 1305,
-        "preview": "And I was dissatisfied then, and I said to Mother one day, I want to quit school. What are you going"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 525,
-        "endTime": 705,
-        "preview": "I think it was about six or seven years later, they moved the school a half mile, which put it on th"
-      }
-    },
-    {
-      "topic": "Dad purchased a Titan tractor in 1918, which Lindy described as slow and equivalent to five or six horses.",
-      "confidence": "HIGH",
-      "score": 9,
-      "Norm_red": {
-        "startTime": 1485,
-        "endTime": 2205,
-        "preview": "1918 short crop. 1919 less crop again but we always fared somehow we had a lot of always raised 50 6"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 975,
-        "endTime": 1335,
-        "preview": "And that's all it takes through '17, 1918, still home on the farm. Well, that spring, Dad bought a b"
-      }
-    },
-    {
-      "topic": "Lindy recalled his father's death in 1924 and subsequent work running thrashing outfits in Griffin.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 1665,
-        "endTime": 1755,
-        "preview": "'24, the spring of '24, my dad died. And that was a short crop that year. We had only maybe 18, 15 o"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1650,
-        "endTime": 1740,
-        "preview": "In the summertime, I played baseball. I always loved the game of baseball. I thought nothing of ridi"
-      }
-    },
-    {
-      "topic": "Lindy recalls a simple, routine life in Halbrite, punctuated by his father's sudden death and family notifications.",
-      "confidence": "HIGH",
-      "score": 9,
-      "Norm_red": {
-        "startTime": 1890,
-        "endTime": 1980,
-        "preview": "It was all very primitive. You never saw your neighbors during the week. Only once a week that peopl"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1335,
-        "endTime": 1425,
-        "preview": "And the next morning, when I walked down to see him, which was about 9 o'clock in the morning when I"
-      }
-    },
-    {
-      "topic": "Lindy managed the family farm in Halbrite, Saskatchewan, and faced criticism regarding his wages from relatives.",
-      "confidence": "HIGH",
-      "score": 9,
-      "Norm_red": {
-        "startTime": 2160,
-        "endTime": 3330,
-        "preview": "So we got a hold of her there, and I went back home. We had the body shipped back to Halbrite for bu"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1875,
-        "endTime": 3000,
-        "preview": "But not - Mac and I got along very good. We run a good show here. At the end of the three years, the"
-      }
-    },
-    {
-      "topic": "Lindy recounts grueling, 12-hour-a-day work during a 30-day harvest in the early 1900s.",
-      "confidence": "HIGH",
-      "score": 9,
-      "Norm_red": {
-        "startTime": 3060,
-        "endTime": 3195,
-        "preview": "- what was it - 29 out of 31 days. We thrashed right through Sundays and all. We got laid out twice "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3045,
-        "endTime": 3135,
-        "preview": "We ran for 30 days straight. Went - ran right through, Sundays and all. We averaged 12 hours a day b"
-      }
-    },
-    {
-      "topic": "Lindy and Elmer worked around the clock operating a boring machine building a power line in North Dakota.",
-      "confidence": "HIGH",
-      "score": 9,
-      "Norm_red": {
-        "startTime": 3375,
-        "endTime": 3600,
-        "preview": "Then they put two crews together and we built a heavy line from Thunder Hawk, South Dakota, up to El"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 3045,
-        "endTime": 3169,
-        "preview": "We ran for 30 days straight. Went - ran right through, Sundays and all. We averaged 12 hours a day b"
-      }
-    },
-    {
-      "topic": "Lindy's experience operating a boring machine was interrupted by a harvest call to South Dakota.",
-      "confidence": "MEDIUM",
-      "score": 7,
-      "Norm_red": {
-        "startTime": 3465,
-        "endTime": 3780,
-        "preview": "And my friend, Elmer Jones, who was a lineman also, he got the job running the boring machine. So th"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2190,
-        "endTime": 2865,
-        "preview": "You'd go to bed at night and you'd just lie on the cover on the bed without any covers no clothes on"
-      }
-    },
-    {
-      "topic": "After his parents decided to leave, Lindy and Mac farmed the family land in Canada, achieving financial success.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 3870,
-        "endTime": 3960,
-        "preview": "Well, to get ahead of the story, in the fall when I had gone back up to visit, Mother wanted to get "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1830,
-        "endTime": 1920,
-        "preview": "I'm still having trouble. I'm still having trouble, but I'll get 'er in time sooner or later. You'll"
-      }
-    },
-    {
-      "topic": "After seeking work in Regina, Lindy returned to his family's farm and then traveled to South Dakota.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 4815,
-        "endTime": 4950,
-        "preview": "Well then, the job is finished, and it's spring. So about in May, I wander up to Regina here, going "
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 2775,
-        "endTime": 2955,
-        "preview": "You'd go to bed at night and you'd just lie on the cover on the bed without any covers no clothes on"
-      }
-    },
-    {
-      "topic": "Lindy recounts his fatherâ€™s death and the subsequent family arrangements made while he was 21.",
-      "confidence": "MEDIUM",
-      "score": 8,
-      "Norm_red": {
-        "startTime": 13185,
-        "endTime": 13275,
-        "preview": "So I suppose after you listen to this you may have a lot of questions to ask me. To the women, the g"
-      },
-      "TDK_D60_edited_through_air": {
-        "startTime": 1335,
-        "endTime": 1425,
-        "preview": "And the next morning, when I walked down to see him, which was about 9 o'clock in the morning when I"
-      }
-    }
-  ],
   "stats": {
-    "totalMatches": 15,
-    "highConfidence": 6,
-    "mediumConfidence": 9,
-    "originalCount": 79
-  }
+    "norm_windows": 296,
+    "tdk_windows": 240,
+    "matches_found": 55
+  },
+  "alt_tellings": [
+    {
+      "norm_window": {
+        "start": 2025,
+        "end": 2115,
+        "topics": "Lindy recounts a concerning period when his father became seriously ill in the 1930s. After initially dismissing his father's condition as a \"broken down old piece of machinery,\" Lindy had to scramble to borrow money from a local banker to catch a train to Kenmare, North Dakota, to be with him. The story highlights Lindy\u2019s close relationship with his father and the community support he received during a difficult time."
+      },
+      "tdk_window": {
+        "start": 1240,
+        "end": 1330,
+        "topics": "This excerpt recounts Lindy Achen\u2019s experience when his father became seriously ill and died unexpectedly in Kenmare, North Dakota, sometime in the 1930s or 40s. Lindy had to scramble to get money from a family friend, the banker, to travel by train from his location (likely in the upper Midwest or Manitoba) to be with his dad. The story highlights the close relationship Lindy had with his father and the reliance on community support during a difficult time."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.33004434029152
+    },
+    {
+      "norm_window": {
+        "start": 3195,
+        "end": 3285,
+        "topics": "Lindy recounts a trip he took in the 1920s, driving his Model T Ford from South Dakota to visit family in Canada and then back again. While driving alone late at night, he unfortunately rolled his car near Valley City, miraculously escaping injury. After patching up his car, Lindy and his cousin then ended up securing work with a power line crew building a power line near Leola, South Dakota, after talking to the foreman at a local hotel."
+      },
+      "tdk_window": {
+        "start": 3220,
+        "end": 3310,
+        "topics": "Lindy recounts a dramatic event from his travels \u2013 he crashed his Model T while driving through the night between Canada and South Dakota, miraculously escaping without injury. He then continued on to work for a power outfit building lines near Frederick, South Dakota, where his uncle lived. This story, recorded in the 1980s, gives a glimpse into Lindy\u2019s life as he moved between the upper Midwest, Saskatchewan, Manitoba, and South Dakota, likely sometime in the 1920s."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.24160551808144995
+    },
+    {
+      "norm_window": {
+        "start": 2430,
+        "end": 2520,
+        "topics": "Lindy recounts a pivotal moment in his career around the early 1920s while working as a lineman for an outfit that started in Worthington, Minnesota. His boss, looking out for him after a raise was denied, decided to \"plug his time\" to ensure Lindy got the extra pay. Eventually, the crew relocated to Homer, Nebraska, just south of Sioux City, Iowa, where Lindy began learning more skilled aspects of building power lines beyond just digging holes."
+      },
+      "tdk_window": {
+        "start": 2275,
+        "end": 2365,
+        "topics": "Lindy recounts a moment from his early career as a lineman, around the 1920s, when his boss advocated for a raise despite his lack of seniority. After working on a job near Worthington, Lindy and his crew were then relocating from Minnesota to Winnebago, Nebraska, just south of Sioux City, Iowa. Lindy expressed a desire to move beyond his current role of digging holes, and his boss promised to teach him new skills in their new location."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.22415505007892295
+    },
+    {
+      "norm_window": {
+        "start": 4995,
+        "end": 5085,
+        "topics": "Lindy Achen recounts his work as a lineman and contractor in the 1930s and 40s, traveling across Saskatchewan and Manitoba to fix faulty wiring and overhaul distribution systems. He describes tackling jobs in towns like Gull Lake, Biggar, Eastend, and Shaunavon, often working solo despite the scale of the projects. Lindy\u2019s company, Dominion Electric Dubois, hired him for these fixes, and he recalls a particularly mild fall season near Gull Lake where he wired houses and stores even into December."
+      },
+      "tdk_window": {
+        "start": 5335,
+        "end": 5425,
+        "topics": "In the fall of 1933, Lindy Achen began working for a company based in Estevan, Saskatchewan, wiring houses and electrical systems in Tompkins and later Gull Lake. He recounts working under superintendent Dubois, who assigned him to overhaul wiring in businesses and straighten out a \u201chell of a mess\u201d in Gull Lake. Lindy\u2019s work in Gull Lake involved redoing electrical systems for several businesses and then lining up wiring throughout the town, all during the spring of 1934."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.20841179255273706
+    },
+    {
+      "norm_window": {
+        "start": 2700,
+        "end": 2790,
+        "topics": "Lindy recounts a particularly tough year farming with an unnamed landowner sometime in the 1920s or 30s in Iowa. A devastating hailstorm in July wiped out their corn and a 40-acre oat crop, requiring Lindy to rally the neighbors to quickly mow and stack the ruined oats. He also mentions a visit to his cousin, David, in David City, Nebraska, hinting at travels and connections across the Midwest."
+      },
+      "tdk_window": {
+        "start": 2545,
+        "end": 2635,
+        "topics": "Lindy recounts a particularly rough time for a neighbor, Lorry, whose oat crop was flattened by a hailstorm in the upper Midwest. Lindy and some neighbors helped stack the ruined oats before he headed south to Nebraska to assist a cousin with the harvest, where he experienced extreme heat. He\u2019s also planning to revisit a story about his travels back up to Dakota and a visit with Janie, who had just had a baby, all during what seems to be the 1920s or 30s."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.1988012928908624
+    },
+    {
+      "norm_window": {
+        "start": 3375,
+        "end": 3465,
+        "topics": "Lindy describes his experience working as a lineman and contractor, specifically detailing the construction of a 40-mile heavy power line between Thunder Hawk, South Dakota, and Elgin, North Dakota. He recalls being mentored by a younger foreman and highlights the use of a 24-hour boring machine to speed up the project, with his coworker Elmer Jones operating the equipment. This story, likely from the 1920s or 30s, offers a glimpse into the challenging work and camaraderie of a lineman's crew in the upper Midwest."
+      },
+      "tdk_window": {
+        "start": 3400,
+        "end": 3490,
+        "topics": "Lindy recounts working as a lineman and contractor on several power line projects in the late 1920s, including a large project in 1928 that stretched from Thunder Hawk, South Dakota, up to Algin North. He talks about the various foremen he worked under \u2013 Bill Oberts and Matt Huesby \u2013 and mentions a coworker, Elmer Jones, who operated a newly introduced boring machine. The story highlights the challenges and innovations of building power lines across the upper Midwest and into No Man\u2019s Land."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.19564335725170084
+    },
+    {
+      "norm_window": {
+        "start": 2115,
+        "end": 2205,
+        "topics": "Lindy recounts the sudden passing of his father in 1924 while he was visiting Kenmare, North Dakota. Following his father's death, he had to coordinate with family\u2014including his Aunt Mary, sister Emma, and mother\u2014to arrange for his father's body to be shipped back to Halbrite, Saskatchewan, for burial. Afterwards, Lindy, along with his brothers Mac and Bud, and sister Leona, took over running the family farm, with his mother traveling from Portland, Oregon, to attend the funeral."
+      },
+      "tdk_window": {
+        "start": 1330,
+        "end": 1420,
+        "topics": "Lindy\u2019s memoirs recount the sudden death of his father while Lindy was traveling, around 1923. He was 21 at the time and had to coordinate notifying his family, including his mother, sister Emma (in Oregon), and sister Leona (in California), from a hotel. The story jumps around a bit, and Lindy plans to return to this difficult moment later after reminiscing on other highlights from his life growing up in the Achen family across the upper Midwest, Saskatchewan, and Manitoba."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.18644048078886968
+    },
+    {
+      "norm_window": {
+        "start": 3420,
+        "end": 3510,
+        "topics": "Lindy and his coworker, Elmer Jones, worked together on a power line construction project in the 1920s or 30s, building a 40-mile line from Thunder Hawk, South Dakota, to Elgin, North Dakota. To keep the project on schedule, Lindy ended up operating a boring machine alongside Elmer, a job requiring a lot of maintenance and experience. The timekeeper, a friend of Lindy\u2019s, secured him the position, highlighting the close-knit nature of the crew working in this remote, hilly landscape."
+      },
+      "tdk_window": {
+        "start": 3445,
+        "end": 3535,
+        "topics": "Lindy recounts his experience as a lineman and machine operator on a large power line project in 1928, stretching from Thunder Hawk, South Dakota, to Algin North. He worked alongside buddies like Elmer Jones and Fitz Fisher, who advocated for him to operate the new boring machine. When harvest season arrived, Lindy temporarily left the power line crew to earn more money running a separator in Frederick, SD, demonstrating the economic realities of the time."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.17553464383797698
+    },
+    {
+      "norm_window": {
+        "start": 585,
+        "end": 675,
+        "topics": "Lindy\u2019s memoir shares a memory from when he was around ten years old, traveling by train with his parents back to Iowa to visit relatives in the fall. While his dad and Lindy returned home, his mother unexpectedly stayed behind, and Lindy recalls a surprising visit to a Minneapolis bar with his dad where free food and cheap whiskey were plentiful. This snippet offers a glimpse into Lindy\u2019s childhood and family dynamics, likely sometime in the 1910s, as he recounts these experiences from the 1980s."
+      },
+      "tdk_window": {
+        "start": 1465,
+        "end": 1555,
+        "topics": "Lindy recounts a particularly vivid childhood memory from around 1910, when he was about eight years old and traveling by train with his parents through Iowa. He witnessed a tragic accident where the train struck a horse-drawn wagon, resulting in a woman\u2019s death \u2013 a scene that clearly stuck with him. Later on, at age 11, Lindy spent the winter at a convent, finishing his grade five schooling, and remembers a brief stop in Minneapolis where his father took him to a bar offering free food."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.17410435780378258
+    },
+    {
+      "norm_window": {
+        "start": 3195,
+        "end": 3285,
+        "topics": "Lindy recounts a trip he took in the 1920s, driving his Model T Ford from South Dakota to visit family in Canada and then back again. While driving alone late at night, he unfortunately rolled his car near Valley City, miraculously escaping injury. After patching up his car, Lindy and his cousin then ended up securing work with a power line crew building a power line near Leola, South Dakota, after talking to the foreman at a local hotel."
+      },
+      "tdk_window": {
+        "start": 3265,
+        "end": 3355,
+        "topics": "Lindy recounts a near-disaster when he drove his Model T Coupe through North Dakota and rolled it over, thankfully escaping without injury. He then found work on a power line crew near Frederick, South Dakota, in the winter, earning 45 cents an hour with room and board. Lindy worked alongside a foreman he describes as a perpetually drunk \"Finlander\" and ultimately drove to Leola, SD to secure the job."
+      },
+      "similarity_score": 10,
+      "tfidf_similarity": 0.1735727811451401
+    },
+    {
+      "norm_window": {
+        "start": 4230,
+        "end": 4320,
+        "topics": "This story recounts how Lindy Achen, working as a lineman, successfully negotiated a raise from 75 cents to 87 cents an hour sometime in the 1920s. After a disagreement with a foreman, Lindy's persistence and good work ethic impressed the superintendent, who unexpectedly promoted him to lead a crew when Bill Wilson broke his leg. The events unfolded near Frederick, South Dakota, and highlight Lindy's rising position within the power line work he did across the upper Midwest."
+      },
+      "tdk_window": {
+        "start": 4525,
+        "end": 4615,
+        "topics": "This story recounts how Lindy Achen unexpectedly ended up leading a power line crew after the previous foreman, Bill Wilson, broke his leg in an accident. Lindy had been disputing a wage discrepancy with the superintendent, but the urgent need for a crew leader put that issue aside. The events likely took place sometime in the 1920s or 30s, as Lindy discusses working as a lineman and contractor in the upper Midwest, Saskatchewan, and Manitoba."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.16865211416906636
+    },
+    {
+      "norm_window": {
+        "start": 8055,
+        "end": 8145,
+        "topics": "Lindy is reminiscing about selling his contracting business, likely sometime in the 1980s as these are recorded memoirs. He recounts setting up the terms of the sale, insisting Art Miller lead the new company with a majority stake, alongside minority partners like Bill Zaharachuk, Von Kennedy, and George Jenny. Lindy\u2019s stories cover his contracting years and earlier work for a power company, drawing on experiences across the upper Midwest, Saskatchewan, and Manitoba."
+      },
+      "tdk_window": {
+        "start": 9655,
+        "end": 9745,
+        "topics": "Lindy's reminiscing about selling his shares in Achen Construction, a company he built up over the years, with former employees like Ernie Smith, George Jenny, Ron Kennedy, Bill Zaharachuk, Con Bandy, and Doug McGillivray now involved. He recalls the loyalty of his former workers and the bittersweet feeling of seeing them move on, whether through farming, tragedy, or partnership. Lindy\u2019s memories cover events in the 1980s, referencing a company that began in the upper Midwest, Saskatchewan, and Manitoba, built on his earlier work as a lineman and contractor."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.16467816901848806
+    },
+    {
+      "norm_window": {
+        "start": 3735,
+        "end": 3825,
+        "topics": "Lindy recounts his experience as a \"flying squad\" lineman working for a power company in North Dakota and Saskatchewan in the early 1930s. He and his crew, covering roughly 150 miles of line between Mohall and Crosby, responded to outages across the region. The work was going well until immigration officials unexpectedly halted his employment, citing unemployment concerns and requiring work permits \u2013 a surprising interruption to his winter job."
+      },
+      "tdk_window": {
+        "start": 3715,
+        "end": 3805,
+        "topics": "Lindy recounts his early career as a lineman in the 1920s, landing a job with \"The Flying Squad\" for 79 cents an hour. He led the crew, working with them for a winter season across North Dakota (near Kenmare and Portal) and into Saskatchewan, maintaining about 150 miles of power lines. The work abruptly ended when immigration officials told Lindy, as a Canadian citizen, he needed a work permit to continue."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.15964126351000824
+    },
+    {
+      "norm_window": {
+        "start": 1125,
+        "end": 1215,
+        "topics": "Lindy shares a story about how he started making a good profit as a young trapper in the 1920s and 30s by shipping his coyote and skunk hides to St. Louis, Missouri. He'd buy hides from neighbors \u2013 like the man with the wolfhounds \u2013 at Canadian market prices and resell them in the U.S. for a significant markup, sometimes as high as 50%. This venture allowed him to supplement his work as a lineman and contractor while living in the upper Midwest, Saskatchewan, and Manitoba."
+      },
+      "tdk_window": {
+        "start": 655,
+        "end": 745,
+        "topics": "Lindy Achen and a young neighbor boy got into the fur trade, specifically sourcing coyote, skunk, and weasel pelts in the upper Midwest and potentially Manitoba, sometime in the 1920s or 30s. Lindy realized he could make a profit by shipping furs to St. Louis, where prices were significantly higher than locally. One memorable deal involved acquiring damaged coyote pelts from a man with wolfhounds for a shockingly low price \u2013 a testament to Lindy's shrewd negotiating skills."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.1577491822067137
+    },
+    {
+      "norm_window": {
+        "start": 5130,
+        "end": 5220,
+        "topics": "Lindy recounts a period in the early 1920s when he worked as a lineman and crew leader for Dominion Electric, specifically tackling a 120-mile power line overhaul between Shaunavon and Assiniboia, Saskatchewan. He led a small crew of three men, enduring a hot summer while repairing the line, and earned around 50 cents an hour. Lindy also mentions a friend running a power plant in Tompkins where he secured room and board for the winter, supplementing his income with odd jobs and card games."
+      },
+      "tdk_window": {
+        "start": 5515,
+        "end": 5605,
+        "topics": "Lindy recounts how he secured a job running a power plant in Estevan, Saskatchewan, with financial backing from Dominion Electrics and a loan from his mother. He then brought his brother Mac and his wife Ellen out to help, paying them wages while he worked on a power line overhaul between Shaunavon and Assiniboia with a four-man crew. This story, likely from the early 1920s, also involves Walter Stasher, the general manager in Estevan, and highlights Lindy's resourcefulness in building his career."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.15564716981961854
+    },
+    {
+      "norm_window": {
+        "start": 2475,
+        "end": 2565,
+        "topics": "Around March 1927, Lindy Achen transitioned from digging holes to becoming a lineman on a power line crew near Homer, Nebraska, just south of Sioux City, Iowa. After earning praise from his supervisor, he began learning skills like framing cross arms and stringing wire, building on his previous experience fixing telephones. Lindy then took a drive to visit his brother Lorry in Sioux Falls, South Dakota, highlighting a brief respite from his work."
+      },
+      "tdk_window": {
+        "start": 2320,
+        "end": 2410,
+        "topics": "Lindy recounts a moment when he negotiated a raise to 40 cents an hour and moved with his work crew across Nebraska to Winnebago, just south of Sioux City, sometime before springtime. He then took a trip to visit his brother, Lorry, on his farm in Fulton, South Dakota, where he found Lorry struggling to care for his seven children after the loss of his wife. This story highlights Lindy\u2019s early career, his relationship with his brother, and a glimpse into the challenges faced by families in the Midwest during the 1920s or 30s."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.15558599145522328
+    },
+    {
+      "norm_window": {
+        "start": 4680,
+        "end": 4770,
+        "topics": "Lindy recounts leaving his lineman job with the company in Saskatchewan in the fall of 1931 after a disagreement with his superiors and some youthful rebellion. He then took his own leave of absence and headed to Midale, where his brother Mac was living and a town was looking to build a power plant with Lindy's help\u2014though he first wanted to take his mother to Iowa. The story highlights his independent spirit and career as a lineman and contractor across the upper Midwest, Saskatchewan, and Manitoba."
+      },
+      "tdk_window": {
+        "start": 5110,
+        "end": 5200,
+        "topics": "Lindy took an extended leave of absence from his lineman job in the late 1930s, traveling with his mother to Iowa for about six weeks. Upon his return to Halbrite and Midale, Saskatchewan, he quickly found himself hired to build a new power plant and wiring houses with his brother, Mac. Lindy\u2019s work caught the attention of the Power Corporation, leading to a bit of tension with a superintendent and ultimately more opportunities for him."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.15445322789754332
+    },
+    {
+      "norm_window": {
+        "start": 1980,
+        "end": 2070,
+        "topics": "Lindy recounts the story of his father\u2019s declining health and eventual death in the fall of 1923. While his mother was in California, Lindy, along with his sister Leona and brother Bud (who was away at the convent), helped his father haul grain through the winter. The family lived in an area spanning the upper Midwest, Saskatchewan, and Manitoba, and they sought medical help in Griffin and Kenmare, North Dakota, before his father passed."
+      },
+      "tdk_window": {
+        "start": 1195,
+        "end": 1285,
+        "topics": "This excerpt recounts a difficult time in Lindy Achen's life around the fall of 1923, when his father started experiencing health problems while they were hauling grain in Saskatchewan. Lindy walked his team six miles each way to and from town, all while his father's condition worsened. Eventually, his father traveled to Kenmare, North Dakota, to see the Ewing brothers, and Lindy never spoke to him again after that day."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.15168635022120605
+    },
+    {
+      "norm_window": {
+        "start": 585,
+        "end": 675,
+        "topics": "Lindy\u2019s memoir shares a memory from when he was around ten years old, traveling by train with his parents back to Iowa to visit relatives in the fall. While his dad and Lindy returned home, his mother unexpectedly stayed behind, and Lindy recalls a surprising visit to a Minneapolis bar with his dad where free food and cheap whiskey were plentiful. This snippet offers a glimpse into Lindy\u2019s childhood and family dynamics, likely sometime in the 1910s, as he recounts these experiences from the 1980s."
+      },
+      "tdk_window": {
+        "start": 1420,
+        "end": 1510,
+        "topics": "Lindy's memoirs kick off with memories from his early childhood, starting around 1906 when he was just four and a half years old. He recounts a particularly traumatic experience at age eight while traveling by train with his parents\u2014witnessing a tragic accident where a team of horses and a man and woman were struck by the train in Iowa. Lindy also recalls visiting Iowa with his mother and father, and later returning to Minneapolis with his dad, sharing a brief memory of being left in a bar room."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.15104346056449067
+    },
+    {
+      "norm_window": {
+        "start": 4995,
+        "end": 5085,
+        "topics": "Lindy Achen recounts his work as a lineman and contractor in the 1930s and 40s, traveling across Saskatchewan and Manitoba to fix faulty wiring and overhaul distribution systems. He describes tackling jobs in towns like Gull Lake, Biggar, Eastend, and Shaunavon, often working solo despite the scale of the projects. Lindy\u2019s company, Dominion Electric Dubois, hired him for these fixes, and he recalls a particularly mild fall season near Gull Lake where he wired houses and stores even into December."
+      },
+      "tdk_window": {
+        "start": 5380,
+        "end": 5470,
+        "topics": "In the spring of 1934, Lindy Achen was sent by his company superintendent, Dubois, to Gull Lake, Saskatchewan, to overhaul the town's messy electrical wiring and install new metering systems for businesses. After a month in Gull Lake, he spent additional time wiring in Tompkins, where he found affordable room and board. Lindy also mentions Jack Dyer, who was struggling to manage the small power plant at the time."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.15086083882277224
+    },
+    {
+      "norm_window": {
+        "start": 4995,
+        "end": 5085,
+        "topics": "Lindy Achen recounts his work as a lineman and contractor in the 1930s and 40s, traveling across Saskatchewan and Manitoba to fix faulty wiring and overhaul distribution systems. He describes tackling jobs in towns like Gull Lake, Biggar, Eastend, and Shaunavon, often working solo despite the scale of the projects. Lindy\u2019s company, Dominion Electric Dubois, hired him for these fixes, and he recalls a particularly mild fall season near Gull Lake where he wired houses and stores even into December."
+      },
+      "tdk_window": {
+        "start": 5290,
+        "end": 5380,
+        "topics": "Lindy recounts his work building and wiring electrical systems in rural Saskatchewan, specifically in the small town of Tompkins around 1933-1934. He followed superintendent Dubois from Estevan to Tompkins, where he constructed the distribution system and wired houses during the winter. Lindy also mentions a period of unemployment in 1932 before returning to work, and later being sent to Gull Lake by Dubois."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.15077401959704553
+    },
+    {
+      "norm_window": {
+        "start": 5670,
+        "end": 5760,
+        "topics": "During the early 1940s, Lindy Achen was on constant call for Dominion Electric, essentially running the distribution in Estevan while the superintendent was frequently in the Peace River country. He ended up drafting a crucial telegram to New York after a major generator exploded at the power plant, and later noticed advertisements for new power line construction near Midale and Halbrite. This story highlights Lindy's responsibility and expertise within the company during a time of significant expansion and unexpected crises."
+      },
+      "tdk_window": {
+        "start": 6055,
+        "end": 6145,
+        "topics": "Lindy recounts a surprising detour during wartime, when he initially faced being drafted into the Army after turning down a Navy officer\u2019s position. He ultimately avoided military service, spending the war years in Estevan, Saskatchewan, while working for the company and managing operations there. Later, Lindy was sent to inspect a damaged generator and report back to New York, highlighting his expertise and the company\u2019s expansion into the Peace River country."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.15052571465821624
+    },
+    {
+      "norm_window": {
+        "start": 1980,
+        "end": 2070,
+        "topics": "Lindy recounts the story of his father\u2019s declining health and eventual death in the fall of 1923. While his mother was in California, Lindy, along with his sister Leona and brother Bud (who was away at the convent), helped his father haul grain through the winter. The family lived in an area spanning the upper Midwest, Saskatchewan, and Manitoba, and they sought medical help in Griffin and Kenmare, North Dakota, before his father passed."
+      },
+      "tdk_window": {
+        "start": 1150,
+        "end": 1240,
+        "topics": "Lindy recounts life on the Achen family farm in the early 1920s, sharing how his younger brother Bud began helping with chores around 1923. He and his father hauled grain in wagons during a surprisingly mild winter of 1923, even walking their team six miles to town and back for deliveries. During this time, Lindy's mother and sister Leona traveled to California, leaving Lindy and his father to manage the farm."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.1501449814152575
+    },
+    {
+      "norm_window": {
+        "start": 7920,
+        "end": 8010,
+        "topics": "Lindy recounts a particularly frustrating job in Swift Current, Saskatchewan in 1965, where relentless rain severely impacted his contracting business's profit margins. He and a crew of 30 men, including his colleague Art, were working on a $190,000 project, but constant delays and the cost of supplying a camp for the workers ultimately left them with only a 6% profit. It\u2019s just one example of the challenges Lindy faced throughout his career as a lineman and contractor across the upper Midwest, Saskatchewan, and Manitoba."
+      },
+      "tdk_window": {
+        "start": 9385,
+        "end": 9475,
+        "topics": "Lindy recounts a particularly challenging power line project he led in Swift Current, Saskatchewan, around 1965. Initially valued at around $150,000, the job was plagued by relentless rain and a labor shortage due to the booming oil industry, forcing Lindy to set up a full-scale camp with a cook and housing for 20-25 men. He discusses the project with his associate, Art, reflecting on how it ultimately didn't turn out to be as profitable as initially expected."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.14977251571061287
+    },
+    {
+      "norm_window": {
+        "start": 1620,
+        "end": 1710,
+        "topics": "Lindy Achen recounts his experiences running thrashing outfits across the upper Midwest, Saskatchewan, and Manitoba, starting around 1921 when he was 19. He took charge of the family\u2019s thrashing machine after a disagreement between his father and brothers, Joe and Zip, and later worked for other farmers, like the one in Griffin. These stories cover the years leading up to his father\u2019s death in 1924 and into 1925 when Lindy, now 22, continued working as a thresher operator."
+      },
+      "tdk_window": {
+        "start": 1105,
+        "end": 1195,
+        "topics": "Lindy recalls the hard work and changing family dynamics on the Achen family farm in the early 1920s, particularly around 1921-1923. At 19, Lindy became the chief operator of a new threshing machine after a disagreement between his father, Joe, and Zip. Following Joe and Zip's departures to the coast, Lindy and his brother Mac were left to help manage the farm alongside their younger brother Bud, amidst periods of both good and lean harvests."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.14872028598057696
+    },
+    {
+      "norm_window": {
+        "start": 5850,
+        "end": 5940,
+        "topics": "Lindy recounts a bidding competition for a complex power line project in Saskatchewan around 1945, where his bid of $10,050 landed him right in the middle of a very tight range with three other contractors. The job involved removing old underground cables and building a new line between Macoun and Halbrite, and later, a high-voltage line from Stoughton to Estevan. Lindy jokes that his competitors probably suspected he had insider information, given how closely their bids were!"
+      },
+      "tdk_window": {
+        "start": 6910,
+        "end": 7000,
+        "topics": "Lindy recounts a challenging job in the 1930s where he and a team of contractors were tasked with dismantling existing infrastructure \u2013 including airports and power lines \u2013 and then building a new power line stretching from Halbrite to Midale to Macoun, Saskatchewan. Lindy, the low bidder at $10,500, details the difficulty of carefully excavating old underground cables without damaging them, a problem that plagued the project. He also mentions the close competition among the four bids, highlighting the complexities of the work and the intense bidding process."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.14786242777660466
+    },
+    {
+      "norm_window": {
+        "start": 2520,
+        "end": 2610,
+        "topics": "This section of Lindy's memoirs focuses on the start of his career as a lineman around March 1927, initially working on tasks like setting poles and stringing wire. He then decided to leave his job to help his brother, Lorry Achen, who was struggling with sciatica and grief after losing his wife, and needed help with his farm in Sioux Falls, South Dakota. Lindy's willingness to support his brother highlights a close family bond and takes him away from his lineman work for a time."
+      },
+      "tdk_window": {
+        "start": 10510,
+        "end": 10600,
+        "topics": "Lindy recounts his early career as a lineman, detailing how a foreman tried to secure him a raise from 40 to 45 cents an hour while he was working as a groundman and then a lineman in Nebraska and near Aberdeen, South Dakota, sometime in the 1920s. He mentions his brother Lorry, who was ill in Sioux Falls, South Dakota, and discusses leaving one job to help him. Lindy\u2019s experiences show a snapshot of working conditions and wages for linemen in the upper Midwest and South Dakota during that era."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.14744657610472406
+    },
+    {
+      "norm_window": {
+        "start": 3330,
+        "end": 3420,
+        "topics": "Lindy\u2019s early career as a lineman involved some unusual circumstances, like being tasked with buying bootleg whiskey for the foreman Frederick in Frederick, South Dakota, likely in the 1920s. Tragedy struck when Frederick died of pneumonia in Dawson, North Dakota, and Lindy then worked under subsequent foremen like Bill Oberts and a younger man who mentored him in line work. Through these experiences, Lindy built relationships with fellow linemen and continued building power lines across North Dakota and beyond."
+      },
+      "tdk_window": {
+        "start": 3355,
+        "end": 3445,
+        "topics": "Lindy recounts a period in the early 1920s when he worked as a lineman on the Northern Pacific power line, moving from Frederick, North Dakota, to Dawson, North Dakota, after his previous foreman, Frank Reynolds, became ill and died. He describes working under several foremen, including the mild-mannered Bill Oberts and the ambitious Matt Huesby, while also occasionally running errands for Reynolds involving acquiring alcohol during Prohibition. The story highlights the challenges and transitions of his work life during this time in the upper Midwest."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.1455615792196317
+    },
+    {
+      "norm_window": {
+        "start": 5400,
+        "end": 5490,
+        "topics": "Lindy recounts a frustrating experience trying to secure a contracting job, ultimately being sidelined for the diesel superintendent\u2019s son-in-law. He then gets pulled into a situation in the 1920s or 30s where a former colleague, who'd taken a steam plant job in Dauphin, Manitoba, needed help fulfilling a power plant franchise in Winnipegosis, Manitoba. Lindy had to call Dominion Electric to intervene and get the whole thing sorted out, which led to him being sent up to Winnipegosis to wire the town."
+      },
+      "tdk_window": {
+        "start": 5785,
+        "end": 5875,
+        "topics": "Lindy and his brother Mac traveled to Winnipegosis, Manitoba in the late 1920s (likely around 1928-1929) to help wire houses after Lindy\u2019s sister-in-law, Ellen, returned to Estevan. Lindy also recounts how he helped resolve a situation where a man named Dyer was struggling to get a power plant off the ground in Winnipegosis, eventually passing the project onto Dominion Electric. The story touches on the interconnectedness of work and family as they moved between towns like Tompkins, Estevan, and Winnipegosis."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.144717765759575
+    },
+    {
+      "norm_window": {
+        "start": 7335,
+        "end": 7425,
+        "topics": "Lindy Achen recounts his power line construction business booming in the early 1950s, primarily focusing on building transmission lines and electrical service to farms across Saskatchewan and Manitoba. He describes a period between 1952 and 1956 where his crew, often around 30-40 men, built an incredible five miles of line daily, servicing over 600 farms in a single year. Lindy also mentions maintaining a smaller crew working in the cities simultaneously, alongside his family and many siblings."
+      },
+      "tdk_window": {
+        "start": 8845,
+        "end": 8935,
+        "topics": "Lindy Achen recounts a particularly busy period in the early 1950s, when his company was building and maintaining electrical lines on roughly 385 farms a year in Saskatchewan and Manitoba. He describes the demanding work \u2013 setting dozens of poles and anchors daily \u2013 alongside his crew, expanding Regina's power infrastructure and servicing farms across the region. Lindy\u2019s memories highlight a time when the Achen family business was thriving, tackling rural electrification projects and contributing to the growth of cities like Regina."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.14192262331596825
+    },
+    {
+      "norm_window": {
+        "start": 3285,
+        "end": 3375,
+        "topics": "Lindy recounts a humorous and ultimately tragic experience working as a lineman for a crew led by the perpetually drunk foreman, Frank Wenner, around the 1920s. Lindy often had to procure bootleg whiskey for Wenner while the crew built power lines in locations like Leola, Frederick, and Dawson, North Dakota. After Wenner succumbed to pneumonia in Dawson, he was replaced by a quieter foreman, Bill Oberts."
+      },
+      "tdk_window": {
+        "start": 3310,
+        "end": 3400,
+        "topics": "Lindy recounts a winter job in the early 1920s working as a second-class lineman on a power line construction crew near Leola, South Dakota, building a line towards his uncle\u2019s home in Frederick. He describes a difficult foreman, a \"Finlander\" who was frequently drunk and relied on Lindy to procure alcohol, and details the crew's subsequent work on the Northern Pacific line extending towards Dawson, North Dakota. Sadly, the foreman died unexpectedly in Bismarck after falling ill, likely due to heavy smoking."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.14155314231472993
+    },
+    {
+      "norm_window": {
+        "start": 3690,
+        "end": 3780,
+        "topics": "Lindy recounts starting a job as a lineman with a \u201cflying squad\u201d crew in North Dakota around November of an unspecified year. He quickly became the top man on the job, reporting to foreman Leo O'Grady and covering a 150-mile stretch of power lines between Mohall and Crosby. This marked the beginning of a winter working to repair power lines across a wide territory."
+      },
+      "tdk_window": {
+        "start": 3760,
+        "end": 3850,
+        "topics": "Lindy recounts a frustrating experience from around 1928, where he and a \"Flying Squad\" crew were working on a 150-mile power line stretching from Kenmare, North Dakota, to Portal, SD. Unexpectedly, immigration laws prevented him from continuing his work as a Canadian without a permit, forcing him to return to Canada. Before that, Lindy and his brother Mac had also taken over their family farm, a topic Lindy was just beginning to discuss."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.14120086009537122
+    },
+    {
+      "norm_window": {
+        "start": 5445,
+        "end": 5535,
+        "topics": "Around the 1930s, Lindy and his brother Mac were brought up to Winnipegosis, Manitoba, to wire the entire town for electricity \u2013 a job Lindy secured through a deal with his son-in-law and assistance from Dominion Electric. Lindy initially wired the stores and houses while Mac continued the work, before Lindy had to leave for a month in Estevan to handle distribution for the mines. The whole situation arose after Lindy's son-in-law found himself in trouble with a power franchise he couldn\u2019t fulfill."
+      },
+      "tdk_window": {
+        "start": 5740,
+        "end": 5830,
+        "topics": "Lindy recounts his work in the 1930s (likely early) wiring houses in Winnipegosis, Manitoba, after a power plant was established there. He and his brother Mac were brought in to do the job, while Lindy\u2019s sister-in-law Ellen returned to her family in Estevan due to the work running out. The whole project was initially organized by a man named Dyer, and Lindy describes how it involved quite a bit of scrambling and change of plans."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.1407320479268906
+    },
+    {
+      "norm_window": {
+        "start": 2070,
+        "end": 2160,
+        "topics": "Lindy recounts a difficult experience from his past when his father suddenly fell ill and was taken to a hospital in Kenmare, North Dakota. After a week of silence, Lindy traveled by train, helped out by a family friend at the bank, only to learn his father had passed away. He then coordinated with his Aunt Mary and sister Emma to inform relatives in Iowa and Oregon before returning home\u2014a particularly poignant moment in Lindy's life, likely occurring sometime in the 1930s or 40s based on the memoir's timeframe."
+      },
+      "tdk_window": {
+        "start": 1285,
+        "end": 1375,
+        "topics": "Lindy recounts a sudden and tragic event: his father's unexpected death while Lindy was 21 years old. After receiving a frantic call, Lindy traveled by train from an unspecified location to Kenmare, likely in Saskatchewan or Manitoba, to find his father had passed away. He then relied on his aunt to coordinate notifying the rest of the Achen family, who were spread across the upper Midwest, Saskatchewan, and Manitoba."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.1394267035045377
+    },
+    {
+      "norm_window": {
+        "start": 4095,
+        "end": 4185,
+        "topics": "Lindy recounts a temporary stint in Weyburn, Saskatchewan, during the winter, where a superintendent unexpectedly put him to work doing service work\u2014changing meters and reading them\u2014despite Lindy\u2019s lack of experience. He worried about leaving, but the superintendent seemed unconcerned. After a winter working alongside the superintendent, Lindy returned to his family's farm in March, much to the relief of his mother and brother, Bud."
+      },
+      "tdk_window": {
+        "start": 4120,
+        "end": 4210,
+        "topics": "Lindy recounts a brief, unexpected job as a district operator in Estevan, Saskatchewan, during the winter following a week-long stint. While he was away, a foreman took over and a dangerous flood occurred, tragically impacting Lindy's friend who helped him get the job. He eventually returned to the family farm near Weyburn, where his mother and brother, Bud, also wanted to return from the city, leading Lindy back to work in Estevan."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.13934520286724825
+    },
+    {
+      "norm_window": {
+        "start": 2745,
+        "end": 2835,
+        "topics": "Lindy recounts a time when a sudden storm ruined a neighbor's oat crop in the upper Midwest, requiring Lindy and local neighbors to quickly mow and stack the grain. He then traveled to David City, Nebraska, to help his cousin harvest, working as a stooker and hauler on a horse-drawn threshing operation \u2013 an experience he recalls with a mischievous grin. These stories, shared in the 1980s, reflect agricultural life sometime between the 1920s and 1940s in Iowa, Nebraska, Saskatchewan, and Manitoba."
+      },
+      "tdk_window": {
+        "start": 2500,
+        "end": 2590,
+        "topics": "Lindy recounts a period in the spring and summer of an unspecified year where he helped his friend Lorry get his farm operation up and running, only to have it devastated by a hailstorm. After helping neighbors salvage Lorry's oat crop, Lindy then traveled to Nebraska to assist his cousin with the harvest. This story highlights Lindy's itinerant lifestyle as a lineman and contractor, moving throughout the upper Midwest, Saskatchewan, Manitoba, and Nebraska."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.13699095604854056
+    },
+    {
+      "norm_window": {
+        "start": 5940,
+        "end": 6030,
+        "topics": "Lindy Achen recounts landing his first major contract\u2014building a high-voltage power line in Saskatchewan\u2014around the early 1930s, initially bidding against a competitor and winning with a price of $550 per mile. He then started his own contracting business, hiring others like a man to do wiring in Midale, and supplemented his own equipment by renting when needed. The story touches on locations like Halbrite, Midale, Macoun, Estevan, and Regina, highlighting the challenges of launching a business in a rural setting."
+      },
+      "tdk_window": {
+        "start": 6190,
+        "end": 6280,
+        "topics": "Lindy Achen recounts landing two major contracts in the 1940s \u2013 building a power line from Halbrite to Midale and a high-voltage line from Estevan to Stoughton, both in Saskatchewan. He partnered with an older friend, Harry Monaghan, to tackle these projects after receiving tender forms in Regina. With just a few thousand dollars to his name, Lindy quickly became a contractor, marking a significant turning point in his career."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.13663433486629323
+    },
+    {
+      "norm_window": {
+        "start": 7020,
+        "end": 7110,
+        "topics": "Lindy recounts his experiences in 1949 and 1950 as a lineman and contractor, working with a crew to build a 50-mile stretch of high-tension power line from south of Melville to Yorkton, Saskatchewan. He discusses criticizing a colleague's work and the challenges of completing the project before a particularly harsh winter snowstorm halted progress. Lindy\u2019s memories also mention a superintendent who ultimately ordered the work to be shut down for the season."
+      },
+      "tdk_window": {
+        "start": 8440,
+        "end": 8530,
+        "topics": "Lindy Achen recounts a frustrating project in the winter of 1949-50, where his crew was building a power line from Yorkton to Melville and Killaly, Saskatchewan. Despite making good progress, repeated snowstorms halted construction, forcing him to postpone finishing the 18-mile line until the spring of 1950. Afterward, Lindy also describes completing substation work in Yorkton and Melville and building another line from Stockholm to Esterhazy."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.13516987418932494
+    },
+    {
+      "norm_window": {
+        "start": 4275,
+        "end": 4365,
+        "topics": "Lindy Achen recounts being unexpectedly promoted to lead a power line crew near Estevan, Saskatchewan, in the 1920s after a coworker, Bill Wilson, broke his leg. He then led a crew of eight men through projects in several towns including Assiniboia, Craik, and Davidson, ultimately rebuilding the distribution system in Biggar, Saskatchewan. The superintendent, Doboy, recognized Lindy\u2019s abilities and offered him the opportunity, which paid 87 cents an hour."
+      },
+      "tdk_window": {
+        "start": 4615,
+        "end": 4705,
+        "topics": "Lindy Achen recounts his experience leading a crew of eight men in the early 1900s, earning $0.85 an hour. The crew spent the summer of that year rebuilding the distribution system in Biggar, east of Saskatoon, after doing some work in Assiniboia, Kincaid, and Davidson. With limited equipment and relying on hand tools, Lindy managed the project, which involved a complete overhaul of the power system for a town of around 2,500 people."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.13260993528108903
+    },
+    {
+      "norm_window": {
+        "start": 8595,
+        "end": 8685,
+        "topics": "Lindy recalls how, after two years of working with a contracting company, he transitioned into a retainer role, essentially receiving a $2,000 annual bonus for being available as a backup journeyman electrician. This arrangement, involving Lindy and his colleague Art, continued for 20 years even though Lindy rarely had to actively work. Lindy's story highlights his long career in the electrical field, spanning the 1980s and likely originating much earlier, with connections to work in the upper Midwest, Saskatchewan, and Manitoba."
+      },
+      "tdk_window": {
+        "start": 10285,
+        "end": 10375,
+        "topics": "Lindy Achen recounts his long career as an electrician and contractor, reflecting on his role as a \"journeyman\" kept on retainer by Art Miller\u2019s company in the 1980s. He specialized in getting electricity from generators to its final use, a job that took him across the upper Midwest, Saskatchewan, and Manitoba, starting around 1902. Lindy fondly remembers the work, even as he expresses relief that his years in the electrical field are mostly behind him."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.13204658551244663
+    },
+    {
+      "norm_window": {
+        "start": 6390,
+        "end": 6480,
+        "topics": "Lindy Achen recounts his work as a lineman and contractor building power lines across Saskatchewan and Manitoba in the mid-to-late 1940s. He details projects like a 30-mile line from Weyburn to Radville in 1947, and a larger 100+ mile job near Rosetown, alongside smaller farm projects. Lindy led crews and took on increasingly ambitious builds, eventually moving on to the Yorkton area after establishing a team."
+      },
+      "tdk_window": {
+        "start": 7585,
+        "end": 7675,
+        "topics": "Lindy recounts his experiences in 1947, detailing his first job building a power line from Weyburn to Radville, Saskatchewan, and then expanding to serve twenty farms and later a 110-mile line between Dinsmore and Eston. He describes the work alongside his crew, likely including other members of the Achen family who often worked together. This early start to the season allowed him to complete several projects across the Saskatchewan landscape."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.13178053146603655
+    },
+    {
+      "norm_window": {
+        "start": 3600,
+        "end": 3690,
+        "topics": "After briefly securing a potential job in Minot, North Dakota, Lindy decided to head north into Canada around the 1920s or 30s. He quickly changed his mind and ended up meeting a line gang crew, including foreman Leo O\u2019Grady, while driving. Lindy\u2019s experience as a lineman impressed O\u2019Grady, ultimately leading to a job offer \u2013 a pivotal moment in his journey across the upper Midwest, North Dakota, and into Canada."
+      },
+      "tdk_window": {
+        "start": 3625,
+        "end": 3715,
+        "topics": "Lindy recounts a near-miss job opportunity with the power company in Minot, North Dakota, around the 1920s or 30s. After initially securing a position, he got nervous about the high-voltage work and skipped out, instead stumbling upon a smaller power crew near Halbrite. Ultimately, a foreman helped him get connected with the head office in Kenmare, leading to a new job offer\u2014a fortunate turn of events after Lindy\u2019s initial hesitation."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.13172809019183254
+    },
+    {
+      "norm_window": {
+        "start": 3600,
+        "end": 3690,
+        "topics": "After briefly securing a potential job in Minot, North Dakota, Lindy decided to head north into Canada around the 1920s or 30s. He quickly changed his mind and ended up meeting a line gang crew, including foreman Leo O\u2019Grady, while driving. Lindy\u2019s experience as a lineman impressed O\u2019Grady, ultimately leading to a job offer \u2013 a pivotal moment in his journey across the upper Midwest, North Dakota, and into Canada."
+      },
+      "tdk_window": {
+        "start": 3580,
+        "end": 3670,
+        "topics": "Lindy recounts a brief but pivotal moment in the 1920s when he was headed north after thrashing season near Frederick, SD. He secured a job with the power company in Minot, North Dakota, but ultimately backed out after feeling overwhelmed by the high-voltage work and lack of experience. This experience led him to continue his journey towards Halbrite, likely in Saskatchewan, as he continued searching for work."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.13155530382514613
+    },
+    {
+      "norm_window": {
+        "start": 2205,
+        "end": 2295,
+        "topics": "In the fall of 1926, Lindy Achen, frustrated with his family\u2019s concerns over his wages ($1,000/year at the time) for running the family farm, left with his cousin Norbert Hemmer and headed to Iowa. Following a bumper crop year, Lindy essentially struck out on his own, relying on relatives he'd previously visited to figure out what he wanted to do next. This excerpt touches on a pivotal moment of independence for Lindy, showcasing his relationship with his brother Mac and the Achen family dynamic."
+      },
+      "tdk_window": {
+        "start": 1915,
+        "end": 2005,
+        "topics": "Around 1928, Lindy Achen left his family\u2019s farm in the upper Midwest after disagreements with his brothers about his wages and responsibilities as farm manager. Feeling unappreciated, he quit and hitched a ride with his cousin Norbert Hemmer in a Model T Ford Roadster, driving roughly 1,300 miles to Worthington, Iowa. Lindy recounts the long, snowy journey as a pivotal moment in his life, marking a move away from the family farm and towards new opportunities."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.1315032021221785
+    },
+    {
+      "norm_window": {
+        "start": 8415,
+        "end": 8505,
+        "topics": "Lindy's story here focuses on shifts in ownership and operations within a power company business run by Art, likely sometime in the 1960s or 70s. We hear about Art selling a share to coworker Doug McGillivray, and later Con Bandy briefly joining before selling back his stake. Lindy mentions Art's work stringing underground power lines in the country, while Doug handles the office side of things, and the setting seems to span across the upper Midwest and possibly Manitoba."
+      },
+      "tdk_window": {
+        "start": 9700,
+        "end": 9790,
+        "topics": "Lindy's reminiscing focuses on the shifts and changes within Achen Construction, the company he helped build, around 1986. He's talking about Art Achen selling his shares to partners like Doug McGillivray, and earlier dealings with Con Bandy, while also mentioning the deaths of coworkers Ron Kennedy and Bill Zaharachuk. Lindy reflects on these business dealings and the changing dynamics within the company, all while living in Manitoba and Saskatchewan."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.13100943537513499
+    },
+    {
+      "norm_window": {
+        "start": 3060,
+        "end": 3150,
+        "topics": "Lindy Achen recounts a grueling harvest season, likely in the 1920s or 30s, working as a thresher with an engineer (unnamed in the excerpt) across the upper Midwest and potentially into Saskatchewan or Manitoba. He and his crew worked incredibly long hours, often 12 hours a day, eating meals on the go and sleeping in barns with just a horse blanket and straw for bedding. It sounds like a tough but memorable experience for Lindy, amidst his large Achen family."
+      },
+      "tdk_window": {
+        "start": 3040,
+        "end": 3130,
+        "topics": "Lindy recounts a grueling 30-day stint running a grain separator with Martin Twight sometime in the 1920s or 30s, likely in the upper Midwest or Saskatchewan. He and his crew worked relentless 12-hour days, with Lindy spending his evenings preparing the machine and sleeping in a haymow alongside his coworkers. The story highlights the harsh working conditions and basic comforts of the time, as they persevered through the demanding harvest season."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.12761552270712173
+    },
+    {
+      "norm_window": {
+        "start": 2115,
+        "end": 2205,
+        "topics": "Lindy recounts the sudden passing of his father in 1924 while he was visiting Kenmare, North Dakota. Following his father's death, he had to coordinate with family\u2014including his Aunt Mary, sister Emma, and mother\u2014to arrange for his father's body to be shipped back to Halbrite, Saskatchewan, for burial. Afterwards, Lindy, along with his brothers Mac and Bud, and sister Leona, took over running the family farm, with his mother traveling from Portland, Oregon, to attend the funeral."
+      },
+      "tdk_window": {
+        "start": 1780,
+        "end": 1870,
+        "topics": "Lindy Achen recalls taking over the family farm sometime after his father's passing, alongside his brothers Mac and Bud and his mother. He describes managing the farm\u2019s finances and continuing operations as if nothing had changed. This memory, recorded in the 1980s, seems to be part of a larger story about Lindy\u2019s life growing up in the Achen family and their experiences living and working on a farm in the upper Midwest/Manitoba/Saskatchewan."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.12756444091668176
+    },
+    {
+      "norm_window": {
+        "start": 2745,
+        "end": 2835,
+        "topics": "Lindy recounts a time when a sudden storm ruined a neighbor's oat crop in the upper Midwest, requiring Lindy and local neighbors to quickly mow and stack the grain. He then traveled to David City, Nebraska, to help his cousin harvest, working as a stooker and hauler on a horse-drawn threshing operation \u2013 an experience he recalls with a mischievous grin. These stories, shared in the 1980s, reflect agricultural life sometime between the 1920s and 1940s in Iowa, Nebraska, Saskatchewan, and Manitoba."
+      },
+      "tdk_window": {
+        "start": 2680,
+        "end": 2770,
+        "topics": "Lindy recounts a period in 1927 when he traveled to Davis City, Nebraska, to help his cousin, a Hemmer girl married to a Deaner, with the harvest. After assisting a friend, Lorry, with damaged oats in Iowa, Lindy experienced an intense, unrelenting heat wave while working the fields\u2014a defining memory that shaped his perception of hot weather. The story highlights Lindy\u2019s itinerant work life as a lineman and contractor, moving across Iowa, Nebraska, and eventually the upper Midwest and Canada."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.1261150431374362
+    },
+    {
+      "norm_window": {
+        "start": 2115,
+        "end": 2205,
+        "topics": "Lindy recounts the sudden passing of his father in 1924 while he was visiting Kenmare, North Dakota. Following his father's death, he had to coordinate with family\u2014including his Aunt Mary, sister Emma, and mother\u2014to arrange for his father's body to be shipped back to Halbrite, Saskatchewan, for burial. Afterwards, Lindy, along with his brothers Mac and Bud, and sister Leona, took over running the family farm, with his mother traveling from Portland, Oregon, to attend the funeral."
+      },
+      "tdk_window": {
+        "start": 1690,
+        "end": 1780,
+        "topics": "Lindy recounts a particularly somber funeral for his father in 1924, after his death and burial. The family, including Lindy, gathered for the service, which was complicated by heavy rain and then a sudden snowfall \u2013 a moment that station agent T.P. McGee remarked upon. The funeral took place near the Achen family farm and involved travel to town by horse-drawn teams, highlighting the rural setting of the time."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.12577631521925275
+    },
+    {
+      "norm_window": {
+        "start": 5445,
+        "end": 5535,
+        "topics": "Around the 1930s, Lindy and his brother Mac were brought up to Winnipegosis, Manitoba, to wire the entire town for electricity \u2013 a job Lindy secured through a deal with his son-in-law and assistance from Dominion Electric. Lindy initially wired the stores and houses while Mac continued the work, before Lindy had to leave for a month in Estevan to handle distribution for the mines. The whole situation arose after Lindy's son-in-law found himself in trouble with a power franchise he couldn\u2019t fulfill."
+      },
+      "tdk_window": {
+        "start": 5830,
+        "end": 5920,
+        "topics": "Lindy recounts a situation in 1937 where a local man struggled to secure a power franchise near Winnipegosis, Manitoba, ultimately handing it over to Dominion Electric. Lindy himself stepped in temporarily to manage the Estevan district for a month while another employee took leave, before returning to Estevan to continue working. He mentions working alongside a colleague named Mac and references a prior promise of a job in Estevan following the closure of a plant in Tompkins."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.12516178937674188
+    },
+    {
+      "norm_window": {
+        "start": 2385,
+        "end": 2475,
+        "topics": "Lindy recounts his early experiences as a lineman working for a power company, starting around the 1920s near Worthington, Minnesota, and later moving to Sioux City, Iowa. He details learning the ropes of digging holes and earning around 35 cents an hour while supporting himself. Lindy also mentions his boss advocating for a raise on his behalf and purchasing a Model T Ford, highlighting his growing independence and mobility."
+      },
+      "tdk_window": {
+        "start": 10465,
+        "end": 10555,
+        "topics": "Lindy recounts his early career as a lineman and contractor, starting in Worthington, Iowa, around the 1920s when he earned 35 cents an hour. He shares a story about a foreman, who tried to get him a raise, and then later left his job in Nebraska to help his sick brother, Lorry, in Sioux Falls, South Dakota. Through these stories, Lindy also touches on his family\u2019s broader movement across the upper Midwest and into Canada."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.12483891913425443
+    },
+    {
+      "norm_window": {
+        "start": 6390,
+        "end": 6480,
+        "topics": "Lindy Achen recounts his work as a lineman and contractor building power lines across Saskatchewan and Manitoba in the mid-to-late 1940s. He details projects like a 30-mile line from Weyburn to Radville in 1947, and a larger 100+ mile job near Rosetown, alongside smaller farm projects. Lindy led crews and took on increasingly ambitious builds, eventually moving on to the Yorkton area after establishing a team."
+      },
+      "tdk_window": {
+        "start": 7630,
+        "end": 7720,
+        "topics": "Lindy recounts a busy period in 1947, detailing his work building power lines across Saskatchewan \u2013 specifically a line from Weyburn to Radville and a 110-mile stretch from Dinsmore to Eston and Rosetown. Juggling this demanding workload, Lindy faced a dilemma about attending a family reunion in Oregon with eight of his brothers and three sisters. He stopped by to chat with his former bank manager, Bill Mullins, in Moose Jaw while on the job."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.12296990692304069
+    },
+    {
+      "norm_window": {
+        "start": 3825,
+        "end": 3915,
+        "topics": "Lindy recounts a surprising run-in with U.S. immigration officials in Portal, likely sometime in the 1920s, that threatened to deport him from the United States. He was ultimately allowed to leave voluntarily, which became convenient when his brother Mac and he were already planning to rent their mother\u2019s farm and return to Canada. This event led Lindy back to Manitoba where he quickly secured a job on a farm, leaving behind the challenges of the family farm."
+      },
+      "tdk_window": {
+        "start": 3805,
+        "end": 3895,
+        "topics": "Lindy recounts a frustrating experience in the 1930s when an immigration official prevented him from working in the United States without a work permit, forcing him to return to Canada. He also discusses a plan with his brother Mac to take over their family farm, involving an inventory and payment plan for the equipment. The story touches on Lindy\u2019s life in both the upper Midwest (specifically mentioning work near Frederick, SD) and Canada, including Saskatchewan and Saskatoon, as he attempts to piece together his memoir recordings."
+      },
+      "similarity_score": 8,
+      "tfidf_similarity": 0.12144967191119979
+    },
+    {
+      "norm_window": {
+        "start": 45,
+        "end": 135,
+        "topics": "Lindy Achen begins his memoirs by recounting his birth in Remsen, Iowa, in 1902 and how his family, including his father and several teenage brothers, moved to Canada a few years later. Enticed by cheaper land and the promise of expansion, his father left a well-established farm in Iowa for the undeveloped prairie of Saskatchewan and Manitoba. Lindy shares how they transported their belongings \u2013 mostly animals and machinery \u2013 in three boxcars to start a new life in Canada."
+      },
+      "tdk_window": {
+        "start": 160,
+        "end": 250,
+        "topics": "Lindy Achen is sharing his life story, beginning with his family's move from Iowa to the Canadian prairies in 1907 when he was just four and a half years old. He'll be recounting experiences growing up with his eleven siblings and following his father\u2019s decision to seek cheaper land in Saskatchewan and Manitoba. Lindy\u2019s memoirs will cover his childhood, his later career as a lineman and contractor, and life across the upper Midwest."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.1209513313837884
+    },
+    {
+      "norm_window": {
+        "start": 3645,
+        "end": 3735,
+        "topics": "Lindy recounts how he quickly landed a job as a head man on a power line crew near Kenmare, North Dakota, sometime in the 1920s. After losing his previous job, he connected with foreman Leo O'Grady and impressed his employer, earning 87 cents an hour. Lindy, known for his confidence and hotline experience, shares a positive memory of working with the humorous Irish foreman and quickly rising through the ranks."
+      },
+      "tdk_window": {
+        "start": 3670,
+        "end": 3760,
+        "topics": "Lindy recounts landing a job as a head lineman for a power crew near Halbrite, Saskatchewan, after a previous employee unexpectedly quit. He was offered the position with a wage of 79 cents an hour, a good sum for the time. Lindy mentions speaking with the foreman and then head office in Kenmare to secure the role, highlighting his experience as crucial to getting hired."
+      },
+      "similarity_score": 9,
+      "tfidf_similarity": 0.12025097169330774
+    }
+  ]
 }

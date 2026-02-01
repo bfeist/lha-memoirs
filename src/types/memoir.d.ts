@@ -42,37 +42,36 @@ interface WaveformData {
   data: number[];
 }
 
-// New format for alternate tellings v2.0
-interface AlternateRecordingSegment {
-  startTime: number;
-  endTime: number;
-  preview: string;
+// Alternate tellings format from 05_find_story_overlaps_fast.py
+interface AlternateWindow {
+  start: number;
+  end: number;
+  topics: string;
 }
 
 interface AlternateTelling {
-  topic: string;
-  confidence: "HIGH" | "MEDIUM" | "LOW";
-  score: number;
-  Norm_red?: AlternateRecordingSegment;
-  TDK_D60_edited_through_air?: AlternateRecordingSegment;
+  norm_window: AlternateWindow;
+  tdk_window: AlternateWindow;
+  similarity_score: number;
+  tfidf_similarity: number;
 }
 
 interface AlternateTellingsData {
-  version: string;
-  description: string;
-  primaryRecording: string;
-  secondaryRecording: string;
-  matchingMethod: string;
-  windowConfig?: {
-    duration: number;
-    overlap: number;
+  generated_at: string;
+  algorithm: string;
+  settings: {
+    window_duration: number;
+    window_overlap: number;
+    similarity_threshold: number;
+    match_threshold: number;
+    model: string;
   };
-  alternateTellings: AlternateTelling[];
-  stats?: {
-    totalMatches: number;
-    highConfidence: number;
-    mediumConfidence: number;
+  stats: {
+    norm_windows: number;
+    tdk_windows: number;
+    matches_found: number;
   };
+  alt_tellings: AlternateTelling[];
 }
 
 // Photo data from photos.json

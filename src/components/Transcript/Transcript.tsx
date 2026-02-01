@@ -1,6 +1,6 @@
 import { useRef, useEffect, useMemo, useCallback, useState, memo } from "react";
 import { useNavigate } from "react-router-dom";
-import { formatTime } from "../../hooks/useRecordingData";
+import { formatTime, useTranscript } from "../../hooks/useRecordingData";
 import { usePlaces, buildPlaceNamePattern } from "../../hooks/usePlaces";
 import { getRecordingByPath } from "../../config/recordings";
 import { PhotoInlineSlider } from "./PhotoInlineSlider";
@@ -74,6 +74,10 @@ export const Transcript = memo(function Transcript({
     () => (recordingPath ? getRecordingFolderName(recordingPath) : ""),
     [recordingPath]
   );
+
+  // Fetch transcripts for both memoir recordings for alternate telling excerpts
+  const normRedTranscript = useTranscript("memoirs/Norm_red");
+  const tdkTranscript = useTranscript("memoirs/TDK_D60_edited_through_air");
 
   // Create a lookup map for photos by filename
   const photosByFilename = useMemo(() => {
@@ -189,35 +193,43 @@ export const Transcript = memo(function Transcript({
   // Pre-compute which alternate tellings should appear before each segment
   // Maps segment index -> array of alternate telling info
   interface AlternatePlacement {
-    topic: string;
-    preview: string;
+    otherRecordingTitle: string;
+    otherTopic: string;
     otherRecordingPath: string;
     otherStartTime: number;
+    otherStartSecs: number;
+    otherEndSecs: number;
   }
+
+  // Helper function to extract transcript text for a given time range
+  const getTranscriptExcerpt = useCallback(
+    (transcriptSegments: TranscriptSegment[], startSecs: number, endSecs: number): string => {
+      const relevantSegments = transcriptSegments.filter(
+        (seg) =>
+          (seg.start >= startSecs && seg.start < endSecs) ||
+          (seg.end > startSecs && seg.end <= endSecs) ||
+          (seg.start <= startSecs && seg.end >= endSecs)
+      );
+      return relevantSegments.map((seg) => seg.text).join(" ");
+    },
+    []
+  );
 
   const segmentAlternateTellings = useMemo(() => {
     const map = new Map<number, AlternatePlacement[]>();
     if (!alternateTellings || alternateTellings.length === 0 || segments.length === 0) return map;
 
     for (const telling of alternateTellings) {
-      // Get the current and other recording data
-      const currentData = telling[currentRecordingFolder as keyof AlternateTelling] as
-        | AlternateRecordingSegment
-        | undefined;
-      if (!currentData || typeof currentData !== "object" || !currentData.startTime) continue;
-
-      // Find the other recording (the one that's not current)
-      const otherRecordingKey =
-        currentRecordingFolder === "Norm_red" ? "TDK_D60_edited_through_air" : "Norm_red";
-      const otherData = telling[otherRecordingKey as keyof AlternateTelling] as
-        | AlternateRecordingSegment
-        | undefined;
-      if (!otherData || typeof otherData !== "object" || !otherData.startTime) continue;
+      // Determine which window corresponds to the current recording
+      const isNormRed = currentRecordingFolder === "Norm_red";
+      const currentWindow = isNormRed ? telling.norm_window : telling.tdk_window;
+      const otherWindow = isNormRed ? telling.tdk_window : telling.norm_window;
+      const otherRecordingKey = isNormRed ? "TDK_D60_edited_through_air" : "Norm_red";
 
       // Find the segment that contains or comes after this timestamp
       let targetSegmentIndex = -1;
       for (let i = 0; i < segments.length; i++) {
-        if (segments[i].start >= currentData.startTime) {
+        if (segments[i].start >= currentWindow.start) {
           targetSegmentIndex = i;
           break;
         }
@@ -227,11 +239,17 @@ export const Transcript = memo(function Transcript({
         targetSegmentIndex = segments.length - 1;
       }
 
+      // Get the other recording's title from config
+      const otherRecording = getRecordingByPath(`memoirs/${otherRecordingKey}`);
+      const otherRecordingTitle = otherRecording?.title || otherRecordingKey;
+
       const placement: AlternatePlacement = {
-        topic: telling.topic,
-        preview: otherData.preview,
+        otherRecordingTitle,
+        otherTopic: otherWindow.topics,
         otherRecordingPath: `memoirs/${otherRecordingKey}`,
-        otherStartTime: otherData.startTime,
+        otherStartTime: otherWindow.start,
+        otherStartSecs: otherWindow.start,
+        otherEndSecs: otherWindow.end,
       };
 
       // Merge with existing alternate tellings at this segment if any
@@ -506,21 +524,37 @@ export const Transcript = memo(function Transcript({
                       {/* Alternate telling links - displayed before the segment text */}
                       {alternateTellingsForSegment &&
                         alternateTellingsForSegment.length > 0 &&
-                        alternateTellingsForSegment.map((alt, altIdx) => (
-                          <AlternateTellingLink
-                            key={`alt-${actualSegmentIndex}-${altIdx}`}
-                            topic={alt.topic}
-                            preview={alt.preview}
-                            onClick={() => {
-                              const otherRecording = getRecordingByPath(alt.otherRecordingPath);
-                              if (otherRecording) {
-                                navigate(
-                                  `/recording/${otherRecording.id}?t=${Math.floor(alt.otherStartTime)}`
-                                );
-                              }
-                            }}
-                          />
-                        ))}
+                        alternateTellingsForSegment.map((alt, altIdx) => {
+                          // Get the other recording's transcript
+                          const otherTranscriptData =
+                            alt.otherRecordingPath === "memoirs/Norm_red"
+                              ? normRedTranscript.data
+                              : tdkTranscript.data;
+                          const transcriptExcerpt = otherTranscriptData
+                            ? getTranscriptExcerpt(
+                                otherTranscriptData.segments,
+                                alt.otherStartSecs,
+                                alt.otherEndSecs
+                              )
+                            : "";
+
+                          return (
+                            <AlternateTellingLink
+                              key={`alt-${actualSegmentIndex}-${altIdx}`}
+                              recordingTitle={alt.otherRecordingTitle}
+                              topic={alt.otherTopic}
+                              transcriptExcerpt={transcriptExcerpt}
+                              onClick={() => {
+                                const otherRecording = getRecordingByPath(alt.otherRecordingPath);
+                                if (otherRecording) {
+                                  navigate(
+                                    `/recording/${otherRecording.id}?t=${Math.floor(alt.otherStartTime)}`
+                                  );
+                                }
+                              }}
+                            />
+                          );
+                        })}
                       {minorChapterStart && (
                         <button
                           type="button"

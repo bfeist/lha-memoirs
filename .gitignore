@@ -32,6 +32,10 @@ public/static_assets/
 
 source_audio/
 
+# Script outputs
+scripts/alternate_tellings_connections.png
+scripts/topics_cache.json
+
 # RAG Backend
 scripts/rag/.venv
 scripts/rag/chroma_db/

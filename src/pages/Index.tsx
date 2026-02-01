@@ -18,17 +18,17 @@ function RecordingCard({ recording }: { recording: RecordingConfig }): React.Rea
       <div className={styles.letterInfo}>
         <div className={styles.titleRow}>
           <h3>{recording.title}</h3>
-          <span
+          <div
             className={`${styles.categoryBadge} ${styles[`badge${recording.category.charAt(0).toUpperCase() + recording.category.slice(1)}`]}`}
           >
             {recording.categoryLabel}
-          </span>
+          </div>
         </div>
         <p>{recording.subtitle}</p>
       </div>
-      <span className={styles.arrow}>
+      <div className={styles.arrow}>
         <FontAwesomeIcon icon={faArrowAltCircleRight} />
-      </span>
+      </div>
     </Link>
   );
 }
@@ -76,8 +76,8 @@ function Index(): React.ReactElement {
               alt="Linden Hilary Achen, 1942"
               className={styles.portrait}
             />
+            <p className={styles.portraitCaption}>Lindy Achen, 1942</p>
           </div>
-          <p className={styles.portraitCaption}>Lindy Achen, 1942</p>
         </section>
 
         {/* Search section */}

@@ -5,12 +5,14 @@ import { faCodeBranch } from "@fortawesome/free-solid-svg-icons";
 import styles from "./AlternateTellingLink.module.css";
 
 export function AlternateTellingLink({
+  recordingTitle,
   topic,
-  preview,
+  transcriptExcerpt,
   onClick,
 }: {
+  recordingTitle: string;
   topic: string;
-  preview: string;
+  transcriptExcerpt: string;
   onClick: () => void;
 }): React.ReactElement {
   const [showPreview, setShowPreview] = useState(false);
@@ -73,7 +75,7 @@ export function AlternateTellingLink({
         role="button"
         tabIndex={0}
         onKeyDown={handleKeyDown}
-        aria-label={`Alternate telling: ${topic}`}
+        aria-label={`Alternate telling in ${recordingTitle}`}
       >
         <FontAwesomeIcon icon={faCodeBranch} />
       </span>
@@ -88,8 +90,11 @@ export function AlternateTellingLink({
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <div className={styles.previewTopic}>{topic}</div>
-            <div className={styles.previewText}>{preview}</div>
+            <div className={styles.previewTopic}>In {recordingTitle}</div>
+            <div className={styles.previewText}>{topic}</div>
+            {transcriptExcerpt && (
+              <div className={styles.previewExcerpt}>&ldquo;{transcriptExcerpt}&rdquo;</div>
+            )}
           </div>,
           document.body
         )}

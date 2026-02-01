@@ -79,22 +79,38 @@
   overflow-y: auto;
 }
 
-/* Custom scrollbar for preview text */
-.previewText::-webkit-scrollbar {
+.previewExcerpt {
+  font-size: 0.75rem;
+  color: #999999;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgb(76 175 80 / 20%);
+  font-style: italic;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for preview text and excerpt */
+.previewText::-webkit-scrollbar,
+.previewExcerpt::-webkit-scrollbar {
   width: 4px;
 }
 
-.previewText::-webkit-scrollbar-track {
+.previewText::-webkit-scrollbar-track,
+.previewExcerpt::-webkit-scrollbar-track {
   background: rgb(255 255 255 / 5%);
   border-radius: 2px;
 }
 
-.previewText::-webkit-scrollbar-thumb {
+.previewText::-webkit-scrollbar-thumb,
+.previewExcerpt::-webkit-scrollbar-thumb {
   background: rgb(76 175 80 / 30%);
   border-radius: 2px;
 }
 
-.previewText::-webkit-scrollbar-thumb:hover {
+.previewText::-webkit-scrollbar-thumb:hover,
+.previewExcerpt::-webkit-scrollbar-thumb:hover {
   background: rgb(76 175 80 / 50%);
 }
 

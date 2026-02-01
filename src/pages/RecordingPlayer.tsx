@@ -230,15 +230,21 @@ function RecordingPlayer(): React.ReactElement {
             <FontAwesomeIcon icon={faArrowAltCircleLeft} />
             <span className={styles.backButtonText}> Back</span>
           </Link>
-          <h1 className={styles.title}>
-            <Link to="/">Linden Hilary Achen - {recordingConfig.title}</Link>
-            <span
-              className={`${styles.categoryBadge} ${styles[`badge${recordingConfig.category.charAt(0).toUpperCase() + recordingConfig.category.slice(1)}`]}`}
-            >
-              {recordingConfig.categoryLabel}
-            </span>
-          </h1>
-          <p className={styles.subtitle}>{recordingConfig.subtitle}</p>
+          <div className={styles.headerInfo}>
+            <div className={styles.titleRow}>
+              <div className={styles.titleContainer}>
+                <h1 className={styles.title}>
+                  <Link to="/">{recordingConfig.title}</Link>
+                </h1>
+              </div>
+              <span
+                className={`${styles.categoryBadge} ${styles[`badge${recordingConfig.category.charAt(0).toUpperCase() + recordingConfig.category.slice(1)}`]}`}
+              >
+                {recordingConfig.categoryLabel}
+              </span>
+            </div>
+            <p className={styles.subtitle}>{recordingConfig.subtitle}</p>
+          </div>
         </div>
       </header>
 
@@ -340,7 +346,7 @@ function RecordingPlayer(): React.ReactElement {
                 chapters={chapters}
                 currentTime={currentTime}
                 onSegmentClick={handleWordClick}
-                alternateTellings={isMemoir ? alternateTellings.data?.alternateTellings : undefined}
+                alternateTellings={isMemoir ? alternateTellings.data?.alt_tellings : undefined}
                 recordingPath={recordingConfig?.path}
                 photos={photos.data?.photos}
                 videos={videos.data?.videos}
