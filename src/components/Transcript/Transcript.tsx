@@ -1,12 +1,14 @@
 import { useRef, useEffect, useMemo, useCallback, useState, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { formatTime } from "../../hooks/useRecordingData";
+import { usePlaces, buildPlaceNamePattern } from "../../hooks/usePlaces";
 import { getRecordingByPath } from "../../config/recordings";
 import { PhotoInlineSlider } from "./PhotoInlineSlider";
 import { VideoInlinePlayer } from "./VideoInlinePlayer";
 import { PhotoModal } from "./PhotoModal";
 import { VideoModal } from "./VideoModal";
 import { AlternateTellingLink } from "./AlternateTellingLink";
+import { SegmentTextWithPlaces } from "./SegmentTextWithPlaces";
 import styles from "./Transcript.module.css";
 
 // Extract recording folder name from a path like "memoirs/Norm_red" -> "Norm_red"
@@ -52,6 +54,15 @@ export const Transcript = memo(function Transcript({
     startTime?: number;
     endTime?: number;
   } | null>(null);
+
+  // Load places data for interactive tooltips
+  const { places, placesByName } = usePlaces();
+
+  // Build regex pattern for matching place names in text
+  const placePattern = useMemo(() => {
+    const placeNames = places.map((p) => p.name);
+    return buildPlaceNamePattern(placeNames);
+  }, [places]);
 
   // Get current recording folder name for matching
   const currentRecordingFolder = useMemo(
@@ -495,7 +506,7 @@ export const Transcript = memo(function Transcript({
                           type="button"
                           className={styles.minorChapterMarker}
                           onClick={() => handleClick(minorChapterStart.startTime)}
-                          title={minorChapterStart.title}
+                          title={minorChapterStart.description || minorChapterStart.title}
                         >
                           {minorChapterStart.title}
                         </button>
@@ -512,7 +523,12 @@ export const Transcript = memo(function Transcript({
                           }
                         }}
                       >
-                        {segment.text}{" "}
+                        <SegmentTextWithPlaces
+                          text={segment.text}
+                          placesByName={placesByName}
+                          placePattern={placePattern}
+                          currentTranscript={recordingPath}
+                        />
                       </span>
                     </span>
                   );

@@ -98,8 +98,22 @@ STATE_PROVINCE_NAMES = {
 
 # Known false positives to always skip
 KNOWN_FALSE_POSITIVES = {
-    'Hardware', 'Summertime', 'Six', 'Mass', 'Light', 'Street', 'School',
+    'Hardware', 'Summertime', 'Six', 'Mass', 'Light', 'Street',
     'Lakes', 'Construction', 'Electric', 'United', 'Airport',
+    'Crow Lake',  # Always refers to Crow Lake School in these transcripts
+    'Body',  # Common word, not a place
+    'Lakeview',  # Neighborhood name, not a specific place to track
+}
+
+# Institution suffixes - if a capitalized word is followed by these, skip it
+# e.g., "Crow Lake School" should not match "Crow Lake"
+INSTITUTION_SUFFIXES = {
+    'School', 'Church', 'Hospital', 'College', 'University', 'Cemetery',
+    'Library', 'Museum', 'Hotel', 'Motel', 'Inn', 'Station', 'Airport',
+    'Bank', 'Store', 'Shop', 'Factory', 'Mill', 'Mine', 'Farm', 'Ranch',
+    'Hall', 'Center', 'Centre', 'Building', 'House', 'Home', 'Lodge',
+    'Club', 'Association', 'Society', 'Company', 'Corporation', 'Inc',
+    'Ltd', 'Brothers', 'Sisters', 'Academy', 'Institute', 'Foundation',
 }
 
 
@@ -291,12 +305,14 @@ def _process_candidates(conn: sqlite3.Connection, candidates: List) -> List[Dict
 KNOWN_MULTI_WORD_PLACES = {
     # Saskatchewan
     'Moose Jaw', 'Swift Current', 'Prince Albert', 'North Battleford', 
-    'Maple Creek', 'Fort Qu\'Appelle', 'Qu\'Appelle', 'Indian Head',
+    'Maple Creek', 'Fort Qu\'Appelle', 'Qu\'Appelle', 'Qu\'Appelle Valley', 'Indian Head',
     'White City', 'Pilot Butte', 'Belle Plaine', 'Fife Lake',
     # US Cities
     'Sioux Falls', 'Sioux City', 'Grand Forks', 'Devils Lake',
     'Rapid City', 'Kansas City', 'Salt Lake City', 'New York',
     'Los Angeles', 'San Francisco', 'Las Vegas', 'Des Moines',
+    'Thunder Hawk',
+    'St. Louis', 'St Louis',  # Handle with or without period
     # Alberta/Manitoba
     'Red Deer', 'Grande Prairie', 'Fort McMurray', 'Medicine Hat',
     'Portage la Prairie', 'The Pas', 'Flin Flon',
@@ -311,52 +327,113 @@ def extract_capitalized_words(text: str) -> Set[str]:
     
     Priority order:
     1. Known multi-word place names (Moose Jaw, Sioux Falls, etc.)
-    2. "City, State" format pairs
-    3. Two consecutive capitalized words (potential multi-word places)
-    4. Single capitalized words
+    2. "City, State" format pairs (where State is a known state/province)
+    3. Comma-delimited lists of places (split into individual candidates)
+    4. Two consecutive capitalized words (potential multi-word places)
+    5. Single capitalized words
+    
+    Special handling:
+    - Institution names like "Crow Lake School" are excluded
     """
     place_names = set()
     words_used_in_multi = set()  # Track words used in multi-word matches
+    institution_prefixes = set()  # Track words that precede institution suffixes
+    
+    # Phase 0: Identify words that precede institution suffixes (to exclude them)
+    # e.g., "Crow Lake School" -> exclude "Crow Lake" and "Lake"
+    for suffix in INSTITUTION_SUFFIXES:
+        # Pattern: one or two capitalized words followed by institution suffix
+        pattern = r'\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\s+' + re.escape(suffix) + r'\b'
+        for match in re.finditer(pattern, text):
+            prefix = match.group(1)
+            # Add the full prefix and its component words
+            institution_prefixes.add(prefix)
+            for word in prefix.split():
+                institution_prefixes.add(word)
     
     # Phase 1: Find known multi-word place names first
     for multi_place in KNOWN_MULTI_WORD_PLACES:
-        # Case-insensitive search
-        pattern = r'\b' + re.escape(multi_place).replace(r'\ ', r'\s+') + r'\b'
+        # Skip if this is part of an institution name
+        if multi_place in institution_prefixes:
+            continue
+        # Case-insensitive search - handle apostrophes specially
+        # Replace apostrophes with pattern that matches apostrophe or similar chars
+        escaped = re.escape(multi_place).replace(r'\ ', r'\s+')
+        # Handle both straight and curly apostrophes
+        escaped = escaped.replace(r"\'", r"['\u2019]")
+        pattern = r'(?<![A-Za-z])' + escaped + r'(?![A-Za-z])'
         if re.search(pattern, text, re.IGNORECASE):
             place_names.add(multi_place)
-            # Mark component words as used
+            # Mark component words as used (split on space, not apostrophe)
             for word in multi_place.split():
                 words_used_in_multi.add(word)
+                # Also add the base word without apostrophe parts
+                if "'" in word:
+                    words_used_in_multi.add(word.split("'")[0])
     
-    # Phase 2: "City, State/Province" format
+    # Phase 2: "City, State/Province" format - only if second part is a known state/province
     city_state_pattern = r'\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?),\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\b'
     for match in re.finditer(city_state_pattern, text):
         city = match.group(1).strip()
         state = match.group(2).strip()
-        combined = f"{city}, {state}"
-        place_names.add(combined)
-        # Mark words as used
-        for word in city.split() + state.split():
-            words_used_in_multi.add(word)
+        # Only treat as "City, State" if the second part is a known state/province
+        if state in STATE_PROVINCE_NAMES:
+            combined = f"{city}, {state}"
+            place_names.add(combined)
+            # Mark words as used
+            for word in city.split() + state.split():
+                words_used_in_multi.add(word)
+        else:
+            # Both parts might be individual places in a comma list
+            # They'll be picked up in later phases
+            pass
+    
+    # Phase 2.5: Handle comma-delimited lists of places
+    # Pattern: "Place1, Place2, Place3" where places are capitalized words
+    # But NOT "City, State" format (already handled above)
+    comma_list_pattern = r'\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?(?:,\s*[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?){2,})\b'
+    for match in re.finditer(comma_list_pattern, text):
+        full_match = match.group(1)
+        # Split by comma and process each potential place
+        parts = [p.strip() for p in full_match.split(',')]
+        for part in parts:
+            # Skip if it's a state/province name
+            if part in STATE_PROVINCE_NAMES:
+                continue
+            # Skip if it's part of an institution name
+            if part in institution_prefixes:
+                continue
+            # Skip if already in words_used_in_multi
+            if part in words_used_in_multi:
+                continue
+            # Add as a candidate
+            place_names.add(part)
+            for word in part.split():
+                words_used_in_multi.add(word)
     
     # Phase 3: Find two consecutive capitalized words (potential multi-word places)
     two_word_pattern = r'\b([A-Z][a-z]+)\s+([A-Z][a-z]+)\b'
     for match in re.finditer(two_word_pattern, text):
         word1 = match.group(1)
         word2 = match.group(2)
+        combined = f"{word1} {word2}"
+        
+        # Skip if this is part of an institution name
+        if combined in institution_prefixes or word2 in INSTITUTION_SUFFIXES:
+            continue
+        
         # Skip if either word is a common stop word
         common_prefixes = {'The', 'New', 'Old', 'North', 'South', 'East', 'West', 'Upper', 'Lower', 'Great', 'Little', 'Big', 'Grand', 'Fort', 'Lake', 'Mount', 'Saint', 'St'}
         common_suffixes = {'City', 'Falls', 'Creek', 'Lake', 'River', 'Bay', 'Hill', 'Hills', 'Valley', 'Park', 'Beach', 'Springs', 'Junction', 'Crossing'}
         
         # If first word is a geographic prefix and second is capitalized, treat as potential place
         if word1 in common_prefixes or word2 in common_suffixes:
-            combined = f"{word1} {word2}"
             if combined not in KNOWN_MULTI_WORD_PLACES:  # Don't duplicate known ones
                 place_names.add(combined)
                 words_used_in_multi.add(word1)
                 words_used_in_multi.add(word2)
     
-    # Phase 4: Individual capitalized words (but not if used in multi-word matches)
+    # Phase 4: Individual capitalized words (but not if used in multi-word matches or institution names)
     words = re.findall(r'\b[A-Z][a-z]+(?:-[A-Z][a-z]+)*\b', text)
     
     # Extensive stop words list
@@ -436,6 +513,12 @@ def extract_capitalized_words(text: str) -> Set[str]:
             continue
         # Skip if word was used in a multi-word place name
         if word in words_used_in_multi:
+            continue
+        # Skip if word is part of an institution name
+        if word in institution_prefixes:
+            continue
+        # Skip if word is an institution suffix
+        if word in INSTITUTION_SUFFIXES:
             continue
         # Skip if word is part of a "City, State" pattern
         is_in_pattern = any(word in pname for pname in place_names if ', ' in pname)
@@ -660,6 +743,39 @@ def load_global_places() -> Dict[int, Place]:
         return {}
 
 
+def consolidate_ambiguous_places(global_places: Dict[int, Place], city_name: str, correct_geonameid: int):
+    """Consolidate ambiguous city matches when we find an explicit City, State match.
+    
+    When we find 'Crosby, North Dakota', check if there's already an ambiguous 'Crosby'
+    match (e.g., Crosby, Minnesota). If so, move mentions to the correct place and remove
+    the ambiguous one.
+    """
+    # Find places with the same city name but different geonameid
+    places_to_remove = []
+    for geonameid, place in global_places.items():
+        if geonameid == correct_geonameid:
+            continue
+        # Check if this place has the same base city name
+        if place.name == city_name:
+            # Found an ambiguous match - consolidate
+            print(f"   [CONSOLIDATE] Moving mentions from {place.name}, {place.admin1_name} to geonameid {correct_geonameid}")
+            # Move mentions to the correct place
+            correct_place = global_places[correct_geonameid]
+            for mention in place.mentions:
+                correct_place.add_mention(
+                    transcript=mention['transcript'],
+                    context=mention['context'],
+                    timestamp=mention['timestamp']
+                )
+            places_to_remove.append(geonameid)
+    
+    # Remove the ambiguous places
+    for geonameid in places_to_remove:
+        del global_places[geonameid]
+    
+    return len(places_to_remove)
+
+
 def save_global_places(places: Dict[int, Place]):
     """Save places to the global places.json."""
     places_list = [p.to_dict() for p in places.values()]
@@ -832,6 +948,13 @@ def process_single_recording(
                 context=all_context_texts[0],
                 timestamp=timestamp
             )
+            
+            # If this was an explicit "City, State" match, consolidate any ambiguous matches
+            if ', ' in word:
+                city_name = word.split(', ')[0]
+                consolidated = consolidate_ambiguous_places(global_places, city_name, geonameid)
+                if consolidated > 0:
+                    new_places_count -= consolidated  # Adjust count since we removed duplicates
             
             # Save global places immediately
             save_global_places(global_places)

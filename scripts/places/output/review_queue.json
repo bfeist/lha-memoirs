@@ -1,555 +1,15 @@
 {
-  "Aberdeen": {
-    "recording": "memoirs/Norm_red",
-    "context": "Well, we finished there and then I headed north I didn't know where I was going I stopped in at my brother's place in Sioux Falls and I had an uncle up near Aberdeen South Dakota so I",
-    "timestamp": 2892.3,
-    "llm_reasoning": "The context explicitly states 'I had an uncle up near Aberdeen South Dakota,' indicating travel towards a specific geographic location."
-  },
-  "Airport": {
-    "recording": "memoirs/Norm_red",
-    "context": "And the first setback they had was when Vaughn Kennedy was electrocuted doing some work at the Moose Jaw Airport.",
-    "timestamp": 8343.49,
-    "llm_reasoning": "The sentence refers to work being done 'at the Moose Jaw Airport,' indicating a location."
-  },
-  "Alaska": {
-    "recording": "memoirs/Norm_red",
-    "context": "They were bidding on a job up in, oh, way up in Alaska - Northwest Territories - north of Whitehorse, wherever Whitehorse is.",
-    "timestamp": 12650.12,
-    "llm_reasoning": "The context explicitly mentions bidding on a job 'up in Alaska' and references its location 'north of Whitehorse,' indicating travel to and discussion of a geographic location."
-  },
-  "Alberta": {
-    "recording": "memoirs/Norm_red",
-    "context": "...Alberta about the end of harvest and we worked up there. We did some highline move where they're building a high - it was up at the Vermillion and Lloydminster area, They were moving a highway - or widening a highway, and we moved some line for that. And then we put in a - a section of farm land - farm line there, about 50 miles of farm line.",
-    "timestamp": 7132.47,
-    "llm_reasoning": "The context mentions working 'up there' in relation to Vermillion and Lloydminster, which are both in Alberta, strongly suggesting a geographic reference to the province."
-  },
-  "Assinaboia": {
-    "recording": "memoirs/Norm_red",
-    "context": "We finished the job at Estevan and then moved up to - down near the Assinaboia area and did some work, then up to Craik and Davidson, worked there for a while, and then up to Biggar.",
-    "timestamp": 4335.56,
-    "llm_reasoning": "The phrase 'moved down near the Assinaboia area' indicates travel to a geographic location."
-  },
-  "California": {
-    "recording": "memoirs/Norm_red",
-    "context": "'26, some of the boys came up from California, and they thought Mother was paying me too much money.",
-    "timestamp": 1808.29,
-    "llm_reasoning": "The phrase 'came up from California' indicates travel from a location, suggesting 'California' is being used as a geographic place name."
-  },
-  "Canada": {
-    "recording": "memoirs/Norm_red",
-    "context": "<backwards it erases everything and I'm still finding out> - papers well we finished thrashing there we only thrashed about 10 or 12 days and then I, I was finished and I didn't know where I was going or what I was going to do so I jumped in the car and I started heading for Canada.",
-    "timestamp": 85.36,
-    "llm_reasoning": "The context explicitly indicates travel ('started heading for Canada') suggesting movement to a geographic location."
-  },
-  "City": {
-    "recording": "memoirs/Norm_red",
-    "context": "Well, I went into Valley City, and I patched it up enough that I could drive another hundred miles down to my uncle's place.",
-    "timestamp": 3251.75,
-    "llm_reasoning": "The context explicitly indicates travel to 'Valley City' as part of a journey, suggesting it's being used as a geographic location."
-  },
-  "Crosby": {
-    "recording": "memoirs/Norm_red",
-    "context": "and somewhere past Crosby, about 30 miles, was the end of our last territory.",
-    "timestamp": 3770.57,
-    "llm_reasoning": "The phrase 'past Crosby, about 30 miles' indicates travel and a location relative to Crosby, suggesting it's being used as a geographic reference point."
-  },
-  "Crow": {
-    "recording": "memoirs/Norm_red",
-    "context": "We started at Crow Lake School and that was two miles across the field.",
-    "timestamp": 457.79,
-    "llm_reasoning": "The phrase 'Crow Lake School' strongly suggests a location, and the mention of traveling 'across the field' indicates a geographic place being referenced."
-  },
-  "Davidson": {
-    "recording": "memoirs/Norm_red",
-    "context": "We finished the job at Estevan and then moved up to - down near the Assinaboia area and did some work, then up to Craik and Davidson, worked there for a while, and then up to Biggar.",
-    "timestamp": 4335.56,
-    "llm_reasoning": "The context explicitly indicates travel ('moved up to...and Davidson') suggesting a geographic location."
-  },
-  "Devil": {
-    "recording": "memoirs/Norm_red",
-    "context": "I bought two used machines down at Devil Lakes - Devil's Lake, North Dakota, and I brought them up here.",
-    "timestamp": 10999.58,
-    "llm_reasoning": "The context explicitly mentions buying machines 'down at Devil Lakes' and bringing them 'up here,' indicating travel to and from a specific geographic location."
-  },
-  "Eastwnd": {
-    "recording": "memoirs/Norm_red",
-    "context": "When I finished that, I went down to the town of Eastwnd, which had another small decent plot, and down by Shaunavon.",
-    "timestamp": 5080.39,
-    "llm_reasoning": "The context explicitly states 'went down to the town of Eastwnd,' indicating travel to a location."
-  },
-  "Falls": {
-    "recording": "memoirs/Norm_red",
-    "context": "Well, we finished there and then I headed north I didn't know where I was going I stopped in at my brother's place in Sioux Falls and I had an uncle up near Aberdeen South Dakota so I",
-    "timestamp": 2646.16,
-    "llm_reasoning": "The context indicates travel ('headed north', 'stopped in at my brother's place') and references a specific location, suggesting 'Falls' is being used as a geographic place name."
-  },
-  "Fife": {
-    "recording": "memoirs/Norm_red",
-    "context": "And then down in the Ogema-Shanavan area, yeah, Fife Lake, and in that area we did a bunch of towns there in '50, '51, we were in the Ogema\u2013Bengough, and in through there we did 60 or 70 miles of line in a bunch of towns.",
-    "timestamp": 7343.27,
-    "llm_reasoning": "The context mentions 'Fife Lake' within a description of a geographic area ('Ogema-Shanavan area') and travel between towns, suggesting it's being used as a place name."
-  },
-  "Flesche": {
-    "recording": "memoirs/Norm_red",
-    "context": "In the spring of '38, I went out and relieved out at Gravelbourg in La Flesche while they changed operators out there.",
-    "timestamp": 5612.7,
-    "llm_reasoning": "The phrase 'went out and relieved out at Gravelbourg in La Flesche' indicates travel to and work at a location, suggesting it's being used as a geographic place name."
-  },
-  "Gull": {
-    "recording": "memoirs/Norm_red",
-    "context": "stores in that town all winter. So I was busy making a living and that was about all. Then the next spring my old company Dominion Electric Dubois hired me to go into Gull Lake. There was some bad wiring jobs and they couldn't meter it properly in three or four places involving business places. So I went in and I straightened all that out. And",
-    "timestamp": 5016.96,
-    "llm_reasoning": "The context explicitly states that the speaker was hired to go 'into Gull Lake,' indicating travel to a specific location."
-  },
-  "Jaw": {
-    "recording": "memoirs/Norm_red",
-    "context": "The potash out at Kalium between here and Moose Jaw start up and we did all their distribution layout for - not only did the engineering as well as building the lines. And uh that lasted for I guess it's still going today. That",
-    "timestamp": 7778.23,
-    "llm_reasoning": "The context mentions 'Moose Jaw' and refers to a location 'out at Kalium between here and Moose Jaw,' indicating a geographic relationship and travel direction."
-  },
-  "Kalium": {
-    "recording": "memoirs/Norm_red",
-    "context": "The potash out at Kalium between here and Moose Jaw start up and we did all their distribution layout for - not only did the engineering as well as building the lines. And uh that lasted for I guess it's still going today. That",
-    "timestamp": 7778.23,
-    "llm_reasoning": "The context describes work 'out at Kalium' and references its location 'between here and Moose Jaw,' indicating a geographic location."
-  },
-  "Lake": {
-    "recording": "memoirs/Norm_red",
-    "context": "stores in that town all winter. So I was busy making a living and that was about all. Then the next spring my old company Dominion Electric Dubois hired me to go into Gull Lake. There was some bad wiring jobs and they couldn't meter it properly in three or four places involving business places. So I went in and I straightened all that out. And",
-    "timestamp": 457.79,
-    "llm_reasoning": "The context explicitly states the speaker was hired to go 'into Gull Lake' to perform work, indicating travel to a specific geographic location."
-  },
-  "Lake, North Dakota": {
-    "recording": "memoirs/Norm_red",
-    "context": "I bought two used machines down at Devil Lakes - Devil's Lake, North Dakota, and I brought them up here.",
-    "timestamp": 10999.58,
-    "llm_reasoning": "The context explicitly mentions buying machines 'down at Devil's Lake, North Dakota,' indicating travel to a specific geographic location."
-  },
-  "Lakes": {
-    "recording": "memoirs/Norm_red",
-    "context": "I bought two used machines down at Devil Lakes - Devil's Lake, North Dakota, and I brought them up here.",
-    "timestamp": 10999.58,
-    "llm_reasoning": "The context explicitly mentions 'Devil's Lake, North Dakota' and describes bringing machines 'up here' indicating travel to and from a specific geographic location."
-  },
-  "Manitoba": {
-    "recording": "memoirs/Norm_red",
-    "context": "Every two weeks I paid them out for their units and I didn't get any money until the whole job was finished. And when it was finished it came to - I think was $38,000 and I invoiced the government telephones in Manitoba for that much money. And that was the biggest check I had ever received up to that date. On that I owned - I didn't know how much I should charge -",
-    "timestamp": 5446.39,
-    "llm_reasoning": "The context explicitly mentions invoicing 'the government telephones in Manitoba,' indicating a business relationship and location of government operations within Manitoba."
-  },
-  "Mass": {
-    "recording": "memoirs/Norm_red",
-    "context": "Every other Sunday, we went to Mass in Halbrite.",
-    "timestamp": 1920.36,
-    "llm_reasoning": "The context 'Every other Sunday, we went to Mass in Halbrite' explicitly indicates travel to a religious service, which in this context refers to a specific location - Mass in Halbrite."
-  },
-  "Melville": {
-    "recording": "memoirs/Norm_red",
-    "context": "We got the piece from south of Melville up to Yorkton.",
-    "timestamp": 7052.07,
-    "llm_reasoning": "The phrase 'south of Melville up to Yorkton' clearly indicates travel between two locations, establishing Melville as a geographic reference point."
-  },
-  "Moose": {
-    "recording": "memoirs/Norm_red",
-    "context": "The potash out at Kalium between here and Moose Jaw start up and we did all their distribution layout for - not only did the engineering as well as building the lines. And uh that lasted for I guess it's still going today. That",
-    "timestamp": 7778.23,
-    "llm_reasoning": "The context mentions 'Moose Jaw' in relation to travel and work ('out at Kalium between here and Moose Jaw'), indicating it's being used as a geographic location."
-  },
-  "Nebraska, David City": {
-    "recording": "memoirs/Norm_red",
-    "context": "In the meantime, I'd been - while I was in Iowa, my cousin from Nebraska, David City, Nebraska, said, when you're down in our part of the country, come and see us.",
-    "timestamp": 2776.17,
-    "llm_reasoning": "The context indicates the speaker's cousin invited them to visit a specific location in Nebraska, suggesting travel to a geographic place."
-  },
-  "Northwest": {
-    "recording": "memoirs/Norm_red",
-    "context": "They were bidding on a job up in, oh, way up in Alaska - Northwest Territories - north of Whitehorse, wherever Whitehorse is.",
-    "timestamp": 12650.12,
-    "llm_reasoning": "The context explicitly mentions 'Northwest Territories' as a location 'north of Whitehorse,' indicating a geographic reference and potential travel to that region."
-  },
-  "Now, Biggar": {
-    "recording": "memoirs/Norm_red",
-    "context": "Now, Biggar is a town about 3,000.",
-    "timestamp": 4346.92,
-    "llm_reasoning": "The context explicitly states that 'Biggar' is a town, indicating it's being used as a geographic place name."
-  },
-  "Ogema-Shanavan": {
-    "recording": "memoirs/Norm_red",
-    "context": "And then down in the Ogema-Shanavan area, yeah, Fife Lake, and in that area we did a bunch of towns there in '50, '51, we were in the Ogema\u2013Bengough, and in through there we did 60 or 70 miles of line in a bunch of towns.",
-    "timestamp": 7343.27,
-    "llm_reasoning": "The context describes work being done 'down in the Ogema-Shanavan area' and 'in a bunch of towns there,' indicating a geographic region being referenced."
-  },
-  "Peace": {
-    "recording": "memoirs/Norm_red",
-    "context": "And then in - to get back to the story again, by this time, Dominion Electric were getting pretty big up in the Peace River country.",
-    "timestamp": 5682.97,
-    "llm_reasoning": "The phrase 'Peace River country' strongly suggests a geographic region, and the context refers to Dominion Electric's operations within that area."
-  },
-  "River": {
-    "recording": "memoirs/Norm_red",
-    "context": "And then in - to get back to the story again, by this time, Dominion Electric were getting pretty big up in the Peace River country.",
-    "timestamp": 5682.97,
-    "llm_reasoning": "The phrase 'Peace River country' strongly suggests a geographic region, and while 'River' isn't a direct match in the database, it's part of a recognized regional name."
-  },
-  "Saskatchewan": {
-    "recording": "memoirs/Norm_red",
-    "context": "And they come to Saskatchewan for help, see if we could rig up some small three-man crews on half-ton trucks.",
-    "timestamp": 6388.39,
-    "llm_reasoning": "The phrase 'come to Saskatchewan for help' implies travel to the province, indicating a geographic location."
-  },
-  "School": {
-    "recording": "memoirs/Norm_red",
-    "context": "We started at Crow Lake School and that was two miles across the field.",
-    "timestamp": 457.79,
-    "llm_reasoning": "The context 'We started at Crow Lake School and that was two miles across the field' indicates a location ('at Crow Lake School') and implies a physical place being referenced."
-  },
-  "Sioux Falls, Sioux City": {
-    "recording": "memoirs/Norm_red",
-    "context": "all the way up from Remsen, Iowa, up to Sioux Falls, Sioux City,",
-    "timestamp": 188.36,
-    "llm_reasoning": "The phrase 'up to Sioux Falls, Sioux City' indicates travel direction, suggesting a geographic location."
-  },
-  "St": {
-    "recording": "memoirs/Norm_red",
-    "context": "I found out there was a place in St. Louis, Missouri",
-    "timestamp": 1146.0,
-    "llm_reasoning": "The context explicitly states a place exists 'in St. Louis, Missouri,' indicating a geographic location."
-  },
-  "States": {
-    "recording": "memoirs/Norm_red",
-    "context": "You just sign this card here that you're willfully deporting yourself from the United States, and that's the end of your working down here.",
-    "timestamp": 1176.72,
-    "llm_reasoning": "The phrase 'deporting yourself from the United States' explicitly indicates travel/departure from a geographic location."
-  },
-  "Street": {
-    "recording": "memoirs/Norm_red",
-    "context": "So I incorporated, and that year I bought property on Ottawa Street and built a shop.",
-    "timestamp": 7457.58,
-    "llm_reasoning": "The context states the speaker 'bought property on Ottawa Street and built a shop,' indicating a location and therefore a geographic reference."
-  },
-  "Swift": {
-    "recording": "memoirs/Norm_red",
-    "context": ",in those days, I'm talking back in 1946, up to 1950, I had a bunch go on strike up - way up north of Swift Current.",
-    "timestamp": 6694.04,
-    "llm_reasoning": "The phrase 'way up north of Swift Current' indicates a location relative to Swift Current, suggesting it's being used as a geographic reference point."
-  },
-  "Territories": {
-    "recording": "memoirs/Norm_red",
-    "context": "They were bidding on a job up in, oh, way up in Alaska - Northwest Territories - north of Whitehorse, wherever Whitehorse is.",
-    "timestamp": 12650.12,
-    "llm_reasoning": "The context explicitly mentions a location 'north of Whitehorse' and uses 'Northwest Territories' as a geographic region, indicating a travel destination."
-  },
-  "United": {
-    "recording": "memoirs/Norm_red",
-    "context": "You just sign this card here that you're willfully deporting yourself from the United States, and that's the end of your working down here.",
-    "timestamp": 3855.47,
-    "llm_reasoning": "The phrase 'deporting yourself from the United States' clearly indicates travel/movement from a geographic location, the United States."
-  },
-  "Valley": {
-    "recording": "memoirs/Norm_red",
-    "context": "Well, I went into Valley City, and I patched it up enough that I could drive another hundred miles down to my uncle's place.",
-    "timestamp": 3251.75,
-    "llm_reasoning": "The context explicitly indicates travel ('went into Valley City') suggesting a geographic location being visited."
-  },
-  "Vermillion": {
-    "recording": "memoirs/Norm_red",
-    "context": "...Alberta about the end of harvest and we worked up there. We did some highline move where they're building a high - it was up at the Vermillion and Lloydminster area, They were moving a highway - or widening a highway, and we moved some line for that. And then we put in a - a section of farm land - farm line there, about 50 miles of farm line.",
-    "timestamp": 7132.47,
-    "llm_reasoning": "The context explicitly mentions working 'up there' in the 'Vermillion and Lloydminster area' while moving a highway, indicating a location and work being performed in that geographic region."
-  },
-  "North Dakota": {
-    "recording": "memoirs/Norm_red",
-    "context": "From there we moved over into Dawson, North Dakota.",
-    "timestamp": 3346.79,
-    "llm_reasoning": "The phrase 'moved over into' explicitly indicates travel to a geographic location, North Dakota."
-  },
-  "South Dakota": {
-    "recording": "memoirs/Norm_red",
-    "context": "Well, we finished there and then I headed north I didn't know where I was going I stopped in at my brother's place in Sioux Falls and I had an uncle up near Aberdeen South Dakota so I",
-    "timestamp": 2563.89,
-    "llm_reasoning": "The context indicates travel to a location ('I had an uncle up near Aberdeen South Dakota'), suggesting a geographic reference."
-  },
-  "Construction": {
-    "recording": "memoirs/Norm_red",
-    "context": "Even to this day, the union was never able to work its way into Achen Construction.",
-    "timestamp": 9098.26,
-    "llm_reasoning": "Context 2 refers to 'Achen Construction' as a business name that remains on a building, implying a physical location associated with the name."
-  },
-  "Crow Lake": {
-    "recording": "memoirs/Norm_red",
-    "context": "We started at Crow Lake School and that was two miles across the field.",
-    "timestamp": 457.79,
-    "llm_reasoning": "Contexts 1, 2, and 3 all use locational prepositions ('at', 'to') indicating 'Crow Lake' is being used as a geographic place name."
-  },
-  "Douglas Park": {
-    "recording": "memoirs/Norm_red",
-    "context": "Douglas Park, Norman, what's the one up northwest?",
-    "timestamp": 11673.92,
-    "llm_reasoning": "The context 'Douglas Park, Norman, what's the one up northwest?' implies a search for a location, indicating it's being used as a geographic place name."
-  },
-  "Dubois": {
-    "recording": "memoirs/Norm_red",
-    "context": "So I went back in the fall, and Dubois says, I can put you to work.",
-    "timestamp": 4951.23,
-    "llm_reasoning": "Context 2 mentions 'Dominion Electric Dubois' and context 3 uses 'Dubois phoned me from Peace River,' indicating 'Dubois' is being used as a location or associated with a location."
-  },
-  "Lakeview, Albert Park": {
-    "recording": "memoirs/Norm_red",
-    "context": "That takes in Lakeview, Albert Park, Whitmore Park,",
-    "timestamp": 11667.34,
-    "llm_reasoning": "The context \"That takes in Lakeview, Albert Park, Whitmore Park\" uses locational language, indicating it's being used as a geographic place name."
-  },
-  "Line": {
-    "recording": "memoirs/Norm_red",
-    "context": "and then up what they call the Sioux Line, up to Halbrite.",
-    "timestamp": 194.36,
-    "llm_reasoning": "Context 1 uses 'Sioux Line' which implies 'Line' is being used as a geographic descriptor, even if not a formally recognized place name."
-  },
-  "Louis, Missouri": {
-    "recording": "memoirs/Norm_red",
-    "context": "I found out there was a place in St. Louis, Missouri",
-    "timestamp": 1146.0,
-    "llm_reasoning": "The context 'I found out there was a place in St. Louis, Missouri' explicitly indicates 'Louis, Missouri' is being used to refer to a geographic location."
-  },
-  "Mennonite": {
-    "recording": "memoirs/Norm_red",
-    "context": "I did an awful lot of work south of Swift Current in the Mennonite areas.",
-    "timestamp": 6694.04,
-    "llm_reasoning": "Context 1 uses the preposition 'in' with 'Mennonite areas', indicating it's being used to refer to a geographic region."
-  },
-  "Montana-Dakota": {
-    "recording": "memoirs/Norm_red",
-    "context": "And then I went into North Dakota, and I worked for the Montana-Dakota Power Company.",
-    "timestamp": 9565.74,
-    "llm_reasoning": "The context 'And then I went into North Dakota, and I worked for the Montana-Dakota Power Company' uses a travel indicator ('went into') suggesting Montana-Dakota refers to a geographic location, specifically the area served by the power company."
-  },
-  "New York": {
-    "recording": "memoirs/Norm_red",
-    "context": "And I worked there for a month, and all of a sudden, New York, who owned the Dominion Electric Power, said, \"Cut all spending.",
-    "timestamp": 5091.52,
-    "llm_reasoning": "Contexts 1, 2, and 3 all refer to sending telegrams 'to New York,' indicating it's being used as a geographic location, likely the headquarters of Dominion Electric Power."
-  },
-  "Northwest Territories": {
-    "recording": "memoirs/Norm_red",
-    "context": "They were bidding on a job up in, oh, way up in Alaska - Northwest Territories - north of Whitehorse, wherever Whitehorse is.",
-    "timestamp": 12650.12,
-    "llm_reasoning": "The context 'way up in Alaska - Northwest Territories - north of Whitehorse' uses 'Northwest Territories' as a geographic location relative to Whitehorse."
-  },
-  "Peace River": {
-    "recording": "memoirs/Norm_red",
-    "context": "And then in - to get back to the story again, by this time, Dominion Electric were getting pretty big up in the Peace River country.",
-    "timestamp": 5682.97,
-    "llm_reasoning": "Context 2 explicitly states 'Dubois phoned me from Peace River,' indicating it's being used as a geographic location."
-  },
-  "Shaunavon": {
-    "recording": "memoirs/Norm_red",
-    "context": "When I finished that, I went down to the town of Eastwnd, which had another small decent plot, and down by Shaunavon.",
-    "timestamp": 5080.39,
-    "llm_reasoning": "Context 2 uses the preposition 'from' with 'Shaunavon' indicating it's being used as a geographic location ('overhauled the power line from Shaunavon to Assiniboia')."
-  },
-  "Shawnevan": {
-    "recording": "memoirs/Norm_red",
-    "context": "And in the fall of '38, I was sent out to Shawnevan and Gravelbourg to calibrate meters.",
-    "timestamp": 5621.25,
-    "llm_reasoning": "Context 1 uses the preposition 'to' indicating movement to Shawnevan, which is a strong indicator of geographic place usage."
-  },
-  "Sioux": {
-    "recording": "memoirs/Norm_red",
-    "context": "and then up what they call the Sioux Line, up to Halbrite.",
-    "timestamp": 194.36,
-    "llm_reasoning": "The context 'and then up what they call the Sioux Line, up to Halbrite' uses 'Sioux' as part of a named route or region, indicating geographic place usage."
-  },
-  "Thunderhawk, South Dakota": {
-    "recording": "memoirs/Norm_red",
-    "context": "Thunderhawk, South Dakota, up to Elgin, North Dakota, about 40 miles across.",
-    "timestamp": 3426.14,
-    "llm_reasoning": "The context 'Thunderhawk, South Dakota, up to Elgin, North Dakota, about 40 miles across' uses geographic references and distance, indicating it's being used as a place name."
-  },
-  "Shanavan": {
-    "recording": "memoirs/Norm_red",
-    "context": "And then down in the Ogema - Shanavan area, yeah, Fife Lake, and in that area we did a bunch of towns there in '50, '51, we were in the Ogema\u2013Bengough, and in through there we did 60 or 70 miles of line in a bunch of towns.",
-    "timestamp": 7343.27,
-    "llm_reasoning": "The phrase \"down in the Ogema - Shanavan area\" strongly suggests Shanavan is being used as part of a geographic region, even if it's not a formally recognized place in the database."
-  },
-  "Electric": {
-    "recording": "memoirs/Norm_red",
-    "context": "stores in that town all winter. So I was busy making a living and that was about all. Then the next spring my old company Dominion Electric Dubois hired me to go into Gull Lake. There was some bad wiring jobs and they couldn't meter it properly in three or four places involving business places. So I went in and I straightened all that out. And",
-    "timestamp": 5016.96,
-    "llm_reasoning": "Context 5 mentions 'Tompkins Electric,' indicating 'Electric' is functioning as part of a company name that likely refers to a geographic location."
-  },
-  "Light": {
-    "recording": "memoirs/Norm_red",
-    "context": "And it was all made over a telephone call between the city Light and Power Superintendent, whom I had known for some years, and myself.",
-    "timestamp": 6806.1,
-    "llm_reasoning": "Context 2 mentions 'Northern Light Power,' strongly suggesting 'Light' refers to a geographic location, even if not explicitly named."
-  },
-  "Six": {
-    "recording": "memoirs/Norm_red",
-    "context": "Six miles north of Halbrite.",
-    "timestamp": 272.36,
-    "llm_reasoning": "The context 'Six miles north of Halbrite' clearly indicates 'Six' is being used as a locational reference, even if it doesn't correspond to a named place in the database."
-  },
-  "Appelle Valley": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "Well, we never got as far as the Manitoba border, about Kipling to the east, and everything - always south of the valley, south of the Saskatchewan River and the Qu'Appelle Valley.",
-    "timestamp": 8969.69,
-    "llm_reasoning": "The context 'south of the Qu'Appelle Valley' uses 'valley' as a geographic feature defining a location relative to other landmarks."
-  },
-  "Brighton": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "But that's how I thrashed 30 days for Brighton, and I thrashed 12 days for them.",
-    "timestamp": 3195.12,
-    "llm_reasoning": "The phrase \"thrashed for Brighton\" implies a competition or effort directed towards a specific location, suggesting it's being used as a geographic place name."
-  },
-  "British Columbia": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "And they took over and he headed for British Columbia where he spent the rest of his days.",
-    "timestamp": 5844.12,
-    "llm_reasoning": "The context 'And they took over and he headed for British Columbia where he spent the rest of his days' indicates movement to a geographic location."
-  },
-  "Canterbury": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "And I'm going to have to go without the whole webinar all again about when I come back up to Canterbury and went out to the farm and started working and see what happens.",
-    "timestamp": 3926.78,
-    "llm_reasoning": "The phrase 'come back up to Canterbury' with the subsequent reference to 'went out to the farm' strongly suggests a geographic location, even without specific locational prepositions or travel indicators."
-  },
-  "College": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "We built all the pole lines in Regina from Campion College south, and every suburb that went in after that.",
-    "timestamp": 8932.12,
-    "llm_reasoning": "The context 'We built all the pole lines in Regina from Campion College south' uses 'College' with the locational preposition 'from', indicating it's being used as a geographic place name, even if it's a local institution."
-  },
-  "Cypress Park": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "Oh yeah, I went and built a line to Cypress Park.",
-    "timestamp": 8242.19,
-    "llm_reasoning": "Contexts 1 and 2 use \"Cypress Park\" with travel indicators (\"to\", \"from\") and locational prepositions, strongly suggesting it's being used as a geographic place name."
-  },
-  "Dakota": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "I help them with their harvest and then I head it north and I think somewhere along here we'll cut back in and I'll pick up when I head back up into Dakota.",
-    "timestamp": 2607.97,
-    "llm_reasoning": "The phrase 'head back up into Dakota' implies a geographic location being traveled to and from, regardless of the specific place."
-  },
-  "Davis City, Nebraska": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "And after that was finished, I got in my car and I went down to Deaner's at Davis City, Nebraska to help them harvest.",
-    "timestamp": 2736.46,
-    "llm_reasoning": "The phrase \"at Davis City, Nebraska\" indicates locational preposition usage, confirming it is being used as a geographic place name."
-  },
-  "Deaner": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "She was a Hemmer girl, married to a Deaner, lived in Nebraska.",
-    "timestamp": 2713.45,
-    "llm_reasoning": "Context 2 explicitly states 'Deaner's at Davis City, Nebraska,' indicating it's being used as a location."
-  },
-  "Dinsmoor": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "After we finished that job, we did about twenty farms just north of Weyburn, and from there I got a job building a line from Dinsmoor to Eston and up from Elrose to Rosetown.",
-    "timestamp": 7635.03,
-    "llm_reasoning": "Context 1 explicitly mentions building a line 'from Dinsmoor to Eston,' indicating Dinsmoor is being used as a geographic location."
-  },
-  "Estevan, Bill Mullins": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "My old bank manager from Estevan, Bill Mullins, was the manager in Moose Jaw.",
-    "timestamp": 7697.01,
-    "llm_reasoning": "The context 'My old bank manager from Estevan, Bill Mullins, was the manager in Moose Jaw' uses the preposition 'from' indicating Estevan is being referenced as a geographic origin."
-  },
-  "Irvine": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "After I finished there, I got in the car and I went up through by Lorry's place again, stopped there a couple of days, and then on up to Aberdeen, South Dakota, where I had an uncle and a cousin that - Irvine, the oldest boy was just my age.",
-    "timestamp": 2803.4,
-    "llm_reasoning": "The phrase 'on up to Aberdeen, South Dakota, where I had an uncle and a cousin that - Irvine...' strongly suggests Irvine is being referenced as a location relative to Aberdeen, even without explicit locational prepositions or travel indicators."
-  },
-  "Land": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "Thunderhawk, South Dakota, up to Algin North, right through No Man's Land.",
-    "timestamp": 3454.4,
-    "llm_reasoning": "The context 'Thunderhawk, South Dakota, up to Algin North, right through No Man's Land' uses 'Land' as part of a place name, 'No Man's Land,' indicating a geographic region."
-  },
-  "London, England": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "So from there, after spending ten days there, she's going on to London, England to visit Norm.",
-    "timestamp": 2635.42,
-    "llm_reasoning": "The context \"So from there, after spending ten days there, she's going on to London, England to visit Norm\" uses the travel indicator 'to' indicating a destination, therefore it is being used as a geographic place name."
-  },
-  "Man": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "Thunderhawk, South Dakota, up to Algin North, right through No Man's Land.",
-    "timestamp": 3454.4,
-    "llm_reasoning": "The context \"No Man's Land\" is a recognized geographic term, indicating a place."
-  },
-  "North Regina": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "north suburb, what they called North Regina, everything north of the CN tracks.",
-    "timestamp": 7042.98,
-    "llm_reasoning": "The context 'north suburb, what they called North Regina, everything north of the CN tracks' uses 'North Regina' to define a geographic area."
-  },
-  "Orstead": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "When they were driving by in the bobsleigh from the Orstead place, they were going down to catch the train into Weyburn.",
-    "timestamp": 807.61,
-    "llm_reasoning": "The phrase 'from the Orstead place' and the subsequent travel to Weyburn strongly suggest 'Orstead' is being used as a geographic location."
-  },
-  "Post": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "Well, when this was over, while we were sitting there talking, and I said, \"I see by the Leader Post that they're advertising for line construction for the Power Commission.\"",
-    "timestamp": 6153.43,
-    "llm_reasoning": "The context refers to \"Leader Post,\" which is likely a newspaper name derived from a place name, indicating a geographic reference."
-  },
-  "Qu": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "Well, we never got as far as the Manitoba border, about Kipling to the east, and everything - always south of the valley, south of the Saskatchewan River and the Qu'Appelle Valley.",
-    "timestamp": 8969.69,
-    "llm_reasoning": "The context mentions 'Qu'Appelle Valley, which indicates 'Qu' is part of a geographic place name."
-  },
-  "Rockglen, Coronach": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "Viceroy, down to Rockglen, Coronach, all in through that country.",
-    "timestamp": 8799.01,
-    "llm_reasoning": "The phrase 'down to Rockglen, Coronach, all in through that country' uses the travel indicator 'to', suggesting a geographic location."
-  },
-  "Rosetown, Elrose": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "Rosetown, Elrose pretty well underway, and Art Miller was able to take over it.",
-    "timestamp": 7835.98,
-    "llm_reasoning": "Contexts 1 and 2 use \"Rosetown, Elrose\" with travel indicators (\"went over to\", \"stayed on that job to push\") indicating geographic locations."
-  },
-  "Saskatchewan River": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "Well, we never got as far as the Manitoba border, about Kipling to the east, and everything - always south of the valley, south of the Saskatchewan River and the Qu'Appelle Valley.",
-    "timestamp": 8969.69,
-    "llm_reasoning": "The context 'south of the Saskatchewan River and the Qu'Appelle Valley' uses 'Saskatchewan River' as a geographic boundary, indicating a place."
-  },
-  "Twight": {
-    "recording": "memoirs/TDK_D60_edited_through_air",
-    "context": "\"Well,\" I said, \"I'm going to go out and see if I can get a job running a Martin Twight Separator.\"",
-    "timestamp": 2886.91,
-    "llm_reasoning": "Context 3, \"when I got to Martin Twight's,\" indicates that 'Martin Twight's' is being used to refer to a location."
-  },
-  "Club": {
+  "Ellen": {
     "recording": "christmas1986",
-    "context": "And I'd see up to the Elks Club.",
-    "timestamp": 1662.62,
-    "llm_reasoning": "Contexts 1 and 2 use \"Club\" with locational prepositions (\"to the Elks Club\", \"walk up to the Optimist Club\") indicating it refers to a geographic place."
-  },
-  "Elks": {
-    "recording": "christmas1986",
-    "context": "He phoned me, oh ya to tell me that he had been to the annual meeting of the Elks",
-    "timestamp": 173.88,
-    "llm_reasoning": "Context 2, \"And I'd see up to the Elks Club,\" uses the preposition 'to' and the term 'Club,' strongly suggesting a location."
+    "context": "Oh yeah, at Ellen's funeral,",
+    "timestamp": 1168.71,
+    "llm_reasoning": "The context 'Oh yeah, at Ellen's funeral' uses the locational preposition 'at', indicating Ellen is being used as a place name."
   },
   "Hamilton": {
     "recording": "christmas1986",
     "context": "I'm afraid Hamilton will have trouble with Edmonton.",
     "timestamp": 2085.64,
-    "llm_reasoning": "Context 1 and 2 refer to 'Hamilton' in relation to other cities (Edmonton, Toronto) suggesting a geographic location, even if the specific location isn't explicitly stated."
-  },
-  "Hotel": {
-    "recording": "christmas1986",
-    "context": "in the Saskatchewan Hotel.",
-    "timestamp": 295.84,
-    "llm_reasoning": "Contexts 1 and 2 explicitly use \"Hotel\" with the preposition \"in\", indicating it's being used as a geographic place name, even if it's a specific hotel building."
+    "llm_reasoning": "Context 1 and 2 refer to 'Hamilton' in relation to other cities (Edmonton and Toronto) suggesting a geographic location, even if the specific location isn't explicitly stated."
   },
   "Hugo": {
     "recording": "christmas1986",
@@ -557,17 +17,11 @@
     "timestamp": 456.54,
     "llm_reasoning": "Context 2, \"yesterday, when I was up at Hugo's,\" strongly suggests 'Hugo' is being used as a place name, indicated by the preposition 'at'."
   },
-  "Optimist": {
-    "recording": "christmas1986",
-    "context": "By the time I get in for coffee, I walk up to the Optimist Club. That's four blocks.",
-    "timestamp": 1961.82,
-    "llm_reasoning": "The context 'walk up to the Optimist Club' uses the locational preposition 'to' indicating a place."
-  },
   "Rock": {
     "recording": "christmas1986",
     "context": "one in White Rock, B.C.,",
     "timestamp": 1408.83,
-    "llm_reasoning": "The context 'one in White Rock, B.C.' explicitly uses 'Rock' as part of the place name 'White Rock'."
+    "llm_reasoning": "The context 'one in White Rock, B.C.' explicitly uses 'Rock' as part of the place name 'White Rock,' B.C."
   },
   "Tire": {
     "recording": "christmas1986",
@@ -587,58 +41,227 @@
     "timestamp": 3068.82,
     "llm_reasoning": "Context 2 references Britain's involvement in a war, indicating it's being used as a geographic place (the United Kingdom) and not a person."
   },
-  "Chandovan": {
-    "recording": "glynn_interview",
-    "context": "I can remember working in Chandovan in 1936.",
-    "timestamp": 2740.53,
-    "llm_reasoning": "Contexts 1 and 2 use prepositions 'in' and 'from' with 'Chandovan', indicating it is being used as a geographic location."
-  },
-  "Cinnaboya": {
-    "recording": "glynn_interview",
-    "context": "I was out west between Shaunavon and Cinnaboya in 1935 and 1936, and there it was terrible.",
-    "timestamp": 1739.96,
-    "llm_reasoning": "The context 'I was out west between Shaunavon and Cinnaboya...' indicates Cinnaboya is being used as a geographic location, even though it's not found in the database."
-  },
   "County": {
     "recording": "glynn_interview",
     "context": "take the track up, they went up into the Meadow Lake County.",
     "timestamp": 1808.07,
-    "llm_reasoning": "The context 'take the track up, they went up into the Meadow Lake County' uses 'County' as a geographic descriptor, indicating a region."
+    "llm_reasoning": "The context 'take the track up, they went up into the Meadow Lake County' uses 'County' as a geographic descriptor, indicating a region or area."
+  },
+  "Coupe": {
+    "recording": "glynn_interview",
+    "context": "And then she went up to Coos Coupe.",
+    "timestamp": 4411.97,
+    "llm_reasoning": "Context 1, \"And then she went up to Coos Coupe,\" uses the preposition 'to' indicating movement towards a location, thus suggesting 'Coupe' functions as a place name."
   },
   "Eastern": {
     "recording": "glynn_interview",
     "context": "We were almost a strictly American Eastern Canadian settlement there.",
     "timestamp": 2838.92,
-    "llm_reasoning": "The phrase 'Eastern Canadian settlement' strongly suggests a geographic region, even if not a specific named place, and therefore qualifies as a place name."
+    "llm_reasoning": "The phrase 'Eastern Canadian settlement' strongly suggests a geographic region, even if not a specific named place, and therefore satisfies the criteria for place usage."
   },
   "Europe": {
     "recording": "glynn_interview",
     "context": "Did you find that there was any prejudice around in your area, like people who had immigrated into, you know, people from Europe or different places, that people feel that there was enough to go around or not enough, and they weren't willing to care?",
     "timestamp": 2804.73,
-    "llm_reasoning": "The context refers to \"people from Europe,\" indicating it's used as a geographic origin, regardless of the lack of database matches."
+    "llm_reasoning": "The context refers to \"people from Europe\" as a group originating from a geographic region, indicating its use as a place name."
   },
-  "Illinois": {
+  "Prairie": {
     "recording": "glynn_interview",
-    "context": "They were going to sell out and go back to Illinois.",
-    "timestamp": 2613.78,
-    "llm_reasoning": "The context 'They were going to sell out and go back to Illinois' uses 'Illinois' as a destination, indicating a geographic place."
+    "context": "Prairie, you might say, and broke it up with horses.",
+    "timestamp": 86.64,
+    "llm_reasoning": "Context 2 explicitly mentions 'Winery Prairie,' indicating it's being used as a place name, regardless of whether it matches any of the database locations."
   },
-  "Weyburn-Estevan": {
-    "recording": "glynn_interview",
-    "context": "In the, you can say, Weyburn-Estevan area.",
-    "timestamp": 44.68,
-    "llm_reasoning": "The phrase \"Weyburn-Estevan area\" indicates a geographic region, fulfilling the place indicator of a locational preposition."
+  "Davidson": {
+    "recording": "memoirs/Norm_red",
+    "context": "We finished the job at Estevan and then moved up to - down near the Assiniboia area and did some work, then up to Craik and Davidson, worked there for a while, and then up to Biggar.",
+    "timestamp": 4335.56,
+    "llm_reasoning": "Contexts 1 and 2 both refer to 'Davidson' in conjunction with other Saskatchewan towns like Estevan, Assiniboia, Craik, and Biggar, indicating it's being used as a geographic place name within the region."
   },
-  "Luke": {
-    "recording": "LHA_Sr.Hilary",
-    "context": "Well, it wasn't very, St. Luke Hospital wasn't very, it's pretty well, it's a dead world of life in there.",
-    "timestamp": 774.52,
-    "llm_reasoning": "The context refers to \"St. Luke Hospital,\" which, while potentially named after a person, functions as a place name in this instance."
+  "Devil's Lake": {
+    "recording": "memoirs/Norm_red",
+    "context": "I bought two used machines down at Devil Lakes - Devil's Lake, North Dakota, and I brought them up here.",
+    "timestamp": 10999.58,
+    "llm_reasoning": "The context 'I bought two used machines down at Devil Lakes - Devil's Lake, North Dakota, and I brought them up here' explicitly uses the locational preposition 'at' and identifies Devil's Lake as being in North Dakota, indicating a geographic place."
+  },
+  "Douglas Park": {
+    "recording": "memoirs/Norm_red",
+    "context": "Douglas Park, Norman, what's the one up northwest?",
+    "timestamp": 11673.92,
+    "llm_reasoning": "The context 'Douglas Park, Norman, what's the one up northwest?' implies a search for a location, suggesting it's being used as a geographic place name."
+  },
+  "Dubois": {
+    "recording": "memoirs/Norm_red",
+    "context": "So I went back in the fall, and Dubois says, I can put you to work.",
+    "timestamp": 4951.23,
+    "llm_reasoning": "Context 2 states 'Dominion Electric Dubois hired me,' implying a company location, and context 3 uses 'Dubois phoned me from Peace River,' indicating Dubois is a location from which a phone call originated."
+  },
+  "Funny": {
+    "recording": "memoirs/Norm_red",
+    "context": "And as the funny says - Fools Hesitate, Funny McGee. Well, that was the end of 1947.",
+    "timestamp": 6586.81,
+    "llm_reasoning": "Context 1 uses 'Funny' in a phrase that suggests it's a place name, as it's used in a saying ('as the funny says')."
+  },
+  "Kalium": {
+    "recording": "memoirs/Norm_red",
+    "context": "The potash out at Kalium between here and Moose Jaw start up and we did all their distribution layout for - not only did the engineering as well as building the lines. And uh that lasted for I guess it's still going today. That",
+    "timestamp": 7778.23,
+    "llm_reasoning": "The phrase 'out at Kalium between here and Moose Jaw' strongly suggests Kalium is being used as a geographic location, even though it's not found in the database."
+  },
+  "Lake, North Dakota": {
+    "recording": "memoirs/Norm_red",
+    "context": "I bought two used machines down at Devil Lakes - Devil's Lake, North Dakota, and I brought them up here.",
+    "timestamp": 10999.58,
+    "llm_reasoning": "The context 'I bought two used machines down at Devil Lakes - Devil's Lake, North Dakota, and I brought them up here' uses the locational preposition 'at' with 'Devil's Lake, North Dakota', indicating it is being used as a geographic place name."
+  },
+  "Louis, Missouri": {
+    "recording": "memoirs/Norm_red",
+    "context": "I found out there was a place in St. Louis, Missouri",
+    "timestamp": 1146.0,
+    "llm_reasoning": "The context 'I found out there was a place in St. Louis, Missouri' explicitly indicates that 'Louis, Missouri' refers to a geographic location."
+  },
+  "Melville": {
+    "recording": "memoirs/Norm_red",
+    "context": "We got the piece from south of Melville up to Yorkton.",
+    "timestamp": 7052.07,
+    "llm_reasoning": "The context 'We got the piece from south of Melville up to Yorkton' uses the preposition 'from,' indicating a geographic origin, and there is a Melville, Saskatchewan (not listed in the database) that is relevant to the Regina, Saskatchewan area."
+  },
+  "Mennonite": {
+    "recording": "memoirs/Norm_red",
+    "context": "I did an awful lot of work south of Swift Current in the Mennonite areas.",
+    "timestamp": 6694.04,
+    "llm_reasoning": "Context 1 uses the preposition 'in' with 'Mennonite areas', indicating it's being used to refer to a geographic region."
+  },
+  "Montana-Dakota": {
+    "recording": "memoirs/Norm_red",
+    "context": "And then I went into North Dakota, and I worked for the Montana-Dakota Power Company.",
+    "timestamp": 9565.74,
+    "llm_reasoning": "The context \"And then I went into North Dakota, and I worked for the Montana-Dakota Power Company\" uses a travel indicator ('went into') and implies a geographic location associated with the power company."
+  },
+  "Mullins": {
+    "recording": "memoirs/Norm_red",
+    "context": "And I said, \"If you don't, I'll move my account to Moose Jaw where my old friend Bill Mullins",
+    "timestamp": 11146.25,
+    "llm_reasoning": "The context 'where my old friend Bill Mullins' implies a location, even if it's referring to a person's residence, and doesn't contain person indicators."
+  },
+  "Sioux": {
+    "recording": "memoirs/Norm_red",
+    "context": "and then up what they call the Sioux Line, up to Halbrite.",
+    "timestamp": 194.36,
+    "llm_reasoning": "The phrase 'up what they call the Sioux Line' indicates a geographic region or route, even if not a formally named place, thus fulfilling the place indicator criteria."
+  },
+  "Algin": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "Thunder Hawk, South Dakota, up to Algin North, right through No Man's Land.",
+    "timestamp": 3454.4,
+    "llm_reasoning": "The context 'Thunder Hawk, South Dakota, up to Algin North, right through No Man's Land' uses 'Algin' as part of a geographic description, indicating a location."
+  },
+  "Appelle Valley": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "Well, we never got as far as the Manitoba border, about Kipling to the east, and everything - always south of the valley, south of the Saskatchewan River and the Qu'Appelle Valley.",
+    "timestamp": 8969.69,
+    "llm_reasoning": "The context 'south of the Qu'Appelle Valley' uses 'valley' as a geographic feature defining a location relative to other landmarks."
+  },
+  "Brighton": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "But that's how I thrashed 30 days for Brighton, and I thrashed 12 days for them.",
+    "timestamp": 3195.12,
+    "llm_reasoning": "The phrase \"thrashed for Brighton\" implies a competition or effort directed towards a specific location, suggesting it's being used as a geographic place name."
+  },
+  "Canterbury": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "And I'm going to have to go without the whole webinar all again about when I come back up to Canterbury and went out to the farm and started working and see what happens.",
+    "timestamp": 3926.78,
+    "llm_reasoning": "The phrase 'come back up to Canterbury' with the subsequent reference to 'went out to the farm' strongly suggests a geographic location, even without specific locational prepositions or travel indicators."
+  },
+  "Cypress Park": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "Oh yeah, I went and built a line to Cypress Park.",
+    "timestamp": 8242.19,
+    "llm_reasoning": "Contexts 1 and 2 use \"Cypress Park\" with travel indicators (\"to\", \"from\") and locational prepositions, indicating it's being used as a geographic place."
+  },
+  "Dakota": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "I help them with their harvest and then I head it north and I think somewhere along here we'll cut back in and I'll pick up when I head back up into Dakota.",
+    "timestamp": 2607.97,
+    "llm_reasoning": "The phrase 'head back up into Dakota' strongly suggests a geographic location, even without specific locational prepositions or travel indicators."
+  },
+  "Davis City, Nebraska": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "And after that was finished, I got in my car and I went down to Deaner's at Davis City, Nebraska to help them harvest.",
+    "timestamp": 2736.46,
+    "llm_reasoning": "The phrase \"at Davis City, Nebraska\" indicates locational preposition usage, confirming it's being used as a geographic place name."
+  },
+  "Deaner": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "She was a Hemmer girl, married to a Deaner, lived in Nebraska.",
+    "timestamp": 2713.45,
+    "llm_reasoning": "Context 2 explicitly uses 'Deaner's at Davis City, Nebraska', indicating it's being used as a place name."
+  },
+
+  "England": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "So from there, after spending ten days there, she's going on to London, England to visit Norm.",
+    "timestamp": 2635.42,
+    "llm_reasoning": "The context 'she's going on to London, England' clearly indicates England is being used as a geographic place name."
+  },
+  "Irvine": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "After I finished there, I got in the car and I went up through by Lorry's place again, stopped there a couple of days, and then on up to Aberdeen, South Dakota, where I had an uncle and a cousin that - Irvine, the oldest boy was just my age.",
+    "timestamp": 2803.4,
+    "llm_reasoning": "The phrase 'on up to Aberdeen, South Dakota, where I had an uncle and a cousin that - Irvine...' strongly suggests Irvine is being referenced as a location relative to Aberdeen, even without explicit locational prepositions or travel indicators."
+  },
+  "Land": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "Thunder Hawk, South Dakota, up to Algin North, right through No Man's Land.",
+    "timestamp": 3454.4,
+    "llm_reasoning": "The context \"Thunder Hawk, South Dakota, up to Algin North, right through No Man's Land\" uses 'Land' as part of a place name, 'No Man's Land,' indicating a geographic area."
+  },
+  "Man": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "Thunder Hawk, South Dakota, up to Algin North, right through No Man's Land.",
+    "timestamp": 3454.4,
+    "llm_reasoning": "The context \"Thunder Hawk, South Dakota, up to Algin North, right through No Man's Land\" uses 'No Man's Land' which is a recognized geographic term."
+  },
+  "North Regina": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "north suburb, what they called North Regina, everything north of the CN tracks.",
+    "timestamp": 7042.98,
+    "llm_reasoning": "The context 'north suburb, what they called North Regina, everything north of the CN tracks' uses 'North Regina' to define a geographic area."
+  },
+  "Orstead": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "When they were driving by in the bobsleigh from the Orstead place, they were going down to catch the train into Weyburn.",
+    "timestamp": 807.61,
+    "llm_reasoning": "The phrase 'from the Orstead place' and the subsequent travel to Weyburn strongly suggest 'Orstead' is being used as a geographic location."
+  },
+  "Post": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "Well, when this was over, while we were sitting there talking, and I said, \"I see by the Leader Post that they're advertising for line construction for the Power Commission.\"",
+    "timestamp": 6153.43,
+    "llm_reasoning": "The context refers to \"Leader Post,\" which is likely a newspaper name derived from a place name, indicating a geographic reference."
+  },
+  "Qu'Appelle Valley": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "Well, we never got as far as the Manitoba border, about Kipling to the east, and everything - always south of the valley, south of the Saskatchewan River and the Qu'Appelle Valley.",
+    "timestamp": 8969.69,
+    "llm_reasoning": "The phrase 'south of the Qu'Appelle Valley' indicates it's being used as a geographic region relative to other locations."
+  },
+  "Saskatchewan River": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "Well, we never got as far as the Manitoba border, about Kipling to the east, and everything - always south of the valley, south of the Saskatchewan River and the Qu'Appelle Valley.",
+    "timestamp": 8969.69,
+    "llm_reasoning": "The context 'south of the Saskatchewan River and the Qu'Appelle Valley' uses 'Saskatchewan River' as a geographic boundary, indicating a place."
+  },
+  "Twight": {
+    "recording": "memoirs/TDK_D60_edited_through_air",
+    "context": "\"Well,\" I said, \"I'm going to go out and see if I can get a job running a Martin Twight Separator.\"",
+    "timestamp": 2886.91,
+    "llm_reasoning": "Contexts 3, 4, and 5 use phrases like 'Martin Twight's' which strongly suggest 'Twight' refers to a location or business establishment, indicating geographic place name usage."
   },
   "Couch": {
     "recording": "tibbits_cd",
     "context": "Because we have to interview the Couch Patch Kids.",
     "timestamp": 791.34,
-    "llm_reasoning": "The context 'Because we have to interview the Couch Patch Kids' strongly suggests 'Couch' is part of a place name, even if it's a local nickname or informal designation, and doesn't fit any person indicators."
+    "llm_reasoning": "Context 1 and 2 refer to 'Couch Patch Kids' and 'Couch Project kids', strongly suggesting 'Couch' is functioning as a place name, even if it's a specific group or project location."
   }
 }

@@ -118,3 +118,38 @@ interface MediaPlacement {
 interface MediaPlacementData {
   placements: MediaPlacement[];
 }
+
+// Place data from places.json
+interface PlaceMention {
+  transcript: string;
+  context: string;
+  timestamp: number;
+}
+
+interface Place {
+  name: string;
+  geonameid: number;
+  latitude: number;
+  longitude: number;
+  country_code: string;
+  admin1_name: string;
+  population: number;
+  feature_code: string;
+  distance_from_regina_km: number;
+  confidence: "high" | "medium" | "low";
+  needs_review: boolean;
+  mentions: PlaceMention[];
+}
+
+interface PlacesData {
+  metadata: {
+    total_places: number;
+    last_updated: string;
+    reference_point: {
+      name: string;
+      latitude: number;
+      longitude: number;
+    };
+  };
+  places: Place[];
+}

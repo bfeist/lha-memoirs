@@ -1,0 +1,194 @@
+/* Place name styling - shows interactivity */
+.placeName {
+  position: relative;
+  display: inline;
+  color: #d4af37;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-color: rgb(212 175 55 / 60%);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  cursor: help;
+  transition:
+    text-decoration-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+  border-radius: 2px;
+}
+
+.placeName:hover,
+.placeName:focus {
+  text-decoration-color: rgb(126 184 255 / 100%);
+  outline: none;
+}
+
+/* Tooltip container - rendered via portal at document.body */
+.tooltip {
+  position: fixed;
+  z-index: 10000;
+  width: 320px;
+  max-width: 90vw;
+  background: #1e1e1e;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  box-shadow:
+    0 8px 32px rgb(0 0 0 / 50%),
+    0 2px 8px rgb(0 0 0 / 30%);
+  overflow: hidden;
+  animation: fade-in 0.15s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tooltip header */
+.tooltipHeader {
+  padding: 0.75rem;
+  background: #252525;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.placeTitleText {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.placeLocation {
+  font-size: 0.8rem;
+  color: #888888;
+}
+
+/* Map container */
+.mapContainer {
+  width: 100%;
+  height: 150px;
+  background: #2a2a2a;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: invert(90%) hue-rotate(180deg) brightness(0.95) contrast(0.9);
+}
+
+/* Mentions section */
+.mentions {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+.mentions::-webkit-scrollbar {
+  width: 6px;
+}
+
+.mentions::-webkit-scrollbar-track {
+  background: rgb(255 255 255 / 2%);
+  border-radius: 3px;
+}
+
+.mentions::-webkit-scrollbar-thumb {
+  background: rgb(100 149 237 / 30%);
+  border-radius: 3px;
+}
+
+.mentions::-webkit-scrollbar-thumb:hover {
+  background: rgb(100 149 237 / 50%);
+}
+
+/* Mention groups */
+.mentionGroup {
+  margin-bottom: 0.5rem;
+}
+
+.mentionGroup:last-child {
+  margin-bottom: 0;
+}
+
+.mentionGroupTitle {
+  margin: 0 0 0.35rem;
+  padding: 0 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6495ed;
+}
+
+/* Individual mention items */
+.mentionItem {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.35rem;
+  background: rgb(255 255 255 / 3%);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.mentionItem:last-child {
+  margin-bottom: 0;
+}
+
+.mentionItem:hover {
+  background: rgb(100 149 237 / 15%);
+  border-color: rgb(100 149 237 / 30%);
+}
+
+.mentionRecording {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #d4af37;
+  margin-bottom: 0.15rem;
+}
+
+.mentionTime {
+  font-size: 0.7rem;
+  font-family: "SF Mono", Monaco, Inconsolata, monospace;
+  color: #888888;
+  margin-bottom: 0.25rem;
+}
+
+.mentionContext {
+  font-size: 0.8rem;
+  color: #cccccc;
+  line-height: 1.4;
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Responsive adjustments */
+@media (width <= 774px) {
+  .tooltip {
+    width: 280px;
+  }
+
+  .mapContainer {
+    height: 120px;
+  }
+
+  .mentions {
+    max-height: 150px;
+  }
+}
