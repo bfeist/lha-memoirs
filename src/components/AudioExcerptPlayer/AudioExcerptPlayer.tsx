@@ -75,12 +75,57 @@ export function AudioExcerptPlayer({
 
       setIsLoading(true);
 
-      // Set the current time to start if we are at 0 progress or completed
-      if (Math.abs(audio.currentTime - startTime) > 1 || progress === 0 || progress === 100) {
-        audio.currentTime = startTime;
-      }
+      // Determine if we need to seek to start position
+      const needsSeek =
+        Math.abs(audio.currentTime - startTime) > 0.5 || progress === 0 || progress === 100;
 
       try {
+        if (needsSeek) {
+          // With preload="none", we need to:
+          // 1. Start loading the audio
+          // 2. Wait for enough data to seek
+          // 3. Seek to the start time
+          // 4. Wait for seek to complete
+          // 5. Then play
+
+          // If audio hasn't loaded metadata yet, we need to load it first
+          if (audio.readyState < HTMLMediaElement.HAVE_METADATA) {
+            audio.load();
+            await new Promise<void>((resolve, reject) => {
+              const onLoadedMetadata = () => {
+                audio.removeEventListener("loadedmetadata", onLoadedMetadata);
+                audio.removeEventListener("error", onError);
+                resolve();
+              };
+              const onError = () => {
+                audio.removeEventListener("loadedmetadata", onLoadedMetadata);
+                audio.removeEventListener("error", onError);
+                reject(new Error("Audio load failed"));
+              };
+              audio.addEventListener("loadedmetadata", onLoadedMetadata);
+              audio.addEventListener("error", onError);
+            });
+          }
+
+          // Now set the time and wait for seek to complete
+          audio.currentTime = startTime;
+
+          await new Promise<void>((resolve, reject) => {
+            const onSeeked = () => {
+              audio.removeEventListener("seeked", onSeeked);
+              audio.removeEventListener("error", onError);
+              resolve();
+            };
+            const onError = () => {
+              audio.removeEventListener("seeked", onSeeked);
+              audio.removeEventListener("error", onError);
+              reject(new Error("Audio seek failed"));
+            };
+            audio.addEventListener("seeked", onSeeked);
+            audio.addEventListener("error", onError);
+          });
+        }
+
         await audio.play();
         setIsPlaying(true);
       } catch (err) {
