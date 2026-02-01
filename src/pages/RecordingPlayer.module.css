@@ -292,11 +292,12 @@
 
 /* Resume banner */
 .resumeBanner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0.75rem;
   margin-top: 0.5rem;
   background: linear-gradient(135deg, rgb(212 175 55 / 15%) 0%, rgb(180 140 40 / 10%) 100%);
   border: 1px solid rgb(212 175 55 / 40%);
@@ -395,7 +396,7 @@
 
 .resumeDismiss {
   padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   color: #777777;
   background: transparent;
   border: none;
@@ -418,6 +419,13 @@
 
   .resumeInfo {
     justify-content: center;
+  }
+
+  .resumeDismiss {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.2rem;
   }
 
   .resumeText {

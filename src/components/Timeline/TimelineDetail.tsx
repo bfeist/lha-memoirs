@@ -1,7 +1,7 @@
 import { memo, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
 import type { TimelineEntry, TimelineExcerpt } from "../../types/timeline";
 import { RECORDINGS } from "../../config/recordings";
 import { getAudioUrl } from "../../hooks/useRecordingData";
@@ -10,7 +10,6 @@ import styles from "./TimelineDetail.module.css";
 
 interface TimelineDetailProps {
   entry: TimelineEntry | null;
-  onClose: () => void;
   onCloseModal?: () => void;
 }
 
@@ -52,7 +51,6 @@ function groupExcerptsByRecording(
 
 export const TimelineDetail = memo(function TimelineDetail({
   entry,
-  onClose,
   onCloseModal,
 }: TimelineDetailProps) {
   const navigate = useNavigate();
@@ -104,14 +102,6 @@ export const TimelineDetail = memo(function TimelineDetail({
           <h2 className={styles.title}>{entry.title}</h2>
           <span className={styles.age}>{ageLabel}</span>
         </div>
-        <button
-          className={styles.closeButton}
-          onClick={onClose}
-          aria-label="Close detail"
-          title="Close"
-        >
-          <FontAwesomeIcon icon={faXmark} />
-        </button>
       </div>
 
       <p className={styles.description}>{entry.description}</p>

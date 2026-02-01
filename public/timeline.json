@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-02-01T14:12:58.891306",
+  "generatedAt": "2026-02-01T14:30:31.960831",
   "timelineStart": 1902,
   "timelineEnd": 1966,
   "entries": [
     {
       "year_start": 1902,
       "year_end": 1902,
-      "title": "Iowa Birth and Early Years",
-      "description": "Lindy Achen began his life in 1902, born in Remsen, Iowa. This period marks his earliest memories, setting the stage for a childhood that would soon transition to a new life on the Canadian prairies. He was just a baby during this time, unaware of the significant changes his family would soon undertake.",
+      "title": "Iowa Birth and Early Beginnings",
+      "description": "Lindy Achen began his life in 1902, born on October 7th in Remsen, Iowa. This period marks his earliest beginnings, before his family's significant move to Canada. It was a time of infancy and early childhood, setting the stage for his future experiences on the prairie.",
       "age_start": 0,
       "age_end": 0,
       "excerpts": [
@@ -25,7 +25,7 @@
       "year_start": 1905,
       "year_end": 1907,
       "title": "Early Years: Iowa and Saskatchewan",
-      "description": "These early years, from 1905 to 1907, represent a period of foundational experiences for Lindy. He was a young boy in Iowa before his family embarked on a significant journey to Saskatchewan, Canada. This move would shape his life and future as a farmer on the prairies.",
+      "description": "These early years, around 1905-1907, were formative for young Lindy, spent initially in Remsen, Iowa. His memories suggest a period of transition, hinting at a significant event that stretched back to 1907. This year marked a pivotal moment: the family's move to Saskatchewan, Canada, and the beginning of his life on the prairie farm.",
       "age_start": 3,
       "age_end": 5,
       "excerpts": [
@@ -50,8 +50,8 @@
     {
       "year_start": 1911,
       "year_end": 1916,
-      "title": "Prairie Years: Work and Growth",
-      "description": "From 1911 to 1916, young Lindy Achen experienced the demanding life of a farm boy on the Canadian prairies. He worked alongside his family, contributing to building projects like a new barn and pasture, and enduring long days of physical labor. These years shaped his work ethic and established a rhythm of hard work that would define much of his life.",
+      "title": "Prairie Childhood: Work and Growth",
+      "description": "From 1911 to 1916, young Lindy Achen experienced the demanding life of a farm boy on the Canadian prairies. He worked alongside his family, contributing to construction projects like a new barn and pasture, and enduring long days of physical labor. These years shaped his work ethic and provided a foundation for his future career in construction.",
       "age_start": 9,
       "age_end": 14,
       "excerpts": [
@@ -100,19 +100,11 @@
     {
       "year_start": 1917,
       "year_end": 1917,
-      "title": "Prairie Years: Shadows and Short Crops",
-      "description": "For Lindy, 1917 was a difficult year, marked by short harvests and a sense of unease. He was a teenager living and working on the family farm in Saskatchewan, experiencing the hardships of prairie life alongside his brothers. The year 1918 brought the devastating influenza pandemic, further shaping his memories of this formative period.",
+      "title": "Prairie Years: Shadows of War",
+      "description": "For Lindy, 1917 was a difficult year, marked by hardship and short harvests on the family farm in Saskatchewan. The period around 1916-1918 was remembered as a time that 'went fast,' with the looming presence of World War I and the subsequent influenza pandemic impacting his life and the prairie community.",
       "age_start": 15,
       "age_end": 15,
       "excerpts": [
-        {
-          "recordingId": "memoirs_earlier_telling",
-          "recordingTitle": "Earlier Telling",
-          "audioUrl": "/recordings/memoirs/TDK_D60_edited_through_air/audio.webm",
-          "text": "Around about that time went fast, 1917, 1917, that was the year, no 1918 was when the flu hit.",
-          "startTime": 856.25,
-          "endTime": 866.94
-        },
         {
           "recordingId": "memoirs_earlier_telling",
           "recordingTitle": "Earlier Telling",
@@ -144,6 +136,14 @@
           "text": "Then, '17 is a short crop, '18 was a short crop.",
           "startTime": 1522.24,
           "endTime": 1529.41
+        },
+        {
+          "recordingId": "memoirs_main",
+          "recordingTitle": "Memoirs",
+          "audioUrl": "/recordings/memoirs/Norm_red/audio.webm",
+          "text": "1917, bad, kind of a bad year.",
+          "startTime": 1512.14,
+          "endTime": 1515.64
         }
       ]
     },
@@ -151,7 +151,7 @@
       "year_start": 1918,
       "year_end": 1918,
       "title": "Prairie Years: Flu and Tractors",
-      "description": "In 1918, sixteen-year-old Lindy Achen continued to work on his family's farm in Saskatchewan, facing a short harvest and the devastating impact of the influenza pandemic which arrived in the spring. His father purchased a Titan tractor during this time, marking a shift in farm technology, while the family relied on livestock and resourcefulness to survive the challenging conditions.",
+      "description": "In 1918, sixteen-year-old Lindy Achen continued to work on his family's farm in Saskatchewan, facing a short harvest and the devastating impact of the influenza pandemic which arrived in the spring. His father purchased a Titan tractor during this time, marking a shift in farm technology, while the family relied on livestock and self-sufficiency to weather the hardships.",
       "age_start": 16,
       "age_end": 16,
       "excerpts": [
@@ -200,8 +200,8 @@
     {
       "year_start": 1919,
       "year_end": 1920,
-      "title": "Prairie Hardship and Grasshopper Years",
-      "description": "During 1919-1920, seventeen and eighteen-year-old Lindy Achen experienced significant agricultural challenges on the family farm in Saskatchewan. Years of drought severely impacted crop yields, compounded by a devastating grasshopper infestation in 1920 that nearly wiped out their harvest, despite the family's efforts to maintain livestock and self-sufficiency.",
+      "title": "Prairie Years: Drought and Locusts",
+      "description": "During 1919-1920, seventeen and eighteen-year-old Lindy Achen experienced severe drought conditions on the family farm in Saskatchewan, impacting crop yields and requiring resourcefulness to survive. The following year brought a devastating grasshopper infestation that nearly wiped out their harvest, highlighting the precariousness of life on the prairie. Despite these hardships, the family maintained a substantial livestock operation, providing a degree of self-sufficiency.",
       "age_start": 17,
       "age_end": 18,
       "excerpts": [
@@ -251,7 +251,7 @@
       "year_start": 1921,
       "year_end": 1921,
       "title": "Prairie Harvest and Changing Times",
-      "description": "In 1921, nineteen-year-old Lindy was deeply involved in farm work in Saskatchewan, running the thrashing outfit and experiencing a relatively good harvest after a difficult 1920. This year also marked significant changes: his father acquired new equipment, a family member (Joe) left for the coast, and Lindy experienced the novelty of radio, all while sharing the farm with his brother Mac.",
+      "description": "In 1921, nineteen-year-old Lindy Achen was deeply involved in farm work in Saskatchewan, operating machinery and experiencing the relief of a good harvest after a difficult year. This period also marked significant personal changes, including his brother Joe's departure and a sense of isolation on the farm with his brother Mac. It was a time of new technologies like radios and separators, and the beginning of a shift in Lindy's life trajectory.",
       "age_start": 19,
       "age_end": 19,
       "excerpts": [
@@ -301,7 +301,7 @@
       "year_start": 1922,
       "year_end": 1923,
       "title": "Prairie Harvest and Early Learning",
-      "description": "During 1922-1923, Lindy was a young man of 20-21, living and working on the family farm in Saskatchewan. This period was marked by bountiful harvests and a focus on practical skills, including taking a telephone course to maintain the family's rural telephone system. It also saw his mother's departure for California and potentially his first experience with radio.",
+      "description": "During 1922-1923, Lindy was a young man of twenty and twenty-one, living and working on the family farm in Saskatchewan. This period was marked by bountiful harvests and a focus on practical skills, including learning to maintain the farm's telephone system. It also saw his mother's departure for California and potentially his first experience with radio technology.",
       "age_start": 20,
       "age_end": 21,
       "excerpts": [
@@ -312,14 +312,6 @@
           "text": "In the winter of '22, I came to Regina and took a telephone course in order to be able to maintain the telephones at home, the local rural telephone.",
           "startTime": 1603.45,
           "endTime": 1617.15
-        },
-        {
-          "recordingId": "memoirs_earlier_telling",
-          "recordingTitle": "Earlier Telling",
-          "audioUrl": "/recordings/memoirs/TDK_D60_edited_through_air/audio.webm",
-          "text": "Maybe later than that, it could have been '22 or '23, I heard my first radio.",
-          "startTime": 1594.72,
-          "endTime": 1603.43
         },
         {
           "recordingId": "memoirs_earlier_telling",
@@ -344,14 +336,22 @@
           "text": "So Mac and I were home alone on the farm then through '21, '22.",
           "startTime": 1148.73,
           "endTime": 1153.74
+        },
+        {
+          "recordingId": "memoirs_main",
+          "recordingTitle": "Memoirs",
+          "audioUrl": "/recordings/memoirs/Norm_red/audio.webm",
+          "text": "The fall of '23, Mother had gone to California.",
+          "startTime": 1988.02,
+          "endTime": 1992.54
         }
       ]
     },
     {
       "year_start": 1924,
       "year_end": 1924,
-      "title": "Loss, Farm, and New Responsibility",
-      "description": "1924 was a pivotal year for Lindy, marked by the sudden death of his father. He immediately assumed responsibility for the family farm in Saskatchewan, beginning his first year as its primary operator. This period was also a time of significant transition and likely emotional upheaval for the young man.",
+      "title": "Loss, Farm, and Sudden Responsibility",
+      "description": "1924 was a pivotal year for Lindy, marked by the sudden death of his father and the immediate responsibility of managing the family farm in Saskatchewan. At just 22 years old, he shouldered the burden of running the farm while his mother traveled from Portland for the funeral, signaling a significant shift in his life trajectory.",
       "age_start": 22,
       "age_end": 22,
       "excerpts": [
@@ -400,19 +400,11 @@
     {
       "year_start": 1925,
       "year_end": 1930,
-      "title": "Prairie Roots, Power's Early Spark",
-      "description": "From 1925 to 1930, Lindy experienced a period of agricultural prosperity followed by significant change. Leaving the family farm after disagreements, he transitioned into the electrical field, beginning his career in power line construction and laying the groundwork for his future company, Achen Construction. These years marked a shift from rural farming life to a burgeoning career in a rapidly developing industry.",
+      "title": "Prairie Roots, Power's Dawn",
+      "description": "From 1925 to 1930, Lindy experienced a period of transition, marked by successful harvests and growing tensions with his brothers that led him to leave the family farm. He began a career in electrical work, laying the foundation for his future construction business and embarking on a lifelong journey with rural power lines, a field that would define much of his later life.",
       "age_start": 23,
       "age_end": 28,
       "excerpts": [
-        {
-          "recordingId": "memoirs_main",
-          "recordingTitle": "Memoirs",
-          "audioUrl": "/recordings/memoirs/Norm_red/audio.webm",
-          "text": "Well, I operated that for about a year and a half and then the company saw fit to build a line from Gull Lake to Tompkins and shut that down. Now we're into 1930 we're into 1930 - yeah I operated the plant '35, '36 into the spring of '37 and uh -",
-          "startTime": 5343.64,
-          "endTime": 5370.63
-        },
         {
           "recordingId": "memoirs_main",
           "recordingTitle": "Memoirs",
@@ -444,6 +436,14 @@
           "text": "The old line, which had been built in 1928, we had a salvage 60 miles a line.",
           "startTime": 9207.2,
           "endTime": 9212.43
+        },
+        {
+          "recordingId": "memoirs_main",
+          "recordingTitle": "Memoirs",
+          "audioUrl": "/recordings/memoirs/Norm_red/audio.webm",
+          "text": "So that's the way it went from - a lifetime in power from 1928 to 1965.",
+          "startTime": 13042.19,
+          "endTime": 13051.37
         }
       ]
     },
@@ -451,7 +451,7 @@
       "year_start": 1931,
       "year_end": 1934,
       "title": "Prairie Years: Work and Transition",
-      "description": "Between 1931 and 1934, Lindy Achen navigated a period of fluctuating employment, initially working for the Power Commission before taking a leave of absence and returning to the family farm. He pursued electrical work, including inside wiring and later gaining experience in Gull Lake, while also facing periods of unemployment and travel to Tompkins, laying the groundwork for his future construction business.",
+      "description": "From 1931 to 1934, Lindy navigated a period of fluctuating employment, initially working for the Power Commission before taking a leave of absence and returning to the family farm. He spent time at home, then in Tompkins, and ultimately pursued electrical work, gaining experience and laying the groundwork for his future construction business. This era was marked by both hardship and opportunity as he honed his skills and considered his next steps.",
       "age_start": 29,
       "age_end": 32,
       "excerpts": [
@@ -491,9 +491,9 @@
           "recordingId": "memoirs_earlier_telling",
           "recordingTitle": "Earlier Telling",
           "audioUrl": "/recordings/memoirs/TDK_D60_edited_through_air/audio.webm",
-          "text": "So I worked in the summer of '34, '35, part of '33 at 50 cents an hour, and paid my own room and board.",
-          "startTime": 10714.08,
-          "endTime": 10726.03
+          "text": "I think I related earlier that I had started doing some inside wiring way back in 1931.",
+          "startTime": 10214.27,
+          "endTime": 10228.84
         }
       ]
     },
@@ -501,26 +501,10 @@
       "year_start": 1935,
       "year_end": 1939,
       "title": "Prairie Power and Changing Lines",
-      "description": "From 1935 to 1939, Lindy Achen worked as an electrician and power plant operator in Saskatchewan, initially managing a small plant before its abandonment due to the construction of a new power line. He then took on responsibilities overseeing power lines and calibrating meters, traveling between locations like Shaunavon and Gravelbourg, marking a period of transition and expanding his skills within the electrical field.",
+      "description": "From 1935 to 1939, Lindy Achen worked as an electrician and power plant operator in Saskatchewan, initially running a plant before it was superseded by a new power line to Tompkins. He spent these years maintaining lines, calibrating meters, and occasionally assisting at other locations like Gravelbourg and Shaunavon, marking a period of technical work and travel across the prairies.",
       "age_start": 33,
       "age_end": 37,
       "excerpts": [
-        {
-          "recordingId": "memoirs_main",
-          "recordingTitle": "Memoirs",
-          "audioUrl": "/recordings/memoirs/Norm_red/audio.webm",
-          "text": "Well, I operated that for about a year and a half and then the company saw fit to build a line from Gull Lake to Tompkins and shut that down. Now we're into 1930 we're into 1930 - yeah I operated the plant '35, '36 into the spring of '37 and uh -",
-          "startTime": 5343.64,
-          "endTime": 5370.63
-        },
-        {
-          "recordingId": "memoirs_main",
-          "recordingTitle": "Memoirs",
-          "audioUrl": "/recordings/memoirs/Norm_red/audio.webm",
-          "text": "Well, I operated that for about a year and a half and then the company saw fit to build a line from Gull Lake to Tompkins and shut that down. Now we're into 1930 we're into 1930 - yeah I operated the plant '35, '36 into the spring of '37 and uh -",
-          "startTime": 5343.64,
-          "endTime": 5370.63
-        },
         {
           "recordingId": "memoirs_main",
           "recordingTitle": "Memoirs",
@@ -544,14 +528,30 @@
           "text": "In the spring of '38, I went out and relieved out at Gravelbourg in Lafleche while they changed operators out there.",
           "startTime": 5612.7,
           "endTime": 5621.23
+        },
+        {
+          "recordingId": "memoirs_earlier_telling",
+          "recordingTitle": "Earlier Telling",
+          "audioUrl": "/recordings/memoirs/TDK_D60_edited_through_air/audio.webm",
+          "text": "So I worked in the summer of '34, '35, part of '33 at 50 cents an hour, and paid my own room and board.",
+          "startTime": 10714.08,
+          "endTime": 10726.03
+        },
+        {
+          "recordingId": "memoirs_main",
+          "recordingTitle": "Memoirs",
+          "audioUrl": "/recordings/memoirs/Norm_red/audio.webm",
+          "text": "And in the fall of '38, I was sent out to Shaunavon and Gravelbourg to calibrate meters.",
+          "startTime": 5621.25,
+          "endTime": 5629.6
         }
       ]
     },
     {
       "year_start": 1940,
       "year_end": 1944,
-      "title": "Marriage, Work, and Constant Alert",
-      "description": "From 1940 to 1944, Lindy Achen was married and deeply involved in his construction business, likely related to electrical infrastructure. This period was marked by intense on-call work, often 24/7, and the construction of a new airport in Estevan, Saskatchewan, indicating a time of significant professional demands and likely wartime-related activity.",
+      "title": "Marriage, Work, and Constant Duty",
+      "description": "From 1940 to 1944, Lindy Achen was married and deeply involved in his construction business, likely related to wartime efforts. He faced a demanding schedule, frequently on call and working extended hours, coinciding with the construction of an airport in Estevan. This period marked a significant shift towards a life of constant responsibility and intense labor.",
       "age_start": 38,
       "age_end": 42,
       "excerpts": [
@@ -588,20 +588,20 @@
           "endTime": 5671.61
         },
         {
-          "recordingId": "memoirs_main",
-          "recordingTitle": "Memoirs",
-          "audioUrl": "/recordings/memoirs/Norm_red/audio.webm",
-          "text": "And there's '41, '42, '43, '44, on call, 24 hours a day, 30 days a month.",
-          "startTime": 5663.46,
-          "endTime": 5671.61
+          "recordingId": "memoirs_earlier_telling",
+          "recordingTitle": "Earlier Telling",
+          "audioUrl": "/recordings/memoirs/TDK_D60_edited_through_air/audio.webm",
+          "text": "Married on the end of November in '40.",
+          "startTime": 5937.4,
+          "endTime": 5941.59
         }
       ]
     },
     {
       "year_start": 1945,
       "year_end": 1945,
-      "title": "Prairie Contractor: Building a Future",
-      "description": "1945 marked a significant shift for Lindy Achen, as he transitioned to independent contracting and began building rural power lines across Saskatchewan. He was actively bidding on projects and working closely with individuals like Ted Durnan, establishing his construction business. This period, extending into 1946 and beyond, saw him solidify his reputation as a key contractor in the region.",
+      "title": "Prairie Contractor, Post-War Years",
+      "description": "1945 marked a significant shift for Lindy Achen, as he established himself as an independent contractor, focusing on building rural power lines across Saskatchewan. He was actively bidding on tenders and working closely with individuals like Ted Durnan, solidifying his construction business and transitioning from working for various companies. The period also saw the completion of an airport and a move back to Regina, signifying a period of both professional growth and geographic movement.",
       "age_start": 43,
       "age_end": 43,
       "excerpts": [
@@ -651,7 +651,7 @@
       "year_start": 1946,
       "year_end": 1946,
       "title": "Prairie Lines and Labor",
-      "description": "The years 1946-1950 were a period of significant expansion for Lindy's Achen Construction, as he focused on building rural power lines across Saskatchewan. He oversaw a large project to Stoughton and dealt with labor disputes involving strikes among his workers. This era marked a period of growth and challenge for his burgeoning construction business.",
+      "description": "The years 1946-1950 were a period of significant expansion for Lindy's Achen Construction, marked by the construction of a major power line to Stoughton and other projects across Saskatchewan. He faced labor challenges with strikes among his workers, reflecting the changing dynamics of the post-war era. These years represent a key phase in establishing his company's presence in rural electrification.",
       "age_start": 44,
       "age_end": 44,
       "excerpts": [
@@ -662,14 +662,6 @@
           "text": ",in those days, I'm talking back in 1946, up to 1950, I had a bunch go on strike up - way up north of Swift Current.",
           "startTime": 9771.34,
           "endTime": 9785.06
-        },
-        {
-          "recordingId": "memoirs_main",
-          "recordingTitle": "Memoirs",
-          "audioUrl": "/recordings/memoirs/Norm_red/audio.webm",
-          "text": "We're talking now the end of 1945 and 1946, the '46 -",
-          "startTime": 6318.95,
-          "endTime": 6324.81
         },
         {
           "recordingId": "memoirs_main",
@@ -694,14 +686,22 @@
           "text": "Yes, I even did some in 1945 or '46.",
           "startTime": 11649.58,
           "endTime": 11656.63
+        },
+        {
+          "recordingId": "memoirs_main",
+          "recordingTitle": "Memoirs",
+          "audioUrl": "/recordings/memoirs/Norm_red/audio.webm",
+          "text": "That was in fourty - '46...",
+          "startTime": 6436.0,
+          "endTime": 6439.32
         }
       ]
     },
     {
       "year_start": 1947,
       "year_end": 1947,
-      "title": "Prairie Lines and Running Crews",
-      "description": "In 1947, Lindy Achen was 45 years old and deeply involved in expanding rural electrification across Saskatchewan. He was managing multiple construction crews, building power lines between towns like Weyburn, Radville, and Trossachs, and overseeing the completion of seasonal projects. This year marked a significant period of growth and responsibility for Achen Construction.",
+      "title": "Prairie Lines, Forty-Five Years",
+      "description": "In 1947, Lindy Achen was actively managing crews and expanding his Achen Construction business, focused on building rural power lines across Saskatchewan. He recounts multiple projects, including work from Weyburn to Radville and finishing up a season of construction. At 45 years old, he was deeply immersed in the work that would define his career.",
       "age_start": 45,
       "age_end": 45,
       "excerpts": [
@@ -750,8 +750,8 @@
     {
       "year_start": 1948,
       "year_end": 1948,
-      "title": "Shifting Gears, New Directions",
-      "description": "1948 appears to be a pivotal year for Lindy Achen, marked by a sense of needing to 'make definite moves' and significant reflection on his work. He was actively involved in his construction business, likely tendering for projects and finishing existing work, while also relocating his family to Regina, Saskatchewan. The year seems to represent a period of transition and reevaluation for him.",
+      "title": "Shifting Gears, Moving Forward",
+      "description": "1948 appears to be a year of significant transition for Lindy Achen, marked by a sense of needing to 'make definite moves' and a struggle to recall the specifics of his work. He was likely involved in finishing projects from Rosetown and tendering for new work, possibly related to his construction business building rural power lines, while also relocating to Regina sometime in the spring.",
       "age_start": 46,
       "age_end": 46,
       "excerpts": [
@@ -791,9 +791,9 @@
           "recordingId": "memoirs_main",
           "recordingTitle": "Memoirs",
           "audioUrl": "/recordings/memoirs/Norm_red/audio.webm",
-          "text": "And I have to really think hard now to think of where I worked in '48. In '48...",
-          "startTime": 6660.02,
-          "endTime": 6674.0
+          "text": "And incidentally, I might mention that in 1948,",
+          "startTime": 9461.49,
+          "endTime": 9466.03
         }
       ]
     },
@@ -801,7 +801,7 @@
       "year_start": 1949,
       "year_end": 1949,
       "title": "Prairie Lines and Alberta Winds",
-      "description": "In 1949, Lindy Achen and Achen Construction were actively expanding rural power lines across Saskatchewan, Canada. His work took him to Alberta at times, involving projects like securing a high-voltage line from Killaly. The year was marked by a flurry of activity, moving between farm electrification and other construction projects.",
+      "description": "In 1949, Lindy Achen and Achen Construction were actively building rural power lines across Saskatchewan, Canada. His work extended into Alberta, involving projects like securing a high-voltage line from Killaly and servicing numerous farms. This period marked a busy time for his company, filled with travel and construction across the prairies.",
       "age_start": 47,
       "age_end": 47,
       "excerpts": [
@@ -851,7 +851,7 @@
       "year_start": 1950,
       "year_end": 1950,
       "title": "Prairie Lines and Union Roots",
-      "description": "The year 1950 marked a period of intense activity for Lindy Achen and Achen Construction, as they expanded their power line work across Saskatchewan, including significant projects near Rosetown, Ogema, and Yorkton. This year also saw the beginnings of a contractors' union, reflecting the challenges and evolving landscape of the construction industry, and Lindy was actively involved in negotiating and building these lines.",
+      "description": "The year 1950 marked a period of intense activity for Lindy and Achen Construction, with numerous power line projects spanning across Saskatchewan, from Yorkton to Bienfait and the Ogema-Shaunavon area. This was also a time of establishing a contractors' union, reflecting the growing need for worker representation within the industry. Lindy, at 48, was deeply involved in the physical labor and business dealings of expanding rural electrification.",
       "age_start": 48,
       "age_end": 48,
       "excerpts": [
@@ -901,7 +901,7 @@
       "year_start": 1951,
       "year_end": 1951,
       "title": "Prairie Lines and Busy Years",
-      "description": "The years 1950-1951 were a period of intense work for Lindy Achen and his construction company. He and his team were building extensive three-phase transmission lines and power lines across Saskatchewan, covering significant distances and servicing numerous towns. It was a 'big season' marked by substantial projects and a heavy workload.",
+      "description": "The years 1950-1951 were a period of intense work for Lindy and Achen Construction, focused on building extensive three-phase transmission lines and power lines across Saskatchewan, particularly in the Rosetown, Ogema, and Shaunavon areas. He personally oversaw much of the work, including setting poles in newly developed suburbs, marking a significant and demanding season in his career.",
       "age_start": 49,
       "age_end": 49,
       "excerpts": [
@@ -950,8 +950,8 @@
     {
       "year_start": 1952,
       "year_end": 1952,
-      "title": "Wiring the Prairie Farms",
-      "description": "In 1952, Lindy Achen's construction company began a significant expansion of rural power lines across Saskatchewan. This period marked a rapid increase in farm connections, with the company building hundreds of lines and substations each year. Lindy, at age 50, was deeply involved in the intense, often challenging work of electrifying the prairies.",
+      "title": "Powering the Prairie Farms",
+      "description": "In 1952, Lindy Achen's Achen Construction was heavily involved in building rural power lines across Saskatchewan, connecting farms to the electrical grid. This period marked a significant expansion of their farm program, with a rapid increase in the number of farms served each year. Lindy, at age 50, oversaw a demanding workload, dealing with materials and a short building season.",
       "age_start": 50,
       "age_end": 50,
       "excerpts": [
@@ -1001,7 +1001,7 @@
       "year_start": 1953,
       "year_end": 1953,
       "title": "Incorporation and Rapid Growth",
-      "description": "1953 marked a pivotal year for Lindy Achen, as he incorporated his business and experienced significant expansion in his rural electrification work. He rapidly scaled his operations, building new facilities that quickly proved too small, and oversaw a substantial increase in the number of farms connected to power. This period was characterized by intense work and a focus on growth, despite initial uncertainties about his own compensation.",
+      "description": "1953 marked a pivotal year for Lindy Achen, as he incorporated his business and experienced a period of rapid expansion in his rural electrification work. He oversaw the construction of new facilities and significantly increased the number of farms served, while also grappling with the complexities of managing a growing company and establishing fair wages for himself. This era was characterized by intense activity and a relentless drive to connect rural communities with power.",
       "age_start": 51,
       "age_end": 51,
       "excerpts": [
@@ -1051,7 +1051,7 @@
       "year_start": 1954,
       "year_end": 1954,
       "title": "Prairie Expansion and Power Lines",
-      "description": "Around 1954, Lindy's Achen Construction was experiencing rapid growth, significantly expanding the number of farms they electrified each year. This period was marked by intense work building rural power lines across Saskatchewan, alongside memorable weather events like a devastating sleet storm that crippled communication in Manitoba.",
+      "description": "Around 1954, Lindy Achen's construction company was rapidly expanding its rural electrification work across Saskatchewan, significantly increasing the number of farms they served each year. This period was marked by intense labor and challenges, including a severe sleet storm that disrupted communication infrastructure. Lindy, at 52, was deeply involved in this demanding phase of his career.",
       "age_start": 52,
       "age_end": 52,
       "excerpts": [
@@ -1100,8 +1100,8 @@
     {
       "year_start": 1955,
       "year_end": 1955,
-      "title": "Powering the Prairie, A Sudden Stop",
-      "description": "The mid-1950s were a period of intense expansion for Achen Construction, with the company rapidly increasing the number of farms connected to rural power lines. Lindy, at 53, was deeply involved in this work, driving the company's momentum until a heart attack abruptly halted his progress. This event marked a significant turning point in his career and life.",
+      "title": "Powering the Prairie, Heart and Hustle",
+      "description": "The mid-1950s were a period of intense growth for Achen Construction, with the company rapidly expanding its rural electrification work across Saskatchewan. Lindy, at 53, was deeply involved in this expansion, leading a team that was consistently adding hundreds of farms to their network each year. Tragically, 1955 also marked a significant personal setback with a heart attack that temporarily sidelined him.",
       "age_start": 53,
       "age_end": 53,
       "excerpts": [
@@ -1151,7 +1151,7 @@
       "year_start": 1956,
       "year_end": 1956,
       "title": "Powering the Prairie Landscape",
-      "description": "The mid-1950s were a period of significant expansion for Achen Construction, as Lindy and his team dramatically increased the number of farms they electrified across Saskatchewan. Lindy, in his early fifties, oversaw a surge in productivity, consistently exceeding previous years' achievements and pushing the company to new heights. This era marked a peak in his career building rural power lines.",
+      "description": "The mid-1950s marked a period of significant expansion for Achen Construction, as Lindy and his team dramatically increased the number of farms they electrified across Saskatchewan. Lindy, in his early fifties, oversaw a surge in productivity, reaching upwards of 600 farms serviced in 1956 alone, building upon steady growth from previous years. This was a time of intense work and visible impact on the rural landscape.",
       "age_start": 54,
       "age_end": 54,
       "excerpts": [
@@ -1201,7 +1201,7 @@
       "year_start": 1957,
       "year_end": 1957,
       "title": "Tapering Down, Filling In",
-      "description": "Around 1957, Lindy's farm operation was winding down, transitioning from large-scale work to more scattered tasks. His company, Achen Construction, had been heavily involved in building rural power lines since 1952, but activity began to decrease around this time. Lindy continued to oversee operations, employing Art Miller to manage the shop.",
+      "description": "Around 1957, Lindy's large-scale farm operation was winding down, transitioning from building large units of farms to more scattered work. His construction business, Achen Construction, was still heavily involved in building rural power lines, though the intensity of that work began to lessen after this point. This period marked a shift in Lindy's focus and activities.",
       "age_start": 55,
       "age_end": 55,
       "excerpts": [
@@ -1251,7 +1251,7 @@
       "year_start": 1958,
       "year_end": 1958,
       "title": "Dust Settles, Business Shifts",
-      "description": "1958 appears to have been a challenging year for Lindy, marked by a lack of work and being 'bit out' of projects, suggesting business setbacks. He was actively expanding his office and dealing with the aftermath of events, with most of his team based in Regina, indicating a period of transition and reorganization within Achen Construction.",
+      "description": "1958 appears to have been a challenging year for Lindy, marked by a lack of work and being 'bit out' of projects. He was navigating business setbacks, expanding his office, and dealing with the aftermath of events that left many of his men based in Regina. The year signifies a period of transition and adjustment within Achen Construction.",
       "age_start": 56,
       "age_end": 56,
       "excerpts": [
@@ -1300,8 +1300,8 @@
     {
       "year_start": 1959,
       "year_end": 1959,
-      "title": "Prairie Power, A Quiet Year",
-      "description": "1959 appears to be a transitional year for Lindy Achen, following a period of activity with his construction company. While he struggled to recall specific events, it seems to have marked a completion of some project or phase, though he described it as unremarkable. It falls within his period of building rural power lines across Saskatchewan, a significant undertaking in his life.",
+      "title": "Prairie Years: A Slow Rebound",
+      "description": "1959 appears to be a transitional year for Lindy, following a period of uncertainty. While he acknowledges it wasn't a 'big' year, he notes a sense of things 'picking up again' and completion of activities. It likely falls within his period of building rural power lines across Saskatchewan, a significant part of his career.",
       "age_start": 57,
       "age_end": 57,
       "excerpts": [
@@ -1351,7 +1351,7 @@
       "year_start": 1960,
       "year_end": 1963,
       "title": "Building Lines, Bidding, and Years",
-      "description": "The early 1960s were a busy time for Lindy and Achen Construction, focused on building rural power lines across Saskatchewan. He and his team were actively bidding on projects, including a significant high-voltage line, and consistently working to expand their network, though memories of the details become increasingly hazy as the years progressed.",
+      "description": "The years 1960-1963 were a period of continued expansion for Achen Construction, with Lindy overseeing the building of power lines and bidding on significant projects like the Shellbrook to Prince Albert line. He was actively managing his company and hiring new employees, though recalling the specifics of this time became increasingly difficult as the years passed. This era represented a busy and productive phase in his career, continuing his work electrifying rural Saskatchewan.",
       "age_start": 58,
       "age_end": 61,
       "excerpts": [
@@ -1375,14 +1375,6 @@
           "recordingId": "memoirs_earlier_telling",
           "recordingTitle": "Earlier Telling",
           "audioUrl": "/recordings/memoirs/TDK_D60_edited_through_air/audio.webm",
-          "text": "Then '63. Trying to think, in '63 - as the later years come come in it's harder for me to remember what the hell we were doing. And -",
-          "startTime": 9323.81,
-          "endTime": 9340.17
-        },
-        {
-          "recordingId": "memoirs_earlier_telling",
-          "recordingTitle": "Earlier Telling",
-          "audioUrl": "/recordings/memoirs/TDK_D60_edited_through_air/audio.webm",
           "text": "And then Con Bandy, another guy that started working for me in '63, or '62, somewhere in there.",
           "startTime": 9724.97,
           "endTime": 9734.8
@@ -1391,9 +1383,17 @@
           "recordingId": "memoirs_earlier_telling",
           "recordingTitle": "Earlier Telling",
           "audioUrl": "/recordings/memoirs/TDK_D60_edited_through_air/audio.webm",
-          "text": "And then Con Bandy, another guy that started working for me in '63, or '62, somewhere in there.",
-          "startTime": 9724.97,
-          "endTime": 9734.8
+          "text": "'60 another one of those years where it was a little work here, and a little work there.",
+          "startTime": 9233.81,
+          "endTime": 9242.85
+        },
+        {
+          "recordingId": "memoirs_earlier_telling",
+          "recordingTitle": "Earlier Telling",
+          "audioUrl": "/recordings/memoirs/TDK_D60_edited_through_air/audio.webm",
+          "text": "Then it come along '60 and I build - then I got quite a bit of line in '60.",
+          "startTime": 9182.82,
+          "endTime": 9187.15
         }
       ]
     },
@@ -1401,7 +1401,7 @@
       "year_start": 1964,
       "year_end": 1964,
       "title": "Prairie Power and Passing Years",
-      "description": "The years 1963 and 1964 found Lindy deeply involved in his construction business, continuing the work of building rural power lines across Saskatchewan. He was in his early sixties, reflecting on a life shaped by farming, family disputes, and the satisfaction of bringing electricity to remote communities. These years likely marked a transition point as his work began to wind down.",
+      "description": "The years 1963 and 1964 found Lindy deeply involved in his construction business, specifically building rural power lines across Saskatchewan. This period marked a continuation of work he'd begun two decades prior, as he neared the end of that significant chapter in his life, likely reflecting on his past and the changes he'd witnessed.",
       "age_start": 62,
       "age_end": 62,
       "excerpts": [
@@ -1419,7 +1419,7 @@
       "year_start": 1965,
       "year_end": 1965,
       "title": "Retirement and Achen Construction",
-      "description": "The years surrounding 1965 marked a significant shift for Lindy Achen, as he sold his interests in Achen Construction and formally retired from a lifetime of building rural power lines. He felt burned out and transitioned into a new chapter, though the company continued under Art's leadership with a name referencing the year of Lindy's departure. This period also involved a period of consistent income prior to his retirement.",
+      "description": "The years surrounding 1965 mark a significant turning point for Lindy, as he sold his interests in Achen Construction and formally retired from a lifetime of building rural power lines. He felt burned out and transitioned into a new phase of life, though a company bearing his name continued under different ownership. This period also involved a complex business arrangement with Art, solidifying a new chapter after decades of dedicated work.",
       "age_start": 63,
       "age_end": 63,
       "excerpts": [
@@ -1469,7 +1469,7 @@
       "year_start": 1966,
       "year_end": 1966,
       "title": "Retreat and Reflection",
-      "description": "Around 1966, Lindy Achen was transitioning out of the construction business, selling off his company between 1965 and 1967. This marked a significant shift after decades of building rural power lines across Saskatchewan, likely prompting a period of reflection and reassessment at the age of 64.",
+      "description": "Around 1966, Lindy Achen began to transition out of the business he had built, selling his stake in Achen Construction between 1965 and 1967. This marked a significant shift after decades of hard work and expansion, likely offering him a chance for reflection and a new chapter in his life at the age of 64.",
       "age_start": 64,
       "age_end": 64,
       "excerpts": [

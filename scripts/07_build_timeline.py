@@ -418,8 +418,17 @@ def build_timeline(dry_run: bool = False) -> list[TimelineEntry]:
         )
         
         # Convert excerpts to dicts, limiting to best examples
+        # First deduplicate by (recording_id, start_time) to avoid same segment appearing multiple times
+        seen_keys = set()
+        unique_excerpts = []
+        for exc in excerpts:
+            key = (exc.recording_id, exc.start_time)
+            if key not in seen_keys:
+                seen_keys.add(key)
+                unique_excerpts.append(exc)
+        
         # Sort by text length (prefer more substantive quotes)
-        sorted_excerpts = sorted(excerpts, key=lambda e: len(e.text), reverse=True)
+        sorted_excerpts = sorted(unique_excerpts, key=lambda e: len(e.text), reverse=True)
         excerpt_dicts = [
             {
                 "recordingId": exc.recording_id,

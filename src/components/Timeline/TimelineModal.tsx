@@ -9,36 +9,58 @@ import styles from "./TimelineModal.module.css";
 interface TimelineModalProps {
   isOpen: boolean;
   onClose: () => void;
+  /** Optional initial year to select - will find and select the entry containing this year */
+  initialYear?: number | null;
 }
 
-export function TimelineModal({ isOpen, onClose }: TimelineModalProps): React.ReactElement | null {
-  const { data, isLoading, error } = useTimeline();
-  const [selectedEntryIndex, setSelectedEntryIndex] = useState<number | null>(null);
+/**
+ * Find the timeline entry index that contains a given year
+ */
+function findEntryIndexForYear(
+  year: number,
+  entries: { year_start: number; year_end: number }[]
+): number | null {
+  for (let i = 0; i < entries.length; i++) {
+    const entry = entries[i];
+    if (year >= entry.year_start && year <= entry.year_end) {
+      return i;
+    }
+  }
+  return null;
+}
 
-  // Handle escape key
+export function TimelineModal({
+  isOpen,
+  onClose,
+  initialYear,
+}: TimelineModalProps): React.ReactElement | null {
+  const { data, isLoading, error } = useTimeline();
+
+  // Compute initial entry index from initialYear (if provided)
+  // Since parent uses key={`timeline-${selectedYear}`}, component remounts on year change
+  const computeInitialEntry = (): number | null => {
+    if (initialYear && data?.entries) {
+      return findEntryIndexForYear(initialYear, data.entries);
+    }
+    return null;
+  };
+
+  const [selectedEntryIndex, setSelectedEntryIndex] = useState<number | null>(computeInitialEntry);
+
+  // Handle escape key - closes modal
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent): void => {
       if (e.key === "Escape" && isOpen) {
-        if (selectedEntryIndex !== null) {
-          // First escape deselects
-          setSelectedEntryIndex(null);
-        } else {
-          // Second escape closes modal
-          onClose();
-        }
+        onClose();
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose, selectedEntryIndex]);
+  }, [isOpen, onClose]);
 
   const handleEntrySelect = useCallback((index: number | null) => {
     setSelectedEntryIndex(index);
-  }, []);
-
-  const handleDeselectEntry = useCallback(() => {
-    setSelectedEntryIndex(null);
   }, []);
 
   // Handle close with selection reset
@@ -112,11 +134,7 @@ export function TimelineModal({ isOpen, onClose }: TimelineModalProps): React.Re
               </div>
 
               {/* Detail panel below */}
-              <TimelineDetail
-                entry={selectedEntry}
-                onClose={handleDeselectEntry}
-                onCloseModal={handleClose}
-              />
+              <TimelineDetail entry={selectedEntry} onCloseModal={handleClose} />
             </>
           )}
         </div>

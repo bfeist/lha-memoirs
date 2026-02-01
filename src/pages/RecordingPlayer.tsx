@@ -2,7 +2,7 @@ import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { Link, useParams, Navigate, useSearchParams } from "react-router-dom";
 import { AudioPlayer, usePeaksSeek } from "../components/AudioPlayer/AudioPlayer";
 import { Chapters } from "../components/Chapters/Chapters";
-import { Transcript } from "../components/Transcript/Transcript";
+import { TranscriptWithTimeUpdates as Transcript } from "../components/Transcript/Transcript";
 import { ResizablePanels } from "../components/ResizablePanels/ResizablePanels";
 import { useRecordingData } from "../hooks/useRecordingData";
 import {

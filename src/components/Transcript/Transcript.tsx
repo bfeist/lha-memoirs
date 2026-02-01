@@ -1,7 +1,8 @@
-import { useRef, useEffect, useMemo, useCallback, useState, memo } from "react";
+import { useRef, useLayoutEffect, useMemo, useCallback, useState, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { formatTime, useTranscript } from "../../hooks/useRecordingData";
 import { usePlaces, buildPlaceNamePattern } from "../../hooks/usePlaces";
+import { useTimeline } from "../../hooks/useTimeline";
 import { getRecordingByPath } from "../../config/recordings";
 import { PhotoInlineSlider } from "./PhotoInlineSlider";
 import { VideoInlinePlayer } from "./VideoInlinePlayer";
@@ -10,6 +11,7 @@ import { VideoModal } from "./VideoModal";
 import { AlternateTellingLink } from "./AlternateTellingLink";
 import { SegmentTextWithPlaces } from "./SegmentTextWithPlaces";
 import { PlacesMapModal } from "../PlacesMap";
+import { TimelineModal } from "../Timeline";
 import styles from "./Transcript.module.css";
 
 // Extract recording folder name from a path like "memoirs/Norm_red" -> "Norm_red"
@@ -18,17 +20,7 @@ function getRecordingFolderName(recordingPath: string): string {
   return parts[parts.length - 1];
 }
 
-export const Transcript = memo(function Transcript({
-  segments,
-  chapters,
-  currentTime,
-  onSegmentClick,
-  alternateTellings,
-  recordingPath,
-  photos,
-  videos,
-  mediaPlacements,
-}: {
+interface TranscriptProps {
   segments: TranscriptSegment[];
   chapters: Chapter[];
   currentTime: number;
@@ -38,13 +30,163 @@ export const Transcript = memo(function Transcript({
   photos?: Photo[];
   videos?: Video[];
   mediaPlacements?: MediaPlacement[];
-}): React.ReactElement {
-  const navigate = useNavigate();
+}
+
+// Custom comparison function for memo - ignore currentTime changes
+// since we handle time-based updates via DOM manipulation in useLayoutEffect
+function transcriptPropsAreEqual(
+  prevProps: InternalTranscriptProps,
+  nextProps: InternalTranscriptProps
+): boolean {
+  // Ignore currentTime - we handle it via refs and DOM manipulation
+  // containerRef is stable so we don't need to compare it
+  return (
+    prevProps.segments === nextProps.segments &&
+    prevProps.chapters === nextProps.chapters &&
+    prevProps.onSegmentClick === nextProps.onSegmentClick &&
+    prevProps.alternateTellings === nextProps.alternateTellings &&
+    prevProps.recordingPath === nextProps.recordingPath &&
+    prevProps.photos === nextProps.photos &&
+    prevProps.videos === nextProps.videos &&
+    prevProps.mediaPlacements === nextProps.mediaPlacements
+  );
+}
+
+interface InternalTranscriptProps extends Omit<TranscriptProps, "currentTime"> {
+  currentTime: number; // Still passed but ignored in comparison
+  containerRef: React.RefObject<HTMLDivElement | null>;
+}
+
+// Wrapper component that receives currentTime and manages DOM updates
+// The inner Transcript component is memoized to not re-render on time changes
+export function TranscriptWithTimeUpdates(props: TranscriptProps): React.ReactElement {
   const containerRef = useRef<HTMLDivElement>(null);
-  const activeChapterRef = useRef<HTMLDivElement>(null);
-  const activeSegmentRef = useRef<HTMLSpanElement>(null);
+  const prevSegmentIndexRef = useRef<number>(-1);
+  const prevChapterIndexRef = useRef<number>(-1);
   const lastScrolledChapterId = useRef<string | null>(null);
   const lastScrolledSegmentIndex = useRef<number | null>(null);
+
+  const { currentTime, segments, chapters } = props;
+
+  // Get major chapters for index computation
+  const majorChapters = useMemo(() => chapters.filter((ch) => !ch.minor), [chapters]);
+
+  // Use layout effect to synchronously update segment highlighting via DOM
+  // This runs on every time change but doesn't cause Transcript to re-render
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    // Compute current chapter index
+    let currentChapterIndex = 0;
+    if (majorChapters && majorChapters.length > 0) {
+      for (let i = majorChapters.length - 1; i >= 0; i--) {
+        if (currentTime >= majorChapters[i].startTime) {
+          currentChapterIndex = i;
+          break;
+        }
+      }
+    }
+
+    // Compute current segment index
+    let currentSegmentIndex = 0;
+    for (let i = segments.length - 1; i >= 0; i--) {
+      if (currentTime >= segments[i].start) {
+        currentSegmentIndex = i;
+        break;
+      }
+    }
+
+    const currentChapterId = `chapter-${currentChapterIndex}`;
+    const prevSegmentIdx = prevSegmentIndexRef.current;
+    const prevChapterIdx = prevChapterIndexRef.current;
+
+    // Update segment classes if segment changed
+    if (prevSegmentIdx !== currentSegmentIndex) {
+      // Remove classes from previous segment
+      if (prevSegmentIdx >= 0) {
+        const prevEl = container.querySelector(
+          `[data-segment-index="${prevSegmentIdx}"]`
+        ) as HTMLElement | null;
+        if (prevEl) {
+          prevEl.classList.remove(styles.activeSegment, styles.playingSegment);
+          prevEl.classList.add(styles.pastSegment);
+        }
+      }
+      // Add classes to current segment
+      const currentEl = container.querySelector(
+        `[data-segment-index="${currentSegmentIndex}"]`
+      ) as HTMLElement | null;
+      if (currentEl) {
+        currentEl.classList.add(styles.activeSegment, styles.playingSegment);
+        currentEl.classList.remove(styles.pastSegment);
+
+        // Auto-scroll to keep current segment in view
+        if (currentSegmentIndex !== lastScrolledSegmentIndex.current) {
+          lastScrolledSegmentIndex.current = currentSegmentIndex;
+          const containerRect = container.getBoundingClientRect();
+          const segmentRect = currentEl.getBoundingClientRect();
+          const isAbove = segmentRect.top < containerRect.top + 60;
+          const isBelow = segmentRect.bottom > containerRect.bottom - 60;
+          if (isAbove || isBelow) {
+            currentEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        }
+      }
+      prevSegmentIndexRef.current = currentSegmentIndex;
+    }
+
+    // Update chapter classes if chapter changed
+    if (prevChapterIdx !== currentChapterIndex) {
+      // Remove active class from previous chapter
+      if (prevChapterIdx >= 0) {
+        const prevChapterEl = container.querySelector(
+          `[data-chapter-index="${prevChapterIdx}"]`
+        ) as HTMLElement | null;
+        if (prevChapterEl) {
+          prevChapterEl.classList.remove(styles.activeChapter);
+          prevChapterEl.classList.add(styles.pastChapter);
+        }
+      }
+      // Add active class to current chapter
+      const currentChapterEl = container.querySelector(
+        `[data-chapter-index="${currentChapterIndex}"]`
+      ) as HTMLElement | null;
+      if (currentChapterEl) {
+        currentChapterEl.classList.add(styles.activeChapter);
+        currentChapterEl.classList.remove(styles.pastChapter);
+
+        // Auto-scroll if chapter changed and is outside visible area
+        if (currentChapterId !== lastScrolledChapterId.current) {
+          lastScrolledChapterId.current = currentChapterId;
+          const containerRect = container.getBoundingClientRect();
+          const chapterRect = currentChapterEl.getBoundingClientRect();
+          const isAbove = chapterRect.top < containerRect.top + 50;
+          const isBelow = chapterRect.bottom > containerRect.bottom - 100;
+          if (isAbove || isBelow) {
+            currentChapterEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      }
+      prevChapterIndexRef.current = currentChapterIndex;
+    }
+  }, [currentTime, segments, majorChapters]);
+
+  return <Transcript {...props} containerRef={containerRef} />;
+}
+
+const Transcript = memo(function Transcript({
+  segments,
+  chapters,
+  onSegmentClick,
+  alternateTellings,
+  recordingPath,
+  photos,
+  videos,
+  mediaPlacements,
+  containerRef,
+}: InternalTranscriptProps): React.ReactElement {
+  const navigate = useNavigate();
 
   // Modal state for viewing full-res photos
   const [modalPhoto, setModalPhoto] = useState<Photo | null>(null);
@@ -60,8 +202,15 @@ export const Transcript = memo(function Transcript({
   const [showPlacesMap, setShowPlacesMap] = useState(false);
   const [selectedPlaceId, setSelectedPlaceId] = useState<number | null>(null);
 
+  // Modal state for viewing timeline
+  const [showTimeline, setShowTimeline] = useState(false);
+  const [selectedYear, setSelectedYear] = useState<number | null>(null);
+
   // Load places data for interactive tooltips
   const { places, placesByName } = usePlaces();
+
+  // Load timeline data for year highlighting
+  const { data: timelineData } = useTimeline();
 
   // Build regex pattern for matching place names in text
   const placePattern = useMemo(() => {
@@ -288,6 +437,17 @@ export const Transcript = memo(function Transcript({
     setSelectedPlaceId(null);
   }, []);
 
+  // Handlers for timeline modal
+  const handleYearClick = useCallback((year: number) => {
+    setSelectedYear(year);
+    setShowTimeline(true);
+  }, []);
+
+  const handleCloseTimeline = useCallback(() => {
+    setShowTimeline(false);
+    setSelectedYear(null);
+  }, []);
+
   // Extract minor chapters from the chapters array
   const minorChapters = useMemo(() => chapters.filter((ch) => ch.minor), [chapters]);
 
@@ -363,86 +523,6 @@ export const Transcript = memo(function Transcript({
     return groups;
   }, [segments, majorChapters]);
 
-  // Find current major chapter and segment based on playback time
-  const { currentChapterId, currentSegmentIndex } = useMemo(() => {
-    let chapterIndex = 0;
-    let segmentIndex = 0;
-
-    // Find current major chapter
-    if (majorChapters && majorChapters.length > 0) {
-      for (let i = majorChapters.length - 1; i >= 0; i--) {
-        if (currentTime >= majorChapters[i].startTime) {
-          chapterIndex = i;
-          break;
-        }
-      }
-    }
-
-    // Find current segment
-    for (let i = segments.length - 1; i >= 0; i--) {
-      if (currentTime >= segments[i].start) {
-        segmentIndex = i;
-        break;
-      }
-    }
-
-    return { currentChapterId: `chapter-${chapterIndex}`, currentSegmentIndex: segmentIndex };
-  }, [majorChapters, segments, currentTime]);
-
-  // Auto-scroll only when chapter changes
-  useEffect(() => {
-    if (
-      activeChapterRef.current &&
-      containerRef.current &&
-      currentChapterId !== lastScrolledChapterId.current
-    ) {
-      lastScrolledChapterId.current = currentChapterId;
-      const container = containerRef.current;
-      const activeChapter = activeChapterRef.current;
-
-      const containerRect = container.getBoundingClientRect();
-      const chapterRect = activeChapter.getBoundingClientRect();
-
-      // Check if chapter is outside visible area
-      const isAbove = chapterRect.top < containerRect.top + 50;
-      const isBelow = chapterRect.bottom > containerRect.bottom - 100;
-
-      if (isAbove || isBelow) {
-        activeChapter.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    }
-  }, [currentChapterId]);
-
-  // Auto-scroll to keep current segment in view
-  useEffect(() => {
-    if (
-      activeSegmentRef.current &&
-      containerRef.current &&
-      currentSegmentIndex !== lastScrolledSegmentIndex.current
-    ) {
-      lastScrolledSegmentIndex.current = currentSegmentIndex;
-      const container = containerRef.current;
-      const activeSegment = activeSegmentRef.current;
-
-      const containerRect = container.getBoundingClientRect();
-      const segmentRect = activeSegment.getBoundingClientRect();
-
-      // Check if segment is outside visible area (with some padding)
-      const isAbove = segmentRect.top < containerRect.top + 60;
-      const isBelow = segmentRect.bottom > containerRect.bottom - 60;
-
-      if (isAbove || isBelow) {
-        activeSegment.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-      }
-    }
-  }, [currentSegmentIndex]);
-
   // Memoized click handler
   const handleClick = useCallback(
     (time: number) => {
@@ -456,143 +536,131 @@ export const Transcript = memo(function Transcript({
       <p className={styles.hint}>Click any text to jump to that moment</p>
 
       <div ref={containerRef} className={styles.transcriptContent}>
-        {chapterGroups.map((group, groupIndex) => {
-          const chapterIdString = `chapter-${groupIndex}`;
-          const isCurrentChapter = chapterIdString === currentChapterId;
-          const isPastChapter = group.chapter.startTime < currentTime && !isCurrentChapter;
-
-          return (
-            <div
-              key={groupIndex}
-              ref={isCurrentChapter ? activeChapterRef : null}
-              className={`${styles.chapterSection} ${isCurrentChapter ? styles.activeChapter : ""} ${isPastChapter ? styles.pastChapter : ""}`}
+        {chapterGroups.map((group, groupIndex) => (
+          <div key={groupIndex} data-chapter-index={groupIndex} className={styles.chapterSection}>
+            <button
+              type="button"
+              className={styles.chapterTitle}
+              onClick={() => handleClick(group.chapter.startTime)}
             >
-              <button
-                type="button"
-                className={styles.chapterTitle}
-                onClick={() => handleClick(group.chapter.startTime)}
-              >
-                {group.chapter.title}
-                <span className={styles.chapterTime}>{formatTime(group.chapter.startTime)}</span>
-              </button>
+              {group.chapter.title}
+              <span className={styles.chapterTime}>{formatTime(group.chapter.startTime)}</span>
+            </button>
 
-              {group.chapter.description && (
-                <p className={styles.chapterDescription}>{group.chapter.description}</p>
-              )}
+            {group.chapter.description && (
+              <p className={styles.chapterDescription}>{group.chapter.description}</p>
+            )}
 
-              <div className={styles.paragraph}>
-                {group.segments.map((segment, segmentIndex) => {
-                  const actualSegmentIndex = segments.findIndex((s) => s === segment);
-                  const isCurrentSegment = actualSegmentIndex === currentSegmentIndex;
-                  const isPastSegment = segment.end < currentTime;
-                  const isPlayingSegment =
-                    currentTime >= segment.start && currentTime < segment.end;
-                  const minorChapterStart = minorChapterStartSegments.get(actualSegmentIndex);
-                  const photosForSegment = segmentPhotos.get(actualSegmentIndex);
-                  const videosForSegment = segmentVideos.get(actualSegmentIndex);
-                  const alternateTellingsForSegment =
-                    segmentAlternateTellings.get(actualSegmentIndex);
+            <div className={styles.paragraph}>
+              {group.segments.map((segment, segmentIndex) => {
+                const actualSegmentIndex = segments.findIndex((s) => s === segment);
+                const minorChapterStart = minorChapterStartSegments.get(actualSegmentIndex);
+                const photosForSegment = segmentPhotos.get(actualSegmentIndex);
+                const videosForSegment = segmentVideos.get(actualSegmentIndex);
+                const alternateTellingsForSegment =
+                  segmentAlternateTellings.get(actualSegmentIndex);
 
-                  // Alternate float direction for media (odd segments left, even right)
-                  const mediaFloat = segmentIndex % 2 === 0 ? "right" : "left";
+                // Alternate float direction for media (odd segments left, even right)
+                const mediaFloat = segmentIndex % 2 === 0 ? "right" : "left";
 
-                  return (
-                    <span key={segmentIndex}>
-                      {/* Inline video player - displayed before the segment text */}
-                      {videosForSegment &&
-                        videosForSegment.length > 0 &&
-                        videosForSegment.map((vp, vIdx) => (
-                          <VideoInlinePlayer
-                            key={`video-${vp.video.filename}-${vIdx}`}
-                            video={vp.video}
-                            startTime={vp.startTime}
-                            endTime={vp.endTime}
-                            float={mediaFloat}
-                            onOpenModal={() =>
-                              handleOpenVideoModal(vp.video, vp.startTime, vp.endTime)
-                            }
-                          />
-                        ))}
-                      {/* Inline photo slider - displayed before the segment text */}
-                      {photosForSegment && photosForSegment.length > 0 && (
-                        <PhotoInlineSlider
-                          photos={photosForSegment}
-                          onPhotoClick={handlePhotoClick}
+                return (
+                  <span key={segmentIndex}>
+                    {/* Inline video player - displayed before the segment text */}
+                    {videosForSegment &&
+                      videosForSegment.length > 0 &&
+                      videosForSegment.map((vp, vIdx) => (
+                        <VideoInlinePlayer
+                          key={`video-${vp.video.filename}-${vIdx}`}
+                          video={vp.video}
+                          startTime={vp.startTime}
+                          endTime={vp.endTime}
                           float={mediaFloat}
-                        />
-                      )}
-                      {/* Alternate telling links - displayed before the segment text */}
-                      {alternateTellingsForSegment &&
-                        alternateTellingsForSegment.length > 0 &&
-                        alternateTellingsForSegment.map((alt, altIdx) => {
-                          // Get the other recording's transcript
-                          const otherTranscriptData =
-                            alt.otherRecordingPath === "memoirs/Norm_red"
-                              ? normRedTranscript.data
-                              : tdkTranscript.data;
-                          const transcriptExcerpt = otherTranscriptData
-                            ? getTranscriptExcerpt(
-                                otherTranscriptData.segments,
-                                alt.otherStartSecs,
-                                alt.otherEndSecs
-                              )
-                            : "";
-
-                          return (
-                            <AlternateTellingLink
-                              key={`alt-${actualSegmentIndex}-${altIdx}`}
-                              recordingTitle={alt.otherRecordingTitle}
-                              topic={alt.otherTopic}
-                              transcriptExcerpt={transcriptExcerpt}
-                              onClick={() => {
-                                const otherRecording = getRecordingByPath(alt.otherRecordingPath);
-                                if (otherRecording) {
-                                  navigate(
-                                    `/recording/${otherRecording.id}?t=${Math.floor(alt.otherStartTime)}`
-                                  );
-                                }
-                              }}
-                            />
-                          );
-                        })}
-                      {minorChapterStart && (
-                        <button
-                          type="button"
-                          className={styles.minorChapterMarker}
-                          onClick={() => handleClick(minorChapterStart.startTime)}
-                          title={minorChapterStart.description || minorChapterStart.title}
-                        >
-                          {minorChapterStart.title}
-                        </button>
-                      )}
-                      <span
-                        ref={isCurrentSegment ? activeSegmentRef : null}
-                        className={`${styles.segmentText} ${isCurrentSegment ? styles.activeSegment : ""} ${isPastSegment ? styles.pastSegment : ""} ${isPlayingSegment ? styles.playingSegment : ""}`}
-                        onClick={() => handleClick(segment.start)}
-                        role="button"
-                        tabIndex={0}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter" || e.key === " ") {
-                            handleClick(segment.start);
+                          onOpenModal={() =>
+                            handleOpenVideoModal(vp.video, vp.startTime, vp.endTime)
                           }
-                        }}
-                      >
-                        <SegmentTextWithPlaces
-                          text={segment.text}
-                          placesByName={placesByName}
-                          placePattern={placePattern}
-                          onPlaceClick={handlePlaceClick}
                         />
-                      </span>
+                      ))}
+                    {/* Inline photo slider - displayed before the segment text */}
+                    {photosForSegment && photosForSegment.length > 0 && (
+                      <PhotoInlineSlider
+                        photos={photosForSegment}
+                        onPhotoClick={handlePhotoClick}
+                        float={mediaFloat}
+                      />
+                    )}
+                    {/* Alternate telling links - displayed before the segment text */}
+                    {alternateTellingsForSegment &&
+                      alternateTellingsForSegment.length > 0 &&
+                      alternateTellingsForSegment.map((alt, altIdx) => {
+                        // Get the other recording's transcript
+                        const otherTranscriptData =
+                          alt.otherRecordingPath === "memoirs/Norm_red"
+                            ? normRedTranscript.data
+                            : tdkTranscript.data;
+                        const transcriptExcerpt = otherTranscriptData
+                          ? getTranscriptExcerpt(
+                              otherTranscriptData.segments,
+                              alt.otherStartSecs,
+                              alt.otherEndSecs
+                            )
+                          : "";
+
+                        return (
+                          <AlternateTellingLink
+                            key={`alt-${actualSegmentIndex}-${altIdx}`}
+                            recordingTitle={alt.otherRecordingTitle}
+                            topic={alt.otherTopic}
+                            transcriptExcerpt={transcriptExcerpt}
+                            onClick={() => {
+                              const otherRecording = getRecordingByPath(alt.otherRecordingPath);
+                              if (otherRecording) {
+                                navigate(
+                                  `/recording/${otherRecording.id}?t=${Math.floor(alt.otherStartTime)}`
+                                );
+                              }
+                            }}
+                          />
+                        );
+                      })}
+                    {minorChapterStart && (
+                      <button
+                        type="button"
+                        className={styles.minorChapterMarker}
+                        onClick={() => handleClick(minorChapterStart.startTime)}
+                        title={minorChapterStart.description || minorChapterStart.title}
+                      >
+                        {minorChapterStart.title}
+                      </button>
+                    )}
+                    <span
+                      data-segment-index={actualSegmentIndex}
+                      className={styles.segmentText}
+                      onClick={() => handleClick(segment.start)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          handleClick(segment.start);
+                        }
+                      }}
+                    >
+                      <SegmentTextWithPlaces
+                        text={segment.text}
+                        placesByName={placesByName}
+                        placePattern={placePattern}
+                        onPlaceClick={handlePlaceClick}
+                        timelineData={timelineData}
+                        onYearClick={handleYearClick}
+                      />
                     </span>
-                  );
-                })}
-                {/* Clearfix for floated photos */}
-                <span className={styles.clearfix} />
-              </div>
+                  </span>
+                );
+              })}
+              {/* Clearfix for floated photos */}
+              <span className={styles.clearfix} />
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
 
       {/* Photo Modal for viewing full-resolution photos */}
@@ -613,6 +681,14 @@ export const Transcript = memo(function Transcript({
         onClose={handleClosePlacesMap}
         initialPlaceId={selectedPlaceId}
       />
+
+      {/* Timeline Modal for viewing years */}
+      <TimelineModal
+        key={`timeline-${selectedYear}`}
+        isOpen={showTimeline}
+        onClose={handleCloseTimeline}
+        initialYear={selectedYear}
+      />
     </div>
   );
-});
+}, transcriptPropsAreEqual);

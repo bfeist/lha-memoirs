@@ -24,7 +24,6 @@ export function Timeline({
   onEntrySelect,
 }: TimelineProps): React.ReactElement {
   const timelineRef = useRef<HTMLDivElement>(null);
-  const [hoverEntryIndex, setHoverEntryIndex] = useState<number | null>(null);
   const [isDragging, setIsDragging] = useState(false);
 
   const { timelineStart, timelineEnd, entries } = data;
@@ -78,18 +77,15 @@ export function Timeline({
     [timelineStart, timelineEnd]
   );
 
-  // Handle mouse/touch move
+  // Handle mouse/touch move - always select entry on hover/drag
   const handleMove = useCallback(
     (clientX: number) => {
       const year = getYearFromPosition(clientX);
       const entryIdx = findEntryByYear(year);
-      if (isDragging) {
-        onEntrySelect(entryIdx);
-      } else {
-        setHoverEntryIndex(entryIdx);
-      }
+      // Always select on hover - panel stays until user interacts again
+      onEntrySelect(entryIdx);
     },
-    [getYearFromPosition, findEntryByYear, isDragging, onEntrySelect]
+    [getYearFromPosition, findEntryByYear, onEntrySelect]
   );
 
   // Mouse handlers
@@ -100,23 +96,17 @@ export function Timeline({
     [handleMove]
   );
 
-  const handleMouseDown = useCallback(
-    (e: React.MouseEvent) => {
-      e.preventDefault();
-      setIsDragging(true);
-      const year = getYearFromPosition(e.clientX);
-      const entryIdx = findEntryByYear(year);
-      onEntrySelect(entryIdx);
-    },
-    [getYearFromPosition, findEntryByYear, onEntrySelect]
-  );
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  }, []);
 
   const handleMouseUp = useCallback(() => {
     setIsDragging(false);
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    setHoverEntryIndex(null);
+    // Don't clear selection on mouse leave - panel stays until next interaction
     setIsDragging(false);
   }, []);
 
@@ -157,9 +147,8 @@ export function Timeline({
     return () => window.removeEventListener("mouseup", handleGlobalMouseUp);
   }, []);
 
-  // Get the entry to display (selected or hovered)
-  const displayEntryIndex = selectedEntryIndex ?? hoverEntryIndex;
-  const displayEntry = displayEntryIndex !== null ? entries[displayEntryIndex] : null;
+  // Get the entry to display
+  const displayEntry = selectedEntryIndex !== null ? entries[selectedEntryIndex] : null;
 
   return (
     <div className={styles.timelineWrapper}>
@@ -209,7 +198,7 @@ export function Timeline({
           const startPos = getYearPosition(entry.year_start, timelineStart, timelineEnd);
           const endPos = getYearPosition(entry.year_end, timelineStart, timelineEnd);
           const width = Math.max(1, endPos - startPos);
-          const isActive = idx === displayEntryIndex;
+          const isActive = idx === selectedEntryIndex;
           const isSelected = idx === selectedEntryIndex;
 
           return (
