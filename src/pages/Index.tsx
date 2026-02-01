@@ -11,6 +11,7 @@ import { getRecordingsByCategory, type RecordingConfig } from "../config/recordi
 import WhatsNew from "../components/WhatsNew/WhatsNew";
 import LhaGpt from "../components/LhaGpt/LhaGpt";
 import { PlacesMapModal } from "../components/PlacesMap";
+import TranscriptSearch from "../components/TranscriptSearch/TranscriptSearch";
 import { useChangelog } from "../hooks/useChangelog";
 import styles from "./Index.module.css";
 import "../global/global.css";
@@ -81,6 +82,12 @@ function Index(): React.ReactElement {
             />
           </div>
           <p className={styles.portraitCaption}>Lindy Achen, 1942</p>
+        </section>
+
+        {/* Search section */}
+        <section className={styles.searchSection}>
+          <h2 className={styles.searchSectionTitle}>Search All Transcripts</h2>
+          <TranscriptSearch />
         </section>
 
         {/* Interactive Features Buttons */}

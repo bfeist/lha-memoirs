@@ -1,0 +1,249 @@
+/* Search container */
+.searchContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Search box */
+.searchBox {
+  position: relative;
+  width: 100%;
+}
+
+/* Search input wrapper */
+.searchInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.searchInputWrapper:focus-within {
+  border-color: #6495ed;
+  box-shadow: 0 0 0 3px rgb(100 149 237 / 10%);
+}
+
+/* Search icon */
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  color: #666666;
+  pointer-events: none;
+  font-size: 1.1rem;
+}
+
+/* Search input */
+.searchInput {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: transparent;
+  border: none;
+  color: #e0e0e0;
+  font-size: 1rem;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: #666666;
+}
+
+.searchInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Clear button */
+.clearButton {
+  position: absolute;
+  right: 0.75rem;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #666666;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.clearButton:hover {
+  color: #e0e0e0;
+}
+
+/* Loading message */
+.loadingMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  padding: 1rem;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  color: #999999;
+  font-size: 0.9rem;
+}
+
+/* Error message */
+.errorMessage {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  background: #2a1a1a;
+  border: 1px solid #4a2a2a;
+  border-radius: 8px;
+  color: #ff6b6b;
+  font-size: 0.9rem;
+}
+
+/* Results dropdown */
+.resultsDropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 40%);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Results header */
+.resultsHeader {
+  padding: 0.75rem 1rem;
+  background: #0d0d0d;
+  border-bottom: 1px solid #2a2a2a;
+  color: #999999;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Results list */
+.resultsList {
+  max-height: 500px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Custom scrollbar */
+.resultsList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.resultsList::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+.resultsList::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+.resultsList::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+/* No results message */
+.noResults {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #666666;
+  font-size: 0.95rem;
+}
+
+/* Result item */
+.resultItem {
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #2a2a2a;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.resultItem:hover {
+  background: #242424;
+}
+
+.resultItem:last-child {
+  border-bottom: none;
+}
+
+/* Result title */
+.resultTitle {
+  color: #6495ed;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+/* Result timestamp */
+.resultTimestamp {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background: #2a2a2a;
+  border-radius: 4px;
+  color: #999999;
+  font-size: 0.75rem;
+  font-family: "Courier New", monospace;
+  margin-bottom: 0.5rem;
+}
+
+/* Result text */
+.resultText {
+  color: #cccccc;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Highlight */
+.highlight {
+  background: #6495ed;
+  color: #ffffff;
+  padding: 0.1rem 0.2rem;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (width <= 768px) {
+  .searchContainer {
+    padding: 0 0.75rem;
+  }
+
+  .searchInput {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  .resultsList {
+    max-height: 400px;
+  }
+}
+
+@media (width <= 480px) {
+  .resultsDropdown {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 70vh;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .resultsList {
+    max-height: calc(70vh - 3rem);
+  }
+}
