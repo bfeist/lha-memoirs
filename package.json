@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:force": "vite --force",
-    "prebuild": "npm run build:search",
     "build": "vite build --emptyOutDir",
-    "build:search": "python3 scripts/build_search_index.py",
     "preview": "vite preview",
     "tsc": "tsc --pretty",
     "lint": "concurrently --names \"eslint,stylelint\" \"npm run lint:js\" \"npm run lint:css\"",
