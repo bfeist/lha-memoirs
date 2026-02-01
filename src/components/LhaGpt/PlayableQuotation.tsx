@@ -1,6 +1,4 @@
-import React, { useRef, useState, useCallback, useEffect, useMemo } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   getRecordingById,
@@ -8,7 +6,8 @@ import {
   type RecordingConfig,
 } from "../../config/recordings";
 import { useTranscript, useChapters } from "../../hooks/useRecordingData";
-import styles from "./PlayableQuotation.module.css";
+import { AudioExcerptPlayer } from "../AudioExcerptPlayer/AudioExcerptPlayer";
+import styles from "../AudioExcerptPlayer/AudioExcerptPlayer.module.css";
 
 interface TranscriptSegment {
   start: number;
@@ -101,10 +100,6 @@ export function PlayableQuotation({
   shouldStop,
   onNavigate,
 }: PlayableQuotationProps): React.ReactElement {
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [progress, setProgress] = useState(0);
   const navigate = useNavigate();
 
   // Look up the recording configuration
@@ -137,14 +132,10 @@ export function PlayableQuotation({
       segmentCount,
       nextChapterStartTime
     );
-  }, [transcriptQuery.data?.segments, startSeconds, segmentCount, nextChapterStartTime]);
+  }, [transcriptQuery.data, startSeconds, segmentCount, nextChapterStartTime]);
 
   // Build audio URL using static_assets path
   const audioUrl = recording ? getAudioUrl(recording) : null;
-
-  // Calculate playback duration from all segments or default to 30 seconds
-  const playbackDuration =
-    segments.length > 0 ? segments[segments.length - 1].end - segments[0].start : 30;
 
   // Get the combined text from all segments
   const combinedText = segments.map((s) => s.text).join(" ");
@@ -153,89 +144,29 @@ export function PlayableQuotation({
   const startTime = segments[0]?.start ?? startSeconds;
   const endTime = segments[segments.length - 1]?.end ?? startSeconds + 30;
 
-  // Format time as MM:SS
+  // Format time as MM:SS helper for error display
   const formatTime = (seconds: number): string => {
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
     return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
 
-  // Stop playback when shouldStop is set by parent
-  useEffect(() => {
-    if (shouldStop && isPlaying && audioRef.current) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    }
-  }, [shouldStop, isPlaying]);
-
-  // Handle play/pause toggle
-  const togglePlayback = useCallback(async () => {
-    const audio = audioRef.current;
-    if (!audio || !audioUrl || segments.length === 0) return;
-
-    if (isPlaying) {
-      audio.pause();
-      setIsPlaying(false);
-    } else {
-      // Notify parent that we're playing (so it can stop other quotations)
-      onPlay?.();
-
-      setIsLoading(true);
-
-      // Set the current time to the first segment start
-      audio.currentTime = startTime;
-
-      try {
-        await audio.play();
-        setIsPlaying(true);
-      } catch (err) {
-        console.error("Failed to play audio:", err);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-  }, [isPlaying, audioUrl, segments, startTime, onPlay]);
-
-  // Update progress and stop at the end of the last segment
-  const handleTimeUpdate = useCallback(() => {
-    const audio = audioRef.current;
-    if (!audio || segments.length === 0) return;
-
-    const elapsed = audio.currentTime - startTime;
-    const duration = endTime - startTime;
-    const progressPercent = Math.min(100, (elapsed / duration) * 100);
-    setProgress(progressPercent);
-
-    // Stop at the end of the last segment
-    if (audio.currentTime >= endTime) {
-      audio.pause();
-      setIsPlaying(false);
-      setProgress(0);
-    }
-  }, [segments, startTime, endTime]);
-
-  // Handle audio ended
-  const handleEnded = useCallback(() => {
-    setIsPlaying(false);
-    setProgress(0);
-  }, []);
-
   // Navigate to the full recording at this timestamp
-  const handleNavigateToRecording = useCallback(() => {
+  const handleNavigateToRecording = () => {
     if (!recording) return;
     onNavigate?.();
     navigate(`/recording/${recording.id}?t=${Math.floor(startSeconds)}`);
-  }, [recording, startSeconds, navigate, onNavigate]);
+  };
 
   // Loading state while fetching transcript
   if (transcriptQuery.isLoading) {
     return (
-      <blockquote className={styles.quotation}>
-        <div className={styles.content}>
+      <div className={styles.playerCard}>
+        <div className={styles.loadingContent}>
           <span className={styles.loader} />
           <p className={styles.quoteText}>Loading transcript...</p>
         </div>
-      </blockquote>
+      </div>
     );
   }
 
@@ -248,70 +179,26 @@ export function PlayableQuotation({
         : `Unknown recording: ${recordingId}`;
 
     return (
-      <blockquote className={styles.quotation}>
+      <div className={styles.playerCard}>
+        <div className={styles.playerHeader}>
+          <span className={styles.timestamp}>{formatTime(startSeconds)}</span>
+        </div>
         <p className={styles.quoteText}>{errorMsg}</p>
-        <cite className={styles.source}>at {formatTime(startSeconds)}</cite>
-      </blockquote>
+      </div>
     );
   }
 
   return (
-    <blockquote className={styles.quotation}>
-      {/* Hidden audio element */}
-      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-      <audio
-        ref={audioRef}
-        src={audioUrl}
-        preload="none"
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={handleEnded}
-        onPause={() => setIsPlaying(false)}
-      />
-
-      {/* Play button and quote */}
-      <div className={styles.content}>
-        <button
-          className={`${styles.playButton} ${isPlaying ? styles.playing : ""}`}
-          onClick={togglePlayback}
-          disabled={isLoading}
-          aria-label={isPlaying ? "Pause quotation" : "Play quotation"}
-          title={isPlaying ? "Pause" : `Play from ${formatTime(startSeconds)}`}
-        >
-          {isLoading ? (
-            <span className={styles.loader} />
-          ) : (
-            <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
-          )}
-        </button>
-
-        <div className={styles.quoteWrapper}>
-          <p className={styles.quoteText}>&ldquo;{combinedText}&rdquo;</p>
-
-          {/* Progress bar when playing */}
-          {isPlaying && (
-            <div className={styles.progressBar}>
-              <div className={styles.progressFill} style={{ width: `${progress}%` }} />
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Citation with link to full recording */}
-      <cite className={styles.source}>
-        <span className={styles.recordingTitle}>{recording.title}</span>
-        <span className={styles.timestamp}>
-          at {formatTime(startSeconds)} ({Math.round(playbackDuration)}s)
-        </span>
-        <button
-          className={styles.linkButton}
-          onClick={handleNavigateToRecording}
-          title="Open in full player"
-          aria-label={`Open ${recording.title} at ${formatTime(startSeconds)}`}
-        >
-          <FontAwesomeIcon icon={faExternalLinkAlt} />
-        </button>
-      </cite>
-    </blockquote>
+    <AudioExcerptPlayer
+      recordingTitle={recording.title}
+      text={combinedText}
+      audioUrl={audioUrl}
+      startTime={startTime}
+      endTime={endTime}
+      onNavigate={handleNavigateToRecording}
+      onPlay={onPlay}
+      shouldStop={shouldStop}
+    />
   );
 }
 

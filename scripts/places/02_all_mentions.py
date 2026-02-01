@@ -12,7 +12,7 @@ The script will:
 1. Load the existing places.json file
 2. Iterate through all transcript.csv files
 3. Search for each place name in the transcript text
-4. Upsert mentions by (transcript, timestamp) to avoid duplicates
+4. Upsert mentions by (transcript, startSecs) to avoid duplicates
 5. Save the updated places.json file
 
 Options:
@@ -94,7 +94,8 @@ def build_place_patterns(places: List[Dict]) -> Dict[str, re.Pattern]:
 
 def find_mentions_in_segment(
     text: str,
-    timestamp: float,
+    start_secs: float,
+    end_secs: float,
     transcript_id: str,
     patterns: Dict[str, re.Pattern],
     context_window: int = 200
@@ -103,13 +104,14 @@ def find_mentions_in_segment(
     
     Args:
         text: The segment text
-        timestamp: The segment start timestamp
+        start_secs: The segment start time in seconds
+        end_secs: The segment end time in seconds
         transcript_id: The transcript identifier
         patterns: Dict of place name -> regex pattern
         context_window: How many characters of context to include around the match
     
     Returns:
-        List of mention dicts: {place_name, transcript, context, timestamp}
+        List of mention dicts: {place_name, transcript, context, startSecs, endSecs}
     """
     mentions = []
     
@@ -130,7 +132,8 @@ def find_mentions_in_segment(
                 "place_name": place_name,
                 "transcript": transcript_id,
                 "context": context,
-                "timestamp": timestamp
+                "startSecs": start_secs,
+                "endSecs": end_secs
             })
     
     return mentions
@@ -139,7 +142,7 @@ def find_mentions_in_segment(
 def upsert_mention(place: Dict, mention: Dict) -> bool:
     """Add a mention to a place if it doesn't already exist.
     
-    Uses (transcript, timestamp) as the unique key.
+    Uses (transcript, startSecs) as the unique key.
     
     Returns True if the mention was added, False if it already existed.
     """
@@ -149,22 +152,23 @@ def upsert_mention(place: Dict, mention: Dict) -> bool:
     # Check if this exact mention already exists
     for existing in place["mentions"]:
         if (existing.get("transcript") == mention["transcript"] and 
-            existing.get("timestamp") == mention["timestamp"]):
+            existing.get("startSecs") == mention["startSecs"]):
             return False
     
     # Add the new mention
     place["mentions"].append({
         "transcript": mention["transcript"],
         "context": mention["context"],
-        "timestamp": mention["timestamp"]
+        "startSecs": mention["startSecs"],
+        "endSecs": mention["endSecs"]
     })
     return True
 
 
 def sort_mentions(place: Dict) -> None:
-    """Sort mentions by transcript, then by timestamp."""
+    """Sort mentions by transcript, then by startSecs."""
     if "mentions" in place:
-        place["mentions"].sort(key=lambda m: (m.get("transcript", ""), m.get("timestamp", 0)))
+        place["mentions"].sort(key=lambda m: (m.get("transcript", ""), m.get("startSecs", 0)))
 
 
 def main():
@@ -217,12 +221,14 @@ def main():
         # Search each segment for place mentions
         for segment in segments:
             text = segment.get("text", "")
-            timestamp = segment.get("start", 0)
+            start_secs = segment.get("start", 0)
+            end_secs = segment.get("end", 0)
             
             # Find all mentions in this segment
             mentions = find_mentions_in_segment(
                 text=text,
-                timestamp=timestamp,
+                start_secs=start_secs,
+                end_secs=end_secs,
                 transcript_id=transcript_id,
                 patterns=patterns
             )
@@ -240,7 +246,7 @@ def main():
                         mentions_by_place[place_name] = mentions_by_place.get(place_name, 0) + 1
                         
                         if args.verbose:
-                            print(f"\n  + {place_name} in {transcript_id} @ {timestamp:.1f}s")
+                            print(f"\n  + {place_name} in {transcript_id} @ {mention['startSecs']:.1f}s")
                             print(f"    \"{mention['context'][:100]}...\"")
                     else:
                         total_existing_mentions += 1

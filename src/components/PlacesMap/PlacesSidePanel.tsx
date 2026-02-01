@@ -1,8 +1,10 @@
 import { memo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarkerAlt, faPlay, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { RECORDINGS } from "../../config/recordings";
+import { faMapMarkerAlt, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { RECORDINGS, type RecordingConfig } from "../../config/recordings";
+import { getAudioUrl } from "../../hooks/useRecordingData";
+import { AudioExcerptPlayer } from "../AudioExcerptPlayer/AudioExcerptPlayer";
 import styles from "./PlacesSidePanel.module.css";
 
 interface PlacesSidePanelProps {
@@ -15,11 +17,7 @@ interface PlacesSidePanelProps {
  * Get a human-readable recording title from a transcript path
  */
 function getRecordingTitle(transcriptPath: string): string {
-  const recording = RECORDINGS.find((r) => {
-    if (r.path === transcriptPath) return true;
-    if (transcriptPath.endsWith(r.path.split("/").pop() || "")) return true;
-    return false;
-  });
+  const recording = getRecordingConfigFromPath(transcriptPath);
   return recording?.title || transcriptPath;
 }
 
@@ -27,26 +25,19 @@ function getRecordingTitle(transcriptPath: string): string {
  * Get the recording ID from a transcript path for navigation
  */
 function getRecordingIdFromPath(transcriptPath: string): string | null {
-  const recording = RECORDINGS.find((r) => {
-    if (r.path === transcriptPath) return true;
-    if (transcriptPath.endsWith(r.path.split("/").pop() || "")) return true;
-    return false;
-  });
+  const recording = getRecordingConfigFromPath(transcriptPath);
   return recording?.id || null;
 }
 
 /**
- * Format seconds to MM:SS or HH:MM:SS
+ * Get the recording config from a transcript path
  */
-function formatTimestamp(seconds: number): string {
-  const hrs = Math.floor(seconds / 3600);
-  const mins = Math.floor((seconds % 3600) / 60);
-  const secs = Math.floor(seconds % 60);
+function getRecordingConfigFromPath(transcriptPath: string): RecordingConfig | null {
+  const exactMatch = RECORDINGS.find((r) => r.path === transcriptPath);
+  if (exactMatch) return exactMatch;
 
-  if (hrs > 0) {
-    return `${hrs}:${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
-  }
-  return `${mins}:${secs.toString().padStart(2, "0")}`;
+  const transcriptTail = transcriptPath.split("/").pop() || "";
+  return RECORDINGS.find((r) => (r.path.split("/").pop() || "") === transcriptTail) || null;
 }
 
 /**
@@ -61,7 +52,7 @@ function groupMentionsByRecording(
   >();
 
   // Sort mentions by timestamp within their groups
-  const sortedMentions = [...mentions].sort((a, b) => a.timestamp - b.timestamp);
+  const sortedMentions = [...mentions].sort((a, b) => a.startSecs - b.startSecs);
 
   for (const mention of sortedMentions) {
     const title = getRecordingTitle(mention.transcript);
@@ -84,7 +75,7 @@ export const PlacesSidePanel = memo(function PlacesSidePanel({
 }: PlacesSidePanelProps) {
   const navigate = useNavigate();
 
-  const handleMentionClick = useCallback(
+  const handleJumpToRecording = useCallback(
     (recordingId: string | null, timestamp: number) => {
       if (recordingId) {
         // Close the modal first if callback provided
@@ -148,22 +139,23 @@ export const PlacesSidePanel = memo(function PlacesSidePanel({
           <div key={key} className={styles.recordingGroup}>
             <h4 className={styles.recordingTitle}>{group.title}</h4>
             <ul className={styles.mentionsList}>
-              {group.mentions.map((mention, idx) => (
-                <li key={idx} className={styles.mentionItem}>
-                  <button
-                    className={styles.mentionButton}
-                    onClick={() => handleMentionClick(group.recordingId, mention.timestamp)}
-                    disabled={!group.recordingId}
-                    title={group.recordingId ? "Jump to this moment in the recording" : ""}
-                  >
-                    <span className={styles.timestamp}>
-                      <FontAwesomeIcon icon={faPlay} className={styles.playIcon} />
-                      {formatTimestamp(mention.timestamp)}
-                    </span>
-                    <span className={styles.context}>&ldquo;{mention.context}&rdquo;</span>
-                  </button>
-                </li>
-              ))}
+              {group.mentions.map((mention, idx) => {
+                const config = getRecordingConfigFromPath(mention.transcript);
+                const audioUrl = config ? getAudioUrl(config.path, config.hasEnhancedAudio) : null;
+
+                return (
+                  <li key={idx} className={styles.mentionItem}>
+                    <AudioExcerptPlayer
+                      text={mention.context}
+                      audioUrl={audioUrl}
+                      startTime={mention.startSecs}
+                      endTime={mention.endSecs}
+                      onNavigate={() => handleJumpToRecording(group.recordingId, mention.startSecs)}
+                      navigateLabel="In Transcript"
+                    />
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}

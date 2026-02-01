@@ -123,7 +123,8 @@ interface MediaPlacementData {
 interface PlaceMention {
   transcript: string;
   context: string;
-  timestamp: number;
+  startSecs: number;
+  endSecs: number;
 }
 
 interface Place {

@@ -388,7 +388,7 @@
   margin-top: 0.5rem;
   padding: 0.5rem;
   overflow-y: auto;
-  background: rgb(0 0 0 / 20%);
+  background: #2a2a2a;
   border: 1px solid rgb(212 175 55 / 15%);
   border-radius: 4px;
   max-height: 400px;
