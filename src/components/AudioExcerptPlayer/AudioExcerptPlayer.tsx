@@ -85,7 +85,7 @@ export function AudioExcerptPlayer({
           // 1. Start loading the audio
           // 2. Wait for enough data to seek
           // 3. Seek to the start time
-          // 4. Wait for seek to complete
+          // 4. Wait for seek to complete AND have enough data to play
           // 5. Then play
 
           // If audio hasn't loaded metadata yet, we need to load it first
@@ -124,6 +124,25 @@ export function AudioExcerptPlayer({
             audio.addEventListener("seeked", onSeeked);
             audio.addEventListener("error", onError);
           });
+
+          // Wait for canplay to ensure the browser has buffered enough data at the seek position
+          // This is crucial for remote files with network latency
+          if (audio.readyState < HTMLMediaElement.HAVE_ENOUGH_DATA) {
+            await new Promise<void>((resolve, reject) => {
+              const onCanPlay = () => {
+                audio.removeEventListener("canplay", onCanPlay);
+                audio.removeEventListener("error", onError);
+                resolve();
+              };
+              const onError = () => {
+                audio.removeEventListener("canplay", onCanPlay);
+                audio.removeEventListener("error", onError);
+                reject(new Error("Audio buffering failed"));
+              };
+              audio.addEventListener("canplay", onCanPlay);
+              audio.addEventListener("error", onError);
+            });
+          }
         }
 
         await audio.play();
