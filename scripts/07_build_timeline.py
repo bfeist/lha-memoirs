@@ -55,7 +55,7 @@ RECORDINGS = {
         "audioPath": "/recordings/memoirs/Norm_red/audio.webm",
     },
     "TDK_D60_edited_through_air": {
-        "id": "memoirs_earlier_telling", 
+        "id": "memoirs_second_telling", 
         "title": "Earlier Telling",
         "audioPath": "/recordings/memoirs/TDK_D60_edited_through_air/audio.webm",
     },

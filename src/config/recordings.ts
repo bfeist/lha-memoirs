@@ -70,11 +70,11 @@ export const RECORDINGS: RecordingConfig[] = [
     hasEnhancedAudio: false,
   },
   {
-    id: "memoirs_earlier_telling",
+    id: "memoirs_second_telling",
     path: "memoirs/TDK_D60_edited_through_air",
-    title: "Memoirs - Earlier Telling",
+    title: "Memoirs - Second Telling",
     subtitle:
-      "This originates before the main voice memoirs above. Here he brings together and edits recordings he made over the years 1981 to 1986 into a single narrative.",
+      "This originates after the main voice memoirs above. Here Lindy brings together and edits recordings he made over the years 1981 to 1986 into a single narrative.",
     categoryLabel: "Alternate",
     backgroundImages: ["/photos/tibbits/P1010033.jpg", "/photos/tibbits/P1010034.jpg"],
     category: "memoir",
