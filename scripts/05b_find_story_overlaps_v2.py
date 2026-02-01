@@ -34,8 +34,10 @@ MODEL = "gemma3:12b"  # Default model
 # MODEL = "gpt-oss:20b"  # Alternative with larger context
 
 # Window configuration
-WINDOW_DURATION = 60  # 60 second windows
-WINDOW_OVERLAP = 30   # 30 second overlap
+# 90s windows with 45s overlap provide good context while allowing story-level matching
+# Tested against known matching stories ("Daylight in swamp", "all the glass")
+WINDOW_DURATION = 90  # 90 second windows  
+WINDOW_OVERLAP = 45   # 45 second overlap
 
 # Match threshold for topic similarity (0-10 scale)
 # 7+ = good confidence same story (comparison prompt now more flexible)
@@ -43,6 +45,10 @@ MATCH_THRESHOLD = 7
 
 # TDK transcript is only corrected up to this point (seconds)
 TDK_CORRECTED_LIMIT = 3169  # ~52:49
+
+# TDK transcript has intro/meta content at the start, skip it
+# Real story content starts around 3:30 (210 seconds)
+TDK_MIN_START = 210  # Skip intro portion
 
 # Minimum text length (chars) for a window to be considered for matching
 # Filters out tape noise / introduction segments
@@ -142,7 +148,8 @@ def get_text_in_range(transcript: list[dict], start_time: float, end_time: float
 
 
 def create_windows(transcript: list[dict], window_duration: float = WINDOW_DURATION, 
-                   overlap: float = WINDOW_OVERLAP, max_time: float = None) -> list[TimeWindow]:
+                   overlap: float = WINDOW_OVERLAP, max_time: float = None,
+                   min_time: float = 0) -> list[TimeWindow]:
     """Create overlapping time windows from transcript.
     
     Args:
@@ -150,6 +157,7 @@ def create_windows(transcript: list[dict], window_duration: float = WINDOW_DURAT
         window_duration: Duration of each window in seconds
         overlap: Overlap between windows in seconds
         max_time: Optional maximum time limit (for partially corrected transcripts)
+        min_time: Optional minimum time to start from (to skip intros)
     """
     if not transcript:
         return []
@@ -161,7 +169,7 @@ def create_windows(transcript: list[dict], window_duration: float = WINDOW_DURAT
     if max_time is not None:
         total_duration = min(total_duration, max_time)
     
-    start_time = 0
+    start_time = min_time  # Start from min_time instead of 0
     while start_time < total_duration:
         end_time = min(start_time + window_duration, total_duration)
         text = get_text_in_range(transcript, start_time, end_time)
@@ -279,40 +287,59 @@ def compare_windows(norm_window: TimeWindow, tdk_window: TimeWindow,
     The same story can be told with different words, so we trust the LLM
     to detect semantic similarity rather than using shallow heuristics.
     """
-    # Build comparison prompt
+    # Build comparison prompt - V3 format (best performing in tests)
     prompt = f"""/no_think
-Do these two memoir excerpts describe the SAME story/event?
+You are comparing two memoir excerpts to determine if they describe the SAME SPECIFIC EVENT.
 
-Both are from Lindy Achen telling his life story in two separate recordings.
+EXCERPT A (Norm_red recording, {format_time(norm_window.start_time)}):
+{norm_window.text}
 
-EXCERPT A ({format_time(norm_window.start_time)}):
-{norm_window.text[:500]}
+EXCERPT B (TDK recording, {format_time(tdk_window.start_time)}):
+{tdk_window.text}
 
-EXCERPT B ({format_time(tdk_window.start_time)}):
-{tdk_window.text[:500]}
+ANALYSIS REQUIRED:
+1. List proper nouns in A: (names, places, years)
+2. List proper nouns in B: (names, places, years)
+3. Overlapping proper nouns: (list any shared)
+4. Core event in A: (one sentence)
+5. Core event in B: (one sentence)
+6. Same event? (yes/no/maybe)
 
-Score 0-10:
-- 9-10: Clearly the SAME story/event
-- 7-8: Likely the same, key elements match
-- 0-6: Different stories or unclear
+SCORE (0-10):
+- 0-4: No shared proper nouns OR clearly different events
+- 5-6: Some overlap but different specific events
+- 7-8: Same event with some variation
+- 9-10: Clearly same event with multiple shared details
 
-If score 7+, describe the shared story in one sentence (use "Lindy" not "the narrator").
-
-Respond ONLY: SCORE|description
-Example: 9|Lindy describes the family's train journey from Iowa to Canada."""
+Format your response EXACTLY as:
+SCORE: [number]
+SUMMARY: [one sentence if score >= 7, otherwise "different events"]"""
 
     response = call_llm(prompt, model=model, stream=verbose)
     if verbose:
         print()  # newline after stream
     
-    # Parse response
-    match = re.search(r'(\d+)\s*\|?\s*(.+)?', response)
-    if match:
-        score = min(10, max(0, int(match.group(1))))
-        topic = match.group(2).strip() if match.group(2) else ""
-        return score, topic
+    # Parse response - handle SCORE: format
+    score = None
+    topic = ""
     
-    return 0, ""
+    score_match = re.search(r'SCORE[:\s]*(\d+)', response, re.IGNORECASE)
+    if score_match:
+        score = min(10, max(0, int(score_match.group(1))))
+        sum_match = re.search(r'SUMMARY[:\s]*(.+?)(?:\n|$)', response, re.IGNORECASE)
+        if sum_match:
+            topic = sum_match.group(1).strip()
+            if topic.lower() == "different events":
+                topic = ""
+    
+    # Fallback to simple pattern
+    if score is None:
+        match = re.search(r'(\d+)\s*\|?\s*(.+)?', response)
+        if match:
+            score = min(10, max(0, int(match.group(1))))
+            topic = match.group(2).strip() if match.group(2) else ""
+    
+    return score if score is not None else 0, topic
 
 
 def find_story_matches(norm_windows: list[TimeWindow], tdk_windows: list[TimeWindow], 
@@ -505,10 +532,10 @@ def main():
     print(f"  TDK: {len(tdk_transcript)} segments, {format_time(tdk_transcript[-1]['end'])} duration (corrected to {format_time(TDK_CORRECTED_LIMIT)})")
     
     # Create windows
-    # Note: TDK is limited to corrected portion only
+    # Note: TDK is limited to corrected portion only, and skips intro
     print(f"\n{Colors.CYAN}Creating time windows...{Colors.ENDC}")
     norm_windows = create_windows(norm_transcript)
-    tdk_windows = create_windows(tdk_transcript, max_time=TDK_CORRECTED_LIMIT)
+    tdk_windows = create_windows(tdk_transcript, max_time=TDK_CORRECTED_LIMIT, min_time=TDK_MIN_START)
     
     if args.limit:
         norm_windows = norm_windows[:args.limit]
@@ -516,7 +543,7 @@ def main():
         print(f"  {Colors.YELLOW}(Limited to {args.limit} windows for testing){Colors.ENDC}")
     
     print(f"  Norm_red: {len(norm_windows)} windows")
-    print(f"  TDK: {len(tdk_windows)} windows (up to {format_time(TDK_CORRECTED_LIMIT)})")
+    print(f"  TDK: {len(tdk_windows)} windows ({format_time(TDK_MIN_START)} to {format_time(TDK_CORRECTED_LIMIT)})")
     
     # Extract topics from each recording
     norm_windows = extract_topics_batch(norm_windows, 'Norm_red', model)

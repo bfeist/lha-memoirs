@@ -1,9 +1,139 @@
 {
   "placements": [
     {
+      "seconds": 288,
+      "type": "photo",
+      "filenames": ["1907_external_halbrite-15"]
+    },
+    {
+      "seconds": 441,
+      "type": "photo",
+      "filenames": ["1913_external_halbrite-16"]
+    },
+    {
+      "seconds": 526,
+      "type": "photo",
+      "filenames": [
+        "1913_Halbrite_Grain_Growsers_IMG_4420",
+        "1913_Halbrite_Grain_Growsers_IMG_4422"
+      ]
+    },
+    {
+      "seconds": 826,
+      "type": "photo",
+      "filenames": ["1916_Achen_farm_IMG_4356"]
+    },
+    {
+      "seconds": 903,
+      "type": "photo",
+      "filenames": ["1917c_First_car_homemade_bug_IMG_4339"]
+    },
+    {
+      "seconds": 1091,
+      "type": "photo",
+      "filenames": ["1920_external_midale-30"]
+    },
+    {
       "seconds": 1603.45,
       "type": "photo",
       "filenames": ["1922_LHA_telephone_graduation"]
+    },
+    {
+      "seconds": 3398,
+      "type": "photo",
+      "filenames": ["1928_IMG_4383"]
+    },
+    {
+      "seconds": 3559,
+      "type": "photo",
+      "filenames": ["1928_IMG_4376"]
+    },
+
+    {
+      "seconds": 5243,
+      "type": "photo",
+      "filenames": ["1930_IMG_4375"]
+    },
+    {
+      "seconds": 5526,
+      "type": "photo",
+      "filenames": ["1934c_LHA_mother_train_from_iowa_IMG_4338"]
+    },
+    {
+      "seconds": 5648,
+      "type": "photo",
+      "filenames": ["1935_IMG_4343"]
+    },
+    {
+      "seconds": 5826,
+      "type": "photo",
+      "filenames": ["1937_LHA_beach_IMG_4346"]
+    },
+    {
+      "seconds": 5917,
+      "type": "photo",
+      "filenames": ["1940_external_midale-26"]
+    },
+    {
+      "seconds": 6043,
+      "type": "photo",
+      "filenames": ["1942_LHA"]
+    },
+    {
+      "seconds": 6317,
+      "type": "photo",
+      "filenames": ["1946_IMG_4389"]
+    },
+    {
+      "seconds": 6614,
+      "type": "photo",
+      "filenames": ["1947_IMG_4357", "1947_IMG_4358", "1947_IMG_4372"]
+    },
+    {
+      "seconds": 7610,
+      "type": "photo",
+      "filenames": ["1947c_LHA_with_twins_IMG_4350"]
+    },
+
+    {
+      "seconds": 8818,
+      "type": "photo",
+      "filenames": ["1951c_LHA_Phyllis_grass_IMG_4336", "1953_family_reunion_angus_cres_IMG_4337"]
+    },
+    {
+      "seconds": 8926,
+      "type": "video",
+      "filenames": ["Grama and Grampa by flowers (LA)"]
+    },
+    {
+      "seconds": 9066,
+      "type": "video",
+      "filenames": ["Power-7"]
+    },
+    {
+      "seconds": 9258,
+      "type": "video",
+      "filenames": ["Climbing poles in bush (Frisco-5)"]
+    },
+    {
+      "seconds": 9388,
+      "type": "video",
+      "filenames": ["Power-2"]
+    },
+    {
+      "seconds": 9530,
+      "type": "photo",
+      "filenames": ["1955_achen_construction_truck_Power-7_film_still"]
+    },
+    {
+      "seconds": 9779,
+      "type": "photo",
+      "filenames": ["1980_LHA_Phyllis_50th_anniversary_oakville_IMG_4329"]
+    },
+    {
+      "seconds": 10857,
+      "type": "photo",
+      "filenames": ["1990_LHA_and_pete_IMG_4907"]
     }
   ]
 }

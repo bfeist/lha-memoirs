@@ -1,7 +1,12 @@
 {
   "placements": [
     {
-      "seconds": 132,
+      "seconds": 38,
+      "type": "photo",
+      "filenames": ["1900_remsen_watertowertowardcemeteriessm"]
+    },
+    {
+      "seconds": 199.36,
       "type": "photo",
       "filenames": ["1907_external_halbrite-15"]
     },
@@ -18,12 +23,10 @@
     {
       "seconds": 913,
       "type": "photo",
-      "filenames": ["1913_Halbrite_Grain_Growsers_IMG_4420"]
-    },
-    {
-      "seconds": 913,
-      "type": "photo",
-      "filenames": ["1913_Halbrite_Grain_Growsers_IMG_4422"]
+      "filenames": [
+        "1913_Halbrite_Grain_Growsers_IMG_4420",
+        "1913_Halbrite_Grain_Growsers_IMG_4422"
+      ]
     },
     {
       "seconds": 1345.15,
@@ -43,7 +46,7 @@
     {
       "seconds": 1842,
       "type": "photo",
-      "filenames": ["1920_external_midale-26"]
+      "filenames": ["1920_external_midale-30"]
     },
     {
       "seconds": 2197.71,
@@ -51,17 +54,27 @@
       "filenames": ["1934c_LHA_mother_train_from_iowa_IMG_4338"]
     },
     {
-      "seconds": 3000,
+      "seconds": 2541.23,
+      "type": "photo",
+      "filenames": ["1928_IMG_4376"]
+    },
+    {
+      "seconds": 2661,
+      "type": "photo",
+      "filenames": ["1928_IMG_4383"]
+    },
+    {
+      "seconds": 2938,
       "type": "photo",
       "filenames": ["1930_IMG_4375"]
     },
     {
-      "seconds": 3450,
+      "seconds": 3374,
       "type": "photo",
       "filenames": ["1935_IMG_4343"]
     },
     {
-      "seconds": 3600,
+      "seconds": 3537,
       "type": "photo",
       "filenames": ["1937_LHA_beach_IMG_4346"]
     },
@@ -70,35 +83,11 @@
       "type": "photo",
       "filenames": ["1940_external_midale-26"]
     },
-    {
-      "seconds": 5643.15,
-      "type": "photo",
-      "filenames": ["1942_LHA"]
-    },
-    {
-      "seconds": 4003.06,
-      "type": "photo",
-      "filenames": ["1928_IMG_4376"]
-    },
+
     {
       "seconds": 4050,
       "type": "photo",
       "filenames": ["1946_IMG_4368"]
-    },
-    {
-      "seconds": 4068.33,
-      "type": "photo",
-      "filenames": ["1928_IMG_4377"]
-    },
-    {
-      "seconds": 4200,
-      "type": "photo",
-      "filenames": ["1946_IMG_4389"]
-    },
-    {
-      "seconds": 4300.12,
-      "type": "photo",
-      "filenames": ["1928_IMG_4383"]
     },
     {
       "seconds": 4540.49,
@@ -121,24 +110,19 @@
       "filenames": ["1930_IMG_4380"]
     },
     {
-      "seconds": 6381.12,
+      "seconds": 5643.15,
       "type": "photo",
-      "filenames": ["1947_IMG_4357"]
+      "filenames": ["1942_LHA"]
+    },
+    {
+      "seconds": 6271,
+      "type": "photo",
+      "filenames": ["1946_IMG_4389"]
     },
     {
       "seconds": 6381.12,
       "type": "photo",
-      "filenames": ["1947_IMG_4358"]
-    },
-    {
-      "seconds": 6381.12,
-      "type": "photo",
-      "filenames": ["1947_IMG_4372"]
-    },
-    {
-      "seconds": 6492.22,
-      "type": "video",
-      "filenames": ["Climbing poles in bush (Frisco-5)"]
+      "filenames": ["1947_IMG_4357", "1947_IMG_4358", "1947_IMG_4372"]
     },
     {
       "seconds": 6578.49,
@@ -148,17 +132,17 @@
     {
       "seconds": 7443.57,
       "type": "photo",
-      "filenames": ["1951c_LHA_Phyllis_grass_IMG_4336"]
+      "filenames": ["1951c_LHA_Phyllis_grass_IMG_4336", "1953_family_reunion_angus_cres_IMG_4337"]
     },
     {
-      "seconds": 7443.57,
-      "type": "photo",
-      "filenames": ["1953_family_reunion_angus_cres_IMG_4337"]
-    },
-    {
-      "seconds": 8409.07,
+      "seconds": 7607,
       "type": "video",
       "filenames": ["Grama and Grampa by flowers (LA)"]
+    },
+    {
+      "seconds": 7909,
+      "type": "video",
+      "filenames": ["Climbing poles in bush (Frisco-5)"]
     },
     {
       "seconds": 10300.97,
@@ -178,7 +162,7 @@
     {
       "seconds": 13042.19,
       "type": "photo",
-      "filenames": ["1990_LHA_Phyllis_60th_anniversary_oakville_IMG_4329"]
+      "filenames": ["1980_LHA_Phyllis_50th_anniversary_oakville_IMG_4329"]
     },
     {
       "seconds": 13257.03,

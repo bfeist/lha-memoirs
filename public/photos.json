@@ -1,6 +1,13 @@
 {
   "photos": [
     {
+      "filename": "1900_remsen_watertowertowardcemeteriessm",
+      "caption": "A postcard photo taken from the old Remsen watertower and looks to the SW to the cemeteries in the distance.",
+      "location": "Remsen, Iowa",
+      "date": "1900 or 1908",
+      "credit": "Linda Mohning"
+    },
+    {
       "filename": "1907_external_halbrite-15",
       "caption": "",
       "location": "Halbrite, Saskatchewan",
@@ -23,7 +30,7 @@
     },
     {
       "filename": "1913_Halbrite_Grain_Growsers_IMG_4420",
-      "caption": "Halbrite Grain Growsers. Lindy's parents, Catherine Achen and John Achen, are 5th and 6th from left",
+      "caption": "Halbrite Grain Growsers. Lindy's parents, Catherine Achen and John Achen, are 5th and 6th from left.",
       "location": "Halbrite, Saskatchewan",
       "date": "1913",
       "credit": "Linden Achen Estate"
@@ -218,7 +225,7 @@
       "credit": "Linden Achen Estate"
     },
     {
-      "filename": "1990_LHA_Phyllis_60th_anniversary_oakville_IMG_4329",
+      "filename": "1980_LHA_Phyllis_50th_anniversary_oakville_IMG_4329",
       "caption": "Lindy and Phyllis celebrating their 50th wedding anniversary",
       "location": "Oakville, Ontario",
       "date": "1980",

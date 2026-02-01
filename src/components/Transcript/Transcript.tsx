@@ -224,7 +224,7 @@ export const Transcript = memo(function Transcript({
 
       const placement: AlternatePlacement = {
         topic: telling.topic,
-        preview: currentData.preview,
+        preview: otherData.preview,
         otherRecordingPath: `memoirs/${otherRecordingKey}`,
         otherStartTime: otherData.startTime,
       };

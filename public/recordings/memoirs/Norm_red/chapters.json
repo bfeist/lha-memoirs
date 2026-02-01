@@ -1,20 +1,20 @@
 {
   "chapters": [
     {
-      "title": "Lindy's Birth and Early Life",
+      "title": "Lindy's Birth and Move to Canada",
       "startTime": 6.45,
       "description": "Early Life: Iowa Farm and Father's Past"
     },
     {
       "title": "Canada Land Opportunity",
-      "startTime": 85.36,
-      "description": "Cheaper Land, Risky Move: Canada Beckons"
+      "startTime": 81.36,
+      "description": "Cheaper Land, Risky Move: Canada Beckons",
+      "minor": true
     },
     {
       "title": "Travel to Canada",
       "startTime": 132.36,
-      "description": "Arrival in Canada: Animals, Train Travel, and Heavy Snowfall",
-      "minor": true
+      "description": "Arrival in Canada: Animals, Train Travel, and Heavy Snowfall"
     },
     {
       "title": "Arrival at Halbrite",
