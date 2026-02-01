@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "total_places": 108,
-    "last_updated": "2026-01-31 23:21:50",
+    "total_places": 99,
+    "last_updated": "2026-02-01 00:03:07",
     "reference_point": {
       "name": "Regina, Saskatchewan",
       "latitude": 50.4452,
@@ -9,63 +9,6 @@
     }
   },
   "places": [
-    {
-      "name": "Sioux City",
-      "geonameid": 4876523,
-      "latitude": 42.49999,
-      "longitude": -96.40031,
-      "country_code": "US",
-      "admin1_name": "Iowa",
-      "population": 82821,
-      "feature_code": "PPLA2",
-      "distance_from_regina_km": 1083.2951169267353,
-      "confidence": "low",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "glynn_interview",
-          "context": "Oh, I was born in a little town of Remsen, Iowa, about 20 miles out of Sioux City, Iowa, in what was known as the Corn Belt of Iowa.",
-          "startSecs": 8.58,
-          "endSecs": 21.08
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "all the way up from Remsen, Iowa, up to Sioux Falls, Sioux City,",
-          "startSecs": 188.36,
-          "endSecs": 194.36
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "They moved away from Worthington, where we had started, and one day the boss come along and said, we're moving across the state, down near Sioux City, Iowa.",
-          "startSecs": 2441.2,
-          "endSecs": 2451.26
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "just south of Sioux City, Iowa, where we were working.",
-          "startSecs": 2506.96,
-          "endSecs": 2510.7
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Whatever possessed my dad to leave that rich farmland down around Sioux City, Iowa, and move up into the frozen, rocky prairies, I will never know. However,",
-          "startSecs": 230.41,
-          "endSecs": 247.17
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "he said, \"We're moving out of here, we're moving across the state to Sioux City, to south of Sioux City, Iowa.",
-          "startSecs": 2285.28,
-          "endSecs": 2291.73
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "So we moved across to a town by the name of Winnebago, Nebraska, just south of Sioux City, Iowa.",
-          "startSecs": 2355.35,
-          "endSecs": 2365.8
-        }
-      ]
-    },
     {
       "name": "Aberdeen",
       "geonameid": 5225857,
@@ -108,636 +51,6 @@
           "context": "Then when I started work the next time, I was up near Aberdeen, South Dakota.",
           "startSecs": 10591.1,
           "endSecs": 10595.54
-        }
-      ]
-    },
-    {
-      "name": "Kenmare",
-      "geonameid": 5689936,
-      "latitude": 48.67475,
-      "longitude": -102.08266,
-      "country_code": "US",
-      "admin1_name": "North Dakota",
-      "population": 1083,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 268.7056259412683,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "And a couple of weeks later, he still wasn't feeling well, so he went to Kenmare, North Dakota, where there were some renowned doctors.",
-          "startSecs": 2067.82,
-          "endSecs": 2075.3
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "When I got to Kenmare about two o'clock in the morning, well, I phoned the hospital and they said he was resting fine.",
-          "startSecs": 2112.68,
-          "endSecs": 2119.63
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "So I go up to Kenmare and I go into the office and tell him that I'd been talking to Leo O'Grady, a foreman.",
-          "startSecs": 3686.57,
-          "endSecs": 3692.65
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And so he didn't feel any better, so he got on the train one day and went down to Kenmare, North Dakota.",
-          "startSecs": 1255.84,
-          "endSecs": 1262.19
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And we went to ... that night and caught the train and got into Kenmare at about 2 o'clock in the morning after a big layover at that - Portal, at the international border...",
-          "startSecs": 1307.89,
-          "endSecs": 1321.45
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Do you want ... the head office in Kenmare and see if they'll hire you?",
-          "startSecs": 3705.89,
-          "endSecs": 3710.39
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And I worked with that outfit all winter, working up along the - from Kenmare, North Dakota, up to -",
-          "startSecs": 3769.31,
-          "endSecs": 3777.0
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Kenmare, North Dakota, that was a year later.",
-          "startSecs": 10676.03,
-          "endSecs": 10681.68
-        }
-      ]
-    },
-    {
-      "name": "Sioux Falls",
-      "geonameid": 5231851,
-      "latitude": 43.54369,
-      "longitude": -96.72796,
-      "country_code": "US",
-      "admin1_name": "South Dakota",
-      "population": 171544,
-      "feature_code": "PPLA2",
-      "distance_from_regina_km": 972.0379245347197,
-      "confidence": "low",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "all the way up from Remsen, Iowa, up to Sioux Falls, Sioux City,",
-          "startSecs": 188.36,
-          "endSecs": 194.36
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "And then one Sunday, I took a notion to drive up to see my brother Lorry up at Sioux Falls, South Dakota, which is about 150 miles away.",
-          "startSecs": 2563.89,
-          "endSecs": 2572.31
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "So I went back up to Sioux Falls and",
-          "startSecs": 2646.16,
-          "endSecs": 2650.47
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "...there and then I headed north I didn't know where I was going I stopped in at my brother's place in Sioux Falls and I had an uncle up near Aberdeen South Dakota so I",
-          "startSecs": 2892.3,
-          "endSecs": 2906.02
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And I think I told you earlier in the story, when I quit in Nebraska and went up to work for my brother Lorry, who was sick at Sioux Falls, South Dakota.",
-          "startSecs": 10544.63,
-          "endSecs": 10557.15
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "...er in the story, when I quit in Nebraska and went up to work for my brother, Lorry, who was sick at Sioux Falls, South Dakota.",
-          "startSecs": 10571.28,
-          "endSecs": 10589.04
-        }
-      ]
-    },
-    {
-      "name": "Biggar",
-      "geonameid": 5899982,
-      "latitude": 52.05978,
-      "longitude": -107.98844,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 2068,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 295.2876619839356,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "glynn_interview",
-          "context": "The first that I noticed of the depression was in the fall of 30, we were working in Biggar.",
-          "startSecs": 1382.42,
-          "endSecs": 1389.53
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "We finished the job at Estevan and then moved up to - down near the Assiniboia area and did some work, then up to Craik and Davidson, worked there for a while, and then up to Biggar.",
-          "startSecs": 4335.56,
-          "endSecs": 4346.88
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "Now, Biggar is a town about 3,000.",
-          "startSecs": 4346.92,
-          "endSecs": 4348.56
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "...ke his leg in the spring, was ready to come back to work, and Doboy's superintendent had come up to Biggar.",
-          "startSecs": 4358.34,
-          "endSecs": 4376.5
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "when I got that finished, he took me up to Biggar, Saskatchewan.",
-          "startSecs": 5046.07,
-          "endSecs": 5050.52
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "possibly spent a month in Davidson, and then on up to Biggar, east of Saskatoon, where we were doing a complete rebuild of the distribution system in a town of...",
-          "startSecs": 4673.52,
-          "endSecs": 4695.53
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And I might relate that on the 4th day of October, we had a snowstorm that was so severe, and Biggar is on the main line of the CNR, all the trains were tied up.",
-          "startSecs": 4705.54,
-          "endSecs": 4723.02
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "In the town of Biggar itself, the only thing that could move up and down the streets was a team of horses on a gray wagon...",
-          "startSecs": 4723.04,
-          "endSecs": 4729.34
-        }
-      ]
-    },
-    {
-      "name": "Billings",
-      "geonameid": 5640350,
-      "latitude": 45.78329,
-      "longitude": -108.50069,
-      "country_code": "US",
-      "admin1_name": "Montana",
-      "population": 117116,
-      "feature_code": "PPLA2",
-      "distance_from_regina_km": 592.9013713711008,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "We bought a Williams boring machine from Billings, Montana, and it would only go down 18 feet.",
-          "startSecs": 10437.23,
-          "endSecs": 10444.98
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "We got the trouble book with it when we bought it from Billings, and the guy from the factory had been up there half a dozen times, couldn't figure why they were throwing clutches all the time.",
-          "startSecs": 10473.66,
-          "endSecs": 10483.63
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "I'd tell about buying the machine down at Billings, Montana.",
-          "startSecs": 10747.6,
-          "endSecs": 10751.25
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "While it was in Billings, they had a correspondence with the factory on it.",
-          "startSecs": 10794.28,
-          "endSecs": 10799.21
-        }
-      ]
-    },
-    {
-      "name": "Crosby",
-      "geonameid": 5688604,
-      "latitude": 48.9142,
-      "longitude": -103.29491,
-      "country_code": "US",
-      "admin1_name": "North Dakota",
-      "population": 1408,
-      "feature_code": "PPLA2",
-      "distance_from_regina_km": 195.0719344484751,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "and somewhere past Crosby, about 30 miles, was the end of our last territory.",
-          "startSecs": 3770.57,
-          "endSecs": 3775.84
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "And everything was going fine until while we were working in Crosby, North Dakota, and one night they pound at the door and it was the immigration -",
-          "startSecs": 3789.57,
-          "endSecs": 3798.72
-        }
-      ]
-    },
-    {
-      "name": "Mohall",
-      "geonameid": 5690557,
-      "latitude": 48.76336,
-      "longitude": -101.51322,
-      "country_code": "US",
-      "admin1_name": "North Dakota",
-      "population": 808,
-      "feature_code": "PPLA2",
-      "distance_from_regina_km": 291.60603035014253,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "We had 150 miles of line from Mohall, North Dakota, over into the last town going out of North Dakota on the other side, Mohall -",
-          "startSecs": 3752.35,
-          "endSecs": 3767.63
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "Mohall was on the east",
-          "startSecs": 3768.21,
-          "endSecs": 3769.43
-        }
-      ]
-    },
-    {
-      "name": "Dawson",
-      "geonameid": 5058831,
-      "latitude": 46.8686,
-      "longitude": -99.7515,
-      "country_code": "US",
-      "admin1_name": "North Dakota",
-      "population": 61,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 534.5455387920313,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "From there we moved over into Dawson, North Dakota.",
-          "startSecs": 3346.79,
-          "endSecs": 3350.68
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "And in Dawson, North Dakota, we were there building lines.",
-          "startSecs": 3355.96,
-          "endSecs": 3359.53
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "They went out from there, we went to Frederick, and then we moved up at - to Dawson, North Dakota, towards Spring.",
-          "startSecs": 3370.31,
-          "endSecs": 3378.22
-        }
-      ]
-    },
-    {
-      "name": "Frederick",
-      "geonameid": 5227900,
-      "latitude": 45.83247,
-      "longitude": -98.50621,
-      "country_code": "US",
-      "admin1_name": "South Dakota",
-      "population": 204,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 684.2379288812481,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "driving back to South Dakota, down to where my uncle lived at Frederick, out of Aberdeen, South Dakota.",
-          "startSecs": 3226.85,
-          "endSecs": 3232.86
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "Well, when we got from Leola, we went up to Frederick, and I was acquainted with Frederick, and he knew that, so he used to keep me in about every second...",
-          "startSecs": 3322.7,
-          "endSecs": 3332.67
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "So I leave the outfit, and I go up back to Frederick to -",
-          "startSecs": 3529.35,
-          "endSecs": 3536.42
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And when I got down there, well, I found out there's a power outfit working about 30 miles from there, and they were building a line into Frederick, South Dakota, what was where my uncle lived.",
-          "startSecs": 3303.14,
-          "endSecs": 3315.48
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "They went out from there, we went to Frederick, and then we moved up at - to Dawson, North Dakota, towards Spring.",
-          "startSecs": 3370.31,
-          "endSecs": 3378.22
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "...b just about finished when harvest time came, and I had a telegraph from Twight, the thrasher up in Frederick, to come back and run the separator,",
-          "startSecs": 3513.29,
-          "endSecs": 3523.9
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "I headed back up to Frederick.",
-          "startSecs": 3559.6,
-          "endSecs": 3560.8
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "I'll go back when I finish thrashing in Frederick and then headed north.",
-          "startSecs": 3596.0,
-          "endSecs": 3603.37
-        }
-      ]
-    },
-    {
-      "name": "Remsen",
-      "geonameid": 4872752,
-      "latitude": 42.81471,
-      "longitude": -95.97335,
-      "country_code": "US",
-      "admin1_name": "Iowa",
-      "population": 1632,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 1073.5299592866788,
-      "confidence": "low",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "glynn_interview",
-          "context": "Oh, I was born in a little town of Remsen, Iowa, about 20 miles out of Sioux City, Iowa, in what was known as the Corn Belt of Iowa.",
-          "startSecs": 8.58,
-          "endSecs": 21.08
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "and go back and start relating the story from where I was born at Remsen, Iowa, October the 7th, 1902.",
-          "startSecs": 37.57,
-          "endSecs": 48.57
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "all the way up from Remsen, Iowa, up to Sioux Falls, Sioux City,",
-          "startSecs": 188.36,
-          "endSecs": 194.36
-        }
-      ]
-    },
-    {
-      "name": "Valley City",
-      "geonameid": 5062292,
-      "latitude": 46.92331,
-      "longitude": -98.00315,
-      "country_code": "US",
-      "admin1_name": "North Dakota",
-      "population": 6669,
-      "feature_code": "PPLA2",
-      "distance_from_regina_km": 623.4838137464574,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "Well, I went into Valley City, and I patched it up enough that I could drive another hundred miles down to my uncle's place.",
-          "startSecs": 3251.75,
-          "endSecs": 3258.08
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "But I was able to drive it into Valley City, North Dakota, and there I tied it together.",
-          "startSecs": 3292.15,
-          "endSecs": 3298.2
-        }
-      ]
-    },
-    {
-      "name": "Winnipegosis",
-      "geonameid": 6183238,
-      "latitude": 51.64861,
-      "longitude": -99.92664,
-      "country_code": "CA",
-      "admin1_name": "Manitoba",
-      "population": 945,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 354.180938558895,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "While he was there, he found out there was a little town, Winnipegosis Manitoba that needed a power plant.",
-          "startSecs": 5446.39,
-          "endSecs": 5451.73
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "And they were moving that plant up to Winnipegosis.",
-          "startSecs": 5513.62,
-          "endSecs": 5517.95
-        },
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "So then I come back up to Winnipegosis, and I wound up there on Armistice Day.",
-          "startSecs": 5553.37,
-          "endSecs": 5556.9
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And they were going to put the power plant up to Winnipegosis, Manitoba.",
-          "startSecs": 5739.92,
-          "endSecs": 5745.45
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And then I went up, they said, \"We're putting the plant up to Winnipegosis, Manitoba, and we want you to go up there and wire up the town.",
-          "startSecs": 5770.93,
-          "endSecs": 5777.66
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "They shipped their stuff back to Estevan, and Mac came up to Winnipegosis, Manitoba with me where we wired houses there.",
-          "startSecs": 5799.97,
-          "endSecs": 5809.53
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "This same man Dyer, when he left Tompkins, he went up to Winnipegosis and organized the starting of a power plant in Winnipegosis.",
-          "startSecs": 5810.03,
-          "endSecs": 5824.49
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "So we'll go on taping again about Winnipegosis.",
-          "startSecs": 5853.14,
-          "endSecs": 5857.43
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "So while I was wiring up at Winnipegosis, this fella took holidays, and they sent me down to Estevan for one month to take charge of the dis...",
-          "startSecs": 5891.85,
-          "endSecs": 5903.6
-        }
-      ]
-    },
-    {
-      "name": "Thunder Hawk",
-      "geonameid": 5769725,
-      "latitude": 45.93833,
-      "longitude": -101.97487,
-      "country_code": "US",
-      "admin1_name": "South Dakota",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 538.0130642516336,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "Thunder Hawk, South Dakota, up to Elgin, North Dakota, about 40 miles across.",
-          "startSecs": 3426.14,
-          "endSecs": 3432.89
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Thunder Hawk, South Dakota, up to Algin North, right through No Man's Land.",
-          "startSecs": 3454.4,
-          "endSecs": 3458.75
-        }
-      ]
-    },
-    {
-      "name": "Canora",
-      "geonameid": 5915098,
-      "latitude": 51.63328,
-      "longitude": -102.43425,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 2055,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 201.93499171018226,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "running from Canora, Saskatchewan, up to Preeceville, and over to Norquay.",
-          "startSecs": 7778.78,
-          "endSecs": 7783.89
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "So I went to Canora and started that job, again without any help.",
-          "startSecs": 7840.76,
-          "endSecs": 7847.35
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And then I - when I left the Canora job, left Jack Gardner in charge.",
-          "startSecs": 7960.5,
-          "endSecs": 7968.68
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Yeah, after we finished up that line, then I got a job 30 miles from Yorkton to Canora.",
-          "startSecs": 8587.04,
-          "endSecs": 8597.72
-        }
-      ]
-    },
-    {
-      "name": "Worthington",
-      "geonameid": 4882504,
-      "latitude": 42.39639,
-      "longitude": -91.11986,
-      "country_code": "US",
-      "admin1_name": "Iowa",
-      "population": 411,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 1364.3637715470222,
-      "confidence": "low",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "They moved away from Worthington, where we had started, and one day the boss come along and said, we're moving across the state, down near Sioux City, Iowa.",
-          "startSecs": 2441.2,
-          "endSecs": 2451.26
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "So with that, I threw in the towel, and I packed up my suitcase, and a cousin from Worthington, Iowa, by the name of Norbert Hemmer, was up harvesting with us.",
-          "startSecs": 1965.11,
-          "endSecs": 1978.93
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And I jumped in the car - in the car with him, and we drove straight through to Worthington, Iowa, which is about 1,300 miles.",
-          "startSecs": 1978.95,
-          "endSecs": 1986.94
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "So, anyway, I stayed with an uncle in Worthington, Iowa.",
-          "startSecs": 2020.08,
-          "endSecs": 2025.25
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Well, I stayed in Worthington during December, doing nothing, just hanging around.",
-          "startSecs": 2064.22,
-          "endSecs": 2071.35
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Worthington was about 300 people.",
-          "startSecs": 2093.85,
-          "endSecs": 2096.98
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Worthington or working out of Worthington.",
-          "startSecs": 2148.74,
-          "endSecs": 2152.23
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "We were moving around the country, not necessarily always in Worthington.",
-          "startSecs": 2277.77,
-          "endSecs": 2282.65
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "When I started working in Worthington, Iowa, we were working nine hours a day, and I got 35 cents an hour, paid my own room and board, dr...",
-          "startSecs": 10488.42,
-          "endSecs": 10500.42
         }
       ]
     },
@@ -886,6 +199,338 @@
       ]
     },
     {
+      "name": "Benson",
+      "geonameid": 5017882,
+      "latitude": 45.315,
+      "longitude": -95.6025,
+      "country_code": "US",
+      "admin1_name": "Minnesota",
+      "population": 3240,
+      "feature_code": "PPLA2",
+      "distance_from_regina_km": 880.6990795394015,
+      "confidence": "user_added",
+      "needs_review": false,
+      "mentions": []
+    },
+    {
+      "name": "Bienfait",
+      "geonameid": 5899466,
+      "latitude": 49.143,
+      "longitude": -102.805,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 194.71650365944515,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "glynn_interview",
+          "context": "Like, again, I have to talk about Estevan and Bienfait, the coal mines where I knew every home.",
+          "startSecs": 1553.48,
+          "endSecs": 1559.99
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then in '50, I started out. Built that line from Yorkton to Theodore and from there, Lampman to Bienfait, that was another 18 miles.",
+          "startSecs": 8637.5,
+          "endSecs": 8653.82
+        }
+      ]
+    },
+    {
+      "name": "Biggar",
+      "geonameid": 5899982,
+      "latitude": 52.05978,
+      "longitude": -107.98844,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 2068,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 295.2876619839356,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "glynn_interview",
+          "context": "The first that I noticed of the depression was in the fall of 30, we were working in Biggar.",
+          "startSecs": 1382.42,
+          "endSecs": 1389.53
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "We finished the job at Estevan and then moved up to - down near the Assiniboia area and did some work, then up to Craik and Davidson, worked there for a while, and then up to Biggar.",
+          "startSecs": 4335.56,
+          "endSecs": 4346.88
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Now, Biggar is a town about 3,000.",
+          "startSecs": 4346.92,
+          "endSecs": 4348.56
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...ke his leg in the spring, was ready to come back to work, and Doboy's superintendent had come up to Biggar.",
+          "startSecs": 4358.34,
+          "endSecs": 4376.5
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "when I got that finished, he took me up to Biggar, Saskatchewan.",
+          "startSecs": 5046.07,
+          "endSecs": 5050.52
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "possibly spent a month in Davidson, and then on up to Biggar, east of Saskatoon, where we were doing a complete rebuild of the distribution system in a town of...",
+          "startSecs": 4673.52,
+          "endSecs": 4695.53
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I might relate that on the 4th day of October, we had a snowstorm that was so severe, and Biggar is on the main line of the CNR, all the trains were tied up.",
+          "startSecs": 4705.54,
+          "endSecs": 4723.02
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "In the town of Biggar itself, the only thing that could move up and down the streets was a team of horses on a gray wagon...",
+          "startSecs": 4723.04,
+          "endSecs": 4729.34
+        }
+      ]
+    },
+    {
+      "name": "Billings",
+      "geonameid": 5640350,
+      "latitude": 45.78329,
+      "longitude": -108.50069,
+      "country_code": "US",
+      "admin1_name": "Montana",
+      "population": 117116,
+      "feature_code": "PPLA2",
+      "distance_from_regina_km": 592.9013713711008,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "We bought a Williams boring machine from Billings, Montana, and it would only go down 18 feet.",
+          "startSecs": 10437.23,
+          "endSecs": 10444.98
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "We got the trouble book with it when we bought it from Billings, and the guy from the factory had been up there half a dozen times, couldn't figure why they were throwing clutches all the time.",
+          "startSecs": 10473.66,
+          "endSecs": 10483.63
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "I'd tell about buying the machine down at Billings, Montana.",
+          "startSecs": 10747.6,
+          "endSecs": 10751.25
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "While it was in Billings, they had a correspondence with the factory on it.",
+          "startSecs": 10794.28,
+          "endSecs": 10799.21
+        }
+      ]
+    },
+    {
+      "name": "Bismarck",
+      "geonameid": 5688025,
+      "latitude": 46.80833,
+      "longitude": -100.78374,
+      "country_code": "US",
+      "admin1_name": "North Dakota",
+      "population": 75092,
+      "feature_code": "PPLA",
+      "distance_from_regina_km": 492.79115592281397,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And he took sick, and they shoved him into the hospital in Bismarck, and he died there.",
+          "startSecs": 3398.68,
+          "endSecs": 3407.43
+        }
+      ]
+    },
+    {
+      "name": "Bulyea",
+      "geonameid": 5911269,
+      "latitude": 50.98338,
+      "longitude": -104.86783,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 62.35652257194426,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "I was building a bunch of farms and 60 miles of high line north of Regina starting up at Bulyea, and running all the way, well 60 miles north and doing all the towns",
+          "startSecs": 9187.27,
+          "endSecs": 9202.75
+        }
+      ]
+    },
+    {
+      "name": "Calgary",
+      "geonameid": 5913490,
+      "latitude": 51.05011,
+      "longitude": -114.08529,
+      "country_code": "CA",
+      "admin1_name": "Alberta",
+      "population": 1306784,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 668.9467901187583,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "christmas1986",
+          "context": "and Janey, and Calgary, I presume.",
+          "startSecs": 45.88,
+          "endSecs": 49.94
+        },
+        {
+          "transcript": "christmas1986",
+          "context": "No, Calgary, they'll be down here.",
+          "startSecs": 50.06,
+          "endSecs": 52.1
+        },
+        {
+          "transcript": "christmas1986",
+          "context": "a policeman in Calgary that had robbed 20,",
+          "startSecs": 375.4,
+          "endSecs": 380.08
+        },
+        {
+          "transcript": "christmas1986",
+          "context": "had staged 20 bank holdups in Calgary",
+          "startSecs": 380.26,
+          "endSecs": 383.14
+        },
+        {
+          "transcript": "tibbits_cd",
+          "context": "When you were on your way home Sunday, we were getting reports that the storm was coming into Calgary, and we wondered if you were going to run into it.",
+          "startSecs": 41.92,
+          "endSecs": 48.91
+        }
+      ]
+    },
+    {
+      "name": "Camden",
+      "geonameid": 4379623,
+      "latitude": 39.19723,
+      "longitude": -94.023,
+      "country_code": "US",
+      "admin1_name": "Missouri",
+      "population": 186,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 1500.9382647978473,
+      "confidence": "low",
+      "needs_review": true,
+      "mentions": [
+        {
+          "transcript": "glynn_interview",
+          "context": "They had land promoters coming down there and saying the opportunity up in Camden.",
+          "startSecs": 3891.5,
+          "endSecs": 3898.79
+        }
+      ]
+    },
+    {
+      "name": "Canora",
+      "geonameid": 5915098,
+      "latitude": 51.63328,
+      "longitude": -102.43425,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 2055,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 201.93499171018226,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "running from Canora, Saskatchewan, up to Preeceville, and over to Norquay.",
+          "startSecs": 7778.78,
+          "endSecs": 7783.89
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So I went to Canora and started that job, again without any help.",
+          "startSecs": 7840.76,
+          "endSecs": 7847.35
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then I - when I left the Canora job, left Jack Gardner in charge.",
+          "startSecs": 7960.5,
+          "endSecs": 7968.68
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Yeah, after we finished up that line, then I got a job 30 miles from Yorkton to Canora.",
+          "startSecs": 8587.04,
+          "endSecs": 8597.72
+        }
+      ]
+    },
+    {
+      "name": "Cascade",
+      "geonameid": 4850549,
+      "latitude": 42.29862,
+      "longitude": -91.01486,
+      "country_code": "US",
+      "admin1_name": "Iowa",
+      "population": 2271,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 1378.1705860711434,
+      "confidence": "low",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "christmas1986",
+          "context": "I had a letter from Cascade, Iowa from the cousins that were up here this summer.",
+          "startSecs": 2310.76,
+          "endSecs": 2313.8
+        }
+      ]
+    },
+    {
+      "name": "Coronach",
+      "geonameid": 5928098,
+      "latitude": 49.11676,
+      "longitude": -105.51781,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 161.19723531672247,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Viceroy, down to Rockglen, Coronach, all in through that country.",
+          "startSecs": 8799.01,
+          "endSecs": 8809.61
+        }
+      ]
+    },
+    {
       "name": "Craik",
       "geonameid": 5931568,
       "latitude": 51.05006,
@@ -909,6 +554,33 @@
           "context": "Then the old Dominion Electric had some work to do at Craik and Davidson, so I went down there and I worked there until the spring break up.",
           "startSecs": 6094.72,
           "endSecs": 6102.35
+        }
+      ]
+    },
+    {
+      "name": "Crosby",
+      "geonameid": 5688604,
+      "latitude": 48.9142,
+      "longitude": -103.29491,
+      "country_code": "US",
+      "admin1_name": "North Dakota",
+      "population": 1408,
+      "feature_code": "PPLA2",
+      "distance_from_regina_km": 195.0719344484751,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "and somewhere past Crosby, about 30 miles, was the end of our last territory.",
+          "startSecs": 3770.57,
+          "endSecs": 3775.84
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And everything was going fine until while we were working in Crosby, North Dakota, and one night they pound at the door and it was the immigration -",
+          "startSecs": 3789.57,
+          "endSecs": 3798.72
         }
       ]
     },
@@ -951,6 +623,87 @@
           "context": "In the meantime, I'd been - while I was in Iowa, my cousin from Nebraska, David City, Nebraska, said, when you're down in our part of the country, come and see us.",
           "startSecs": 2776.17,
           "endSecs": 2793.72
+        }
+      ]
+    },
+    {
+      "name": "Davis City",
+      "geonameid": 4853458,
+      "latitude": 40.63917,
+      "longitude": -93.81161,
+      "country_code": "US",
+      "admin1_name": "Iowa",
+      "population": 195,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 1374.454939290032,
+      "confidence": "low",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And after that was finished, I got in my car and I went down to Deaner's at Davis City, Nebraska to help them harvest.",
+          "startSecs": 2736.46,
+          "endSecs": 2744.45
+        }
+      ]
+    },
+    {
+      "name": "Dawson",
+      "geonameid": 5058831,
+      "latitude": 46.8686,
+      "longitude": -99.7515,
+      "country_code": "US",
+      "admin1_name": "North Dakota",
+      "population": 61,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 534.5455387920313,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "From there we moved over into Dawson, North Dakota.",
+          "startSecs": 3346.79,
+          "endSecs": 3350.68
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And in Dawson, North Dakota, we were there building lines.",
+          "startSecs": 3355.96,
+          "endSecs": 3359.53
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "They went out from there, we went to Frederick, and then we moved up at - to Dawson, North Dakota, towards Spring.",
+          "startSecs": 3370.31,
+          "endSecs": 3378.22
+        }
+      ]
+    },
+    {
+      "name": "Dinsmore",
+      "geonameid": 5939508,
+      "latitude": 51.33339,
+      "longitude": -107.43461,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 220.8014757516378,
+      "confidence": "user_added",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...b, we did about twenty farms just north of Weyburn, and from there I got a job building a line from Dinsmore to Eston and up from Elrose to Rosetown.",
+          "startSecs": 7635.03,
+          "endSecs": 7655.62
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then I was jockeying back and forth between that job and the one over at Dinsmore, trying to get them both cleaned up before winter.",
+          "startSecs": 7923.22,
+          "endSecs": 7930.85
         }
       ]
     },
@@ -1125,6 +878,27 @@
           "context": "Up north from Kyle to Elrose, and we did about 50 farms up in there, plus 7 or 8 towns.",
           "startSecs": 8809.63,
           "endSecs": 8817.14
+        }
+      ]
+    },
+    {
+      "name": "Esterhazy",
+      "geonameid": 5949563,
+      "latitude": 50.65001,
+      "longitude": -102.08426,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 2194,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 180.52400746186382,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then I went down and I built 18 miles of line from Stockholm to Esterhazy.",
+          "startSecs": 8525.13,
+          "endSecs": 8531.34
         }
       ]
     },
@@ -1606,6 +1380,27 @@
       ]
     },
     {
+      "name": "Eston",
+      "geonameid": 5949601,
+      "latitude": 51.1501,
+      "longitude": -108.75144,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 979,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 300.78731684022415,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "After we finished that job, we did about twenty farms just north of Weyburn, and from there I got a job building a line from Dinsmore to Eston and up from Elrose to Rosetown.",
+          "startSecs": 7635.03,
+          "endSecs": 7655.62
+        }
+      ]
+    },
+    {
       "name": "Fife Lake",
       "geonameid": 5952597,
       "latitude": 49.20006,
@@ -1623,6 +1418,90 @@
           "context": "And then down in the Ogema - Shaunavon area, yeah, Fife Lake, and in that area we did a bunch of towns there in '50, '51, we were in the Ogema–Bengough, and in through there we did 60 or 70 miles of line in a bunch of towns.",
           "startSecs": 7343.27,
           "endSecs": 7366.26
+        }
+      ]
+    },
+    {
+      "name": "Frederick",
+      "geonameid": 5227900,
+      "latitude": 45.83247,
+      "longitude": -98.50621,
+      "country_code": "US",
+      "admin1_name": "South Dakota",
+      "population": 204,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 684.2379288812481,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "driving back to South Dakota, down to where my uncle lived at Frederick, out of Aberdeen, South Dakota.",
+          "startSecs": 3226.85,
+          "endSecs": 3232.86
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Well, when we got from Leola, we went up to Frederick, and I was acquainted with Frederick, and he knew that, so he used to keep me in about every second...",
+          "startSecs": 3322.7,
+          "endSecs": 3332.67
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So I leave the outfit, and I go up back to Frederick to -",
+          "startSecs": 3529.35,
+          "endSecs": 3536.42
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And when I got down there, well, I found out there's a power outfit working about 30 miles from there, and they were building a line into Frederick, South Dakota, what was where my uncle lived.",
+          "startSecs": 3303.14,
+          "endSecs": 3315.48
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "They went out from there, we went to Frederick, and then we moved up at - to Dawson, North Dakota, towards Spring.",
+          "startSecs": 3370.31,
+          "endSecs": 3378.22
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...b just about finished when harvest time came, and I had a telegraph from Twight, the thrasher up in Frederick, to come back and run the separator,",
+          "startSecs": 3513.29,
+          "endSecs": 3523.9
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "I headed back up to Frederick.",
+          "startSecs": 3559.6,
+          "endSecs": 3560.8
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "I'll go back when I finish thrashing in Frederick and then headed north.",
+          "startSecs": 3596.0,
+          "endSecs": 3603.37
+        }
+      ]
+    },
+    {
+      "name": "Fulton",
+      "geonameid": 5227947,
+      "latitude": 43.7247,
+      "longitude": -97.82368,
+      "country_code": "US",
+      "admin1_name": "South Dakota",
+      "population": 92,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 906.4300472759795,
+      "confidence": "low",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And one Sunday afternoon, I took a notion to drive up to Fulton, South Dakota",
+          "startSecs": 2370.26,
+          "endSecs": 2373.0
         }
       ]
     },
@@ -1954,6 +1833,117 @@
       ]
     },
     {
+      "name": "Kenmare",
+      "geonameid": 5689936,
+      "latitude": 48.67475,
+      "longitude": -102.08266,
+      "country_code": "US",
+      "admin1_name": "North Dakota",
+      "population": 1083,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 268.7056259412683,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And a couple of weeks later, he still wasn't feeling well, so he went to Kenmare, North Dakota, where there were some renowned doctors.",
+          "startSecs": 2067.82,
+          "endSecs": 2075.3
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "When I got to Kenmare about two o'clock in the morning, well, I phoned the hospital and they said he was resting fine.",
+          "startSecs": 2112.68,
+          "endSecs": 2119.63
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So I go up to Kenmare and I go into the office and tell him that I'd been talking to Leo O'Grady, a foreman.",
+          "startSecs": 3686.57,
+          "endSecs": 3692.65
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And so he didn't feel any better, so he got on the train one day and went down to Kenmare, North Dakota.",
+          "startSecs": 1255.84,
+          "endSecs": 1262.19
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And we went to ... that night and caught the train and got into Kenmare at about 2 o'clock in the morning after a big layover at that - Portal, at the international border...",
+          "startSecs": 1307.89,
+          "endSecs": 1321.45
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Do you want ... the head office in Kenmare and see if they'll hire you?",
+          "startSecs": 3705.89,
+          "endSecs": 3710.39
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I worked with that outfit all winter, working up along the - from Kenmare, North Dakota, up to -",
+          "startSecs": 3769.31,
+          "endSecs": 3777.0
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Kenmare, North Dakota, that was a year later.",
+          "startSecs": 10676.03,
+          "endSecs": 10681.68
+        }
+      ]
+    },
+    {
+      "name": "Killaly",
+      "geonameid": 5991885,
+      "latitude": 50.75002,
+      "longitude": -102.8343,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 130.43819921443074,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And in '49, I went to - oh yeah, I got the piece of high voltage line, the 72,000 from Killaly,",
+          "startSecs": 8409.65,
+          "endSecs": 8420.01
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "to do that line up from Yorkton to Melville and down to Killaly, another 18 miles.",
+          "startSecs": 8450.06,
+          "endSecs": 8455.8
+        }
+      ]
+    },
+    {
+      "name": "Kincaid",
+      "geonameid": 5992138,
+      "latitude": 49.66676,
+      "longitude": -107.00126,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 190.82675924577794,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "However, I had a pretty well organized crew and we spent that summer - we had gone out through Assiniboia, did a little work onto Kincaid, and from there north up to Davidson.",
+          "startSecs": 4655.13,
+          "endSecs": 4671.93
+        }
+      ]
+    },
+    {
       "name": "Kipling",
       "geonameid": 5992724,
       "latitude": 50.10003,
@@ -1987,6 +1977,75 @@
       ]
     },
     {
+      "name": "Lafleche",
+      "geonameid": 6047858,
+      "latitude": 49.708,
+      "longitude": -106.575,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 161.87050629022593,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "In the spring of '38, I went out and relieved out at Gravelbourg in Lafleche while they changed operators out there.",
+          "startSecs": 5612.7,
+          "endSecs": 5621.23
+        }
+      ]
+    },
+    {
+      "name": "Lampman",
+      "geonameid": 6049112,
+      "latitude": 49.38336,
+      "longitude": -102.75092,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 178.40011898317206,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then in '50, I started out. Built that line from Yorkton to Theodore and from there, Lampman to Bienfait, that was another 18 miles.",
+          "startSecs": 8637.5,
+          "endSecs": 8653.82
+        }
+      ]
+    },
+    {
+      "name": "Leader",
+      "geonameid": 6051040,
+      "latitude": 50.88341,
+      "longitude": -109.55154,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 350.9937991740183,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Well, when this was over, while we were sitting there talking, and I said, \"I see by the Leader Post that they're advertising for line construction for the Power Commission.\"",
+          "startSecs": 6153.43,
+          "endSecs": 6163.24
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "From Maple Creek to Cypress Park, and then went north of town to Mendham and Leader up in there, and we were building in a bunch of farms and whatnot.",
+          "startSecs": 8246.39,
+          "endSecs": 8258.29
+        }
+      ]
+    },
+    {
       "name": "Leola",
       "geonameid": 5229276,
       "latitude": 45.72275,
@@ -2016,6 +2075,27 @@
           "context": "got my car patched up enough that I was able to drive down to - to this town, Leola was the name of the town, see if I can get a job on this power line.",
           "startSecs": 3317.38,
           "endSecs": 3325.93
+        }
+      ]
+    },
+    {
+      "name": "Lethbridge",
+      "geonameid": 6053154,
+      "latitude": 49.69999,
+      "longitude": -112.81856,
+      "country_code": "CA",
+      "admin1_name": "Alberta",
+      "population": 103197,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 590.7081861386928,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "glynn_interview",
+          "context": "It'd come all the way from Lethbridge down.",
+          "startSecs": 2767.73,
+          "endSecs": 2769.93
         }
       ]
     },
@@ -2094,6 +2174,81 @@
           "context": "And then use all the usable material to build a power line, as I said, from Halbrite to Midale to Macoun.",
           "startSecs": 6967.69,
           "endSecs": 6979.87
+        }
+      ]
+    },
+    {
+      "name": "Maple Creek",
+      "geonameid": 6065592,
+      "latitude": 49.90628,
+      "longitude": -109.48094,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 2121,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 351.32141395202046,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "glynn_interview",
+          "context": "They came in from Maple Creek.",
+          "startSecs": 2856.24,
+          "endSecs": 2857.66
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "From Maple Creek to Cypress Park, and then went north of town to Mendham and Leader up in there, and we were buildin...",
+          "startSecs": 8246.39,
+          "endSecs": 8258.29
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "All the way from, you can say, from Maple Creek to the west to -",
+          "startSecs": 8954.96,
+          "endSecs": 8967.4
+        }
+      ]
+    },
+    {
+      "name": "Meadow Lake",
+      "geonameid": 6071421,
+      "latitude": 54.13348,
+      "longitude": -108.43471,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 5266,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 485.1786967003155,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "glynn_interview",
+          "context": "take the track up, they went up into the Meadow Lake County.",
+          "startSecs": 1808.07,
+          "endSecs": 1810.61
+        }
+      ]
+    },
+    {
+      "name": "Mendham",
+      "geonameid": 6072079,
+      "latitude": 50.76682,
+      "longitude": -109.66827,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 358.05206574133103,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "From Maple Creek to Cypress Park, and then went north of town to Mendham and Leader up in there, and we were building in a bunch of farms and whatnot.",
+          "startSecs": 8246.39,
+          "endSecs": 8258.29
         }
       ]
     },
@@ -2341,6 +2496,33 @@
       ]
     },
     {
+      "name": "Mohall",
+      "geonameid": 5690557,
+      "latitude": 48.76336,
+      "longitude": -101.51322,
+      "country_code": "US",
+      "admin1_name": "North Dakota",
+      "population": 808,
+      "feature_code": "PPLA2",
+      "distance_from_regina_km": 291.60603035014253,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "We had 150 miles of line from Mohall, North Dakota, over into the last town going out of North Dakota on the other side, Mohall -",
+          "startSecs": 3752.35,
+          "endSecs": 3767.63
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Mohall was on the east",
+          "startSecs": 3768.21,
+          "endSecs": 3769.43
+        }
+      ]
+    },
+    {
       "name": "Montmartre",
       "geonameid": 6077157,
       "latitude": 50.23335,
@@ -2431,6 +2613,27 @@
       ]
     },
     {
+      "name": "Norquay",
+      "geonameid": 6089261,
+      "latitude": 51.88328,
+      "longitude": -102.08423,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 238.31750378523927,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "running from Canora, Saskatchewan, up to Preeceville, and over to Norquay.",
+          "startSecs": 7778.78,
+          "endSecs": 7783.89
+        }
+      ]
+    },
+    {
       "name": "Ogema",
       "geonameid": 6092735,
       "latitude": 49.58337,
@@ -2460,6 +2663,27 @@
           "context": "It was in the Sha - Ogema, Bengough,",
           "startSecs": 8795.96,
           "endSecs": 8798.44
+        }
+      ]
+    },
+    {
+      "name": "Oxbow",
+      "geonameid": 6095751,
+      "latitude": 49.23335,
+      "longitude": -102.1676,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 1058,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 221.47620938159577,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And after that, we had 200 farms to go down at Oxbow.",
+          "startSecs": 8281.51,
+          "endSecs": 8289.48
         }
       ]
     },
@@ -2536,6 +2760,69 @@
       ]
     },
     {
+      "name": "Preeceville",
+      "geonameid": 6112862,
+      "latitude": 51.94998,
+      "longitude": -102.66766,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 1003,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 215.5814321379364,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "running from Canora, Saskatchewan, up to Preeceville, and over to Norquay.",
+          "startSecs": 7778.78,
+          "endSecs": 7783.89
+        }
+      ]
+    },
+    {
+      "name": "Prince Albert",
+      "geonameid": 6113335,
+      "latitude": 53.20008,
+      "longitude": -105.76772,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 35102,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 316.3295905005337,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then in '61, Rags Johnson and ourselves jointly bid on a piece of high-voltage line from Shellbrook to Prince Albert, which had a river crossing in it, which was always a big job.",
+          "startSecs": 9258.67,
+          "endSecs": 9275.86
+        }
+      ]
+    },
+    {
+      "name": "Qu'Appelle",
+      "geonameid": 6114889,
+      "latitude": 50.55007,
+      "longitude": -103.88436,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 53.24792556381966,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Well, we never got as far as the Manitoba border, about Kipling to the east, and everything - always south of the valley, south of the Saskatchewan River and the Qu'Appelle Valley.",
+          "startSecs": 8969.69,
+          "endSecs": 8978.58
+        }
+      ]
+    },
+    {
       "name": "Radville",
       "geonameid": 6115725,
       "latitude": 49.45006,
@@ -2565,6 +2852,27 @@
           "context": "1947, my first job was building a line from Weyburn to Radville and picking up the village of Trossachs on the way.",
           "startSecs": 7618.87,
           "endSecs": 7630.57
+        }
+      ]
+    },
+    {
+      "name": "Raleigh",
+      "geonameid": 4247770,
+      "latitude": 37.82699,
+      "longitude": -88.532,
+      "country_code": "US",
+      "admin1_name": "Illinois",
+      "population": 348,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 1893.656991423888,
+      "confidence": "low",
+      "needs_review": true,
+      "mentions": [
+        {
+          "transcript": "christmas1986",
+          "context": "for a young fellow like me to go to Raleigh about 19 years ago, started one-hand",
+          "startSecs": 2214.77,
+          "endSecs": 2220.03
         }
       ]
     },
@@ -2916,6 +3224,60 @@
           "context": "Recording over something so I just want to tell everyone that um I'm having fun in Regina and then",
           "startSecs": 657.49,
           "endSecs": 668.04
+        }
+      ]
+    },
+    {
+      "name": "Remsen",
+      "geonameid": 4872752,
+      "latitude": 42.81471,
+      "longitude": -95.97335,
+      "country_code": "US",
+      "admin1_name": "Iowa",
+      "population": 1632,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 1073.5299592866788,
+      "confidence": "low",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "glynn_interview",
+          "context": "Oh, I was born in a little town of Remsen, Iowa, about 20 miles out of Sioux City, Iowa, in what was known as the Corn Belt of Iowa.",
+          "startSecs": 8.58,
+          "endSecs": 21.08
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "and go back and start relating the story from where I was born at Remsen, Iowa, October the 7th, 1902.",
+          "startSecs": 37.57,
+          "endSecs": 48.57
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "all the way up from Remsen, Iowa, up to Sioux Falls, Sioux City,",
+          "startSecs": 188.36,
+          "endSecs": 194.36
+        }
+      ]
+    },
+    {
+      "name": "Rockglen",
+      "geonameid": 6126307,
+      "latitude": 49.18336,
+      "longitude": -105.95115,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 169.77087804069745,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Viceroy, down to Rockglen, Coronach, all in through that country.",
+          "startSecs": 8799.01,
+          "endSecs": 8809.61
         }
       ]
     },
@@ -3295,6 +3657,135 @@
       ]
     },
     {
+      "name": "Shellbrook",
+      "geonameid": 6145951,
+      "latitude": 53.21679,
+      "longitude": -106.40109,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 1192,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 331.600851090168,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then in '61, Rags Johnson and ourselves jointly bid on a piece of high-voltage line from Shellbrook to Prince Albert, which had a river crossing in it, which was always a big job.",
+          "startSecs": 9258.67,
+          "endSecs": 9275.86
+        }
+      ]
+    },
+    {
+      "name": "Sioux City",
+      "geonameid": 4876523,
+      "latitude": 42.49999,
+      "longitude": -96.40031,
+      "country_code": "US",
+      "admin1_name": "Iowa",
+      "population": 82821,
+      "feature_code": "PPLA2",
+      "distance_from_regina_km": 1083.2951169267353,
+      "confidence": "low",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "glynn_interview",
+          "context": "Oh, I was born in a little town of Remsen, Iowa, about 20 miles out of Sioux City, Iowa, in what was known as the Corn Belt of Iowa.",
+          "startSecs": 8.58,
+          "endSecs": 21.08
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "all the way up from Remsen, Iowa, up to Sioux Falls, Sioux City,",
+          "startSecs": 188.36,
+          "endSecs": 194.36
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "They moved away from Worthington, where we had started, and one day the boss come along and said, we're moving across the state, down near Sioux City, Iowa.",
+          "startSecs": 2441.2,
+          "endSecs": 2451.26
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "just south of Sioux City, Iowa, where we were working.",
+          "startSecs": 2506.96,
+          "endSecs": 2510.7
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Whatever possessed my dad to leave that rich farmland down around Sioux City, Iowa, and move up into the frozen, rocky prairies, I will never know. However,",
+          "startSecs": 230.41,
+          "endSecs": 247.17
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "he said, \"We're moving out of here, we're moving across the state to Sioux City, to south of Sioux City, Iowa.",
+          "startSecs": 2285.28,
+          "endSecs": 2291.73
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So we moved across to a town by the name of Winnebago, Nebraska, just south of Sioux City, Iowa.",
+          "startSecs": 2355.35,
+          "endSecs": 2365.8
+        }
+      ]
+    },
+    {
+      "name": "Sioux Falls",
+      "geonameid": 5231851,
+      "latitude": 43.54369,
+      "longitude": -96.72796,
+      "country_code": "US",
+      "admin1_name": "South Dakota",
+      "population": 171544,
+      "feature_code": "PPLA2",
+      "distance_from_regina_km": 972.0379245347197,
+      "confidence": "low",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "all the way up from Remsen, Iowa, up to Sioux Falls, Sioux City,",
+          "startSecs": 188.36,
+          "endSecs": 194.36
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And then one Sunday, I took a notion to drive up to see my brother Lorry up at Sioux Falls, South Dakota, which is about 150 miles away.",
+          "startSecs": 2563.89,
+          "endSecs": 2572.31
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So I went back up to Sioux Falls and",
+          "startSecs": 2646.16,
+          "endSecs": 2650.47
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...there and then I headed north I didn't know where I was going I stopped in at my brother's place in Sioux Falls and I had an uncle up near Aberdeen South Dakota so I",
+          "startSecs": 2892.3,
+          "endSecs": 2906.02
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I think I told you earlier in the story, when I quit in Nebraska and went up to work for my brother Lorry, who was sick at Sioux Falls, South Dakota.",
+          "startSecs": 10544.63,
+          "endSecs": 10557.15
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "...er in the story, when I quit in Nebraska and went up to work for my brother, Lorry, who was sick at Sioux Falls, South Dakota.",
+          "startSecs": 10571.28,
+          "endSecs": 10589.04
+        }
+      ]
+    },
+    {
       "name": "St. Louis",
       "geonameid": 4407066,
       "latitude": 38.62727,
@@ -3324,6 +3815,27 @@
           "context": "And I found that I was getting pretty near twice as much by shipping to St. Louis.",
           "startSecs": 675.25,
           "endSecs": 679.15
+        }
+      ]
+    },
+    {
+      "name": "Stockholm",
+      "geonameid": 6157138,
+      "latitude": 50.65001,
+      "longitude": -102.30097,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 165.34754179523438,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then I went down and I built 18 miles of line from Stockholm to Esterhazy.",
+          "startSecs": 8525.13,
+          "endSecs": 8531.34
         }
       ]
     },
@@ -3375,6 +3887,39 @@
           "context": "Well, anyway, that wound up the Stoughton job, and I finished that, as I remember, right on December the 9th, and then we folded up for the w...",
           "startSecs": 7498.15,
           "endSecs": 7514.11
+        }
+      ]
+    },
+    {
+      "name": "Sturgis",
+      "geonameid": 6158637,
+      "latitude": 51.93328,
+      "longitude": -102.53425,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 220.1775239365579,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "That was the last town, the - Sturgis.",
+          "startSecs": 8079.83,
+          "endSecs": 8081.49
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And Durnan had told me they had an old and broken down plant in Sturgis.",
+          "startSecs": 8082.99,
+          "endSecs": 8086.58
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "He said, \"You've got to get Sturgis going before you come back in for Christmas.\"",
+          "startSecs": 8086.6,
+          "endSecs": 8092.86
         }
       ]
     },
@@ -3462,6 +4007,60 @@
           "context": "We got a big project out at Swift Current.",
           "startSecs": 9388.43,
           "endSecs": 9392.06
+        }
+      ]
+    },
+    {
+      "name": "Theodore",
+      "geonameid": 6164443,
+      "latitude": 51.43329,
+      "longitude": -102.91767,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 162.10602302635996,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And in '50, I started out - built a line from Yorkton to Theodore.",
+          "startSecs": 8570.26,
+          "endSecs": 8579.71
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Then in '50, I started out. Built that line from Yorkton to Theodore and from there, Lampman to Bienfait, that was another 18 miles.",
+          "startSecs": 8637.5,
+          "endSecs": 8653.82
+        }
+      ]
+    },
+    {
+      "name": "Thunder Hawk",
+      "geonameid": 5769725,
+      "latitude": 45.93833,
+      "longitude": -101.97487,
+      "country_code": "US",
+      "admin1_name": "South Dakota",
+      "population": 0,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 538.0130642516336,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Thunder Hawk, South Dakota, up to Elgin, North Dakota, about 40 miles across.",
+          "startSecs": 3426.14,
+          "endSecs": 3432.89
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Thunder Hawk, South Dakota, up to Algin North, right through No Man's Land.",
+          "startSecs": 3454.4,
+          "endSecs": 3458.75
         }
       ]
     },
@@ -3595,6 +4194,54 @@
       ]
     },
     {
+      "name": "Trossachs",
+      "geonameid": 6169183,
+      "latitude": 49.63336,
+      "longitude": -104.21779,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPLL",
+      "distance_from_regina_km": 94.70812814968167,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "1947, my first job was building a line from Weyburn to Radville and picking up the village of Trossachs on the way.",
+          "startSecs": 7618.87,
+          "endSecs": 7630.57
+        }
+      ]
+    },
+    {
+      "name": "Valley City",
+      "geonameid": 5062292,
+      "latitude": 46.92331,
+      "longitude": -98.00315,
+      "country_code": "US",
+      "admin1_name": "North Dakota",
+      "population": 6669,
+      "feature_code": "PPLA2",
+      "distance_from_regina_km": 623.4838137464574,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Well, I went into Valley City, and I patched it up enough that I could drive another hundred miles down to my uncle's place.",
+          "startSecs": 3251.75,
+          "endSecs": 3258.08
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "But I was able to drive it into Valley City, North Dakota, and there I tied it together.",
+          "startSecs": 3292.15,
+          "endSecs": 3298.2
+        }
+      ]
+    },
+    {
       "name": "Vanguard",
       "geonameid": 6173385,
       "latitude": 49.91676,
@@ -3618,6 +4265,69 @@
           "context": "Did a bunch of Mennonite settlements there, and then down and put a line from Vanguard to Aneroid.",
           "startSecs": 8264.92,
           "endSecs": 8278.14
+        }
+      ]
+    },
+    {
+      "name": "Vegreville",
+      "geonameid": 6173635,
+      "latitude": 53.50015,
+      "longitude": -112.05182,
+      "country_code": "CA",
+      "admin1_name": "Alberta",
+      "population": 5708,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 611.5920548196376,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Built in a bunch of farms up around Lloydminster and Vegreville.",
+          "startSecs": 8616.9,
+          "endSecs": 8621.15
+        }
+      ]
+    },
+    {
+      "name": "Vermilion",
+      "geonameid": 6173801,
+      "latitude": 53.35409,
+      "longitude": -110.85849,
+      "country_code": "CA",
+      "admin1_name": "Alberta",
+      "population": 4084,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 536.2429418975729,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "...Alberta about the end of harvest and we worked up there. We did some highline move where they're building a high - it was up at the Vermilion and Lloydminster area, They were moving a highway - or widening a highway, and we moved some line for that. And then we put in a - a section of farm land - farm line there, about 50 miles of farm line.",
+          "startSecs": 7132.47,
+          "endSecs": 7160.02
+        }
+      ]
+    },
+    {
+      "name": "Viceroy",
+      "geonameid": 6173994,
+      "latitude": 49.46676,
+      "longitude": -105.3678,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 20,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 121.27222272428546,
+      "confidence": "high",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Viceroy, down to Rockglen, Coronach, all in through that country.",
+          "startSecs": 8799.01,
+          "endSecs": 8809.61
         }
       ]
     },
@@ -3781,6 +4491,27 @@
       ]
     },
     {
+      "name": "Winnebago",
+      "geonameid": 5082084,
+      "latitude": 42.23583,
+      "longitude": -96.47253,
+      "country_code": "US",
+      "admin1_name": "Nebraska",
+      "population": 787,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 1105.0492278455108,
+      "confidence": "low",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So we moved across to a town by the name of Winnebago, Nebraska, just south of Sioux City, Iowa.",
+          "startSecs": 2355.35,
+          "endSecs": 2365.8
+        }
+      ]
+    },
+    {
       "name": "Winnipeg",
       "geonameid": 6183235,
       "latitude": 49.8844,
@@ -3828,6 +4559,144 @@
           "context": "I went to Winnipeg, and I went to Ashdown Hardware, and I asked the guy, \"Have you got any wooden hay pulleys?",
           "startSecs": 7441.41,
           "endSecs": 7447.1
+        }
+      ]
+    },
+    {
+      "name": "Winnipegosis",
+      "geonameid": 6183238,
+      "latitude": 51.64861,
+      "longitude": -99.92664,
+      "country_code": "CA",
+      "admin1_name": "Manitoba",
+      "population": 945,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 354.180938558895,
+      "confidence": "medium",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "While he was there, he found out there was a little town, Winnipegosis Manitoba that needed a power plant.",
+          "startSecs": 5446.39,
+          "endSecs": 5451.73
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And they were moving that plant up to Winnipegosis.",
+          "startSecs": 5513.62,
+          "endSecs": 5517.95
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "So then I come back up to Winnipegosis, and I wound up there on Armistice Day.",
+          "startSecs": 5553.37,
+          "endSecs": 5556.9
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And they were going to put the power plant up to Winnipegosis, Manitoba.",
+          "startSecs": 5739.92,
+          "endSecs": 5745.45
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And then I went up, they said, \"We're putting the plant up to Winnipegosis, Manitoba, and we want you to go up there and wire up the town.",
+          "startSecs": 5770.93,
+          "endSecs": 5777.66
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "They shipped their stuff back to Estevan, and Mac came up to Winnipegosis, Manitoba with me where we wired houses there.",
+          "startSecs": 5799.97,
+          "endSecs": 5809.53
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "This same man Dyer, when he left Tompkins, he went up to Winnipegosis and organized the starting of a power plant in Winnipegosis.",
+          "startSecs": 5810.03,
+          "endSecs": 5824.49
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So we'll go on taping again about Winnipegosis.",
+          "startSecs": 5853.14,
+          "endSecs": 5857.43
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So while I was wiring up at Winnipegosis, this fella took holidays, and they sent me down to Estevan for one month to take charge of the dis...",
+          "startSecs": 5891.85,
+          "endSecs": 5903.6
+        }
+      ]
+    },
+    {
+      "name": "Worthington",
+      "geonameid": 4882504,
+      "latitude": 42.39639,
+      "longitude": -91.11986,
+      "country_code": "US",
+      "admin1_name": "Iowa",
+      "population": 411,
+      "feature_code": "PPL",
+      "distance_from_regina_km": 1364.3637715470222,
+      "confidence": "low",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "They moved away from Worthington, where we had started, and one day the boss come along and said, we're moving across the state, down near Sioux City, Iowa.",
+          "startSecs": 2441.2,
+          "endSecs": 2451.26
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So with that, I threw in the towel, and I packed up my suitcase, and a cousin from Worthington, Iowa, by the name of Norbert Hemmer, was up harvesting with us.",
+          "startSecs": 1965.11,
+          "endSecs": 1978.93
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "And I jumped in the car - in the car with him, and we drove straight through to Worthington, Iowa, which is about 1,300 miles.",
+          "startSecs": 1978.95,
+          "endSecs": 1986.94
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "So, anyway, I stayed with an uncle in Worthington, Iowa.",
+          "startSecs": 2020.08,
+          "endSecs": 2025.25
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Well, I stayed in Worthington during December, doing nothing, just hanging around.",
+          "startSecs": 2064.22,
+          "endSecs": 2071.35
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Worthington was about 300 people.",
+          "startSecs": 2093.85,
+          "endSecs": 2096.98
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Worthington or working out of Worthington.",
+          "startSecs": 2148.74,
+          "endSecs": 2152.23
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "We were moving around the country, not necessarily always in Worthington.",
+          "startSecs": 2277.77,
+          "endSecs": 2282.65
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "When I started working in Worthington, Iowa, we were working nine hours a day, and I got 35 cents an hour, paid my own room and board, dr...",
+          "startSecs": 10488.42,
+          "endSecs": 10500.42
         }
       ]
     },
@@ -3957,834 +4826,6 @@
           "context": "Then in '50, I started out. Built that line from Yorkton to Theodore and from there, Lampman to Bienfait, that was another 18 miles.",
           "startSecs": 8637.5,
           "endSecs": 8653.82
-        }
-      ]
-    },
-    {
-      "name": "Calgary",
-      "geonameid": 5913490,
-      "latitude": 51.05011,
-      "longitude": -114.08529,
-      "country_code": "CA",
-      "admin1_name": "Alberta",
-      "population": 1306784,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 668.9467901187583,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "christmas1986",
-          "context": "and Janey, and Calgary, I presume.",
-          "startSecs": 45.88,
-          "endSecs": 49.94
-        },
-        {
-          "transcript": "christmas1986",
-          "context": "No, Calgary, they'll be down here.",
-          "startSecs": 50.06,
-          "endSecs": 52.1
-        },
-        {
-          "transcript": "christmas1986",
-          "context": "a policeman in Calgary that had robbed 20,",
-          "startSecs": 375.4,
-          "endSecs": 380.08
-        },
-        {
-          "transcript": "christmas1986",
-          "context": "had staged 20 bank holdups in Calgary",
-          "startSecs": 380.26,
-          "endSecs": 383.14
-        },
-        {
-          "transcript": "tibbits_cd",
-          "context": "When you were on your way home Sunday, we were getting reports that the storm was coming into Calgary, and we wondered if you were going to run into it.",
-          "startSecs": 41.92,
-          "endSecs": 48.91
-        }
-      ]
-    },
-    {
-      "name": "Cascade",
-      "geonameid": 4850549,
-      "latitude": 42.29862,
-      "longitude": -91.01486,
-      "country_code": "US",
-      "admin1_name": "Iowa",
-      "population": 2271,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 1378.1705860711434,
-      "confidence": "low",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "christmas1986",
-          "context": "I had a letter from Cascade, Iowa from the cousins that were up here this summer.",
-          "startSecs": 2310.76,
-          "endSecs": 2313.8
-        }
-      ]
-    },
-    {
-      "name": "Raleigh",
-      "geonameid": 4247770,
-      "latitude": 37.82699,
-      "longitude": -88.532,
-      "country_code": "US",
-      "admin1_name": "Illinois",
-      "population": 348,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 1893.656991423888,
-      "confidence": "low",
-      "needs_review": true,
-      "mentions": [
-        {
-          "transcript": "christmas1986",
-          "context": "for a young fellow like me to go to Raleigh about 19 years ago, started one-hand",
-          "startSecs": 2214.77,
-          "endSecs": 2220.03
-        }
-      ]
-    },
-    {
-      "name": "Bienfait",
-      "geonameid": 5899466,
-      "latitude": 49.143,
-      "longitude": -102.805,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 194.71650365944515,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "glynn_interview",
-          "context": "Like, again, I have to talk about Estevan and Bienfait, the coal mines where I knew every home.",
-          "startSecs": 1553.48,
-          "endSecs": 1559.99
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Then in '50, I started out. Built that line from Yorkton to Theodore and from there, Lampman to Bienfait, that was another 18 miles.",
-          "startSecs": 8637.5,
-          "endSecs": 8653.82
-        }
-      ]
-    },
-    {
-      "name": "Camden",
-      "geonameid": 4379623,
-      "latitude": 39.19723,
-      "longitude": -94.023,
-      "country_code": "US",
-      "admin1_name": "Missouri",
-      "population": 186,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 1500.9382647978473,
-      "confidence": "low",
-      "needs_review": true,
-      "mentions": [
-        {
-          "transcript": "glynn_interview",
-          "context": "They had land promoters coming down there and saying the opportunity up in Camden.",
-          "startSecs": 3891.5,
-          "endSecs": 3898.79
-        }
-      ]
-    },
-    {
-      "name": "Lethbridge",
-      "geonameid": 6053154,
-      "latitude": 49.69999,
-      "longitude": -112.81856,
-      "country_code": "CA",
-      "admin1_name": "Alberta",
-      "population": 103197,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 590.7081861386928,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "glynn_interview",
-          "context": "It'd come all the way from Lethbridge down.",
-          "startSecs": 2767.73,
-          "endSecs": 2769.93
-        }
-      ]
-    },
-    {
-      "name": "Maple Creek",
-      "geonameid": 6065592,
-      "latitude": 49.90628,
-      "longitude": -109.48094,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 2121,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 351.32141395202046,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "glynn_interview",
-          "context": "They came in from Maple Creek.",
-          "startSecs": 2856.24,
-          "endSecs": 2857.66
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "From Maple Creek to Cypress Park, and then went north of town to Mendham and Leader up in there, and we were buildin...",
-          "startSecs": 8246.39,
-          "endSecs": 8258.29
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "All the way from, you can say, from Maple Creek to the west to -",
-          "startSecs": 8954.96,
-          "endSecs": 8967.4
-        }
-      ]
-    },
-    {
-      "name": "Meadow Lake",
-      "geonameid": 6071421,
-      "latitude": 54.13348,
-      "longitude": -108.43471,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 5266,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 485.1786967003155,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "glynn_interview",
-          "context": "take the track up, they went up into the Meadow Lake County.",
-          "startSecs": 1808.07,
-          "endSecs": 1810.61
-        }
-      ]
-    },
-    {
-      "name": "Lafleche",
-      "geonameid": 6047858,
-      "latitude": 49.708,
-      "longitude": -106.575,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 161.87050629022593,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "In the spring of '38, I went out and relieved out at Gravelbourg in Lafleche while they changed operators out there.",
-          "startSecs": 5612.7,
-          "endSecs": 5621.23
-        }
-      ]
-    },
-    {
-      "name": "Vermilion",
-      "geonameid": 6173801,
-      "latitude": 53.35409,
-      "longitude": -110.85849,
-      "country_code": "CA",
-      "admin1_name": "Alberta",
-      "population": 4084,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 536.2429418975729,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/Norm_red",
-          "context": "...Alberta about the end of harvest and we worked up there. We did some highline move where they're building a high - it was up at the Vermilion and Lloydminster area, They were moving a highway - or widening a highway, and we moved some line for that. And then we put in a - a section of farm land - farm line there, about 50 miles of farm line.",
-          "startSecs": 7132.47,
-          "endSecs": 7160.02
-        }
-      ]
-    },
-    {
-      "name": "Bismarck",
-      "geonameid": 5688025,
-      "latitude": 46.80833,
-      "longitude": -100.78374,
-      "country_code": "US",
-      "admin1_name": "North Dakota",
-      "population": 75092,
-      "feature_code": "PPLA",
-      "distance_from_regina_km": 492.79115592281397,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And he took sick, and they shoved him into the hospital in Bismarck, and he died there.",
-          "startSecs": 3398.68,
-          "endSecs": 3407.43
-        }
-      ]
-    },
-    {
-      "name": "Bulyea",
-      "geonameid": 5911269,
-      "latitude": 50.98338,
-      "longitude": -104.86783,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 62.35652257194426,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "I was building a bunch of farms and 60 miles of high line north of Regina starting up at Bulyea, and running all the way, well 60 miles north and doing all the towns",
-          "startSecs": 9187.27,
-          "endSecs": 9202.75
-        }
-      ]
-    },
-    {
-      "name": "Coronach",
-      "geonameid": 5928098,
-      "latitude": 49.11676,
-      "longitude": -105.51781,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 161.19723531672247,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Viceroy, down to Rockglen, Coronach, all in through that country.",
-          "startSecs": 8799.01,
-          "endSecs": 8809.61
-        }
-      ]
-    },
-    {
-      "name": "Davis City",
-      "geonameid": 4853458,
-      "latitude": 40.63917,
-      "longitude": -93.81161,
-      "country_code": "US",
-      "admin1_name": "Iowa",
-      "population": 195,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 1374.454939290032,
-      "confidence": "low",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And after that was finished, I got in my car and I went down to Deaner's at Davis City, Nebraska to help them harvest.",
-          "startSecs": 2736.46,
-          "endSecs": 2744.45
-        }
-      ]
-    },
-    {
-      "name": "Esterhazy",
-      "geonameid": 5949563,
-      "latitude": 50.65001,
-      "longitude": -102.08426,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 2194,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 180.52400746186382,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Then I went down and I built 18 miles of line from Stockholm to Esterhazy.",
-          "startSecs": 8525.13,
-          "endSecs": 8531.34
-        }
-      ]
-    },
-    {
-      "name": "Eston",
-      "geonameid": 5949601,
-      "latitude": 51.1501,
-      "longitude": -108.75144,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 979,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 300.78731684022415,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "After we finished that job, we did about twenty farms just north of Weyburn, and from there I got a job building a line from Dinsmore to Eston and up from Elrose to Rosetown.",
-          "startSecs": 7635.03,
-          "endSecs": 7655.62
-        }
-      ]
-    },
-    {
-      "name": "Fulton",
-      "geonameid": 5227947,
-      "latitude": 43.7247,
-      "longitude": -97.82368,
-      "country_code": "US",
-      "admin1_name": "South Dakota",
-      "population": 92,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 906.4300472759795,
-      "confidence": "low",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And one Sunday afternoon, I took a notion to drive up to Fulton, South Dakota",
-          "startSecs": 2370.26,
-          "endSecs": 2373.0
-        }
-      ]
-    },
-    {
-      "name": "Killaly",
-      "geonameid": 5991885,
-      "latitude": 50.75002,
-      "longitude": -102.8343,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 130.43819921443074,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And in '49, I went to - oh yeah, I got the piece of high voltage line, the 72,000 from Killaly,",
-          "startSecs": 8409.65,
-          "endSecs": 8420.01
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "to do that line up from Yorkton to Melville and down to Killaly, another 18 miles.",
-          "startSecs": 8450.06,
-          "endSecs": 8455.8
-        }
-      ]
-    },
-    {
-      "name": "Kincaid",
-      "geonameid": 5992138,
-      "latitude": 49.66676,
-      "longitude": -107.00126,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 190.82675924577794,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "However, I had a pretty well organized crew and we spent that summer - we had gone out through Assiniboia, did a little work onto Kincaid, and from there north up to Davidson.",
-          "startSecs": 4655.13,
-          "endSecs": 4671.93
-        }
-      ]
-    },
-    {
-      "name": "Lampman",
-      "geonameid": 6049112,
-      "latitude": 49.38336,
-      "longitude": -102.75092,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 178.40011898317206,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Then in '50, I started out. Built that line from Yorkton to Theodore and from there, Lampman to Bienfait, that was another 18 miles.",
-          "startSecs": 8637.5,
-          "endSecs": 8653.82
-        }
-      ]
-    },
-    {
-      "name": "Leader",
-      "geonameid": 6051040,
-      "latitude": 50.88341,
-      "longitude": -109.55154,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 350.9937991740183,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Well, when this was over, while we were sitting there talking, and I said, \"I see by the Leader Post that they're advertising for line construction for the Power Commission.\"",
-          "startSecs": 6153.43,
-          "endSecs": 6163.24
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "From Maple Creek to Cypress Park, and then went north of town to Mendham and Leader up in there, and we were building in a bunch of farms and whatnot.",
-          "startSecs": 8246.39,
-          "endSecs": 8258.29
-        }
-      ]
-    },
-    {
-      "name": "Mendham",
-      "geonameid": 6072079,
-      "latitude": 50.76682,
-      "longitude": -109.66827,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 358.05206574133103,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "From Maple Creek to Cypress Park, and then went north of town to Mendham and Leader up in there, and we were building in a bunch of farms and whatnot.",
-          "startSecs": 8246.39,
-          "endSecs": 8258.29
-        }
-      ]
-    },
-    {
-      "name": "Norquay",
-      "geonameid": 6089261,
-      "latitude": 51.88328,
-      "longitude": -102.08423,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 238.31750378523927,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "running from Canora, Saskatchewan, up to Preeceville, and over to Norquay.",
-          "startSecs": 7778.78,
-          "endSecs": 7783.89
-        }
-      ]
-    },
-    {
-      "name": "Oxbow",
-      "geonameid": 6095751,
-      "latitude": 49.23335,
-      "longitude": -102.1676,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 1058,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 221.47620938159577,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And after that, we had 200 farms to go down at Oxbow.",
-          "startSecs": 8281.51,
-          "endSecs": 8289.48
-        }
-      ]
-    },
-    {
-      "name": "Preeceville",
-      "geonameid": 6112862,
-      "latitude": 51.94998,
-      "longitude": -102.66766,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 1003,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 215.5814321379364,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "running from Canora, Saskatchewan, up to Preeceville, and over to Norquay.",
-          "startSecs": 7778.78,
-          "endSecs": 7783.89
-        }
-      ]
-    },
-    {
-      "name": "Prince Albert",
-      "geonameid": 6113335,
-      "latitude": 53.20008,
-      "longitude": -105.76772,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 35102,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 316.3295905005337,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Then in '61, Rags Johnson and ourselves jointly bid on a piece of high-voltage line from Shellbrook to Prince Albert, which had a river crossing in it, which was always a big job.",
-          "startSecs": 9258.67,
-          "endSecs": 9275.86
-        }
-      ]
-    },
-    {
-      "name": "Qu'Appelle",
-      "geonameid": 6114889,
-      "latitude": 50.55007,
-      "longitude": -103.88436,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 53.24792556381966,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Well, we never got as far as the Manitoba border, about Kipling to the east, and everything - always south of the valley, south of the Saskatchewan River and the Qu'Appelle Valley.",
-          "startSecs": 8969.69,
-          "endSecs": 8978.58
-        }
-      ]
-    },
-    {
-      "name": "Rockglen",
-      "geonameid": 6126307,
-      "latitude": 49.18336,
-      "longitude": -105.95115,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 169.77087804069745,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Viceroy, down to Rockglen, Coronach, all in through that country.",
-          "startSecs": 8799.01,
-          "endSecs": 8809.61
-        }
-      ]
-    },
-    {
-      "name": "Shellbrook",
-      "geonameid": 6145951,
-      "latitude": 53.21679,
-      "longitude": -106.40109,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 1192,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 331.600851090168,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Then in '61, Rags Johnson and ourselves jointly bid on a piece of high-voltage line from Shellbrook to Prince Albert, which had a river crossing in it, which was always a big job.",
-          "startSecs": 9258.67,
-          "endSecs": 9275.86
-        }
-      ]
-    },
-    {
-      "name": "Stockholm",
-      "geonameid": 6157138,
-      "latitude": 50.65001,
-      "longitude": -102.30097,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 165.34754179523438,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Then I went down and I built 18 miles of line from Stockholm to Esterhazy.",
-          "startSecs": 8525.13,
-          "endSecs": 8531.34
-        }
-      ]
-    },
-    {
-      "name": "Sturgis",
-      "geonameid": 6158637,
-      "latitude": 51.93328,
-      "longitude": -102.53425,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 220.1775239365579,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "That was the last town, the - Sturgis.",
-          "startSecs": 8079.83,
-          "endSecs": 8081.49
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And Durnan had told me they had an old and broken down plant in Sturgis.",
-          "startSecs": 8082.99,
-          "endSecs": 8086.58
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "He said, \"You've got to get Sturgis going before you come back in for Christmas.\"",
-          "startSecs": 8086.6,
-          "endSecs": 8092.86
-        }
-      ]
-    },
-    {
-      "name": "Theodore",
-      "geonameid": 6164443,
-      "latitude": 51.43329,
-      "longitude": -102.91767,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 162.10602302635996,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "And in '50, I started out - built a line from Yorkton to Theodore.",
-          "startSecs": 8570.26,
-          "endSecs": 8579.71
-        },
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Then in '50, I started out. Built that line from Yorkton to Theodore and from there, Lampman to Bienfait, that was another 18 miles.",
-          "startSecs": 8637.5,
-          "endSecs": 8653.82
-        }
-      ]
-    },
-    {
-      "name": "Trossachs",
-      "geonameid": 6169183,
-      "latitude": 49.63336,
-      "longitude": -104.21779,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 0,
-      "feature_code": "PPLL",
-      "distance_from_regina_km": 94.70812814968167,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "1947, my first job was building a line from Weyburn to Radville and picking up the village of Trossachs on the way.",
-          "startSecs": 7618.87,
-          "endSecs": 7630.57
-        }
-      ]
-    },
-    {
-      "name": "Vegreville",
-      "geonameid": 6173635,
-      "latitude": 53.50015,
-      "longitude": -112.05182,
-      "country_code": "CA",
-      "admin1_name": "Alberta",
-      "population": 5708,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 611.5920548196376,
-      "confidence": "medium",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Built in a bunch of farms up around Lloydminster and Vegreville.",
-          "startSecs": 8616.9,
-          "endSecs": 8621.15
-        }
-      ]
-    },
-    {
-      "name": "Viceroy",
-      "geonameid": 6173994,
-      "latitude": 49.46676,
-      "longitude": -105.3678,
-      "country_code": "CA",
-      "admin1_name": "Saskatchewan",
-      "population": 20,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 121.27222272428546,
-      "confidence": "high",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "Viceroy, down to Rockglen, Coronach, all in through that country.",
-          "startSecs": 8799.01,
-          "endSecs": 8809.61
-        }
-      ]
-    },
-    {
-      "name": "Winnebago",
-      "geonameid": 5082084,
-      "latitude": 42.23583,
-      "longitude": -96.47253,
-      "country_code": "US",
-      "admin1_name": "Nebraska",
-      "population": 787,
-      "feature_code": "PPL",
-      "distance_from_regina_km": 1105.0492278455108,
-      "confidence": "low",
-      "needs_review": false,
-      "mentions": [
-        {
-          "transcript": "memoirs/TDK_D60_edited_through_air",
-          "context": "So we moved across to a town by the name of Winnebago, Nebraska, just south of Sioux City, Iowa.",
-          "startSecs": 2355.35,
-          "endSecs": 2365.8
         }
       ]
     }
