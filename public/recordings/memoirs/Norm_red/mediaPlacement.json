@@ -11,6 +11,11 @@
       "filenames": ["1907_external_halbrite-15"]
     },
     {
+      "seconds": 333,
+      "type": "photo",
+      "filenames": ["Achen_men", "Achen_women"]
+    },
+    {
       "seconds": 457,
       "type": "photo",
       "filenames": ["1910_external_threshing"]
@@ -167,7 +172,7 @@
     {
       "seconds": 13257.03,
       "type": "photo",
-      "filenames": ["1990_LHA_and_pete_IMG_4907"]
+      "filenames": ["1990_LHA_and_pete_IMG_4907", "1992_handwritten_family_birth_death"]
     }
   ]
 }
