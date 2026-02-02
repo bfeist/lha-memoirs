@@ -116,11 +116,11 @@ NAME_CORRECTIONS = [
     # Linden vs Lyndon
     (r'\bLyndon Hillary\b', 'Linden Hilary'),
     (r'\bAchen Lyndon Hillary\b', 'Achen, Linden Hilary'),
-    # Brother's name - Lorry not Larry (context: brother at Sioux Falls)
-    # Note: Only correct "Larry" when it appears to be referring to Lorry
+    # Brother's name - Lorie not Larry (context: brother at Sioux Falls)
+    # Note: Only correct "Larry" when it appears to be referring to Lorie
     # This is tricky because Larry could be a different person
-    (r'\bbrother,? Larry\b', 'brother Lorry'),
-    (r'\bbrother Larry\b', 'brother Lorry'),
+    (r'\bbrother,? Larry\b', 'brother Lorie'),
+    (r'\bbrother Larry\b', 'brother Lorie'),
 ]
 
 # ============================================================================

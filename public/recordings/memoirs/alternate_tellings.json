@@ -79,7 +79,7 @@
       "tdk_window": {
         "start": 2545,
         "end": 2635,
-        "topics": "Lindy recounts a particularly rough time for a neighbor, Lorry, whose oat crop was flattened by a hailstorm in the upper Midwest. Lindy and some neighbors helped stack the ruined oats before he headed south to Nebraska to assist a cousin with the harvest, where he experienced extreme heat. He\u2019s also planning to revisit a story about his travels back up to Dakota and a visit with Janie, who had just had a baby, all during what seems to be the 1920s or 30s."
+        "topics": "Lindy recounts a particularly rough time for a neighbor, Lorie, whose oat crop was flattened by a hailstorm in the upper Midwest. Lindy and some neighbors helped stack the ruined oats before he headed south to Nebraska to assist a cousin with the harvest, where he experienced extreme heat. He\u2019s also planning to revisit a story about his travels back up to Dakota and a visit with Janie, who had just had a baby, all during what seems to be the 1920s or 30s."
       },
       "similarity_score": 8,
       "tfidf_similarity": 0.1988012928908624
@@ -228,12 +228,12 @@
       "norm_window": {
         "start": 2475,
         "end": 2565,
-        "topics": "Around March 1927, Lindy Achen transitioned from digging holes to becoming a lineman on a power line crew near Homer, Nebraska, just south of Sioux City, Iowa. After earning praise from his supervisor, he began learning skills like framing cross arms and stringing wire, building on his previous experience fixing telephones. Lindy then took a drive to visit his brother Lorry in Sioux Falls, South Dakota, highlighting a brief respite from his work."
+        "topics": "Around March 1927, Lindy Achen transitioned from digging holes to becoming a lineman on a power line crew near Homer, Nebraska, just south of Sioux City, Iowa. After earning praise from his supervisor, he began learning skills like framing cross arms and stringing wire, building on his previous experience fixing telephones. Lindy then took a drive to visit his brother Lorie in Sioux Falls, South Dakota, highlighting a brief respite from his work."
       },
       "tdk_window": {
         "start": 2320,
         "end": 2410,
-        "topics": "Lindy recounts a moment when he negotiated a raise to 40 cents an hour and moved with his work crew across Nebraska to Winnebago, just south of Sioux City, sometime before springtime. He then took a trip to visit his brother, Lorry, on his farm in Fulton, South Dakota, where he found Lorry struggling to care for his seven children after the loss of his wife. This story highlights Lindy\u2019s early career, his relationship with his brother, and a glimpse into the challenges faced by families in the Midwest during the 1920s or 30s."
+        "topics": "Lindy recounts a moment when he negotiated a raise to 40 cents an hour and moved with his work crew across Nebraska to Winnebago, just south of Sioux City, sometime before springtime. He then took a trip to visit his brother, Lorie, on his farm in Fulton, South Dakota, where he found Lorie struggling to care for his seven children after the loss of his wife. This story highlights Lindy\u2019s early career, his relationship with his brother, and a glimpse into the challenges faced by families in the Midwest during the 1920s or 30s."
       },
       "similarity_score": 8,
       "tfidf_similarity": 0.15558599145522328
@@ -382,12 +382,12 @@
       "norm_window": {
         "start": 2520,
         "end": 2610,
-        "topics": "This section of Lindy's memoirs focuses on the start of his career as a lineman around March 1927, initially working on tasks like setting poles and stringing wire. He then decided to leave his job to help his brother, Lorry Achen, who was struggling with sciatica and grief after losing his wife, and needed help with his farm in Sioux Falls, South Dakota. Lindy's willingness to support his brother highlights a close family bond and takes him away from his lineman work for a time."
+        "topics": "This section of Lindy's memoirs focuses on the start of his career as a lineman around March 1927, initially working on tasks like setting poles and stringing wire. He then decided to leave his job to help his brother, Lorie Achen, who was struggling with sciatica and grief after losing his wife, and needed help with his farm in Sioux Falls, South Dakota. Lindy's willingness to support his brother highlights a close family bond and takes him away from his lineman work for a time."
       },
       "tdk_window": {
         "start": 10510,
         "end": 10600,
-        "topics": "Lindy recounts his early career as a lineman, detailing how a foreman tried to secure him a raise from 40 to 45 cents an hour while he was working as a groundman and then a lineman in Nebraska and near Aberdeen, South Dakota, sometime in the 1920s. He mentions his brother Lorry, who was ill in Sioux Falls, South Dakota, and discusses leaving one job to help him. Lindy\u2019s experiences show a snapshot of working conditions and wages for linemen in the upper Midwest and South Dakota during that era."
+        "topics": "Lindy recounts his early career as a lineman, detailing how a foreman tried to secure him a raise from 40 to 45 cents an hour while he was working as a groundman and then a lineman in Nebraska and near Aberdeen, South Dakota, sometime in the 1920s. He mentions his brother Lorie, who was ill in Sioux Falls, South Dakota, and discusses leaving one job to help him. Lindy\u2019s experiences show a snapshot of working conditions and wages for linemen in the upper Midwest and South Dakota during that era."
       },
       "similarity_score": 9,
       "tfidf_similarity": 0.14744657610472406
@@ -513,7 +513,7 @@
       "tdk_window": {
         "start": 2500,
         "end": 2590,
-        "topics": "Lindy recounts a period in the spring and summer of an unspecified year where he helped his friend Lorry get his farm operation up and running, only to have it devastated by a hailstorm. After helping neighbors salvage Lorry's oat crop, Lindy then traveled to Nebraska to assist his cousin with the harvest. This story highlights Lindy's itinerant lifestyle as a lineman and contractor, moving throughout the upper Midwest, Saskatchewan, Manitoba, and Nebraska."
+        "topics": "Lindy recounts a period in the spring and summer of an unspecified year where he helped his friend Lorie get his farm operation up and running, only to have it devastated by a hailstorm. After helping neighbors salvage Lorie's oat crop, Lindy then traveled to Nebraska to assist his cousin with the harvest. This story highlights Lindy's itinerant lifestyle as a lineman and contractor, moving throughout the upper Midwest, Saskatchewan, Manitoba, and Nebraska."
       },
       "similarity_score": 8,
       "tfidf_similarity": 0.13699095604854056
@@ -681,7 +681,7 @@
       "tdk_window": {
         "start": 2680,
         "end": 2770,
-        "topics": "Lindy recounts a period in 1927 when he traveled to Davis City, Nebraska, to help his cousin, a Hemmer girl married to a Deaner, with the harvest. After assisting a friend, Lorry, with damaged oats in Iowa, Lindy experienced an intense, unrelenting heat wave while working the fields\u2014a defining memory that shaped his perception of hot weather. The story highlights Lindy\u2019s itinerant work life as a lineman and contractor, moving across Iowa, Nebraska, and eventually the upper Midwest and Canada."
+        "topics": "Lindy recounts a period in 1927 when he traveled to Davis City, Nebraska, to help his cousin, a Hemmer girl married to a Deaner, with the harvest. After assisting a friend, Lorie, with damaged oats in Iowa, Lindy experienced an intense, unrelenting heat wave while working the fields\u2014a defining memory that shaped his perception of hot weather. The story highlights Lindy\u2019s itinerant work life as a lineman and contractor, moving across Iowa, Nebraska, and eventually the upper Midwest and Canada."
       },
       "similarity_score": 8,
       "tfidf_similarity": 0.1261150431374362
@@ -723,7 +723,7 @@
       "tdk_window": {
         "start": 10465,
         "end": 10555,
-        "topics": "Lindy recounts his early career as a lineman and contractor, starting in Worthington, Iowa, around the 1920s when he earned 35 cents an hour. He shares a story about a foreman, who tried to get him a raise, and then later left his job in Nebraska to help his sick brother, Lorry, in Sioux Falls, South Dakota. Through these stories, Lindy also touches on his family\u2019s broader movement across the upper Midwest and into Canada."
+        "topics": "Lindy recounts his early career as a lineman and contractor, starting in Worthington, Iowa, around the 1920s when he earned 35 cents an hour. He shares a story about a foreman, who tried to get him a raise, and then later left his job in Nebraska to help his sick brother, Lorie, in Sioux Falls, South Dakota. Through these stories, Lindy also touches on his family\u2019s broader movement across the upper Midwest and into Canada."
       },
       "similarity_score": 9,
       "tfidf_similarity": 0.12483891913425443
