@@ -321,6 +321,82 @@ def format_timestamp(seconds: float) -> str:
     return f"{mins}:{secs:02d}"
 
 
+def get_transcript_segments_around_time(recording_id: str, start_seconds: float, context_seconds: float = 60) -> str:
+    """
+    Fetch the actual transcript text around a given timestamp from the CSV source.
+    Returns the raw transcript text for verification purposes.
+
+    Args:
+        recording_id: The recording ID to look up
+        start_seconds: The start time in seconds
+        context_seconds: How many seconds of context to include (before and after)
+    """
+    # Map recording_id back to file path
+    path_map = {v: k for k, v in RECORDING_ID_MAP.items()}
+    path = path_map.get(recording_id)
+
+    if not path:
+        logger.warning(f"Unknown recording_id: {recording_id}")
+        return ""
+
+    transcript_file = PUBLIC_DIR / path / "transcript.csv"
+    if not transcript_file.exists():
+        logger.warning(f"Transcript file not found: {transcript_file}")
+        return ""
+
+    # Read the CSV and find segments in the time range
+    segments = []
+    try:
+        with open(transcript_file, "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f, delimiter="|")
+            for row in reader:
+                try:
+                    seg_start = float(row["start"])
+                    seg_end = float(row["end"])
+                    text = row["text"].strip()
+
+                    # Include segments that overlap with our time window
+                    window_start = start_seconds - context_seconds
+                    window_end = start_seconds + context_seconds
+
+                    if seg_end >= window_start and seg_start <= window_end:
+                        segments.append({
+                            "start": seg_start,
+                            "end": seg_end,
+                            "text": text
+                        })
+                except (ValueError, KeyError):
+                    continue
+    except Exception as e:
+        logger.error(f"Error reading transcript: {e}")
+        return ""
+
+    # Sort by start time and join
+    segments.sort(key=lambda x: x["start"])
+    return " ".join(seg["text"] for seg in segments if seg["text"])
+
+
+def fetch_source_material_for_citations(citations: list[Citation], context_seconds: float = 60) -> dict[str, str]:
+    """
+    Fetch the actual source transcript text for each citation.
+    Returns a dict mapping citation key to transcript text.
+    """
+    source_material = {}
+
+    for citation in citations:
+        key = f"{citation.recording_id}@{citation.start_seconds}"
+        text = get_transcript_segments_around_time(
+            citation.recording_id,
+            citation.start_seconds,
+            context_seconds
+        )
+        if text:
+            source_material[key] = text
+            logger.info(f"Fetched {len(text)} chars for citation {key}")
+
+    return source_material
+
+
 def chunk_transcript(segments: list[dict[str, Any]], recording_id: str) -> list[Document]:
     """
     Create overlapping chunks from transcript segments.
@@ -771,6 +847,24 @@ def hybrid_search(query: str, k: int = 60) -> list[Document]:
     return [doc for doc, score in sorted_results[:k]]
 
 
+VERIFICATION_PROMPT = """You are a fact-checker for a family history assistant. Your job is to verify and revise an AI-generated answer against the actual source transcript material.
+
+CRITICAL RULES:
+1. Compare the AI's answer to the actual source transcripts provided.
+2. REMOVE any claims that are NOT supported by the source material.
+3. CORRECT any factual errors (wrong dates, names, places, numbers).
+4. ADD important details from the source that were missed.
+5. Keep the natural prose style - do not list facts.
+6. If the AI fabricated information not in the sources, remove it entirely.
+7. Preserve accurate statements exactly as written.
+
+CITATION RULES:
+- Keep citations in the format [Source: recording_id, Time: MM:SS] or [Source: recording_id, Time: MM:SS, Segments: N]
+- Only keep citations that are actually supported by the corresponding source text.
+- Remove citations for fabricated content.
+
+Your output should be the REVISED answer only - no explanations or meta-commentary."""
+
 SYSTEM_PROMPT = """You are a family historian assistant with access to audio transcripts from Linden Hilary Achen (1902-1994). These voice memoirs were recorded by Lindy Achen in the 1980s. Lindy is a male.
 
 USE LOW REASONING EFFORT - answer quickly and directly.
@@ -983,55 +1077,68 @@ Look through ALL the context above and provide a complete answer."""
     return ChatResponse(answer=updated_answer, citations=citations)
 
 
-@app.post("/chat/stream")
+@app.post("/chat/stream/verified")
 @limiter.limit(RATE_LIMIT_STREAM)
-async def chat_stream(request: Request, chat_request: ChatRequest):
-    """Streaming chat endpoint with rate limiting."""
+async def chat_stream_verified(request: Request, chat_request: ChatRequest):
+    """
+    Two-stage verified streaming chat endpoint.
+
+    Stage 1: Generate initial answer with citations
+    Stage 2: Verify answer against actual source transcripts and revise
+
+    SSE event types:
+    - stage1_thinking: Thinking from initial generation
+    - stage1_text: Accumulated text from initial generation
+    - stage1_complete: Stage 1 finished, includes initial answer
+    - stage2_thinking: Thinking from verification stage
+    - stage2_text: Streaming verified/revised answer
+    - citations: Final citations
+    - done: Complete
+    """
     query = chat_request.query
-    logger.info(f"Stream from {request.client.host}: {query[:50]}...")
-    
+    logger.info(f"Verified stream from {request.client.host}: {query[:50]}...")
+
     # Check for place mentions in the query
     mentioned_places = find_places_in_query(query)
     place_context, place_docs = get_place_mentions_context(mentioned_places)
-    
+
     if mentioned_places:
         logger.info(f"Found {len(mentioned_places)} places in query: {[p.get('name') for p in mentioned_places]}")
-    
+
     # Use hybrid search (vector + BM25)
     docs = hybrid_search(query, k=25)
-    
+
     # Filter out documents that don't have meaningful keyword overlap
-    # Increased min_score to 0.25 for stricter filtering
     docs_filtered = filter_documents_by_relevance(docs, query, min_score=0.25)
-    
+
     # Send top 6 most relevant to avoid overwhelming the model
     docs_for_llm = docs_filtered[:6]
-    
+
     # Combine place docs with search docs for citation extraction
     all_docs_for_citations = place_docs + docs_for_llm
-    
+
     async def generate():
         if not docs_for_llm and not place_docs:
-            yield f"data: {json.dumps({'type': 'text', 'content': 'No relevant transcripts found.'})}\n\n"
+            yield f"data: {json.dumps({'type': 'stage2_text', 'content': 'No relevant transcripts found.'})}\n\n"
             yield f"data: {json.dumps({'type': 'citations', 'citations': []})}\n\n"
             yield "data: [DONE]\n\n"
             return
-        
+
         context_parts = []
-        
+
         # Add place-specific context first if available
         if place_context:
             context_parts.append("=== GEOGRAPHIC CONTEXT ===")
             context_parts.append(place_context)
             context_parts.append("\n=== TRANSCRIPT CHUNKS ===")
-        
+
         for doc in docs_for_llm:
             rec_id = doc.metadata.get("recording_id", "unknown")
             ts = doc.metadata.get("timestamp", "0:00")
             context_parts.append(f"[Source: {rec_id}, Time: {ts}]\n{doc.page_content}")
-        
+
         context = "\n\n---\n\n".join(context_parts)
-        
+
         user_message = f"""Context from transcripts:
 
 {context}
@@ -1042,17 +1149,18 @@ Question: {query}
 
 Look through ALL the context above and provide a complete answer."""
 
+        # === STAGE 1: Generate initial answer ===
+        logger.info("Stage 1: Generating initial answer...")
         accumulated_text = ""
         accumulated_thinking = ""
-        
-        # Use raw Ollama API for proper thinking stream support
+
         try:
             async with httpx.AsyncClient(timeout=120.0) as client:
                 async with client.stream(
                     "POST",
                     f"{OLLAMA_BASE_URL}/api/chat",
                     json={
-                        "model": CHAT_MODEL, 
+                        "model": CHAT_MODEL,
                         "messages": [
                             {"role": "system", "content": SYSTEM_PROMPT},
                             {"role": "user", "content": user_message},
@@ -1065,31 +1173,252 @@ Look through ALL the context above and provide a complete answer."""
                             try:
                                 data = json.loads(line)
                                 message = data.get("message", {})
-                                
+
                                 # Stream thinking if present
-                                thinking_chunk = message.get("thinking", "") 
+                                thinking_chunk = message.get("thinking", "")
                                 if thinking_chunk:
                                     accumulated_thinking += thinking_chunk
-                                    yield f"data: {json.dumps({'type': 'thinking', 'content': thinking_chunk})}\n\n"
-                                
+                                    yield f"data: {json.dumps({'type': 'stage1_thinking', 'content': thinking_chunk})}\n\n"
+
                                 # Stream content if present
                                 content_chunk = message.get("content", "")
                                 if content_chunk:
                                     accumulated_text += content_chunk
-                                    yield f"data: {json.dumps({'type': 'text', 'content': content_chunk})}\n\n"
+                                    yield f"data: {json.dumps({'type': 'stage1_text', 'content': content_chunk})}\n\n"
                             except json.JSONDecodeError:
                                 continue
         except Exception as e:
-            logger.error(f"Stream error: {e}")
+            logger.error(f"Stage 1 error: {e}")
             yield f"data: {json.dumps({'type': 'error', 'content': str(e)[:100]})}\n\n"
-        
-        # Extract and refine citations, get updated answer text
-        updated_answer, citations = extract_citations(accumulated_text, all_docs_for_citations)
-        citations_data = [c.model_dump() for c in citations]
-        yield f"data: {json.dumps({'type': 'citations', 'citations': citations_data})}\n\n"
+            return
+
+        # Extract citations from initial answer
+        initial_answer, citations = extract_citations(accumulated_text, all_docs_for_citations)
+        logger.info(f"Stage 1 complete: {len(initial_answer)} chars, {len(citations)} citations")
+
+        # Send stage 1 complete signal with the initial answer
+        yield f"data: {json.dumps({'type': 'stage1_complete', 'content': initial_answer, 'thinking': accumulated_thinking})}\n\n"
+
+        # === STAGE 2: Verify against source material ===
+        if not citations:
+            # No citations to verify, just return the initial answer
+            logger.info("No citations to verify, returning initial answer")
+            yield f"data: {json.dumps({'type': 'stage2_text', 'content': initial_answer})}\n\n"
+            yield f"data: {json.dumps({'type': 'citations', 'citations': []})}\n\n"
+            yield "data: [DONE]\n\n"
+            return
+
+        logger.info("Stage 2: Fetching source material for verification...")
+
+        # Fetch actual transcript text for each citation
+        source_material = fetch_source_material_for_citations(citations, context_seconds=90)
+
+        if not source_material:
+            # Couldn't fetch any source material, return initial answer
+            logger.warning("Could not fetch source material, returning initial answer")
+            citations_data = [c.model_dump() for c in citations]
+            yield f"data: {json.dumps({'type': 'stage2_text', 'content': initial_answer})}\n\n"
+            yield f"data: {json.dumps({'type': 'citations', 'citations': citations_data})}\n\n"
+            yield "data: [DONE]\n\n"
+            return
+
+        # Build verification context
+        verification_context_parts = []
+        for key, text in source_material.items():
+            rec_id, timestamp = key.split("@")
+            formatted_ts = format_timestamp(float(timestamp))
+            verification_context_parts.append(f"=== Source: {rec_id} @ {formatted_ts} ===\n{text}")
+
+        verification_context = "\n\n".join(verification_context_parts)
+
+        verification_message = f"""Original Question: {query}
+
+AI-Generated Answer to verify:
+{accumulated_text}
+
+Source Transcript Material:
+{verification_context}
+
+Please verify the AI's answer against the source transcripts. Correct any errors, remove fabricated content, and add important missed details. Keep the same citation format."""
+
+        # Stream stage 2 verification
+        logger.info("Stage 2: Running verification...")
+        verified_text = ""
+        verification_thinking = ""
+
+        try:
+            async with httpx.AsyncClient(timeout=120.0) as client:
+                async with client.stream(
+                    "POST",
+                    f"{OLLAMA_BASE_URL}/api/chat",
+                    json={
+                        "model": CHAT_MODEL,
+                        "messages": [
+                            {"role": "system", "content": VERIFICATION_PROMPT},
+                            {"role": "user", "content": verification_message},
+                        ],
+                        "stream": True,
+                    },
+                ) as response:
+                    async for line in response.aiter_lines():
+                        if line.strip():
+                            try:
+                                data = json.loads(line)
+                                message = data.get("message", {})
+
+                                # Stream thinking if present
+                                thinking_chunk = message.get("thinking", "")
+                                if thinking_chunk:
+                                    verification_thinking += thinking_chunk
+                                    yield f"data: {json.dumps({'type': 'stage2_thinking', 'content': thinking_chunk})}\n\n"
+
+                                # Stream content if present
+                                content_chunk = message.get("content", "")
+                                if content_chunk:
+                                    verified_text += content_chunk
+                                    yield f"data: {json.dumps({'type': 'stage2_text', 'content': content_chunk})}\n\n"
+                            except json.JSONDecodeError:
+                                continue
+        except Exception as e:
+            logger.error(f"Stage 2 error: {e}")
+            # Fall back to initial answer on verification failure
+            citations_data = [c.model_dump() for c in citations]
+            yield f"data: {json.dumps({'type': 'stage2_text', 'content': initial_answer})}\n\n"
+            yield f"data: {json.dumps({'type': 'citations', 'citations': citations_data})}\n\n"
+            yield "data: [DONE]\n\n"
+            return
+
+        # Extract final citations from verified answer
+        final_answer, final_citations = extract_citations(verified_text, all_docs_for_citations)
+        final_citations_data = [c.model_dump() for c in final_citations]
+
+        logger.info(f"Stage 2 complete: {len(final_answer)} chars, {len(final_citations)} citations")
+
+        yield f"data: {json.dumps({'type': 'citations', 'citations': final_citations_data})}\n\n"
         yield "data: [DONE]\n\n"
-    
+
     return StreamingResponse(generate(), media_type="text/event-stream")
 
 
+@app.get("/debug/verify")
+async def debug_verify(query: str):
+    """
+    Debug endpoint to test the two-stage verification without streaming.
+    Returns both stage 1 and stage 2 results for comparison.
+    """
+    logger.info(f"Debug verify: {query}")
 
+    # Check for place mentions
+    mentioned_places = find_places_in_query(query)
+    place_context, place_docs = get_place_mentions_context(mentioned_places)
+
+    # Hybrid search
+    docs = hybrid_search(query, k=25)
+    docs_filtered = filter_documents_by_relevance(docs, query, min_score=0.25)
+    docs_for_llm = docs_filtered[:6]
+    all_docs_for_citations = place_docs + docs_for_llm
+
+    if not docs_for_llm and not place_docs:
+        return {"error": "No relevant transcripts found"}
+
+    context_parts = []
+    if place_context:
+        context_parts.append("=== GEOGRAPHIC CONTEXT ===")
+        context_parts.append(place_context)
+        context_parts.append("\n=== TRANSCRIPT CHUNKS ===")
+
+    for doc in docs_for_llm:
+        rec_id = doc.metadata.get("recording_id", "unknown")
+        ts = doc.metadata.get("timestamp", "0:00")
+        context_parts.append(f"[Source: {rec_id}, Time: {ts}]\n{doc.page_content}")
+
+    context = "\n\n---\n\n".join(context_parts)
+
+    user_message = f"""Context from transcripts:
+
+{context}
+
+---
+
+Question: {query}
+
+Look through ALL the context above and provide a complete answer."""
+
+    # Stage 1: Generate initial answer
+    llm = ChatOllama(model=CHAT_MODEL, base_url=OLLAMA_BASE_URL, temperature=0.3)
+
+    try:
+        response = llm.invoke([
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_message},
+        ])
+        stage1_raw = response.content
+    except Exception as e:
+        return {"error": f"Stage 1 failed: {str(e)}"}
+
+    # Extract citations
+    stage1_answer, citations = extract_citations(stage1_raw, all_docs_for_citations)
+
+    # Fetch source material
+    source_material = fetch_source_material_for_citations(citations, context_seconds=90)
+
+    if not source_material:
+        return {
+            "query": query,
+            "stage1_raw": stage1_raw,
+            "stage1_cleaned": stage1_answer,
+            "citations": [c.model_dump() for c in citations],
+            "source_material": {},
+            "stage2_answer": None,
+            "note": "No source material fetched - skipping verification"
+        }
+
+    # Build verification context
+    verification_parts = []
+    for key, text in source_material.items():
+        rec_id, timestamp = key.split("@")
+        formatted_ts = format_timestamp(float(timestamp))
+        verification_parts.append(f"=== Source: {rec_id} @ {formatted_ts} ===\n{text}")
+
+    verification_context = "\n\n".join(verification_parts)
+
+    verification_message = f"""Original Question: {query}
+
+AI-Generated Answer to verify:
+{stage1_raw}
+
+Source Transcript Material:
+{verification_context}
+
+Please verify the AI's answer against the source transcripts. Correct any errors, remove fabricated content, and add important missed details. Keep the same citation format."""
+
+    # Stage 2: Verify
+    try:
+        response = llm.invoke([
+            {"role": "system", "content": VERIFICATION_PROMPT},
+            {"role": "user", "content": verification_message},
+        ])
+        stage2_raw = response.content
+    except Exception as e:
+        return {
+            "query": query,
+            "stage1_raw": stage1_raw,
+            "stage1_cleaned": stage1_answer,
+            "citations": [c.model_dump() for c in citations],
+            "source_material": source_material,
+            "stage2_answer": None,
+            "error": f"Stage 2 failed: {str(e)}"
+        }
+
+    stage2_answer, final_citations = extract_citations(stage2_raw, all_docs_for_citations)
+
+    return {
+        "query": query,
+        "stage1_raw": stage1_raw,
+        "stage1_cleaned": stage1_answer,
+        "stage1_citations": [c.model_dump() for c in citations],
+        "source_material": source_material,
+        "stage2_raw": stage2_raw,
+        "stage2_cleaned": stage2_answer,
+        "stage2_citations": [c.model_dump() for c in final_citations],
+    }

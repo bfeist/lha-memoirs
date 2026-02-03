@@ -18,7 +18,12 @@ interface Message {
   content: string;
   citations?: Citation[];
   isStreaming?: boolean;
-  thinking?: string;
+  // Two-stage verification thinking
+  stage1Thinking?: string;
+  stage1Response?: string;
+  stage2Thinking?: string;
+  // Current stage during streaming
+  currentStage?: 1 | 2;
 }
 
 // RAG API base URL - always use production proxy (works for local dev too)
@@ -201,11 +206,15 @@ const LhaGpt: React.FC<{
     // User is sending a message, ensure we're at the bottom
     isAtBottomRef.current = true;
 
-    // Add placeholder for streaming response
-    setMessages((prev) => [...prev, { role: "assistant", content: "", isStreaming: true }]);
+    // Add placeholder for streaming response with stage tracking
+    setMessages((prev) => [
+      ...prev,
+      { role: "assistant", content: "", isStreaming: true, currentStage: 1 },
+    ]);
 
     try {
-      const response = await fetch(`${RAG_API_URL}/chat/stream`, {
+      // Use the verified endpoint for two-stage fact checking
+      const response = await fetch(`${RAG_API_URL}/chat/stream/verified`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -224,22 +233,20 @@ const LhaGpt: React.FC<{
 
       const decoder = new TextDecoder();
       let accumulatedData = "";
-      let accumulatedText = "";
-      let accumulatedThinking = "";
+      // Stage 1 accumulation
+      let stage1Text = "";
+      let stage1Thinking = "";
+      // Stage 2 accumulation
+      let stage2Text = "";
+      let stage2Thinking = "";
       let citations: Citation[] = [];
 
-      const updateStreamingMessage = (text: string, thinking?: string, cites?: Citation[]) => {
+      const updateStreamingMessage = (updates: Partial<Message>) => {
         setMessages((prev) => {
           const newMessages = [...prev];
           const lastMsg = newMessages[newMessages.length - 1];
           if (lastMsg?.isStreaming) {
-            lastMsg.content = text;
-            if (thinking !== undefined) {
-              lastMsg.thinking = thinking;
-            }
-            if (cites) {
-              lastMsg.citations = cites;
-            }
+            Object.assign(lastMsg, updates);
           }
           return newMessages;
         });
@@ -264,25 +271,57 @@ const LhaGpt: React.FC<{
               try {
                 const data = JSON.parse(jsonStr);
 
-                if (data.type === "text" && data.content) {
-                  accumulatedText += data.content;
-                  // Normalize narrator references and remove citation markers as we stream
+                // Stage 1 events
+                if (data.type === "stage1_thinking" && data.content) {
+                  stage1Thinking += data.content;
+                  updateStreamingMessage({
+                    stage1Thinking,
+                    currentStage: 1,
+                    content: "", // No final content yet
+                  });
+                } else if (data.type === "stage1_text" && data.content) {
+                  stage1Text += data.content;
+                  // Don't show stage1 text as the main content - it's unverified
+                  updateStreamingMessage({
+                    stage1Thinking,
+                    currentStage: 1,
+                  });
+                } else if (data.type === "stage1_complete" && data.content) {
+                  // Stage 1 finished, store the initial response
+                  stage1Text = data.content;
+                  updateStreamingMessage({
+                    stage1Thinking: data.thinking || stage1Thinking,
+                    stage1Response: stage1Text,
+                    currentStage: 2,
+                  });
+                }
+                // Stage 2 events
+                else if (data.type === "stage2_thinking" && data.content) {
+                  stage2Thinking += data.content;
+                  updateStreamingMessage({
+                    stage2Thinking,
+                    currentStage: 2,
+                  });
+                } else if (data.type === "stage2_text" && data.content) {
+                  stage2Text += data.content;
+                  // Show stage2 text as main content - this is the verified response
                   const cleanedText = removeCitationMarkers(
-                    normalizeNarratorReferences(accumulatedText)
+                    normalizeNarratorReferences(stage2Text)
                   );
-                  updateStreamingMessage(cleanedText, accumulatedThinking);
-                } else if (data.type === "thinking" && data.content) {
-                  accumulatedThinking += data.content;
-                  const cleanedText = removeCitationMarkers(
-                    normalizeNarratorReferences(accumulatedText)
-                  );
-                  updateStreamingMessage(cleanedText, accumulatedThinking);
+                  updateStreamingMessage({
+                    content: cleanedText,
+                    stage2Thinking,
+                    currentStage: 2,
+                  });
                 } else if (data.type === "citations" && data.citations) {
                   citations = data.citations;
                   const cleanedText = removeCitationMarkers(
-                    normalizeNarratorReferences(accumulatedText)
+                    normalizeNarratorReferences(stage2Text)
                   );
-                  updateStreamingMessage(cleanedText, accumulatedThinking, citations);
+                  updateStreamingMessage({
+                    content: cleanedText,
+                    citations,
+                  });
                 } else if (data.type === "error") {
                   throw new Error(data.content || "Unknown error");
                 }
@@ -304,6 +343,7 @@ const LhaGpt: React.FC<{
         const lastMsg = newMessages[newMessages.length - 1];
         if (lastMsg?.isStreaming) {
           lastMsg.isStreaming = false;
+          lastMsg.currentStage = undefined;
           if (!lastMsg.citations && citations.length > 0) {
             lastMsg.citations = citations;
           }
@@ -428,7 +468,8 @@ const LhaGpt: React.FC<{
               <div className={styles.messageContent}>
                 {msg.role === "assistant" ? (
                   <>
-                    {msg.thinking && (
+                    {/* Two-stage thinking section */}
+                    {(msg.stage1Thinking || msg.stage1Response || msg.stage2Thinking) && (
                       <div className={styles.thinkingSection}>
                         <button
                           className={styles.thinkingToggle}
@@ -436,16 +477,60 @@ const LhaGpt: React.FC<{
                           aria-expanded={expandedThinking.has(idx)}
                         >
                           {expandedThinking.has(idx) ? "▼" : "▶"}{" "}
-                          {msg.content ? "Thinking" : "Thinking ..."}
+                          {msg.currentStage === 1
+                            ? "Generating initial response..."
+                            : msg.currentStage === 2
+                              ? "Verifying against source..."
+                              : "Thinking & Verification"}
                         </button>
                         {expandedThinking.has(idx) && (
-                          <div className={styles.thinkingContent}>{msg.thinking}</div>
+                          <div className={styles.thinkingContent}>
+                            {/* Stage 1 thinking */}
+                            {msg.stage1Thinking && (
+                              <div className={styles.thinkingStage}>
+                                <div className={styles.stageLabel}>Stage 1: Initial Generation</div>
+                                <div className={styles.stageThinking}>{msg.stage1Thinking}</div>
+                              </div>
+                            )}
+                            {/* Stage 1 response */}
+                            {msg.stage1Response && (
+                              <div className={styles.thinkingStage}>
+                                <div className={styles.stageLabel}>
+                                  Initial Response (unverified)
+                                </div>
+                                <div className={styles.stageResponse}>{msg.stage1Response}</div>
+                              </div>
+                            )}
+                            {/* Stage 2 thinking */}
+                            {msg.stage2Thinking && (
+                              <div className={styles.thinkingStage}>
+                                <div className={styles.stageLabel}>Stage 2: Fact-Checking</div>
+                                <div className={styles.stageThinking}>{msg.stage2Thinking}</div>
+                              </div>
+                            )}
+                          </div>
                         )}
                       </div>
                     )}
+                    {/* Show stage indicator during streaming */}
+                    {msg.isStreaming && msg.currentStage === 1 && !msg.content && (
+                      <div className={styles.stageIndicator}>
+                        <span className={styles.loader} aria-hidden="true" />
+                        <span>Searching transcripts and generating response...</span>
+                      </div>
+                    )}
+                    {msg.isStreaming && msg.currentStage === 2 && !msg.content && (
+                      <div className={styles.stageIndicator}>
+                        <span className={styles.loader} aria-hidden="true" />
+                        <span>Verifying facts against source transcripts...</span>
+                      </div>
+                    )}
+                    {/* Main verified content */}
                     <div className={styles.markdown}>
                       <ReactMarkdown>{msg.content}</ReactMarkdown>
-                      {msg.isStreaming && <span className={styles.loader} aria-hidden="true" />}
+                      {msg.isStreaming && msg.content && (
+                        <span className={styles.loader} aria-hidden="true" />
+                      )}
                     </div>
                     {msg.citations && msg.citations.length > 0 && (
                       <div className={styles.citationsSection}>

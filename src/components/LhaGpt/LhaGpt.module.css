@@ -322,8 +322,63 @@
   background: rgb(0 0 0 / 30%);
   border-left: 2px solid rgb(100 100 100 / 40%);
   border-radius: 4px;
-  max-height: 200px;
+  max-height: 300px;
   overflow-y: auto;
+}
+
+/* Two-stage verification thinking styles */
+.thinkingStage {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgb(100 100 100 / 30%);
+}
+
+.thinkingStage:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.stageLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.stageThinking {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #888888;
+  white-space: pre-wrap;
+}
+
+.stageResponse {
+  font-family: inherit;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #aaaaaa;
+  padding: 0.5rem;
+  background: rgb(0 0 0 / 20%);
+  border-radius: 4px;
+  white-space: pre-wrap;
+}
+
+/* Stage indicator during streaming */
+.stageIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  background: rgb(212 175 55 / 5%);
+  border: 1px dashed rgb(212 175 55 / 30%);
+  border-radius: 6px;
 }
 
 /* Citations Section */
