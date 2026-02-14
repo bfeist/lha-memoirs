@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "total_places": 99,
-    "last_updated": "2026-02-01 00:03:07",
+    "total_places": 100,
+    "last_updated": "2026-02-13 21:33:46",
     "reference_point": {
       "name": "Regina, Saskatchewan",
       "latitude": 50.4452,
@@ -1531,6 +1531,20 @@
           "endSecs": 5629.6
         }
       ]
+    },
+    {
+      "name": "Griffin",
+      "geonameid": 5967049,
+      "latitude": 49.66675,
+      "longitude": -103.43434,
+      "country_code": "CA",
+      "admin1_name": "Saskatchewan",
+      "population": 0,
+      "feature_code": "PPLL",
+      "distance_from_regina_km": 121.01036475169168,
+      "confidence": "user_added",
+      "needs_review": false,
+      "mentions": []
     },
     {
       "name": "Gull Lake",
