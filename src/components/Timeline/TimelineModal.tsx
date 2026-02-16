@@ -95,7 +95,7 @@ export function TimelineModal({
           <div className={styles.titleContainer}>
             <FontAwesomeIcon icon={faClock} className={styles.titleIcon} />
             <h2 id="timeline-title" className={styles.title}>
-              Life Timeline
+              Timeline
             </h2>
             {data && (
               <span className={styles.timeRange}>

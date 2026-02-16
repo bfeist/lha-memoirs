@@ -3,7 +3,7 @@
 Build a timeline of Lindy Achen's life from memoir transcripts.
 
 This script:
-1. Extracts all year references from both memoir transcripts (Norm_red, TDK)
+1. Extracts all year references from memoir transcripts and interviews
 2. Groups related excerpts by year or year range
 3. Uses Gemma3:12b via Ollama to generate descriptions for each time period
 4. Outputs timeline.json to /public
@@ -40,24 +40,32 @@ except ImportError as e:
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 PUBLIC_DIR = PROJECT_ROOT / "public"
-RECORDINGS_DIR = PUBLIC_DIR / "recordings" / "memoirs"
+RECORDINGS_BASE_DIR = PUBLIC_DIR / "recordings"
 OUTPUT_FILE = PUBLIC_DIR / "timeline.json"
 
 # Add scripts directory to path for imports
 sys.path.insert(0, str(SCRIPT_DIR))
 from transcript_utils import load_transcript, get_transcript_path
 
-# Recording configs - maps recording folder to display info
+# Recording configs - maps recording info including folder path
 RECORDINGS = {
-    "Norm_red": {
+    "memoirs_main": {
         "id": "memoirs_main",
         "title": "Memoirs",
-        "audioPath": "/recordings/memoirs/Norm_red/audio.webm",
+        "folder": "memoirs/Norm_red",
+        "audioPath": "/static_assets/audio/memoirs/Norm_red/audio_original.mp3",
     },
-    "TDK_D60_edited_through_air": {
+    "memoirs_second_telling": {
         "id": "memoirs_second_telling", 
-        "title": "Earlier Telling",
-        "audioPath": "/recordings/memoirs/TDK_D60_edited_through_air/audio.webm",
+        "title": "Memoirs - Second Telling",
+        "folder": "memoirs/TDK_D60_edited_through_air",
+        "audioPath": "/static_assets/audio/memoirs/TDK_D60_edited_through_air/audio_original.mp3",
+    },
+    "glynn_interview": {
+        "id": "glynn_interview",
+        "title": "Glynn Interview",
+        "folder": "glynn_interview",
+        "audioPath": "/static_assets/audio/glynn_interview/audio_original.mp3",
     },
 }
 
@@ -136,9 +144,8 @@ def normalize_year(year_str: str) -> Optional[int]:
         return None
 
 
-def extract_year_mentions(segments: list, recording_key: str) -> list[Excerpt]:
+def extract_year_mentions(segments: list, recording_info: dict) -> list[Excerpt]:
     """Extract all year mentions from transcript segments."""
-    recording = RECORDINGS[recording_key]
     excerpts = []
     
     for seg in segments:
@@ -153,9 +160,9 @@ def extract_year_mentions(segments: list, recording_key: str) -> list[Excerpt]:
             year = normalize_year(match)
             if year and TIMELINE_START <= year <= TIMELINE_END:
                 excerpts.append(Excerpt(
-                    recording_id=recording["id"],
-                    recording_title=recording["title"],
-                    audio_url=recording["audioPath"],
+                    recording_id=recording_info["id"],
+                    recording_title=recording_info["title"],
+                    audio_url=recording_info["audioPath"],
                     text=text.strip(),
                     start_time=start,
                     end_time=end,
@@ -362,8 +369,8 @@ def build_timeline(dry_run: bool = False) -> list[TimelineEntry]:
     
     # Load and analyze each recording
     for recording_key, recording_info in RECORDINGS.items():
-        recording_path = RECORDINGS_DIR / recording_key
-        print(f"\n[Folder] Processing {recording_key}...")
+        recording_path = RECORDINGS_BASE_DIR / recording_info["folder"]
+        print(f"\n[Folder] Processing {recording_info['title']}...")
         
         transcript_path = get_transcript_path(recording_path)
         if not transcript_path:
@@ -378,7 +385,7 @@ def build_timeline(dry_run: bool = False) -> list[TimelineEntry]:
         segments = transcript_data["segments"]
         print(f"   Loaded {len(segments)} segments")
         
-        excerpts = extract_year_mentions(segments, recording_key)
+        excerpts = extract_year_mentions(segments, recording_info)
         print(f"   Found {len(excerpts)} year mentions")
         
         all_excerpts.extend(excerpts)

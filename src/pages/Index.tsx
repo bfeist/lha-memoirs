@@ -100,12 +100,12 @@ function Index(): React.ReactElement {
           <button
             className={`${styles.featureButton}`}
             onClick={() => setShowTimeline(true)}
-            aria-label="Explore Life Timeline"
+            aria-label="Explore Timeline"
           >
             <div className={styles.featureContent}>
               <div className={styles.featureTitleLine}>
                 <FontAwesomeIcon icon={faClock} className={styles.featureIcon} />
-                <span className={styles.featureTitle}>Life Timeline</span>
+                <span className={styles.featureTitle}>Timeline</span>
               </div>
               <span className={styles.featureDescription}>1902–1966</span>
             </div>
