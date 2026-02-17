@@ -41,7 +41,8 @@ export const RECORDINGS: RecordingConfig[] = [
     id: "lha_sr_hilary",
     path: "LHA_Sr.Hilary",
     title: "Sister Hilary Recording",
-    subtitle: "Recordings with his older sister, Sister Hilary, discussing family and career.",
+    subtitle:
+      "Recording from 1989 with Lindy's older sister, Sister Hilary, discussing family and career.",
     categoryLabel: "Family Recording",
     backgroundImages: ["/photos/tibbits/P1010033.jpg", "/photos/tibbits/P1010034.jpg"],
     category: "recording",

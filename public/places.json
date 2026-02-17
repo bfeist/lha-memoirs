@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "total_places": 100,
-    "last_updated": "2026-02-13 21:33:46",
+    "total_places": 101,
+    "last_updated": "2026-02-16 21:59:48",
     "reference_point": {
       "name": "Regina, Saskatchewan",
       "latitude": 50.4452,
@@ -118,6 +118,12 @@
         {
           "transcript": "glynn_interview",
           "context": "I was out west between Shaunavon and Assiniboia in 1935 and 1936, and there it was terrible.",
+          "startSecs": 1739.95,
+          "endSecs": 1748.14
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I was out west between Shaunavon and Assiniboia in 1935 and 1936, and there it was terrible.",
           "startSecs": 1739.96,
           "endSecs": 1748.15
         },
@@ -228,6 +234,12 @@
         {
           "transcript": "glynn_interview",
           "context": "Like, again, I have to talk about Estevan and Bienfait, the coal mines where I knew every home.",
+          "startSecs": 1553.46,
+          "endSecs": 1559.93
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Like, again, I have to talk about Estevan and Bienfait, the coal mines where I knew every home.",
           "startSecs": 1553.48,
           "endSecs": 1559.99
         },
@@ -252,6 +264,12 @@
       "confidence": "medium",
       "needs_review": false,
       "mentions": [
+        {
+          "transcript": "glynn_interview",
+          "context": "The first that I noticed of the Depression was in the fall of '30, we were working in Biggar.",
+          "startSecs": 1382.35,
+          "endSecs": 1389.52
+        },
         {
           "transcript": "glynn_interview",
           "context": "The first that I noticed of the depression was in the fall of 30, we were working in Biggar.",
@@ -923,6 +941,12 @@
         },
         {
           "transcript": "LHA_Sr.Hilary",
+          "context": "and then went to the Dominion Electric Power Company in Estevan, Saskatchewan,",
+          "startSecs": 283.36,
+          "endSecs": 290.04
+        },
+        {
+          "transcript": "LHA_Sr.Hilary",
           "context": "...ident of the Central Line Contractors Association, a charter member of the Kinsmen of Canada in the Estevan branch, a lifetime member of the BPOE Elks Lodge of Canada,",
           "startSecs": 395.36,
           "endSecs": 422.62
@@ -965,6 +989,18 @@
         },
         {
           "transcript": "glynn_interview",
+          "context": "And that winter they put me taking over service work in Estevan.",
+          "startSecs": 740.22,
+          "endSecs": 744.3
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "And into '33, then the power company in Estevan phoned me up one day and asked me to come down for about a month.",
+          "startSecs": 1183.36,
+          "endSecs": 1190.43
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "Then the power company in Estevan phoned me up one day and asked me to come down for about a month.",
           "startSecs": 1186.24,
           "endSecs": 1190.43
@@ -983,9 +1019,27 @@
         },
         {
           "transcript": "glynn_interview",
+          "context": "Well, I could have bumped a married man in Estevan, but...",
+          "startSecs": 1258.17,
+          "endSecs": 1261.81
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "When I got back into Estevan again in 1937, all kinds of people were living off relief, right up until the war.",
+          "startSecs": 1497.5,
+          "endSecs": 1507.47
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "When I got back into Estevan again in 1937, all kinds of people were living off relief, right up until the war.",
           "startSecs": 1497.56,
           "endSecs": 1507.93
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Like, again, I have to talk about Estevan and Bienfait, the coal mines where I knew every home.",
+          "startSecs": 1553.46,
+          "endSecs": 1559.93
         },
         {
           "transcript": "glynn_interview",
@@ -995,15 +1049,45 @@
         },
         {
           "transcript": "glynn_interview",
+          "context": "They had no, now I couldn't speak for, well I can speak for Estevan too.",
+          "startSecs": 2912.97,
+          "endSecs": 2919.54
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "The use car lots, plug full, plug full, wherever you go, every small town, Weyburn, Estevan.",
+          "startSecs": 3409.67,
+          "endSecs": 3415.38
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "Wherever you go, every small town, Waver and Estevan, the towns in between, all plugged full of used, good used cars, not junk cars, good used cars.",
           "startSecs": 3412.57,
           "endSecs": 3422.08
         },
         {
           "transcript": "glynn_interview",
+          "context": "Basically, you went to Weyburn and Estevan for those things.",
+          "startSecs": 3821.3,
+          "endSecs": 3826.25
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "The same, I drove into Estevan after they had the big strike, the coal miner strike down there and shot two or three guys.",
+          "startSecs": 4156.91,
+          "endSecs": 4163.98
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "I drove into Estevan after they had the big strike, the coal miner strike down there and shot two or three guys.",
           "startSecs": 4158.09,
           "endSecs": 4163.98
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "...ompany to go contracting, they were trying to organize a union in our company, the power company in Estevan.",
+          "startSecs": 4283.65,
+          "endSecs": 4292.66
         },
         {
           "transcript": "memoirs/Norm_red",
@@ -1544,7 +1628,32 @@
       "distance_from_regina_km": 121.01036475169168,
       "confidence": "user_added",
       "needs_review": false,
-      "mentions": []
+      "mentions": [
+        {
+          "transcript": "glynn_interview",
+          "context": "We had a doctor at Griffin, which was 10 miles away, but that wasn't our town.",
+          "startSecs": 2351.71,
+          "endSecs": 2355.75
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "And then I went up to Griffin.",
+          "startSecs": 1692.4,
+          "endSecs": 1694.1
+        },
+        {
+          "transcript": "memoirs/Norm_red",
+          "context": "Finally, he said one day, \"I'm going up to Griffin to see the doctor.\"",
+          "startSecs": 2052.22,
+          "endSecs": 2055.42
+        },
+        {
+          "transcript": "memoirs/TDK_D60_edited_through_air",
+          "context": "Finally, one day he goes to the doctor at Griffin.",
+          "startSecs": 1249.27,
+          "endSecs": 1251.58
+        }
+      ]
     },
     {
       "name": "Gull Lake",
@@ -1559,6 +1668,12 @@
       "confidence": "medium",
       "needs_review": false,
       "mentions": [
+        {
+          "transcript": "glynn_interview",
+          "context": "And then they had another project starting up there, building another town out by Gull Lake.",
+          "startSecs": 1200.24,
+          "endSecs": 1209.11
+        },
         {
           "transcript": "glynn_interview",
           "context": "They were building another town out by Gull Lake.",
@@ -1666,15 +1781,33 @@
         },
         {
           "transcript": "glynn_interview",
+          "context": "I was at Halbrite.",
+          "startSecs": 41.8,
+          "endSecs": 43.66
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "I was brought up on a farm at Halbrite.",
           "startSecs": 50.34,
           "endSecs": 52.5
         },
         {
           "transcript": "glynn_interview",
+          "context": "I was brought up on a farm at Halbrite.",
+          "startSecs": 50.35,
+          "endSecs": 52.07
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "We're in a small community in Halbrite.",
           "startSecs": 2925.14,
           "endSecs": 2927.13
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Oh, when we came to Halbrite in 1907, it was about 700 people.",
+          "startSecs": 3794.05,
+          "endSecs": 3798.72
         },
         {
           "transcript": "memoirs/Norm_red",
@@ -2033,6 +2166,27 @@
       ]
     },
     {
+      "name": "Le Mars",
+      "geonameid": 4864337,
+      "latitude": 42.79416,
+      "longitude": -96.16558,
+      "country_code": "US",
+      "admin1_name": "Iowa",
+      "population": 9761,
+      "feature_code": "PPLA2",
+      "distance_from_regina_km": 1066.5318003542448,
+      "confidence": "user_added",
+      "needs_review": false,
+      "mentions": [
+        {
+          "transcript": "LHA_Sr.Hilary",
+          "context": "So I'll start out with Achen, Linden Hilary, 86 years of age. Born, Le Mars, Iowa immigrated to his - with his family to Canada in 1907. Pre-deceased by his parents",
+          "startSecs": 37.22,
+          "endSecs": 67.18
+        }
+      ]
+    },
+    {
       "name": "Leader",
       "geonameid": 6051040,
       "latitude": 50.88341,
@@ -2110,6 +2264,12 @@
           "context": "It'd come all the way from Lethbridge down.",
           "startSecs": 2767.73,
           "endSecs": 2769.93
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "It'd come all the way from Lethbridge down.",
+          "startSecs": 2767.74,
+          "endSecs": 2769.95
         }
       ]
     },
@@ -2239,6 +2399,12 @@
       "mentions": [
         {
           "transcript": "glynn_interview",
+          "context": "Taken a trek up, they went up into the Meadow Lake.",
+          "startSecs": 1808.05,
+          "endSecs": 1810.47
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "take the track up, they went up into the Meadow Lake County.",
           "startSecs": 1808.07,
           "endSecs": 1810.61
@@ -2287,9 +2453,27 @@
         },
         {
           "transcript": "glynn_interview",
+          "context": "And then when I come back, I get in the town of Midale, where my",
+          "startSecs": 1116.6,
+          "endSecs": 1120.9
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "My brother married a girl from Midale, and there they wanted to put a little power system in Midale.",
+          "startSecs": 1122.45,
+          "endSecs": 1129.0
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "And there they want to put a little power system in Midale.",
           "startSecs": 1125.9,
           "endSecs": 1129.02
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "In Midale, I wired homes all winter in Midale in 19...",
+          "startSecs": 1433.94,
+          "endSecs": 1438.42
         },
         {
           "transcript": "glynn_interview",
@@ -2314,6 +2498,12 @@
           "context": "Well, the barber in Midale, he's still living.",
           "startSecs": 2699.39,
           "endSecs": 2702.92
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Yeah, well, Midale was about 250 people.",
+          "startSecs": 3803.33,
+          "endSecs": 3805.85
         },
         {
           "transcript": "memoirs/Norm_red",
@@ -2924,6 +3114,12 @@
         {
           "transcript": "glynn_interview",
           "context": "I had a phone call in a couple of days to come up to Regina.",
+          "startSecs": 778.2,
+          "endSecs": 783.86
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I had a phone call in a couple of days to come up to Regina.",
           "startSecs": 778.26,
           "endSecs": 783.87
         },
@@ -2935,15 +3131,39 @@
         },
         {
           "transcript": "glynn_interview",
+          "context": "You worked here in Regina?",
+          "startSecs": 786.12,
+          "endSecs": 786.95
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "I sent a bill in for the wages, and oh, the guy in Regina, he just raised a dick, and what authority did I have to hire a man?",
           "startSecs": 995.09,
           "endSecs": 1002.28
         },
         {
           "transcript": "glynn_interview",
+          "context": "I sent a bill in for the wages, and oh, the guy in Regina, he just raised a dick, and what authority did I have to hire a man?",
+          "startSecs": 995.24,
+          "endSecs": 1002.33
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "So I told the superintendent in Saskatoon, I said, \"You tell that guy in Regina that he better pull in his horns or I'll tell him to stick his job.\"",
+          "startSecs": 1040.52,
+          "endSecs": 1050.49
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "guy in Regina that he better pull on his horns or I'll tell him to stick his job.",
           "startSecs": 1045.96,
           "endSecs": 1050.48
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "What's in Regina?",
+          "startSecs": 1051.71,
+          "endSecs": 1052.63
         },
         {
           "transcript": "glynn_interview",
@@ -2965,6 +3185,18 @@
         },
         {
           "transcript": "glynn_interview",
+          "context": "What government was in Regina?",
+          "startSecs": 3276.47,
+          "endSecs": 3279.81
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "But I could see it in my own uneducated way in Regina here.",
+          "startSecs": 3402.78,
+          "endSecs": 3409.13
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "uneducated way in Regina here.",
           "startSecs": 3407.11,
           "endSecs": 3409.11
@@ -2974,6 +3206,12 @@
           "context": "Do you remember the big truck that came through Regina?",
           "startSecs": 4128.49,
           "endSecs": 4131.84
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Do you remember the big trek that came through Regina?",
+          "startSecs": 4128.77,
+          "endSecs": 4131.82
         },
         {
           "transcript": "memoirs/Norm_red",
@@ -3257,6 +3495,12 @@
         {
           "transcript": "glynn_interview",
           "context": "Oh, I was born in a little town of Remsen, Iowa, about 20 miles out of Sioux City, Iowa, in what was known as the Corn Belt of Iowa.",
+          "startSecs": 8.57,
+          "endSecs": 21.06
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Oh, I was born in a little town of Remsen, Iowa, about 20 miles out of Sioux City, Iowa, in what was known as the Corn Belt of Iowa.",
           "startSecs": 8.58,
           "endSecs": 21.08
         },
@@ -3310,15 +3554,33 @@
       "mentions": [
         {
           "transcript": "glynn_interview",
+          "context": "Class A district was Rosetown.",
+          "startSecs": 846.21,
+          "endSecs": 847.91
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "In four months in Saskatoon, the superintendent asked me if I wanted to go out to Rosetown.",
           "startSecs": 942.78,
           "endSecs": 947.0
         },
         {
           "transcript": "glynn_interview",
+          "context": "In four months in Saskatoon, the superintendent asked me if I wanted to go out to Rosetown.",
+          "startSecs": 942.8,
+          "endSecs": 948.02
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "And I said, \"Why Rosetown?\"",
           "startSecs": 948.04,
           "endSecs": 949.05
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "So I was transferred to Rosetown.",
+          "startSecs": 955.18,
+          "endSecs": 957.1
         },
         {
           "transcript": "glynn_interview",
@@ -3331,6 +3593,18 @@
           "context": "So I went to Rosetown and took over there and enjoyed the work.",
           "startSecs": 968.07,
           "endSecs": 974.26
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "So I went to Rosetown and took over there, and did join the work.",
+          "startSecs": 968.1,
+          "endSecs": 974.41
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "when I was at Rosetown in 1937, that's on the main road north from Swift Current, the people were migrating up there.",
+          "startSecs": 1749.23,
+          "endSecs": 1758.52
         },
         {
           "transcript": "glynn_interview",
@@ -3452,6 +3726,12 @@
         {
           "transcript": "glynn_interview",
           "context": "No, they sent me to Saskatoon.",
+          "startSecs": 791.16,
+          "endSecs": 793.01
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "No, they sent me to Saskatoon.",
           "startSecs": 791.18,
           "endSecs": 793.0
         },
@@ -3470,8 +3750,20 @@
         {
           "transcript": "glynn_interview",
           "context": "which was Saskatoon.",
+          "startSecs": 844.95,
+          "endSecs": 846.19
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "which was Saskatoon.",
           "startSecs": 844.98,
           "endSecs": 846.18
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "When I went into Saskatoon, I was working directly under the superintendent.",
+          "startSecs": 848.69,
+          "endSecs": 853.03
         },
         {
           "transcript": "glynn_interview",
@@ -3487,9 +3779,21 @@
         },
         {
           "transcript": "glynn_interview",
+          "context": "So I had three areas to look after going out of Saskatoon, north and east and south and east.",
+          "startSecs": 880.03,
+          "endSecs": 886.33
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "I left Saskatoon.",
           "startSecs": 941.68,
           "endSecs": 942.76
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I left Saskatoon.",
+          "startSecs": 941.71,
+          "endSecs": 942.67
         },
         {
           "transcript": "glynn_interview",
@@ -3499,9 +3803,27 @@
         },
         {
           "transcript": "glynn_interview",
+          "context": "In four months in Saskatoon, the superintendent asked me if I wanted to go out to Rosetown.",
+          "startSecs": 942.8,
+          "endSecs": 948.02
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "So I told the superintendent in Saskatoon, I said, \"You tell that guy in Regina that he better pull in his horns or I'll tell him to stick hi...",
+          "startSecs": 1040.52,
+          "endSecs": 1050.49
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "So I told the superintendent in Saskatoon, I said, \"You tell that",
           "startSecs": 1040.55,
           "endSecs": 1044.68
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "If you talk about unemployment, I'll get back to that when I was in Saskatoon in the spring of '31.",
+          "startSecs": 3091.97,
+          "endSecs": 3096.91
         },
         {
           "transcript": "glynn_interview",
@@ -3605,6 +3927,12 @@
         {
           "transcript": "glynn_interview",
           "context": "I was out west between Shaunavon and Assiniboia in 1935 and 1936, and there it was terrible.",
+          "startSecs": 1739.95,
+          "endSecs": 1748.14
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "I was out west between Shaunavon and Assiniboia in 1935 and 1936, and there it was terrible.",
           "startSecs": 1739.96,
           "endSecs": 1748.15
         },
@@ -3704,6 +4032,12 @@
       "confidence": "low",
       "needs_review": false,
       "mentions": [
+        {
+          "transcript": "glynn_interview",
+          "context": "Oh, I was born in a little town of Remsen, Iowa, about 20 miles out of Sioux City, Iowa, in what was known as the Corn Belt of Iowa.",
+          "startSecs": 8.57,
+          "endSecs": 21.06
+        },
         {
           "transcript": "glynn_interview",
           "context": "Oh, I was born in a little town of Remsen, Iowa, about 20 miles out of Sioux City, Iowa, in what was known as the Corn Belt of Iowa.",
@@ -3952,6 +4286,12 @@
       "mentions": [
         {
           "transcript": "glynn_interview",
+          "context": "when I was at Rosetown in 1937, that's on the main road north from Swift Current, the people were migrating up there.",
+          "startSecs": 1749.23,
+          "endSecs": 1758.52
+        },
+        {
+          "transcript": "glynn_interview",
           "context": "When I was at Rosetown in 1937, that's on the main road north from Swift Current, that people were migrating up there.",
           "startSecs": 1750.39,
           "endSecs": 1758.52
@@ -4099,6 +4439,12 @@
         },
         {
           "transcript": "LHA_Sr.Hilary",
+          "context": "and the next electric company I worked for was the Tompkins Electric in Saskatchewan where I operated the power plant",
+          "startSecs": 292.37,
+          "endSecs": 302.15
+        },
+        {
+          "transcript": "LHA_Sr.Hilary",
           "context": "And my first venture into business was to become the president and general manager of Tompkins Electric, which was just a small electric plant, diesel plant.",
           "startSecs": 338.05,
           "endSecs": 357.89
@@ -4108,6 +4454,12 @@
           "context": "And I might mention that I was the president of Tompkins Electric, the president of Achen Minerals, the founding president of RAL Minerals Limited,",
           "startSecs": 376.3,
           "endSecs": 391.92
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "it's conditions are so bad for it now. When I went into this small town of Tompkins to build a power line in the fall of '33 in that small town there were about 300 maybe 275 300 peop...",
+          "startSecs": 3150.71,
+          "endSecs": 3172.35
         },
         {
           "transcript": "glynn_interview",
@@ -4383,6 +4735,18 @@
           "endSecs": 2924.86
         },
         {
+          "transcript": "glynn_interview",
+          "context": "The use car lots, plug full, plug full, wherever you go, every small town, Weyburn, Estevan.",
+          "startSecs": 3409.67,
+          "endSecs": 3415.38
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Basically, you went to Weyburn and Estevan for those things.",
+          "startSecs": 3821.3,
+          "endSecs": 3826.25
+        },
+        {
           "transcript": "memoirs/Norm_red",
           "context": "in Weyburn.",
           "startSecs": 1002.19,
@@ -4543,6 +4907,12 @@
           "context": "and one in Winnipeg,",
           "startSecs": 1411.59,
           "endSecs": 1412.33
+        },
+        {
+          "transcript": "glynn_interview",
+          "context": "Well, they said the guy that came in there, this Annie Buller, she's a woman from Winnipeg, and what was the other fellow's name, the ringleader, they said \"He's a communist, but he was maki...",
+          "startSecs": 4233.68,
+          "endSecs": 4248.7
         },
         {
           "transcript": "glynn_interview",

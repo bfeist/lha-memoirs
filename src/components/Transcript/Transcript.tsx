@@ -551,6 +551,16 @@ const Transcript = memo(function Transcript({
               <p className={styles.chapterDescription}>{group.chapter.description}</p>
             )}
 
+            {group.chapter.audioFile && (
+              /* eslint-disable-next-line jsx-a11y/media-has-caption */
+              <audio
+                controls
+                preload="none"
+                src={group.chapter.audioFile}
+                className={styles.chapterAudio}
+              />
+            )}
+
             <div className={styles.paragraph}>
               {group.segments.map((segment, segmentIndex) => {
                 const actualSegmentIndex = segments.findIndex((s) => s === segment);

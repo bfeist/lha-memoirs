@@ -1,24 +1,14 @@
 {
   "chapters": [
     {
-      "title": "Recording an Obituary",
+      "title": "Lindy Records His Obituary",
       "startTime": 6.44,
       "description": "Lindy states their intention to record their obituary to ease the burden on their family and provide a guide for those writing it."
     },
     {
-      "title": "Funeral Details Announced",
-      "startTime": 140.39,
-      "description": "Lindy transitions to detailing funeral arrangements, including prayers, burial, and cremation."
-    },
-    {
-      "title": "Starting a Career in Electrical Work",
-      "startTime": 240.66,
-      "description": "Lindy begins describing his early work experience on the farm and in the electrical field."
-    },
-    {
-      "title": "Business Ventures Listed",
-      "startTime": 338.05,
-      "description": "Lindy begins listing his various business ventures and affiliations, starting with Tompkins Electric."
+      "title": "Some Business Life History",
+      "startTime": 223.67,
+      "description": "Lindy lists the places he worked and various business ventures and affiliations he was part of."
     },
     {
       "title": "Organizational Memberships",
@@ -29,34 +19,40 @@
     {
       "title": "Company Sale and Family History",
       "startTime": 578.08,
-      "description": "Lindy transitions to discussing the history of Achen Construction Company, its sale, and its continued operation."
-    },
-    {
-      "title": "Family and Mortality",
-      "startTime": 624.76,
-      "description": "Lindy shifts to discussing his sister and reflecting on his life's accomplishments.",
+      "description": "Lindy transitions to discussing the history of Achen Construction Company, its sale, and its continued operation.",
       "minor": true
     },
     {
-      "title": "Sister Hilary Singing",
-      "startTime": 677.17,
-      "description": ""
+      "title": "Reflections on Sister and Life Accomplishments",
+      "startTime": 624.76,
+      "description": "Lindy shifts to discussing his sister and reflecting on his life's accomplishments."
     },
     {
-      "title": "Mail Order Poetry Catalogs and Childhood Memories",
-      "startTime": 783.99,
-      "description": "Lindy discusses receiving catalogs of poetry from a mail-order house."
+      "title": "Sister Hilary and Lindy Singing",
+      "startTime": 677.17,
+      "description": "Smile! Smile! Smile! recorded in 1907 by Billy Murray with Ada Jones. Original recording available below.",
+      "audioFile": "/static_assets/audio/smile_smile_smile.mp3"
+    },
+    {
+      "title": "Conversational Recordings of Lindy and Sister Hilary",
+      "startTime": 718.48,
+      "description": "Quiet discussion in the back yard."
+    },
+    {
+      "title": "Back Operation",
+      "startTime": 759.02,
+      "description": "Quiet discussion in the back yard.",
+      "minor": true
     },
     {
       "title": "History of Property Sale",
-      "startTime": 874.75,
+      "startTime": 869.0,
       "description": "Lindy introduces a historical account of selling property and company shares."
     },
     {
-      "title": "Listening to Recordings and Date/Time",
+      "title": "A Beautiful Day in 1989",
       "startTime": 931.75,
-      "description": "Lindy states the date as July 1st, 1989 and comments on the beautiful weather.",
-      "minor": true
+      "description": "Lindy states the date as July 1st, 1989 and comments on the beautiful weather."
     }
   ],
   "summary": "A personal memoir recording covering family memories and life stories."

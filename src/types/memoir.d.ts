@@ -17,6 +17,8 @@ interface Chapter {
   /** If true, this is a minor chapter (sub-section/story within a parent chapter) */
   minor?: boolean;
   uuid?: string;
+  /** Optional path to an audio file to display as an inline player below the chapter description */
+  audioFile?: string;
 }
 
 interface ChaptersData {

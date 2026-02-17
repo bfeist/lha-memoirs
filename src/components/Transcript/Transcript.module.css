@@ -104,6 +104,16 @@
   font-style: italic;
 }
 
+.chapterAudio {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: 36px;
+  margin-bottom: 0.75rem;
+  border-radius: 6px;
+  opacity: 0.85;
+}
+
 /* Paragraph text */
 .paragraph {
   margin: 0;

@@ -67,6 +67,12 @@ RECORDINGS = {
         "folder": "glynn_interview",
         "audioPath": "/static_assets/audio/glynn_interview/audio_original.mp3",
     },
+    "sister_hilary": {
+        "id": "lha_sr_hilary",
+        "title": "Sister Hilary Recording",
+        "folder": "LHA_Sr.Hilary",
+        "audioPath": "/static_assets/audio/LHA_Sr.Hilary/audio_original.mp3",
+    },
 }
 
 # Model configuration
