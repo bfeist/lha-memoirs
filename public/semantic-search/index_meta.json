@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "model": "all-MiniLM-L6-v2",
+  "embedding_dim": 384,
+  "embedding_dtype": "float16",
+  "num_segments": 7083,
+  "built_at": "2026-02-23T05:08:56.992618+00:00",
+  "files": {
+    "segments": "segments.json",
+    "embeddings": "embeddings.bin"
+  }
+}

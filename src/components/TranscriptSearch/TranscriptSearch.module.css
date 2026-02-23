@@ -59,8 +59,6 @@
 
 /* Clear button */
 .clearButton {
-  position: absolute;
-  right: 0.75rem;
   padding: 0.5rem;
   background: transparent;
   border: none;
@@ -68,10 +66,34 @@
   cursor: pointer;
   font-size: 1rem;
   transition: color 0.2s ease;
+  flex-shrink: 0;
 }
 
 .clearButton:hover {
   color: #e0e0e0;
+}
+
+/* Mode toggle button */
+.modeToggle {
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgb(212 175 55 / 25%);
+  color: #888888;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.modeToggle:hover {
+  color: #d4af37;
+  background: rgb(212 175 55 / 10%);
+}
+
+.modeToggleActive {
+  color: #d4af37;
+  background: rgb(212 175 55 / 15%);
 }
 
 /* Loading message */
@@ -176,24 +198,30 @@
   border-bottom: none;
 }
 
+/* Result header row (title + timestamp) */
+.resultHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
 /* Result title */
 .resultTitle {
   color: #6495ed;
   font-size: 0.9rem;
   font-weight: 500;
-  margin-bottom: 0.25rem;
 }
 
 /* Result timestamp */
 .resultTimestamp {
   display: inline-block;
-  padding: 0.2rem 0.5rem;
+  padding: 0.15rem 0.4rem;
   background: #2a2a2a;
   border-radius: 4px;
   color: #999999;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-family: "Courier New", monospace;
-  margin-bottom: 0.5rem;
 }
 
 /* Result text */
@@ -206,6 +234,47 @@
   display: -webkit-box;
   line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+/* Score row (semantic search) */
+.resultScoreRow {
+  margin-top: 0.35rem;
+}
+
+/* Score bar */
+.scoreBar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 120px;
+  height: 6px;
+  background: #1a1a1a;
+  border-radius: 3px;
+  overflow: visible;
+  position: relative;
+}
+
+.scoreBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #d4af37, #6495ed);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.scoreBarLabel {
+  font-size: 0.7rem;
+  color: #888888;
+  font-family: "Courier New", monospace;
+  position: absolute;
+  left: calc(100% + 6px);
+  white-space: nowrap;
+}
+
+/* Header mode icon */
+.headerModeIcon {
+  margin-right: 0.35rem;
+  color: #d4af37;
+  font-size: 0.75rem;
 }
 
 /* Highlight */
