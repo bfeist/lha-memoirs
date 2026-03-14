@@ -14,6 +14,7 @@ import { PlacesMapModal } from "../components/PlacesMap";
 import { TimelineModal } from "../components/Timeline";
 import TranscriptSearch from "../components/TranscriptSearch/TranscriptSearch";
 import { useChangelog } from "../hooks/useChangelog";
+import { useRagServerOnline } from "../hooks/useRagServerOnline";
 import styles from "./Index.module.css";
 import "../global/global.css";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -45,6 +46,7 @@ function Index(): React.ReactElement {
   const [showPlacesMap, setShowPlacesMap] = useState(false);
   const [showTimeline, setShowTimeline] = useState(false);
   const { data: changelog } = useChangelog();
+  const ragOnline = useRagServerOnline();
   const recordings = getRecordingsByCategory("recording");
   const memoirs = getRecordingsByCategory("memoir");
 
@@ -123,19 +125,21 @@ function Index(): React.ReactElement {
               <span className={styles.featureDescription}>Places Lindy Mentions</span>
             </div>
           </button>
-          <button
-            className={`${styles.featureButton}`}
-            onClick={() => setShowLhaGpt(true)}
-            aria-label="Chat with LHA-GPT"
-          >
-            <div className={styles.featureContent}>
-              <div className={styles.featureTitleLine}>
-                <FontAwesomeIcon icon={faRobot} className={styles.featureIcon} />
-                <span className={styles.featureTitle}>LHA-GPT</span>
+          {ragOnline && (
+            <button
+              className={`${styles.featureButton}`}
+              onClick={() => setShowLhaGpt(true)}
+              aria-label="Chat with LHA-GPT"
+            >
+              <div className={styles.featureContent}>
+                <div className={styles.featureTitleLine}>
+                  <FontAwesomeIcon icon={faRobot} className={styles.featureIcon} />
+                  <span className={styles.featureTitle}>LHA-GPT</span>
+                </div>
+                <span className={styles.featureDescription}>Ask questions</span>
               </div>
-              <span className={styles.featureDescription}>Ask questions</span>
-            </div>
-          </button>
+            </button>
+          )}
           <button
             className={`${styles.featureButton}`}
             onClick={() => setShowWhatsNew(true)}

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleChevronRight, faRobot } from "@fortawesome/free-solid-svg-icons";
 import ReactMarkdown from "react-markdown";
 import { PlayableQuotation } from "./PlayableQuotation";
+import { useRagServerOnline } from "../../hooks/useRagServerOnline";
 
 const STORAGE_KEY = "lha-gpt-chat-history";
 
@@ -45,7 +46,7 @@ const LhaGpt: React.FC<{
   const [isLoading, setIsLoading] = useState(false);
   const [expandedThinking, setExpandedThinking] = useState<Set<number>>(new Set());
   const [expandedCitations, setExpandedCitations] = useState<Set<number>>(new Set());
-  const [serverOnline, setServerOnline] = useState(false); // Start pessimistic, set true on connect
+  const serverOnline = useRagServerOnline(isOpen);
   const [playingQuotationKey, setPlayingQuotationKey] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
@@ -59,66 +60,6 @@ const LhaGpt: React.FC<{
       console.error("Failed to save chat history:", e);
     }
   }, [messages]);
-
-  // Monitor server health using persistent SSE connection
-  useEffect(() => {
-    if (!isOpen) return;
-
-    let eventSource: EventSource | null = null;
-    let reconnectTimeout: number | null = null;
-
-    const connect = () => {
-      try {
-        eventSource = new EventSource(`${RAG_API_URL}/health/stream`);
-
-        eventSource.onopen = () => {
-          setServerOnline(true);
-          // Clear any pending reconnect attempts
-          if (reconnectTimeout) {
-            clearTimeout(reconnectTimeout);
-            reconnectTimeout = null;
-          }
-        };
-
-        eventSource.onmessage = (event) => {
-          try {
-            const data = JSON.parse(event.data);
-            if (data.status === "connected" || data.status === "alive") {
-              setServerOnline(true);
-            }
-          } catch (e) {
-            console.error("Failed to parse health event:", e);
-          }
-        };
-
-        eventSource.onerror = () => {
-          setServerOnline(false);
-          eventSource?.close();
-
-          // Attempt to reconnect after 5 seconds
-          if (!reconnectTimeout) {
-            reconnectTimeout = window.setTimeout(() => {
-              reconnectTimeout = null;
-              connect();
-            }, 5000);
-          }
-        };
-      } catch (error) {
-        console.error("Failed to create EventSource:", error);
-        setServerOnline(false);
-      }
-    };
-
-    // Initial connection
-    connect();
-
-    return () => {
-      if (reconnectTimeout) {
-        clearTimeout(reconnectTimeout);
-      }
-      eventSource?.close();
-    };
-  }, [isOpen]);
 
   // Check if user is at the bottom of the messages
   const checkIfAtBottom = useCallback(() => {

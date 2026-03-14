@@ -51,7 +51,8 @@ export const RECORDINGS: RecordingConfig[] = [
     id: "tibbits_cd",
     path: "tibbits_cd",
     title: "Tibbits CD",
-    subtitle: "Stories and early Tibbits Rd. audio compiled by his granddaughter, Leslie Feist.",
+    subtitle:
+      "Stories and early Tibbits Rd. audio compiled by Lindy's granddaughter, Leslie Feist.",
     categoryLabel: "Audio Collection",
     backgroundImages: ["/photos/tibbits/P1010033.jpg", "/photos/tibbits/P1010034.jpg"],
     category: "recording",
@@ -63,7 +64,7 @@ export const RECORDINGS: RecordingConfig[] = [
     path: "memoirs/Norm_red",
     title: "Memoirs",
     subtitle:
-      "Lindy Achen's voice memoirs recounting his life farming on the Canadian Prairies and his work expanding rural electricity across western Canada",
+      "Lindy Achen's voice memoirs recounting his life farming on the Canadian Prairies and his work expanding rural electricity across western Canada.",
     categoryLabel: "Featured",
     backgroundImages: ["/photos/tibbits/P1010033.jpg", "/photos/tibbits/P1010034.jpg"],
     category: "memoir",

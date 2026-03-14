@@ -95,6 +95,7 @@ OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 EMBED_MODEL = os.getenv("EMBED_MODEL", "nomic-embed-text")
 CHAT_MODEL = os.getenv("CHAT_MODEL", "gpt-oss:20b")
 CHROMA_PERSIST_DIR = os.getenv("CHROMA_PERSIST_DIR", "./chroma_db")
+THINK = os.getenv("THINK", "true").lower() != "false"  # Set THINK=false to disable extended thinking
 PUBLIC_DIR = Path(__file__).parent.parent.parent / "public" / "recordings"
 PLACES_FILE = Path(__file__).parent.parent.parent / "public" / "places.json"
 
@@ -1059,7 +1060,7 @@ Question: {query}
 
 Look through ALL the context above and provide a complete answer."""
 
-    llm = ChatOllama(model=CHAT_MODEL, base_url=OLLAMA_BASE_URL, temperature=0.3)
+    llm = ChatOllama(model=CHAT_MODEL, base_url=OLLAMA_BASE_URL, temperature=0.3, think=THINK)
     
     try:
         response = llm.invoke([
@@ -1166,6 +1167,7 @@ Look through ALL the context above and provide a complete answer."""
                             {"role": "user", "content": user_message},
                         ],
                         "stream": True,
+                        "think": THINK,
                     },
                 ) as response:
                     async for line in response.aiter_lines():
@@ -1258,6 +1260,7 @@ Please verify the AI's answer against the source transcripts. Correct any errors
                             {"role": "user", "content": verification_message},
                         ],
                         "stream": True,
+                        "think": THINK,
                     },
                 ) as response:
                     async for line in response.aiter_lines():
@@ -1345,7 +1348,7 @@ Question: {query}
 Look through ALL the context above and provide a complete answer."""
 
     # Stage 1: Generate initial answer
-    llm = ChatOllama(model=CHAT_MODEL, base_url=OLLAMA_BASE_URL, temperature=0.3)
+    llm = ChatOllama(model=CHAT_MODEL, base_url=OLLAMA_BASE_URL, temperature=0.3, think=THINK)
 
     try:
         response = llm.invoke([
