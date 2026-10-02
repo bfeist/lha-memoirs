@@ -12,6 +12,7 @@ jobs:
     timeout-minutes: 5
     env:
       PUBLIC_GOOGLE_ANALYTICS_ID: ${{ vars.PUBLIC_GOOGLE_ANALYTICS_ID }}
+      VITE_CARTO_BASEMAP_API_KEY: ${{ secrets.VITE_CARTO_BASEMAP_API_KEY }}
 
     steps:
       - name: "☁️ Checkout repository"

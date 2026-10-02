@@ -52,6 +52,21 @@ To build for production:
 npm run build
 ```
 
+### Map tiles
+
+The Places map uses CARTO Positron tiles. CARTO now requires a basemap API key;
+requests without one display an "API KEY REQUIRED" watermark.
+
+1. Request a key at [CARTO Basemaps](https://www.carto.com/basemaps/apikey/).
+2. Copy `.env.example` to `.env.local` and set `VITE_CARTO_BASEMAP_API_KEY`.
+3. Restart the development server after changing the key.
+
+For production, add the GitHub Actions repository secret `VITE_CARTO_BASEMAP_API_KEY`
+and rebuild/deploy. Vite embeds this value during the build; setting it only on the
+hosting server does not update an existing build. This is a browser-visible basemap
+key; configure allowed-site restrictions in CARTO for the production domain and any
+development origins you use. Keep the existing CARTO/OpenStreetMap attribution visible.
+
 ## Data Processing
 
 The audio processing pipeline (transcription, alignment, and analysis) is handled by a set of Python scripts.

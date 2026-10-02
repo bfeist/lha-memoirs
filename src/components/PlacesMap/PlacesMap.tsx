@@ -19,9 +19,11 @@ const MAX_ZOOM = 12;
 const CLUSTER_RADIUS = 50;
 const CLUSTER_MAX_ZOOM = 10;
 
+const CARTO_BASEMAP_API_KEY = import.meta.env.VITE_CARTO_BASEMAP_API_KEY?.trim() ?? "";
+
 /**
- * Muted, historical-feeling map style (CartoDB Positron with sepia tint)
- * Using Stadia Maps for a reliable free tile source
+ * Muted, historical-feeling map style (CARTO Positron with sepia tint).
+ * CARTO requires a basemap API key on every tile request.
  */
 const MAP_STYLE: maplibregl.StyleSpecification = {
   version: 8,
@@ -29,11 +31,10 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
   sources: {
     "carto-light": {
       type: "raster",
-      tiles: [
-        "https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}@2x.png",
-        "https://b.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}@2x.png",
-        "https://c.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}@2x.png",
-      ],
+      tiles: ["a", "b", "c"].map(
+        (subdomain) =>
+          `https://${subdomain}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}@2x.png?key=${encodeURIComponent(CARTO_BASEMAP_API_KEY)}`
+      ),
       tileSize: 256,
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
